@@ -1,0 +1,21 @@
+---
+description: For web
+---
+
+# Getting Started
+
+This guide will walk you through building the foundation for creating your own MapsIndoors integration from the ground up. You will do this by gaining experience with the typical development process when working with the MapsIndoors Software Development Kit (SDK). Furthermore, you will be able to gain an understanding of the basic concepts, tools and terminology commonly used when interacting with the SDK.&#x20;
+
+Following features are included in this Getting Started guide:&#x20;
+
+* Display an interactive map with MapsIndoors
+* Implement search functionality to interact with the displayed map
+* Generate and show directions between two points on the map
+* Display one type of Live Data on the map
+
+Parts of this guide rely on having access to a MapsIndoors Solution which supports Live Data Integration. If you do not have access to this through your own solution, we recommend using our demo API key to access one: `d876ff0e60bb430b8fabb145`.
+
+During this tutorial, you can choose between initializing the JavaScript SDK and its classes manually, or implementing the [MapsIndoors Web Components](https://www.npmjs.com/package/@mapsindoors/components) which internally handles much of SDK initializations. All steps in the tutorial will be explained for both paths.
+
+
+
