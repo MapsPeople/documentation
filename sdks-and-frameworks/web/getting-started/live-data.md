@@ -1,20 +1,13 @@
----
-description: >-
-  As opposed to static data, which does not change unless data is synchronized,
-  Live Data can change in real time, and these changes can be instantly
-  reflected on the map and in searches.
----
-
 # Enable Live Data
 
-Common use-cases are:
+As opposed to static data, which does not change unless data is synchronized, Live Data can change in real time, and these changes can be instantly reflected on the map and in searches. Common use-cases are:
 
 * Changing the appearance of meeting rooms or workspace desks on a map, or in a list, based on occupancy information. For example, change the icon in order to indicate that a room is occupied.
-* Changing the position of a POI representing a vehicle.
+* Changing the position of a POI representing a vehicle or an asset.
 
-Support for Live Data requires that server-side integrations are in place. For example, visualizing live occupancy data requires that a calendar or booking system integration is in place. An integration like that is set up in [collaboration with MapsPeople](https://www.mapspeople.com/mapsindoors-integrations/).
+Support for Live Data requires that server-side integrations are in place. For example, visualizing live occupancy data requires a system integration to an occupancy sensor platform. An integration like that is set up in [collaboration with MapsPeople](https://www.mapspeople.com/mapsindoors-integrations/).
 
-The following section relies on the existence of Live Position Data. If you do not have access to a MapsIndoors Dataset that have a Live Data integration, you should use our demo API key: `d876ff0e60bb430b8fabb145`.
+The following section relies on the existence of Live Position Data. If you do not have access to a MapsIndoors solution that have a Live Data integration, you should use our demo API key: `d876ff0e60bb430b8fabb145`.
 
 To enable Live Data in your web app, create an instance of [`LiveDataManager`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.LiveDataManager.html). Call the method `enableLiveData()` on it with a Domain Type.
 
@@ -26,7 +19,7 @@ This should be done after you have initialized your MapsIndoors instance, since 
 {% tab title="Google Maps - Manually" %}
 
 
-```
+```javascript
 // main.js
 
 const mapViewOptions = {
@@ -94,11 +87,11 @@ function getRoute(location) {
 }
 ```
 
-In the example above we create an instance of `LiveDataManager` and enable Live Data for the "Position" Domain type. Using the demo API key you should now be able to see a "Staff Person" moving from one end to the other at ground floor in The White House main building.
+In the example above we create an instance of `LiveDataManager` and enable Live Data for the Position Domain type. Using the demo API key you should now be able to see a "Staff Person" moving from one end to the other at ground floor in The White House main building.
 
 Learn more about controlling and rendering Live Data in MapsIndoors in the [introduction to Live Data](https://docs.mapsindoors.com/live-data-intro/).
 
-If you have followed the tutorial exactly so far, you will now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
+You now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
 
 {% embed url="https://jsfiddle.net/mapspeople/9e3o1un4/" %}
 {% endtab %}
@@ -106,7 +99,7 @@ If you have followed the tutorial exactly so far, you will now have something li
 {% tab title="Google Maps - MI Components" %}
 
 
-```
+```javascript
 // main.js
 
 const miMapElement = document.querySelector('mi-map-googlemaps');
@@ -171,13 +164,11 @@ function getRoute(location) {
 }
 ```
 
-In the example above we create an instance of `LiveDataManager` and enable Live Data for the "Position" Domain type. Using the demo API key you should now be able to see a "Staff Person" moving from one end to the other at ground floor in The White House main building.
+In the example above we create an instance of `LiveDataManager` and enable Live Data for the Position Domain type. Using the demo API key you should now be able to see a "Staff Person" moving from one end to the other at ground floor in The White House main building.
 
 Learn more about controlling and rendering Live Data in MapsIndoors in the [introduction to Live Data](https://docs.mapsindoors.com/live-data-intro/).
 
-
-
-If you have followed the tutorial exactly so far, you will now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
+You now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
 
 
 
@@ -187,7 +178,7 @@ If you have followed the tutorial exactly so far, you will now have something li
 {% tab title="Mapbox - Manually" %}
 
 
-```
+```javascript
 // main.js
 
 const mapViewOptions = {
@@ -256,11 +247,11 @@ function getRoute(location) {
 }
 ```
 
-In the example above we create an instance of `LiveDataManager` and enable Live Data for the "Position" Domain type. Using the demo API key you should now be able to see a "Staff Person" moving from one end to the other at ground floor in The White House main building.
+In the example above we create an instance of `LiveDataManager` and enable Live Data for the Position Domain type. Using the demo API key you should now be able to see a "Staff Person" moving from one end to the other at ground floor in The White House main building.
 
 Learn more about controlling and rendering Live Data in MapsIndoors in the [introduction to Live Data](https://docs.mapsindoors.com/live-data-intro/).\
 \
-If you have followed the tutorial exactly so far, you will now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
+You now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
 
 {% embed url="https://jsfiddle.net/mapspeople/7Luf93yo/" %}
 {% endtab %}
@@ -345,18 +336,14 @@ If you have followed the tutorial exactly so far, you will now have something li
 
 
 
-
-
-
-
 ### Summary[​](https://docs.mapsindoors.com/getting-started/web/livedata#summary) <a href="#summary" id="summary"></a>
 
 Congratulations! You're at the end of your journey (for now), and you've accomplished a lot! 🎉
 
 * You learned which prerequisites is needed to start building with MapsIndoors.
-* You loaded a interactive map with MapsIndoors locations and added a floor selector for navigating between floors.
+* You loaded an interactive map with MapsIndoors locations and added a floor selector for navigating between floors.
 * You created a search experience to search for specific locations on the map.
-* You added functionality for getting directions from one Location to another.
+* You added functionality for getting directions from one location to another.
 * You learned how to enable different types of Live Data Domains in your app.
 
-This concludes the "Getting Started" tutorial, but there's always more to discover. To get more inspiration on what to build next please visit our [showcase page](https://www.mapspeople.com/showcases) to see how other clients use MapsIndoors! For more documentation, please visit the rest of our Docs site!.
+This concludes the "Getting Started" tutorial, but there's always more to discover. To get more inspiration on what to build next please visit our [showcase page](https://www.mapspeople.com/showcases) to see how other clients use MapsIndoors! For more documentation, please visit the rest of our Docs site!
