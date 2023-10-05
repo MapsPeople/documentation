@@ -4,7 +4,7 @@ In this step you'll create directions between two points and change the transpor
 
 ### Get Directions Between Two Locations[​](https://docs.mapsindoors.com/getting-started/web/directions#get-directions-between-two-locations) <a href="#get-directions-between-two-locations" id="get-directions-between-two-locations"></a>
 
-To get _Directions_ between two MapsIndoors Locations, or Places outside of your MapsIndoors solution, we need two things:
+To get _Directions_ between two MapsIndoors Locations, or places outside of your MapsIndoors solution, we need two things:
 
 1. The _Directions Service_ instance
 2. The _Directions Render_ instance
@@ -21,7 +21,7 @@ First, initialize the [MapsIndoors Directions _Service_](https://app.mapsindoors
 
 Then, we need to initialize the [MapsIndoors Directions Render](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html) with the MapsIndoors _instance_:
 
-```
+```javascript
 // main.js
 
 const mapViewOptions = {
@@ -69,13 +69,15 @@ function onSearch() {
 
 > See all available directions render options and methods in the [reference documentation](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html).
 
-Now our example app is ready to provide Directions. Next up is how to give it an _Origin_ and _Destination_ and draw the route between.
+Now our app is ready to provide directions. Next up is how to give it an _Origin_ and _Destination -_ and draw a route between those.
 
 #### Draw a Route on the Map[​](https://docs.mapsindoors.com/getting-started/web/directions#draw-a-route-on-the-map) <a href="#draw-a-route-on-the-map" id="draw-a-route-on-the-map"></a>
 
 To display a route on the map, we use the _coordinates_ of an _Origin_ and _Destination_ and draw a line between them. For this, we use MapsIndoors' [`directionsRenderer`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html).
 
-The _Destination_ coordinate is retrieved dynamically, using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result, in the text list. Different solutions can of course be implemented into your own solution later. In this tutorial, the _Origin_ is a hardcoded coordinate.
+The _Destination_ coordinate is retrieved dynamically, using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result in the text list. Different solutions can of course be implemented into your own solution later.&#x20;
+
+In this tutorial, the _Origin_ is a hardcoded coordinate from The Oval Office in the demo API key supplied with this guide. If you're using you own key, you should hardcode coordinates from a Location in your building instead.
 
 In the following example, this is what happens:
 
@@ -89,7 +91,7 @@ In the following example, this is what happens:
 
 
 
-```
+```javascript
 // main.js
 
 const mapViewOptions = {
@@ -153,13 +155,13 @@ function getRoute(location) {
 }
 ```
 
-Now, to make it more dynamic, we attach a `click` event listener for each location appended to the search results list element with the `getRoute` method as callback function.
+Now, to make it more dynamic, we attach a `click` event listener for each location appended to the search results list element with the `getRoute` method as a callback function.
 
 
 
-If you have followed the tutorial exactly so far, you will now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
+You will now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
 
-```
+```javascript
 // main.js
 
 const mapViewOptions = {
@@ -227,15 +229,15 @@ function getRoute(location) {
 }
 ```
 
-Now you can click on each item in the search results list to get directions from The Oval Office to any Location in The White House.
+Now you can click on any item in the search results list to get directions from the hardcoded origin to that destination.
 
 ### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
 
-In MapsIndoors, the transportation mode is referred to as **travel mode**. There are four travel modes, **walking**, **bicycling**, **driving** and **transit** (public transportation). The travel modes generally applies for outdoor navigation. Indoor navigation calculations are based on **walking** travel mode.
+In MapsIndoors, the transportation mode is referred to as _travel mode_. There are four travel modes, _walking_, _bicycling_, _driving_ and _transit_ (public transportation). The travel modes apply for outdoor navigation. Indoor navigation calculations are based on _walking_ travel mode.
 
 To change between travel modes we first need to add a `<select>` element with all four transportation options above the search field:
 
-```
+```html
 <!-- index.html -->
 
 <!DOCTYPE html>
@@ -268,11 +270,11 @@ To change between travel modes we first need to add a `<select>` element with al
 </html>
 ```
 
-To use the chosen transportation when getting a route, we need to replace the hardcoded value for `travelMode` parameter inside the `getRoute` method with the `<select>` elements value:
+To use the chosen _travel mode_ when getting a route, we need to replace the hardcoded value for `travelMode` parameter inside the `getRoute` method with the `<select>` elements value:
 
 
 
-```
+```javascript
 // main.js
 
 const mapViewOptions = {
@@ -336,7 +338,7 @@ function getRoute(location) {
 }
 ```
 
-If you have followed the tutorial exactly so far, you will now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
+You now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
 
 {% embed url="https://jsfiddle.net/mapspeople/ek48xcLg/1/" %}
 {% endtab %}
@@ -344,11 +346,9 @@ If you have followed the tutorial exactly so far, you will now have something li
 {% tab title="Google Maps - MI Components" %}
 #### Get Directions Service and Render instances <a href="#get-directions-service-and-render-instances" id="get-directions-service-and-render-instances"></a>
 
-
-
 First, add two new `let` statements all the way at the top, after the `miMapElement` constant, for storing our _Directions Service_ and _Directions Renderer_ instances. Then, we populate them with the instances within the `mapsIndoorsReady` event:
 
-```
+```javascript
 // main.js
 
 const miMapElement = document.querySelector('mi-map-googlemaps');
@@ -389,13 +389,15 @@ miSearchElement.addEventListener('results', (event) => {
 
 > See all available directions render options and methods in the [reference documentation](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html).
 
-Now our example app is ready to provide Directions. Next up is how to give it an _Origin_ and _Destination_ and draw the route between.
+Now our app is ready to provide directions. Next up is how to give it an _Origin_ and _Destination_ - and draw a route between those.
 
 #### Draw a Route on the Map[​](https://docs.mapsindoors.com/getting-started/web/directions#draw-a-route-on-the-map) <a href="#draw-a-route-on-the-map" id="draw-a-route-on-the-map"></a>
 
 To display a route on the map, we use the _coordinates_ of an _Origin_ and _Destination_ and draw a line between them. For this, we use MapsIndoors' [`directionsRenderer`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html).
 
-The _Destination_ coordinate is retrieved dynamically, using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result, in the text list. Different solutions can of course be implemented into your own solution later. In this tutorial, the _Origin_ is a hardcoded coordinate.
+The _Destination_ coordinate is retrieved dynamically, using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result in the text list. Different solutions can of course be implemented into your own solution later.&#x20;
+
+In this tutorial, the _Origin_ is a hardcoded coordinate from The Oval Office in the demo API key supplied with this guide. If you're using you own key, you should hardcode coordinates from a Location in your building instead.
 
 In the following example, this is what happens:
 
@@ -409,7 +411,7 @@ In the following example, this is what happens:
 
 
 
-```
+```javascript
 // main.js
 
 const miMapElement = document.querySelector('mi-map-googlemaps');
@@ -466,9 +468,9 @@ function getRoute(location) {
 }
 ```
 
-Now, to make it more dynamic, we attach a `click` event listener for each location appended to the search results list element with the `getRoute` method as callback function.
+Now, to make it more dynamic, we attach a `click` event listener for each location appended to the search results list element with the `getRoute` method as a callback function.
 
-```
+```javascript
 // main.js
 
 const miMapElement = document.querySelector('mi-map-googlemaps');
@@ -529,15 +531,15 @@ function getRoute(location) {
 }
 ```
 
-Now you can click on each item in the search results list to get directions from The Oval Office to any Location in The White House.
+Now you can click on any item in the search results list to get directions from the hardcoded origin to that destination.
 
 ### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
 
-In MapsIndoors, the transportation mode is referred to as **travel mode**. There are four travel modes, **walking**, **bicycling**, **driving** and **transit** (public transportation). The travel modes generally applies for outdoor navigation. Indoor navigation calculations are based on **walking** travel mode.
+In MapsIndoors, the transportation mode is referred to as _travel mode_. There are four travel modes, _walking_, _bicycling_, _driving_ and _transit_ (public transportation). The travel modes apply for outdoor navigation. Indoor navigation calculations are based on _walking_ travel mode.
 
 To change between travel modes we first need to add a `<select>` element with all four transportation options above the search field:
 
-```
+```html
 <!-- index.html -->
 
 <!DOCTYPE html>
@@ -580,9 +582,9 @@ To change between travel modes we first need to add a `<select>` element with al
 </html>
 ```
 
-To use the chosen transportation when getting a route, we need to replace the hardcoded value for `travelMode` parameter inside the `getRoute` method with the `<select>` elements value:
+To use the chosen _travel mode_ when getting a route, we need to replace the hardcoded value for `travelMode` parameter inside the `getRoute` method with the `<select>` elements value:
 
-```
+```javascript
 // main.js
 
 const miMapElement = document.querySelector('mi-map-googlemaps');
@@ -642,7 +644,7 @@ function getRoute(location) {
 
 
 
-If you have followed the tutorial exactly so far, you will now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
+You now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
 
 {% embed url="https://jsfiddle.net/mapspeople/jzqx7kmy/1/" %}
 {% endtab %}
@@ -656,7 +658,7 @@ First, initialize the [MapsIndoors Directions _Service_](https://app.mapsindoors
 
 Then, we need to initialize the [MapsIndoors Directions Render](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html) with the MapsIndoors _instance_:
 
-```
+```javascript
 // main.js
 
 const mapViewOptions = {
@@ -711,7 +713,9 @@ Now our example app is ready to provide Directions. Next up is how to give it an
 
 To display a route on the map, we use the _coordinates_ of an _Origin_ and _Destination_ and draw a line between them. For this, we use MapsIndoors' [`directionsRenderer`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html).
 
-The _Destination_ coordinate is retrieved dynamically, using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result, in the text list. Different solutions can of course be implemented into your own solution later. In this tutorial, the _Origin_ is a hardcoded coordinate.
+The _Destination_ coordinate is retrieved dynamically, using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result in the text list. Different solutions can of course be implemented into your own solution later.&#x20;
+
+In this tutorial, the _Origin_ is a hardcoded coordinate from The Oval Office in the demo API key supplied with this guide. If you're using you own key, you should hardcode coordinates from a Location in your building instead.
 
 In the following example, this is what happens:
 
@@ -725,7 +729,7 @@ In the following example, this is what happens:
 
 
 
-```
+```javascript
 // main.js
 
 const mapViewOptions = {
@@ -790,9 +794,9 @@ function getRoute(location) {
 }
 ```
 
-Now, to make it more dynamic, we attach a `click` event listener for each location appended to the search results list element with the `getRoute` method as callback function.
+Now, to make it more dynamic, we attach a `click` event listener for each location appended to the search results list element with the `getRoute` method as a callback function.
 
-```
+```javascript
 // main.js
 
 const mapViewOptions = {
@@ -865,13 +869,13 @@ Now you can click on each item in the search results list to get directions from
 
 ### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
 
-In MapsIndoors, the transportation mode is referred to as **travel mode**. There are four travel modes, **walking**, **bicycling**, **driving** and **transit** (public transportation). The travel modes generally applies for outdoor navigation. Indoor navigation calculations are based on **walking** travel mode.
+In MapsIndoors, the transportation mode is referred to as _travel mode_. There are four travel modes, _walking_, _bicycling_, _driving_ and _transit_ (public transportation). The travel modes apply for outdoor navigation. Indoor navigation calculations are based on _walking_ travel mode.
 
 To change between travel modes we first need to add a `<select>` element with all four transportation options above the search field:
 
 
 
-```
+```javascript
 <!-- index.html -->
 
 <!DOCTYPE html>
@@ -909,7 +913,7 @@ To use the chosen transportation when getting a route, we need to replace the ha
 
 
 
-```
+```javascript
 // main.js
 
 const mapViewOptions = {
@@ -974,7 +978,7 @@ function getRoute(location) {
 }
 ```
 
-If you have followed the tutorial exactly so far, you will now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
+You now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
 
 
 
@@ -988,7 +992,7 @@ If you have followed the tutorial exactly so far, you will now have something li
 
 First, add two new `let` statements all the way at the top, after the `miMapElement` constant, for storing our _Directions Service_ and _Directions Renderer_ instances. Then, we populate them with the instances within the `mapsIndoorsReady` event:
 
-```
+```javascript
 // main.js
 
 const miMapElement = document.querySelector('mi-map-mapbox');
@@ -1028,13 +1032,15 @@ miSearchElement.addEventListener('results', (event) => {
 
 > See all available directions render options and methods in the [reference documentation](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html).
 
-Now our example app is ready to provide Directions. Next up is how to give it an _Origin_ and _Destination_ and draw the route between.
+Now our app is ready to provide directions. Next up is how to give it an _Origin_ and _Destination_ - and draw a route between those.
 
 #### Draw a Route on the Map[​](https://docs.mapsindoors.com/getting-started/web/directions#draw-a-route-on-the-map) <a href="#draw-a-route-on-the-map" id="draw-a-route-on-the-map"></a>
 
 To display a route on the map, we use the _coordinates_ of an _Origin_ and _Destination_ and draw a line between them. For this, we use MapsIndoors' [`directionsRenderer`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html).
 
-The _Destination_ coordinate is retrieved dynamically, using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result, in the text list. Different solutions can of course be implemented into your own solution later. In this tutorial, the _Origin_ is a hardcoded coordinate.
+The _Destination_ coordinate is retrieved dynamically, using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result in the text list. Different solutions can of course be implemented into your own solution later.&#x20;
+
+In this tutorial, the _Origin_ is a hardcoded coordinate from The Oval Office in the demo API key supplied with this guide. If you're using you own key, you should hardcode coordinates from a Location in your building instead.
 
 In the following example, this is what happens:
 
@@ -1048,7 +1054,7 @@ In the following example, this is what happens:
 
 
 
-```
+```javascript
 // main.js
 
 const miMapElement = document.querySelector("mi-map-mapbox");
@@ -1105,9 +1111,9 @@ function getRoute(location) {
 }
 ```
 
-Now, to make it more dynamic, we attach a `click` event listener for each location appended to the search results list element with the `getRoute` method as callback function.
+Now, to make it more dynamic, we attach a `click` event listener for each location appended to the search results list element with the `getRoute` method as a callback function.
 
-```
+```javascript
 // main.js
 
 const miMapElement = document.querySelector("mi-map-mapbox");
@@ -1168,17 +1174,15 @@ function getRoute(location) {
 }
 ```
 
-Now you can click on each item in the search results list to get directions from The Oval Office to any Location in The White House.
+Now you can click on any item in the search results list to get directions from the hardcoded origin to that destination.
 
 ### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
 
-In MapsIndoors, the transportation mode is referred to as **travel mode**. There are four travel modes, **walking**, **bicycling**, **driving** and **transit** (public transportation). The travel modes generally applies for outdoor navigation. Indoor navigation calculations are based on **walking** travel mode.
+In MapsIndoors, the transportation mode is referred to as _travel mode_. There are four travel modes, _walking_, _bicycling_, _driving_ and _transit_ (public transportation). The travel modes apply for outdoor navigation. Indoor navigation calculations are based on _walking_ travel mode.
 
 To change between travel modes we first need to add a `<select>` element with all four transportation options above the search field:
 
-
-
-```
+```html
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -1221,11 +1225,11 @@ To change between travel modes we first need to add a `<select>` element with al
 </html>
 ```
 
-To use the chosen transportation when getting a route, we need to replace the hardcoded value for `travelMode` parameter inside the `getRoute` method with the `<select>` elements value:
+To use the chosen _travel mode_ when getting a route, we need to replace the hardcoded value for `travelMode` parameter inside the `getRoute` method with the `<select>` elements value:
 
 
 
-```
+```javascript
 // main.js
 
 const miMapElement = document.querySelector('mi-map-mapbox');
@@ -1283,7 +1287,7 @@ function getRoute(location) {
 }
 ```
 
-If you have followed the tutorial exactly so far, you will now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
+You now have something like this (due to technical limitations, only the Google Maps result is shown on this page, but Mapbox implementation will also work if you followed this guide):
 
 {% embed url="https://jsfiddle.net/mapspeople/g4epm0zj/1/" %}
 {% endtab %}
