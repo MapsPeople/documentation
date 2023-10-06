@@ -14,7 +14,7 @@ Following features are included in this Getting Started guide:&#x20;
 
 Parts of this guide rely on having access to a MapsIndoors Solution. If you do not have access to this through your own solution, we recommend using our demo API key to access one: `d876ff0e60bb430b8fabb145`.
 
-During this tutorial, you can choose between initializing the JavaScript SDK and its classes manually, or implementing the [MapsIndoors Web Components](https://www.npmjs.com/package/@mapsindoors/components) which internally handles much of SDK initializations. All steps in the tutorial will be explained for both paths.
+During this guide, you can choose between initializing the JavaScript SDK and its classes manually, or implementing the [MapsIndoors Web Components](https://www.npmjs.com/package/@mapsindoors/components) which internally handles much of SDK initializations. All steps in the tutorial will be explained for both paths.
 
 
 
