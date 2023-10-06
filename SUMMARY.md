@@ -11,7 +11,6 @@
     * [Display a Map](sdks-and-frameworks/web/getting-started/show-a-map.md)
     * [Create a Search Experience](sdks-and-frameworks/web/getting-started/create-a-search-experience.md)
     * [Getting Directions](sdks-and-frameworks/web/getting-started/getting-directions.md)
-    * [Enable Live Data](sdks-and-frameworks/web/getting-started/live-data.md)
   * [Basic Searching](sdks-and-frameworks/web/basic-searching.md)
   * [Directions & Routing](sdks-and-frameworks/web/directions-and-routing/README.md)
     * [Directions Service](sdks-and-frameworks/web/directions-and-routing/directions-service.md)
