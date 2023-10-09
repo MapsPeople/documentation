@@ -15,6 +15,8 @@ layout:
 
 # Introduction
 
+Test 
+
 This is your go-to resource for tapping into the full potential of the MapsIndoors platform. Dive into comprehensive guides, tutorials, and reference materials designed to make your implementation process seamless and your indoor mapping solution shine.
 
 ## SDKs & Frameworks
