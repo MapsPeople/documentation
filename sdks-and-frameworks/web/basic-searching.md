@@ -18,13 +18,13 @@ Searching through your MapsIndoors data is an integral part of a great user expe
 
 Searches work on all MapsIndoors geodata. It is up to you to create a search experience that fits your use case. To aid you in this, there are a range of filters you can apply to the search queries to get the best results. E.g. you can filter by Categories, search only a specific part of the map or search near a Location.
 
-All three return a list of Locations from your Solution matching the parameters they are given. The results are ranked upon the 3 following factors:
+All three return a list of Locations from your solution matching the parameters they are given. The results are ranked upon the three following factors:
 
 * If a "near" parameter is set, how close is the origin point to the result?
 * How well does the search input text match the text of the result (using the "Levenshtein distance" algorithm)?
 * Which kind of geodata is the result (e.g. Buildings are ranked over POIs)?
 
-This means that the first item in the search result list will be the one matching the 3 factors best and so forth.
+This means that the first item in the search result list will be the one best matching the three factors.
 
 See the full list of parameters:
 
@@ -42,7 +42,7 @@ See the full list of parameters:
 
 #### Example of Creating a Search Query[​](https://docs.mapsindoors.com/searching#example-of-creating-a-search-query) <a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
 
-See the full list of parameters in the [reference guide](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations), or below:
+See the full list of parameters in the [reference guide](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations):
 
 ```
 const searchParameters = {
@@ -58,9 +58,9 @@ mapsindoors.services.LocationsService.getLocations(searchParameters).then(locati
 
 ## Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map)
 
-When displaying the search results it is helpful to filter the map to only show matching Locations. Matching Buildings and Venues will still be shown on the map, as they give context to the user, even if they aren't selectable on the map.
+When displaying the search results, it is helpful to filter the map to only show matching Locations. Matching Buildings and Venues will still be shown on the map, as they give context to the user, even if they aren't selectable on the map.
 
-#### Example of Filtering the Map to Display Searched Locations on the Map  <a href="#example-of-filtering-the-map-to-display-searched-locations-on-the-map" id="example-of-filtering-the-map-to-display-searched-locations-on-the-map"></a>
+#### Example of Filtering the Map to Display Searched Locations on the Map <a href="#example-of-filtering-the-map-to-display-searched-locations-on-the-map" id="example-of-filtering-the-map-to-display-searched-locations-on-the-map"></a>
 
 ```
 const searchParameters = {
@@ -88,13 +88,13 @@ mapsIndoorsInstance.filter(null);
 
 You can also search for Locations, and have them presented to you as a list, instead of just displaying them on the map.
 
-The full code example is shown in the JSFiddle below, which will be examined below.
+The full code example is shown in the JSFiddle below which will be examined below.
 
 #### Search[​](https://docs.mapsindoors.com/searching#search) <a href="#search" id="search"></a>
 
 The `mapsindoors.services.LocationsService` class exposes the `getLocations` function that enables you to search for Locations.
 
-It will return a Promise that gets resolved when the query has executed.
+It will return a promise that gets resolved when the query has executed.
 
 See [mapsindoors.services.LocationsService](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html) for more information.
 
