@@ -8,6 +8,8 @@ Your 3D maps are managed and customised through the use of Display Rules. For a 
 
 The MapsIndoors CMS gives you the option of displaying your map in 3D. This is achieved by ensuring that any walls present in your solution are displayed as an extrusion, giving the usr the appearance of a 3D map. The appearance of the walls can be customised to match your desired visual identity.
 
+TEST DOCS
+
 1. **Visibility** - Controls whether the 3D walls are visible on the map.
    * The system will accept a Boolean here, so either `true` or `false`.
 2. **Zoom from** - Sets the minimum Zoom Level at which the 3D walls are visible.
