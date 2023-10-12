@@ -3,7 +3,7 @@ description: >-
   Starting with the V4 versions of our SDK's, MapsIndoors has introduced the
   functionality to have your map viewed in 3D, with the appropriate navigational
   features, rather than just a flat 2D image.
-cover: ../../.gitbook/assets/3d (3).jpg
+cover: ../../../../.gitbook/assets/3d (3).jpg
 coverY: 0
 layout:
   cover:

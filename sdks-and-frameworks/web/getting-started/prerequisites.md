@@ -35,7 +35,7 @@ If you apply restrictions to your key, remember to include the Google services l
 
 In order to include MapsIndoors in your app, you need a MapsIndoors API key. If you do not yet have access to your MapsIndoors API key, you can use the demo API key `d876ff0e60bb430b8fabb145` to follow the guide.
 
-If you have access to the MapsIndoors CMS, you'll find your MapsIndoors API key as described [here](../../../key-features/cms/interface-overview.md#api-keys).&#x20;
+If you have access to the MapsIndoors CMS, you'll find your MapsIndoors API key as described [here](../../../products/cms/interface-overview.md#api-keys).&#x20;
 
 [\
 ](https://docs.mapsindoors.com/getting-started/web/)
