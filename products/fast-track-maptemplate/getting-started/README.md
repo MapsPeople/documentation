@@ -7,6 +7,11 @@ description: >-
 
 # Getting Started
 
+Node version
+
+We recommend using the latest LTS version of [Node.js](https://nodejs.org/en/).
+
+
 {% embed url="https://vimeo.com/829327192" %}
 
 ## 1. Getting Started[​](https://docs.mapsindoors.com/web-map-template#getting-started)

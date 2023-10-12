@@ -16,7 +16,7 @@ Install the package:
 In your script:
 
 ```
-import MapsIndoorsMap from '@mapsindoors/map-template/dist/mapsindoors-webcomponent.es.js';
+import MapsIndoorsMap from '@mapsindoors/map-template@stable/dist/mapsindoors-webcomponent.es.js';
 window.customElements.define('mapsindoors-map', MapsIndoorsMap);
 ```
 
@@ -26,23 +26,29 @@ In your styles, make sure to give it a size. For example:
 mapsindoors-map {
     display: block;
     width: 100vw;
-    height: 100vh;
+    height: 100svh;
 }
 ```
 
-Make sure the MapsIndoors JavaScript SDK is loaded by having this somewhere in your HTML:
-
-```
-<script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.5/mapsindoors-4.21.5.js.gz"></script>
-```
-
-Use the web component in your HTML:
+Use the Web Component in your HTML:
 
 ```
 <mapsindoors-map></mapsindoors-map>
 ```
 
-Add attributes to the web component as needed (see supported properties below).
+Add attributes to the Web Component as needed (see supported properties below).
+
+**Note!** The `external-IDs` and `app-user-roles` expect an array, which in a Web Component is handled differently (see example below).
+
+In your script, define the array of external IDs that you want to be shown on the Map Template. Then get a hold of the `mapsIndoorsMapElement` using the `document.querySelector()` method. When you have the `mapsIndoorsMapElement`, assign its prop `externalIDs` the array of External IDs that you defined at the beginning.
+
+```javascript
+const externalIDsArray = ["externalID-1", "externalID-2"]
+const mapsIndoorsMapElement = document.querySelector('mapsindoors-map')
+mapsIndoorsMapElement.externalIDs = externalIDsArray;
+```
+
+Use query parameters to configure the Web Component by setting the `supports-url-parameters` attribute to `true`.
 
 ### Using just the browser
 
@@ -54,9 +60,8 @@ Add attributes to the web component as needed (see supported properties below).
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Map</title>
-    <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.5/mapsindoors-4.21.5.js.gz"></script>
     <script type="module">
-        import MapsindoorsMap from 'https://www.unpkg.com/@mapsindoors/map-template/dist/mapsindoors-webcomponent.es.js';
+        import MapsindoorsMap from '@mapsindoors/map-template@stable/dist/mapsindoors-webcomponent.es.js';
         window.customElements.define('mapsindoors-map', MapsIndoorsMap)
     </script>
     <style>
@@ -66,7 +71,7 @@ Add attributes to the web component as needed (see supported properties below).
         mapsindoors-map {
             display: block;
             width: 100vw;
-            height: 100vh;
+            height: 100svh;
         }
     </style>
 </head>
@@ -76,4 +81,6 @@ Add attributes to the web component as needed (see supported properties below).
 </html>
 ```
 
-Add attributes to the web component as needed ([see list](broken-reference)).
+Add attributes to the Web Component as needed (see supported properties above).([see list](broken-reference)).
+
+Use query parameters to configure the Web Component by setting the `supports-url-parameters` attribute to `true`.

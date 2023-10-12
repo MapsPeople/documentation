@@ -2,7 +2,7 @@
 
 #### Getting started using swagger[​](https://docs.mapsindoors.com/access-with-swagger#getting-started-using-swagger) <a href="#getting-started-using-swagger" id="getting-started-using-swagger"></a>
 
-The Integration API can be access using our [swagger](https://integration.mapsindoors.com/doc/index.html) frontend. The first thing you want to do is to log in. This is done by pressing Authorize:
+The Integration API can be accessed using our [swagger](https://integration.mapsindoors.com/doc/index.html) frontend. The first thing you want to do is to log in. This is done by pressing Authorize:
 
 <figure><img src="https://docs.mapsindoors.com/img/api/SwaggerLogin.png" alt=""><figcaption></figcaption></figure>
 

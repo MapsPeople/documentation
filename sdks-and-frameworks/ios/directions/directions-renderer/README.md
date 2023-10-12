@@ -35,7 +35,11 @@ Task {
 
 ### Controlling the Visible Segments on the Directions Renderer[​](https://docs.mapsindoors.com/directions-renderer#controlling-the-visible-segments-on-the-directions-renderer-2) <a href="#controlling-the-visible-segments-on-the-directions-renderer-2" id="controlling-the-visible-segments-on-the-directions-renderer-2"></a>
 
-As previously mentioned, the route object is seperated into objects of `MPRouteLeg` and these legs are again seperated indo objects of `MPRouteStep`. Unless the Route only contains one Leg, the Directions Renderer does not allow the full Route to be rendered all at once. A specific segment of the route can be rendered by setting the `routeLegIndex` and/or `routeStepIndex` properties on the `MPDirectionsRenderer`.
+As previously mentioned, the route object is seperated into objects of `MPRouteLeg`. Each leg is again separated into objects of `MPRouteStep`. 
+
+Unless the Route only contains one Leg, the Directions Renderer does not allow the full Route to be rendered all at once. Therefore, if a Leg contains multiple Steps, they will all be shown on the map at the same time, but once the Leg is changed, the previous Steps are not visible anymore.
+
+A specific segment of the route can be rendered by setting the `legIndex` on the `MPDirectionsRenderer`.
 
 ```swift
 let renderer = mapControl?.newDirectionsRenderer()
