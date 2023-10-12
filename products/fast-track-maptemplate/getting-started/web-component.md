@@ -36,13 +36,25 @@ Make sure the MapsIndoors JavaScript SDK is loaded by having this somewhere in y
 <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.5/mapsindoors-4.21.5.js.gz"></script>
 ```
 
-Use the web component in your HTML:
+Use the Web Component in your HTML:
 
 ```
 <mapsindoors-map></mapsindoors-map>
 ```
 
-Add attributes to the web component as needed (see supported properties below).
+Add attributes to the Web Component as needed (see supported properties below).
+
+**Note!** The `external-IDs` and `app-user-roles` expect an array, which in a Web Component is handled differently (see example below).
+
+In your script, define the array of external IDs that you want to be shown on the Map Template. Then get a hold of the `mapsIndoorsMapElement` using the `document.querySelector()` method. When you have the `mapsIndoorsMapElement`, assign its prop `externalIDs` the array of External IDs that you defined at the beginning.
+
+```javascript
+const externalIDsArray = ["externalID-1", "externalID-2"]
+const mapsIndoorsMapElement = document.querySelector('mapsindoors-map')
+mapsIndoorsMapElement.externalIDs = externalIDsArray;
+```
+
+Use query parameters to configure the Web Component by setting the `supports-url-parameter` attribute to `true`.
 
 ### Using just the browser
 
@@ -76,4 +88,6 @@ Add attributes to the web component as needed (see supported properties below).
 </html>
 ```
 
-Add attributes to the web component as needed ([see list](broken-reference)).
+Add attributes to the Web Component as needed (see supported properties above).([see list](broken-reference)).
+
+Use query parameters to configure the Web Component by setting the `supports-url-parameter` attribute to `true`.

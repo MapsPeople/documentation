@@ -6,7 +6,9 @@ description: >-
 
 # Query Parameters
 
-The Map Template supports using query parameters for all the properties provided by the `MapsIndoorsMap` component.&#x20;
+The Map Template supports using query parameters for all the properties provided by the `MapsIndoorsMap` component if the `supportsUrlParameters` property is set to true.&#x20;
+
+In addition, the Web component and the React component also support using the URL parameters if the `supports-url-parameters` attribute or the `supportsUrlParameters` prop is set to `true`.&#x20;
 
 The supported query parameters are the following:&#x20;
 
@@ -38,7 +40,7 @@ Example of URL:&#x20;
 
 **Important!** Not all the query parameters can be used together, as they serve their own purpose which in some cases overlaps with other query parameters. Example of cases that **DON’T** work together:
 
-1. `locationId` + `startZoomLevel` → the `locationId` has priority over the `startZoomLevel`
+1. `locationId` + `startZoomLevel` → the `startZoomLevel` has priority over the `locationId`
 2. `locationId` + `externalIDs` → the `locationId` has priority over the `externalIDs`
 3. `directionsTo` + `directionsFrom` + `locationId` → the `directionsTo` + `directionsFrom` have priority over the `locationId`
 4. `directionsTo` + `directionsFrom` + `externalIDs` → the `directionsTo` + `directionsFrom` have priority over the `externalIDs`
