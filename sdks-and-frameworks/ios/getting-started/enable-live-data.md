@@ -1,9 +1,8 @@
 # Enable Live Data
 
-:::tip Examples
+Examples
 
 See the full example of Live Data here: [BasicLiveData.swift](https://github.com/MapsPeople/MapsIndoorsSDK-iOS-Examples/blob/main/MapsIndoorsSDK-iOS-Examples/Getting%20Started/BasicLiveData.swift)
-:::
 
 As opposed to _static data_, which does not change unless data is synchronized, Live Data can change in real time, and these changes can be instantly reflected on the map and in searches.
 

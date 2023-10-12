@@ -2,10 +2,9 @@
 
 ### Search for a Location[​](https://docs.mapsindoors.com/getting-started/ios/v4/search#search-for-a-location) <a href="#search-for-a-location" id="search-for-a-location"></a>
 
-:::tip Examples
+Examples
 
 See the full example of Searching here: [SearchLocation.swift](https://github.com/MapsPeople/MapsIndoorsSDK-iOS-Examples/blob/main/MapsIndoorsSDK-iOS-Examples/Getting%20Started/SearchLocation.swift)
-:::
 
 From here onwards, code for both `Mapbox` and `Google Maps` is similar.
 

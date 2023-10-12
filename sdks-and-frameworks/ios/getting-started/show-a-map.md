@@ -4,12 +4,10 @@ Now that we have the prerequisite API keys, and the project set up, we can start
 
 ### Display a Map with MapsIndoors[​](https://docs.mapsindoors.com/getting-started/android/v4/map#show-a-map-with-mapsindoors) <a href="#show-a-map-with-mapsindoors" id="show-a-map-with-mapsindoors"></a>
 
-:::tip Examples
+Examples
 
 1. Check out Git repo for a full example: [iOS v4 Getting Started](https://github.com/MapsPeople/MapsIndoors-iOS-Examples) and also [iOS v4 Examples](https://github.com/MapsPeople/MapsIndoorsSDK-iOS-Examples)
 2. Note: Later in the Examples, `Map Engine` and `Map Provider` can refer to Google Maps and/or Mapbox.
-
-:::
 
 See the full example of Displaying a map here: [DisplayMap.swift](https://github.com/MapsPeople/MapsIndoorsSDK-iOS-Examples/blob/main/MapsIndoorsSDK-iOS-Examples/Getting%20Started/DisplayMap.swift)
 
