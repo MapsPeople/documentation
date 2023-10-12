@@ -1,8 +1,12 @@
-# Create a Map for Web
+# Display a Map
 
 ### Overview[​](https://docs.mapsindoors.com/simple-map-web#overview) <a href="#overview" id="overview"></a>
 
-In this guide you will learn to load a Google map with a MapsIndoors map on top. The full code example is shown in the JSFiddle below, but will be run through bit by bit in this guide.
+In this guide you will learn to load a Google map with a MapsIndoors map on top. The full code example is shown in the JSFiddle below <mark style="background-color:red;">(hvor?)</mark>, but will be run through bit by bit in this guide.
+
+<mark style="background-color:red;">Skal denne artikel have en komplet rewrite med to sektioner; Google Maps og Mapbox?</mark>
+
+
 
 #### Loading the MapsIndoors SDK[​](https://docs.mapsindoors.com/simple-map-web#loading-the-mapsindoors-sdk) <a href="#loading-the-mapsindoors-sdk" id="loading-the-mapsindoors-sdk"></a>
 
@@ -14,7 +18,7 @@ The MapsIndoors SDK is loaded by using a script tag like the one below:
 
 The `apikey` parameter contains your application's MapsIndoors API key.
 
-For IE11 it's critical to load the MapsIndoors SDK before the Google Maps API due to conflicting polyfills.
+For IE11 it's critical to load the MapsIndoors SDK before the Google Maps API due to conflicting polyfills. <mark style="background-color:red;">(IE11 - kræver det en forklaring?)</mark>
 
 #### Loading the Google Maps JavaScript API[​](https://docs.mapsindoors.com/simple-map-web#loading-the-google-maps-javascript-api) <a href="#loading-the-google-maps-javascript-api" id="loading-the-google-maps-javascript-api"></a>
 
@@ -26,7 +30,7 @@ The Google Maps API is loaded by using a script tag like the one below:
 
 The `libraries` parameter is for loading additional libraries for the Google Maps API. The MapsIndoors SDK is dependent on the Geometry Library from Google.
 
-The `key` parameter contains your Google Maps API key. Look [here](https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/get-api-key) For more information about how to obtain a key.
+The `key` parameter contains your Google Maps API key. Look [here](https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/get-api-key) for more information about how to obtain a key.
 
 #### Setting Up the MapView[​](https://docs.mapsindoors.com/simple-map-web#setting-up-the-mapview) <a href="#setting-up-the-mapview" id="setting-up-the-mapview"></a>
 
@@ -45,7 +49,7 @@ const mapView = new mapsindoors.mapView.GoogleMapsView({
 * `element` is the DOM element on the page that will contain the map. `document.getElementById('map')`
 * `center` is the geographical point on which the map is centered.
 * `zoom` is the initial zoom level the map will be displayed at.
-* The `maxZoom` parameter is set to disable the map from zooming further in that level 21, which is the current maximum.
+* The `maxZoom` parameter is set to disable the map from zooming further in than level 21 which is the current maximum.&#x20;
 
 #### Initializing MapsIndoors[​](https://docs.mapsindoors.com/simple-map-web#initializing-mapsindoors) <a href="#initializing-mapsindoors" id="initializing-mapsindoors"></a>
 

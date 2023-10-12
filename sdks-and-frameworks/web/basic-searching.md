@@ -14,9 +14,9 @@ layout:
 
 # Basic Searching
 
-Searching through your MapsIndoors data is an integral part of a great user experience with your maps. Users can look for places to go, or filter what is shown on the map.
+Searching through your MapsIndoors data is an key part of a great user experience with your maps. Users can look for places to go, or filter what is shown on the map.
 
-Searches work on all MapsIndoors geodata. It is up to you to create a search experience that fits your use case. To aid you in this, there are a range of filters you can apply to the search queries to get the best results. E.g. you can filter by Categories, search only a specific part of the map or search near a Location.
+Searches work on all MapsIndoors geodata. It is up to you to create a search experience that fits your use case. To help you in this, there is a range of filters you can apply to the search queries to get the best results. E.g. you can filter by Categories, search only a specific part of the map or search near a Location.
 
 All three return a list of Locations from your solution matching the parameters they are given. The results are ranked upon the three following factors:
 

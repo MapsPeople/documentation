@@ -1,8 +1,10 @@
 # Live Data
 
-This guide gives an overview of how to work with _Live Data_ in the MapsIndoors Android SDK. As opposed to _static data_, which does not change unless data is synchronized, Live Data can change in real time, and these changes can be instantly reflected on the map and in searches.
+<mark style="background-color:red;">WRONG COPIED ARTICLE</mark>
 
-Common use-cases are:
+This guide gives an overview of how to work with Live Data in the MapsIndoors Android SDK. As opposed to static data which does not change unless data is synchronized, Live Data can change in real time, and these changes can be instantly reflected on the map and in searches.
+
+Common use cases are:
 
 * Changing the appearance of meeting rooms or workspace desks on a map, or in a list, based on occupancy information. For example, change the icon in order to indicate that a room is occupied.
 * Changing the position of a POI representing a vehicle.

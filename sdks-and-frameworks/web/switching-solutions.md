@@ -1,8 +1,8 @@
 # Switching Solutions
 
-Some larger organisations may have not just multiple Venues, but also multiple Solutions in the MapsIndoors system. Therefore, it is naturally important to be able to switch between them.
+Some larger organizations may have not just multiple Venues, but also multiple Solutions in  MapsIndoors. Therefore, it is naturally important to be able to switch between them.
 
-At it's core, this is done simply by switching out the API key and reloading the system. However, there are a few more steps that can be done to ensure smooth transition between Solutions.
+At its core, this is done simply by switching out the API key and reloading the system. However, there are a few more steps that can be done to ensure a smooth transition between Solutions.
 
 ## Starting a Solution[​](https://docs.mapsindoors.com/switch-solutions#starting-a-solution) <a href="#starting-a-solution" id="starting-a-solution"></a>
 

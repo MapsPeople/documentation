@@ -4,7 +4,7 @@ description: For web
 
 # Getting Started
 
-This guide will walk you through building the foundation for creating your own MapsIndoors integration from the ground up. You will do this by gaining experience with the typical development process when working with the MapsIndoors Software Development Kit (SDK). Furthermore, you will be able to gain an understanding of the basic concepts, tools and terminology commonly used when interacting with the SDK.&#x20;
+This guide will walk you through how to create your own MapsIndoors implementation from the ground up. You will gain experience with the MapsIndoors Software Development Kit (SDK) and the typical development process of using it. Furthermore, you will be able to gain an understanding of the basic concepts, tools and terminology commonly used when interacting with the SDK.&#x20;
 
 Following features are included in this Getting Started guide:&#x20;
 

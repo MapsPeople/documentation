@@ -1,10 +1,6 @@
----
-description: Web V4
----
-
 # Change Building Outline Color
 
-To change the building outline color, use the `strokeColor` property of the `BuildingOutlineOptions` interface. This property accepts any color as defined by conventional CSS color values. See [https://developer.mozilla.org/en-US/docs/Web/CSS/color\_value](https://developer.mozilla.org/en-US/docs/Web/CSS/color\_value) for more information on CSS color values.
+To change the building outline color use the `strokeColor` property of the `BuildingOutlineOptions` interface. This property accepts any color as defined by conventional CSS color values. See [https://developer.mozilla.org/en-US/docs/Web/CSS/color\_value](https://developer.mozilla.org/en-US/docs/Web/CSS/color\_value) for more information on CSS color values.
 
 To do this in practice, on the MapsIndoors instance, call `setBuildingOutlineOptions` to change the appearance of the building outline.
 

@@ -2,13 +2,17 @@
 
 ### Overview[​](https://docs.mapsindoors.com/working-with-events#overview) <a href="#overview" id="overview"></a>
 
-In this, we will take a look at the events that MapsIndoors offers and how to utilize them.
+Let's take a look at the events that MapsIndoors offers and how to utilize them.
 
 > Events are actions or occurrences that happen in the system you are programming, which the system tells you about so you can respond to them in some way if desired. -- [_MDN web docs_](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building\_blocks/Events)
 
 For example, if the user clicks on a Location on the map, then you can react to that action by presenting the user with additional info about the Location.
 
-A code example is shown in the JSFiddle below, but will be run through bit by bit in this guide.
+A code example is shown in the JSFiddle below, but will be run through bit by bit in this guide. <mark style="background-color:red;">(Kan ikke se JSFiddle)</mark>
+
+
+
+<mark style="background-color:red;">Der nævnes fire typer events. Ville det ikke være godt med et eksempel/en use case til hver om hvordan man ville kunne bruge pågældende event.</mark>&#x20;
 
 #### Ready Event[​](https://docs.mapsindoors.com/working-with-events#ready-event) <a href="#ready-event" id="ready-event"></a>
 
@@ -24,9 +28,9 @@ mapsIndoors.addListener('ready', (e) => {
 
 The `building_changed` event will be fired when the map is moved around and a new Building comes in focus.
 
-This is also related to the Floor Selector, which will update its view to show the Floors of the current Building.
+This is also related to the Floor Selector which will update its view to show the Floors of the current Building.
 
-The event handler is called with a [building](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/global.html#Building) object representing the building in focus.
+The event handler is called with a [building](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/global.html#Building) (<mark style="background-color:red;">jeg forstår ikke det her link</mark>) object representing the building in focus.
 
 ```
 mapsIndoors.addListener('building_changed', (e) => {

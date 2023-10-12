@@ -1,13 +1,10 @@
----
-description: >-
-  Often you may want to get directions starting from a user's actual current
-  position, instead of from another fixed Location. The following code snippet
-  gives an example on how to implement this.
----
-
 # User's Location as Point of Origin
 
-```
+<mark style="background-color:red;">Intro about the blue dot experience</mark>
+
+Often you may want to get directions starting from a user's actual current position instead of from another fixed Location. The following code snippet gives an example on how to implement this.
+
+```javascript
 // Setting styling options to the route path.
 directionsRenderer.setOptions({
     strokeColor: '#bada55',
@@ -48,6 +45,6 @@ function errorHandler(err) {
 navigator.geolocation.getCurrentPosition(getRoute, errorHandler, options);
 ```
 
-Further details on how user positioning works, and how to display it, can be found [here](https://docs.mapsindoors.com/blue-dot/).
+Further details on how user positioning works, and how to display it, can be found [here](https://docs.mapsindoors.com/blue-dot/). <mark style="background-color:blue;">MJE: Link needs an update to the right page on the new site.</mark>
 
 This results in directions queries originating from the user's current location.

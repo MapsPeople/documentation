@@ -1,8 +1,10 @@
 # Directions Renderer
 
-When getting the result Route from a [Directions Service](https://docs.mapsindoors.com/directions-service/), we may want to display this Route on a map. To perform this task the `DirectionsRenderer` can be used.
+When getting the result route from a [Directions Service](https://docs.mapsindoors.com/directions-service/), we can use the `DirectionsRenderer` to display this Route on a map.&#x20;
 
-This example shows how to setup a query for a route and display the result on a Google Map using the DirectionsRenderer\`:
+This example shows how to set up a query for a route and display the result on a Google Map using the DirectionsRenderer\`:
+
+<mark style="background-color:blue;">MJE: Needs Mapbox equivalent tap, ticket created DOC-84</mark>
 
 ```
 const externalDirectionsProvider = new mapsindoors.directions.GoogleMapsProvider();
@@ -23,7 +25,7 @@ miDirectionsServiceInstance.getRoute(routeParameters).then(directionsResult => {
 
 > See all available directions render options in the [reference documentation](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html).
 
-As previously mentioned, the route object is separated into objects of [`Leg`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/Leg.html) and these legs are again separated into objects of [`Step`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/Step.html). Unless the Route only contains one Leg, the Directions Renderer does not allow the full Route to be rendered all at once. A specific part of the route can be rendered by setting the step index and/or leg index using the `DirectionsRenderer`.
+As previously mentioned, the route object is separated into objects of [Leg](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/Leg.html) and these legs are again separated into objects of [Step](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/Step.html). Unless the Route only contains one leg, the Directions Renderer does not allow the full Route to be rendered all at once. A specific part of the route can be rendered by setting the step index and/or leg index using the `DirectionsRenderer`.
 
 ```
 miDirectionsRendererInstance.setStepIndex(stepIndex, legIndex)
@@ -31,4 +33,4 @@ miDirectionsRendererInstance.setStepIndex(stepIndex, legIndex)
 
 > See all available methods in the [reference documentation](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html)
 
-The length of the `Legs` and `Steps` arrays determines the possible values of `legIndex` and `stepIndex`.
+The length of the legs and steps arrays determines the possible values of `legIndex` and `stepIndex`.
