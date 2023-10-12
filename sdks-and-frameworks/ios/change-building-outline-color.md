@@ -10,3 +10,5 @@ To change the building outline color, along with other display properties, you m
 let buildingOutline = MPMapsIndoors.shared.displayRuleFor(displayRuleType: .buildingOutline)
 buildingOutline?.polygonStrokeColor = .blue
 ```
+
+Note that only the polygon stroke color, width and opacity values are respected.

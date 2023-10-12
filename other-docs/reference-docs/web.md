@@ -2,10 +2,23 @@
 
 ## **Latest**
 
-* [MapsIndoors Web SDK v4.21.2](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/)
+* [MapsIndoors Web SDK v4.24.6](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/)
 
 ### Previous versions[​](https://docs.mapsindoors.com/reference-docs/web#previous-versions) <a href="#previous-versions" id="previous-versions"></a>
 
+* [MapsIndoors Web SDK v4.24.6](https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.6/docs/)
+* [MapsIndoors Web SDK v4.24.4](https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.4/docs/)
+* [MapsIndoors Web SDK v4.24.3](https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.3/docs/)
+* [MapsIndoors Web SDK v4.24.2](https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.2/docs/)
+* [MapsIndoors Web SDK v4.24.0](https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.0/docs/)
+* [MapsIndoors Web SDK v4.23.1](https://app.mapsindoors.com/mapsindoors/js/sdk/4.23.1/docs/)
+* [MapsIndoors Web SDK v4.23.0](https://app.mapsindoors.com/mapsindoors/js/sdk/4.23.0/docs/)
+* [MapsIndoors Web SDK v4.22.0](https://app.mapsindoors.com/mapsindoors/js/sdk/4.22.0/docs/)
+* [MapsIndoors Web SDK v4.21.6](https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.6/docs/)
+* [MapsIndoors Web SDK v4.21.5](https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.5/docs/)
+* [MapsIndoors Web SDK v4.21.4](https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.4/docs/)
+* [MapsIndoors Web SDK v4.21.3](https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.3/docs/)
+* [MapsIndoors Web SDK v4.21.2](https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.2/docs/)
 * [MapsIndoors Web SDK v4.21.1](https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.1/docs/)
 * [MapsIndoors Web SDK v4.21.0](https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.0/docs/)
 * [MapsIndoors Web SDK v4.20.2](https://app.mapsindoors.com/mapsindoors/js/sdk/4.20.2/docs/)

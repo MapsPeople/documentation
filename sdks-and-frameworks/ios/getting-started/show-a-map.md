@@ -4,12 +4,14 @@ Now that we have the prerequisite API keys, and the project set up, we can start
 
 ### Display a Map with MapsIndoors[​](https://docs.mapsindoors.com/getting-started/android/v4/map#show-a-map-with-mapsindoors) <a href="#show-a-map-with-mapsindoors" id="show-a-map-with-mapsindoors"></a>
 
-{% hint style="info" %}
-ASYNC
+:::tip Examples
 
-1. Check out Git repo for a full example: [iOS v4 example](https://github.com/MapsPeople/MapsIndoors-iOS-Examples).
-2. Note: Later in the guide, `Map Engine` and `Map Provider` can refer to Google Maps and/or Mapbox.
-{% endhint %}
+1. Check out Git repo for a full example: [iOS v4 Getting Started](https://github.com/MapsPeople/MapsIndoors-iOS-Examples) and also [iOS v4 Examples](https://github.com/MapsPeople/MapsIndoorsSDK-iOS-Examples)
+2. Note: Later in the Examples, `Map Engine` and `Map Provider` can refer to Google Maps and/or Mapbox.
+
+:::
+
+See the full example of Displaying a map here: [DisplayMap.swift](https://github.com/MapsPeople/MapsIndoorsSDK-iOS-Examples/blob/main/MapsIndoorsSDK-iOS-Examples/Getting%20Started/DisplayMap.swift)
 
 In order to accomplish this we will be utilising the [MPMapControl Class](https://app.mapsindoors.com/mapsindoors/reference/ios/v4-doc/documentation/mapsindoors/mpmapcontrol). Open the file, `ViewController.swift` and, once again, add in the following import statements to the top of the file,
 
@@ -18,7 +20,7 @@ In order to accomplish this we will be utilising the [MPMapControl Class](https:
 
 
 {% tabs %}
-{% tab title="Swift - Google Maps" %}
+{% tab title="Google Maps" %}
 ```
 import MapsIndoorsCore
 import MapsIndoorsGoogleMaps
@@ -71,7 +73,7 @@ Running the app wihtout the use of code above indeed displays a map, however thi
 We have now added a _very_ simple search feature! Running the app now should yield a combined map of The White House, showing both the external and internal geographical information. However, let us try and understand what is actually happening.
 {% endtab %}
 
-{% tab title="Swift - Mapbox" %}
+{% tab title="Mapbox" %}
 
 
 ```

@@ -13,3 +13,5 @@ MapsIndoors.getDisplayRule(MPSolutionDisplayRule.BUILDING_OUTLINE).setPolygonStr
 ```
 
 The parameter `strokeColor` takes the color in ARGB format (with an alpha-channel value), the syntax being `AARRGGBB`.
+
+Note that only the polygon stroke color, width, opacity, visible, zoomFrom and zoomTo values are respected.

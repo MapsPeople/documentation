@@ -13,12 +13,6 @@ Install the package:
 
 `npm install @mapsindoors/map-template`
 
-Make sure the MapsIndoors JavaScript SDK is loaded by having this somewhere in your HTML:
-
-```
-<script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.5/mapsindoors-4.21.5.js.gz"></script>
-```
-
 Use the `MapsIndoorsMap` component in a React component:
 
 ```
@@ -28,7 +22,7 @@ import MapsIndoorsMap from '@mapsindoors/map-template/dist/mapsindoors-react.es.
 <div style={{
       display: 'block',
       width: '100vw',
-      height: '100vh'
+      height: '100svh'
 }}>
       <MapsIndoorsMap></MapsIndoorsMap>
 </div>

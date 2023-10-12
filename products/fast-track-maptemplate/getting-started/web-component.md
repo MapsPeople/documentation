@@ -16,7 +16,7 @@ Install the package:
 In your script:
 
 ```
-import MapsIndoorsMap from '@mapsindoors/map-template/dist/mapsindoors-webcomponent.es.js';
+import MapsIndoorsMap from '@mapsindoors/map-template@stable/dist/mapsindoors-webcomponent.es.js';
 window.customElements.define('mapsindoors-map', MapsIndoorsMap);
 ```
 
@@ -26,14 +26,8 @@ In your styles, make sure to give it a size. For example:
 mapsindoors-map {
     display: block;
     width: 100vw;
-    height: 100vh;
+    height: 100svh;
 }
-```
-
-Make sure the MapsIndoors JavaScript SDK is loaded by having this somewhere in your HTML:
-
-```
-<script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.5/mapsindoors-4.21.5.js.gz"></script>
 ```
 
 Use the Web Component in your HTML:
@@ -54,7 +48,7 @@ const mapsIndoorsMapElement = document.querySelector('mapsindoors-map')
 mapsIndoorsMapElement.externalIDs = externalIDsArray;
 ```
 
-Use query parameters to configure the Web Component by setting the `supports-url-parameter` attribute to `true`.
+Use query parameters to configure the Web Component by setting the `supports-url-parameters` attribute to `true`.
 
 ### Using just the browser
 
@@ -66,9 +60,8 @@ Use query parameters to configure the Web Component by setting the `supports-url
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Map</title>
-    <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.5/mapsindoors-4.21.5.js.gz"></script>
     <script type="module">
-        import MapsindoorsMap from 'https://www.unpkg.com/@mapsindoors/map-template/dist/mapsindoors-webcomponent.es.js';
+        import MapsindoorsMap from '@mapsindoors/map-template@stable/dist/mapsindoors-webcomponent.es.js';
         window.customElements.define('mapsindoors-map', MapsIndoorsMap)
     </script>
     <style>
@@ -78,7 +71,7 @@ Use query parameters to configure the Web Component by setting the `supports-url
         mapsindoors-map {
             display: block;
             width: 100vw;
-            height: 100vh;
+            height: 100svh;
         }
     </style>
 </head>
@@ -90,4 +83,4 @@ Use query parameters to configure the Web Component by setting the `supports-url
 
 Add attributes to the Web Component as needed (see supported properties above).([see list](broken-reference)).
 
-Use query parameters to configure the Web Component by setting the `supports-url-parameter` attribute to `true`.
+Use query parameters to configure the Web Component by setting the `supports-url-parameters` attribute to `true`.
