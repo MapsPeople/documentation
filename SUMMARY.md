@@ -16,7 +16,7 @@
     * [Display a Map](sdks-and-frameworks/web/map-visualization/display-a-map.md)
     * [Switching Solutions](sdks-and-frameworks/web/map-visualization/switching-solutions.md)
     * [Remove Labels from Buildings and Venues](sdks-and-frameworks/web/map-visualization/remove-labels-from-buildings-and-venues.md)
-    * [Change Building Outline Color](sdks-and-frameworks/web/map-visualization/change-building-outline-color.md)
+    * [Change Building Outline](sdks-and-frameworks/web/map-visualization/change-building-outline-color.md)
     * [Turn Off Collisions Based on Zoom Level](sdks-and-frameworks/web/map-visualization/turn-off-collisions-based-on-zoom-level.md)
     * [3D Maps](sdks-and-frameworks/web/map-visualization/3d-maps/README.md)
       * [Managing your 3D Maps](sdks-and-frameworks/web/map-visualization/3d-maps/managing-your-3d-maps.md)
@@ -176,6 +176,7 @@
     * [3D Models](products/cms/media-library/3d-models.md)
   * [Editing Data](products/cms/editing-data.md)
   * [Settings](products/cms/settings.md)
+  * [Change building outline](products/cms/change-building-outline.md)
 
 ## Other Docs
 
