@@ -23,7 +23,8 @@ Place the following initialization code in the `onCreate` method in the `MapsAct
 
 {% tabs %}
 {% tab title="Java - Google Maps" %}
-[MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L63-L66)
+
+{% code title="[MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L63-L66)" overflow="wrap" lineNumbers="true" %}
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,8 @@ protected void onCreate(Bundle savedInstanceState) {
     ...
 }
 ```
+
+{% endcode %}
 
 If you are not a customer you can use this demo MapsIndoors API key `d876ff0e60bb430b8fabb145`.
 
