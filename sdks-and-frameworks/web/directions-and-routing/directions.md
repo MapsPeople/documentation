@@ -1,18 +1,4 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
----
-
-# Directions & Routing
+# Directions
 
 ## Introduction to Directions
 
@@ -30,7 +16,7 @@ Entry Points are specified points in a MapsIndoors Venue that enable a transitio
 
 ### The Route Model[​](https://docs.mapsindoors.com/directions-intro#the-route-model) <a href="#the-route-model" id="the-route-model"></a>
 
-When requesting a route with MapsIndoors Directions Service, the Route model in MapsIndoors is separated into Legs, and these Legs are again separated into Steps. <mark style="background-color:red;">(<-denne sætning giver slet ingen mening for mig. Mangler der tegnsætning, eller hvad er der galt?)</mark> <mark style="background-color:blue;">MJE: bedre n</mark>u [mste](http://127.0.0.1:5000/u/yShklPimGQYYmqZKyCXecaTxahv1 "mention")<mark style="background-color:blue;">?</mark>
+When requesting a route with MapsIndoors Directions Service, the Route model in MapsIndoors is separated into Legs, and these Legs are again separated into Steps.&#x20;
 
 #### The Route Leg Model[​](https://docs.mapsindoors.com/directions-intro#the-route-leg-model) <a href="#the-route-leg-model" id="the-route-leg-model"></a>
 

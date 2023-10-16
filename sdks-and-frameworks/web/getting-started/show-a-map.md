@@ -6,9 +6,11 @@ Your environment is now fully configured, and you have the necessary API keys. N
 
 {% tabs %}
 {% tab title="Google Maps - Manually" %}
-The MapsIndoors SDK is hosted on a Content Delivery Network (CDN) and should be loaded using a script tag.
+The MapsIndoors SDK is hosted on a Content Delivery Network (CDN) and requires loading using a script tag.
 
-Insert the MapsIndoors SDK script tag into `<head>`, followed by the Google Maps script tag:
+Insert the MapsIndoors SDK script tag into `<head>`, followed by the Google Maps script tag.
+
+Please ensure you are using the most recent version of our SDK, which can be found at our [reference docs](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/).
 
 ```html
 <!-- index.html -->
@@ -20,7 +22,7 @@ Insert the MapsIndoors SDK script tag into `<head>`, followed by the Google Maps
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-<script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.4/mapsindoors-4.21.4.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
+<script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.8/mapsindoors-4.24.8.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
 <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=YOUR_GOOGLE_MAPS_API_KEY"></script>
 </head>
 <body>
@@ -43,7 +45,7 @@ Add an empty `<div>` element to `<body>` with the `id` attribute set to `"map"`:
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.4/mapsindoors-4.21.4.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
+  <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.8/mapsindoors-4.24.8.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=YOUR_GOOGLE_MAPS_API_KEY"></script>
 </head>
 <body>
@@ -123,7 +125,7 @@ Insert script tag into `<head>`:
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-<script src="https://unpkg.com/@mapsindoors/components@8.2.0/dist/mi-components/mi-components.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@13.7.1/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
   <script src="main.js"></script>
@@ -145,7 +147,7 @@ After you added the script tag into `<head>`, add the `<mi-map-googlemaps>` cust
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script src="https://unpkg.com/@mapsindoors/components@8.2.0/dist/mi-components/mi-components.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@13.7.1/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
 <mi-map-googlemaps
@@ -197,7 +199,7 @@ Using the `<mi-map-googlemaps>` element, you can add the [floorSelectorControlPo
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script src="https://unpkg.com/@mapsindoors/components@8.2.0/dist/mi-components/mi-components.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@13.7.1/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
   <mi-map-googlemaps
@@ -234,9 +236,9 @@ Insert the MapsIndoors SDK script tag into `<head>`, followed by the Mapbox `scr
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-<script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.4/mapsindoors-4.21.4.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
-<script src='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.8/mapsindoors-4.24.8.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css">
 </head>
 <body>
   <script src="main.js"></script>
@@ -258,9 +260,9 @@ Add an empty `<div>` element to `<body>` with the `id` attribute set to "map":
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.21.4/mapsindoors-4.21.4.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
-  <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.8/mapsindoors-4.24.8.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css">
 </head>
 <body>
 <div id="map" style="width: 600px; height: 600px;"></div>
@@ -346,7 +348,7 @@ Insert script tag into `<head>`:
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-<script src="https://unpkg.com/@mapsindoors/components@8.2.0/dist/mi-components/mi-components.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@13.7.1/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
   <script src="main.js"></script>
@@ -367,7 +369,7 @@ After you added the script tag into `<head>`, add the `<mi-map-mapbox>` custom e
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script src="https://unpkg.com/@mapsindoors/components@8.2.0/dist/mi-components/mi-components.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@13.7.1/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
 <mi-map-mapbox style="width: 600px; height: 600px;" access-token="YOUR_MAPBOX_ACCESS_TOKEN" mi-api-key="YOUR_MAPSINDOORS_API_KEY">
@@ -381,7 +383,11 @@ Remember to add your API keys where indicated. You can use the demo MapsIndoors 
 
 To center the map correctly, you need need the Mapbox _instance_ in your JavaScript-file.
 
-First we get a reference to the `<mi-map-mapbox>` element. Then we attach the [`mapsIndoorsReady`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#event:ready) event listener so we'll know when MapsIndoors is ready after loading. Lastly, on the `mapsIndoorsReady` event, get the Mapbox _instance_ and call its [`setCenter` method](https://docs.mapbox.com/mapbox-gl-js/api/map/#map#setcenter) to center the map on the loaded data:
+First we get a reference to the `<mi-map-mapbox>` element. Then we attach the [`mapsIndoorsReady`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#event:ready) event listener so we'll know when MapsIndoors is ready after loading.
+
+Based on where you would like to begin, it can make sense to use some of the namespace services to get objects like venues, buildings, or even a location to get your initial latitude and longitude. You also have the option of hardcoding the coordinates, like in the below example.
+
+&#x20;Lastly, on the `mapsIndoorsReady` event, get the Mapbox _instance_ and call its [`setCenter` method](https://docs.mapbox.com/mapbox-gl-js/api/map/#map#setcenter) to center the map on the loaded data:
 
 ```javascript
 // main.js
@@ -433,8 +439,4 @@ Here's a JSFiddle demonstrating the result you should have by now:
 {% embed url="https://jsfiddle.net/mapspeople/vr1wkmho/1/" %}
 {% endtab %}
 {% endtabs %}
-
-
-
-
 

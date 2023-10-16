@@ -8,18 +8,18 @@ Before commencing on user authenticated booking, we recommend reading the guide 
 
 By default, the `BookingService` performs anonymous bookings using a service account known to MapsIndoors. However, it is also possible to list, perform and cancel bookings on behalf of a user. For the `BookingService` to work on behalf of a user, it must identify the tenant with a given tenant id (optional for single tenant setups) and prove user access with an access token. See the following example:
 
-```
+```javascript
   const bookingService = mapsindoors.services.BookingService;
   const bookingAuthenticationConfig = new bookingService.AuthenticationConfig('some-user-access-token', `some-tenant-id`);
   bookingService.setAuthenticationConfig(bookingAuthenticationConfig);
 }
 ```
 
-When the configuration above is in place, all following operations through the `BookingService` will be performed on behalf of a user. If the access token expires, the different booking methods will result in errors and a new token must be obtained.
+When the configuration above is in place, all following operations through the `BookingService` will be performed on behalf of a user. If the access token expires, the different booking methods will result in errors, and a new token must be obtained.
 
 #### Obtaining a Tenant ID for User Bookings[​](https://docs.mapsindoors.com/user-authenticated-booking#obtaining-a-tenant-id-for-user-bookings-for-web) <a href="#obtaining-a-tenant-id-for-user-bookings-for-web" id="obtaining-a-tenant-id-for-user-bookings-for-web"></a>
 
-The tenant id is specific for each tenant / booking provider. If you don't know your tenant id, your IT administrator should be able to provide the information needed. Note that this is optional for single tenant setups and single tenant setups are the most common. <mark style="background-color:red;">Ville det give mening at forklare "single tenant setups" lidt? Med et eksempel?</mark>
+The tenant id is specific for each tenant / booking provider. If you don't know your tenant id, your IT administrator should be able to provide the information needed. Note that this is optional for single tenant setups and single tenant setups are the most common.&#x20;
 
 #### Obtaining an Access Token for User Bookings [​](https://docs.mapsindoors.com/user-authenticated-booking#obtaining-an-access-token-for-user-bookings-for-web) <a href="#obtaining-an-access-token-for-user-bookings-for-web" id="obtaining-an-access-token-for-user-bookings-for-web"></a>
 

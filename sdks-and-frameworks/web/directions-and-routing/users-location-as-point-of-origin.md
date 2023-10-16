@@ -1,16 +1,16 @@
 # User's Location as Point of Origin
 
-<mark style="background-color:red;">Intro about the blue dot experience</mark>
-
 Often you may want to get directions starting from a user's actual current position instead of from another fixed Location. The following code snippet gives an example on how to implement this.
 
 ```javascript
 // Setting styling options to the route path.
-directionsRenderer.setOptions({
+miDirectionsRendererInstance.setOptions({
     strokeColor: '#bada55',
     strokeWeight: 10,
 });
 // Latitude and longitude position of the route destination.
+// again, you'll likely want to retrieve this from a location
+// location.properties.anchor.coordinates, and then access the array directly.
 const routeDestination = {
     lat: 57.058230237700194,
     lng: 9.951134229974498
@@ -23,17 +23,17 @@ const options = {
 }
 // Creates origin with the users latitude and longitude. Then sets the route from this position to the route destination.
 function getRoute(pos) {
-    const crd = pos.coords;
+    const coords = pos.coords;
     const origin = {
-        lat: crd.latitude,
-        lng: crd.longitude
+        lat: coords.latitude,
+        lng: coords.longitude
     }
-    directionsService.getRoute({ origin: origin, destination: routeDestination }).then(function (res) {
+    directionsServiceInstance.getRoute({ origin: origin, destination: routeDestination }).then(function (res) {
         if (res === undefined) {
             console.log('Error: Route is undefined.')
         } else {
             console.log('Route', res);
-            directionsRenderer.setRoute(res);
+            miDirectionsRendererInstance.setRoute(res);
         }
     });
 }

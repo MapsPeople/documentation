@@ -1,11 +1,6 @@
 ---
 description: Documentation on the MapsIndoors Web SDK
-cover: ../../.gitbook/assets/web-hero-image (3).jpg
-coverY: 0
 layout:
-  cover:
-    visible: true
-    size: hero
   title:
     visible: true
   description:
@@ -20,15 +15,22 @@ layout:
 
 # Web
 
-## Husk tekst om v4
+Unlock the power of indoor mapping with the MapsIndoors JavaScript SDK! Dive into a world where integrating indoor mapping solutions into your applications is not only possible but also incredibly efficient and customizable.
 
-## ✨ **What's new**
+**Why Choose MapsIndoors JavaScript SDK?**
 
-{% content-ref url="../../other-docs/changelog/web-sdk/" %}
-[web-sdk](../../other-docs/changelog/web-sdk/)
-{% endcontent-ref %}
+* **Comprehensive Toolkit:** Seamlessly manipulate maps and interact with MapsIndoors data to meet your specific requirements.
+* **Developer-Friendly:** Utilize a range of [**npm-hosted web components**](https://www.npmjs.com/package/@mapsindoors/components) to minimize UI creation overhead and simplify development.
+* **Adaptability:** Tailor your map to adapt to various conditions and requirements with ease.
 
-## 🗃️ **Content**
+**What’s in the Box?**
 
-<table data-column-title-hidden data-view="cards"><thead><tr><th data-type="content-ref"></th><th data-hidden></th><th data-hidden></th><th data-hidden></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><a href="getting-started/">getting-started</a></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+* **Multifaceted Interaction:** Engage with MapsIndoors data in myriad ways.
+* **Map Manipulation:** Alter and manage the map according to your unique needs and conditions.
+* **Web Components:** Leverage pre-built components to streamline UI development.
+
+**Prefer a Ready-to-Use Solution?** Consider our [**Map Template**](../../products/fast-track-maptemplate/)! Crafted for those who'd rather leave UI and UX to the pros, this React-based application offers:
+
+* **Battle-Tested Experience:** Proven search and wayfinding capabilities.
+* **Minimal Customization Needed:** Especially suited for projects where quick implementation is key.
 

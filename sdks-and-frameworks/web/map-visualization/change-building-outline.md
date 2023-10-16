@@ -1,10 +1,40 @@
----
-description: >-
-  One way you can alter the look and feel of your map is by changing the color
-  of the outline surrounding your buildings.
----
-
 # Change Building Outline
+
+**Crafting a Dynamic, Color-Transitioning Example**
+
+Here's a code snippet that alternates the building outline color every second, cycling through a palette of contrasting colors, it's not the most practical application, but it shows how to achieve it.
+
+You may desire a way to change the stroke color based on user requirements to make the map meet different accessibility requirements.
+
+<figure><img src="../../../.gitbook/assets/stroke_color.gif" alt=""><figcaption><p>Changing border color programmatically</p></figcaption></figure>
+
+```javascript
+const colors = ['#E63946', '#F1FA8C', '#A8DADC', '#457B9D'];
+
+// Initialize an index to keep track of the current color
+let colorIndex = 0;
+
+// Use setInterval to create a loop that runs every 1000 milliseconds (1 second)
+setInterval(() => {
+    // Set the building outline color to the current color
+    mapsIndoorsInstance.setBuildingOutlineOptions({strokeColor: colors[colorIndex]});
+
+    // Increment the color index, cycling back to 0 if we've reached the end of the colors array
+    colorIndex = (colorIndex + 1) % colors.length;
+}, 1000);
+```
+
+**Additional Details**
+
+To change the building outline color use the [`strokeColor`](https://developer.mozilla.org/en-US/docs/Web/CSS/color\_value) property of the [`BuildingOutlineOptions` interface](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/BuildingOutlineOptions.html). This property accepts any color as defined by conventional CSS color values.&#x20;
+
+See [https://developer.mozilla.org/en-US/docs/Web/CSS/color\_value](https://developer.mozilla.org/en-US/docs/Web/CSS/color\_value) for more information on CSS color values.
+
+To do this in practice, on the MapsIndoors instance, call `setBuildingOutlineOptions` to change the appearance of the building outline.
+
+```
+mapsIndoors.setBuildingOutlineOptions({strokeColor: '#3071d9'});
+```
 
 The building outline design will be taken from the values set through the CMS. To change the building outline you can use the different properties of the `BuildingOutlineOptions` interface. The properties are the following:
 
@@ -26,7 +56,7 @@ To read more about the `BuildingOutlineOptions` interface see the [reference doc
 One way to do this in practice, call `setBuildingOutlineOptions` on the MapsIndoors instance, to change the appearance of the building outline.
 
 ```
-mapsIndoors.setBuildingOutlineOptions({
+mapsIndoorsInstance.setBuildingOutlineOptions({
     visible: true,
     zoomFrom: 15,
     zoomTo: 20,

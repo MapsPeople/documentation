@@ -28,17 +28,17 @@ This means that the first item in the search result list will be the one best ma
 
 See the full list of parameters:
 
-| Parameter  | Description                                                                                                                                 | Class    |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| take       | Max number of Locations to get                                                                                                              | MPFilter |
-| Skip       | Skip the first number of entries                                                                                                            | MPFilter |
-| categories | A list of Categories to limit the search to                                                                                                 | MPFilter |
-| Parents    | A list of Building or Venue IDs to limit the search to                                                                                      | MPFilter |
-| Types      | A list of Types to limit the search to                                                                                                      | MPFilter |
-| Bounds     | Limits the result of Locations to a bounding area                                                                                           | MPFilter |
-| Floor      | Limits the result of Locations to be on a specific Floor                                                                                    | MPFilter |
-| Near       | Sorts the list of Locations on which Location is nearest the point given                                                                    | MPQuery  |
-| Depth      | The Depth property makes it possible to get "x" amount of descendants to the given parent. The default for this is 1 (eg. Building > Floor) | MPFilter |
+| Parameter  | Description                                                                                                                                 |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| take       | Max number of Locations to get                                                                                                              |
+| Skip       | Skip the first number of entries                                                                                                            |
+| categories | A list of Categories to limit the search to                                                                                                 |
+| Parents    | A list of Building or Venue IDs to limit the search to                                                                                      |
+| Types      | A list of Types to limit the search to                                                                                                      |
+| Bounds     | Limits the result of Locations to a bounding area                                                                                           |
+| Floor      | Limits the result of Locations to be on a specific Floor                                                                                    |
+| Near       | Sorts the list of Locations on which Location is nearest the point given                                                                    |
+| Depth      | The Depth property makes it possible to get "x" amount of descendants to the given parent. The default for this is 1 (eg. Building > Floor) |
 
 #### Example of Creating a Search Query[​](https://docs.mapsindoors.com/searching#example-of-creating-a-search-query) <a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
 
