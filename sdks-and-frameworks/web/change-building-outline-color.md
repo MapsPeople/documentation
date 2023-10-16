@@ -6,7 +6,7 @@ Here's a code snippet that alternates the building outline color every second, c
 
 You may desire a way to change the stroke color based on user requirements to make the map meet different accessibility requirements.
 
-<figure><img src="../../../.gitbook/assets/stroke_color.gif" alt=""><figcaption><p>Changing border color programmatically</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/stroke_color.gif" alt=""><figcaption><p>Changing border color programmatically</p></figcaption></figure>
 
 ```javascript
 const colors = ['#E63946', '#F1FA8C', '#A8DADC', '#457B9D'];

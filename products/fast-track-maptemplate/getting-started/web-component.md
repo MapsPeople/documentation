@@ -1,11 +1,6 @@
----
-description: >-
-  This page will give you an introduction on how to get started using the Map
-  Template as a Web Component. In this guide you will learn how to install and
-  use the Web Component step by step.
----
-
 # Web Component
+
+This page will give you an introduction on how to get started using the Map Template as a Web Component. In this guide you will learn how to install and use the Web Component step by step.
 
 ### Using NPM
 
@@ -81,6 +76,6 @@ Use query parameters to configure the Web Component by setting the `supports-url
 </html>
 ```
 
-Add attributes to the Web Component as needed (see supported properties above).([see list](broken-reference)).
+Add attributes to the Web Component as needed (see supported properties above).([see list](broken-reference/)).
 
 Use query parameters to configure the Web Component by setting the `supports-url-parameters` attribute to `true`.

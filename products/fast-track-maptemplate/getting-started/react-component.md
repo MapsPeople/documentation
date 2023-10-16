@@ -1,11 +1,6 @@
----
-description: >-
-  This page will give you an introduction on how to get started using the Map
-  Template as a React Component. In this guide you will learn how to install and
-  use the React Component step by step.
----
-
 # React Component
+
+This page will give you an introduction on how to get started using the Map Template as a React Component. In this guide you will learn how to install and use the React Component step by step.
 
 ### Using NPM
 
@@ -28,6 +23,6 @@ import MapsIndoorsMap from '@mapsindoors/map-template/dist/mapsindoors-react.es.
 </div>
 ```
 
-Add properties to the MapsIndoorsMap component as needed ([see list](broken-reference)).
+Add properties to the MapsIndoorsMap component as needed ([see list](broken-reference/)).
 
 Use query parameters to configure the MapsIndoorsMap component by setting the `supportsUrlParameters` prop to `true`.

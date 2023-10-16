@@ -38,7 +38,7 @@ From an implementation standpoint, there are two functional things that need to 
 
 <figure><img src="../../../.gitbook/assets/Route Request.png" alt=""><figcaption><p>Getting directions via the SDK</p></figcaption></figure>
 
-2. [Handling and rendering directions responses](directions-renderer.md)
+2. [Handling and rendering directions responses](../wayfinding/directions-renderer.md)
 
 <figure><img src="../../../.gitbook/assets/Route Response Handling.png" alt=""><figcaption><p>What you can do once you have the response.</p></figcaption></figure>
 

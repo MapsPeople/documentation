@@ -1,4 +1,4 @@
-# Display Language
+# Language
 
 The language of MapsIndoors is independent of the chosen language on the device on which the app is used. This means that you need to explicitly tell MapsIndoors which language to use.
 

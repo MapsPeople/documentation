@@ -1,10 +1,6 @@
----
-description: >-
-  This page will guide you through the process of deploying the Map Template to
-  a cloud storage provider.
----
-
 # Deploying Map Template to a cloud storage provider
+
+This page will guide you through the process of deploying the Map Template to a cloud storage provider.
 
 We often use Google Cloud Storage (GCS) to deploy small useful apps for demo purposes. This guide refers to GCS, but many steps are identical for AWS, Azure Blob, and others.
 

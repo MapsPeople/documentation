@@ -1,16 +1,10 @@
----
-description: >-
-  This page will give you an introduction on how to configure the Map Template
-  using the URL Query Parameters.
----
-
 # Query Parameters
 
-The Map Template supports using query parameters for all the properties provided by the `MapsIndoorsMap` component if the `supportsUrlParameters` property is set to true.&#x20;
+Why use Query Parameters?&#x20;
 
-In addition, the Web component and the React component also support using the URL parameters if the `supports-url-parameters` attribute or the `supportsUrlParameters` prop is set to `true`.&#x20;
+The Map Template supports using query parameters for all the properties provided by the `MapsIndoorsMap` component.&#x20;
 
-The supported query parameters are the following:&#x20;
+**The supported query parameters are the following:**&#x20;
 
 1. `apiKey` - Used like this `apiKey=yourApiKey`. If no apiKey is provided, the app will default to `3ddemo`.
 2. `venue` - Used like this `venue=yourVenueName`. If no venue is provided, the app will select the first venue from the solution in alphabetical order.
@@ -25,13 +19,10 @@ The supported query parameters are the following:&#x20;
 11. `mapboxAccessToken` - Used like this `mapboxAccessToken=yourMapboxAccessToken`. If no mapboxAccessToken is provided, the app will default to the access token in the `.env` file. If both the mapboxAccessToken and the gmApiKey are present, the app will load a Mapbox map.
 12. `gmApiKey` - Used like this `gmApiKey=yourGmApiKey`. If no gmApiKey is provided, the app will default to the access token in the `.env` file. If both the mapboxAccessToken and the gmApiKey are present, the app will load a Mapbox map.
 13. `startZoomLevel` - Used like this `startZoomLevel=22`.
-14. `gmMapId` - Used like this `gmMapId=yourGmMapId`.
 
 &#x20;
 
-**Note!** All the query parameters need to be separated with the `&` symbol, without any spaces in between.
-**Note!** When using parameters such as `directionsTo`, `directionsFrom`, `locationId`, `externalIDs`, and `tileStyle` make sure you are using the correct `apiKey` parameter to which they belong.
-**Note!** When using the `gmMapId` property, you need to use it together with the `gmApiKey` that it is associated with.
+**Note!** All the query parameters need to be separated with the `&` symbol, **without** any spaces in between.
 
 &#x20;
 
@@ -41,9 +32,9 @@ Example of URL:&#x20;
 
 &#x20;
 
-**Important!** Not all the query parameters can be used together, as they serve their own purpose which in some cases overlaps with other query parameters. Example of cases that **DON’T** work together:
+**Important!** Not all the query parameters can be used together, as they serve their own purpose which in some cases overlaps with other query parameters. Example of cases that **DO NOT** work together:
 
-1. `locationId` + `startZoomLevel` → the `startZoomLevel` has priority over the `locationId`
+1. `locationId` + `startZoomLevel` → the `locationId` has priority over the `startZoomLevel`
 2. `locationId` + `externalIDs` → the `locationId` has priority over the `externalIDs`
 3. `directionsTo` + `directionsFrom` + `locationId` → the `directionsTo` + `directionsFrom` have priority over the `locationId`
 4. `directionsTo` + `directionsFrom` + `externalIDs` → the `directionsTo` + `directionsFrom` have priority over the `externalIDs`

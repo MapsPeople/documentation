@@ -1,16 +1,10 @@
----
-description: >-
-  This page will give you an introduction on how to get started with the Map
-  Template project. Read the guide or watch our web developer Andreea implement
-  it live!
----
-
 # Getting Started
+
+An introduction on how to get started with the Map Template project. Read the guide or watch our web developer Andreea implement it live!
 
 Node version
 
 We recommend using the latest LTS version of [Node.js](https://nodejs.org/en/).
-
 
 {% embed url="https://vimeo.com/829327192" %}
 
