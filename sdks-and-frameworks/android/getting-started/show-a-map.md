@@ -24,7 +24,7 @@ Place the following initialization code in the `onCreate` method in the `MapsAct
 {% tabs %}
 {% tab title="Java - Google Maps" %}
 
-{% code title="[MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L63-L66)" overflow="wrap" lineNumbers="true" %}
+{% code title="<a href="https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L145-L167" id="MapsActivity.java"></a>" overflow="wrap" lineNumbers="true" %}
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
