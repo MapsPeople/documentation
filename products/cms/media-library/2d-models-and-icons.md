@@ -2,15 +2,13 @@
 
 The Media Library currently supports 2D models and Icons.
 
-In the CMS you can change the Icons for markers on the Map by using the Media Library. This is done by opening the Media Library from the Icon and 2D model sections in the Display Rules editor, both on Location and Type level. More information about the Media Library can be found [here](https://docs.mapsindoors.com/cms-media-library/).
+In the CMS you can change the Icons for markers on the Map by using the Media Library. This is done by opening the Media Library from the Icon and 2D Model sections in the Display Rules editor, both on Location, Type, and Main Display Rule levels. More information about the Media Library can be found [here](https://docs.mapsindoors.com/cms-media-library/).
 
-In the Media Library, you can see and manage all uploaded media, both 2D models and icons. Media can be either in .jpg, .png or .svg file formats. For icons specifically, we highly recommend using the SVG format.
+In the Media Library, you can see and manage all uploaded media, both 2D Models and icons. Media can be either in .jpg, .png or .svg file formats. For icons specifically, we highly recommend using the SVG format.
 
-Icons have a suggested limit of 128x64 pixels, and no more than 150kb in size, but this can be overridden. There is a hard limit on file size of 8 mb.
+Icons have a suggested limit of 128x64 pixels, and no more than 150kb in size. There is a hard limit on file size of 8 mb.
 
-Please note, that when using the Integration API, all Media must reside on a server that has CORS enabled. Otherwise the Media can't be loaded when using the JavaScript SDK.
-
-> If your images appear "too large" on the map, please revisit your settings.
+Please note, that when using the Integration API to set urls for Icons and 2D Models, all media must reside on a server that has CORS enabled. Otherwise the Media can't be loaded when using the JavaScript SDK.
 
 ### Uploading SVGs[​](https://docs.mapsindoors.com/cms-2d-models#uploading-svgs) <a href="#uploading-svgs" id="uploading-svgs"></a>
 
@@ -48,7 +46,7 @@ When you try to upload an SVG containing one or more of these elements and/or at
 
 If your SVGs contain unsupported elements, you must remove them before they can be uploaded. One typical issue is embedded `base64` data in the SVG, which usually indicates the SVG will display raster image data (PNGs and the like) somewhere in it. That can lead to unintended consequences on the map.
 
-### SVG Help[​](https://docs.mapsindoors.com/cms-2d-models#svg-help) <a href="#svg-help" id="svg-help"></a>
+#### SVG Help[​](https://docs.mapsindoors.com/cms-2d-models#svg-help) <a href="#svg-help" id="svg-help"></a>
 
 Michelle Barker has written [a terrific guide to optimizing SVGs for the web](https://css-irl.info/optimising-svgs-for-the-web/) on her site.
 

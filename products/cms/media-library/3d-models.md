@@ -1,10 +1,10 @@
 # 3D Models
 
-3D models in your MapsIndoors solution are uploaded and managed through [the Media Library](https://docs.mapsindoors.com/cms-media-library) just like 2D models and icons. However, due to the nature of 3D models, there are a few additional steps to manage, particularly when uploading your 3D model.
+3D Models in your MapsIndoors solution are uploaded and managed through [the Media Library](https://docs.mapsindoors.com/cms-media-library) just like 2D Models and Icons. However, due to the nature of 3D Models, there are a few additional steps to manage, particularly when uploading your 3D Model.
 
 ### Set Preview Image[​](https://docs.mapsindoors.com/cms-3d-models#set-preview-image) <a href="#set-preview-image" id="set-preview-image"></a>
 
-Most notably, when you upload a new 3D model to the Media Library, you will be asked to set a preview image. This opens a viewport where you can move and rotate your 3D model, to determine what image will be shown as a preview when browsing the Media Library, and in other locations in the CMS where an image of the 3D model is shown.
+Most notably, when you upload a new 3D model to the Media Library, you will be asked to set a _preview image_. This opens a viewport where you can move and rotate your 3D model, to determine what image will be shown as a preview when browsing the Media Library, and in other locations in the CMS where an image of the 3D model is shown.
 
 <figure><img src="https://docs.mapsindoors.com/img/cms/3d-preview-numbered.webp" alt=""><figcaption></figcaption></figure>
 

@@ -25,9 +25,9 @@ void getRoute() {
 }
 ```
 
-### Controlling the Visible Segments on the Directions Renderer[​](https://docs.mapsindoors.com/directions-renderer#controlling-the-visible-segments-on-the-directions-renderer) <a href="#controlling-the-visible-segments-on-the-directions-renderer" id="controlling-the-visible-segments-on-the-directions-renderer"></a>
+#### Controlling the Visible Segments on the Directions Renderer[​](https://docs.mapsindoors.com/directions-renderer#controlling-the-visible-segments-on-the-directions-renderer) <a href="#controlling-the-visible-segments-on-the-directions-renderer" id="controlling-the-visible-segments-on-the-directions-renderer"></a>
 
-As previously mentioned, the route object is seperated into objects of `MPRouteLeg`. Each leg is again separated into objects of `MPRouteStep`. 
+As previously mentioned, the route object is seperated into objects of `MPRouteLeg`. Each leg is again separated into objects of `MPRouteStep`.
 
 Unless the Route only contains one Leg, the Directions Renderer does not allow the full Route to be rendered all at once. Therefore, if a Leg contains multiple Steps, they will all be shown on the map at the same time, but once the Leg is changed, the previous Steps are not visible anymore.
 
@@ -41,7 +41,7 @@ void setLegIndex(int position) {
 
 The length of the `legs` array from `getLegs` on the `MPRoute` object determines the possible values of `routeLegIndex` (`0 ..< length`).
 
-#### Reacting to Label Tapping[​](https://docs.mapsindoors.com/directions-renderer#reacting-to-label-tapping) <a href="#reacting-to-label-tapping" id="reacting-to-label-tapping"></a>
+**Reacting to Label Tapping**[**​**](https://docs.mapsindoors.com/directions-renderer#reacting-to-label-tapping)
 
 **Directions Labels** refer to the labels shown at the end of the rendered route segment path, that may provide contextual information, or show instructions for a required user action at that point. The labels are created as simple `Marker` instances that are rendered as markers on the map. A user is able to long press these, and an event will be forwarded to the listener `OnLegSelectedListener` in `MPDirectionsRenderer`. This can be used to change the Leg to the next Leg in line on the Route.
 
@@ -74,7 +74,7 @@ void previousLeg() {
 }
 ```
 
-### Show Content of Nearby Locations[​](https://docs.mapsindoors.com/directions-renderer#show-content-of-nearby-locations) <a href="#show-content-of-nearby-locations" id="show-content-of-nearby-locations"></a>
+#### Show Content of Nearby Locations[​](https://docs.mapsindoors.com/directions-renderer#show-content-of-nearby-locations) <a href="#show-content-of-nearby-locations" id="show-content-of-nearby-locations"></a>
 
 It is possible to show contextual information on the end points of the rendered path of a route segment by configuring the directions renderer to look for nearby Locations or POIs.
 
@@ -113,9 +113,9 @@ fun getRoute() {
 }
 ```
 
-### Controlling the Visible Segments on the Directions Renderer[​](https://docs.mapsindoors.com/directions-renderer#controlling-the-visible-segments-on-the-directions-renderer-1) <a href="#controlling-the-visible-segments-on-the-directions-renderer-1" id="controlling-the-visible-segments-on-the-directions-renderer-1"></a>
+#### Controlling the Visible Segments on the Directions Renderer[​](https://docs.mapsindoors.com/directions-renderer#controlling-the-visible-segments-on-the-directions-renderer-1) <a href="#controlling-the-visible-segments-on-the-directions-renderer-1" id="controlling-the-visible-segments-on-the-directions-renderer-1"></a>
 
-As previously mentioned, the route object is seperated into objects of `MPRouteLeg`. Each leg is again separated into objects of `MPRouteStep`. 
+As previously mentioned, the route object is seperated into objects of `MPRouteLeg`. Each leg is again separated into objects of `MPRouteStep`.
 
 Unless the Route only contains one Leg, the Directions Renderer does not allow the full Route to be rendered all at once. Therefore, if a Leg contains multiple Steps, they will all be shown on the map at the same time, but once the Leg is changed, the previous Steps are not visible anymore.
 
@@ -129,7 +129,7 @@ fun setRouteLegIndex(position: Int) {
 
 The length of the `legs` array from `getLegs` on the `MPRoute` object determines the possible values of `routeLegIndex` (`0 ..< length`).
 
-#### Reacting to Label Tapping[​](https://docs.mapsindoors.com/directions-renderer#reacting-to-label-tapping-1) <a href="#reacting-to-label-tapping-1" id="reacting-to-label-tapping-1"></a>
+**Reacting to Label Tapping**[**​**](https://docs.mapsindoors.com/directions-renderer#reacting-to-label-tapping-1)
 
 **Directions Labels** refer to the labels shown at the end of the rendered route segment path, that may provide contextual information, or show instructions for a required user action at that point. The labels are created as simple `Marker` instances that are rendered as markers on the map. A user is able to long press these, and an event will be forwarded to the listener `OnLegSelectedListener` in `MPDirectionsRenderer`. This can be used to change the Leg to the next Leg in line on the Route.
 
@@ -162,7 +162,7 @@ fun previousLeg() {
 }
 ```
 
-### Show Content of Nearby Locations[​](https://docs.mapsindoors.com/directions-renderer#show-content-of-nearby-locations-1) <a href="#show-content-of-nearby-locations-1" id="show-content-of-nearby-locations-1"></a>
+#### Show Content of Nearby Locations[​](https://docs.mapsindoors.com/directions-renderer#show-content-of-nearby-locations-1) <a href="#show-content-of-nearby-locations-1" id="show-content-of-nearby-locations-1"></a>
 
 It is possible to show contextual information on the end points of the rendered path of a route segment by configuring the directions renderer to look for nearby Locations or POIs.
 

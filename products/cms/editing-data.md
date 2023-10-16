@@ -1,31 +1,51 @@
 # Editing Data
 
-## Location[​](https://docs.mapsindoors.com/cms-editing-data#location) <a href="#location" id="location"></a>
+## Location[​](https://docs.mapsindoors.com/cms-editing-data#location) Details Editor <a href="#location" id="location"></a>
 
 <figure><img src="../../.gitbook/assets/CleanShot 2023-07-05 at 15.09.24@2x.png" alt=""><figcaption></figcaption></figure>
 
 Each Location also has several settings associated with it. If you select a Location on the Map or in the List view in the CMS, you will be presented with a modal with the following settings:
 
-* **Type** - Locations must have a Type applied, which can be set in the Location details editor. When creating a new Location, some settings are inherited from the selected Type e.g., Name and Icon. You can always change the inherited settings to something else if necessary.
-* **Name & Description** - Type in the name of your Location and a Description. Entering it in the default language is mandatory, but you can also enter it in alternative languages.
-* **Area** - Choose the color of the Area the Location covers. You can also set whether the Area, is visible or not.
-* **Status** - Toggle whether or not this Location appears in searches.
-* **Restrictions** - Determine which, if any, App User Role Restrictions this Location should be subject to.
+#### General
+
+* **Location Type** - Locations must have a Type applied, which can be set in the Location details editor. When creating a new Location, some settings are inherited from the selected Type e.g., Name and Icon. You can always change the inherited settings to something else if necessary.
+* **Name & Description** - Type the name of your Location and a Description. Entering it in the default language is mandatory, but you can also enter it in alternative languages if set on your Solution.
 * **Categories** - Add which, if any, Categories this Location belongs to.
-* **Location Icon** - You can set an Icon to be used on the Map for this Location.
-* **Image Options** - Here you can connect an image to a Location. See below for further details.
-* **Search Aliases** - Other search terms that can be searched and still return this Location, even if it does not match the Name, Type, or Category.
-* **Venue Details** - Select which Building and Floor this Location should belong to.
 * **External ID** - You can define an External ID that a Location should use alongside its internal ID.
-* **Coordinates** - The coordinates of your Location.
-* **MapsIndoors Location ID** - The internal ID of your Location.
-* **Active** - If your Location is only displayed and searchable for a given period, you can define that here.
+
+#### Search
+
+* **Search Status** - Toggle whether or not this Location appears in searches.
+* **Search Aliases** - Other search terms that can be searched and still return this Location, even if it does not match the Name, Type, or Category.
+
+#### Restrictions
+
+* **Restrictions** - Determine which, if any, App User Role Restrictions this Location should be subject to.
+* You can choose to inherit Restrictions that might be set on the Location's Type, or override them for this particular Location.
+
+#### Visibility
+
+* **Active** **to/from** - If your Location is only displayed and searchable for a given period, you can define that here.
+
+#### Image
+
+* **Image Options** - Here you can add an image to a Location. You can select one from the [Media Library](media-library/), or set a url for an image hosted elsewhere. This should be a photo, as opposed to the pictogram you use for the Icon.
+
+#### Custom Properties
+
 * **Custom Properties** - MapsIndoors supports Custom Properties, defined by key-value pairs.
-* **Location History** - See the editing history of this Location.
 
-#### Image Options with IndoorView[​](https://docs.mapsindoors.com/cms-editing-data#image-options-with-indoorview) <a href="#image-options-with-indoorview" id="image-options-with-indoorview"></a>
+Read more about [Custom Properties](../../sdks-and-frameworks/web/other-guides/custom-properties.md).
 
-> IndoorView is only supported for web
+#### Details
+
+* **Venue Details** - Select which Building and Floor this Location should belong to.
+* **MapsIndoors Location ID** - The internal ID of your Location.
+* **Coordinates** - The coordinates of your Location.
+
+### Image Options with IndoorView[​](https://docs.mapsindoors.com/cms-editing-data#image-options-with-indoorview) <a href="#image-options-with-indoorview" id="image-options-with-indoorview"></a>
+
+> IndoorView is only supported for implementations using the JavaScript SDK.
 
 To start using the IndoorView feature for your Locations, please make sure that the _Google Street View panorama images_ are publicly available for your building by looking at [Google Maps](https://www.google.com/maps). If no imagery is available, please [contact a certified Street View Photographer](https://www.google.com/streetview/contacts-tools/).
 

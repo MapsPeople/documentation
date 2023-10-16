@@ -175,8 +175,12 @@
     * [2D Models and Icons](products/cms/media-library/2d-models-and-icons.md)
     * [3D Models](products/cms/media-library/3d-models.md)
   * [Editing Data](products/cms/editing-data.md)
-  * [Settings](products/cms/settings.md)
+  * [Settings](products/cms/settings/README.md)
+    * [Logs](products/cms/settings/logs.md)
+    * [Users](products/cms/settings/users.md)
   * [Change building outline](products/cms/change-building-outline.md)
+  * [Data Concepts](products/cms/data-concepts.md)
+  * [User Roles](products/cms/user-roles.md)
 
 ## Other Docs
 

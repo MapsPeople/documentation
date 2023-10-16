@@ -1,6 +1,6 @@
 # Media Library
 
-The Media Library is a new feature in the MapsIndoors CMS, replacing the Icon Manager that was used before. All features of the Icon Manager are present in the Media Library, but with new and improved functionality. The Media Library lets you upload and manage media files to use in the MapsIndoors CMS, for example the use of custom icons for Locations, or to place images of logos on the map. The Media Library can be accessed through the Display Settings panel, and the App Categories page, found here: `Solution Details -> App Settings -> App Configuration -> App Categories`.
+The Media Library lets you upload and manage media files to use in the MapsIndoors CMS, for example the use of custom icons for Locations, or to place images of logos on the map. The Media Library can be accessed through the "Media Library" button in the top navigation bar, on Locations and Types' Display Rules panel where applicable, like Icons, 2D Models, and 3D Models sections), as well as the App Categories page, found here: `Solution Details -> App Settings -> App Configuration -> App Categories`.
 
 <figure><img src="../../../.gitbook/assets/CleanShot 2023-07-05 at 15.11.42@2x.png" alt=""><figcaption></figcaption></figure>
 
@@ -9,17 +9,19 @@ The Media Library is a new feature in the MapsIndoors CMS, replacing the Icon Ma
 <figure><img src="https://docs.mapsindoors.com/img/cms/media-library-overview.png" alt=""><figcaption></figcaption></figure>
 
 1. Upload a file to the Media Library.
-2. Sort the content of the Media Library - options are by file name or by upload date, both ascending and descending.
+2. Sort the content of the Media Library.&#x20;
+   * Options are by file name or by upload date, both ascending and descending.
 3. Filter the contents of the Media Library by file type.
 4. Filter the contents of the Media Library, choosing between user uploads or MapsIndoors default icons.
 5. Search the Media Library by file name.
 6. Delete this content from the Media Library.
-7. Preview of the content - Click to select this content, which highlights it.
+7. Preview of the content. Click to select the content, highlighting it.
    * Hover on this preview to see more information about this content, such as dimensions and upload date.
 8. Cancel this use of the Media Library.
-9. A warning if your file is too large, it may impact performence - Click the box to proceed anyways. Only appears when accesing Media Library via `Icon` menu.
+9. A warning if your file is too large, as it may impact performance.
+   * Click the box to proceed anyway. Only appears when accessing Media Library via `Icon` menu.
 10. Select the highlighted media.
-11. Sync your Media library to other Solutions you own.
+11. Sync a piece of media to other Solutions you own.
 
 ### Feature List[​](https://docs.mapsindoors.com/cms-media-library#feature-list) <a href="#feature-list" id="feature-list"></a>
 
@@ -27,13 +29,11 @@ The Media Library is a new feature in the MapsIndoors CMS, replacing the Icon Ma
 
 <figure><img src="https://docs.mapsindoors.com/img/cms/media-library.png" alt=""><figcaption></figcaption></figure>
 
-The Media Library window contains an overview of all uploaded media in the Solution, along with functions to manage said media.
+The Media Library contains an overview of all uploaded media in the Solution, along with functions to manage it.
 
 Media present in the Media Library is displayed with a preview image. This preview will also contain the filename and the option to delete the Media. If you hover over the preview, the footer will expand to reveal further information about the media, such as dimensions (in pixels) and upload date.
 
 To select a piece of media, click on it to select it. To deselect it, click it again, or select another file in the Media Library. Your selection is indicated by a highlight. Confirm the selection of the media by clicking the "Select" button.
-
-> When using the Integration API, all images must reside on a server that has CORS enabled. Otherwise the images can't be loaded when using the JavaScript SDK.
 
 **Icons**[**​**](https://docs.mapsindoors.com/cms-media-library#icons)
 
@@ -43,7 +43,7 @@ When accessing the Media Library through the `Icon` menu point, you will be pres
 
 Clicking the "Upload" button opens a local File Explorer window, allowing you to locate the file you wish to upload to the Media Library. If a file with the same name as the selected file already exists in the Media Library, a warning will appear. You may choose to cancel the upload, or to overwrite the existing file, but this will also replace all existing uses of the file with this name. `sampleimage.jpg` and `sampleimage.png` may both exist in the Media Library concurrently, but `sampleimage.jpg` and `SampleImage.jpg` will throw a warning, as this check is not case-sensitive.
 
-> Files cannot be larger than 8 mb.
+Files cannot be larger than 8 mb.
 
 #### Sort[​](https://docs.mapsindoors.com/cms-media-library#sort) <a href="#sort" id="sort"></a>
 
