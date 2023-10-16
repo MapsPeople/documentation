@@ -12,7 +12,7 @@ Finally inside the view of `SearchResultItem` add a view with two `TouchableOpac
 
 The implementation of `setFromLocation` and `setToLocation` will come later.
 
-```
+```javascript
 type SearchResultItemProps = {
   item: MPLocation;
   clickResult: (location: MPLocation) => void;
@@ -61,7 +61,7 @@ We will now add a `NavigationHeader` to the bottom sheet. The navigation header 
 
 Open the `NavigationHeader.tsx` file. Start by expanding the `NavigationHeaderProps` with a to and `fromLocation` as well as adding a function `getRoute`. Inside the third view add two `Text` elements using the `BoldText` to highlight to and from, and use the location as well as venue name to describe the chosen to or from location. Lastly add the `getRoute` function to the `Query` buttons `onPress`.
 
-```
+```javascript
 const BoldText = (props: React.PropsWithChildren) => <Text style={{fontWeight: 'bold'}}>{props.children}</Text>
 
 type NavigationHeaderProps = {
@@ -103,7 +103,7 @@ We now want to implement the `setFromLocation` and `setToLocation` inside our `M
 
 First add the function to the props and constructor of `SearchResults` as well as forward it to the `SearchResultItem` inside the `BottomSheetFlatList`.
 
-```
+```javascript
 type SearchResultsProps = {
   searchResults: MPLocation[] | undefined;
   setFromLocation: (loc: MPLocation) => void;
@@ -123,7 +123,7 @@ export default function SearchResults({searchResults, setFromLocation, setToLoca
 
 Then we add the `NavigationHeader` inside our BottomSheet of the `MapScreen` component as well as the `fromLocation` and `toLocation` hooks and supply them to the `SearchResults` component inside the BottomSheet.
 
-```
+```javascript
 export default function MapScreen({navigation, route}) {
 
   const [fromLocation, setFromLocation] = useState<MPLocation>();
@@ -157,7 +157,7 @@ Now that our `MapScreen` is aware of the to and from locations. We will create a
 
 Inside the `getRoute` function we will first make sure that both the to and `fromLocation` is defined. Then we will create an `MPDirectionsService` this is used to query for a route, as well as configuring the route that we want to query. Here we set our `travelMode` to walking and then call `getRoute` on the `MPDirectionsService` to get a route result between the two locations. We the create an `MPDirectionsRenderer` note the supplied NativeEventEmitter this is used internally to send events between native and React Native. We set the route we received from the `MPDirectionsService` on the `MPDirectionsRenderer` which will cause the route to be rendered onto the map. We will also add a listener on the `MPDirectionsRenderer` that listens for leg changes, so that we can react to this with our views later on.
 
-```
+```javascript
   const [mproute, setMPRoute] = useState<MPRoute>();
   const [directionsRenderer, setDirectionsRenderer] = useState<MPDirectionsRenderer|undefined>(undefined);
   const [routeLeg, setRouteLeg] = useState<number>();

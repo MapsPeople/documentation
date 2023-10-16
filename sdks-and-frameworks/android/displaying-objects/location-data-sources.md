@@ -8,7 +8,7 @@ Create the class `RobotVacuumLocationSource` that implements `MPLocationSource`:
 
 Implement the methods from MPLocationSource and extend the constructor of the `RobotVacuumLocationSource` to accept a list of locations that will represent the Robot vacuums.
 
-```
+```kotlin
 class RobotVacuumLocationSource(private val robots: ArrayList<MPLocation>): MPLocationSource {
     private val mObservers = ArrayList<MPLocationsObserver>()
     private var mStatus = MPLocationSourceStatus.NOT_INITIALIZED
@@ -51,13 +51,13 @@ Create a `Fragment` or `Activity` that contains a map with MapsIndoors loaded.
 
 Add a `BASE_POSITION MPLatLng` that will be used to calculate a random location for the Robot Vacuums.
 
-```
+```kotlin
 private val BASE_POSITION = MPLatLng(57.0582502, 9.9504788)
 ```
 
 Then we need to add some variables:
 
-```
+```kotlin
 private var baseDisplayRule: WeakReference<MPDisplayRule?>? = null
 private var robotDisplayRule: MPDisplayRule? = null
 private var mLocations: ArrayList<MPLocation>? = null
@@ -66,7 +66,7 @@ private var mRobotVacuumLocationSource: RobotVacuumLocationSource? = null
 
 Create the baseDisplayRule after `MapsIndoors` has loaded:
 
-```
+```kotlin
 MapsIndoors.load(requireActivity().applicationContext, "MY_API_KEY") { error ->
     if (error == null) {
         baseDisplayRule = WeakReference(MapsIndoors.getMainDisplayRule())
@@ -77,7 +77,7 @@ MapsIndoors.load(requireActivity().applicationContext, "MY_API_KEY") { error ->
 
 create a method to setup the `RobotVacuumLocationSource` inside your fragment:
 
-```
+```kotlin
 private fun setupLocationSource() {
     if (mLocations == null) {
         generateLocations()
@@ -94,7 +94,7 @@ As seen in the example above we add the `RobotVacuumLocationSource` through `Map
 
 This method sets the status to of the source to available and notifies `MapsIndoors` that locations are updated.
 
-```
+```kotlin
 fun setup() {
     status = MPLocationSourceStatus.AVAILABLE
     notifyUpdateLocations()
@@ -109,7 +109,7 @@ fun setStatus(status: MPLocationSourceStatus) {
 
 In the `setupLocationSource` method we call `generateLocations` to populate the location list with new locations:
 
-```
+```kotlin
 private fun generateLocations() {
     mLocations = ArrayList()
     for (i in 0..15) {
@@ -145,7 +145,7 @@ private fun getRandomPosition(): MPLatLng {
 
 Create the `startUpdatingPositions` method that calls `updateLocations` every second:
 
-```
+```kotlin
 private fun startUpdatingPositions() {
     mUpdateTimer?.cancel()
     mUpdateTimer = Timer()
@@ -159,7 +159,7 @@ private fun startUpdatingPositions() {
 
 Create a method that can stop the positions updates at any time:
 
-```
+```kotlin
 fun stopUpdatingPositions() {
     mUpdateTimer?.cancel()
     mUpdateTimer?.purge()
@@ -168,7 +168,7 @@ fun stopUpdatingPositions() {
 
 Create a method called `updateLocations` that will update the position of the Locations:
 
-```
+```kotlin
 fun updateLocations() {
     var updatedLocations = ArrayList<MPLocation>()
     mLocations?.forEach {

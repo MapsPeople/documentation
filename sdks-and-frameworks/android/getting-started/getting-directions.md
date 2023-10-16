@@ -13,15 +13,14 @@ After having created our list of search results, we have a good starting point f
 
 We have already created a point in the basic example, called `mUserLocation` to use as a starting point for directions on `MapsActivity`
 
-
-
 {% tabs %}
 {% tab title="Java" %}
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L49)
 
-```
+```java
 private MPPoint mUserLocation = new MPPoint(38.897389429704695, -77.03740973527613,0);
 ```
+
 {% endtab %}
 
 {% tab title="Kotlin" %}
@@ -34,43 +33,41 @@ Now we will create a method that can generate a route for us with a Location (pi
 {% tabs %}
 {% tab title="Java - Google Maps" %}
 
-
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L41)
 
-```
+```java
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, OnRouteResultListener
 ```
+
 {% endtab %}
 
 {% tab title="Kotlin - Google Maps" %}
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L28)
 
-```
+```java
 class MapsActivity : FragmentActivity(), OnMapReadyCallback, OnRouteResultListener
 ```
-
-\
 
 {% endtab %}
 
 {% tab title="Java - Mapbox" %}
 
-
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapBox/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L42)
 
-```
+```java
 public class MapsActivity extends FragmentActivity implements OnRouteResultListener
 ```
+
 {% endtab %}
 
 {% tab title="Kotlin - Mapbox" %}
 
-
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L26)
 
-```
+```kotlin
 class MapsActivity : FragmentActivity(), OnRouteResultListener
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -80,13 +77,11 @@ Use this method to query the [`MPDirectionsService`](https://app.mapsindoors.com
 
 To generate a route with the `MPLocation`, we start by creating an `onClickListener` on our search `ViewHolder` inside the `SearchItemAdapter`. In the method `onBindViewHolder` we will call our `createRoute` on the `MapsActivity` for our route to be generated.
 
-
-
 {% tabs %}
 {% tab title="Java" %}
 [SearchItemAdapter.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/SearchItemAdapter.java#L38-L46)
 
-```
+```java
 public void onBindViewHolder(ViewHolder holder, int position) {
     ...
     holder.itemView.setOnClickListener(view -> {
@@ -106,7 +101,7 @@ We create global variables of the [`MPdirectionsRenderer`](https://app.mapsindoo
 
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L221-L252)
 
-```
+```java
 void createRoute(MPLocation mpLocation) {
     if (mpDirectionsService == null) {
         mpDirectionsService = new MPDirectionsService(this);
@@ -141,7 +136,7 @@ We will start by making a getter for our [`MPdirectionsRenderer`](https://app.ma
 
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L128-L134)
 
-```
+```java
 public MPDirectionsRenderer getMpDirectionsRenderer() {
     return mpDirectionsRenderer;
 }
@@ -151,7 +146,7 @@ Inside the `NavigationFragment` we will implement logic to navigate through Legs
 
 [NavigationFragment.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/NavigationFragment.java)
 
-```
+```java
 public class NavigationFragment extends Fragment {
     private MPRoute mRoute;
     private MapsActivity mMapsActivity;
@@ -206,7 +201,7 @@ We will then create a simple textview to describe each step of the Route Leg in 
 
 [RouteLegFragment.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/RouteLegFragment.java)
 
-```
+```java
 public class RouteLegFragment extends Fragment {
     private MPRouteLeg mRouteLeg;
     ...
@@ -234,9 +229,7 @@ In MapsIndoors, the transportation mode is referred to as **travel mode**. There
 
 To swap Travel Modes you set the Travel Mode before making a query for the route:
 
-
-
-```
+```java
 void createRoute(MPLocation mpLocation) {
     //If MPDirectionsService has not been instantiated create it here and assign the results call back to the activity.
     if (mpDirectionsService == null) {
@@ -247,12 +240,13 @@ void createRoute(MPLocation mpLocation) {
     mpDirectionsService.query(mUserLocation, mpLocation.getPoint());
 }
 ```
+
 {% endtab %}
 
 {% tab title="Kotlin" %}
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/SearchItemAdapter.kt#L18-L24)
 
-```
+```java
 override fun onBindViewHolder(holder: ViewHolder, position: Int) {
     ...
     holder.itemView.setOnClickListener {
@@ -272,7 +266,7 @@ We create global variables of the [`MPdirectionsRenderer`](https://app.mapsindoo
 
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L186-L218)
 
-```
+```kotlin
 fun createRoute(mpLocation: MPLocation) {
     //If MPRoutingProvider has not been instantiated create it here and assign the results call back to the activity.
     if (mpRoutingProvider == null) {
@@ -308,7 +302,7 @@ We will start by making a getter for our [`MPdirectionsRenderer`](https://app.ma
 
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L182-L184)
 
-```
+```kotlin
 fun getMpDirectionsRenderer(): MPDirectionsRenderer? {
     return mpDirectionsRenderer
 }
@@ -318,7 +312,7 @@ Inside the `NavigationFragment` we will implement logic to navigate through Legs
 
 [NavigationFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/NavigationFragment.kt)
 
-```
+```kotlin
 class NavigationFragment : Fragment() {
     private var mRoute: MPRoute? = null
     private var mMapsActivity: MapsActivity? = null
@@ -393,7 +387,7 @@ We will then create a simple textview to describe each step of the Route Leg in 
 
 [RouteLegFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/RouteLegFragment.kt)
 
-```
+```kotlin
 class RouteLegFragment : Fragment() {
     private var mRouteLeg: MPRouteLeg? = null
 
@@ -433,9 +427,7 @@ In MapsIndoors, the transportation mode is referred to as **travel mode**. There
 
 To swap Travel Modes you set the Travel Mode before making a query for the route:
 
-
-
-```
+```kotlin
 fun createRoute(mpLocation: MPLocation) {
     //If MPDirectionsService has not been instantiated create it here and assign the results call back to the activity.
     if (mpDirectionsService == null) {
@@ -448,13 +440,9 @@ fun createRoute(mpLocation: MPLocation) {
 }
 ```
 
-
 {% endtab %}
 {% endtabs %}
 
 Expected result:
 
 ![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/android\_directions\_gif.gif)
-
-
-

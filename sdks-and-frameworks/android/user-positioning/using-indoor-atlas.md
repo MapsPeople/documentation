@@ -14,7 +14,7 @@ For a typical Position Provider, the mapping from the positioning's index needs 
 
 You can choose to fetch the Position Provider information (`CMS` > `Solution Details` > `App Settings` > `Position Provider`) from the CMS as follows:
 
-```
+```kotlin
 Map<String, Map<String, Object>> providerConfig = MapsIndoors.getSolution().getPositionProviderConfig();
 ```
 
@@ -30,7 +30,7 @@ To begin, we will start implementing the Indoor Atlas position provider. Create 
 
 [IndoorAtlasPositionProvider.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/IndoorAtlasPositionProvider.kt#L8-L18)
 
-```
+```kotlin
 class IndoorAtlasPositionProvider(private val context: Context, private val config: MPIndoorAtlasConfig): MPPositionProvider {
     private var mLatestPosition: MPPositionResultInterface? = null
     private var mLatestBearing: Float? = null
@@ -42,7 +42,7 @@ We will start by implementing methods from the `MPPositionProvider` interface.
 
 [IndoorAtlasPositionProvider.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/IndoorAtlasPositionProvider.kt#L116-L126)
 
-```
+```kotlin
 class IndoorAtlasPositionProvider(private val context: Context, private val config: MPIndoorAtlasConfig): MPPositionProvider {
     ...
     override fun addOnPositionUpdateListener(p0: OnPositionUpdateListener) {
@@ -67,7 +67,7 @@ We start by creating a method to initiate the Indoor Atlas client. Here the meth
 
 [IndoorAtlasPositionProvider.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/IndoorAtlasPositionProvider.kt#L91-L97)
 
-```
+```kotlin
 class IndoorAtlasPositionProvider(private val context: Context, private val config: MPIndoorAtlasConfig): MPPositionProvider {
     ...
     private void initClient(){
@@ -85,7 +85,7 @@ Create a `IAOrientationListener` and `IALocationListener` we will register thees
 
 [IndoorAtlasPositionProvider.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/IndoorAtlasPositionProvider.kt#L8-L89)
 
-```
+```kotlin
 class IndoorAtlasPositionProvider(private val context: Context, private val config: MPIndoorAtlasConfig): MPPositionProvider {
     private var mLastHeadingUpdateTime: Long = 0
     private val MIN_TIME_BETWEEN_UPDATES_IN_MS: Long = 100
@@ -168,7 +168,7 @@ Implement the `startPositoning` and `stopPositioning` method:
 
 [IndoorAtlasPositionProvider.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/IndoorAtlasPositionProvider.kt#L99-L114)
 
-```
+```kotlin
 fun startPositioning() {
     if (indoorAtlasClient == null) {
         initClient()
@@ -191,7 +191,7 @@ Our implemented positioning provider will be handled in an activity or fragment.
 
 [PositioningFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/PositioningFragment.kt#L40-L54)
 
-```
+```kotlin
 class myFragment: Fragment(), OnMapReadyCallback {
     private var mPositionProvider: IndoorAtlasPositionProvider? = null
 
@@ -217,7 +217,7 @@ Lastly, we need to tell `MapControl` that we want to show the position on the ma
 
 [PositioningFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/PositioningFragment.kt#L93-L97)
 
-```
+```kotlin
 MapControl.create(mapConfig) { mapControl: MapControl?, miError: MIError? ->
     mMapControl = mapControl
 

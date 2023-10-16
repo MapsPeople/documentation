@@ -26,7 +26,7 @@ Applications have a few ways to change the default caching behaviour:
 
 The synchronization process can be started manually:
 
-```
+```java
 MapsIndoors.synchronizeContent((e) -> {
     ...
 });
@@ -34,7 +34,7 @@ MapsIndoors.synchronizeContent((e) -> {
 
 The level of caching can be changed:
 
-```
+```java
 MPDataSetCache dataSet = MPDataSetCacheManager.getInstance().getDataSetByID("API KEY");
 dataSet.setScope(mContext, MPDataSetCacheScope.DETAILED);
 MPDataSetCacheManager.getInstance().synchronizeDataSets(Collections.singletonList(dataSet));
@@ -54,7 +54,7 @@ Management of multiple datasets is done via `MPDataSetCacheManager`, which allow
 
 All datasets currently managed are accessible via the `MPDataSetCacheManager`:
 
-```
+```java
 for (MPDataSetCache dataSet : MPDataSetCacheManager.getInstance().getManagedDataSets()) {
     Log.i("dataset", dataSet.getSolutionId() + ": size " + dataSet.getCacheItem().getSyncSize());
 }
@@ -66,7 +66,7 @@ This can be used to build a management user interface, and information about ind
 
 Datasets are scheduled for caching using `MPDataSetCacheManager`:
 
-```
+```java
 MPDataSetCacheManager.getInstance().addDataSetWithCachingScope("API KEY", MPDataSetCacheScope.BASIC);
 ```
 
@@ -76,7 +76,7 @@ The current MapsIndoors API key is automatically added as a managed dataset with
 
 Datasets are removed from caching using `MPDataSetCacheManager.getInstance().removeDataSetCache(MPDataSetCache);`:
 
-```
+```java
 MPDataSetCacheManager.getInstance().removeDataSetCache(MPDataSetCache);
 ```
 
@@ -86,7 +86,7 @@ MPDataSetCacheManager.getInstance().removeDataSetCache(MPDataSetCache);
 
 To change the extent of caching, for example in a management menu:
 
-```
+```java
 MPDataSetCache dataSet = MPDataSetCacheManager.getInstance().getDataSetByID("API KEY");
 dataSet.setScope(mContext, MPDataSetCacheScope.DETAILED);
 MPDataSetCacheManager.getInstance().synchronizeDataSets(Collections.singletonList(dataSet));
@@ -96,14 +96,14 @@ MPDataSetCacheManager.getInstance().synchronizeDataSets(Collections.singletonLis
 
 The estimated and cached size of a dataset is available via:
 
-```
+```java
 dataSet.getCacheItem().getCacheSize(mContext);
 dataSet.getCacheItem().getSyncSize();
 ```
 
 To refresh or get the size of a synced dataset:
 
-```
+```java
 MPDataSetCacheManager.getInstance().getSyncSizesForDataSetCaches(Collections.singletonList(dataSet), this);
 ```
 
@@ -113,7 +113,7 @@ This is an asynchronous process, and a `MPDataSetCacheManagerSizeListener` is ne
 
 The `MPDataSetCacheManager`allows for detailed control over which datasets are synchronized, and allows for cancellation:
 
-```
+```java
 MPDataSetCacheManager dataSetCacheManager = MPDataSetCacheManager.getInstance();
 
 // sync all managed datasets
@@ -122,10 +122,10 @@ dataSetCacheManager.synchronizeDataSets();
 // sync specific datasets
 dataSetCacheManager.synchronizeDataSets(dataSets);
 ```
+
 {% endtab %}
 
 {% tab title="Kotlin" %}
-
 
 ### Cacheable Data[​](https://docs.mapsindoors.com/offline-data#cacheable-data-1) <a href="#cacheable-data-1" id="cacheable-data-1"></a>
 
@@ -149,7 +149,7 @@ Applications have a few ways to change the default caching behaviour:
 
 The synchronization process can be started manually:
 
-```
+```kotlin
 MapsIndoors.synchronizeContent { error ->
     ...
 }
@@ -157,7 +157,7 @@ MapsIndoors.synchronizeContent { error ->
 
 The level of caching can be changed:
 
-```
+```kotlin
 val dataset = MPDataSetCacheManager.getInstance().getDataSetByID("API KEY")
 dataset?.setScope(mContext, MPDataSetCacheScope.DETAILED)
 MPDataSetCacheManager.getInstance().synchronizeDataSets(Collections.singletonList(dataset))
@@ -177,7 +177,7 @@ Management of multiple datasets is done via `MPDataSetCacheManager`, which allow
 
 All datasets currently managed are accessible via the `MPDataSetCacheManager`:
 
-```
+```kotlin
 for (dataSet in MPDataSetCacheManager.getInstance().managedDataSets) {
     Log.i("dataset", dataSet.solutionId + ": size " + dataSet.cacheItem.syncSize)
 }
@@ -189,7 +189,7 @@ This can be used to build a management user interface, and information about ind
 
 Datasets are scheduled for caching using `MPDataSetCacheManager`:
 
-```
+```kotlin
 MPDataSetCacheManager.getInstance()
         .addDataSetWithCachingScope("API KEY", MPDataSetCacheScope.BASIC)
 ```
@@ -200,7 +200,7 @@ The current MapsIndoors API key is automatically added as a managed dataset with
 
 Datasets are removed from caching using `MPDataSetCacheManager.getInstance().removeDataSetCache(MPDataSetCache);`:
 
-```
+```kotlin
 MPDataSetCacheManager.getInstance().removeDataSetCache(MPDataSetCache)
 ```
 
@@ -210,7 +210,7 @@ MPDataSetCacheManager.getInstance().removeDataSetCache(MPDataSetCache)
 
 To change the extent of caching, for example in a management menu:
 
-```
+```kotlin
 val dataset = MPDataSetCacheManager.getInstance().getDataSetByID("API KEY")
 dataset?.setScope(mContext, MPDataSetCacheScope.DETAILED)
 MPDataSetCacheManager.getInstance().synchronizeDataSets(Collections.singletonList(dataset))
@@ -220,14 +220,14 @@ MPDataSetCacheManager.getInstance().synchronizeDataSets(Collections.singletonLis
 
 The estimated and cached size of a dataset is available via:
 
-```
+```kotlin
 dataSet?.cacheItem?.getCacheSize(mContext)
 dataSet?.cacheItem?.syncSize
 ```
 
 To refresh or get the size of a synced dataset:
 
-```
+```kotlin
 MPDataSetCacheManager.getInstance().getSyncSizesForDataSetCaches(listOf(dataSet), this)
 ```
 
@@ -237,7 +237,7 @@ This is an asynchronous process, and a `MPDataSetCacheManagerSizeListener` is ne
 
 The `MPDataSetCacheManager`allows for detailed control over which datasets are synchronized, and allows for cancellation:
 
-```
+```kotlin
 MPDataSetCacheManager dataSetCacheManager = MPDataSetCacheManager.getInstance();
 
 // sync all managed datasets
@@ -246,5 +246,6 @@ dataSetCacheManager.synchronizeDataSets()
 // sync specific datasets
 dataSetCacheManager.synchronizeDataSets(dataSets)
 ```
+
 {% endtab %}
 {% endtabs %}

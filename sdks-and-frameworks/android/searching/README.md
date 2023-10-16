@@ -30,9 +30,10 @@ See the full list of parameters:
 
 {% tabs %}
 {% tab title="Java" %}
+
 #### Example of Creating a Search Query <a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
 
-```
+```java
 void findRestroom() {
     //Here we will create an empty query because we are only interrested in getting locations that match a category. If you want to be more specific here where you can add a query text like "Unisex Restroom"
     MPQuery mpQuery = new MPQuery
@@ -61,9 +62,7 @@ When displaying the search results it is helpful to filter the map to only show 
 
 #### Example of Filtering the Map to Display Searched Locations on the Map <a href="#example-of-filtering-the-map-to-display-searched-locations-on-the-map" id="example-of-filtering-the-map-to-display-searched-locations-on-the-map"></a>
 
-
-
-```
+```java
 MapsIndoors.getLocationsAsync(mpQuery, mpFilter, (locations, error) -> {
     if (locations != null && !locations.isEmpty()) {
         //Query with the locations from the query result. Use default camera behavior
@@ -78,17 +77,17 @@ After displaying the search results on your map you can then clear the filter so
 
 #### Example of Clearing Your Map Filter to Show All Locations Again <a href="#example-of-clearing-your-map-filter-to-show-all-locations-again" id="example-of-clearing-your-map-filter-to-show-all-locations-again"></a>
 
-```
+```java
 mMapControl.clearFilter();
 ```
+
 {% endtab %}
 
 {% tab title="Kotlin" %}
+
 #### Example of Creating a Search Query <a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
 
-
-
-```
+```kotlin
 fun findRestroom() {
     //Here we will create an empty query because we are only interrested in getting locations that match a category. If you want to be more specific here where you can add a query text like "Unisex Restroom"
     val mpQuery = MPQuery.Builder()
@@ -114,9 +113,7 @@ When displaying the search results it is helpful to filter the map to only show 
 
 #### Example of Filtering the Map to Display Searched Locations on the Map <a href="#example-of-filtering-the-map-to-display-searched-locations-on-the-map" id="example-of-filtering-the-map-to-display-searched-locations-on-the-map"></a>
 
-
-
-```
+```kotlin
 MapsIndoors.getLocationsAsync(mpQuery, mpFilter, (locations, error) -> {
     //Query with the locations from the query result. Use default camera behavior
     mMapControl.setFilter(locations, MPFilterBehavior.DEFAULT)
@@ -129,9 +126,9 @@ After displaying the search results on your map you can then clear the filter so
 
 #### Example of Clearing Your Map Filter to Show All Locations Again <a href="#example-of-clearing-your-map-filter-to-show-all-locations-again" id="example-of-clearing-your-map-filter-to-show-all-locations-again"></a>
 
-```
+```kotlin
 mMapControl.clearFilter()
 ```
+
 {% endtab %}
 {% endtabs %}
-

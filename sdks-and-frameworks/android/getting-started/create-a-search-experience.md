@@ -186,6 +186,7 @@ void search(String searchQuery) {
     });
 }
 ```
+
 {% endtab %}
 
 {% tab title="Kotlin" %}
@@ -276,7 +277,7 @@ Create a getter for your [`MapControl` object](https://app.mapsindoors.com/mapsi
 
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L178-L180)
 
-```
+```kotlin
 fun getMapControl(): MapControl {
     return mMapControl
 }
@@ -361,11 +362,8 @@ When you are done showing the search results you can [call `clearMap()` on `MapC
 
 Since the default `displaySearchResults(List<MPLocation> locations)` uses camera animation we will call it from the UI Thread and implement it in our search method inside the getLocationsAsync result with the list from the method.
 
-
-
 {% tabs %}
 {% tab title="Java" %}
-
 
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L190-L192)
 
@@ -381,10 +379,10 @@ void search(String searchQuery) {
     });
 }
 ```
+
 {% endtab %}
 
 {% tab title="Kotlin" %}
-
 
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L154)
 
@@ -396,6 +394,7 @@ private fun search(searchQuery: String) {
     }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 

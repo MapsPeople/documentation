@@ -15,13 +15,12 @@ Enabling Live Data through [`MapControl`](https://app.mapsindoors.com/mapsindoor
 
 We will create a new method on our `MapsActivity` called `enableLiveData()` to enable Live Data for the Solution.
 
-
-
 {% tabs %}
 {% tab title="Java" %}
+
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L254-L262)
 
-```
+```java
 void enableLiveData() {
     //Enabling Live Data for the three known Live Data Domains enabled for this Solution.
     mMapControl.enableLiveData(LiveDataDomainTypes.AVAILABILITY_DOMAIN);
@@ -34,11 +33,9 @@ By consequence, [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference
 
 In the context of your view controller showing a map, add the call after creating your [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) object used in the `Activity` in the `initMapControl()` method created earlier.
 
-
-
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L145-L167)
 
-```
+```java
 void initMapControl(View view) {
     //Creates a new instance of MapControl
     MapControl.create(mapConfig, (mapControl, miError) -> {
@@ -49,12 +46,13 @@ void initMapControl(View view) {
     ...
 }
 ```
+
 {% endtab %}
 
 {% tab title="Second Tab" %}
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L223-L228)
 
-```
+```kotlin
 private fun enableLiveData() {
     //Enabling Live Data for the three known Live Data Domains enabled for this Solution.
     mMapControl.enableLiveData(LiveDataDomainTypes.AVAILABILITY_DOMAIN)
@@ -67,11 +65,9 @@ By consequence, [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference
 
 In the context of your view controller showing a map, add the call after creating your [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) object used in the `Activity` in the `initMapControl()` method created earlier.
 
-
-
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L117-L135)
 
-```
+```kotlin
 private fun initMapControl(view: View) {
     ...
     //Creates a new instance of MapControl
@@ -86,32 +82,9 @@ private fun initMapControl(view: View) {
     ...
 }
 ```
+
 {% endtab %}
 {% endtabs %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Using the demo API key you should now be able to see a "Staff Person" moving from one end to the other at ground floor in The White House main building.
 

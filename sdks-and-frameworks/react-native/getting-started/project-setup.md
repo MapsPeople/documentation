@@ -4,6 +4,7 @@ This guide is made based off a basic application already made, to keep most of t
 
 {% tabs %}
 {% tab title="Basic example" %}
+
 ## Using basic example[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#using-basic-example) <a href="#using-basic-example" id="using-basic-example"></a>
 
 ### Set Up Your Environment[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#set-up-your-environment) <a href="#set-up-your-environment" id="set-up-your-environment"></a>
@@ -28,13 +29,14 @@ Inside the project navigate to `ios/GettingStartedProject/AppDelegate.mm` and re
 {% endtab %}
 
 {% tab title="Manual setup" %}
+
 ### Manual setup[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#manual-setup) <a href="#manual-setup" id="manual-setup"></a>
 
 #### Project creation[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#project-creation) <a href="#project-creation" id="project-creation"></a>
 
 Create a new React Native project by running the following command
 
-```
+```bash
 npx react-native@latest init GettingStartedProject
 ```
 
@@ -42,14 +44,14 @@ npx react-native@latest init GettingStartedProject
 
 Start by installing the bindings for your preferred map provider. There is currently only support for using one of these packages at a time.
 
-```
+```bash
 npm install @mapsindoors/react-native-maps-indoors-google-maps
 # npm install @mapsindoors/react-native-maps-indoors-mapbox
 ```
 
 The getting started project makes use of the following publicly available UI components. We recommend using them while following the getting started guide.
 
-```
+```bash
 # Bottomsheet
 npm install @gorhom/bottom-sheet@^4
 
@@ -60,7 +62,7 @@ npm install react-native-screens react-native-safe-area-context
 
 The above components make use of the following dependecies, if using React Native 0.59 or below you will also need to link them, you can read how to below.
 
-```
+```bash
 # Dependencies
 npm install react-native-reanimated react-native-gesture-handler
 ```
@@ -73,15 +75,16 @@ Please see the following links for additional steps needed for installing the de
 
 After making changes to dependecies, especially those involving native code, you will need to run the following command from the ios folder of your project:
 
-```
+```bash
 pod install
 ```
 
 Alternatively you can install the npm package `pod-install` and then run the following command from anywhere within the project:
 
-```
+```bash
 npx pod-install
 ```
+
 {% endtab %}
 {% endtabs %}
 

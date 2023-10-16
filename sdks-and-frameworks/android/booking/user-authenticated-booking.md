@@ -9,12 +9,11 @@ description: >-
 {% tabs %}
 {% tab title="Java" %}
 
-
 ### User Authenticated Bookings in Java[​](https://docs.mapsindoors.com/user-authenticated-booking#user-authenticated-bookings-in-java) <a href="#user-authenticated-bookings-in-java" id="user-authenticated-bookings-in-java"></a>
 
 By default, the `MPBookingService` performs anonymous bookings using a service account known to MapsIndoors. However, it is also possible to list, perform and cancel Bookings on behalf of a user. For the `MPBookingService` to work on behalf of a user, it must identify the tenant with a given tenant id (optional for single tenant setups) and prove user access with an access token. See the following example.
 
-```
+```java
 MPBookingService mBookingService = MPBookingService.getInstance();
 
 public void setAuthentication(String userToken, String tenantId) {
@@ -40,21 +39,21 @@ Obtaining an access token for working with Bookings on behalf of a user is outsi
 
 It is easy to disable the authentication, simply `null` the `AuthConfig` on the `MPBookingService`.
 
-```
+```java
 MPBookingService bookingService = MPBookingService.getInstance();
 
 bookingService.setAuthConfig(null);
 ```
+
 {% endtab %}
 
 {% tab title="Kotlin" %}
-
 
 ### User Authenticated Bookings in Kotlin[​](https://docs.mapsindoors.com/user-authenticated-booking#user-authenticated-bookings-in-kotlin) <a href="#user-authenticated-bookings-in-kotlin" id="user-authenticated-bookings-in-kotlin"></a>
 
 By default, the `MPBookingService` performs anonymous bookings using a service account known to MapsIndoors. However, it is also possible to list, perform and cancel Bookings on behalf of a user. For the `MPBookingService` to work on behalf of a user, it must identify the tenant with a given tenant id (optional for single tenant setups) and prove user access with an access token. See the following example.
 
-```
+```kotlin
 private val mBookingService: MPBookingService = MPBookingService.getInstance()
 
 fun setAuthentication(accessToken: String, tenantId: String) {
@@ -80,10 +79,11 @@ Obtaining an access token for working with Bookings on behalf of a user is outsi
 
 It is easy to disable the authentication, simply `null` the `AuthConfig` on the `MPBookingService`.
 
-```
+```kotlin
 val bookingService = MPBookingService.getInstance()
 
 bookingService.setAuthConfig(null)
 ```
+
 {% endtab %}
 {% endtabs %}

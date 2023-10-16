@@ -24,4 +24,4 @@ directionsService.query(origin, destination)
 
 Further details on how user positioning works, and how to display it, can be found [here](https://docs.mapsindoors.com/blue-dot/).
 
-This results in directions queries originating from the user's current location.a
+This results in directions queries originating from the user's current location.

@@ -21,7 +21,7 @@ Once you have created your heatmaps with your map provider, you will need a way 
 
 To achieve this you will use the MapsIndoors `Layers` class that comes with the Mapsindoors Mapbox dependency. It can be done like this:
 
-```
+```kotlin
 mapboxMap.getStyle { style ->
     style.addLayerBelow(createHeatmapLayer(), Layers.AREA_FILL)
 }
@@ -29,7 +29,7 @@ mapboxMap.getStyle { style ->
 
 `Layers.AREA_FILL` is the lowest of the MapsIndoors layers (except for tiles, but as that is changed depending on floor indexes, it is not available through the SDK). This means the heatmap will be rendered above tiles, but underneath any other MapsIndoors-specific item on the map.
 
-```
+```kotlin
 mapboxMap.getStyle { style ->
     style.addLayerBelow(createHeatmapLayer(), MPLayers.POI)
 }

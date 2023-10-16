@@ -6,13 +6,13 @@ First create a Fragment or Activity with a map and MapsIndoors loaded.
 
 We will create a Fragment that will contain a textInput field and a RecyclerView that will show a list of `MPLocations` received from the search.
 
-```
+```kotlin
 class FullscreenSearchFragment : Fragment() {
 ```
 
 As we will be using a `RecyclerView` we will need to create a `RecyclerView Adapter` to show our Location results. In this guide we will hijack the Adapter from the Template app:
 
-```
+```kotlin
 class MPSearchItemRecyclerViewAdapter : RecyclerView.Adapter<MPSearchItemRecyclerViewAdapter.ViewHolder>() {
     private var mLocations: List<MPLocation> = ArrayList()
     private lateinit var context: Context
@@ -87,7 +87,7 @@ Setup member variables for `FullscreenSearchFragment`:
 * The Adapter and LayoutManager for the RecyclerView
 * Some view components
 
-```
+```kotlin
 private lateinit var mRecyclerView: RecyclerView
 private lateinit var mLinearLayoutManager: LinearLayoutManager
 private val mAdapter: MPSearchItemRecyclerViewAdapter = MPSearchItemRecyclerViewAdapter()
@@ -97,7 +97,7 @@ private var searchHandler: Handler? = null
 
 Init and setup the `RecyclerView`:
 
-```
+```kotlin
 mRecyclerView = binding.searchList
 mLinearLayoutManager = LinearLayoutManager(requireContext())
 mRecyclerView.apply {
@@ -108,7 +108,7 @@ mRecyclerView.apply {
 
 Init and setup the view components to handle searching inside the `onViewCreated`
 
-```
+```kotlin
 searchInputTextView = binding.searchInputEditText
 val imm = requireActivity().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
 searchInputTextView.addTextChangedListener {
@@ -130,7 +130,7 @@ searchInputTextView.setOnEditorActionListener { textView, i, keyEvent ->
 
 create a Runnable to execute a search
 
-```
+```kotlin
 private val searchRunner: Runnable = Runnable {
     val text = searchInputTextView.text
     if (text?.length!! >= 2) {
@@ -141,7 +141,7 @@ private val searchRunner: Runnable = Runnable {
 
 Add a listener to the Adapter for when a user selects a location, to navigate back to the map and show the selected location. Here we use navigation together with a bundle to tell the other fragment of the selected location
 
-```
+```kotlin
 mAdapter.setOnLocationSelectedListener { location ->
     if (location != null) {
         val bundle = Bundle()
@@ -155,7 +155,7 @@ mAdapter.setOnLocationSelectedListener { location ->
 
 [See the sample in FullscreenSearchFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/search/FullscreenSearchFragment.kt) Now we will implement the `FullscreenSearchFragment` together with our Fragment or Activity containing a MapsIndoors Map. Add a Button to open the `FullscreenSearchFragment` inside your Activity or Fragment view and a assign a Click listener to it.
 
-```
+```kotlin
 binding.searchButton.setOnClickListener {
     openSearchFragment()
 }
@@ -163,7 +163,7 @@ binding.searchButton.setOnClickListener {
 
 Create the `openSearchFragment` method to navigate to the `FullScreenSearchFragment`
 
-```
+```kotlin
 private fun openSearchFragment() {
     val navController = findNavController()
     navController.navigate(R.id.action_nav_search_to_nav_search_fullscreen)
@@ -172,7 +172,7 @@ private fun openSearchFragment() {
 
 Finally create a way to handle the selected location when a user is navigated to your fragment again. How this example is set up the Map will be reloaded when navigated to it. Therefor we will handle the selection after `MapControl` is created.
 
-```
+```kotlin
 MapControl.create(mapConfig) { mapControl: MapControl?, miError: MIError? ->
     mMapControl = mapControl
     //Enable Live Data on the map

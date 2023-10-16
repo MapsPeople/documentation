@@ -14,11 +14,12 @@ Once your language of choice has been created, you can add the translation by cl
 
 {% tabs %}
 {% tab title="Java" %}
+
 ### Use Fixed Language[​](https://docs.mapsindoors.com/display-language#use-fixed-language) <a href="#use-fixed-language" id="use-fixed-language"></a>
 
 The MapsIndoors language can be fixed to a specific language by supplying an [ISO 639-1 language code](https://en.wikipedia.org/wiki/List\_of\_ISO\_639-1\_codes), for example French:
 
-```
+```java
 MapsIndoors.setLanguage("fr");
 ```
 
@@ -26,38 +27,31 @@ MapsIndoors.setLanguage("fr");
 
 The MapsIndoors language can be aligned with the device language by supplying the current language code of the device:
 
-```
+```java
 String languageCode = getResources().getConfiguration().getLocales().get(0).getLanguage();
 MapsIndoors.setLanguage(languageCode);
 ```
 
-
 {% endtab %}
 
 {% tab title="Kotlin" %}
+
 ### Use Fixed Language[​](https://docs.mapsindoors.com/display-language#use-fixed-language) <a href="#use-fixed-language" id="use-fixed-language"></a>
 
 The MapsIndoors language can be fixed to a specific language by supplying an [ISO 639-1 language code](https://en.wikipedia.org/wiki/List\_of\_ISO\_639-1\_codes), for example French:
 
-```
+```kotlin
 MapsIndoors.setLanguage("fr")
-
 ```
 
 ### Use Device Language[​](https://docs.mapsindoors.com/display-language#use-device-language) <a href="#use-device-language" id="use-device-language"></a>
 
 The MapsIndoors language can be aligned with the device language by supplying the current language code of the device:
 
-```
+```kotlin
 val lang = resources.configuration.locales[0].language
 MapsIndoors.setLanguage(lang)
-
-
 ```
+
 {% endtab %}
 {% endtabs %}
-
-
-
-
-

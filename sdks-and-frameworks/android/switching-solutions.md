@@ -12,6 +12,7 @@ To initialize MapsIndoors, do the following:
 
 {% tabs %}
 {% tab title="Java" %}
+
 ```java
 protected void onCreate(Bundle savedInstanceState) {
     ...
@@ -38,9 +39,11 @@ void initMapControl(View view) {
     });
 }
 ```
+
 {% endtab %}
 
 {% tab title="Kotlin" %}
+
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
     ...
@@ -69,6 +72,7 @@ fun initMapControl(view: View) {
     }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -76,6 +80,7 @@ fun initMapControl(view: View) {
 
 {% tabs %}
 {% tab title="Java" %}
+
 ```java
 protected void onCreate(Bundle savedInstanceState) {
     ...
@@ -93,9 +98,11 @@ void initMapControl(View view) {
     });
 }
 ```
+
 {% endtab %}
 
 {% tab title="Kotlin" %}
+
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
     ...
@@ -112,6 +119,7 @@ fun initMapControl(view: View) {
     }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -125,6 +133,7 @@ We recommend creating your own function to call in the future for this purpose, 
 
 {% tabs %}
 {% tab title="Java" %}
+
 ```java
 protected void switchSolution() {
     mMapControl.onDestroy();
@@ -132,9 +141,11 @@ protected void switchSolution() {
     mMapView.getMapAsync(this);
 }
 ```
+
 {% endtab %}
 
 {% tab title="Kotlin" %}
+
 ```kotlin
 private fun switchSolution() {
     mMapControl.onDestroy()
@@ -142,6 +153,7 @@ private fun switchSolution() {
     mMapView.getMapAsync(this)
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -149,18 +161,22 @@ private fun switchSolution() {
 
 {% tabs %}
 {% tab title="Java" %}
+
 ```java
 mMapControl.onDestroy();
 MapsIndoors.load(getApplicationContext(), "YOUR_SECONDARY_API_KEY", null);
 initMapControl(mMapBoxMap, mMapView);
 ```
+
 {% endtab %}
 
 {% tab title="Kotlin" %}
+
 ```kotlin
 mMapControl.onDestroy()
 MapsIndoors.load(applicationContext, "YOUR_SECONDARY_API_KEY", null)
 initMapControl(mMapBoxMap, mMapView)
 ```
+
 {% endtab %}
 {% endtabs %}

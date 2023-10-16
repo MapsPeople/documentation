@@ -6,7 +6,7 @@ Requirements for this tutorial will be to have a running fragment or activity wi
 
 We need a view that shows the details of the location. Here we will use a TextView to display the name and description of a location:
 
-```
+```xml
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -21,7 +21,7 @@ We need a view that shows the details of the location. Here we will use a TextVi
 
 Once the map is ready move the camera to a Venue:
 
-```
+```kotlin
 val venue = MapsIndoors.getVenues()!!.currentVenue
 activity?.runOnUiThread {
     if (venue != null) {
@@ -40,7 +40,7 @@ We will then create a listener for when a user clicks on a marker to show the de
 
 When a marker is clicked, get the related MapsIndoors location object and propagate that to a method that fills the text in the `detailsTextView`.
 
-```
+```kotlin
 mMapControl?.let { mapControl ->
     mapControl.setOnLocationSelectedListener {
         if (it != null) {
@@ -57,7 +57,7 @@ mMapControl?.let { mapControl ->
 
 Create the `showLocationDetails(location: MPLocation)` method in your project.
 
-```
+```kotlin
 private fun showLocationDetails(location: MPLocation) {
     binding.detailsTextView.text =  "Name: " + location.name + "\nDescription: " + location.description
     binding.detailsTextView.visibility = View.VISIBLE

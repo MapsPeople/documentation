@@ -6,14 +6,18 @@ Logging may be disabled entirely by calling:
 
 {% tabs %}
 {% tab title="Java" %}
+
 ```java
 MapsIndoors.disableEventLogging(true);
 ```
+
 {% endtab %}
 
 {% tab title="Kotlin" %}
+
 ```kotlin
 MapsIndoors.disableEventLogging(true)
 ```
+
 {% endtab %}
 {% endtabs %}

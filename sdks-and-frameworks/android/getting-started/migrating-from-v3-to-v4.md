@@ -6,7 +6,7 @@ The Android SDK for MapsIndoors has been upgraded from V3 to V4, which comes wit
 
 With the release of V4 the MapsIndoors SDK is released as two separate libraries depending on the Map Provider - Google Maps or Mapbox. You can get them through Maven by changing your dependency to get:
 
-```
+```gradle
 implementation 'com.mapspeople.mapsindoors:googlemaps:4.0.0'
 
 implementation 'com.mapspeople.mapsindoors:mapbox:4.0.0'
@@ -20,33 +20,33 @@ MapsIndoors is a singleton class, which can be described as the data layer of th
 
 In V3, SDK initialization is started with:
 
-```
+```java
 MapsIndoors.initialize(getApplicationContext(), "mapsindoors-key", listener);
 ```
 
 And subsequently setting the Google API key using:
 
-```
+```java
 MapsIndoors.setGoogleAPIKey(getString(R.string.google_maps_key));
 ```
 
 If you want to change the MapsIndoors API key of an already initialized SDK you invoke:
 
-```
-MapsIndoors.setApiKey("new key")
+```java
+MapsIndoors.setApiKey("new key");
 ```
 
 And to close down the SDK, call:
 
-```
-MapsIndoors.onApplicationTerminate()
+```java
+MapsIndoors.onApplicationTerminate();
 ```
 
 **V4**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v4)
 
 In V4, initialization is started by the new function `MapsIndoors.load()`:
 
-```
+```java
 MapsIndoors.load(getApplicationContext(), "mapsindoors-key", listener);
 ```
 
@@ -56,8 +56,8 @@ Switching to another MapsIndoors API key, such as for switching active Solutions
 
 To close down the SDK without reloading a new API key, invoke:
 
-```
-MapsIndoors.destroy()
+```java
+MapsIndoors.destroy();
 ```
 
 ### MapControl Initialization[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#mapcontrol-initialization) <a href="#mapcontrol-initialization" id="mapcontrol-initialization"></a>
@@ -68,7 +68,7 @@ MapControl instantiation and initialization are separate concepts. You create a 
 
 In V3, `MapControl.init()` is a separate asynchronous call:
 
-```
+```java
 mMapControl = new MapControl(this);
 mMapControl.setGoogleMap(mMap, view);
 mMapControl.init(miError -> {
@@ -80,7 +80,7 @@ mMapControl.init(miError -> {
 
 In V4, `MapControl` now requires a `MPMapConfig` object, which is acquired using a builder on the class `MPMapConfig`. Here you must provide an activity, a map provider (Google Maps or Mapbox), a `mapview` and a map engine API key.
 
-```
+```java
 MPMapConfig mapConfig = new MPMapConfig.Builder(activity, googleMap, "google-api-key", view, true)
         .setShowFloorSelector(true)
         .build();
@@ -88,7 +88,7 @@ MPMapConfig mapConfig = new MPMapConfig.Builder(activity, googleMap, "google-api
 
 With a `MPMapConfig` instance, you may create a new `MapControl` instance. This now happens through a factory pattern. This both instantiates and initializes your `MapControl` object asynchronously. If everything succeeds, you will receive a ready-to-use `MapControl` instance - if not, you will get an error and receive no `MapControl` instance.
 
-```
+```java
 MapControl.create(mapConfig, (mapControl, miError) -> {
     // MapControl init complete
 });
@@ -102,7 +102,7 @@ Please note that this factory method will wait to return until a valid MapsIndoo
 
 In V3, AppConfig contained information about clustering (`POI_GROUPING`) and collisions (`POI_HIDE_ON_OVERLAP`), which could be fetched and updated like this:
 
-```
+```java
 // get whether collisions are enabled... as a string
 MapsIndoors.getAppConfig().getAppSettings().get(AppConfig.APP_SETTING_POI_HIDE_ON_OVERLAP);
 
@@ -114,7 +114,7 @@ MapsIndoors.getAppConfig().getAppSettings().put(AppConfig.APP_SETTING_POI_GROUPI
 
 In V4, these settings have been moved to `MPSolutionConfig`, which is located on the MPSolution. Now these settings have types (a boolean and an Enum type). This helps ensure that the settings are easier to configure and have no parsing errors. They can be fetched and updates like this:
 
-```
+```java
 // get the config from the solution
 MPSolutionConfig config = MapsIndoors.getSolution().getConfig();
 
@@ -148,7 +148,7 @@ In V3 you would create new DisplayRule objects and add them onto Locations throu
 
 **Editing a single location**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#editing-a-single-location)
 
-```
+```java
 LocationDisplayRule singleLocationDisplayRule = new LocationDisplayRule.Builder("singleRule").setVectorDrawableIcon(R.drawable.ic_baseline_air_24).setLabel("single display rule").build();
 MPLocation mpLocation = MapsIndoors.getLocationById("MyLocationId");
 mMapControl.setDisplayRule(singleLocationDisplayRule, mpLocation);
@@ -156,7 +156,7 @@ mMapControl.setDisplayRule(singleLocationDisplayRule, mpLocation);
 
 **Editing multiple locations**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#editing-multiple-locations)
 
-```
+```java
 multipleLocationDisplayRule = new LocationDisplayRule.Builder("multipleRule").setVectorDrawableIcon(R.drawable.ic_baseline_air_24).setLabel("multiple display rule").build();
 MapsIndoors.getLocationsAsync(null, new MPFilter.Builder().setTypes(Collections.singletonList("Meetingroom")).build(), (locations, miError) -> {
     if (locations != null) {
@@ -171,7 +171,7 @@ In V4, DisplayRules have been changed to a reference-based approach. You now rec
 
 **Editing a single DisplayRule**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#editing-a-single-displayrule)
 
-```
+```java
 MPLocation mpLocation = MapsIndoors.getLocationById("MyLocationId");
 MPDisplayRule mpDisplayRule = MapsIndoors.getDisplayRule(mpLocation);
 if (mpDisplayRule != null) {
@@ -181,7 +181,7 @@ if (mpDisplayRule != null) {
 
 **Editing multiple DisplayRules**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#editing-multiple-displayrules)
 
-```
+```java
 MapsIndoors.getLocationsAsync(null, new MPFilter.Builder().setTypes(Collections.singletonList("Meetingroom")).build(), (locations, error) -> {
     if (locations != null) {
         MPDisplayRuleOptions displayRuleOptions = new MPDisplayRuleOptions().setIcon(R.drawable.ic_baseline_chair_24)
@@ -200,7 +200,7 @@ MapsIndoors.getLocationsAsync(null, new MPFilter.Builder().setTypes(Collections.
 
 **Resetting Display Rules**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#resetting-display-rules)
 
-```
+```java
 MapsIndoors.getLocationsAsync(null, new MPFilter.Builder().setTypes(Collections.singletonList("Meetingroom")).build(), (locations, error) -> {
     if (locations != null) {
         for (MPLocation location : locations) {
@@ -221,7 +221,7 @@ Building outlines and selections are now also DisplayRules, so that you can cust
 
 The following methods are examples of how you can use DisplayRules to set the outline color of a building, or if selecting a building highlights it.
 
-```
+```java
 MapsIndoors.getDisplayRule(MPSolutionDisplayRule.BUILDING_OUTLINE).setPolygonStrokeColor(Color.BLUE);
 MapsIndoors.getDisplayRule(MPSolutionDisplayRule.SELECTION_HIGHLIGHT).setPolygonVisible(false);
 ```
@@ -236,7 +236,7 @@ There are two basic functions here - Retrieving, or querying a route, and render
 
 In V3, the process to query a route is to instantiate a `MPRoutingProvider` and set the desired travel mode, departure/arrival time, etc. You should also instantiate an `OnRouteResultListener` to receive the result (or error in case of failure).
 
-```
+```java
 int timeNowSeconds = (int) (System.currentTimeMillis() / 1000);
 MPRoutingProvider routingProvider = new MPRoutingProvider();
 routingProvider.setTravelMode(TravelMode.WALKING);
@@ -257,7 +257,7 @@ In V4, `MPRoutingProvider` has been renamed to `MPDirectionsService`, to align w
 
 Instantiate a new `MPDirectionsService`, and apply the settings needed for a route. Use the `query()` method to search for a route between two points.
 
-```
+```java
 Date date = new Date();
 MPDirectionsService directionsService = new MPDirectionsService();
 directionsService.setIsDeparture(true);
@@ -279,7 +279,7 @@ directionsService.query(from, to);
 
 To render a given route in V3, instantiate a `MPDirectionsRenderer` with parameters. Then your IDE should be able to show you the various configurable attributes (various animation settings and styling) as well as setting the route. Alternatively, refer to further documentation. To start the renderer/animation, invoke `initMap()`.
 
-```
+```java
 MPDirectionsRenderer directionsRenderer = new MPDirectionsRenderer(this, mMap, mMapControl, null);
 directionsRenderer.setPolylineAnimated(true);
 directionsRenderer.setAnimated(true);
@@ -294,7 +294,7 @@ runOnUiThread( ()-> {
 
 In V4, this has been simplified. Given a route, you can instantiate a new `MPDirectionsRenderer`, and set the route using `setRoute()`. Use the `MPDirectionsRenderer` object to navigate through the route (next/previous leg) as well as configure the animation and styling of the route on the map. By default the route is animated and repeating, but this is customizable on the `MPDirectionsRenderer` instance.
 
-```
+```java
 MPDirectionsRenderer renderer = new MPDirectionsRenderer(mMapControl);
 renderer.setRoute(route);
 ```
@@ -332,7 +332,7 @@ In V3, filtering map content is performed with `MapControl.displaySearchResult()
 
 Clearing the map filter is done by invoking `MapControl.clearMap()`.
 
-```
+```java
 boolean displaySearchResults(@NonNull List<MPLocation> locations)
 boolean displaySearchResults(@NonNull List<MPLocation> locations, boolean animateCamera)
 boolean displaySearchResults(@NonNull List<MPLocation> locations, @Nullable ReadyListener readyListener)
@@ -349,7 +349,7 @@ To avoid the aforementioned undesirable overloads, in V4, filtering map content 
 
 One way to perform map filtering, is given a list of `MPLocation`, display only these locations on the map.
 
-```
+```java
 MapsIndoors.getLocationsAsync(new MPQuery.Builder().setQuery("stairs").build(), null, (locations, error) -> {
     if(error == null && !locations.isEmpty()) {
         mMapControl.setFilter(locations, MPFilterBehavior.DEFAULT);
@@ -359,7 +359,7 @@ MapsIndoors.getLocationsAsync(new MPQuery.Builder().setQuery("stairs").build(), 
 
 Another way is to configure a `MPFilter` object. This is an easy way to only show locations of a given type or category on the map.
 
-```
+```java
 MPFilter filter = new MPFilter.Builder().setTypes(Collections.singletonList("Stairs")).build();
 mMapControl.setFilter(filter, MPFilterBehavior.DEFAULT, null);
 ```
@@ -370,7 +370,7 @@ mMapControl.setFilter(filter, MPFilterBehavior.DEFAULT, null);
 
 In V3, the snippet below is the `PositionProvider` interface. While perfectly functional, it leaves a lot be desired in terms of readability and clarity, and avoiding bloat in the code.
 
-```
+```java
 public interface PositionProvider {
   @NonNull String[] getRequiredPermissions();
   boolean isPSEnabled();
@@ -394,7 +394,7 @@ public interface PositionProvider {
 
 To fix this in V4, `PositionProvider` has been optimized and renamed to `MPPositionProvider`, to fall in line with other naming conventions. It has been renamed with the MP-prefix and has been heavily trimmed, to only describe the necessary interface for the MapsIndoors SDK to utilize a position provider sufficiently.
 
-```
+```java
 public interface MPPositionProvider {
     void addOnPositionUpdateListener(@NonNull OnPositionUpdateListener listener);
     void removeOnPositionUpdateListener(@NonNull OnPositionUpdateListener listener);
@@ -516,7 +516,5 @@ public interface MPPositionProvider {
 | Venue                         | MPVenue                                                             |
 | VenueCollection               | MPVenueCollection                                                   |
 | VenueInfo                     | MPVenueInfo                                                         |
-
-
 
 ## MapsIndoors Initialization <a href="#mapsindoors-initialization" id="mapsindoors-initialization"></a>

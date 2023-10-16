@@ -41,24 +41,19 @@ If you want to see an example of how this guide will look when completed, you ca
 
 To get started with your project add MapsIndoors version `2.0.0` to your `pubspec.yaml`.
 
-```
+```yaml
 mapsindoors_googlemaps: ^2.0.0
 ```
 
-
-
-
-
 {% tabs %}
 {% tab title="Android" %}
-
 
 First you need to extend the allowed gradle repositories to allow the SDK to resolve correctly:
 
 1. Navigate to the app's project level `build.gradle`.
 2. add `maven { url 'https://maven.mapsindoors.com/' }` to `allprojects`/`repositories` after `mavenCentral()`
 
-```
+```gradle
 allprojects {
     repositories {
         google()
@@ -74,12 +69,13 @@ To get the underlying Google Map to work, you need to perform the following step
 2. Create a file in this folder called `google_maps_api_key.xml`.
 3. Copy and paste the below code snippet and replace `YOUR_KEY_HERE` with your Google Maps API key.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="google_maps_key">YOUR_KEY_HERE</string>
 </resources>
 ```
+
 {% endtab %}
 
 {% tab title="iOS" %}
@@ -109,15 +105,12 @@ After this you should navigate into the iOS folder of your flutter project and a
 
 To get started with your project add MapsIndoors version `2.0.0` to your `pubspec.yaml`.
 
-```
+```yaml
 mapsindoors_mapbox: ^2.0.0
 ```
 
-
-
 {% tabs %}
 {% tab title="Android" %}
-
 
 First you need to extend the allowed gradle repositories to allow the SDK to resolve correctly:
 
@@ -125,7 +118,7 @@ First you need to extend the allowed gradle repositories to allow the SDK to res
 2. add `maven { url 'https://maven.mapsindoors.com/' }` to `allprojects`/`repositories` after `mavenCentral()`
 3. add mapbox to repositories like in the example below:
 
-```
+```gradle
 allprojects {
     repositories {
         google()
@@ -150,7 +143,7 @@ allprojects {
 
 4. add your mapbox download token to gradle.properties
 
-```
+```.properties
 MAPBOX_DOWNLOADS_TOKEN=YOUR_DOWNLOAD_TOKEN
 ```
 
@@ -160,19 +153,20 @@ To get the underlying Mapbox Map to work, you need to perform the following step
 2. Create a file in this folder called `mapbox_api_key.xml`.
 3. Copy and paste the below code snippet and replace `YOUR_KEY_HERE` with your Mapbox keys.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="mapbox_api_key" translatable="false">YOUR_KEY_HERE</string>
     <string name="mapbox_access_token" translatable="false">YOUR_KEY_HERE</string>
 </resources>
 ```
+
 {% endtab %}
 
 {% tab title="iOS" %}
 The MapsIndoors SDK requires iOS 13, so make sure that your podfile is configured for iOS 13. Add !use\_frameworks inside your app target as well.
 
-```
+```ruby
 platform :ios, '13.0
 
 target 'MyApp' do
@@ -193,4 +187,3 @@ end
 Navigate to your application settings in XCode and add your Mapbox public access token to info with the key MBXAccessToken Setup your secret access token for downloading the sdk. Read how to do this here: [Configure credentials](https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials)
 {% endtab %}
 {% endtabs %}
-

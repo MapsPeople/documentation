@@ -37,7 +37,7 @@ First, download or clone the pre-made project from GitHub: [https://github.com/M
 * Add the Maven repository ([http://maven.mapsindoors.com/](http://maven.mapsindoors.com/)) to your project's `build.gradle` file
 * Add the following dependencies from `build.gradle`:
 
-```
+```gradle
 implementation 'com.google.code.gson:gson:2.8.6'
 implementation 'com.mapspeople.mapsindoors:mapsindoorssdk:3.12.1'
 implementation 'com.squareup.okhttp3:okhttp:4.9.0'
@@ -46,7 +46,7 @@ implementation "com.google.android.gms:play-services-maps:16.1.0"
 
 * For the next step, this project uses [Glide](https://bumptech.github.io/glide/) for image handling in your application. If you are not using Glide, either import it, or if you use a different image library, you need to change some lines of code in the app. What you need to change them to, depends on the library you use. The lines are:
 
-```
+```kotlin
 DirectionStepFragment.kt: 50
 DirectionStepFragment.kt: 53
 DirectionStepFragment.kt: 56
@@ -63,7 +63,7 @@ Material 1.5 is used for this app. If another version is used some UI elements m
 * Copy the `google_maps_api.xml` file to your project and insert a valid Google Maps API key - [See more info on how to do that here.](https://docs.mapsindoors.com/getting-started/android/v4/prerequisites/)
 * Add the API key to the manifest file under the `Application` tag like so:
 
-```
+```xml
 <meta-data
         android:name="com.google.android.geo.API_KEY"
         android:value="@string/google_maps_key" />

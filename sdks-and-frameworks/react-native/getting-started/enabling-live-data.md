@@ -15,7 +15,7 @@ Enabling Live Data through [`MapControl`](https://app.mapsindoors.com/mapsindoor
 
 We will create a new functions inside our `MapScreen` component called `livedata()` to enable Live Data for the Solution.
 
-```
+```javascript
   const livedata = async () => {
     if (!mapControl) {
       console.warn("Must load MapsIndoors before enabling live data");
@@ -30,7 +30,7 @@ We will create a new functions inside our `MapScreen` component called `livedata
 
 We can later call this function after loading MapsIndoors to enable it. For demonstration purposes we add a button inside the `MapScreen` that you can click to enable live data.
 
-```
+```javascript
 <GestureHandlerRootView style={{flex:1, flexGrow:1}}>
     <MapView style={{
       width: width,
@@ -47,7 +47,6 @@ We can later call this function after loading MapsIndoors to enable it. For demo
 By consequence, enabling live data through [MapControl](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.0.0/classes/MapControl.html) is as simple as calling [mapControl.enableLiveData()](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.0.0/classes/MapControl.html) will manage the Live Data subscriptions needed for the currently visible map and provide a default rendering of the Live Data updates depending on the Domain Type.
 
 Using the demo API key you should now be able to see a "Staff Person" moving from one end to the other at ground floor in The White House main building.\
-
 
 Expected result:
 
