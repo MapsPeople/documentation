@@ -154,7 +154,7 @@ void search(String value) {
 }
 ```
 
-See the full example of the search method here: [main.dart](https://docs.mapsindoors.com/getting-started/flutter/example.com) //MADHTODO
+See the full example of the search method here: [main.dart](https://github.com/MapsPeople/getting_started_flutter/blob/main/lib/main.dart#L133-L165)
 
 ### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/flutter/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
 
