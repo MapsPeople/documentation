@@ -13,6 +13,12 @@ Each Location also has several settings associated with it. If you select a Loca
 * **Categories** - Add which, if any, Categories this Location belongs to.
 * **External ID** - You can define an External ID that a Location should use alongside its internal ID.
 
+#### Area
+
+* This section is only visible for Areas. It is **not** visible for rooms and locations without an Area.
+* **Rotation (angle)** - Set the rotation of the Area. Positive values will rotate the are to the right, while negative values will rotate the are to the left.
+* **Area as an Obstacle** - This section is only visible if your `Graph Setup` is set to `Automatic`. Checking this checkbox will set the Area to be an `Obstacle`. If an Area is an `Obstacle`, the Area will have an effect on the routing. Read more about this feature here.
+
 #### Restrictions
 
 * **Restrictions** - Determine which, if any, App User Role Restrictions this Location should be subject to.
