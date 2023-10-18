@@ -1,5 +1,5 @@
 ---
-cover: ../../.gitbook/assets/3d (3).jpg
+cover: ../../.gitbook/assets/3dghighlightimage (1).jpg
 coverY: 0
 layout:
   cover:

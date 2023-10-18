@@ -2,7 +2,7 @@
 
 * [MapsIndoors Developer Docs](README.md)
 
-## SDKS & Frameworks
+## ⚒ SDKS & Frameworks
 
 * [Web](sdks-and-frameworks/web/README.md)
   * [Getting Started](sdks-and-frameworks/web/getting-started/README.md)
@@ -137,14 +137,6 @@
   * [Data Description](sdks-and-frameworks/integration-api/data-description.md)
   * [Reverse Geocoding](sdks-and-frameworks/integration-api/reverse-geocoding.md)
   * [Route Access](sdks-and-frameworks/integration-api/route-access.md)
-* [Flutter](sdks-and-frameworks/flutter/README.md)
-  * [Getting Started](sdks-and-frameworks/flutter/getting-started/README.md)
-    * [Prerequisites](sdks-and-frameworks/flutter/getting-started/prerequisites.md)
-    * [Create a New Project](sdks-and-frameworks/flutter/getting-started/create-a-new-project.md)
-    * [Show a Map](sdks-and-frameworks/flutter/getting-started/show-a-map.md)
-    * [Create a Search Experience](sdks-and-frameworks/flutter/getting-started/create-a-search-experience.md)
-    * [Getting Directions](sdks-and-frameworks/flutter/getting-started/getting-directions.md)
-    * [Enable Live Data](sdks-and-frameworks/flutter/getting-started/enable-live-data.md)
 * [React Native](sdks-and-frameworks/react-native/README.md)
   * [Getting Started](sdks-and-frameworks/react-native/getting-started/README.md)
     * [Prerequisites](sdks-and-frameworks/react-native/getting-started/prerequisites.md)
@@ -153,8 +145,16 @@
     * [Creating a Search Experience](sdks-and-frameworks/react-native/getting-started/creating-a-search-experience.md)
     * [Getting Directions](sdks-and-frameworks/react-native/getting-started/getting-directions.md)
     * [Enabling Live Data](sdks-and-frameworks/react-native/getting-started/enabling-live-data.md)
+* [Flutter](sdks-and-frameworks/flutter/README.md)
+  * [Getting Started](sdks-and-frameworks/flutter/getting-started/README.md)
+    * [Prerequisites](sdks-and-frameworks/flutter/getting-started/prerequisites.md)
+    * [Create a New Project](sdks-and-frameworks/flutter/getting-started/create-a-new-project.md)
+    * [Show a Map](sdks-and-frameworks/flutter/getting-started/show-a-map.md)
+    * [Create a Search Experience](sdks-and-frameworks/flutter/getting-started/create-a-search-experience.md)
+    * [Getting Directions](sdks-and-frameworks/flutter/getting-started/getting-directions.md)
+    * [Enable Live Data](sdks-and-frameworks/flutter/getting-started/enable-live-data.md)
 
-## Products
+## ⭐ Products
 
 * [Product Overview](products/product-overview.md)
 * [Map Template](products/fast-track-maptemplate/README.md)
@@ -180,9 +180,8 @@
   * [Data Concepts](products/cms/data-concepts.md)
   * [User Roles](products/cms/user-roles.md)
 
-## Other Docs
+## 🗃 Other Docs
 
-* [MapsIndoors SDK Firewall](other-docs/mapsindoors-sdk-firewall.md)
 * [Glossary](other-docs/glossary.md)
 * [Changelog](other-docs/changelog/README.md)
   * [iOS SDK](other-docs/changelog/ios-sdk/README.md)
@@ -219,3 +218,11 @@
       * [Getting Directions](other-docs/legacy-docs/v3-1/getting-started/getting-directions.md)
       * [Enable Live Data](other-docs/legacy-docs/v3-1/getting-started/enable-live-data.md)
       * [Integrating MapsIndoors into your own App](other-docs/legacy-docs/v3-1/getting-started/integrating-mapsindoors-into-your-own-app.md)
+* [MapsIndoors SDK Firewall](other-docs/mapsindoors-sdk-firewall.md)
+
+## Links
+
+* [CMS](https://cms.mapsindoors.com/)
+* [Map Design System](https://www.mapsindoors.com/design)
+* [Support](https://mapspeople.atlassian.net/servicedesk/customer/portals)
+* [Website](https://www.mapspeople.com/)

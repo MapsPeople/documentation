@@ -4,7 +4,9 @@
 
 The Map section is the main navigation of the MapsIndoors CMS and includes the Filter bar at the top, a Toolbar at the bottom, a Floor selector on the right, and your Map in the center.
 
-<figure><img src="../../.gitbook/assets/cms (3).jpg" alt=""><figcaption></figcaption></figure>
+
+
+<figure><img src="../../.gitbook/assets/cms (6).jpg" alt=""><figcaption></figcaption></figure>
 
 1. Use the "Solution Switcher" to select your active Solution.
 2. Enters the "Map" view (shown on the image). This is the page you see when logging into the CMS.
