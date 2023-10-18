@@ -13,15 +13,15 @@ Each Location also has several settings associated with it. If you select a Loca
 * **Categories** - Add which, if any, Categories this Location belongs to.
 * **External ID** - You can define an External ID that a Location should use alongside its internal ID.
 
-#### Search
-
-* **Search Status** - Toggle whether or not this Location appears in searches.
-* **Search Aliases** - Other search terms that can be searched and still return this Location, even if it does not match the Name, Type, or Category.
-
 #### Restrictions
 
 * **Restrictions** - Determine which, if any, App User Role Restrictions this Location should be subject to.
 * You can choose to inherit Restrictions that might be set on the Location's Type, or override them for this particular Location.
+
+#### Search
+
+* **Search Status** - Toggle whether or not this Location appears in searches.
+* **Search Aliases** - Other search terms that can be searched and still return this Location, even if it does not match the Name, Type, or Category.
 
 #### Visibility
 
