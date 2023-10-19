@@ -53,7 +53,7 @@ The central class to carry out the subscription tasks is the LiveDataManager, bu
 
 Enabling Live Data through MPMapControl can be done as simple as calling MPMapControl.enableLiveData() with a Domain Type.
 
-```
+```swift
 self.mapControl = MPMapControl(map: self.map!)
 
 self.mapControl.enableLiveData(domain: MPLiveDomainType.position) { liveUpdate in
@@ -72,7 +72,7 @@ Note that using the enableLiveData() methods on MPMapControl has some limitation
 
 As mentioned, MPMapControl has a default way of rendering Live Data Locations if you call MPMapControl.enableLiveData(). If you need to show Live Data in another way, you can add handlers for this by providing a listener to the enableLiveData method. Here is an example of creating a Display Rule for a Location that has a Live Update.
 
-```
+```swift
 self.mapControl.enableLiveData(domain: MPLiveDomainType.occupancy) { liveUpdate in
     if let occupancyUpdate = liveUpdate as? MPOccupancyLiveUpdate {
         // Handle occupancy live data update
@@ -101,7 +101,7 @@ While only a few lines of code can get things moving around on a map, there are 
 
 To get Live Updates on a general level, implement the MPSubscriptionClientDelegate protocol method didReceiveMessage(\_ message: Data, onTopic: String):
 
-```
+```swift
 extension MyClass : MPSubscriptionClientDelegate {
     func didReceiveMessage(_ message: Data, onTopic: String) {
         let liveUpdate = location.getLiveUpdate(forDomainType: MPLiveDomainType.occupancy)
@@ -114,7 +114,7 @@ extension MyClass : MPSubscriptionClientDelegate {
 
 In order to get notified about state changes and errors happening in the Subscription Client, MPSubscriptionClientDelegate provides methods as shown in the example below:
 
-```
+```swift
 extension MyClass : MPSubscriptionClientDelegate {
 
     func didUpdateState(_ state: MPSubscriptionState) {

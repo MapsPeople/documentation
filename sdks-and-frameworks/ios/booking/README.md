@@ -10,7 +10,7 @@ A MapsIndoors dataset can only have bookable resources if an integration with a 
 
 The central service in the SDK managing Bookings is the Booking Service.
 
-```
+```swift
 MPMapsIndoors.shared.bookingService
 ```
 
@@ -28,7 +28,7 @@ The Booking Service can help with the following tasks:
 
 To determine whether or not a Location is bookable can be looked up using the `MPMapsIndoors.shared.bookingService. bookableLocationsUsing(query: MPBookableQuery)` method. Below is an example of querying for bookable Locations:
 
-```
+```swift
 let startTime = Date()
 let endTime = startTime.advanced(by: 60*60)
 let bookableQuery = MPBookableQuery(startTime: startTime, endTime: endTime)
@@ -47,7 +47,7 @@ It is also possible to check a location statically using `MPLocation.isBookable`
 
 It is possible execute a booking creation request using the `MPMapsIndoors.shared.bookingService.performBooking(MPBooking)` method which takes a booking object as input. If the booking is successfully performed, the booking will return in the block with an assigned `bookingId`.
 
-```
+```swift
 do {
     let booking = MPBooking()
     booking.location = bookableLocation
@@ -76,7 +76,7 @@ Depending on the Booking provider, the participants will receive invites for an 
 
 It is possible to cancel a created Booking using the `MPBookingService.cancel()` method which takes an existing Booking object as input.
 
-```
+```swift
 do {
     if (try await MPMapsIndoors.shared.bookingService.cancelBooking(booking)) != nil {
         let alert = UIAlertController(title: "Booking was cancelled!", message: "Booking was successfully cancelled!", preferredStyle: .alert)
@@ -100,13 +100,13 @@ Please note that a MapsIndoors dataset can only have bookable resources if an in
 
 We will start by listing bookable Locations. Create a class `BookableLocationsController` inheriting from `UITableViewController`.
 
-```
+```swift
 class BookableLocationsController: UITableViewController {
 ```
 
 Create a private property that should hold our bookable Locations.
 
-```
+```swift
 private var bookableLocations = [MPLocation]()
 ```
 
@@ -116,7 +116,7 @@ In your `viewDidAppear()` method,
 2. Call `getBookableLocations()` on the `MPBookingService` instance.
 3. Assign the returned locations to your `bookableLocations` property.
 
-```
+```swift
 override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
@@ -131,7 +131,7 @@ override func viewWillAppear(_ animated: Bool) {
 
 add a refresh function:
 
-```
+```swift
 func refresh() async {
     let startTime = Date()
     let endTime = startTime.advanced(by: 60*60)
@@ -153,7 +153,7 @@ func refresh() async {
 
 In `numberOfSections(in:)` add:
 
-```
+```swift
 override func numberOfSections(in tableView: UITableView) -> Int {
     return 2
 }
@@ -161,7 +161,7 @@ override func numberOfSections(in tableView: UITableView) -> Int {
 
 In `tableView(_:numberOfRowsInSection:)` , return the size of `bookableLocations`.
 
-```
+```swift
 override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if section == 0 {
         return bookableLocations.count
@@ -173,7 +173,7 @@ override func tableView(_ tableView: UITableView, numberOfRowsInSection section:
 
 In `tableView(_:cellForRowAt:)`, create a `UITableViewCell` with the current Locations name as the text for the label.
 
-```
+```swift
 override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = UITableViewCell()
     var list = locationsConfiguredForBooking
@@ -188,7 +188,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 
 In `tableView(_:didSelectRowAt:)`, get the relevant `MPLocation` for the `indexPath`. Initialise a `BookingsController` which we will implement next. Assign the selected Location to a `bookableLocation` property on `BookingsController` and push the controller to the navigation stack.
 
-```
+```swift
 override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let bookingsVC = BookingsController()
     var list = locationsConfiguredForBooking
@@ -205,32 +205,32 @@ override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: Inde
 
 Create a new controller, `BookingsController` inheriting again from `UITableViewController`. This controller will list the Bookings for a locations within a timespan, as well as give access to creating new and editing bookings.
 
-```
+```swift
 class BookingsController: UITableViewController {
 ```
 
 Create a public property `bookableLocation` that will hold the Location we want to book.
 
-```
+```swift
 var bookableLocation : MPLocation?
 ```
 
 Create a private property `bookings` that can hold the Location's bookings.
 
-```
+```swift
 private var bookings = [MPBooking]()
 ```
 
 In your `viewDidLoad()` method, initialise a `UIBarButtonItem` with the title `Book`targeting `newBooking` which we will create later. Add the button to the `navigationItem`.
 
-```
+```swift
 let button = UIBarButtonItem(title: "Book", style: .plain, target: self, action: #selector(newBooking))
 self.navigationItem.rightBarButtonItem = button
 ```
 
 Also in your `viewDidLoad()` method, initialise a `MPBookingsQuery`with the `MPLocation` stored in `bookableLocation` and a timespan, in this example 24 hours starting one hour ago.
 
-```
+```swift
 let bookingsQuery = MPBookingsQuery()
 bookingsQuery.location = bookableLocation
 bookingsQuery.startTime = Date().advanced(by: -60*60)
@@ -239,7 +239,7 @@ bookingsQuery.endTime = bookingsQuery.startTime?.advanced(by: 24*60*60)
 
 Lastly in your `viewDidLoad()` method, call `bookingsUsing(query: bookingsQuery)`with the `bookingsQuery` we just created. Store the returned Bookings in our `bookings` property.
 
-```
+```swift
 Task {
     if let bookings = try await MPMapsIndoors.shared.bookingService.bookingsUsing(query: bookingsQuery) {
         self.bookings = bookings
@@ -250,7 +250,7 @@ Task {
 
 In `numberOfSections(in:)`, return 1 since we only need one section.
 
-```
+```swift
 override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
 }
@@ -258,7 +258,7 @@ override func numberOfSections(in tableView: UITableView) -> Int {
 
 In `tableView(_:numberOfRowsInSection:)`, return the size of `bookings`.
 
-```
+```swift
 override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return bookings.count
 }
@@ -266,7 +266,7 @@ override func tableView(_ tableView: UITableView, numberOfRowsInSection section:
 
 In `tableView(_:cellForRowAt:)`, create a `UITableViewCell` with the current Booking title as the text for the label.
 
-```
+```swift
 override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = UITableViewCell()
     let booking = bookings[indexPath.row]
@@ -277,7 +277,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 
 In `tableView(_:didSelectRowAt:)`, get the relevant `MPBooking` for the `indexPath` and call `editBooking()` with that Booking.
 
-```
+```swift
 override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let booking = bookings[indexPath.row]
     editBooking(booking: booking)
@@ -286,7 +286,7 @@ override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: Inde
 
 Create a method `editBooking(booking:)`. In this mehod, initialise a `BookingController` which we will implement next. Assign the selected booking to the `BookingController` and push the controller to the navigation stack.
 
-```
+```swift
 func editBooking(booking:MPBooking) {
     let bookingVC = BookingController()
     bookingVC.booking = booking
@@ -296,7 +296,7 @@ func editBooking(booking:MPBooking) {
 
 Create an Objective-C exposed method `newBooking()` which will be use by our `UIBarButtonItem` created in `viewDidLoad()`. In the `newBooking()` mehod, initialise a new `MPBooking` instance and provide some default values for the Booking. Call the newly created `editBooking(booking:)` with the Booking instance.
 
-```
+```swift
 @objc func newBooking() {
     let booking = MPBooking()
     booking.location = bookableLocation
@@ -314,7 +314,7 @@ We need a third controller to display, edit and perform an actual Booking.
 
 We will create an enum model to keep track on the different parts of the `MPBooking` model displayed through the view controller.
 
-```
+```swift
 enum BookingRow : Int {
     case title = 0
     case description = 1
@@ -327,19 +327,19 @@ enum BookingRow : Int {
 
 Create `BookingController` inheriting once again from `UITableViewController`.
 
-```
+```swift
 class BookingController: UITableViewController {
 ```
 
 Create a public property `booking` that will hold our Booking.
 
-```
+```swift
 var booking = MPBooking()
 ```
 
 Create a method `updateButtons()` that will either place a `book button` if there is no `bookingId` on the Booking, which means it was created locally, or place a `cancel button` if a `bookingId` exist for the Booking, which means it was selected from a list of Bookings fetched from the `MPBookingService`.
 
-```
+```swift
 private func updateButtons() {
     if booking.bookingId != nil {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel Booking", style: .plain, target: self, action: #selector(cancel))
@@ -351,7 +351,7 @@ private func updateButtons() {
 
 In your `viewDidLoad()` method, just call the `updateButtons()` method.
 
-```
+```swift
 override func viewDidLoad() {
     updateButtons()
 }
@@ -359,7 +359,7 @@ override func viewDidLoad() {
 
 Create an Objective-C exposed method `book()` which will be use by our `UIBarButtonItem` inserted in `viewDidLoad()`. In the `book()` mehod, call `perform(booking)` on the `MPBookingService` instance with our Booking object as input. If all goes well and we have a Booking returned in the block, we assign this new Booking to our `booking` propery and refresh our views. If not, we assume that we have an error, and show this in an alert controller.
 
-```
+```swift
 @objc private func book() async {
     do {
         if let booking = try await MPMapsIndoors.shared.bookingService.performBooking(booking) {
@@ -377,7 +377,7 @@ Create an Objective-C exposed method `book()` which will be use by our `UIBarBut
 
 Create another Objective-C exposed method `cancel()` which will be use by our `UIBarButtonItem` inserted in `viewDidLoad()`. In the `cancel()` mehod, call `cancel(booking)` on the `MPBookingService` instance with our Booking object as input. If all goes well and we have a Booking returned in the block, we assign this new Booking to our `booking` propery and refresh our views. If not, we assume that we have an error, and show this in an alert controller.
 
-```
+```swift
 @objc private func cancel() async {
         do {
             if (try await MPMapsIndoors.shared.bookingService.cancelBooking(booking)) != nil {
@@ -395,7 +395,7 @@ Create another Objective-C exposed method `cancel()` which will be use by our `U
 
 In `numberOfSections(in:)`, return 1 since we only need one section.
 
-```
+```swift
 override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
 }
@@ -403,7 +403,7 @@ override func numberOfSections(in tableView: UITableView) -> Int {
 
 In `tableView(_:numberOfRowsInSection:)`, return the value of `BookingRow.count.rawValue`.
 
-```
+```swift
 override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return BookingRow.count.rawValue
 }
@@ -411,7 +411,7 @@ override func tableView(_ tableView: UITableView, numberOfRowsInSection section:
 
 In `tableView(:cellForRowAt indexPath:)`, create a `UITableViewCell` and create a switch control structure by initialising a `BookingRow` enum value from `indexPath.row`. Based on the cases, populate the `textLabel` with `title`, `bookingDescription`, `startTime`, `endTime` and `bookingId` from your `MPBooking` instance.
 
-```
+```swift
 override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: nil)
     switch BookingRow.init(rawValue: indexPath.row)  {
@@ -438,7 +438,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 
 In `tableView(_:cellForRowAt:)`, create a switch control structure again by initialising a `BookingRow` enum value from `indexPath.row`. Based on the cases, either initialise and present `FieldEditController` or `DatePickerController` which we will implement next.
 
-```
+```swift
 override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     weak var wself = self
     switch BookingRow.init(rawValue: indexPath.row) {
@@ -483,7 +483,7 @@ Creating UI for editing text and dates is outside the scope of this tutorial. Bu
 
 First a controller `EditController` for arranging the presented editing view skeleton.
 
-```
+```swift
 class EditController: UIViewController {
     let doneButton = UIButton()
     let titleLabel = UILabel()
@@ -516,7 +516,7 @@ class EditController: UIViewController {
 
 Secondly, a controller `DatePickerController` inheriting `EditController` presenting and managing the date picker.
 
-```
+```swift
 class DatePickerController: EditController {
 
     private let datePicker = UIDatePicker()
@@ -545,7 +545,7 @@ class DatePickerController: EditController {
 
 Lastly, a controller `FieldEditController` inheriting `EditController` presenting and managing the text field.
 
-```
+```swift
 class FieldEditController: EditController, UITextFieldDelegate {
 
     private let textField = UITextField()

@@ -47,7 +47,7 @@ Make sure that the minimum Android SDK version is 21 (aka. "Android Lollipop", v
 Please note that mapsindoors uses java 8 language features, that requires desugaring if `minSdkVersion` is 24 or below. Read how to enable this in gradle here: [Use Java 8 language features and APIs](https://developer.android.com/studio/write/java8-support)
 {% endhint %}
 
-```
+```gradle
 android {
     defaultConfig {
         minSdkVersion 21
@@ -58,7 +58,7 @@ android {
 
 MapsIndoors relies on Java 8 features, so you must add the following compile options, also in _android_ section of your _build.gradle_ file:
 
-```
+```gradle
 android {
     ...
     compileOptions {
@@ -80,7 +80,7 @@ Add the following dependencies and the MapsIndoors maven repository:
 
 `play-services-maps` is used for Google Maps which MapsIndoors is build on top of on Android.
 
-```
+```gradle
 dependencies {
     ...
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
@@ -112,7 +112,7 @@ Sync your project with gradle.
 {% tab title="Mapbox" %}
 
 
-```
+```gradle
 dependencies {
     ...
     implementation ('com.mapbox.maps:android:10.8.0'){
@@ -131,7 +131,7 @@ repositories{
 
 Put those lines in your proguard-rules files:
 
-```
+```properties
 -keep interface com.mapsindoors.core.** { *; }
 -keep class com.mapsindoors.core.errors.** { *; }
 -keepclassmembers class com.mapsindoors.core.models.** { <fields>; }

@@ -9,7 +9,7 @@ description: >-
 
 To query for a route, create a `MPPoint` from the Latitude, longitude and the z-index of the user, and use that on the `DirectionsService.query` function, like this:
 
-```java
+```kotlin
 val directionsService = MPDirectionsService(mContext)
 //Create an Origin MPPoint with the users latitude, longitude and Z-index. If no Z-index is available just use 0.0
 val origin = MPPoint(userLatitude, userLongitude, userZIndex)

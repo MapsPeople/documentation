@@ -12,7 +12,7 @@ Scenarios where asset tracking would be useful could for example be a hospital w
 
 Enabling Live Data through `MapControl` is an easy way to get Live Data running in your app. For this use case, `LiveDataDomainTypes.POSITION_DOMAIN` and `LiveDataDomainTypes.AVAILABILITY_DOMAIN` should be enabled, as you need to know the position of the wheelchair, and whether or not it is in use - `LiveDataDomainTypes.OCCUPANCY_DOMAIN`, which monitors the number of people using, often used for meeting rooms, is not needed in this use case.
 
-```
+```kotlin
 mMapControl.enableLiveData(LiveDataDomainTypes.POSITION_DOMAIN)
 mMapControl.enableLiveData(LiveDataDomainTypes.AVAILABILITY_DOMAIN)
 ```
@@ -29,7 +29,7 @@ Information about how to handle [listening for Live Data Updates](https://docs.m
 
 Enabling Live Data through `MapControl` is an easy way to get Live Data running in your app. For this use case, `LiveDataDomainTypes.POSITION_DOMAIN` and `LiveDataDomainTypes.AVAILABILITY_DOMAIN` should be enabled, as you need to know the position of the wheelchair, and whether or not it is in use - `LiveDataDomainTypes.OCCUPANCY_DOMAIN`, which monitors the number of people using, often used for meeting rooms, is not needed in this use case.
 
-```
+```java
 mMapControl.enableLiveData(LiveDataDomainTypes.POSITION_DOMAIN);
 mMapControl.enableLiveData(LiveDataDomainTypes.AVAILABILITY_DOMAIN);
 ```

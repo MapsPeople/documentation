@@ -4,7 +4,7 @@ Use the `MapsIndoors.getLocationsAsync()` method to search for content in your M
 
 #### Setup a query for the nearest single best matching location and display the result on the map[​](https://docs.mapsindoors.com/search-on-map#setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map) <a href="#setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map" id="setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map"></a>
 
-```
+```java
 // Init the query builder and build a query, in this case we will query for coffee machines ***/
 MPQuery query = new MPQuery.Builder().
         setQuery("coffee machine").
@@ -24,7 +24,7 @@ MapsIndoors.getLocationsAsync( query, filter, ( locs, err ) -> {
 
 #### Setup a query for a group of locations and display the result on the map[​](https://docs.mapsindoors.com/search-on-map#setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map) <a href="#setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map" id="setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map"></a>
 
-```
+```java
 // Init the query builder and build a query, in this case we will query for all to toilets
 MPQuery query = new MPQuery.Builder().
         setQuery("Toilet").

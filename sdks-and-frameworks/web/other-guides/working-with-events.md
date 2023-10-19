@@ -18,7 +18,7 @@ A code example is shown in the JSFiddle below, but will be run through bit by bi
 
 The `ready` event will be fired when MapsIndoors is done initializing and is ready to interact.
 
-```
+```javascript
 mapsIndoors.addListener('ready', (e) => {
  log(`MapsIndoors: Ready`);
 });
@@ -32,7 +32,7 @@ This is also related to the Floor Selector which will update its view to show th
 
 The event handler is called with a [building](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/global.html#Building) (<mark style="background-color:red;">jeg forstår ikke det her link</mark>) object representing the building in focus.
 
-```
+```javascript
 mapsIndoors.addListener('building_changed', (e) => {
  log(`Building changed: ${e.buildingInfo.name}`);
 });
@@ -44,7 +44,7 @@ The `floor_changed` event will be fired when the Floor is changed; either by cli
 
 The event handler is called with the Floor Index of the current Floor.
 
-```
+```javascript
 mapsIndoors.addListener('floor_changed', (e) => {
  log(`Floor changed: ${e}`);
 });
@@ -56,7 +56,7 @@ The `click` event will fire when the user clicks on a Location on the map.
 
 The event handler is called with a [location](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/global.html#Location) object representing the Location clicked.
 
-```
+```javascript
 mapsIndoors.addListener('click', (location) => {
  log(`Clicked: ${location.properties.name}`);
 });

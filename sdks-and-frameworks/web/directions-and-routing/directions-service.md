@@ -87,7 +87,7 @@ In MapsIndoors, the transportation mode is referred to as travel mode. There are
 
 Set travel mode on your request using the `travelMode` property on `routeParameters`:
 
-```
+```javascript
 const routeParameters = {
   origin: { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }, // Oval Office, The White House
   destination: { lat: 38.897579747054046, lng: -77.03658652944773, floor: 1 }, // Blue Room, The White House
@@ -110,7 +110,7 @@ For a wheelchair user or a user with physical disabilities it could be relevant 
 
 Set avoid stairs on your request using the `avoidStairs` property on `routeParameters`:
 
-```
+```javascript
 const routeParameters = {
   origin: { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }, // Oval Office, The White House
   destination: { lat: 38.897579747054046, lng: -77.03658652944773, floor: 1 }, // Blue Room, The White House
@@ -124,7 +124,7 @@ Application User Roles is a feature that lets you define various roles, you can 
 
 You can get available Roles for your MapsIndoors Solution with the help of the `SolutionsService:`
 
-```
+```javascript
 mapsindoors.services.SolutionsService.getUserRoles().then(userRoles => {
   console.log(userRoles);
 });
@@ -134,7 +134,7 @@ mapsindoors.services.SolutionsService.getUserRoles().then(userRoles => {
 
 User Roles can be set on a global level using `mapsindoors.MapsIndoors.setUserRoles()`.
 
-```
+```javascript
 mapsindoors.MapsIndoors.setUserRoles(['myUserRoleId']);
 ```
 
@@ -148,7 +148,7 @@ Set a departure date or an arrival date on the route using the `transitOptions` 
 
 This parameter is only implemented on our side with Google Maps, not Mapbox.
 
-```
+```javascript
 const departureDate = new Date(new Date().getTime() + 30*60000); // 30 minutes from now
 
 const routeParameters = {

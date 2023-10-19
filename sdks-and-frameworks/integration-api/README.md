@@ -34,7 +34,7 @@ The last example about airport wait times will be expanded upon briefly, giving 
 * The API calls can read or update the backend content, whereas the SDK only reads it. Therefore, the act of making the API calls are not part of the app, but part of a seperate backend service outside of MapsIndoors.
 * Use `GET /{apiKey}/api/routing/routeelements` to fetch the list of route elements used in your solution, and their information structure. This should return a JSON file like this, with appropriate values instead of `string` or `0`:
 
-```html
+```json
 [
   {
     "id": "string",
@@ -55,7 +55,7 @@ The last example about airport wait times will be expanded upon briefly, giving 
 * Use an integration with a third-party sensor system to detect the amount of people present throughout the airport, on the paths of the given routes fetched earlier.
 * Use `PUT /{apiKey}/api/routing/routeelements` to update the information of the route elements, changing the `restrictions` parameter to `locked` if there are too many people on a given route. An example of this request body could be:
 
-```
+```json
 [
   {
     "id": "string",
@@ -87,7 +87,7 @@ The Auth API supports multiple ways to log in. The most common way is with your 
 
 No matter what login method you use, you will always need to use the following content-type header when talking to the Auth API:
 
-```
+```http
 Content-Type: application/x-www-form-urlencoded
 ```
 
@@ -97,7 +97,7 @@ To log in with your MapsIndoors login, send them with the `grant_type` set to `p
 
 Use the following key/value set:
 
-```
+```http
 grant_type: password
 client_id: client
 username: <your username>
@@ -110,7 +110,7 @@ The body of the request must end up containing a query string like this: `grant_
 
 An example on how to login using curl (replace username and password):
 
-```
+```bash
 curl -H "Content-Type: application/x-www-form-urlencoded" -X POST https://auth.mapsindoors.com/connect/token -d "grant_type=password&client_id=client&username=example@example.com&password=youpassword"
 ```
 
@@ -118,7 +118,7 @@ curl -H "Content-Type: application/x-www-form-urlencoded" -X POST https://auth.m
 
 If you sent valid credentials to the Auth API, you will receive a response like this:
 
-```
+```json
 {
     "access_token": "eyJhbGciOiJ...vmERrovsg",
     "expires_in": 86400,
@@ -129,7 +129,7 @@ If you sent valid credentials to the Auth API, you will receive a response like 
 
 You will need the value from the key `access_token` for all your requests to the Integration API by adding the `Authorization` header like this:
 
-```
+```http
 authorization: Bearer eyJhbGciOiJ...vmERrovsg
 ```
 
@@ -137,6 +137,6 @@ authorization: Bearer eyJhbGciOiJ...vmERrovsg
 
 With the access token you can now make further calls to the Integration API such as making changes to your geodata. Here is an example on how to use the auth token for a Mapsindoors API call. This examples will call the Integration API and delete the geodata object with ID: "123456789012345678901234".
 
-```
+```bash
 curl -H "Content-Type: application/json" -H "Accept: */*" -H "Authorization: Bearer eyJhbG... " -X DELETE https://integration.mapsindoors.com/550c26a864617400a40f0000/api/geodata -d "[\"123456789012345678901234\"]
 ```

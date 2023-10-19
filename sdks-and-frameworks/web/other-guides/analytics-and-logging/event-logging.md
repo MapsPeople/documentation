@@ -16,11 +16,13 @@ If you are looking for documentation on Android SDK v3, please [see here](https:
 
 {% tabs %}
 {% tab title="Java" %}
+```java
 MapsIndoors.disableEventLogging(true);
+```
 {% endtab %}
 
 {% tab title="Kotlin" %}
-```java
+```kotlin
 MapsIndoors.disableEventLogging(true)
 ```
 

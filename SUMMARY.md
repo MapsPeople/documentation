@@ -2,7 +2,7 @@
 
 * [Overview](README.md)
 
-## SDKS & Frameworks
+## ⚒ SDKS & Frameworks
 
 * [Web](sdks-and-frameworks/web/README.md)
   * [Getting Started](sdks-and-frameworks/web/getting-started/README.md)
@@ -36,7 +36,7 @@
       * [Google Analytics & Logging](sdks-and-frameworks/web/other-guides/analytics-and-logging/google-analytics-and-logging.md)
       * [Event Logging](sdks-and-frameworks/web/other-guides/analytics-and-logging/event-logging.md)
     * [Application User Roles](sdks-and-frameworks/web/other-guides/application-user-roles.md)
-    * [Authentication](key-features/authentication/README.md)
+    * [Authentication](sdks-and-frameworks/web/other-guides/authentication/README.md)
       * [Single Sign-On](sdks-and-frameworks/web/other-guides/authentication/single-sign-on/README.md)
         * [SSO Configuration](sdks-and-frameworks/web/other-guides/authentication/single-sign-on/sso-configuration.md)
         * [SSO Authorisation](sdks-and-frameworks/web/other-guides/authentication/single-sign-on/sso-authorisation.md)
@@ -45,12 +45,13 @@
     * [Custom Properties](sdks-and-frameworks/web/other-guides/custom-properties.md)
     * [Kiosk](products/kiosk.md)
     * [Language](sdks-and-frameworks/web/map-management/display-language.md)
-    * [Logging](sdks-and-frameworks/web/logging.md)
+    * [Logging](sdks-and-frameworks/web/other-guides/logging.md)
     * [User Positioning](sdks-and-frameworks/web/other-guides/user-positioning/README.md)
       * [Show User's Location aka. Blue Dot](sdks-and-frameworks/web/other-guides/user-positioning/show-users-location-aka.-blue-dot.md)
       * [Using Cisco DNA Spaces](sdks-and-frameworks/web/other-guides/user-positioning/using-cisco-dna-spaces.md)
       * [Using Google Fused Location Provider](sdks-and-frameworks/web/other-guides/user-positioning/using-google-fused-location-provider.md)
     * [Working with Events](sdks-and-frameworks/web/other-guides/working-with-events.md)
+    * [Turn Off Collisions Based on Zoom Level](sdks-and-frameworks/web/other-guides/turn-off-collisions-based-on-zoom-level.md)
 * [Android](sdks-and-frameworks/android/README.md)
   * [Getting Started](sdks-and-frameworks/android/getting-started/README.md)
     * [Migrating from V3 to V4](sdks-and-frameworks/android/getting-started/migrating-from-v3-to-v4.md)
@@ -126,6 +127,7 @@
     * [Webex Integration](sdks-and-frameworks/ios/live-data/webex-integration.md)
     * [Live Data in Practice](sdks-and-frameworks/ios/live-data/live-data-in-practice.md)
     * [Implementing Asset Tracking](sdks-and-frameworks/ios/live-data/implementing-asset-tracking.md)
+  * [Turn Off Collisions Based on Zoom Level](sdks-and-frameworks/ios/turn-off-collisions-based-on-zoom-level.md)
 * [Integration API](sdks-and-frameworks/integration-api/README.md)
   * [Integration API Access](sdks-and-frameworks/integration-api/integration-api-access/README.md)
     * [Access with Swagger](sdks-and-frameworks/integration-api/integration-api-access/access-with-swagger.md)
@@ -151,7 +153,7 @@
     * [Getting Directions](sdks-and-frameworks/flutter/getting-started/getting-directions.md)
     * [Enable Live Data](sdks-and-frameworks/flutter/getting-started/enable-live-data.md)
 
-## Products
+## ⭐ Products
 
 * [Product Overview](products/product-overview.md)
 * [Map Template](products/fast-track-maptemplate/README.md)
@@ -160,7 +162,7 @@
     * [React Component](products/fast-track-maptemplate/getting-started/react-component.md)
   * [Configuration](products/fast-track-maptemplate/configuration/README.md)
     * [Query Parameters](products/fast-track-maptemplate/configuration/query-parameters.md)
-  * [Customization](products/fast-track-maptemplate/customization/README.md)
+  * [Customization](products/fast-track-maptemplate/customization.md)
   * [Deploying Map Template to a cloud storage provider](products/fast-track-maptemplate/deploying-map-template-to-a-cloud-storage-provider.md)
   * [Changelog](products/fast-track-maptemplate/changelog.md)
 * [CMS](products/cms/README.md)
@@ -177,7 +179,7 @@
   * [Data Concepts](products/cms/data-concepts.md)
   * [User Roles](products/cms/user-roles.md)
 
-## Other Docs
+## 🗃 Other Docs
 
 * [Glossary](other-docs/glossary.md)
 * [Changelog](other-docs/changelog/README.md)

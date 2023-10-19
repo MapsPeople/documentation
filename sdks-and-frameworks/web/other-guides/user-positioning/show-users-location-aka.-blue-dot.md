@@ -40,7 +40,7 @@ MapsIndoors supports both Google Maps and MapBox, and the methods for each vary 
 
 **Google Maps**[**​**](https://docs.mapsindoors.com/blue-dot#google-maps)
 
-```
+```javascript
 // MapsIndoors MapView instantiation, which you should already have
 const mapViewInstance = new mapsindoors.mapView.GoogleMapsView(/*...*/);
 // MapsIndoors instantiation, which you should already have
@@ -59,7 +59,7 @@ googleMapsInstance.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(posit
 
 **Mapbox**[**​**](https://docs.mapsindoors.com/blue-dot#mapbox)
 
-```
+```javascript
 // MapsIndoors MapView instantiation, which you should already have
 const mapViewInstance = new mapsindoors.mapView.GoogleMapsView(/*...*/);
 // MapsIndoors instantiation, which you should already have
@@ -81,7 +81,7 @@ mapboxInstance.addControl({ onAdd: function () { return positionControlElement }
 
 Since browsers sometimes give inaccurate positions, you can use the `maxAccuracy` option when instantiating the `PositionControl`. Then the dot is only shown on the map if the given accuracy is below the given value:
 
-```
+```javascript
 // Generate PositionControl and only show the dot on the map if accuracy is better than 80 meters
 new mapsindoors.PositionControl(myPositionControlElm, { mapsIndoors: myMapsIndoors, maxAccuracy: 80 });
 ```

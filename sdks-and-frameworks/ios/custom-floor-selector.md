@@ -4,7 +4,7 @@
 
 To get started, create a class that conforms to both `MPCustomFloorSelector` and `UIView`. Please bear in mind that the provided example is solely for illustrative purposes. It is essential to appropriately integrate and customize it to align with your specific requirements and design preferences.
 
-```
+```swift
   //Custom Floor selector class that conforms to both UIView and MPCustomFloorSelector
     class MyFloorSelector: UIView, MPCustomFloorSelector {
         
@@ -68,7 +68,7 @@ To get started, create a class that conforms to both `MPCustomFloorSelector` and
 
 Next step is to initialize and add the class to `MPMapControl`.
 
-```
+```swift
 //Initialize a custom floor selector with a CGRect
 let customFLoorSelector = MyFloorSelector(frame: CGRect(x: 100, y: 100, width: 20, height: 100))
 //Set the mapControl´s floorSelector to your newly created floorSelector
@@ -81,13 +81,13 @@ When configuring the floor selector class `MyFloorSelector`, it is necessary to 
 
 Next step is to handle the floor index. In this example, the floor selector requires knowledge of the current floor index, which can be obtained by reading the value from the current building.
 
-```
+```swift
 floorIndex = mapControl?.currentBuilding?.currentFloor
 ```
 
 Assign the `currentFloor` to the `floorIndex` variable.
 
-```
+```swift
 // Add a global variable for keeping track of the current floorIndex
 var floorIndex: NSNumber
 ```

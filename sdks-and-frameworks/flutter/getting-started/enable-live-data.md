@@ -15,7 +15,7 @@ Enabling Live Data through [`MapsIndoorsWidget`](https://pub.dev/documentation/m
 
 We will create a new method on our `MapState` called `enableLiveData` to enable Live Data for the Solution.
 
-```
+```dart
 void enableLiveData() {
   _mapControl
     ..enableLiveData(LiveDataDomainTypes.availability.name)
@@ -33,7 +33,7 @@ In the context of your view controller showing a map, add the call after your `M
 Due to a known issue with the latest iOS SDK, you will need to change floor before the livedata is shown
 {% endhint %}
 
-```
+```dart
 void onMapControlReady(MPError? error) async {
   if (error == null) {
     // with mapcontrol loaded, we can enable livedata

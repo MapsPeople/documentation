@@ -4,13 +4,13 @@ Now you have simple app showing a map. In this step, you'll create a search impl
 
 Add the searchResults state and search function inside the `MapScreen` function.
 
-```javascript
+```tsx
   const [searchResults, setSearchResults] = useState<MPLocation[]|undefined>(undefined);
 ```
 
 We define a function `search` that performs a text search on the name of locations. It creates a `MPQuery` containing the search string, as well as an empty filter. These are passed to `MapsIndoors.getLocationsAsync`, which asynchronously returns a list of `MPLocations`.
 
-```javascript
+```tsx
   const search = async (text: string | undefined) => {
     if (text === undefined) {
       console.debug('Clearing search');
@@ -46,7 +46,7 @@ We have added two new `View`s, one containing the `SearchBox` component that wil
 
 We also add the `onClose` parameter to the BottomSheet that will clear the previous `searchResult` when the BottomSheet is closed.
 
-```javascript
+```tsx
 return (
     <GestureHandlerRootView style={{flex:1, flexGrow:1}}>
       <MapView style={{
@@ -68,7 +68,7 @@ The `SearchBox` and `SearchResults` components have already been made, but we ne
 
 components/SearchBox.ts
 
-```javascript
+```tsx
 import React, {useState} from "react";
 import {Button, TextInput, View} from "react-native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
@@ -104,7 +104,7 @@ The `searchResults` component is a `BottomSheetFlatList` that contains a list of
 
 components/SearchResults.ts
 
-```javascript
+```tsx
 type SearchResultsProps = {
   searchResults: MPLocation[] | undefined;
   clickResult: (location: MPLocation) => void;
@@ -126,7 +126,7 @@ We will then add two `Text` elements inside the second view of `SearchResultItem
 
 components/SearchResultItem.ts
 
-```javascript
+```tsx
 type SearchResultItemProps = {
   item: MPLocation;
   clickResult: (location: MPLocation) => void;

@@ -44,7 +44,7 @@ See the full list of parameters:
 
 See the full list of parameters in the [reference guide](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations):
 
-```
+```javascript
 const searchParameters = {
   q: 'Office',
   near: { lat: 38.897579747054046, lng: -77.03658652944773 }, // // Blue Room, The White House
@@ -62,7 +62,7 @@ When displaying the search results, it is helpful to filter the map to only show
 
 #### Example of Filtering the Map to Display Searched Locations on the Map <a href="#example-of-filtering-the-map-to-display-searched-locations-on-the-map" id="example-of-filtering-the-map-to-display-searched-locations-on-the-map"></a>
 
-```
+```javascript
 const searchParameters = {
   q: 'Office',
   near: { lat: 38.897579747054046, lng: -77.03658652944773 }, // // Blue Room, The White House
@@ -80,7 +80,7 @@ After displaying the search results on your map you can then clear the filter so
 
 #### Example of Clearing Your Map Filter to Show All Locations Again <a href="#example-of-clearing-your-map-filter-to-show-all-locations-again" id="example-of-clearing-your-map-filter-to-show-all-locations-again"></a>
 
-```
+```javascript
 mapsIndoorsInstance.filter(null);
 ```
 
@@ -98,7 +98,7 @@ It will return a promise that gets resolved when the query has executed.
 
 See [mapsindoors.services.LocationsService](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html) for more information.
 
-```
+```javascript
 searchElement.addEventListener('input', debounce((e) => {
     const value = e.target.value;
     if (value > '') {
@@ -126,7 +126,7 @@ If the input is empty, we clear the result list and reset the map filter by call
 
 We need to clear the previous results, and check if any Locations were returned. If so, we loop through them and add them to the result list.
 
-```
+```javascript
 function displayResults(locations) {
     clearResults();
 
@@ -144,7 +144,7 @@ function displayResults(locations) {
 
 If no Locations are returned, a message is shown to the user stating "No results matched the query.". Otherwise, we pass the Locations on to the next helper function called `filterMap`.
 
-```
+```javascript
 function filterMap(locations) {
     mapsIndoors.filter(locations.map(location => location.id), false);
     return locations;

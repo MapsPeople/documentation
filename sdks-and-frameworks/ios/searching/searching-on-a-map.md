@@ -8,7 +8,7 @@ Use the [`MPMapsIndoors.shared.locationsWith(query:filter:)`](https://app.mapsin
 
 #### Setup a query for the nearest single best matching Location and display the result on the map[​](https://docs.mapsindoors.com/search-on-map#setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map-1) <a href="#setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map-1" id="setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map-1"></a>
 
-```
+```swift
 let filter = MPFilter()
 let query = MPQuery()
 query.query = "Office"
@@ -24,7 +24,7 @@ if let location = locations?.first {
 
 #### Setup a query for a group of Locations and display the result on the map[​](https://docs.mapsindoors.com/search-on-map#setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map-1) <a href="#setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map-1" id="setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map-1"></a>
 
-```
+```swift
 let filter = MPFilter()
 let query = MPQuery()
 query.categories = ["Office"]
@@ -45,7 +45,7 @@ Use the `MPLocationService` class to search for content in your MapsIndoors Solu
 
 #### Setup a query for the nearest single best matching Location and display the result on the map[​](https://docs.mapsindoors.com/search-on-map#setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map-2) <a href="#setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map-2" id="setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map-2"></a>
 
-```
+```swift
 let filter = MPFilter()
 let query = MPQuery()
 query.query = "Office"
@@ -61,7 +61,7 @@ MPLocationService.sharedInstance().getLocationsUsing(query, filter: filter) { (l
 
 #### Setup a query for a group of Locations and display the result on the map[​](https://docs.mapsindoors.com/search-on-map#setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map-2) <a href="#setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map-2" id="setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map-2"></a>
 
-```
+```swift
 let filter = MPFilter()
 let query = MPQuery()
 query.categories = ["Office"]

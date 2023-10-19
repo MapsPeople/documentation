@@ -8,7 +8,7 @@ To change the building outline color, along with other display properties, you m
 
 Note that the DisplayRule will be null if MapsIndoors is not loaded.
 
-```
+```java
 MapsIndoors.getDisplayRule(MPSolutionDisplayRule.BUILDING_OUTLINE).setPolygonStrokeColor(Color.BLUE);
 ```
 

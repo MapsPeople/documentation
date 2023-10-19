@@ -6,7 +6,7 @@ If an organization-specific authentication server is configured and used for sig
 
 There is a default mapping that will occur if claims are provided in the following format:
 
-```javascript
+```json
 "custom:maps_access": [
   {
     "objectId": "012345678901234567891234",

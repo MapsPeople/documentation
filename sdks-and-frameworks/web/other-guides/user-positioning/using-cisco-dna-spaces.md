@@ -16,7 +16,7 @@ The JavaScript SDK doesn't have a built-in interface like the Android and iOS SD
 
 The first step is to create the class `CiscoPositioningService`, and the constructor for it.
 
-```
+```javascript
 class CiscoPositioningService {
     /**
      * @param {string} args.clientIp - The local IP address of the device
@@ -55,7 +55,7 @@ class CiscoPositioningService {
 
 Next step is to create `watchPosition` and `clearWatch`, to watch for the positioning updates the system recieves.
 
-```
+```javascript
     watchPosition(successCallback, errorCallback) {
         const watchId = Symbol();
         if (!(successCallback instanceof Function))
@@ -97,7 +97,7 @@ Next step is to create `watchPosition` and `clearWatch`, to watch for the positi
 
 The next step is to create some functions that manage how often the system retrieves an update, or polls, from the Cisco DNA setup.
 
-```
+```javascript
     set pollingInterval(value) {
         if (!isNaN(value) && this._pollingInterval !== value) {
             this._pollingInterval = value;
@@ -141,7 +141,7 @@ The next step is to create some functions that manage how often the system retri
 
 Lastly, an error handler is implemented.
 
-```
+```javascript
     /**
      * @private
      */
@@ -180,7 +180,7 @@ Lastly, an error handler is implemented.
 
 Once the class is created, it can then be used, for example, in the following way - Keep in mind that you cannot fetch the client/device IP address from the browser, an option to get around this could be a seperate service that returns the IP address:
 
-```
+```javascript
 const map = mapView.getMap();
 let watchId;
 

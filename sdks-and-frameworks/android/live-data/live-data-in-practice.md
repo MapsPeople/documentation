@@ -8,7 +8,7 @@ Start by creating an activity that has a map view and a `MapControl` initiated.
 
 Add buttons to the view for toggling subscriptions create one for enabling positioning and one for enabling occupancy.
 
-```
+```xml
 <Button
     android:id="@+id/positioning_button"
     android:layout_width="wrap_content"
@@ -27,7 +27,7 @@ Add buttons to the view for toggling subscriptions create one for enabling posit
 
 Set a click listener. This example uses the convenience interface to setup Live Data for the app.
 
-```
+```kotlin
 binding.positioningButton.setOnClickListener {
     if (!binding.positioningButton.isSelected) {
         binding.positioningButton.isSelected = true
@@ -50,7 +50,7 @@ binding.occupancyButton.setOnClickListener {
 
 If you are using the Demo Solution, you will need to align the camera with one of the Solution's Venues. You can use this example to find a Venue and position the camera on it.
 
-```
+```kotlin
 val venue = MapsIndoors.getVenues()!!.currentVenue
 activity?.runOnUiThread {
     if (venue != null) {
@@ -73,7 +73,7 @@ If you need a different way of handling Live Data subscriptions completely, beca
 
 Say you only need it for a few specific Locations with positioning updates. You use those Location's IDs to create a `LiveTopicCriteria` with the builder supplied on the class that matches what you want. Once you have created the `LiveTopicCriteria`, you can subscribe to it through the `LiveDataManager`.
 
-```
+```kotlin
 val liveDataManager = LiveDataManager.getInstance()
 var id = MapsIndoors.getDataSet()?.id
 id?.let {
@@ -87,7 +87,7 @@ id?.let {
 
 Once subscribed, the Location will update its position according to the Live Data it receives. If you want to disable the subscription later on, you can store the `LiveTopicCriteria`, and unsubscribe through `LiveDataManager.unsubscribeTopic(LiveTopicCritera liveTopicCriteria)`. The lifecycle of the subscription is already handled so there is no need to unsubscribe and resubscribe on Android lifecycles. If you want to see the position update happening, you can set up a listener through the `LiveDataManager` like in this example.
 
-```
+```kotlin
 liveDataManager.setOnReceivedLiveUpdateListener { mpLiveTopic, liveUpdate ->
     val point = MapsIndoors.getLocationById("1e43c533c5c0403ba99cecae")?.point
     point?.let {
@@ -102,7 +102,7 @@ This is a really simple implementation to get Live Data up and running.
 
 Now let's say you want to get the Occupancy of your Locations and make the label update to reflect how many people are inside a room. First we will implement a way to setup `LiveTopics` so we don't get too much data at once. Here we will create a `LiveTopicCriteria` that uses the currently viewed Building together with listening on Occupancy updates. We will assign the `LiveTopicCriteria` to a variable so that we can unsubscribe when changing to another topic.
 
-```
+```kotlin
 val liveDataManager = LiveDataManager.getInstance()
 var id = MapsIndoors.getDataSet()?.id
 id?.let { datasetId ->
@@ -132,7 +132,7 @@ id?.let { datasetId ->
 
 Now if you already have the live update listener from the previous Position example, you can remove the Positioning part on a specific Location, and instead implement a more generic way of handling the new updates we subscribe to. Here is an example that updates the label with the amount of people in each room.
 
-```
+```kotlin
 liveDataManager.setOnReceivedLiveUpdateListener { mpLiveTopic, liveUpdate ->
     if (liveUpdate.domainType.equals(LiveDataDomainTypes.OCCUPANCY_DOMAIN)) {
         var location = MapsIndoors.getLocationById(liveUpdate.id)

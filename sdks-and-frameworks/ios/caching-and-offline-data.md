@@ -22,7 +22,7 @@ Applications have a few ways to change the default caching behaviour:
 
 The synchronization process can be started manually:
 
-```
+```swift
 do {
     try await MPMapsIndoors.shared.synchronize()
 } catch {
@@ -32,7 +32,7 @@ do {
 
 The level of caching can be changed:
 
-```
+```swift
 let dataSetManager = MPMapsIndoors.shared.datasetCacheManager
 let dataSet = dataSetManager.dataSetForCurrentMapsIndoorsAPIKey()
 dataSetManager.setCachingScope(.full, cacheItem: dataSet!.cacheItem)
@@ -52,7 +52,7 @@ Management of multiple datasets is done via `MPDataSetCacheManager`, which allow
 
 All datasets currently managed are accessible via the `MPMapsIndoors.shared.datasetCacheManager.managedDataSets` collection:
 
-```
+```swift
 for ds in MPMapsIndoors.shared.datasetCacheManager.managedDataSets {
     print("\(ds.name): size \(ds.cacheItem.syncSize)")
 }
@@ -64,7 +64,7 @@ This can be used to build a management user interface, and information about ind
 
 Datasets are scheduled for caching using one of the `MPMapsIndoors.shared.datasetCacheManager.addDataSet()` variants:
 
-```
+```swift
 MPMapsIndoors.shared.datasetCacheManager.addDataSet("API Key")
 MPMapsIndoors.shared.datasetCacheManager.addDataSet("API Key", cachingScope: .basic)
 ```
@@ -75,7 +75,7 @@ The current MapsIndoors API key is automatically added as a managed dataset with
 
 Datasets are removed from the cache using:
 
-```
+```swift
 MPMapsIndoors.shared.datasetCacheManager.removeDataSet(MPDataSetCache)
 ```
 
@@ -85,7 +85,7 @@ MPMapsIndoors.shared.datasetCacheManager.removeDataSet(MPDataSetCache)
 
 To change the extent of caching, for example in a management menu:
 
-```
+```swift
 let dataSetManager = MPMapsIndoors.shared.datasetCacheManager
 let dataSet = dataSetManager.dataSetForCurrentMapsIndoorsAPIKey()
 dataSetManager.setCachingScope(.detailed, cacheItem: dataSet!.cacheItem)
@@ -95,14 +95,14 @@ dataSetManager.setCachingScope(.detailed, cacheItem: dataSet!.cacheItem)
 
 The estimated and cached size of a dataset is available via:
 
-```
+```swift
 dataSet?.cacheItem.cachedSize
 dataSet?.cacheItem.syncSize
 ```
 
 To refesh or get the size of a synced dataset:
 
-```
+```swift
 dataSetManager.fetchSyncSizesFor(dataSetCaches: [dataSet], delegate: self)
 ```
 
@@ -112,7 +112,7 @@ This is an asynchronous process, and a `MPDataSetCacheManagerSizeDelegate` is ne
 
 The `MPDataSetCacheManager`allows for finegrained control which datasets are synchronized, and allows for cancellation:
 
-```
+```swift
 // Sync allmanaged datasets:
 dataSetManager.synchronizeContent()
 

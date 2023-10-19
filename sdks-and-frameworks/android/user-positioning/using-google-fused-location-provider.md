@@ -8,7 +8,7 @@ The Position Provider implementation exists at the customer application level, a
 
 You can choose to fetch the Position Provider information (`CMS` > `Solution Details` > `App Settings` > `Position Provider`) from the CMS as follows:
 
-```
+```java
 Map<String, Map<String, Object>> providerConfig = MapsIndoors.getSolution().getPositionProviderConfig();
 ```
 
@@ -20,7 +20,7 @@ The inner keyset (`Map<String, Object>`) consist of various attribute fields for
 
 This Guide requires you to already have an activity that shows a MapsIndoors Map and to have the Google Play Services Location library dependency added to your project.
 
-```
+```gradle
 dependencies {
     implementation 'com.google.android.gms:play-services-location:18.0.0'
 }
@@ -30,7 +30,7 @@ We will start implementing the Fused Location position provider. Create a class 
 
 [GPSPositionProvider.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/GPSPositionProvider.kt#L8-L12)
 
-```
+```kotlin
 class GPSPositionProvider(context: Context): MPPositionProvider {
     private var fusedLocationClient: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context)
     private var mLatestPosition: MPPositionResultInterface? = null
@@ -41,7 +41,7 @@ We will start by implementing logic to each of the implemented methods from the 
 
 [GPSPositionProvider.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/GPSPositionProvider.kt#L42-L52)
 
-```
+```kotlin
 class GPSPositionProvider(context: Context): MPPositionProvider {
 
     private var fusedLocationClient: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context)
@@ -68,7 +68,7 @@ We start by implementing the `startPositioning` and `stopPositioning` methods:
 
 [GPSPositionProvider.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/GPSPositionProvider.kt#L32-L40)
 
-```
+```kotlin
 class GPSPositionProvider(context: Context): MPPositionProvider {
     fun startPositioning() {
         val locationRequest = LocationRequest.Builder(1000).build()
@@ -85,7 +85,7 @@ Implement the `LocationCallBack` to the provider to receive and handle the locat
 
 [GPSPositionProvider.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/GPSPositionProvider.kt#32-L40)
 
-```
+```kotlin
 class GPSPositionProvider(context: Context): MPPositionProvider {
 ...
     private val locationCallback = object : LocationCallback() {
@@ -104,7 +104,7 @@ Our implemented positioning provider will be handled in an activity or fragment.
 
 [PositioningFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/PositioningFragment.kt#L40-L54)
 
-```
+```kotlin
 class MyFragment: Fragment(), OnMapReadyCallback {
     private var mPositionProvider: GPSPositionProvider? = null
 
@@ -130,7 +130,7 @@ Lastly, we need to tell `MapControl` that we want to show the position on the ma
 
 [PositioningFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/PositioningFragment.kt#L93-L97)
 
-```
+```kotlin
 MapControl.create(mapConfig) { mapControl: MapControl?, miError: MIError? ->
     mMapControl = mapControl
 

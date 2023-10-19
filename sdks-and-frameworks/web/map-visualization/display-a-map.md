@@ -12,7 +12,7 @@ In this guide you will learn to load a Google map with a MapsIndoors map on top.
 
 The MapsIndoors SDK is loaded by using a script tag like the one below:
 
-```
+```javascript
 <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/DevelopmentReleases/4.0.0-rc.1/mapsindoors-4.0.0-rc.1.js?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
 ```
 
@@ -24,7 +24,7 @@ For IE11 it's critical to load the MapsIndoors SDK before the Google Maps API du
 
 The Google Maps API is loaded by using a script tag like the one below:
 
-```
+```javascript
 <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=YOUR_GOOGLE_API_KEY"></script>
 ```
 
@@ -34,7 +34,7 @@ The `key` parameter contains your Google Maps API key. Look [here](https://devel
 
 #### Setting Up the MapView[​](https://docs.mapsindoors.com/simple-map-web#setting-up-the-mapview) <a href="#setting-up-the-mapview" id="setting-up-the-mapview"></a>
 
-```
+```javascript
 const mapView = new mapsindoors.mapView.GoogleMapsView({
     element: document.getElementById("map"),
     center: {
@@ -53,7 +53,7 @@ const mapView = new mapsindoors.mapView.GoogleMapsView({
 
 #### Initializing MapsIndoors[​](https://docs.mapsindoors.com/simple-map-web#initializing-mapsindoors) <a href="#initializing-mapsindoors" id="initializing-mapsindoors"></a>
 
-```
+```javascript
 const mapsIndoors = new mapsindoors.MapsIndoors({
     mapView: mapView,
 });
@@ -63,7 +63,7 @@ A new instance of the MapsIndoors class is created and assigns the GoogleMapsVie
 
 #### Adding a Floor Selector[​](https://docs.mapsindoors.com/simple-map-web#adding-a-floor-selector) <a href="#adding-a-floor-selector" id="adding-a-floor-selector"></a>
 
-```
+```javascript
 const googleMap = mapView.getMap();
 const floorSelector = document.createElement("div");
 new mapsindoors.FloorSelector(floorSelector, mapsIndoors);

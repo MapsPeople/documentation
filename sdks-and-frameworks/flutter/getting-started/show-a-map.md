@@ -15,7 +15,7 @@ Lets start by setting up a simple app with a stateful map widget to contain the 
 
 First add the app to your main and import mapsindoors
 
-```
+```dart
 import 'package:mapsindoors_googlemaps/mapsindoors.dart';
 import 'package:flutter/material.dart';
 
@@ -40,7 +40,7 @@ class MapsIndoorsDemoApp extends StatelessWidget {
 
 Now we can create the stateful widget, we require a mapsindoors API key when constructing the map, to ensure the map is only linked to a single mapsindoors instance.
 
-```
+```dart
 /// The widget that will contain the map
 class Map extends StatefulWidget {
   const Map({super.key, required this.apiKey});
@@ -60,7 +60,7 @@ class _MapState extends State<Map> {
 
 Now we can add the Map to our App
 
-```
+```dart
 class MapsIndoorsDemoApp extends StatelessWidget {
   const MapsIndoorsDemoApp({super.key});
 
@@ -85,7 +85,7 @@ We start by loading `MapsIndoors`. `MapsIndoors` is used to get and store all re
 
 Place the following initialization code in the `initState` method of your apps `State` that displays the Google map, Ensure that the [`loadMapsIndoors`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/loadMapsIndoors.html) callback returns before accessing other `MapsIndoors` methods.
 
-```
+```dart
 class _MapState extends State<Map> {
   @override
   void initState() {
@@ -110,7 +110,7 @@ First add the `MapsIndoorsWidget` to the build hierarchy, in this example it is 
 
 Then create a `OnMapReadyListener` method to handle the callback from initializing `MapsIndoorsWidget`:
 
-```
+```dart
 class _MapState extends State<Map> {
   late MapsIndoorsWidget _mapControl;
 

@@ -25,7 +25,7 @@ Place the following initialization code in the `onCreate` method in the `MapsAct
 {% tab title="Java - Google Maps" %}
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L63-L66)
 
-```
+```java
 protected void onCreate(Bundle savedInstanceState) {
     ...
     mMapView = mapFragment.getView();
@@ -46,7 +46,7 @@ Start by creating an `initMapControl` method which is used to initiate the [`Map
 
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L145-L167)
 
-```
+```java
 void initMapControl(View view) {
     MPMapConfig mapConfig = new MPMapConfig.Builder(this, mMap, getString(R.string.google_maps_key), view, true).build();
     MapControl.create(mapConfig, (mapControl, miError) -> {
@@ -71,7 +71,7 @@ In your `onMapReady` callback function, assign the `mMap` variable with the `Goo
 
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L137-L143)
 
-```
+```java
 @Override
 public void onMapReady(GoogleMap googleMap) {
     mMap = googleMap;
@@ -86,7 +86,7 @@ public void onMapReady(GoogleMap googleMap) {
 {% tab title="Kotlin - Google Maps" %}
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L52-L56)
 
-```
+```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
     ...
     MapsIndoors.load(applicationContext, "YOUR_MAPSINDOORS_API_KEY", null)
@@ -110,7 +110,7 @@ Start by creating an `initMapControl` method which is used to initiate the [`Map
 
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L117-L135)
 
-```
+```kotlin
 private fun initMapControl(view: View) {
     MPMapConfig mapConfig = new MPMapConfig.Builder(this, mMap, getString(R.string.google_maps_key), view, true).build();
     //Creates a new instance of MapControl
@@ -136,7 +136,7 @@ In your `onMapReady` callback function, assign the `mMap` variable with the `Goo
 
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L109-L115)
 
-```
+```kotlin
 override fun onMapReady(googleMap: GoogleMap) {
     mMap = googleMap
 
@@ -150,7 +150,7 @@ override fun onMapReady(googleMap: GoogleMap) {
 {% tab title="Java - Mapbox" %}
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapBox/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L66)
 
-```
+```java
 protected void onCreate(Bundle savedInstanceState) {
     ...
     MapsIndoors.load(getApplicationContext(), "YOUR_MAPSINDOORS_API_KEY", null);
@@ -170,7 +170,7 @@ Start by creating an `initMapControl` method which is used to initiate the [`Map
 
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapBox/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L138-L159)
 
-```
+```java
 void initMapControl() {
     MPMapConfig mapConfig = new MPMapConfig.Builder(this, mMapboxMap, mMapView, getString(R.string.mapbox_access_token),true).build();
     //Creates a new instance of MapControl
@@ -198,7 +198,7 @@ In your `onMapReady` callback function, assign the `mMap` variable with the `Goo
 
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapBox/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L119)
 
-```
+```java
 protected void onCreate(Bundle savedInstanceState) {
     ...
     initMapControl();
@@ -210,7 +210,7 @@ protected void onCreate(Bundle savedInstanceState) {
 {% tab title="Kotlin - Mapbox" %}
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L48)
 
-```
+```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
     ...
     MapsIndoors.load(applicationContext, "YOUR_MAPSINDOORS_API_KEY", null)
@@ -230,7 +230,7 @@ Start by creating an `initMapControl` method which is used to initiate the [`Map
 
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L101-L119)
 
-```
+```kotlin
 private fun initMapControl() {
     //Creates a new instance of MapControl
     val config = MPMapConfig.Builder(this, mMap, mapView, getString(R.string.mapbox_access_token),true).build()
@@ -258,7 +258,7 @@ In your `onMapReady` callback function, assign the `mMap` variable with the `Goo
 
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L98)
 
-```
+```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
     ...
     initMapControl();

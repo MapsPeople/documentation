@@ -276,7 +276,7 @@ Create a getter for your [`MapControl` object](https://app.mapsindoors.com/mapsi
 
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L178-L180)
 
-```
+```kotlin
 fun getMapControl(): MapControl {
     return mMapControl
 }

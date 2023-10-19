@@ -10,14 +10,14 @@ In a lot of cases, the user might not want to display a specific region, but rat
 
 First things first, let us add in some new variables, namely the renderer and two points we wish to acquire directional data between (the origin and destination). Usually, the origin point would refer to the location of the user, however for the purposes of demonstration we will use a static origin point.
 
-```
+```swift
 var directionsRenderer: MPDirectionsRenderer?
 var origin: MPLocation?
 ```
 
 In order to update the destination variable we simply employ the same concept as we did when adding the search bar, namely we utilise the `func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)` function. In this case, we simply need to update our function to store the point of the selected location and call `directions()`, which is a function we will add in a bit that will handle the construction of the directions query and rendering.
 
-```
+```swift
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let location = searchResult?[indexPath.row] else { return }
         mpMapControl?.goTo(entity: location) // Use a retained MPMapControl object
@@ -30,7 +30,7 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
 We can now add in the `directions()` function,
 
-```
+```swift
 func directions(to destination: MPLocation) {
         guard let mapControl = mpMapControl else { return }
         

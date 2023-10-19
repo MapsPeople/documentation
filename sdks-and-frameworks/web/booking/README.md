@@ -6,7 +6,7 @@ A MapsIndoors dataset can only have bookable resources if an integration with a 
 
 The central service in the SDK managing bookings is the Booking Service, `mapsindoors.services.BookingService`.
 
-```
+```javascript
   const bookingService = mapsindoors.services.BookingService;
 ```
 
@@ -24,7 +24,7 @@ The Booking Service can help with the following tasks:
 
 To determine whether or not a Location is bookable, you can use the `bookingService.getBookableLocationsUsingQuery()` method. Below is an example of querying for bookable Locations:
 
-```
+```javascript
   const bookingService = mapsindoors.services.BookingService;
   const start = new Date();
   const end = new Date(start).setHours(start.getHours() + 1);
@@ -39,7 +39,7 @@ The above example creates a query for Locations that are bookable for a time spa
 
 To check if a specific Location is bookable, it is possible to parse the `Location` object as a parameter to the `getBookingsUsingQuery` function.
 
-```
+```javascript
   const bookingService = mapsindoors.services.BookingService;
   const myMeetingRoom = await locationsService.getLocation('0c44207987174561a53fb00a');
 
@@ -63,7 +63,7 @@ Before trying to book a Location for a given time, it is convenient to know in a
 
 It is possible to get a list of bookings using the `bookingService.getBookableLocationsUsingQuery()` method.
 
-```
+```javascript
   const bookingService = mapsindoors.services.BookingService;
   const myMeetingRoom = await locationsService.getLocation('0c44207987174561a53fb00a');
   const start = new Date().setHours(new Date().getHours() -1);
@@ -83,7 +83,7 @@ The above example creates a query for bookings that exist for a location with ti
 
 It is possible to execute a booking creation request using the `bookingService.performBooking()` method, which takes a booking object as input. If the booking is successfully performed, the booking will return in the block, with an assigned `bookingId`.
 
-```
+```javascript
   const bookingService = mapsindoors.services.BookingService;
   const start = new Date();
   const end = new Date(start).setHours(start.getHours() + 1);
@@ -113,7 +113,7 @@ Depending on the booking provider, the participants will receive invites for an 
 
 It is possible to cancel a created `Booking` using the `bookingService.cancelBooking()` method, which takes an existing `Booking` object as input.
 
-```
+```javascript
   const bookingService = mapsindoors.services.BookingService;
   const myMeetingRoom = await locationsService.getLocation('0c44207987174561a53fb00a');
 

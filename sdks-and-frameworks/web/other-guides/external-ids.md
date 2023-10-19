@@ -26,6 +26,6 @@ The function on all 3 platforms functions similarly, returning an Array or List 
 
 Running the below snippet will return an Array of `MPLocations`.
 
-```
+```javascript
 locationsService.getLocationsByExternalId(externalIds)
 ```

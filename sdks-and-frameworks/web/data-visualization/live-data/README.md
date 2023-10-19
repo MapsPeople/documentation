@@ -51,7 +51,7 @@ A live update is the model for a message carrying one piece of Live Data, for ex
 
 Enabling Live Data through the `LiveDataManager` is an easy way to get Live Data running in your web app.
 
-```
+```javascript
 const liveDataManagerInstance = new mapsindoors.LiveDataManager(mapsIndoorsInstance);
 liveDataManagerInstance.enableLiveData(mapsindoors.LiveDataManager.LiveDataDomainTypes.AVAILABILITY);
 liveDataManagerInstance.enableLiveData(mapsindoors.LiveDataManager.LiveDataDomainTypes.OCCUPANCY);
@@ -61,7 +61,7 @@ In the example we enable Live Data for the "Availability" and "Occupancy" Domain
 
 You can disable the Live Data again by calling the `disableLiveData` method:
 
-```
+```javascript
 liveDataManagerInstance.disableLiveData(mapsindoors.LiveDataManager.LiveDataDomainTypes.AVAILABILITY);
 ```
 
@@ -76,7 +76,7 @@ To enable Live Data in an web application, a subscription to one or more Topics 
 
 The only Live Data updates that are also directly notified to the SDK internally are Live Data updates of the "Position" Domain Type. By consequence, if you have already set up your map with MapsIndoors, an additional few lines of code can enable moving locations on the map. Here is an example:
 
-```
+```javascript
 const liveDataManagerInstance = new mapsindoors.LiveDataManager(mapsIndoorsInstance);
 liveDataManagerInstance.subcribe(mySolutionId + '/#');
 ```
@@ -85,7 +85,7 @@ In the example, the Topic is created using the Solution ID and a multilevel wild
 
 You can unsubscribe to the Topic by calling the `unsubscribe` method:
 
-```
+```javascript
 liveDataManagerInstance.unsubcribe(positionTopic);
 ```
 
@@ -93,7 +93,7 @@ liveDataManagerInstance.unsubcribe(positionTopic);
 
 As mentioned, the LiveDataManager has a default way of rendering Live Data Locations if you use `enableLiveData()`. If you need to show Live Data in another way, you can override the default rendering by providing a function as second parameter, which will act as a callback when receiving Live Updates bundled in a LiveUpdateEvent:
 
-```
+```javascript
 liveDataManagerInstance.enableLiveData(mapsindoors.LiveDataManager.LiveDataDomainTypes.AVAILABILITY, (liveUpdateEvent) => {
     for (const [liveUpdateDomainType, locations] of liveUpdateEvent.data) {
         for (const location of locations) {
@@ -123,7 +123,7 @@ While only a few lines of code can get things moving around on a map, there are 
 
 To listen for Live Updates on a general level, add an event listener for `live_update_received` on the Live Data Manager. The event payload is a [Live Update](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/LiveUpdate.html)
 
-```
+```javascript
 liveDataManagerInstance.addEventListener('live_update_received', (liveUpdate) => {
     if (liveUpdate.domainType === mapsindoors.LiveDataManager.LiveDataDomainTypes.OCCUPANCY) {
         const people = liveUpdate.properties.nrOfPeople;

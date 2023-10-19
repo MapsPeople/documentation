@@ -12,7 +12,7 @@ A MapsIndoors dataset can only have bookable resources if an integration with a 
 
 The central service in the SDK managing bookings is the Booking Service, `MPBookingService`.
 
-```
+```java
 MPBookingservice bookingService = MPBookingService.getInstance();
 ```
 
@@ -28,7 +28,7 @@ The Booking Service can help with the following tasks:
 
 To determine whether or not a Location is bookable can be looked up using the `MPBookingService.getBookableLocations()` method. Below is an example of querying for bookable locations:
 
-```
+```java
 MPBookingService bookingService = MPBookingService.getInstance();
 MPBookableQuery bookableQuery = new MPBookableQuery.Builder()
         .setStartTime(new Date())
@@ -54,7 +54,7 @@ Before trying to book a Location for a given time, it is convenient to know in a
 
 It is possible to get a list of bookings using the `MPBookingService.getBookingsUsingQuery()` method.
 
-```
+```java
 MPBookingService bookingService = MPBookingService.getInstance();
 MPBookingsQuery bookingsQuery = new MPBookingsQuery.Builder()
         .setLocation(myRoomLocation)
@@ -73,7 +73,7 @@ The above example creates a query for bookings that exists for a location with t
 
 It is possible execute a booking creation request using the `MPBookingService.perform()` method which takes a booking object as input. If the booking is successfully performed, the booking will return in the block with an assigned `bookingId`.
 
-```
+```java
 MPBookingService bookingService = MPBookingService.getInstance();
 MPBooking myBooking = new MPBooking.Builder()
         .setLocation(myRoomLocation)
@@ -106,7 +106,7 @@ Depending on the Booking provider, the participants will receive invites for an 
 
 It is possible to cancel a created Booking using the `MPBookingService.cancelBooking()` method which takes an existing booking object as input.
 
-```
+```java
 MPBookingService bookingService = MPBookingService.getInstance();
 
 bookingService.cancelBooking(myBooking, (booking, error) -> {
@@ -122,7 +122,7 @@ A MapsIndoors dataset can only have bookable resources if an integration with a 
 
 The central service in the SDK managing bookings is the Booking Service, `MPBookingService`.
 
-```
+```kotlin
 val bookingService = MPBookingService.getInstance()
 ```
 
@@ -138,7 +138,7 @@ The Booking Service can help with the following tasks:
 
 To determine whether or not a Location is bookable can be looked up using the `MPBookingService.getBookableLocations()` method. Below is an example of querying for bookable locations:
 
-```
+```kotlin
 val bookingService = MPBookingService.getInstance()
 val bookableQuery = MPBookableQuery.Builder()
         .setStartTime(Date())
@@ -164,7 +164,7 @@ Before trying to book a Location for a given time, it is convenient to know in a
 
 It is possible to get a list of bookings using the `MPBookingService.getBookingsUsingQuery()` method.
 
-```
+```kotlin
 val bookingService = MPBookingService.getInstance()
 val bookingsQuery = MPBookingsQuery.Builder()
     .setLocation(myRoomLocation)
@@ -183,7 +183,7 @@ The above example creates a query for bookings that exists for a location with t
 
 It is possible execute a booking creation request using the `MPBookingService.perform()` method which takes a booking object as input. If the booking is successfully performed, the booking will return in the block with an assigned `bookingId`.
 
-```
+```kotlin
 val bookingService = MPBookingService.getInstance()
 var myBooking = MPBooking.Builder()
     .setLocation(myRoomLocation)
@@ -216,7 +216,7 @@ Depending on the Booking provider, the participants will receive invites for an 
 
 It is possible to cancel a created Booking using the `MPBookingService.cancelBooking()` method which takes an existing booking object as input.
 
-```
+```kotlin
 val bookingService = MPBookingService.getInstance()
 bookingService.cancelBooking(myBooking) { booking, error ->
     ...

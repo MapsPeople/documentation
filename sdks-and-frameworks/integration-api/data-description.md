@@ -6,7 +6,7 @@ The main starting point for your data is the dataset object. This object contain
 
 The demo dataset looks like this:
 
-```
+```json
 {
   "id": "550c26a864617400a40f0000",
   "name": "RTX",
@@ -142,7 +142,7 @@ Each Geodata element has a number of properties. Let's look at an example - a co
 
 **Example: POI**[**​**](https://docs.mapsindoors.com/api-data-description#example-poi)
 
-```
+```json
 {
   "id": "13889288f79d4abfb7021ad7",
   "parentId": "f43b931f09314f3f9dd796f9",
@@ -240,7 +240,7 @@ It can be a part of a Room, Floor or Venue, but it can't be a parent to any othe
 
 It will look a lot like the POI example, with a few differences:
 
-```
+```json
 {
 "id": "7b2fe3da61b34cd9991ba510",
 "parentId": "f43b931f09314f3f9dd796f9",
@@ -321,7 +321,7 @@ It will look a lot like the POI example, with a few differences:
 
 Common setup for Geodata of different kinds (meeting room, hallway, ...)
 
-```
+```json
 {
   "id": "bb5410b32a5240d182ba50bb",
   "name": "BreakOutArea",
@@ -398,7 +398,7 @@ This grouping is then used as a relevancy criteria when searching.
 
 As a simple example: All rooms and areas across any building/venue related to entrances can be grouped using this example:
 
-```
+```json
 {
   "id": "5823246d07215b23a02e3cdd",
   "key": "entrance",
