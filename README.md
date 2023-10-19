@@ -19,9 +19,9 @@ Your go-to resource for tapping into the full potential of the MapsIndoors platf
 
 ***
 
-## 🔥 Product Highlight: Map Template
+## Simplified Map Implementation with Map Template ⚡   &#x20;
 
-_Enjoy simplified map implementation_
+_Show your map with all the UI needed in less than 10 minutes_
 
 <figure><img src=".gitbook/assets/MapTemplateHighlight (12).jpg" alt=""><figcaption></figcaption></figure>
 
@@ -40,7 +40,7 @@ In less than 10 minutes you can seamlessly incorporate MapsIndoors into your sys
 
 ***
 
-## ✨ Feature Highlight: 3D Maps
+## Feature Highlight: 3D Maps 🔥&#x20;
 
 _The next generation of indoor maps is here_
 
