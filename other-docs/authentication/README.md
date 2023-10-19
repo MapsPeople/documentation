@@ -1,10 +1,5 @@
 ---
-cover: ../../../../.gitbook/assets/sso (1).jpg
-coverY: 0
 layout:
-  cover:
-    visible: true
-    size: hero
   title:
     visible: true
   description:
@@ -21,8 +16,8 @@ layout:
 
 MapsIndoors Auth is handled in two ways:
 
-* API keys - This is how apps built on top of the SDKs authorize by default,
-* MapsIndoors Auth server - This is how the MapsIndoors CMS authorizes, as well as apps accessing secured solutions.
+* API keys - This is how apps built on top of the SDKs are authorized by default,
+* MapsIndoors Auth server - This is how the MapsIndoors CMS authorizes, as well as apps to access secured solutions.
 
 The MapsIndoors Auth server is located at [https://auth.mapsindoors.com](https://auth.mapsindoors.com/) - including [SSO page](https://auth.mapsindoors.com/login) and [OIDC metadata](https://auth.mapsindoors.com/.well-known/openid-configuration). The server is an [IdentityServer4](https://identityserver4.readthedocs.io/en/3.1.0/) implementation - with support for OAauth 2 and OIDC protocols.
 
@@ -30,11 +25,11 @@ It stores all users that are managed through the MapsIndoors CMS, as well as con
 
 This guide covers the different aspects of user authentication and authorization in the MapsIndoors JavaScript SDK.
 
-Usually, access to the services behind the MapsIndoors SDK is restricted with API keys. However, as an additional layer of security and control, access can be restricted to users of a specific tenant. A MapsIndoors dataset can only be subject to user authentication and authorization if an integration with an identity provider exists. Current examples of such identity providers are _Google_ and _Microsoft_. These providers and more can be added and integrated to your MapsIndoors project by request.
+Usually, access to the services behind the MapsIndoors SDK is restricted with API keys. However, as an additional layer of security and control, access can be restricted to users of a specific tenant. A MapsIndoors dataset can only be subject to user authentication and authorization if integration with an identity provider exists. Current examples of such identity providers are _Google_ and _Microsoft_. These providers and more can be added and integrated to your MapsIndoors project by request.
 
 We recommend using a library such as AppAuth to handle verification and response to get a token to use in the MapsIndoors SDK.
 
-
+***
 
 ## Android v4
 
@@ -185,6 +180,8 @@ The SDK will ensure all subsequent performed data requests will include the set 
 {% endtab %}
 {% endtabs %}
 
+***
+
 ## iOS v3
 
 {% hint style="danger" %}
@@ -272,7 +269,7 @@ The SDK will then make sure that all requests for data is performed using this a
 
 > Note that the access token obtained from a MapsIndoors Single Sign-on flow cannot be used as access token for the [Booking Service](https://docs.mapsindoors.com/booking/). Single Sign-on access tokens are issued by MapsIndoors and not the underlying tenant. You need to login directly on your Booking tenant to get an access token that can be used for working with the Booking Service as an authenticated user.
 
-
+***
 
 ## Web v4
 

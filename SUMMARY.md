@@ -35,12 +35,6 @@
     * [Analytics & Logging](sdks-and-frameworks/web/other-guides/analytics-and-logging/README.md)
       * [Event Logging](sdks-and-frameworks/web/other-guides/analytics-and-logging/event-logging.md)
     * [Application User Roles](sdks-and-frameworks/web/other-guides/application-user-roles.md)
-    * [Authentication](sdks-and-frameworks/web/other-guides/authentication/README.md)
-      * [Single Sign-On](sdks-and-frameworks/web/other-guides/authentication/single-sign-on/README.md)
-        * [SSO Configuration](sdks-and-frameworks/web/other-guides/authentication/single-sign-on/sso-configuration.md)
-        * [SSO Authorisation](sdks-and-frameworks/web/other-guides/authentication/single-sign-on/sso-authorisation.md)
-      * [2-Factor Authentication](sdks-and-frameworks/web/other-guides/authentication/2-factor-authentication.md)
-      * [Password Reset](sdks-and-frameworks/web/other-guides/authentication/password-reset.md)
     * [Custom Properties](sdks-and-frameworks/web/other-guides/custom-properties.md)
     * [Kiosk](products/kiosk.md)
     * [Language](sdks-and-frameworks/web/map-management/display-language.md)
@@ -218,6 +212,12 @@
       * [Integrating MapsIndoors into your own App](other-docs/legacy-docs/v3-1/getting-started/integrating-mapsindoors-into-your-own-app.md)
 * [MapsIndoors SDK Firewall](other-docs/mapsindoors-sdk-firewall.md)
 * [Google Analytics & Logging](other-docs/google-analytics-and-logging.md)
+* [Authentication](other-docs/authentication/README.md)
+  * [Single Sign-On](other-docs/authentication/single-sign-on/README.md)
+    * [SSO Configuration](other-docs/authentication/single-sign-on/sso-configuration.md)
+    * [SSO Authorisation](other-docs/authentication/single-sign-on/sso-authorisation.md)
+  * [2-Factor Authentication](other-docs/authentication/2-factor-authentication.md)
+  * [Password Reset](other-docs/authentication/password-reset.md)
 
 ## Links
 
