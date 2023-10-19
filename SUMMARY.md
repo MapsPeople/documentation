@@ -33,7 +33,6 @@
     * [Display Heatmap Overlay](sdks-and-frameworks/web/data-visualization/display-heatmap-overlay.md)
   * [Other guides](sdks-and-frameworks/web/other-guides/README.md)
     * [Analytics & Logging](sdks-and-frameworks/web/other-guides/analytics-and-logging/README.md)
-      * [Google Analytics & Logging](sdks-and-frameworks/web/other-guides/analytics-and-logging/google-analytics-and-logging.md)
       * [Event Logging](sdks-and-frameworks/web/other-guides/analytics-and-logging/event-logging.md)
     * [Application User Roles](sdks-and-frameworks/web/other-guides/application-user-roles.md)
     * [Authentication](sdks-and-frameworks/web/other-guides/authentication/README.md)
@@ -218,6 +217,7 @@
       * [Enable Live Data](other-docs/legacy-docs/v3-1/getting-started/enable-live-data.md)
       * [Integrating MapsIndoors into your own App](other-docs/legacy-docs/v3-1/getting-started/integrating-mapsindoors-into-your-own-app.md)
 * [MapsIndoors SDK Firewall](other-docs/mapsindoors-sdk-firewall.md)
+* [Google Analytics & Logging](other-docs/google-analytics-and-logging.md)
 
 ## Links
 
