@@ -24,6 +24,7 @@ The web-app will automatically adjust the language to the language set in the us
 * Portuguese
 * Italian
 * French
+* TEST
 
 
 
