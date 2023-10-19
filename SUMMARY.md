@@ -158,8 +158,8 @@
 
 * [Product Overview](products/product-overview.md)
 * [Map Template](products/fast-track-maptemplate/README.md)
+* [Web Component](products/fast-track-maptemplate/web-component.md)
   * [Getting Started](products/fast-track-maptemplate/getting-started/README.md)
-    * [Web Component](products/fast-track-maptemplate/getting-started/web-component.md)
     * [React Component](products/fast-track-maptemplate/getting-started/react-component.md)
   * [Configuration](products/fast-track-maptemplate/configuration/README.md)
     * [Query Parameters](products/fast-track-maptemplate/configuration/query-parameters.md)
