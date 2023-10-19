@@ -1,6 +1,6 @@
 # Table of contents
 
-* [MapsIndoors Developer Docs](README.md)
+* [Overview](README.md)
 
 ## ⚒ SDKS & Frameworks
 
@@ -225,4 +225,5 @@
 * [CMS](https://cms.mapsindoors.com/)
 * [Map Design System](https://www.mapsindoors.com/design)
 * [Support](https://mapspeople.atlassian.net/servicedesk/customer/portals)
+* [GitHub](https://github.com/MapsPeople)
 * [Website](https://www.mapspeople.com/)
