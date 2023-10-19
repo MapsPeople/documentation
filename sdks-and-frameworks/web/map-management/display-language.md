@@ -8,11 +8,15 @@ Example blow shows **'Languages'** section and dropdown from which you can selec
 When solution has only one language, this language will be the default one. You are able to add as many languages as you want to and choose which one should be the default one:
 Adding German and Danish languages:
 
+<div>
 <img src="../../../.gitbook/assets/languages-adding-languages.png" alt="">
+</div>
 
 Setting German as default language:
 
+<div>
 <img src="../../../.gitbook/assets/languages-setting-default-language.png" alt="">
+</div>
 
 If you do not specify a language, MapsIndoors will show information in the default language defined in the MapsIndoors CMS <mark style="background-color:red;">(Giver det mening at fortælle hvor i CMSet?)</mark>. Likewise, if you specify a language that is not supported, MapsIndoors will also show information in the default language. <mark style="background-color:red;">Skal vi nævne hvilke languages, der rent faktisk er supported? Eller er det nok, at det står nedenunder.</mark>
 
@@ -24,7 +28,9 @@ To provide multiple languages for items in the MapsIndoors CMS, such as "Meeting
 
 Once language of choice has been added as supported language, you can add the translation by clicking on any POI, which will open a menu on the left side of the screen. Here, you will see the following menu point, where you can enter translations for the languages you wish. If a field is left empty, the fallback language is the default one. In the example below, English (en) and Danish (da) are the enabled languages:
 
+<div>
 <img src="../../../.gitbook/assets/languages-english-danish-enabled.png" alt="">
+</div>
 
 ### Use Device Language[​](https://docs.mapsindoors.com/display-language#use-device-language) <a href="#use-device-language" id="use-device-language"></a>
 
