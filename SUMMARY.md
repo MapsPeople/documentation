@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Overview](README.md)
+* [MapsIndoors Developer Docs](README.md)
 
 ## ⚒ SDKS & Frameworks
 
@@ -188,6 +188,7 @@
 
 * [Glossary](other-docs/glossary.md)
 * [Changelog](other-docs/changelog/README.md)
+  * [React Native SDK](other-docs/changelog/react-native-sdk.md)
   * [iOS SDK](other-docs/changelog/ios-sdk/README.md)
     * [V4](other-docs/changelog/ios-sdk/v4.md)
     * [V3](other-docs/changelog/ios-sdk/v3.md)
