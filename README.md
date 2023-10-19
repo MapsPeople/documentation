@@ -23,7 +23,7 @@ Your go-to resource for tapping into the full potential of the MapsIndoors platf
 
 _Enjoy simplified map implementation_
 
-<figure><img src=".gitbook/assets/MapTemplateHighlight (11).jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/MapTemplateHighlight (12).jpg" alt=""><figcaption></figcaption></figure>
 
 In less than 10 minutes you can seamlessly incorporate MapsIndoors into your system. We have developed all the required UI components and bundled them together for your convenience.
 
