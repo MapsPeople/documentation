@@ -2,15 +2,12 @@
 
 * [Overview](README.md)
 
-## ⚒ SDKS & Frameworks
+## SDKS & Frameworks
 
 * [Web](sdks-and-frameworks/web/README.md)
   * [Getting Started](sdks-and-frameworks/web/getting-started/README.md)
     * [Map Engine Setup](sdks-and-frameworks/web/getting-started/prerequisites.md)
-    * [Create a New Project](sdks-and-frameworks/web/getting-started/create-a-new-project.md)
-    * [Display a Map](sdks-and-frameworks/web/getting-started/show-a-map.md)
-    * [Create a Search Experience](sdks-and-frameworks/web/getting-started/create-a-search-experience.md)
-    * [Getting Directions](sdks-and-frameworks/web/getting-started/getting-directions.md)
+    * [Tutorial](sdks-and-frameworks/web/getting-started/tutorial.md)
   * [Map Visualization](sdks-and-frameworks/web/map-visualization/README.md)
     * [Display a Map](sdks-and-frameworks/web/map-visualization/display-a-map.md)
     * [Switching Solutions](sdks-and-frameworks/web/map-visualization/switching-solutions.md)
@@ -39,7 +36,7 @@
       * [Google Analytics & Logging](sdks-and-frameworks/web/other-guides/analytics-and-logging/google-analytics-and-logging.md)
       * [Event Logging](sdks-and-frameworks/web/other-guides/analytics-and-logging/event-logging.md)
     * [Application User Roles](sdks-and-frameworks/web/other-guides/application-user-roles.md)
-    * [Authentication](sdks-and-frameworks/web/other-guides/authentication/README.md)
+    * [Authentication](key-features/authentication/README.md)
       * [Single Sign-On](sdks-and-frameworks/web/other-guides/authentication/single-sign-on/README.md)
         * [SSO Configuration](sdks-and-frameworks/web/other-guides/authentication/single-sign-on/sso-configuration.md)
         * [SSO Authorisation](sdks-and-frameworks/web/other-guides/authentication/single-sign-on/sso-authorisation.md)
@@ -48,7 +45,7 @@
     * [Custom Properties](sdks-and-frameworks/web/other-guides/custom-properties.md)
     * [Kiosk](products/kiosk.md)
     * [Language](sdks-and-frameworks/web/map-management/display-language.md)
-    * [Logging](sdks-and-frameworks/web/other-guides/logging.md)
+    * [Logging](sdks-and-frameworks/web/logging.md)
     * [User Positioning](sdks-and-frameworks/web/other-guides/user-positioning/README.md)
       * [Show User's Location aka. Blue Dot](sdks-and-frameworks/web/other-guides/user-positioning/show-users-location-aka.-blue-dot.md)
       * [Using Cisco DNA Spaces](sdks-and-frameworks/web/other-guides/user-positioning/using-cisco-dna-spaces.md)
@@ -154,7 +151,7 @@
     * [Getting Directions](sdks-and-frameworks/flutter/getting-started/getting-directions.md)
     * [Enable Live Data](sdks-and-frameworks/flutter/getting-started/enable-live-data.md)
 
-## ⭐ Products
+## Products
 
 * [Product Overview](products/product-overview.md)
 * [Map Template](products/fast-track-maptemplate/README.md)
@@ -163,7 +160,7 @@
     * [React Component](products/fast-track-maptemplate/getting-started/react-component.md)
   * [Configuration](products/fast-track-maptemplate/configuration/README.md)
     * [Query Parameters](products/fast-track-maptemplate/configuration/query-parameters.md)
-  * [Customization](products/fast-track-maptemplate/customization.md)
+  * [Customization](products/fast-track-maptemplate/customization/README.md)
   * [Deploying Map Template to a cloud storage provider](products/fast-track-maptemplate/deploying-map-template-to-a-cloud-storage-provider.md)
   * [Changelog](products/fast-track-maptemplate/changelog.md)
 * [CMS](products/cms/README.md)
@@ -180,7 +177,7 @@
   * [Data Concepts](products/cms/data-concepts.md)
   * [User Roles](products/cms/user-roles.md)
 
-## 🗃 Other Docs
+## Other Docs
 
 * [Glossary](other-docs/glossary.md)
 * [Changelog](other-docs/changelog/README.md)
