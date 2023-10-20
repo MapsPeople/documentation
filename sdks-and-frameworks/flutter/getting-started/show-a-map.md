@@ -152,4 +152,4 @@ Expected result:
 
 ![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/flutter\_map.gif)
 
-//MADHTODO See the full example of the app here: [main.dart](https://github.com/MapsPeople/getting\_started\_flutter/blob/main/lib/main.dart)
+See the full example of the app here: [main.dart](https://github.com/MapsPeople/getting\_started\_flutter/blob/main/lib/main.dart)

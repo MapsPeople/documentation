@@ -167,6 +167,7 @@ To get the underlying Mapbox Map to work, you need to perform the following step
     <string name="mapbox_access_token" translatable="false">YOUR_KEY_HERE</string>
 </resources>
 ```
+
 {% endtab %}
 
 {% tab title="iOS" %}

@@ -3,7 +3,6 @@
 {% tabs %}
 {% tab title="Java" %}
 
-
 ### Cacheable Data[​](https://docs.mapsindoors.com/offline-data#cacheable-data) <a href="#cacheable-data" id="cacheable-data"></a>
 
 MapsIndoors has three levels of caching:
