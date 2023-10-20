@@ -120,7 +120,7 @@ Under Solution Details, you can find several subpages, which are described below
 
 ### TODO: Types[​](https://docs.mapsindoors.com/cms-interface-overview#types) <a href="#types" id="types"></a>
 
-<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 This page organizes the "Types" you can add to your Locations.
 
@@ -169,7 +169,7 @@ This page lists the Buildings in the selected Venue in your Solution.
 
 ### Venues[​](https://docs.mapsindoors.com/cms-interface-overview#venues) <a href="#venues" id="venues"></a>
 
-<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 The list of Venues in your Solution.
 
