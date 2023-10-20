@@ -2,7 +2,7 @@
 description: >-
   The MapsIndoors Content Management System (CMS) enables you to add, edit, and
   maintain your data within the MapsIndoors platform.
-cover: ../../.gitbook/assets/Frame 47317.jpg
+cover: broken-reference
 coverY: 0
 layout:
   cover:
