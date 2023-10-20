@@ -23,7 +23,7 @@ Your go-to resource for tapping into the full potential of the MapsIndoors platf
 
 _Show your map with all the UI needed in less than 10 minutes_
 
-<figure><picture><source srcset=".gitbook/assets/maptemplatedarkmode.jpg" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/MapTemplateHighlight (12).jpg" alt=""></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset=".gitbook/assets/maptemplatedarkmode.min.jpg" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/MapTemplateHighlight.min.jpg" alt=""></picture><figcaption></figcaption></figure>
 
 In less than 10 minutes you can seamlessly incorporate MapsIndoors into your system. We have developed all the required UI components and bundled them together for your convenience.
 
