@@ -219,7 +219,7 @@ class RouteHandler {
 }
 ```
 
-//MADHTODO With this we now have a class that will handle creating a Route and displaying it on the map for us. You can see the entire implementation of RouteHandler here: [main.dart](https://docs.mapsindoors.com/getting-started/flutter/example.com)
+With this we now have a class that will handle creating a Route and displaying it on the map for us. You can see the entire implementation of RouteHandler here: [main.dart](https://github.com/MapsPeople/getting_started_flutter/blob/main/lib/main.dart#L230-L345)
 
 We can now add a button on our `onLocationSelected` bottomsheet to generate a route from `_userPosition` to the selected location:
 
@@ -291,7 +291,7 @@ Expected result:
 
 ![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/flutter\_directions.gif)
 
-//MADHTODO The accompanying UI and implementation of this directions experience can be found in the getting started app sample. [Getting Started App sample](https://github.com/MapsPeople/getting\_started\_flutter)
+The accompanying UI and implementation of this directions experience can be found in the getting started app sample. [Getting Started App sample](https://github.com/MapsPeople/getting\_started\_flutter)
 
 [\
 ](https://docs.mapsindoors.com/getting-started/flutter/search)
