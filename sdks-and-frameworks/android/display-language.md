@@ -14,8 +14,7 @@ Once your language of choice has been created, you can add the translation by cl
 
 {% tabs %}
 {% tab title="Java" %}
-
-### Use Fixed Language[​](https://docs.mapsindoors.com/display-language#use-fixed-language) <a href="#use-fixed-language" id="use-fixed-language"></a>
+#### Use Fixed Language[​](https://docs.mapsindoors.com/display-language#use-fixed-language) <a href="#use-fixed-language" id="use-fixed-language"></a>
 
 The MapsIndoors language can be fixed to a specific language by supplying an [ISO 639-1 language code](https://en.wikipedia.org/wiki/List\_of\_ISO\_639-1\_codes), for example French:
 
@@ -23,7 +22,7 @@ The MapsIndoors language can be fixed to a specific language by supplying an [IS
 MapsIndoors.setLanguage("fr");
 ```
 
-### Use Device Language[​](https://docs.mapsindoors.com/display-language#use-device-language) <a href="#use-device-language" id="use-device-language"></a>
+#### Use Device Language[​](https://docs.mapsindoors.com/display-language#use-device-language) <a href="#use-device-language" id="use-device-language"></a>
 
 The MapsIndoors language can be aligned with the device language by supplying the current language code of the device:
 
@@ -32,7 +31,7 @@ String languageCode = getResources().getConfiguration().getLocales().get(0).getL
 MapsIndoors.setLanguage(languageCode);
 ```
 
-### Translate HTML instructions on directions.
+#### Translate HTML instructions on directions.
 
 When requesting routes from MapsIndoors at the moment only external routes are translated into the current language set on `MapsIndoors`. The internal routes are always returned in english. Here is an example of how to achieve translated HTML instructions on internal routes.
 
@@ -87,12 +86,10 @@ String getInstructionFromStep(@NonNull MPRouteStep routeStep) {
     return instruction;
 }
 ```
-
 {% endtab %}
 
 {% tab title="Kotlin" %}
-
-### Use Fixed Language[​](https://docs.mapsindoors.com/display-language#use-fixed-language) <a href="#use-fixed-language" id="use-fixed-language"></a>
+#### Use Fixed Language[​](https://docs.mapsindoors.com/display-language#use-fixed-language) <a href="#use-fixed-language" id="use-fixed-language"></a>
 
 The MapsIndoors language can be fixed to a specific language by supplying an [ISO 639-1 language code](https://en.wikipedia.org/wiki/List\_of\_ISO\_639-1\_codes), for example French:
 
@@ -100,7 +97,7 @@ The MapsIndoors language can be fixed to a specific language by supplying an [IS
 MapsIndoors.setLanguage("fr")
 ```
 
-### Use Device Language[​](https://docs.mapsindoors.com/display-language#use-device-language) <a href="#use-device-language" id="use-device-language"></a>
+#### Use Device Language[​](https://docs.mapsindoors.com/display-language#use-device-language) <a href="#use-device-language" id="use-device-language"></a>
 
 The MapsIndoors language can be aligned with the device language by supplying the current language code of the device:
 
@@ -109,7 +106,7 @@ val lang = resources.configuration.locales[0].language
 MapsIndoors.setLanguage(lang)
 ```
 
-### Translate HTML instructions on directions.
+#### Translate HTML instructions on directions.
 
 When requesting routes from MapsIndoors at the moment only external routes are translated into the current language set on `MapsIndoors`. The internal routes are always returned in english. Here is an example of how to achieve translated HTML instructions on internal routes.
 
@@ -160,6 +157,5 @@ fun getInstructionFromStep(@NonNull routeStep: MPRouteStep): String? {
     return instruction
 }
 ```
-
 {% endtab %}
 {% endtabs %}

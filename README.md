@@ -23,7 +23,7 @@ Your go-to resource for tapping into the full potential of the MapsIndoors platf
 
 _Show your map with all the UI needed in less than 10 minutes_
 
-<figure><img src=".gitbook/assets/MapTemplateHighlight (12).jpg" alt=""><figcaption></figcaption></figure>
+<figure><picture><source srcset=".gitbook/assets/maptemplatedarkmode.jpg" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/MapTemplateHighlight (12).jpg" alt=""></picture><figcaption></figcaption></figure>
 
 In less than 10 minutes you can seamlessly incorporate MapsIndoors into your system. We have developed all the required UI components and bundled them together for your convenience.
 
@@ -34,7 +34,7 @@ In less than 10 minutes you can seamlessly incorporate MapsIndoors into your sys
 
 ## SDKs & Frameworks
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-type="content-ref"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Web SDK</td><td></td><td></td><td><a href=".gitbook/assets/web (11).jpg">web (11).jpg</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td>Android SDK</td><td></td><td></td><td><a href=".gitbook/assets/android (7).jpg">android (7).jpg</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td>iOS SDK</td><td></td><td></td><td><a href=".gitbook/assets/ios (2).jpg">ios (2).jpg</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td>Integration API</td><td></td><td></td><td><a href=".gitbook/assets/api (6).jpg">api (6).jpg</a></td><td></td><td><a href="sdks-and-frameworks/integration-api/">integration-api</a></td></tr><tr><td>React Native</td><td></td><td></td><td><a href=".gitbook/assets/react (9).jpg">react (9).jpg</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td>Flutter</td><td></td><td></td><td><a href=".gitbook/assets/flutter (8).jpg">flutter (8).jpg</a></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-type="content-ref"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Web SDK</td><td></td><td></td><td><a href=".gitbook/assets/web (11).jpg">web (11).jpg</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td>Android SDK</td><td></td><td></td><td><a href=".gitbook/assets/android (7).jpg">android (7).jpg</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td>iOS SDK</td><td></td><td></td><td><a href=".gitbook/assets/ios (2).jpg">ios (2).jpg</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td>Integration API</td><td></td><td></td><td><a href=".gitbook/assets/api (6).jpg">api (6).jpg</a></td><td></td><td><a href="sdks-and-frameworks/integration-api/">integration-api</a></td></tr><tr><td>React Native</td><td></td><td></td><td><a href=".gitbook/assets/react (9) (1).jpg">react (9) (1).jpg</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td>Flutter</td><td></td><td></td><td><a href=".gitbook/assets/flutter (8).jpg">flutter (8).jpg</a></td><td></td><td></td></tr></tbody></table>
 
 
 
@@ -55,7 +55,7 @@ Starting with the V4 versions of our SDKs, MapsIndoors has introduced the functi
 
 ## Products
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td>Product Overview</td><td></td><td></td><td><a href="broken-reference">Broken link</a></td><td><a href=".gitbook/assets/overview (1).jpg">overview (1).jpg</a></td></tr><tr><td>Map Template</td><td></td><td></td><td><a href="products/fast-track-maptemplate/">fast-track-maptemplate</a></td><td><a href=".gitbook/assets/map template (2).jpg">map template (2).jpg</a></td></tr><tr><td>CMS</td><td></td><td></td><td></td><td><a href=".gitbook/assets/cms (9).jpg">cms (9).jpg</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td>Product Overview</td><td></td><td></td><td><a href="broken-reference">Broken link</a></td><td><a href=".gitbook/assets/overview.jpg">overview.jpg</a></td></tr><tr><td>Map Template</td><td></td><td></td><td><a href="products/fast-track-maptemplate/">fast-track-maptemplate</a></td><td><a href=".gitbook/assets/map template (2).jpg">map template (2).jpg</a></td></tr><tr><td>CMS</td><td></td><td></td><td></td><td><a href=".gitbook/assets/cms (9).jpg">cms (9).jpg</a></td></tr></tbody></table>
 
 ## Other Docs
 
