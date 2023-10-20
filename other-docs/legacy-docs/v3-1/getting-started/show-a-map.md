@@ -1,91 +1,67 @@
-# Show a Map
+# Display a Map
 
-Your environment is now fully configured, and you have the necessary Google Maps and MapsIndoors API keys. Next you will learn how to load a Google Maps map with MapsIndoors.
+Now that we have the prerequisite API keys, and the project set up, we can start adding basic functionality to the app. We will start by having the app display a map.
 
-### Show a Map with MapsIndoors[​](https://docs.mapsindoors.com/getting-started/android/v3/map#show-a-map-with-mapsindoors) <a href="#show-a-map-with-mapsindoors" id="show-a-map-with-mapsindoors"></a>
+### Display a Map with MapsIndoors <a href="#display-a-map-with-mapsindoors" id="display-a-map-with-mapsindoors"></a>
 
-ASYNC
-
+{% hint style="info" %}
 Please note that data in MapsIndoors is loaded asynchronously. This results in behavior where data might not have finished loading if you call methods accessing it immediately after initializing MapsIndoors. Best practice is to set up `listeners` or `delegates` to inform of when data is ready. Please be aware of this when developing using the MapsIndoors SDK.
+{% endhint %}
 
-#### Initialize MapsIndoors[​](https://docs.mapsindoors.com/getting-started/android/v3/map#initialize-mapsindoors) <a href="#initialize-mapsindoors" id="initialize-mapsindoors"></a>
-
-We start by initializing `MapsIndoors`. `MapsIndoors` is used to get and store all references to MapsIndoors-specific data. This includes access to all MapsIndoors-specific geodata.
-
-Place the following initialization code in the `onCreate` method in the `MapsActivity` that displays the Google map. You should also assign the `mapFragment` view to a local variable, as we will use this later to initialize `MapControl` inside the `onCreate`, after it has been created:
-
-* Java
-* Kotlin
-
-[MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android/blob/master/app/src/main/java/com/example/mapsindoorsgettingstarted/MapsActivity.java#L60-L65)
+In order to accomplish this we will be utilising the [MPMapControl Class](https://app.mapsindoors.com/mapsindoors/reference/ios/v3/interface\_m\_p\_map\_control.html). Open the file, `ViewController.swift` and, once again, add in the following import statements to the top of the file,
 
 ```
-protected void onCreate(Bundle savedInstanceState) {
-    ...
-    mMapView = mapFragment.getView();
-    MapsIndoors.initialize(getApplicationContext(), "YOUR_MAPSINDOORS_API_KEY");
-    MapsIndoors.setGoogleAPIKey(“YOUR_GOOGLE_API_KEY”);
-    ...
+import GoogleMaps  
+import MapsIndoors
+```
+
+Furthermore, within the ViewController class, add in a map controller variable as such,
+
+```
+class ViewController: UIViewController {
+private var mapControl:MPMapControl?
+var mapView = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height), camera: GMSCameraPosition())
+...
 }
 ```
 
-If you are not a customer you can use this demo MapsIndoors API key `d876ff0e60bb430b8fabb145`.
+The [MPMapControl Class](https://app.mapsindoors.com/mapsindoors/reference/ios/v3/interface\_m\_p\_map\_control.html) the is connective class between the Google Map and the MapsIndoors. It allows the two services to collaborate by overlaying the MapsIndoors information over the Google Maps information.
 
-#### Initialize MapsControl[​](https://docs.mapsindoors.com/getting-started/android/v3/map#initialize-mapscontrol) <a href="#initialize-mapscontrol" id="initialize-mapscontrol"></a>
+_Note: This also means logic is appended onto many Google Maps listeners, which means that using Google Maps listeners directly might break intended behavior of the MapsIndoors experience. We recommend checking our_ [_reference docs_](https://app.mapsindoors.com/mapsindoors/reference/ios/v3/index.html)_, and see if you can add a specific `Listener` through the `MapControl`. If this is possible, it is highly recommend you do so._
 
-We now want to add all the data we get by initializing `MapsIndoors` to our Google map. This is done by initializing `MapControl` onto the Google map. `MapControl` is used as a layer between Google Maps and MapsIndoors.
-
-Here we use Google Maps logic to apply geodata onto the map. This also means we append logic onto many Google Maps listeners, which means that using Google Maps listeners directly might break intended behavior of the MapsIndoors experience. We recommend to check our reference docs, and see if you can add a specific `Listener` through the `MapControl` and always use those when possible.
-
-Start by creating an `initMapControl` method which is used to initiate the `MapControl` and assign it to our Google map:
-
-* Java
-* Kotlin
-
-[MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android/blob/master/app/src/main/java/com/example/mapsindoorsgettingstarted/MapsActivity.java#L135-L168)
+What this means is that we should first create our Google Map, in order to do this we add the following code to our `viewDidLoad()` method,
 
 ```
-void initMapControl(View view) {
-    //Creates a new instance of MapControl
-    mMapControl = new MapControl(this);
-    //Sets the Google map object and the map view to the MapControl
-    mMapControl.setGoogleMap(mMap, view);
-    //Initiates the MapControl
-    mMapControl.init(miError -> {
-        if (miError == null) {
-            //No errors so getting the first venue (in the white house solution the only one)
-            Venue venue = MapsIndoors.getVenues().getCurrentVenue();
-            runOnUiThread( ()-> {
-                if (venue != null) {
-                    //Animates the camera to fit the new venue
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(venue.getLatLngBoundingBox(), 19));
-                }
-            });
-        }
-    });
+self.view.addSubview(mapView)
+```
+
+Running the app like this does indeed display a map, however this is through the use of Google Maps exclusively and with a default map region displayed. Let us try and add in MapsIndoors and showcase a specific location. To accomplish this we add in following after the previously inserted code,
+
+```
+self.mapControl = MPMapControl(map: mapView)  
+let query = MPQuery()  
+let filter = MPFilter()  
+query.query = "White House"  
+filter.take = 1  
+MPLocationService.sharedInstance().getLocationsUsing(query, filter: filter) { (locations, error) in  
+    if let location = locations?.first {  
+        self.mapControl?.go(to:location)  
+    }  
 }
 ```
 
-In your `onMapReady` callback function, assign the `mMap` variable with the `GoogleMap` you get from the callback and call the `initMapControl` method with the `mMapView` you assigned in the `onCreate` to set up a Google map with MapsIndoors Venues, Buildings and Locations:
+We have now added a _very_ simple search feature! Running the app now should yield a combined map of The White House, showing both the external and internal geographical information. However, let us try and understand what is actually happening.
 
-* Java
-* Kotlin
+We initialise the mapControl for MapsIndoors with respect to the `mapView` generated by the Google Maps API.
 
-[MapsActivity.java](https://github.com/MapsIndoors/MapsIndoors-Getting-Started-Android/blob/master/app/src/main/java/com/example/mapsindoorsgettingstarted/MapsActivity.java#L135-L168)
+Afterwards, we set-up a Query and Filter based on the [MPQuery Class](https://app.mapsindoors.com/mapsindoors/reference/ios/v3/interface\_m\_p\_query.html#a9da8ff62b6d17e45403b9005c73e811f) and [MPFilter Class](https://app.mapsindoors.com/mapsindoors/reference/ios/v3/interface\_m\_p\_filter.html) classes respectively, these serve as our search specifications.
 
-```
-@Override
-public void onMapReady(GoogleMap googleMap) {
-    mMap = googleMap;
+Finally, the [MPLocationService Class](https://app.mapsindoors.com/mapsindoors/reference/ios/v3/interface\_m\_p\_location\_service.html#a140844121a239dcf1709210e1723c312) enables us to search through the full collection of Locations based on our previously established query and filter, such that we can go to that location on the map. Moving the location is all handled by mapControl as it handles it for both Google Maps and MapIndoors.
 
-    if (mMapView != null) {
-        initMapControl(mMapView);
-    }
-}
-```
+### Expected Result[​](https://docs.mapsindoors.com/getting-started/ios/display-a-map#expected-result) <a href="#expected-result" id="expected-result"></a>
 
-Expected result:
+![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/ios\_display-a-map.png)
 
-![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/android\_map\_gif.gif)
+Feel free to change the query from "White House" to a known building in _your_ MapsIndoors dataset.
 
-See the full example of MapsActivity here [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android/blob/master/app/src/main/java/com/example/mapsindoorsgettingstarted/MapsActivity.java) or [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android-Kotlin/blob/main/app/src/main/java/com/example/mapsindoorsgettingstartedkotlin/MapsActivity.kt)
+We have now added a search feature to the app, albeit a search feature which the user cannot interact with. Next, let us look into how we can let the user interact with the map through a search bar.
