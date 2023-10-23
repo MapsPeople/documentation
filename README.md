@@ -1,5 +1,10 @@
 ---
+cover: .gitbook/assets/Frame 47393.jpg
+coverY: 0
 layout:
+  cover:
+    visible: false
+    size: hero
   title:
     visible: true
   description:
@@ -23,7 +28,7 @@ Your go-to resource for tapping into the full potential of the MapsIndoors platf
 
 _Show your map with all the UI needed in less than 10 minutes_
 
-<figure><picture><source srcset=".gitbook/assets/maptemplatedarkmode.min.jpg" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/MapTemplateHighlight.min.jpg" alt=""></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset=".gitbook/assets/maptemplatedarkmode.min.jpg" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/MapTemplateHighlight.min.min.jpg" alt=""></picture><figcaption></figcaption></figure>
 
 In less than 10 minutes you can seamlessly incorporate MapsIndoors into your system. We have developed all the required UI components and bundled them together for your convenience.
 
@@ -59,4 +64,4 @@ Starting with the V4 versions of our SDKs, MapsIndoors has introduced the functi
 
 ## Other Docs
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td>Glossary</td><td></td><td></td><td><a href="other-docs/glossary.md">glossary.md</a></td><td><a href=".gitbook/assets/glossary (1).jpg">glossary (1).jpg</a></td></tr><tr><td>Changelog</td><td>Reference Docs</td><td></td><td><a href="other-docs/changelog/">changelog</a></td><td><a href=".gitbook/assets/changelog (5).jpg">changelog (5).jpg</a></td></tr><tr><td>Reference Docs</td><td>Changelog</td><td></td><td><a href="other-docs/reference-docs/">reference-docs</a></td><td><a href=".gitbook/assets/ref docs (1).jpg">ref docs (1).jpg</a></td></tr><tr><td>Legacy Docs</td><td></td><td></td><td><a href="other-docs/legacy-docs/">legacy-docs</a></td><td><a href=".gitbook/assets/legacy docs (4).jpg">legacy docs (4).jpg</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td>Glossary</td><td></td><td></td><td><a href="other-docs/glossary.md">glossary.md</a></td><td><a href=".gitbook/assets/glossary.jpg">glossary.jpg</a></td></tr><tr><td>Changelog</td><td>Reference Docs</td><td></td><td><a href="other-docs/changelog/">changelog</a></td><td><a href=".gitbook/assets/changelog.jpg">changelog.jpg</a></td></tr><tr><td>Reference Docs</td><td>Changelog</td><td></td><td><a href="other-docs/reference-docs/">reference-docs</a></td><td><a href=".gitbook/assets/ref docs.jpg">ref docs.jpg</a></td></tr><tr><td>Legacy Docs</td><td></td><td></td><td><a href="other-docs/legacy-docs/">legacy-docs</a></td><td><a href=".gitbook/assets/legacy docs.jpg">legacy docs.jpg</a></td></tr></tbody></table>
