@@ -7,7 +7,6 @@
 * [Web](sdks-and-frameworks/web/README.md)
   * [Getting Started](sdks-and-frameworks/web/getting-started/README.md)
     * [Map Engine Setup](sdks-and-frameworks/web/getting-started/prerequisites.md)
-    * [Create a Search Experience](sdks-and-frameworks/web/getting-started/create-a-search-experience.md)
     * [Tutorial](sdks-and-frameworks/web/getting-started/tutorial.md)
   * [Map Visualization](sdks-and-frameworks/web/map-visualization/README.md)
     * [Display Rules in Practice](sdks-and-frameworks/web/map-visualization/display-rules-in-practice.md)
