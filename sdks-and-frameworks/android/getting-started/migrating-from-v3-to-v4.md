@@ -7,9 +7,9 @@ The Android SDK for MapsIndoors has been upgraded from V3 to V4, which comes wit
 With the release of V4 the MapsIndoors SDK is released as two separate libraries depending on the Map Provider - Google Maps or Mapbox. You can get them through Maven by changing your dependency to get:
 
 ```gradle
-implementation 'com.mapspeople.mapsindoors:googlemaps:4.0.0'
+implementation 'com.mapspeople.mapsindoors:googlemaps:4.2.5'
 
-implementation 'com.mapspeople.mapsindoors:mapbox:4.0.0'
+implementation 'com.mapspeople.mapsindoors:mapbox:4.2.5'
 ```
 
 ### MapsIndoors Initialization[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#mapsindoors-initialization) <a href="#mapsindoors-initialization" id="mapsindoors-initialization"></a>
@@ -516,7 +516,5 @@ public interface MPPositionProvider {
 | Venue                         | MPVenue                                                             |
 | VenueCollection               | MPVenueCollection                                                   |
 | VenueInfo                     | MPVenueInfo                                                         |
-
-
 
 ## MapsIndoors Initialization <a href="#mapsindoors-initialization" id="mapsindoors-initialization"></a>

@@ -72,11 +72,8 @@ Add the following dependencies and the MapsIndoors maven repository:
 
 `Gson` and `okhttp` is used by MapsIndoors to function properly with network calls and deserializing.
 
-
-
 {% tabs %}
 {% tab title="Google Maps" %}
-
 
 `play-services-maps` is used for Google Maps which MapsIndoors is build on top of on Android.
 
@@ -85,7 +82,7 @@ dependencies {
     ...
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.mapspeople.mapsindoors:googlemapssdk:4.1.0'
+    implementation 'com.mapspeople.mapsindoors:googlemaps:4.2.5'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 }
 repositories{
@@ -111,7 +108,6 @@ Sync your project with gradle.
 
 {% tab title="Mapbox" %}
 
-
 ```gradle
 dependencies {
     ...
@@ -119,7 +115,7 @@ dependencies {
         exclude group: 'group_name', module: 'module_name'
     }
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.mapspeople.mapsindoors:mapboxsdk:4.1.0'
+    implementation 'com.mapspeople.mapsindoors:mapbox:4.2.5'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 }
 repositories{
