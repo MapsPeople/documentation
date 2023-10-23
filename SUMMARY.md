@@ -2,7 +2,7 @@
 
 * [MapsIndoors Developer Docs](README.md)
 
-## ⚒ SDKS & Frameworks
+## SDKS & Frameworks
 
 * [Web](sdks-and-frameworks/web/README.md)
   * [Getting Started](sdks-and-frameworks/web/getting-started/README.md)
@@ -171,7 +171,7 @@
     * [Getting Directions](sdks-and-frameworks/flutter/getting-started/getting-directions.md)
     * [Enable Live Data](sdks-and-frameworks/flutter/getting-started/enable-live-data.md)
 
-## ⭐ Products
+## Products
 
 * [Product Overview](products/product-overview.md)
 * [Map Template](products/fast-track-maptemplate/README.md)
@@ -195,7 +195,7 @@
   * [Data Concepts](products/cms/data-concepts.md)
   * [User Roles](products/cms/user-roles.md)
 
-## 🗃 Other Docs
+## Other Docs
 
 * [Glossary](other-docs/glossary.md)
 * [Changelog](other-docs/changelog/README.md)
