@@ -19,7 +19,7 @@ Your go-to resource for tapping into the full potential of the MapsIndoors platf
 
 ***
 
-## ⚡ Simplified Map Implementation with Map Template   &#x20;
+## Simplified Map Implementation with Map Template   &#x20;
 
 _Show your map with all the UI needed in less than 10 minutes_
 
@@ -40,7 +40,7 @@ In less than 10 minutes you can seamlessly incorporate MapsIndoors into your sys
 
 ***
 
-## 🔥 Feature Highlight: 3D Maps
+## Feature Highlight: 3D Maps
 
 _The next generation of indoor maps is here_
 
