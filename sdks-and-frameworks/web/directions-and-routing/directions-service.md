@@ -26,38 +26,36 @@ This guide will show you how to implement directions, render routes, and interac
 * Would you like to show directions on the map?
   * How will the end user let the map know it's time to update with the next part of their journey?
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Creating and combining the interfaces and the map view.</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/UI-directions-2.png" alt=""><figcaption></figcaption></figure>
-
-
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>Determining the scope and simplicity of your end user experience should be a big focus when implementing the MapsIndoors SDK</p></figcaption></figure>
 
 From an implementation standpoint, there are two functional things that need to be taken care of.
 
 1. Setting up and requesting directions
 
-<figure><img src="../../../.gitbook/assets/Route Request.png" alt=""><figcaption><p>Getting directions via the SDK</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
-2. [Handling and rendering directions responses](../wayfinding/directions-renderer.md)
+1. [Handling and rendering directions responses](../wayfinding/directions-renderer.md)
 
-<figure><img src="../../../.gitbook/assets/Route Response Handling.png" alt=""><figcaption><p>What you can do once you have the response.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 
 
 The first step in getting directions is initializaing the directions service instance. By passing the externalDirectionsProvider, the MapsIndoors SDK will handle merging responses from the base map, e.g. outdoor directions that will charge billable requests if you request from somewhere else other than MapsIndoors data (e.g. an end users house, to somewhere indoors.)
 
-**Implementation**
+## **Implementation**
 
 The class `DirectionsService` is used to request routes from one point to another. The minimal required input is an `origin` and a `destination`. &#x20;
 
-Mapbox (required parameter of the DirectionsService instance)
+**Mapbox** (required parameter of the DirectionsService instance)
 
 ```javascript
 const externalDirectionsProvider = new mapsindoors.directions.MapboxProvider();
 const miDirectionsServiceInstance = new mapsindoors.services.DirectionsService(externalDirectionsProvider);
 ```
 
-Google (not required for legacy reasons, but recommended to pass an externalDirectionsProvider as a parameter)
+**Google** (not required for legacy reasons, but recommended to pass an externalDirectionsProvider as a parameter)
 
 ```javascript
 const externalDirectionsProvider = new mapsindoors.directions.GoogleMapsProvider();

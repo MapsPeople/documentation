@@ -4,7 +4,7 @@
 
 As a key element in the MapsIndoors platform, we offer APIs for efficiently calculating and displaying the most optimal routes from anywhere in the world to any Location in MapsIndoors. In the case of travelling inside a Venue, this calculation can be done on a local map provided by MapsIndoors. In the case of travelling between Venues or from outdoors to indoors, MapsIndoors provides a seamless journey outline from a specified Origin through automatically selected Entry Points at the edge of your Venues to the specified destination. See illustration below:
 
-<figure><img src="https://docs.mapsindoors.com/img/directions/directions-with-entry-points.svg" alt="" width="563"><figcaption><p><mark style="background-color:blue;">MJE: GRAFIC NEEDS AND UPDATE - AND PARKING SHOULD BE REMOVED. DOTS MUST STILL ILLUSTRATE LEG DIVISION AS DESCRIBED IN THE ARTICLE.</mark></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Routing-directions.png" alt=""><figcaption></figcaption></figure>
 
 In order to provide a route between Venues, MapsIndoors integrates with external and global map engines (Mapbox and Google Maps).
 

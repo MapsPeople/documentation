@@ -1,17 +1,5 @@
 # Integration API
 
-**Documentation reflects the latest version:**&#x20;
-
-You can find documentation on legacy versions here:
-
-{% content-ref url="../../other-docs/legacy-docs/" %}
-[legacy-docs](../../other-docs/legacy-docs/)
-{% endcontent-ref %}
-
-***
-
-### Introduction and Getting Started[​](https://docs.mapsindoors.com/api#introduction-and-getting-started) <a href="#introduction-and-getting-started" id="introduction-and-getting-started"></a>
-
 The MapsIndoors Integration API offers an alternative to changing your Mapsindoors data via the [CMS](https://cms.mapsindoors.com/). From this API you can get, add, change and delete either directly via third party tools like [Postman](https://www.postman.com/) or via the provided Swagger frontend.
 
 You can access data through the Integration API using a range of endpoints. The endpoints are described in the Swagger interface definition: [https://integration.mapsindoors.com/doc](https://integration.mapsindoors.com/doc/index.html)

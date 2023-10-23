@@ -1,4 +1,4 @@
-# Turn Off Collisions Based on Zoom Level
+# Managing Collisions Based on Zoom Level
 
 **Handling Label Collisions in MapsIndoors SDK with Mapbox**
 
@@ -44,9 +44,7 @@ mapsIndoorsInstance.addListener('zoom_changed', (zoomLevel) => {
 
 **Explanation**
 
-* **`zoom_changed` Listener**: Detects changes in zoom level, triggering the condition check.
-* **Conditional Check**: Compares the current zoom level against the
+* `zoom_changed` listener: Detects changes in zoom level, triggering the condition check against the current zoom level.
+* `setLayoutProperty`: Adjusts the `text-allow-overlap` property of the 'MI\_POINT\_LAYER' to either allow or prevent label overlap, depending on the zoom condition.
 
-maximum permissible zoom level (retrieved via [mapsIndoorsInstance.getMaxZoom()](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#getMaxZoom) ) to determine label rendering behavior.
-
-* **`setLayoutProperty`**: Adjusts the `text-allow-overlap` property of the 'MI\_POINT\_LAYER' to either allow or prevent label overlap, depending on the zoom condition.
+Optional Conditional Check: Compares the current zoom level against the maximum permissible zoom level (retrieved via [mapsIndoorsInstance.getMaxZoom()](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#getMaxZoom) ) to determine label rendering behavior.

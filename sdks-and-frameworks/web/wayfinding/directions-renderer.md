@@ -6,8 +6,6 @@ Once the `miDirectionsServiceInstance` and `miDirectionsRendererInstance` are in
 
 This example shows how to set up a query for a route and display the result on a Google Map using the DirectionsRenderer:
 
-<mark style="background-color:blue;">MJE: Needs Mapbox equivalent tap, ticket created DOC-84</mark>
-
 for Google Maps
 
 ```javascript

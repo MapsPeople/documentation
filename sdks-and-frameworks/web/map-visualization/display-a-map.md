@@ -1,10 +1,34 @@
 # Display a Map
 
+_MJE: I propose existing content below is deleted as that's already covered in the getting-started. This page should have all the details instead_
+
+**Google**:
+
+how to use JSON styling.
+
+how to use Cloud Styling.
+
+how to enable vector map and tilt / rotation with a warning (2D models etc.).
+
+how to control font (if possible) and labels.
+
+**Mapbox**:
+
+how to set the map style.
+
+how to control label font and style.
+
+
+
+
+
+***
+
+
+
 ### Overview[​](https://docs.mapsindoors.com/simple-map-web#overview) <a href="#overview" id="overview"></a>
 
-In this guide you will learn to load a Google map with a MapsIndoors map on top. The full code example is shown in the JSFiddle below <mark style="background-color:red;">(hvor?)</mark>, but will be run through bit by bit in this guide.
-
-<mark style="background-color:red;">Skal denne artikel have en komplet rewrite med to sektioner; Google Maps og Mapbox?</mark>
+In this guide you will learn to load a base map - Google Maps or Mapbox - with a MapsIndoors map on top. The full code example is shown in the JSFiddle below <mark style="background-color:red;">(Fiddle is missing)</mark>, but will be run through bit by bit in this guide.
 
 
 
@@ -18,22 +42,53 @@ The MapsIndoors SDK is loaded by using a script tag like the one below:
 
 The `apikey` parameter contains your application's MapsIndoors API key.
 
-For IE11 it's critical to load the MapsIndoors SDK before the Google Maps API due to conflicting polyfills. <mark style="background-color:red;">(IE11 - kræver det en forklaring?)</mark>
+#### Loading the base map[​](https://docs.mapsindoors.com/simple-map-web#loading-the-google-maps-javascript-api) <a href="#loading-the-google-maps-javascript-api" id="loading-the-google-maps-javascript-api"></a>
 
-#### Loading the Google Maps JavaScript API[​](https://docs.mapsindoors.com/simple-map-web#loading-the-google-maps-javascript-api) <a href="#loading-the-google-maps-javascript-api" id="loading-the-google-maps-javascript-api"></a>
+A base map is loaded by using a script tag like the one below:
 
-The Google Maps API is loaded by using a script tag like the one below:
+{% tabs %}
+{% tab title="Mapbox" %}
+```html
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js'></script>
+```
+{% endtab %}
 
-```javascript
+{% tab title="Google Maps" %}
+```html
 <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=YOUR_GOOGLE_API_KEY"></script>
 ```
 
-The `libraries` parameter is for loading additional libraries for the Google Maps API. The MapsIndoors SDK is dependent on the Geometry Library from Google.
+The `libraries` parameter is for loading additional libraries for the Google Maps API. The MapsIndoors SDK is dependent on the Geometry library from Google.
 
 The `key` parameter contains your Google Maps API key. Look [here](https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/get-api-key) for more information about how to obtain a key.
+{% endtab %}
+{% endtabs %}
 
 #### Setting Up the MapView[​](https://docs.mapsindoors.com/simple-map-web#setting-up-the-mapview) <a href="#setting-up-the-mapview" id="setting-up-the-mapview"></a>
 
+{% tabs %}
+{% tab title="Mapbox" %}
+```javascript
+const mapViewOptions = {
+    accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
+    element: document.getElementById('map'),
+    center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+    zoom: 17,
+};
+const mapViewInstance = new mapsindoors.mapView.MapboxView(mapViewOptions);
+const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
+    mapView: mapViewInstance,
+});
+```
+
+* `element` is the DOM element on the page that will contain the map. `document.getElementById('map')`
+* `center` is the geographical point on which the map is centered.
+* `zoom` is the initial zoom level the map will be displayed at.
+
+For a full list of parameters, see the [mapView.MapboxView](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.MapboxView.html) reference.
+{% endtab %}
+
+{% tab title="Google Maps" %}
 ```javascript
 const mapView = new mapsindoors.mapView.GoogleMapsView({
     element: document.getElementById("map"),
@@ -51,6 +106,10 @@ const mapView = new mapsindoors.mapView.GoogleMapsView({
 * `zoom` is the initial zoom level the map will be displayed at.
 * The `maxZoom` parameter is set to disable the map from zooming further in than level 21 which is the current maximum.&#x20;
 
+For a full list of parameters, see the [mapView.GoogleMapsView](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.GoogleMapsView.html) reference.
+{% endtab %}
+{% endtabs %}
+
 #### Initializing MapsIndoors[​](https://docs.mapsindoors.com/simple-map-web#initializing-mapsindoors) <a href="#initializing-mapsindoors" id="initializing-mapsindoors"></a>
 
 ```javascript
@@ -59,7 +118,7 @@ const mapsIndoors = new mapsindoors.MapsIndoors({
 });
 ```
 
-A new instance of the MapsIndoors class is created and assigns the GoogleMapsView to the `mapView` parameter.
+A new instance of the MapsIndoors class is created and assigns the MapboxView or GoogleMapsView to the `mapView` parameter.
 
 #### Adding a Floor Selector[​](https://docs.mapsindoors.com/simple-map-web#adding-a-floor-selector) <a href="#adding-a-floor-selector" id="adding-a-floor-selector"></a>
 
