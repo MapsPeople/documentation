@@ -248,7 +248,6 @@
 ## Links
 
 * [CMS](https://cms.mapsindoors.com/)
-* [Map Design System](https://www.mapsindoors.com/design)
 * [Support](https://mapspeople.atlassian.net/servicedesk/customer/portals)
 * [GitHub](https://github.com/MapsPeople)
-* [Map Demo](https://map.mapsindoors.com/)
+* [Map Design System](https://www.mapsindoors.com/design)
