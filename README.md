@@ -49,7 +49,7 @@ In less than 10 minutes you can seamlessly incorporate MapsIndoors into your sys
 
 _The next generation of indoor maps is here_
 
-<figure><img src=".gitbook/assets/3dghighlightimage (1).jpg" alt=""><figcaption></figcaption></figure>
+<figure><picture><source srcset=".gitbook/assets/Screenshot 2023-10-23 at 14.11.58.png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/3dghighlightimage (1).jpg" alt=""></picture><figcaption></figcaption></figure>
 
 Starting with the V4 versions of our SDKs, MapsIndoors has introduced the functionality to have your map viewed in 3D, with the appropriate navigational features, rather than just a flat 2D image.
 
