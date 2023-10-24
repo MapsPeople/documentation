@@ -5,7 +5,7 @@ Example blow shows **'Languages'** section and dropdown from which you can selec
 <div>
     <img src="../../../.gitbook/assets/languages-default-view.png" alt="">
 </div>
-When solution has only one language, this language will be the default one. You are able to add as many languages as you want to and choose which one should be the default one:
+When solution has only one language, this language will be the default one. You are able to add as many languages as you want to and choose which one should be the default one.
 Adding German and Danish languages:
 
 <div>
