@@ -43,7 +43,6 @@
     * [Display Language](sdks-and-frameworks/web/other-guides/display-language.md)
     * [Kiosk](products/kiosk.md)
     * [Language](sdks-and-frameworks/web/other-guides/display-language-1.md)
-    * [Logging](sdks-and-frameworks/web/other-guides/logging.md)
     * [User Positioning](sdks-and-frameworks/web/other-guides/user-positioning/README.md)
       * [Show User's Location aka. Blue Dot](sdks-and-frameworks/web/other-guides/user-positioning/show-users-location-aka.-blue-dot.md)
       * [Using Cisco DNA Spaces](sdks-and-frameworks/web/other-guides/user-positioning/using-cisco-dna-spaces.md)
