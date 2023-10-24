@@ -18,7 +18,7 @@ Setting German as default language:
 <img src="../../../.gitbook/assets/languages-setting-default-language.png" alt="">
 </div>
 
-If you do not specify a language, MapsIndoors will show information in the default language defined in the MapsIndoors CMS <mark style="background-color:red;">(Giver det mening at fortælle hvor i CMSet?)</mark>. Likewise, if you specify a language that is not supported, MapsIndoors will also show information in the default language. <mark style="background-color:red;">Skal vi nævne hvilke languages, der rent faktisk er supported? Eller er det nok, at det står nedenunder.</mark>
+If you do not specify a language, MapsIndoors will show information in the default language defined in the MapsIndoors CMS. Likewise, if you specify a language that is not supported, MapsIndoors will also show information in the default language.
 
 Additionally, aside from methods mentioned here, you can provide translations via the standard method for your device, such as using individual localized strings.
 
@@ -44,9 +44,3 @@ The web-app will automatically adjust the language to the language set in the us
 * Portuguese
 * Italian
 * French
-* TEST
-
-
-
-
-
