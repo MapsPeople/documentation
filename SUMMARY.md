@@ -38,8 +38,6 @@
         * [SSO Authorisation](sdks-and-frameworks/web/other-guides/authentication/single-sign-on/sso-authorisation.md)
       * [2-Factor Authentication](sdks-and-frameworks/web/other-guides/authentication/2-factor-authentication.md)
       * [Password Reset](sdks-and-frameworks/web/other-guides/authentication/password-reset.md)
-    * [Analytics & Logging](sdks-and-frameworks/web/other-guides/analytics-and-logging/README.md)
-      * [Event Logging](sdks-and-frameworks/web/other-guides/analytics-and-logging/event-logging.md)
     * [Application User Roles](sdks-and-frameworks/web/other-guides/application-user-roles.md)
     * [Custom Properties](sdks-and-frameworks/web/other-guides/custom-properties.md)
     * [Display Language](sdks-and-frameworks/web/other-guides/display-language.md)
