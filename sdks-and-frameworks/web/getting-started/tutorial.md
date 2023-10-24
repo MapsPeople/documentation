@@ -2,7 +2,7 @@
 
 Throughout the Getting Started guide, you will modify and extend the same code to create your map. Let's start by creating the initial app.
 
-## Set Up Your Environment[​](https://docs.mapsindoors.com/getting-started/web/new-project#set-up-your-environment) <a href="#set-up-your-environment" id="set-up-your-environment"></a>
+## Step 1. Set Up Your Environment[​](https://docs.mapsindoors.com/getting-started/web/new-project#set-up-your-environment) <a href="#set-up-your-environment" id="set-up-your-environment"></a>
 
 1. If you do not have prior development experience, you can install an Integrated Development Environment (IDE), e.g. [Visual Studio Code](https://code.visualstudio.com/).
 2. Start by creating a new project folder. The location is not important, just remember the location, and ensure your newly created project folder is empty.
@@ -34,7 +34,7 @@ Both here, and in the following examples, you will always be able to see which o
 
 Your environment is now fully configured, and you have the necessary API keys. Next, you will learn how to display a map with MapsIndoors.
 
-## Display a Map with MapsIndoors[​](https://docs.mapsindoors.com/getting-started/web/map#show-a-map-with-mapsindoors) <a href="#show-a-map-with-mapsindoors" id="show-a-map-with-mapsindoors"></a>
+## Step 2. Display a Map with MapsIndoors[​](https://docs.mapsindoors.com/getting-started/web/map#show-a-map-with-mapsindoors) <a href="#show-a-map-with-mapsindoors" id="show-a-map-with-mapsindoors"></a>
 
 {% tabs %}
 {% tab title="Google Maps - Manually" %}
@@ -466,7 +466,7 @@ Here's a JSFiddle demonstrating the result you should have by now:
 {% endtab %}
 {% endtabs %}
 
-## Create a Search Experience
+## Step 3. Create a Search Experience
 
 In this step, you'll create a simple search and display the search results in a list. You'll also learn how to filter the data displayed on the map.
 
@@ -1297,11 +1297,11 @@ Here's a JSFiddle demonstrating the result you should have by now:
 
 
 
-## Getting Directions
+## Step 4. Getting Directions
 
 In this step you'll create directions between two points and change the transportation mode.
 
-### Get Directions Between Two Locations[​](https://docs.mapsindoors.com/getting-started/web/directions#get-directions-between-two-locations) <a href="#get-directions-between-two-locations" id="get-directions-between-two-locations"></a>
+### Step 4a. Get Directions Between Two Locations[​](https://docs.mapsindoors.com/getting-started/web/directions#get-directions-between-two-locations) <a href="#get-directions-between-two-locations" id="get-directions-between-two-locations"></a>
 
 To get directions between two MapsIndoors Locations, or places outside of your MapsIndoors solution, we need two things:
 
