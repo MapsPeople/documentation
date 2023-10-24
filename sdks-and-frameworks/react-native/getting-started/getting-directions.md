@@ -12,7 +12,7 @@ Finally inside the view of `SearchResultItem` add a view with two `TouchableOpac
 
 The implementation of `setFromLocation` and `setToLocation` will come later.
 
-```
+```tsx
 type SearchResultItemProps = {
   item: MPLocation;
   clickResult: (location: MPLocation) => void;
@@ -61,7 +61,7 @@ We will now add a `NavigationHeader` to the bottom sheet. The navigation header 
 
 Open the `NavigationHeader.tsx` file. Start by expanding the `NavigationHeaderProps` with a to and `fromLocation` as well as adding a function `getRoute`. Inside the third view add two `Text` elements using the `BoldText` to highlight to and from, and use the location as well as venue name to describe the chosen to or from location. Lastly add the `getRoute` function to the `Query` buttons `onPress`.
 
-```
+```tsx
 const BoldText = (props: React.PropsWithChildren) => <Text style={{fontWeight: 'bold'}}>{props.children}</Text>
 
 type NavigationHeaderProps = {
@@ -103,7 +103,7 @@ We now want to implement the `setFromLocation` and `setToLocation` inside our `M
 
 First add the function to the props and constructor of `SearchResults` as well as forward it to the `SearchResultItem` inside the `BottomSheetFlatList`.
 
-```
+```tsx
 type SearchResultsProps = {
   searchResults: MPLocation[] | undefined;
   setFromLocation: (loc: MPLocation) => void;
@@ -123,7 +123,7 @@ export default function SearchResults({searchResults, setFromLocation, setToLoca
 
 Then we add the `NavigationHeader` inside our BottomSheet of the `MapScreen` component as well as the `fromLocation` and `toLocation` hooks and supply them to the `SearchResults` component inside the BottomSheet.
 
-```
+```tsx
 export default function MapScreen({navigation, route}) {
 
   const [fromLocation, setFromLocation] = useState<MPLocation>();
@@ -157,7 +157,7 @@ Now that our `MapScreen` is aware of the to and from locations. We will create a
 
 Inside the `getRoute` function we will first make sure that both the to and `fromLocation` is defined. Then we will create an `MPDirectionsService` this is used to query for a route, as well as configuring the route that we want to query. Here we set our `travelMode` to walking and then call `getRoute` on the `MPDirectionsService` to get a route result between the two locations. We the create an `MPDirectionsRenderer` note the supplied NativeEventEmitter this is used internally to send events between native and React Native. We set the route we received from the `MPDirectionsService` on the `MPDirectionsRenderer` which will cause the route to be rendered onto the map. We will also add a listener on the `MPDirectionsRenderer` that listens for leg changes, so that we can react to this with our views later on.
 
-```
+```tsx
   const [mproute, setMPRoute] = useState<MPRoute>();
   const [directionsRenderer, setDirectionsRenderer] = useState<MPDirectionsRenderer|undefined>(undefined);
   const [routeLeg, setRouteLeg] = useState<number>();
@@ -202,7 +202,7 @@ Now that we have the `MPRoute` shown on the map we want to describe the individu
 
 Add the `MPRouteLeg` `useState` hook to emit when the leg changes of the route. Add the `RouteInstructionLeg` inside the empty view component of `RouteInstructions`. Finally implement a `useEffect` hook that listens for the goToPage number changing, that will change the leg of the route, causing the `RouteInstructionLeg` to change the described leg.
 
-```jsx
+```tsx
 export default function RouteInstructions({route, goToPage, onPrevious, onNext}: {route: MPRoute|undefined, goToPage: number|undefined, onPrevious: (()=>void)|undefined, onNext: (()=>void)|undefined}) {
 
   const [leg, setLeg] = useState<MPRouteLeg|undefined>(route?.legs![0]);
@@ -230,7 +230,7 @@ The `RouteInstructions` are accompanied with a short step instruction for the ro
 
 Add two `Text` elements inside the view one as a header with "Leg instructions" and one that describes the accumulated duration and distance of the leg. Add a `BottomSheetFlatList` that takes the steps of the leg that shows a `Text` element per step using the `htmlInstructions` of the steps to describe each of them.
 
-```jsx
+```tsx
 export default function RouteInstructionLeg({leg}: {leg: MPRouteLeg|undefined}) {
   return <View style={{ backgroundColor: Colors.light, padding: 5, height: '100%'}}>
     <Text style={{color: Colors.dark}}>Leg instructions</Text>
@@ -248,7 +248,7 @@ Inside the `BottomSheet` of the `MapScreen` Add the condition if `mproute` is de
 
 acAdd the `RouteInstructions` with the route from our condition, use the `routeLeg` `useState` for goToPage, and add calls to the `directionsRenderer` for the previous and next leg. Move the `SearchResults` from previous inside the condition, to be shown when the `mproute` is not set. We have also implemented a function inside the `onClose` of our `BottomSheet` called clear. We will implement the functionality below.
 
-```jsx
+```tsx
 <BottomSheet ref={bottomSheet} snapPoints={['15%', '60%']} index={-1} enablePanDownToClose={true} onChange={() => {}} onClose={clear}>
   <NavigationHeader searchResults={searchResults}
     fromLocation={fromLocation}
@@ -272,7 +272,7 @@ Lastly to be able to close our bottomsheet and create new searches we will setup
 
 Add the function `clear` inside our `MapScreen` component, that sets our route, searchResults, to and fromLocation to undefined. Add a `useEffect` hook that checks when the `mproute` and `searchResults` are undefined, that clears any rendered route as well as closing our `BottomSheet`. Inside the `SearchBox` on the `MapScreen` component, add an `onCancel` parameter, that invokes the `clear` function we just added.
 
-```javascript
+```tsx
 const clear = () => {
     setMPRoute(undefined);
     setToLocation(undefined);
@@ -294,7 +294,7 @@ useEffect(() => {
 
 Add the `onCancel` function to the `SearchBox` and call that from the cancel button already implemented.
 
-```javascript
+```tsx
 export default function SearchBox({onSearch, onCancel}) {
   return (
     ...

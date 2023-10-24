@@ -10,7 +10,7 @@ It is highly recommended to first read the [guide on Booking](https://docs.mapsi
 
 By default, the `MPBookingService` performs anonymous bookings using a service account known to MapsIndoors. However, it is also possible to list, perform and cancel Bookings on behalf of a user. For the `MPBookingService` to work on behalf of a user, it must identify the tenant with a given tenant id (optional for single tenant setups) and prove user access with an access token. See the following example.
 
-```
+```swift
 MPMapsIndoors.shared.authToken = "YOUR AUTH TOKEN"
 MPMapsIndoors.shared.bookingService.authenticationConfig = MPBookingAuthConfig(accessToken: "YOUR AUTH TOKEN")
 MPMapsIndoors.shared.bookingService.authenticationConfig?.tenantId = "YOUR TENANT ID"
@@ -32,7 +32,7 @@ Obtaining an access token for working with Bookings on behalf of a user is outsi
 
 Disabling User Authenticated Bookings is as simple as setting the `authenticationConfig` to `nil`:
 
-```
+```swift
 MPMapsIndoors.shared.bookingService.authenticationConfig = nil
 ```
 

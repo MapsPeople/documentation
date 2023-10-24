@@ -109,14 +109,14 @@ Here's how you would do it on a computer running Windows:
 
 1.  Create a shortcut to chrome.exe located in the application folder
 
-    ```
+    ```bash
     C:\Program Files (x86)\Google\Chrome\Application
     ```
 2. Right-click on the shortcut and select "Properties"
 3. In the "Target" field add the `--kiosk` parameter to the path
 4.  Now add the target URL, e.g.:
 
-    ```
+    ```bash
     "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --kiosk "http://kiosk.mapsindoors.com/demo"
     ```
 
@@ -140,7 +140,7 @@ The `originLocation` URL parameter is saved in the browser's local storage as `M
 
 **Example**[**​**](https://docs.mapsindoors.com/kiosk#example-1)
 
-```
+```url
 http://kiosk.mapsindoors.com/demo?originLocation=f952e8bcf8f0423b96f23611
 ```
 
@@ -156,7 +156,7 @@ The `liveData` URL parameter is saved in the browser's local storage as `MIKIOSK
 
 **Example**[**​**](https://docs.mapsindoors.com/kiosk#example-2)
 
-```
+```url
 http://kiosk.mapsindoors.com/demo?liveData=occupancy,availability,position
 ```
 
@@ -168,7 +168,7 @@ The `zoom` level URL parameter is saved in the browser's local storage as `MIKIO
 
 **Example**[**​**](https://docs.mapsindoors.com/kiosk#example-3)
 
-```
+```url
 http://kiosk.mapsindoors.com/demo?zoom=22
 ```
 
@@ -180,7 +180,7 @@ The `timeout` URL parameter is saved in the browser's local storage as `MIKIOSK:
 
 **Example**[**​**](https://docs.mapsindoors.com/kiosk#example-4)
 
-```
+```url
 http://kiosk.mapsindoors.com/demo?timeout=20
 ```
 
@@ -192,7 +192,7 @@ The `legend` URL parameter is saved in the browser's local storage as `MIKIOSK:{
 
 **Example**[**​**](https://docs.mapsindoors.com/kiosk#example-5)
 
-```
+```url
 http://kiosk.mapsindoors.com/demo?legend=true
 ```
 
@@ -204,7 +204,7 @@ The `bearing` URL parameter is saved in the browser's local storage as “`MIKIO
 
 **Example**[**​**](https://docs.mapsindoors.com/kiosk#example-6)
 
-```
+```url
 http://kiosk.mapsindoors.com/demo?bearing=180
 ```
 
@@ -216,7 +216,7 @@ The `pitch` URL parameter is saved in the browser's local storage as `MIKIOSK:{m
 
 **Example**[**​**](https://docs.mapsindoors.com/kiosk#example-7)
 
-```
+```url
 http://kiosk.mapsindoors.com/demo?pitch=60
 ```
 

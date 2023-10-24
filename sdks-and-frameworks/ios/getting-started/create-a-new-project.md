@@ -42,7 +42,7 @@ MapsIndoors can be installed using CocoaPods ([Getting Started with CocoaPods](h
 1. Create a new `Podfile` in your project directory (same folder as your _.xcodeproj_) by running `pod init <XCODEPROJECTNAME>` in Terminal.
 2.  Add your dependecies to the `Podfile` as follows (replace `YOUR_APPLICATION_TARGET_NAME_HERE` with your actual target name),
 
-    ```
+    ```properties
     source 'https://github.com/CocoaPods/Specs.git'
 
     platform :ios, '15.0' # Replace 15.0 with you iOS Minimum Deployment Target
@@ -80,14 +80,14 @@ Open back up the project and navigate to the file `AppDelegate.swift`.
 {% tab title="Google Maps" %}
 1. Add the following import statements to the top of the file:
 
-```
+```swift
 import GoogleMaps  
 import MapsIndoorsCore
 ```
 
 2. Insert the following into the `application(_:didFinishLaunchingWithOptions:)` method. If you are using `Mapbox` then provide your API Key when you add your map to the view inside `viewDidLoad()` in your `ViewController.swift`:
 
-```
+```swift
  GMSServices.provideAPIKey(`YOUR_GOOGLE_API_KEY`)
 ```
 
@@ -97,14 +97,14 @@ Finally, remember to replace `YOUR_GOOGLE_API_KEY` or `YOUR_MAPBOX_API_KEY` with
 {% tab title="Mapbox" %}
 1. Add the following import statements to the top of the file:
 
-```
+```swift
 import Mapbox  
 import MapsIndoorsCore
 ```
 
 2. Insert the following into the `application(_:didFinishLaunchingWithOptions:)` method. If you are using `Mapbox` then provide your API Key when you add your map to the view inside `viewDidLoad()` in your `ViewController.swift`:
 
-```
+```swift
  ResourceOptions(accessToken: `YOUR_MAPBOX_API_KEY`)
  let initOptions = MapInitOptions(resourceOptions: myResourceOptions, styleURI: StyleURI.light)
       self.mapView = MapView(frame: view.bounds, mapInitOptions: initOptions)

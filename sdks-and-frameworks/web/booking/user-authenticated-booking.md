@@ -31,7 +31,7 @@ Obtaining an access token for working with bookings on behalf of a user is usual
 
 Disabling user authenticated bookings is as simple as calling the `setAuthenticationConfig` with `null` as the argument:
 
-```
+```javascript
 bookingService.setAuthenticationConfig(null);
 }
 ```

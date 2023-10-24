@@ -16,13 +16,13 @@ Assigning or changing App User Roles to users is done in the app itself. The met
 
 To fetch User Roles from the SDK, you call `MapsIndoors.getUserRoles()` to retrieve a collection of `MPUserRoles` tied to a loaded solution:
 
-```
+```java
 final List<MPUserRole> cmsUserRoles = MapsIndoors.getUserRoles().getUserRoles();
 ```
 
 To set User Roles, `applyUserRoles` is used:
 
-```
+```java
 MapsIndoors.applyUserRoles(savedUserRoles);
 ```
 

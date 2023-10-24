@@ -8,7 +8,7 @@ In this tutorial we will show how to work with the route model returned from a d
 
 In the route model there are some text properties that we will interpret as enum values, so start out by creating enums `RouteContext` describing whether we are outside or inside.
 
-```
+```swift
 enum RouteContext : String
 {
     case insideBuilding = "InsideBuilding"
@@ -18,25 +18,25 @@ enum RouteContext : String
 
 Create a subclass of `UICollectionViewCell` called `RouteSegmentView`
 
-```
+```swift
 class RouteSegmentView : UITableViewCell {
 ```
 
 Add a property called `route` that holds entire route model.
 
-```
+```swift
 private var route: MPRoute?
 ```
 
 Add a property called `segment` that holds the actual segment of `route` that this view is going to reflect.
 
-```
+```swift
 private var segment:MPRouteSegmentPath = MPRouteSegmentPath()
 ```
 
 Add a method called `renderRouteInstructions` that updates `segment` and `route`. Call the method `updateViews` when set.
 
-```
+```swift
 func renderRouteInstructions(_ route:MPRoute, for segment:MPRouteSegmentPath) {
     self.route = route
     self.segment = segment
@@ -48,7 +48,7 @@ func renderRouteInstructions(_ route:MPRoute, for segment:MPRouteSegmentPath) {
 
 We will need some helper methods to make this example work. The helper methods will be added to our `RouteSegmentView` class. First create a method that can get us the previous step for later comparison.
 
-```
+```swift
 fileprivate func getPreviousStep(_ stepIndex: Int, _ legIndex: Int, _ route: MPRoute) -> MPRouteStep? {
 
     var previousStep: MPRouteStep?
@@ -66,7 +66,7 @@ fileprivate func getPreviousStep(_ stepIndex: Int, _ legIndex: Int, _ route: MPR
 
 Create a method `getOutsideInsideInstructions` that can get us instructions for walking inside or out of a building. This is determined by the `routeContext` property of an `MPRouteStep`
 
-```
+```swift
 fileprivate func getOutsideInsideInstructions(_ previousStep: MPRouteStep, _ currentStep: MPRouteStep) -> String? {
     var instructions:String?
     if let previousContext = previousStep.routeContext {
@@ -88,7 +88,7 @@ fileprivate func getOutsideInsideInstructions(_ previousStep: MPRouteStep, _ cur
 
 Create a method `getElevationInstructions` that can get us instructions for taking the stairs or elevator to another floor. This is determined by the `highway` and `end_location.zLevel` properties of a `MPRouteStep`.
 
-```
+```swift
 fileprivate func getElevationInstructions(_ currentStep: MPRouteStep) -> String? {
     var instructions:String?
     if currentStep.start_location.zLevel.intValue != currentStep.end_location.zLevel.intValue {
@@ -109,7 +109,7 @@ fileprivate func getElevationInstructions(_ currentStep: MPRouteStep) -> String?
 
 Create a method `getDefaultInstructions` that can get us information about the default instructions in a route step. In some cases they are html formatted, so we need to pass it through an interpreter.
 
-```
+```swift
 fileprivate func getDefaultInstructions(_ currentStep: MPRouteStep) -> String? {
     return String(htmlEncodedString: currentStep.html_instructions)
 }
@@ -117,7 +117,7 @@ fileprivate func getDefaultInstructions(_ currentStep: MPRouteStep) -> String? {
 
 Create a method `getDistanceInstructions` that can get us information about the travelling distance. This is determined by the `duration` property of a `MPRouteLeg`. The distance is returned in meters so if you require imperial units, make a conversion.
 
-```
+```swift
 fileprivate func getDistanceInstructions(_ distance:NSNumber?) -> String {
     let feet = Int((distance?.doubleValue ?? 0) * 3.28)
     return "Continue for \(feet) feet"
@@ -128,7 +128,7 @@ fileprivate func getDistanceInstructions(_ distance:NSNumber?) -> String {
 
 Obviously it is up to your application to present some instructions to the end user, but here a suggestion. Add a method called `updateViews` that will fire whenever our models change. Initialize an array of textual instructions and check for existence of a current leg.
 
-```
+```swift
 func updateViews() {
  
     if let route = route, route.legs.count > 0 {
@@ -162,7 +162,7 @@ func updateViews() {
 
 We need a method to parse html because the directions instructions from Google contains html.
 
-```
+```swift
 extension String {
 
     init?(htmlEncodedString: String) {
@@ -192,7 +192,7 @@ We use a collection view to do this but you can of course use whatever view that
 
 First we will define a protocol called `RouteSegmentsControllerDelegate` that will be used to handle the selection of each represented route segment. The method `didSelectRouteSegment` will be delegating the handling of route segment selections.
 
-```
+```swift
 protocol RouteSegmentsControllerDelegate {
     func didSelectRouteSegment(segment:MPRouteSegmentPath)
 }
@@ -208,7 +208,7 @@ Add some properties to the controller
 * `tableView` the actual table view property.
 * `delegate` the delegate property.
 
-```
+```swift
 class RouteSegmentsController : UIViewController {
 
     private var startingScrollingOffset = CGPoint.zero
@@ -262,7 +262,7 @@ class RouteSegmentsController : UIViewController {
 
 Create an extension of `RouteSegmentsController` that implements `UITableViewDataSource` protocol.
 
-```
+```swift
 extension RouteSegmentsController : UITableViewDataSource {
     /***
      In the `collectionView numberOfItemsInSection` method, let the item count reflect the number of legs in the current route.
@@ -311,7 +311,7 @@ extension RouteSegmentsController : UITableViewDataSource {
 
 Create an extension of `RouteSegmentsController` that implements `UITableViewDelegate` protocol. In method `didSelectRowAtIndexPath` update the current route segment.
 
-```
+```swift
 extension RouteSegmentsController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         updateRouteSegmentSelection(segment: MPRouteSegmentPath(legIndex: indexPath.section, stepIndex: indexPath.row))
@@ -322,7 +322,7 @@ extension RouteSegmentsController : UITableViewDelegate {
 
 Start by creating a controller class `AdvancedDirectionsController` that inherits from `UIViewController`, `MPMapControlDelegate` and `MPDirectionsRendererDelegate`.
 
-```
+```swift
 class AdvancedDirectionsController: UIViewController, MPMapControlDelegate, MPDirectionsRendererDelegate {
 ```
 
@@ -333,7 +333,7 @@ Setup map-related member variables for `AdvancedDirectionsController`:
 * A MapsIndoors `MPDirectionsRenderer` property
 * A `stepWiseRenderer` property used as a step-rendering property
 
-```
+```swift
 var map: UIView? = nil
 var mapControl: MPMapControl! = nil
 var renderer: MPDirectionsRenderer! = nil
@@ -351,7 +351,7 @@ Setup directions related member variables for `AdvancedDirectionsController`:
 * A `destinationLocation` property
 * A `originLocation` witch will be as our origin location.
 
-```
+```swift
 var routeVC: RouteSegmentsController! = nil
 var heightConstraintForRouteView:NSLayoutConstraint! = nil
 var directionsVisible:Bool! {
@@ -375,7 +375,7 @@ var originLocation:MPLocation?
 
 Create a `setupMap` method that sets up the UIView map and MapsIndoors Map Control object. To configure a `mapConfig` see [Getting Started](https://docs.mapsindoors.com/getting-started/ios/v4/display-a-map/)
 
-```
+```swift
 fileprivate func setupMap() async {
     do {
         try await MPMapsIndoors.shared.load(apiKey: #INSERT_YOUR_API_KEY)
@@ -390,7 +390,7 @@ fileprivate func setupMap() async {
 
 Create a `setupSearchButton` method that sets up a button that can trigger the destination location selection.
 
-```
+```swift
 fileprivate func setupSearchButton() {
     searchButton = UIButton.init()
     searchButton.setTitle("Search Destination", for: .normal)
@@ -402,7 +402,7 @@ fileprivate func setupSearchButton() {
 
 Create a `setupConstraints` method that sets up all the layout constraints. In your projects you might do all this in a storyboard.
 
-```
+```swift
 fileprivate func setupConstraints() {
 
     map.translatesAutoresizingMaskIntoConstraints = false
@@ -426,7 +426,7 @@ fileprivate func setupConstraints() {
 
 Create a `setupRouteNav` method that instantiates `RouteSegmentsController` and adds it as a child view controller. Assign this controller as its delegate.
 
-```
+```swift
 fileprivate func setupRouteNav() {
     routeVC = RouteSegmentsController.init()
     self.addChildViewController(routeVC!)
@@ -438,7 +438,7 @@ fileprivate func setupRouteNav() {
 
 Create a `selectDestination` method that instantiates and presents `MySearchController`. Assign this controller as its delegate.
 
-```
+```swift
 @objc fileprivate func selectDestination() {
     let searchController = MySearchController.init(near: nil)
     searchController.delegate = self
@@ -448,7 +448,7 @@ Create a `selectDestination` method that instantiates and presents `MySearchCont
 
 Create a `setupRenderer` method that instantiates `MPDirectionsRenderer` and adds it as a child view controller. Assign this controller as its delegate.
 
-```
+```swift
 fileprivate func setupRenderer() {
     self.renderer = mapControl.newDirectionsRenderer()
     self.renderer.fitBounds = true
@@ -462,7 +462,7 @@ fileprivate func setupRenderer() {
 
 Create a `setOriginLocation` method that mocks a origin location by searching for a random venue in MapsIndoors.
 
-```
+```swift
 fileprivate func setOriginLocation() {
     Task {
         let q = MPQuery()
@@ -479,7 +479,7 @@ fileprivate func setOriginLocation() {
 
 In the `viewDidLoad` put the pieces together by calling the above methods.
 
-```
+```swift
 override func viewDidLoad() {
     super.viewDidLoad()
     Task {
@@ -495,7 +495,7 @@ override func viewDidLoad() {
 
 To handle the `MPDirectionsRendererDelegate`, use the `onDirectionsRendererChangedFloor` to listen to floor change:
 
-```
+```swift
 func onDirectionsRendererChangedFloor(floorIndex: Int) {
     mapControl.select(floorIndex: floorIndex)
 }
@@ -503,7 +503,7 @@ func onDirectionsRendererChangedFloor(floorIndex: Int) {
 
 Create a `updateDirections` method that sets up a MapsIndoors directions query. Execute a query and pass the resulting route object to the renderer.
 
-```
+```swift
 fileprivate func updateDirections() async {
     if let origin = originLocation, let destination = destinationLocation {
         let directionsQuery = MPDirectionsQuery.init(origin: origin, destination: destination)
@@ -527,7 +527,7 @@ fileprivate func updateDirections() async {
 
 Let's do a couple of extensions for the map interactions. First implement the `RouteSegmentsControllerDelegate` through an extension. In `didSelectRouteSegment` update the leg index for the directions renderer.
 
-```
+```swift
 extension AdvancedDirectionsController : RouteSegmentsControllerDelegate {
     func didSelectRouteSegment(segment: MPRouteSegmentPath) {
         renderer.routeLegIndex = segment.legIndex
@@ -541,7 +541,7 @@ extension AdvancedDirectionsController : RouteSegmentsControllerDelegate {
 
 Implement the `MySearchControllerDelegate` through an extension. In `didSelectLocation` update the `destinationLocation` property.
 
-```
+```swift
 extension AdvancedDirectionsController : MySearchControllerDelegate {
    func didSelectLocation(location: MPLocation) {
        destinationLocation = location

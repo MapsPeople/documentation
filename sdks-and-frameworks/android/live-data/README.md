@@ -53,7 +53,7 @@ A live update is the model for a message carrying one piece of Live Data, for ex
 
 Enabling Live Data through the `MapControl` is an easy way to get Live Data running in your app.
 
-```
+```kotlin
 mMapControl.enableLiveData(LiveDataDomainTypes.OCCUPANCY_DOMAIN)
 mMapControl.enableLiveData(LiveDataDomainTypes.AVAILABILITY_DOMAIN)
 ```
@@ -73,7 +73,7 @@ To enable Live Data in an application, a subscription to one or more Topics is n
 
 The only Live Data updates that are also directly notified to the SDK internally are Live Data updates of the "Position" Domain Type. By consequence, if you have already set up your map with MapsIndoors, an additional few lines of code can enable moving locations on the map. Here is an example in Java:
 
-```
+```java
 var liveDataManager = LiveDataManager.getInstance();
 liveDataManager.setOnLiveDataManagerStateChangedListener {
     Log.d("LiveDataState", "Live Data manager state changed to: $it")
@@ -92,7 +92,7 @@ As mentioned `MapControl` has a default way of rendering Live Data Locations if 
 
 Here are examples of using the different methods to render Live Data on your map:
 
-```
+```kotlin
 mMapControl.setOnWillUpdateLocationsOnMap { locations: List&lt;MPLocation&gt; ->
     for (location in locations) {
         val occupancy = location.getLiveUpdate("occupancy")
@@ -110,7 +110,7 @@ mMapControl.setOnWillUpdateLocationsOnMap { locations: List&lt;MPLocation&gt; ->
 }
 ```
 
-```
+```kotlin
 mMapControl.enableLiveData(LiveDataDomainTypes.OCCUPANCY_DOMAIN) { location: MPLocation ->
     val occupancy = location.getLiveUpdate("occupancy")
     val currentDisplayRule = mMapControl.getDisplayRule(location)
@@ -141,7 +141,7 @@ There are two ways to be notified about Live Updates:
 
 To get Live Updates on a general level the `OnReceivedLiveUpdateListener` must be set on the `LiveDataManager`:
 
-```
+```kotlin
 liveDataManager.setOnReceivedLiveUpdateListener { liveTopic, liveUpdate ->
             if (liveUpdate.domainType == LiveDataDomainTypes.OCCUPANCY_DOMAIN) {
                 var people = liveUpdate.occupancyProperties.nrOfPeople
@@ -152,7 +152,7 @@ liveDataManager.setOnReceivedLiveUpdateListener { liveTopic, liveUpdate ->
 
 To get Live Updates on a map-specific level, the `OnWillUpdateLocationsOnMap` must be set on `MapControl`:
 
-```
+```kotlin
 mMapControl.setOnWillUpdateLocationsOnMap { locations ->
             for (location in locations) {
                 val properties = location.getLiveUpdate(LiveDataDomainTypes.OCCUPANCY_DOMAIN)?.occupancyProperties
@@ -183,7 +183,7 @@ Live Updates are dependent on network connectivity, so the Live Data Manager wil
 
 Enabling Live Data through the `MapControl` is an easy way to get Live Data running in your app.
 
-```
+```java
 mapControl.enableLiveData(LiveDataDomainTypes.OCCUPANCY_DOMAIN);
 mapControl.enableLiveData(LiveDataDomainTypes.AVAILABILITY_DOMAIN);
 ```
@@ -203,7 +203,7 @@ To enable Live Data in an application, a subscription to one or more Topics is n
 
 The only Live Data updates that are also directly notified to the SDK internally are Live Data updates of the "Position" Domain Type. By consequence, if you have already set up your map with MapsIndoors, an additional few lines of code can enable moving locations on the map. Here is an example in Java:
 
-```
+```java
 LiveDataManager liveDataManager = LiveDataManager.getInstance();
 liveDataManager.setOnLiveDataManagerStateChangedListener(state -> Log.d(TAG,"Live Data manager state changed to: "+state.toString()));
 LiveTopicCriteria liveTopicCriteria = LiveTopicCriteria.getBuilder("datasetId")
@@ -220,7 +220,7 @@ As mentioned `MapControl` has a default way of rendering Live Data Locations if 
 
 Here are examples of using the different methods to render Live Data on your map:
 
-```
+```java
 mMapControl.setOnWillUpdateLocationsOnMap(locations -> {
    for (MPLocation location : locations) {
        LiveUpdate occupancy = location.getLiveUpdate("occupancy");
@@ -238,7 +238,7 @@ mMapControl.setOnWillUpdateLocationsOnMap(locations -> {
 });
 ```
 
-```
+```java
 mMapControl.enableLiveData(LiveDataDomainTypes.OCCUPANCY_DOMAIN, location -> {
    LiveUpdate occupancy = location.getLiveUpdate("occupancy");
    LocationDisplayRule currentDisplayRule = mMapControl.getDisplayRule(location);
@@ -269,7 +269,7 @@ There are two ways to be notified about Live Updates:
 
 To get Live Updates on a general level the `OnReceivedLiveUpdateListener` must be set on the `LiveDataManager`:
 
-```
+```java
 liveDataManager.setOnReceivedLiveUpdateListener((topic, message) -> {
            if (message.getDomainType().equals(LiveDataDomainTypes.OCCUPANCY_DOMAIN)) {
                int people = message.getOccupancyProperties().getNrOfPeople();
@@ -280,7 +280,7 @@ liveDataManager.setOnReceivedLiveUpdateListener((topic, message) -> {
 
 To get Live Updates on a map-specific level, the `OnWillUpdateLocationsOnMap` must be set on `MapControl`:
 
-```
+```java
 mapControl.setOnWillUpdateLocationsOnMap(locations -> {
     for(MPLocation location : locations){
         LiveUpdate liveUpdate = location.getLiveUpdate(LiveDataDomainTypes.OCCUPANCY_DOMAIN);

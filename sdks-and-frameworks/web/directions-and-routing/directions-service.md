@@ -26,38 +26,36 @@ This guide will show you how to implement directions, render routes, and interac
 * Would you like to show directions on the map?
   * How will the end user let the map know it's time to update with the next part of their journey?
 
-<figure><img src="../../../.gitbook/assets/UI-directions.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Creating and combining the interfaces and the map view.</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/UI-directions-2.png" alt=""><figcaption></figcaption></figure>
-
-
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>Determining the scope and simplicity of your end user experience should be a big focus when implementing the MapsIndoors SDK</p></figcaption></figure>
 
 From an implementation standpoint, there are two functional things that need to be taken care of.
 
 1. Setting up and requesting directions
 
-<figure><img src="../../../.gitbook/assets/Route Request.png" alt=""><figcaption><p>Getting directions via the SDK</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
-2. [Handling and rendering directions responses](../wayfinding/directions-renderer.md)
+1. [Handling and rendering directions responses](../wayfinding/directions-renderer.md)
 
-<figure><img src="../../../.gitbook/assets/Route Response Handling.png" alt=""><figcaption><p>What you can do once you have the response.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 
 
 The first step in getting directions is initializaing the directions service instance. By passing the externalDirectionsProvider, the MapsIndoors SDK will handle merging responses from the base map, e.g. outdoor directions that will charge billable requests if you request from somewhere else other than MapsIndoors data (e.g. an end users house, to somewhere indoors.)
 
-**Implementation**
+## **Implementation**
 
 The class `DirectionsService` is used to request routes from one point to another. The minimal required input is an `origin` and a `destination`. &#x20;
 
-Mapbox (required parameter of the DirectionsService instance)
+**Mapbox** (required parameter of the DirectionsService instance)
 
 ```javascript
 const externalDirectionsProvider = new mapsindoors.directions.MapboxProvider();
 const miDirectionsServiceInstance = new mapsindoors.services.DirectionsService(externalDirectionsProvider);
 ```
 
-Google (not required for legacy reasons, but recommended to pass an externalDirectionsProvider as a parameter)
+**Google** (not required for legacy reasons, but recommended to pass an externalDirectionsProvider as a parameter)
 
 ```javascript
 const externalDirectionsProvider = new mapsindoors.directions.GoogleMapsProvider();
@@ -87,7 +85,7 @@ In MapsIndoors, the transportation mode is referred to as travel mode. There are
 
 Set travel mode on your request using the `travelMode` property on `routeParameters`:
 
-```
+```javascript
 const routeParameters = {
   origin: { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }, // Oval Office, The White House
   destination: { lat: 38.897579747054046, lng: -77.03658652944773, floor: 1 }, // Blue Room, The White House
@@ -110,7 +108,7 @@ For a wheelchair user or a user with physical disabilities it could be relevant 
 
 Set avoid stairs on your request using the `avoidStairs` property on `routeParameters`:
 
-```
+```javascript
 const routeParameters = {
   origin: { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }, // Oval Office, The White House
   destination: { lat: 38.897579747054046, lng: -77.03658652944773, floor: 1 }, // Blue Room, The White House
@@ -124,7 +122,7 @@ Application User Roles is a feature that lets you define various roles, you can 
 
 You can get available Roles for your MapsIndoors Solution with the help of the `SolutionsService:`
 
-```
+```javascript
 mapsindoors.services.SolutionsService.getUserRoles().then(userRoles => {
   console.log(userRoles);
 });
@@ -134,7 +132,7 @@ mapsindoors.services.SolutionsService.getUserRoles().then(userRoles => {
 
 User Roles can be set on a global level using `mapsindoors.MapsIndoors.setUserRoles()`.
 
-```
+```javascript
 mapsindoors.MapsIndoors.setUserRoles(['myUserRoleId']);
 ```
 
@@ -148,7 +146,7 @@ Set a departure date or an arrival date on the route using the `transitOptions` 
 
 This parameter is only implemented on our side with Google Maps, not Mapbox.
 
-```
+```javascript
 const departureDate = new Date(new Date().getTime() + 30*60000); // 30 minutes from now
 
 const routeParameters = {

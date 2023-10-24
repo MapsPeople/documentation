@@ -6,8 +6,6 @@ Once the `miDirectionsServiceInstance` and `miDirectionsRendererInstance` are in
 
 This example shows how to set up a query for a route and display the result on a Google Map using the DirectionsRenderer:
 
-<mark style="background-color:blue;">MJE: Needs Mapbox equivalent tap, ticket created DOC-84</mark>
-
 for Google Maps
 
 ```javascript
@@ -45,7 +43,7 @@ miDirectionsServiceInstance.getRoute(routeParameters).then(directionsResult => {
 
 As previously mentioned, the route object is separated into objects of [Leg](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/Leg.html) and these legs are again separated into objects of [Step](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/Step.html). Unless the Route only contains one leg, the Directions Renderer does not allow the full Route to be rendered all at once. A specific part of the route can be rendered by setting the step index and/or leg index using the `DirectionsRenderer`.
 
-```
+```javascript
 miDirectionsRendererInstance.setStepIndex(stepIndex, legIndex)
 ```
 

@@ -15,11 +15,9 @@ In order to accomplish this we will be utilising the [MPMapControl Class](https:
 
 #### Import MapsIndoors <a href="#import-mapsindoors" id="import-mapsindoors"></a>
 
-
-
 {% tabs %}
 {% tab title="Google Maps" %}
-```
+```swift
 import MapsIndoorsCore
 import MapsIndoorsGoogleMaps
 import GoogleMaps
@@ -27,9 +25,7 @@ import GoogleMaps
 
 Furthermore, provide API Key for Google Maps within AppDelegate and within the ViewController class, make the following changes:
 
-
-
-```
+```swift
    // AppDelegate.swift
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         GMSServices.provideAPIKey(AppDelegate.gApiKey!)
@@ -72,9 +68,7 @@ We have now added a _very_ simple search feature! Running the app now should yie
 {% endtab %}
 
 {% tab title="Mapbox" %}
-
-
-```
+```swift
 import MapsIndoorsCore
 import MapsIndoorsMapbox
 import Mapbox
@@ -82,9 +76,7 @@ import Mapbox
 
 Furthermore, provide API Key for Google Maps within AppDelegate and within the ViewController class, make the following changes:
 
-
-
-```
+```swift
      override func viewDidLoad() {
         super.viewDidLoad()
         

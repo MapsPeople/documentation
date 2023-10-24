@@ -34,7 +34,7 @@ See the full list of parameters:
 
 
 
-```
+```swift
 let filter = MPFilter()
 let query = MPQuery()
 query.query = "Office"
@@ -55,7 +55,7 @@ When displaying the search results it is helpful to filter the map to only show 
 
 
 
-```
+```swift
 let filter = MPFilter()
 let query = MPQuery()
 query.query = "Office"
@@ -72,7 +72,7 @@ After displaying the search results on your map you can then clear the filter so
 
 #### Example of Clearing Your Map Filter to Show All Locations Again <a href="#example-of-clearing-your-map-filter-to-show-all-locations-again" id="example-of-clearing-your-map-filter-to-show-all-locations-again"></a>
 
-```
+```swift
 myMapControl.clearFilter()
 ```
 {% endtab %}
@@ -82,7 +82,7 @@ myMapControl.clearFilter()
 
 
 
-```
+```swift
 let filter = MPFilter.init()
 let query = MPQuery.init()
 query.query = "Office"
@@ -104,7 +104,7 @@ When displaying the search results it is helpful to filter the map to only show 
 
 
 
-```
+```swift
 let filter = MPFilter()
 let query = MPQuery()
 query.query = "Office"
@@ -122,7 +122,7 @@ After displaying the search results on your map you can then clear the filter so
 
 #### Example of Clearing Your Map Filter to Show All Locations Again <a href="#example-of-clearing-your-map-filter-to-show-all-locations-again" id="example-of-clearing-your-map-filter-to-show-all-locations-again"></a>
 
-```
+```swift
 myMapControl.clearMap()
 ```
 {% endtab %}

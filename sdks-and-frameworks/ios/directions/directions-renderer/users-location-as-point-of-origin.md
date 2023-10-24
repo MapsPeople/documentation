@@ -1,11 +1,10 @@
 ---
-description: >-
-  Often you may want to get directions starting from a user's actual current
-  position, instead of from another fixed Location. The following code snippet
-  gives an example on how to implement this.
+description: iOS v4
 ---
 
 # User's Location as Point of Origin
+
+Often you may want to get directions starting from a user's actual current position, instead of from another fixed Location. The following code snippet gives an example on how to implement this.
 
 First, [initialize a `PositionProvider`](https://docs.mapsindoors.com/blue-dot/), which can be used with `MPDirectionsQuery` to achieve the desired result.
 

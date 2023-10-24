@@ -2,7 +2,7 @@
 
 #### Interface Description[​](https://docs.mapsindoors.com/api-reverse-geocoding#interface-description) <a href="#interface-description" id="interface-description"></a>
 
-```
+```http
 HTTP Get
 Path: /{apiKey}/api/geocode
 Returns: A list of Geodata objects
@@ -34,7 +34,7 @@ Input values:
 
 Output: A list of 4 geodata objects: a Venue, a Building, a Floor and a Room:
 
-```
+```json
 [
   {
     "id": "586ca9f1bc1f5702406442b6",

@@ -32,7 +32,7 @@ See [https://developer.mozilla.org/en-US/docs/Web/CSS/color\_value](https://deve
 
 To do this in practice, on the MapsIndoors instance, call `setBuildingOutlineOptions` to change the appearance of the building outline.
 
-```
+```javascript
 mapsIndoors.setBuildingOutlineOptions({strokeColor: '#3071d9'});
 ```
 
@@ -55,7 +55,7 @@ To read more about the `BuildingOutlineOptions` interface see the [reference doc
 
 One way to do this in practice, call `setBuildingOutlineOptions` on the MapsIndoors instance, to change the appearance of the building outline.
 
-```
+```javascript
 mapsIndoorsInstance.setBuildingOutlineOptions({
     visible: true,
     zoomFrom: 15,
@@ -68,7 +68,7 @@ mapsIndoorsInstance.setBuildingOutlineOptions({
 
 Alternatively, you can define the `buildingOutlineOptions` property when creating a new mapsindoors instance.
 
-```
+```javascript
 new mapsindoors.MapsIndoors({
     mapView: mapView,
     buildingOutlineOptions: {

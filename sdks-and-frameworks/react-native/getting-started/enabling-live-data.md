@@ -15,7 +15,7 @@ Enabling Live Data through [`MapControl`](https://app.mapsindoors.com/mapsindoor
 
 We will create a new functions inside our `MapScreen` component called `livedata()` to enable Live Data for the Solution.
 
-```
+```tsx
   const livedata = async () => {
     if (!mapControl) {
       console.warn("Must load MapsIndoors before enabling live data");
@@ -30,7 +30,7 @@ We will create a new functions inside our `MapScreen` component called `livedata
 
 We can later call this function after loading MapsIndoors to enable it. For demonstration purposes we add a button inside the `MapScreen` that you can click to enable live data.
 
-```
+```tsx
 <GestureHandlerRootView style={{flex:1, flexGrow:1}}>
     <MapView style={{
       width: width,

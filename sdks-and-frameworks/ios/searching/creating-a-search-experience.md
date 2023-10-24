@@ -10,7 +10,7 @@ We will start by creating a simple search controller that handles search and sel
 
 Declare a protocol for our Location selection with a `didSelectLocation` method
 
-```
+```swift
 protocol MySearchControllerDelegate {
     func didSelectLocation(location: MPLocation)
 }
@@ -18,7 +18,7 @@ protocol MySearchControllerDelegate {
 
 Define `MySearchController`. In this tutorial our search controller is a `UIViewController` that implements the protocols `UISearchBarDelegate`, `UITableViewDelegate` and `UITableViewDataSource`.
 
-```
+```swift
 class MySearchController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 ```
 
@@ -30,7 +30,7 @@ Setup member variables for `MySearchController`:
 * A search bar view
 * A table view
 
-```
+```swift
 let query = MPQuery()
 var locations = [MPLocation]()
 var delegate: MySearchControllerDelegate? = nil
@@ -40,7 +40,7 @@ let searchBar = UISearchBar()
 
 In `viewDidLoad`, wire up your view controller to the table view and search bar.
 
-```
+```swift
 searchBar.delegate = self
 tableView.delegate = self
 tableView.dataSource = self
@@ -48,13 +48,13 @@ tableView.dataSource = self
 
 Register a class for the reusable table view cell.
 
-```
+```swift
 tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
 ```
 
 Arrange the search bar and the table view in a stack view.
 
-```
+```swift
 let topFiller = UIView()
 let stackView = UIStackView(arrangedSubviews: [topFiller, searchBar, tableView])
 stackView.axis = .vertical
@@ -70,7 +70,7 @@ searchBar.becomeFirstResponder()
 
 In `MySearchController`, implement the `numberOfSections` method, return 1.
 
-```
+```swift
 func numberOfSections(in tableView: UITableView) -> Int {
     return 1
 }
@@ -78,7 +78,7 @@ func numberOfSections(in tableView: UITableView) -> Int {
 
 Implement the `numberOfRowsInSection` method, return the length of your locations array.
 
-```
+```swift
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return locations.count
 }
@@ -90,7 +90,7 @@ Implement the `textDidChange` method:
 * Call [`MPMapsIndoors.shared.locationsWith(query:filter:)`](https://app.mapsindoors.com/mapsindoors/reference/ios/4.1.3/documentation/mapsindoors/mapsindoorsshared/locationswith\(query:filter:\)) with the modified query
 * Reload table view
 
-```
+```swift
 func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     if searchText.count > 0 {
         query.query = searchText
@@ -112,7 +112,7 @@ func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
 Implement the `searchBarCancelButtonClicked` method, with dismissal of the view controller.
 
-```
+```swift
 func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
     self.dismiss(animated: true, completion: nil)
 }
@@ -120,7 +120,7 @@ func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 
 Implement the `tableView:cellForRowAt` method. Set the `cell.textLabel.text` to reflect the _name_ of the location of same index.
 
-```
+```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
     cell.textLabel?.text = locations[indexPath.row].name
@@ -132,7 +132,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
 Implement the `tableView:didSelectRowAt` method. In this example we call the delegate method and dismiss the view controller. Delegate method will be handled by SearchMapController.
 
-```
+```swift
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     delegate?.didSelectLocation(location: locations[indexPath.row])
     self.dismiss(animated: true, completion: nil)
@@ -149,7 +149,7 @@ We will start by creating a simple search controller that handles search and sel
 
 Declare a protocol for our Location selection with a `didSelectLocation` method
 
-```
+```swift
 protocol MySearchControllerDelegate {
     func didSelectLocation(location:MPLocation)
 }
@@ -157,7 +157,7 @@ protocol MySearchControllerDelegate {
 
 Define `MySearchController`. In this tutorial our search controller is a `UIViewController` that implements the protocols `UISearchBarDelegate`, `UITableViewDelegate` and `UITableViewDataSource`.
 
-```
+```swift
 class MySearchController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 ```
 
@@ -170,7 +170,7 @@ Setup member variables for `MySearchController`:
 * A search bar view
 * A table view
 
-```
+```swift
 let locationService = MPLocationService.sharedInstance()
 let query = MPQuery()
 var locations:[MPLocation] = []
@@ -181,7 +181,7 @@ let searchBar = UISearchBar()
 
 In `viewDidLoad`, wire up your view controller to the table view and search bar.
 
-```
+```swift
 searchBar.delegate = self
 tableView.delegate = self
 tableView.dataSource = self
@@ -189,13 +189,13 @@ tableView.dataSource = self
 
 Register a class for the reusable table view cell.
 
-```
+```swift
 tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
 ```
 
 Arrange the search bar and the table view in a stack view.
 
-```
+```swift
 let topFiller = UIView()
 let stackView = UIStackView(arrangedSubviews: [topFiller, searchBar, tableView])
 stackView.axis = .vertical
@@ -211,7 +211,7 @@ searchBar.becomeFirstResponder()
 
 In `MySearchController`, implement the `numberOfSections` method, return 1.
 
-```
+```swift
 func numberOfSections(in tableView: UITableView) -> Int {
     return 1
 }
@@ -219,7 +219,7 @@ func numberOfSections(in tableView: UITableView) -> Int {
 
 Implement the `numberOfRowsInSection` method, return the length of your locations array.
 
-```
+```swift
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return locations.count
 }
@@ -232,7 +232,7 @@ Implement the `textDidChange` method:
 * In the callback block, reset the locations array with new results
 * Reload table view
 
-```
+```swift
 func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     if searchText.count > 0 {
         query.query = searchText
@@ -253,7 +253,7 @@ func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
 Implement the `searchBarCancelButtonClicked` method, with dismissal of the view controller.
 
-```
+```swift
 func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
     self.dismiss(animated: true, completion: nil)
 }
@@ -261,7 +261,7 @@ func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 
 Implement the `tableView:cellForRowAt` method. Set the `cell.textLabel.text` to reflect the _name_ of the location of same index.
 
-```
+```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
     cell.textLabel?.text = locations[indexPath.row].name
@@ -273,7 +273,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
 Implement the `tableView:didSelectRowAt` method. In this example we call the delegate method and dismiss the view controller. Delegate method will be handled by SearchMapController.
 
-```
+```swift
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     delegate?.didSelectLocation(location: locations[indexPath.row])
     self.dismiss(animated: true, completion: nil)

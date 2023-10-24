@@ -1,62 +1,35 @@
-# Enable Live Data
+# Live Data
+
+### Enable Live Data[​](https://docs.mapsindoors.com/getting-started/ios/live-data#enable-live-data) <a href="#enable-live-data" id="enable-live-data"></a>
 
 As opposed to _static data_, which does not change unless data is synchronized, Live Data can change in real time, and these changes can be instantly reflected on the map and in searches.
 
 Common use-cases are:
 
 * Changing the appearance of meeting rooms or workspace desks on a map, or in a list, based on occupancy information. For example, change the icon in order to indicate that a room is occupied.
-* Changing the position of a POI representing a vehicle.
+* Changing the position of a point of interest representing a vehicle.
 
-Support for Live Data requires that server-side integrations are in place. For example, visualizing live occupancy data requires that a calendar or booking system integration is in place. An integration like that is set up in [collaboration with MapsPeople](https://www.mapspeople.com/mapsindoors-integrations/).
+Support for Live Data will require specific server-side integrations. For instance, visualizing live occupancy data requires a calendar or booking system integration is in place. An integration like that is set up in [collaboration with MapsPeople](https://www.mapspeople.com/mapsindoors-integrations/).
 
-The following section relies on the existence of Live Position Data. If you do not have access to a MapsIndoors Dataset that have a Live Data integration, you should use our demo API key: `d876ff0e60bb430b8fabb145`.
+The following section rely on the existence of Live Position Data. If you do not have access to a MapsIndoors Dataset that have a Live Data integration, we suggest that you use can our demo API key: `d876ff0e60bb430b8fabb145`.
 
-Enabling Live Data through `MapControl` is as simple as calling `mapControl.enableLiveData()` with a [Domain Type](https://app.mapsindoors.com/mapsindoors/reference/android/v3/index.html).
+For this demonstration we wish to show an employee moving across The White House.
 
-We will create a new method on our `MapsActivity` called `enableLiveData()` to enable Live Data for the Solution.
-
-* Java
-* Kotlin
-
-[MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android/blob/master/app/src/main/java/com/example/mapsindoorsgettingstarted/MapsActivity.java#L270-L278)
+Enabling Live Data through `MapControl` is achieved by simply calling `mapControl.enableLiveData()` with a Domain Type, somewhere after the initialization of `MapControl`. In this case, since we wish to show the positional changes to an employee live, we will use the domain type, position.
 
 ```
-void enableLiveData() {
-    //Enabling Live Data for the three known Live Data Domains enabled for this Solution.
-    mMapControl.enableLiveData(LiveDataDomainTypes.AVAILABILITY_DOMAIN);
-    mMapControl.enableLiveData(LiveDataDomainTypes.OCCUPANCY_DOMAIN);
-    mMapControl.enableLiveData(LiveDataDomainTypes.POSITION_DOMAIN);
-}
+mapControl?.enableLiveData(MPLiveDomainType.position)
 ```
 
-By consequence, `MapControl` will manage the Live Data subscriptions needed for the currently visible map and provide a default rendering of the Live Data updates depending on the Domain Type.
+Assuming the demo key is utilising you should now see a "Staff Person" moving from one end to the other at the ground floor of The White House main building.
 
-In the context of your view controller showing a map, add the call after creating your `MapControl` object used in the `Activity` in the `initMapControl()` method created earlier.
+### Expected Result[​](https://docs.mapsindoors.com/getting-started/ios/live-data#expected-result) <a href="#expected-result" id="expected-result"></a>
 
-* Java
-* Kotlin
+![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/ios\_live-data.gif)
 
-[MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android/blob/master/app/src/main/java/com/example/mapsindoorsgettingstarted/MapsActivity.java#L148-L168)
+Learn more about about controlling and rendering Live Data in MapsIndoors in the [introducion to Live Data](https://docs.mapsindoors.com/live-data-intro/)
 
-```
-void initMapControl(View view) {
-        //Creates a new instance of MapControl
-        mMapControl = new MapControl(this);
-        //Enable Live Data on the map
-        enableLiveData();
-        ...
-}
-```
-
-Using the demo API key you should now be able to see a "Staff Person" moving from one end to the other at ground floor in The White House main building.
-
-Expected result:
-
-![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/android\_live\_data\_gif.gif)
-
-Learn more about controlling and rendering Live Data in MapsIndoors in the [introduction to Live Data](https://docs.mapsindoors.com/live-data-intro/).
-
-### Summary[​](https://docs.mapsindoors.com/getting-started/android/v3/livedata#summary) <a href="#summary" id="summary"></a>
+### Summary[​](https://docs.mapsindoors.com/getting-started/ios/live-data#summary) <a href="#summary" id="summary"></a>
 
 Congratulations! You're at the end of your journey (for now), and you've accomplished a lot! 🎉
 

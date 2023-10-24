@@ -21,7 +21,7 @@ We will create a new method on our `MapsActivity` called `enableLiveData()` to e
 {% tab title="Java" %}
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L254-L262)
 
-```
+```java
 void enableLiveData() {
     //Enabling Live Data for the three known Live Data Domains enabled for this Solution.
     mMapControl.enableLiveData(LiveDataDomainTypes.AVAILABILITY_DOMAIN);
@@ -38,7 +38,7 @@ In the context of your view controller showing a map, add the call after creatin
 
 [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/MapsActivity.java#L145-L167)
 
-```
+```java
 void initMapControl(View view) {
     //Creates a new instance of MapControl
     MapControl.create(mapConfig, (mapControl, miError) -> {
@@ -51,10 +51,10 @@ void initMapControl(View view) {
 ```
 {% endtab %}
 
-{% tab title="Second Tab" %}
+{% tab title="Kotlin" %}
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L223-L228)
 
-```
+```kotlin
 private fun enableLiveData() {
     //Enabling Live Data for the three known Live Data Domains enabled for this Solution.
     mMapControl.enableLiveData(LiveDataDomainTypes.AVAILABILITY_DOMAIN)
@@ -71,7 +71,7 @@ In the context of your view controller showing a map, add the call after creatin
 
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L117-L135)
 
-```
+```kotlin
 private fun initMapControl(view: View) {
     ...
     //Creates a new instance of MapControl

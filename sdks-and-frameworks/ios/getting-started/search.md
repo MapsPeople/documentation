@@ -10,7 +10,7 @@ From here onwards, code for both `Mapbox` and `Google Maps` is similar.
 
 Take a look at the following code. As discussed before, this will select a location named "Family Dining Room".
 
-```
+```swift
 Task {
         do {
                 // Load MapsIndoors with the MapsIndoors API key.
@@ -46,7 +46,7 @@ Task {
 
 Our goal now is to enable the user to interact with a search bar and move the map with respect to their search. Therefore, we need to implement a bit more functionality into our ViewController class, so feel free to update it as followed.
 
-```
+```swift
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 ...
 }
@@ -54,7 +54,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 Let us start off by implementing the search bar. In this case, we add the following variables to our class. The vertical offset of the search bar here is simply to avoid the search bar from colliding with the navigation bar. The tableView will be used to allow the user to see and interact with the search results.
 
-```
+```swift
 var searchResult:[MPLocation]?
 lazy var destinationSearch:UISearchBar = UISearchBar(frame: CGRect.init(x: 0, y: 40, width: 0, height: 0))
 var tableView = UITableView.init(frame: CGRect.init(x: 0, y: 90, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
@@ -62,7 +62,7 @@ var tableView = UITableView.init(frame: CGRect.init(x: 0, y: 90, width: UIScreen
 
 And let us also make sure the search bar delegated and correctly displayed in our view.
 
-```
+```swift
 override func viewDidLoad(){
     destinationSearch.sizeToFit()
     self.destinationSearch.delegate = self
@@ -75,7 +75,7 @@ override func viewDidLoad(){
 
 Finally, let us add the functions neccessary for our class to conform to the UITableViewDataSource protocol and the actual search button functionality.
 
-```
+```swift
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.searchResult?.count ?? 0
 }

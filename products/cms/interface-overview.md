@@ -72,6 +72,35 @@ Doors and Barriers are Route Elements that allow you to manipulate certain porti
 
 ![An illustration that demonstrates how to interpret bearing](https://docs.mapsindoors.com/img/cms/one\_way\_bearing\_compass.png)
 
+By default doors are snapping, meaning they are following the lines of current solution's geometry:
+
+<figure><img src="../../.gitbook/assets/snapping-doors (1).png" alt=""><figcaption></figcaption></figure>
+
+While holding Shift keyboard button and moving mouse around, doors will:
+
+* snap to the middle point of the closest wall of the closest polygon to the mouse pointer,
+* snap to the corners of the polygon that mouse is the closest to.
+
+Different doors creation modes:
+
+* **Single** - Creates single door on the map. Can be accessed by Add Door Route Element button in the toolbar:
+
+<figure><img src="../../.gitbook/assets/single-door-icon (1).png" alt=""><figcaption></figcaption></figure>
+
+* **Multiple with fixed width** - Creates multiple doors on the map with fixed width. Can be accessed by keyboard shortcut: Ctrl+Shift+D for **Windows**, Shift+Control+D for **MacOS**.
+
+<figure><img src="../../.gitbook/assets/multiple-fixed-width-doors-example (1).png" alt=""><figcaption></figcaption></figure>
+
+* **Multiple with custom width** - Creates multiple doors on the map with custom width. Can be accessed by keyboard shortcut: Ctrl+Shift+F for **Windows**, Shift+Control+F for **MacOS**.
+
+<figure><img src="../../.gitbook/assets/multiple-custom-width-doors-example (1).png" alt=""><figcaption></figcaption></figure>
+
+When accessing Multiple doors creation mode, there is an option to choose door type for all the doors that will be created. You can also undo latest door creation.
+
+**NOTE:** This is the only property that you can change while creating doors. The rest of the properties have to be edited for each door individually.
+
+<figure><img src="../../.gitbook/assets/multiple-doors-toolbar (1).png" alt=""><figcaption></figcaption></figure>
+
 **Barriers** are similar to Doors in that they are used to modify the Route Network. Many of the settings and restrictions you can set are the same between the two kinds.
 
 ![A screenshot of menu for adjusting barriers](https://docs.mapsindoors.com/img/cms/barrier\_menu.png)
@@ -91,7 +120,7 @@ Under Solution Details, you can find several subpages, which are described below
 
 ### TODO: Types[​](https://docs.mapsindoors.com/cms-interface-overview#types) <a href="#types" id="types"></a>
 
-<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 This page organizes the "Types" you can add to your Locations.
 
@@ -140,7 +169,7 @@ This page lists the Buildings in the selected Venue in your Solution.
 
 ### Venues[​](https://docs.mapsindoors.com/cms-interface-overview#venues) <a href="#venues" id="venues"></a>
 
-<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 The list of Venues in your Solution.
 

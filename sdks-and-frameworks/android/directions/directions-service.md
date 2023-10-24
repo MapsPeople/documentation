@@ -8,7 +8,7 @@ description: Android v4
 {% tab title="Java" %}
 The class `MPDirectionsService` is used to request routes from one point to another. The minimum required input to receive a route is an `origin` and a `destination`. This example shows how to setup and execute a query for a Route:
 
-```
+```java
 MPDirectionsService directionsService = new MPDirectionsService(mContext);
 MPDirectionsRenderer directionsRenderer = new MPDirectionsRenderer(mMapControl);
 MPPoint origin = new MPPoint(57.057917, 9.950361, 0.0);
@@ -24,7 +24,7 @@ In MapsIndoors, the transportation mode is referred to as **travel mode**. There
 
 Set the **travel mode** on your request using the `setTravelMode` method on `MPDirectionsService`:
 
-```
+```java
 void createRoute(MPLocation mpLocation) {
     //If MPDirectionsService has not been instantiated create it here and assign the results call back to the activity.
     if (mpDirectionsService == null) {
@@ -45,7 +45,7 @@ The travel modes generally only apply for outdoor navigation. Indoor navigation 
 
 For wheelchair users or other users with limited mobility, it may be relevant to request a Route that avoids stairs and steps. Avoid certain **way types** on the route using the `addRouteRestriction` method on `MPDirectionsService`.
 
-```
+```java
 void getRoute() {
   MPDirectionsService directionsService = new MPDirectionsService(mContext);
   MPDirectionsRenderer directionsRenderer = new MPDirectionsRenderer(mMapControl);
@@ -61,7 +61,7 @@ void getRoute() {
 
 When Route restrictions are set on the `MPDirectionsService` they will be applied to any subsequent queries as well. You can remove them again by calling `clearRouteRestrictions`.
 
-```
+```java
 void clearRouteRestrictions() {
   mpDirectionsService.clearRouteRestrictions();
 }
@@ -73,7 +73,7 @@ In the MapsIndoors CMS it is possible to restrict certain **ways** in the Route 
 
 You can get the available Roles with help of the `MapsIndoors.getAppliedUserRoles`:
 
-```
+```java
 List<MPUserRole> getUserRoles() {
   return MapsIndoors.getAppliedUserRoles();
 }
@@ -81,7 +81,7 @@ List<MPUserRole> getUserRoles() {
 
 User Roles can be set on a global level using `MapsIndoors.applyUserRoles`.
 
-```
+```java
 void setUserRoles(List<MPUserRole> userRoles) {
     MapsIndoors.applyUserRoles(userRoles);
 }
@@ -95,7 +95,7 @@ For more information about App User Roles, see [this documentation](https://docs
 
 When using the Transit travel mode, you must set a **departure date** or an **arrival date** on the route using the `setTime` method on `MPDirectionsService` and declaring if it is a departure or not through `setIsDeparture`. The `date` parameter is the epoch time, in seconds, as an integer, and it is only possible to use one of these properties at a time.
 
-```
+```java
 void setDepartureTime(Date date) {
     mpDirectionsService.setIsDeparture(true);
     mpDirectionsService.setTime(date);
@@ -110,7 +110,7 @@ void setArrivalTime(Date date) {
 {% tab title="Kotlin" %}
 The class `MPDirectionsService` is used to request routes from one point to another. The minimum required input to receive a route is an `origin` and a `destination`. This example shows how to setup and execute a query for a Route:
 
-```
+```kotlin
 val directionsService = MPDirectionsService(mContext)
 val directionsRenderer = MPDirectionsRenderer(mMapControl)
 val origin = MPPoint(57.057917, 9.950361, 0.0)
@@ -125,7 +125,7 @@ In MapsIndoors, the transportation mode is referred to as **travel mode**. There
 
 Set the **travel mode** on your request using the `setTravelMode` method on `MPDirectionsService`:
 
-```
+```kotlin
 fun createRoute(mpLocation: MPLocation) {
     //If MPDirectionsService has not been instantiated create it here and assign the results call back to the activity.
     if (mpDirectionsService == null) {
@@ -146,7 +146,7 @@ The travel modes generally only apply for outdoor navigation. Indoor navigation 
 
 For wheelchair users or other users with limited mobility, it may be relevant to request a Route that avoids stairs and steps. Avoid certain **way types** on the route using the `addRouteRestriction` method on `MPDirectionsService`.
 
-```
+```kotlin
 fun getRoute() {
   val directionsService = MPDirectionsService(mContext)
   val directionsRenderer = MPDirectionsRenderer(mMapControl)
@@ -161,7 +161,7 @@ fun getRoute() {
 
 When Route restrictions are set on the `MPDirectionsService` they will be applied to any subsequent queries as well. You can remove them again by calling `clearRouteRestrictions`.
 
-```
+```kotlin
 fun clearRouteRestrictions() {
     mpDirectionsService?.clearRouteRestrictions()
 }
@@ -173,7 +173,7 @@ In the MapsIndoors CMS it is possible to restrict certain **ways** in the Route 
 
 You can get the available Roles with help of the `MapsIndoors.getAppliedUserRoles`:
 
-```
+```kotlin
 fun getUserRoles(): List<MPUserRole>? {
   return MapsIndoors.getAppliedUserRoles()
 }
@@ -181,7 +181,7 @@ fun getUserRoles(): List<MPUserRole>? {
 
 User Roles can be set on a global level using `MapsIndoors.applyUserRoles`.
 
-```
+```kotlin
 fun setUserRoles(userRoles: List<MPUserRole>) {
     MapsIndoors.applyUserRoles(userRoles)
 }
@@ -195,7 +195,7 @@ For more information about App User Roles, see [this documentation](https://docs
 
 When using the Transit travel mode, you must set a **departure date** or an **arrival date** on the route using the `setTime` method on `MPDirectionsService` and declaring if it is a departure or not through `setIsDeparture`. The `date` parameter is the epoch time, in seconds, as an integer, and it is only possible to use one of these properties at a time.
 
-```
+```kotlin
 fun setDepartureTime(date: Date?) {
     mpDirectionsService.setIsDeparture(true)
     mpDirectionsService.setTime(date)

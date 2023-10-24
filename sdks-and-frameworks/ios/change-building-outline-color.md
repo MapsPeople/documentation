@@ -6,7 +6,7 @@ description: iOS v4
 
 To change the building outline color, along with other display properties, you must get and modify the Building Outline Display Rule.
 
-```
+```swift
 let buildingOutline = MPMapsIndoors.shared.displayRuleFor(displayRuleType: .buildingOutline)
 buildingOutline?.polygonStrokeColor = .blue
 ```

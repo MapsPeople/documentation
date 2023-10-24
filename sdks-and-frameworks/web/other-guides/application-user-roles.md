@@ -16,7 +16,7 @@ Assigning or changing App User Roles to users is done in the app itself. The met
 
 To get the available Roles in the Web SDK, you use `SolutionsService`:
 
-```
+```javascript
 mapsindoors.services.SolutionsService.getUserRoles().then(userRoles => {
   console.log(userRoles);
 });
@@ -24,7 +24,7 @@ mapsindoors.services.SolutionsService.getUserRoles().then(userRoles => {
 
 User Roles can be set on a global level using `mapsindoors.MapsIndoors.setUserRoles()`.
 
-```
+```javascript
 mapsindoors.MapsIndoors.setUserRoles(['myUserRoleId']);
 ```
 

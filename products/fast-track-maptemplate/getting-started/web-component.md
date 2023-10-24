@@ -10,14 +10,14 @@ Install the package:
 
 In your script:
 
-```
+```javascript
 import MapsIndoorsMap from '@mapsindoors/map-template@stable/dist/mapsindoors-webcomponent.es.js';
 window.customElements.define('mapsindoors-map', MapsIndoorsMap);
 ```
 
 In your styles, make sure to give it a size. For example:
 
-```
+```css
 mapsindoors-map {
     display: block;
     width: 100vw;
@@ -27,7 +27,7 @@ mapsindoors-map {
 
 Use the Web Component in your HTML:
 
-```
+```html
 <mapsindoors-map></mapsindoors-map>
 ```
 
@@ -47,7 +47,7 @@ Use query parameters to configure the Web Component by setting the `supports-url
 
 ### Using just the browser
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -14,7 +14,7 @@ In this example we will use the occupancy and position live data.
 
 Firstly, create a class `LiveDataController` that inherits from `UIViewController`.
 
-```
+```swift
 class LiveDataController: UIViewController {
 
 } 
@@ -22,14 +22,14 @@ class LiveDataController: UIViewController {
 
 Add buttons for toggling subscriptions, one button for Live Position Updates and one for Live Occupancy Updates.
 
-```
+```swift
 let positionButton = UIButton.init()
 let occupancyButton = UIButton.init()
 ```
 
 Add a method `setupLiveDataButtons()` setting up buttons that enables/disables the subscriptions.
 
-```
+```swift
 fileprivate func setupLiveDataButtons() {
     positionButton.setTitle("See Live Positions", for: .normal)
     positionButton.setTitle("Tracking Live Positions", for: .selected)
@@ -45,7 +45,7 @@ fileprivate func setupLiveDataButtons() {
 
 Add a method `toggleLiveData()` that does the actual toggling of Live Data for a button based on the buttons `isSelected` flag. Swap current selected state for button. If the flag is true and the button is selected, call the `MPMapControl.enableLiveData()` method with the given Domain Type. We will also call a `startFlash()`method that should make the button flash. More on this later. If the flag is false and the button is not selected, call the `MPMapControl.disableLiveData()` method with the given Domain Type. Similarly we will call a `stopFlash()`method that should stop the button flash. In this example, we choose to have a customized rendering of Live Data, so we provide a Handler instance that gets the updated Locations. We will get to that later.
 
-```
+```swift
 fileprivate func toggleLiveData(_ button: UIButton, _ domainType: String) {
     button.isSelected = !button.isSelected
     if button.isSelected {
@@ -60,7 +60,7 @@ fileprivate func toggleLiveData(_ button: UIButton, _ domainType: String) {
 
 Define an Objective-C method `togglePosition()` that will receive events from your `positionButton`. In this method create a `position` Topic Criteria and call `togglePosition` with the button and the Topic Criteria.
 
-```
+```swift
 @objc func togglePosition(button:UIButton) {
     toggleLiveData(button, MPLiveDomainType.position)
 }
@@ -68,7 +68,7 @@ Define an Objective-C method `togglePosition()` that will receive events from yo
 
 Define an Objective-C method `toggleOccupancy()` that will receive events from your `occupancyButton`. In this method create a `occupancy` Topic Criteria and call `togglePosition` with the button and the Topic Criteria.
 
-```
+```swift
 @objc func toggleOccupancy(button:UIButton) {
     toggleLiveData(button, MPLiveDomainType.occupancy)
 }
@@ -76,7 +76,7 @@ Define an Objective-C method `toggleOccupancy()` that will receive events from y
 
 Inside `viewDidLoad()`, also request a building and go to this building on the map.
 
-```
+```swift
  Task {
         let locations = await MPMapsIndoors.shared.locationsWith(query: nil, filter: nil)
         if let loc = locations.first {
@@ -89,7 +89,7 @@ As an example, you can set up your buttons in your viewDidLoad() method. You can
 
 Inside `viewDidLoad()` method, call `setupLiveDataButtons()` arrange the map view and the buttons in stackviews.
 
-```
+```swift
 setupLiveDataButtons()
 let buttonStackView = UIStackView.init(arrangedSubviews: [positionButton, occupancyButton])
 buttonStackView.axis = .horizontal
@@ -102,7 +102,7 @@ view = stackView
 
 Optionally, when you leave this controller, unsubscribe all Live Update Topics.
 
-```
+```swift
 override func viewDidDisappear(_ animated: Bool) {
     mapControl?.disableLiveData(MPLiveDomainType.position)
     mapControl?.disableLiveData(MPLiveDomainType.occupancy)
@@ -111,7 +111,7 @@ override func viewDidDisappear(_ animated: Bool) {
 
 Earlier we called some non-existing methods, `startFlash()` and `stopFlash()` on a `UIButton`. We will create these methods now. Create an extension for `UIButton` and add the methods `startFlash()` and `stopFlash()` that creates and adds an animation layer that manipulates with the opacity of the button over time.
 
-```
+```swift
 extension UIButton {
     func startFlash() {
         let flash = CABasicAnimation(keyPath: "opacity")

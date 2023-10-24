@@ -8,7 +8,7 @@ To start off, we set up a simple two screen navigation using the `@react-navigat
 
 App.tsx
 
-```javascript
+```tsx
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import FrontScreen from "./screens/FrontScreen";
@@ -40,7 +40,7 @@ As for what to actually render, we return a react fragment containing a button w
 
 screens/FrontScreen.tsx
 
-```javascript
+```tsx
 import {Button, TextInput, View} from "react-native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import {useState} from "react";
@@ -79,7 +79,7 @@ Currently there is a limitation that on some platforms the size of the `MapView`
 
 Here is the first implementation of the `MapScreen`, with the logic described above.
 
-```javascript
+```tsx
 import MapsIndoors, {
   MapControl,
   MapView,

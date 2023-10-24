@@ -14,7 +14,7 @@ First, create variables for `MPLocation` and `MPRoute` objects to use later in d
 
 [WayfindingFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/wayfinding/WayfindingFragment.kt#L31-L32)
 
-```
+```kotlin
 private var mRoute: MPRoute? = null
 private var mLocation: MPLocation? = null
 ```
@@ -29,7 +29,7 @@ First, start by changing the code inside `onCreateView`.
 
 [WayfindingFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/wayfinding/WayfindingFragment.kt#L36-L57)
 
-```
+```kotlin
 override fun onCreateView(view: View, @Nullable savedInstanceState: Bundle?) {
     _binding = FragmentWayfindingBinding.inflate(inflater, container, false)
 
@@ -56,7 +56,7 @@ Next we will create `FragmentStateAdapter` that will be used on the `ViewPager` 
 
 [WayfindingFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/wayfinding/WayfindingFragment.kt#L169-L197)
 
-```
+```kotlin
 inner class RouteCollectionAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int {
         mRoute?.legs?.let { legs->
@@ -92,7 +92,7 @@ Let's create a method to textually describe each Leg. This method creates a stri
 
 [WayfindingFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/wayfinding/WayfindingFragment.kt#L120-L167)
 
-```
+```kotlin
 fun getStepName(startStep: MPRouteStep, endStep: MPRouteStep): String {
     val startStepZindex: Double = startStep.startLocation!!.zIndex
     val startStepFloorName: String = startStep.startLocation.floorName!!
@@ -147,7 +147,7 @@ Now, lets create the `RouteLegFragment` to give context for the Legs in the `Way
 
 [RouteLegFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/wayfinding/RouteLegFragment.kt#L47-L55)
 
-```
+```kotlin
 private var mStep: String? = null
 private var mDuration: Int? = null
 private var mDistance: Int? = null
@@ -167,7 +167,7 @@ You must also update the `onViewCreated` method to use the new views added earli
 
 [RouteLegFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/wayfinding/RouteLegFragment.kt#L29-L47)
 
-```
+```kotlin
 override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     binding.stepTextView.text = mStep
@@ -193,7 +193,7 @@ We will create a method named getRoute that queries a route between two location
 
 [WayfindingFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/wayfinding/WayfindingFragment.kt#L98-L118)
 
-```
+```kotlin
 fun getRoute() {
     val directionsService = MPDirectionsService(requireContext())
     if (mDirectionsRenderer == null) {
@@ -221,7 +221,7 @@ To change the routing when swapping between tabs on the viewpager, use the call 
 
 [WayfindingFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/wayfinding/WayfindingFragment.kt#L41-L50)
 
-```
+```kotlin
 val routeLegAdapter = RouteCollectionAdapter(this)
 val viewPager = binding.stepViewPager
 viewPager.adapter = routeLegAdapter

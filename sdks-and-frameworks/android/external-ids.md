@@ -22,6 +22,6 @@ The function on all 3 platforms functions similarly, returning an Array or List 
 
 Running the below snippet will return a List of `MPLocations`.
 
-```
+```kotlin
 val locations = MapsIndoors.getLocationsByExternalIds(externalIds)
 ```

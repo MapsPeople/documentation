@@ -15,6 +15,6 @@ Once you have created your heatmaps with Mapbox, you will need a way to get it t
 
 In order to insert a heatmap between layers on the web SDK, refer to the [Mapbox GL JS API Reference](https://docs.mapbox.com/mapbox-gl-js/api/map/#map#addlayer). Then use the following code snippet but replace `map` with your Mapbox instance, and insert the relevant parameters from the API Reference:
 
-```
+```javascript
 map.addLayer({....}, 'MI_POLYGON_LAYER');
 ```

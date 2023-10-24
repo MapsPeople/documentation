@@ -15,7 +15,7 @@ For advanced usage of the search functionality read the Search guide and tutoria
 
 Create a search method that takes a search string as a parameter in your `State` class. In this example we only use the [`setTake` on the `MPFilter`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/MPFilter-class.html) to limit our result to 30 locations. We will expand on this method later.
 
-```
+```dart
 void search(String value) {
   // we should not search when the searchbar is empty
   if (value.isEmpty) {
@@ -43,7 +43,7 @@ void search(String value) {
 
 Next we create our own Widget to act as our search bar, this widget will take a function `onSubmitted` as a parameter, this is the function we will use to do the searcing when the user submits their search text.
 
-```
+```dart
 class SearchWidget extends StatelessWidget {
   final Function(String val)? onSubmitted;
   const SearchWidget({
@@ -73,7 +73,7 @@ To be able to search we will use a text input field where a user can write what 
 
 Now, when the user submits their text in the `SearchWidget` it will call the `search` function which we created earlier.
 
-```
+```dart
 @override
 Widget build(BuildContext context) {
   return Scaffold(
@@ -91,7 +91,7 @@ Widget build(BuildContext context) {
 
 We now need some UI that can show the result of our search, for this we will use a `Drawer` which we can attach to our `Scaffold`. As the _drawer_ is built directly in the build tree we can use a shared variable `_searchResults` which we will populate when a search is performed.
 
-```
+```dart
 List<MPLocation> _searchResults = [];
 
 @override
@@ -135,7 +135,7 @@ Widget build(BuildContext context) {
 
 Now that we have implemented the `Drawer` UI. Now we can add its activation to the search query method. We do this by putting the locations returned from our search into the `_searchResults` variable and then opening the `Drawer` from our `Scaffold`.
 
-```
+```dart
 void search(String value) {
   ...
   // fetch all (max 30) locations that match the query
@@ -154,7 +154,7 @@ void search(String value) {
 }
 ```
 
-See the full example of the search method here: [main.dart](https://docs.mapsindoors.com/getting-started/flutter/example.com) //MADHTODO
+See the full example of the search method here: [main.dart](https://github.com/MapsPeople/getting_started_flutter/blob/main/lib/main.dart#L133-L165)
 
 ### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/flutter/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
 
@@ -164,7 +164,7 @@ The standard implementation animates the camera to fit all Locations on the map 
 
 When you are done showing the search results you can [call `clearFliter`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/MapsIndoorsWidget/clearFilter.html).
 
-```
+```dart
   void search(String value) {
     // we should clear the search filter when the query is empty
     if (value.isEmpty) {
@@ -190,7 +190,7 @@ Expected result:
 
 ![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/flutter\_search.gif)
 
-//MADHTODO The accompanying UI and implementation of this search experience can be found in the getting started app sample. [Getting Started App sample](https://github.com/MapsPeople/getting\_started\_flutter)
+The accompanying UI and implementation of this search experience can be found in the getting started app sample. [Getting Started App sample](https://github.com/MapsPeople/getting\_started\_flutter)
 
 [\
 ](https://docs.mapsindoors.com/getting-started/flutter/map)

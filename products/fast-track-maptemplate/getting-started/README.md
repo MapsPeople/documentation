@@ -14,19 +14,19 @@ Using a terminal/shell in the project folder, run the following commands:
 
 * Clone the [repository](https://github.com/MapsPeople/web-ui) to your development environment. You can use `SSH` or `HTTPS` to clone the repository, depending on which one you are more familiar with.
 
-```javascript
+```bash
 git clone https://github.com/MapsPeople/web-ui.git
 ```
 
 * Inside the project folder root, install all dependencies and build with Lerna:
 
-```javascript
+```bash
 npm install && npx lerna run build
 ```
 
 * Move to the `packages/map-template` directory and run the app:
 
-```javascript
+```bash
 npm run start
 ```
 

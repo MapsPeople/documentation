@@ -10,7 +10,7 @@ First, make a new fragment for the menu, and call it `MenuFragment`, this fragme
 
 > If you have not followed the getting started guide, the code for `fragment_search_list` can be seen [here](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android/blob/master/app/src/main/res/layout/fragment\_search\_list.xml).
 
-```
+```java
 public class MenuFragment extends Fragment {
     private List<MPMenuInfo> mMenuInfos = null;
     private MapsActivity mMapActivity = null;
@@ -43,7 +43,7 @@ Next make an adapter for this list of `MPMenuInfo`. In this example the adapter 
 
 > If you have not followed the getting started guide, the code can be seen here for [java](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android/blob/master/app/src/main/java/com/example/mapsindoorsgettingstarted/SearchItemAdapter.java#L72-L82)/[kotlin](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android-Kotlin/blob/main/app/src/main/java/com/example/mapsindoorsgettingstartedkotlin/SearchItemAdapter.kt#L53-L62).
 
-```
+```java
 public class MenuItemAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private final List<MPMenuInfo> mMenuInfos;
@@ -79,7 +79,7 @@ The icon for the `MPMenuInfo` is saved as an URL, as such it has to be downloade
 
 > This is a very rudimentary example, and should not be replicated in production code, see it as an exercise to implement a better way to download and display the icons.
 
-```
+```java
 // if there exists an icon for this menuItem, then we will use it
 if (mMenuInfos.get(position).getIconUrl() != null) {
     // As we need to download the image, it has to be offloaded from the main thread
@@ -105,7 +105,7 @@ To show which locations belong to the category of the selected `MPMenuInfo`, cal
 
 Finally, in the `OnLocationsReadyListener` call `MapControl.setFilter(List<MPLocation>, MPFilterBehavior)` as this will filter the map to only show the selected locations.
 
-```
+```java
 // When a category is selected, we want to filter the map s.t. it only shows the locations in that
 // category
 holder.itemView.setOnClickListener(view -> {
@@ -123,7 +123,7 @@ holder.itemView.setOnClickListener(view -> {
 
 Then, in order to show the menu, hijack the search icon's `onClickListener` method. The `MPMenuInfo` can be fetched via `MapsIndoors.getAppConfig().getMenuInfo(String)`, and will give a menu corresponding to the inputted String, in this guide `"mainmenu"` has been used as it is the default.
 
-```
+```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     ...
@@ -148,7 +148,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Finally to clear the category filter from the map call `MapControl.clearFilter()`, in this example it is called when closing the menu sheet, it the `onDestroyView` method of `MenuFragment`.
 
-```
+```java
 @Override
 public void onDestroyView() {
     // When we close the menu fragment we want to display all locations again, not just whichever were selected last
@@ -169,7 +169,7 @@ First, make a new fragment for the menu, and call it `MenuFragment`, this fragme
 
 > If you have not followed the getting started guide, the code for `fragment_search_list` can be seen [here](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android/blob/master/app/src/main/res/layout/fragment\_search\_list.xml).
 
-```
+```kotlin
 class MenuFragment : Fragment() {
     private lateinit var mMenuInfos: List<MPMenuInfo?>
     private lateinit var mMapActivity: MapsActivity
@@ -201,7 +201,7 @@ Next make an adapter for this list of `MPMenuInfo`. In this example the adapter 
 
 > If you have not followed the getting started guide, the code can be seen here for [java](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android/blob/master/app/src/main/java/com/example/mapsindoorsgettingstarted/SearchItemAdapter.java#L72-L82)/[kotlin](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android-Kotlin/blob/main/app/src/main/java/com/example/mapsindoorsgettingstartedkotlin/SearchItemAdapter.kt#L53-L62).
 
-```
+```kotlin
 internal class MenuItemAdapter(
     private val mMenuInfos: List<MPMenuInfo?>,
     private val mMapActivity: MapsActivity?
@@ -228,7 +228,7 @@ The icon for the `MPMenuInfo` is saved as an URL, as such it has to be downloade
 
 > This is a very rudimentary example, and should not be replicated in production code, see it as an exercise to implement a better way to download and display the icons.
 
-```
+```kotlin
 // if there exists an icon for this menuItem, then we will use it
 val iconUrl = mMenuInfos[position]?.iconUrl
 if (iconUrl != null) {
@@ -254,7 +254,7 @@ To show which locations belong to the category of the selected `MPMenuInfo`, cal
 
 Finally, in the `OnLocationsReadyListener` call `MapControl.setFilter(List<MPLocation>, MPFilterBehavior)` as this will filter the map to only show the selected locations.
 
-```
+```kotlin
 // When a category is selected, we want to filter the map s.t. it only shows the locations in that
 // category
 holder.itemView.setOnClickListener { view ->
@@ -278,7 +278,7 @@ holder.itemView.setOnClickListener { view ->
 
 Then, in order to show the menu, hijack the search icon's `onClickListener` method. The `MPMenuInfo` can be fetched via `MapsIndoors.getAppConfig().getMenuInfo(String)`, and will give a menu corresponding to the inputted String, in this guide `"mainmenu"` has been used as it is the default.
 
-```
+```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
     ...
     //ClickListener to start a search, when the user clicks the search button
@@ -304,7 +304,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 Finally to clear the category filter from the map call `MapControl.clearFilter()`, in this example it is called when closing the menu sheet, it the `onDestroyView` method of `MenuFragment`.
 
-```
+```kotlin
 override fun onDestroyView() {
     // When we close the menu fragment we want to display all locations again, not just whichever were selected last
     mMapActivity.getMapControl().clearFilter()

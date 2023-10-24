@@ -48,13 +48,13 @@ The method for reading and using these custom properties depends on which platfo
 
 Using the above screenshot as an example basis you fetch the entire custom property using the following code:
 
-```
+```javascript
 let data = location.getFieldForKey('email')
 ```
 
 To retrieve individual segments of the property, you can use:
 
-```
+```javascript
 let text = data.text
 let value = data.value
 let type = data.type

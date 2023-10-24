@@ -8,7 +8,7 @@ Scenarios where asset tracking would be useful could for example be a hospital w
 
 Enabling Live Data through `mapControl` is an easy way to get Live Data running in your app. For this use case, `MPLiveDomainType.position` and `MPLiveDomainType.availability` should be enabled, as you need to know the position of the wheelchair, and whether or not it is in use - there are several other `MPLiveDomainType` variables that exist, as can be found [here](https://app.mapsindoors.com/mapsindoors/reference/ios/4.2.1/documentation/mapsindoors/mplivedomaintype), but they are not needed for this specific use-case. However, they could be needed for yours!
 
-```
+```swift
 Task {
     try await MPMapsIndoors.shared.load(apiKey: "YOUR API KEY"Y)
 

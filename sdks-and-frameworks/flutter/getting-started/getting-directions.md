@@ -8,7 +8,7 @@ After having created our list of search results, we have a good starting point f
 
 We have already created a point in the basic example, called `_userPosition` to use as a starting point for directions on `MapState`. The position given with the example is for the main entrance to the White House, replace it with some location that fits your usecase.
 
-```
+```dart
 final _userPosition = MPPoint.withCoordinates(
     longitude: -77.03740973527613,
     latitude: 38.897389429704695,
@@ -17,7 +17,7 @@ final _userPosition = MPPoint.withCoordinates(
 
 We can extend the search functionality we made earlier by implementing the [`onLocationSelected`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/OnLocationSelectedListener.html) listener on the [`MapsIndoorsWidget`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/MapsIndoorsWidget-class.html), and showing the selected location's details on the bottom sheet:
 
-```
+```dart
 void onMapControlReady(MPError? error) async {
   if (error == null) {
     ...
@@ -33,7 +33,7 @@ void onMapControlReady(MPError? error) async {
 
 and implementing the `onLocationSelected` listener:
 
-```
+```dart
 void onLocationSelected(MPLocation? location) {
   // if no location is selected, close the sheet
   if (location == null) {
@@ -77,7 +77,7 @@ Now we will create a class that takes a origin and destination and can handle th
 
 First lets set up the constructor and services, we want to create the `RouteHandler` with an origin, destination and the state of our `Scaffold` (to create a bottom sheet later). We will also set up our [`MPDirectionsService`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/MPDirectionsService-class.html) and [`MPDirectionsRenderer`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/MPDirectionsRenderer-class.html) and generate a route immediately. finally we show the route on the Renderer.
 
-```
+```dart
 class RouteHandler {
   RouteHandler(
       {required MPPoint origin,
@@ -97,7 +97,7 @@ class RouteHandler {
 
 Now we want some controllers for the state of our route, we want a method to safely update the leg index, we want to listen to when the leg index changes and we want to be able to remove the route again. First we add a [`onLegSelectedListener`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/OnLegSelectedListener.html) to the class and set it on the renderer. Then we add a getter/setter for the current leg index, where we ensure that we cannot get an index that is out of bounds for the current route. and finally we add a `removeRoute` method that clears the route from the map.
 
-```
+```dart
 class RouteHandler {
   RouteHandler(
       {required MPPoint origin,
@@ -140,7 +140,7 @@ Finally we want some UI interaction, so we add a `ShowRoute` method that creates
 
 Then we call `showRoute` from our constructor. Additionally we close the `BottomSheet` when removing the map.
 
-```
+```dart
 class RouteHandler {
   RouteHandler(
       {required MPPoint origin,
@@ -219,11 +219,11 @@ class RouteHandler {
 }
 ```
 
-//MADHTODO With this we now have a class that will handle creating a Route and displaying it on the map for us. You can see the entire implementation of RouteHandler here: [main.dart](https://docs.mapsindoors.com/getting-started/flutter/example.com)
+With this we now have a class that will handle creating a Route and displaying it on the map for us. You can see the entire implementation of RouteHandler here: [main.dart](https://github.com/MapsPeople/getting_started_flutter/blob/main/lib/main.dart#L230-L345)
 
 We can now add a button on our `onLocationSelected` bottomsheet to generate a route from `_userPosition` to the selected location:
 
-```
+```dart
 final _scaffoldKey = GlobalKey<ScaffoldState>();
 RouteHandler? _routeHandler;
 PersistentBottomSheetController? _controller;
@@ -272,7 +272,7 @@ In MapsIndoors, the transportation mode is referred to as **travel mode**. There
 
 To swap Travel Modes you set the Travel Mode before making a query for the route:
 
-```
+```dart
 RouteHandler(
     {required MPPoint origin,
     required MPPoint destination,
@@ -291,7 +291,7 @@ Expected result:
 
 ![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/flutter\_directions.gif)
 
-//MADHTODO The accompanying UI and implementation of this directions experience can be found in the getting started app sample. [Getting Started App sample](https://github.com/MapsPeople/getting\_started\_flutter)
+The accompanying UI and implementation of this directions experience can be found in the getting started app sample. [Getting Started App sample](https://github.com/MapsPeople/getting\_started\_flutter)
 
 [\
 ](https://docs.mapsindoors.com/getting-started/flutter/search)
