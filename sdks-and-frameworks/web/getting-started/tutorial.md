@@ -4,7 +4,7 @@ Throughout the Getting Started guide, you will modify and extend the same code t
 
 ## Step 1. Set Up Your Environment[​](https://docs.mapsindoors.com/getting-started/web/new-project#set-up-your-environment) <a href="#set-up-your-environment" id="set-up-your-environment"></a>
 
-1. If you do not have prior development experience, you can install an Integrated Development Environment (IDE), e.g. [Visual Studio Code](https://code.visualstudio.com/).
+1. If you do not have prior development experience, you can install an Integrated Development Environment (IDE), e.g. [<mark style="color:purple;">Visual Studio Code</mark>](https://code.visualstudio.com/).
 2. Start by creating a new project folder. The location is not important, just remember the location, and ensure your newly created project folder is empty.
 3.  Inside that, create two empty files: `index.html` and `main.js`.
 
