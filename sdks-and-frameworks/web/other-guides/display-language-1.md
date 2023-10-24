@@ -1,7 +1,7 @@
 # Languages
 
 MapsIndoors languages are independent of the chosen languages on the device on which the app is used. This means that you need to explicitly tell MapsIndoors which language to use.
-Example blow shows **'Languages'** section and dropdown from which you can select languages:
+Example below shows **'Languages'** section and dropdown from which you can select languages:
 <div>
     <img src="../../../.gitbook/assets/languages-default-view.png" alt="">
 </div>
