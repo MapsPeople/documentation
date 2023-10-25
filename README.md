@@ -28,7 +28,7 @@ Your go-to resource for tapping into the full potential of the MapsIndoors platf
 
 _Show your map with all the UI needed in less than 10 minutes_
 
-<figure><picture><source srcset=".gitbook/assets/maptemplatedarkmode.min.jpg" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/MapTemplateHighlight.min.min.jpg" alt=""></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset=".gitbook/assets/maptemplate dark (1).jpg" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/maptemplate light (1).jpg" alt=""></picture><figcaption></figcaption></figure>
 
 In less than 10 minutes you can seamlessly incorporate MapsIndoors into your system. We have developed all the required UI components and bundled them together for your convenience.
 
@@ -49,7 +49,7 @@ In less than 10 minutes you can seamlessly incorporate MapsIndoors into your sys
 
 _The next generation of indoor maps is here_
 
-<figure><picture><source srcset=".gitbook/assets/3d-night-viewk.min.jpg" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/3d-day-viewk.min.jpg" alt=""></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset=".gitbook/assets/3D Night View.jpg" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/3D Day View.jpg" alt=""></picture><figcaption></figcaption></figure>
 
 Starting with the V4 versions of our SDKs, MapsIndoors has introduced the functionality to have your map viewed in 3D, with the appropriate navigational features, rather than just a flat 2D image.
 
