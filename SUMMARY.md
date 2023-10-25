@@ -56,6 +56,7 @@
     * [Working with Events](sdks-and-frameworks/web/other-guides/working-with-events.md)
     * [Turn Off Collisions Based on Zoom Level](sdks-and-frameworks/web/other-guides/turn-off-collisions-based-on-zoom-level.md)
     * [Remove Labels from Buildings and Venues for Web](sdks-and-frameworks/web/other-guides/remove-labels-from-buildings-and-venues-for-web.md)
+    * [Synchronizing data for a subset of venues](sdks-and-frameworks/web/other-guides/synchronizing-data-for-a-subset-of-venues.md)
 * [Android](sdks-and-frameworks/android/README.md)
   * [Getting Started](sdks-and-frameworks/android/getting-started/README.md)
     * [Migrating from V3 to V4](sdks-and-frameworks/android/getting-started/migrating-from-v3-to-v4.md)
