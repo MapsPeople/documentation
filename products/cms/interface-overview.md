@@ -141,8 +141,6 @@ Categories are similar to Types, but whereas Locations can only be of one Type, 
 3. The name of the Category.
 4. The Category's Key.
 
-### **TODO: Buildings**[**​**](https://docs.mapsindoors.com/cms-interface-overview#buildings)
-
 ![A screenshot of the page overview of Buildings](https://docs.mapsindoors.com/img/cms/Solution\_Details\_Buildings.png)
 
 This page lists the Buildings in the selected Venue in your Solution.
