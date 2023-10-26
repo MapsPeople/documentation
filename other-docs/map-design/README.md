@@ -1,5 +1,5 @@
 ---
-description: Best practices for amazing looking maps ✨
+description: Best practices for amazing looking maps
 cover: ../../.gitbook/assets/3D Day View.jpg
 coverY: 0
 layout:
@@ -19,6 +19,10 @@ layout:
 ---
 
 # Map Design
+
+{% hint style="success" %}
+All our solutions come with a **default design system**, which has been carefully crafted to look amazing in most scenarios. [Take a look.](https://www.mapsindoors.com/design)
+{% endhint %}
 
 ## Basic Styling
 
@@ -62,8 +66,8 @@ Use our CMS to do basic styling using display rules. Here is a rundown of the av
 
 <figure><img src="../../.gitbook/assets/CleanShot 2023-10-26 at 13.05.25@2x.png" alt=""><figcaption></figcaption></figure>
 
-* Use **.glb** file format
-* Keep the poly amount **as low as possible** for better performance
+* Use **.glb** file format, and try to optimize the **poly count** to as low a number as possible
+* A good scalable file size to aim for is **25kb - 250kb**
 * Use **real measurements** for the easiest placement **(meters)**
 
 ***

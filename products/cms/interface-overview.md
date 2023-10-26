@@ -33,8 +33,6 @@ The Solution switcher allows you to search for the Solutions you have access to.
 
 ## Toolbar[​](https://docs.mapsindoors.com/cms-interface-overview#toolbar) <a href="#toolbar" id="toolbar"></a>
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-10-24 at 11.43.09 AM.png" alt=""><figcaption></figcaption></figure>
-
 From left to right, the functionalities in the Toolbar are as follows (you can also hover over the icons in the CMS to see their names):
 
 * **Add POI** - Creates a Point of Interest by clicking on the Map. Afterwards, it opens an editor where Location details can be adjusted.
@@ -49,8 +47,6 @@ From left to right, the functionalities in the Toolbar are as follows (you can a
 Doors and Barriers are Route Elements that allow you to manipulate certain portions of the Route Network. They appear if you click the **Show Network** button mentioned above.
 
 **Doors** are a Route Element that indicates the presence of a door - or other entryway - in a building.
-
-
 
 * **Type** - Lets you define what type of Door this is. Each type has different defaults.
   * **Door** - A Door between two Rooms inside the same Building.
@@ -108,7 +104,7 @@ When accessing Multiple doors creation mode, there is an option to choose door t
 * **Floor Index** - Use this to move a Barrier to another Floor.
 * **One-way direction (bearing)** - The _exit angle_ of a one-way Barrier, in degrees, like a compass bearing. In the illustration above, the entered value would be 45, as the user would exit at a 45-degree bearing.
 
-## Solution Details[​](https://docs.mapsindoors.com/cms-interface-overview#solution-details) <a href="#solution-details" id="solution-details"></a>
+## Solution Details <a href="#solution-details" id="solution-details"></a>
 
 Under Solution Details, you can find several subpages, which are described below:
 

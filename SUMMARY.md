@@ -190,6 +190,14 @@
   * [Data Concepts](products/cms/data-concepts.md)
   * [User Roles](products/cms/user-roles.md)
 
+## Reference Docs
+
+* [Web SDK](reference-docs/web.md)
+* [iOS SDK](reference-docs/ios-sdk.md)
+* [Android SDK](reference-docs/android-sdk.md)
+* [React Native SDK](reference-docs/android-sdk-1.md)
+* [Flutter SDK](reference-docs/android-sdk-2.md)
+
 ## Other Docs
 
 * [Changelog](other-docs/changelog/README.md)
@@ -205,12 +213,6 @@
     * [V3](other-docs/changelog/web-sdk/v3.md)
   * [MI Components](other-docs/changelog/mi-components.md)
   * [Flutter Plugin](other-docs/changelog/flutter-plugin.md)
-* [Reference Docs](other-docs/reference-docs/README.md)
-  * [Web SDK](other-docs/reference-docs/web.md)
-  * [iOS SDK](other-docs/reference-docs/ios-sdk.md)
-  * [Android SDK](other-docs/reference-docs/android-sdk.md)
-  * [React Native SDK](other-docs/reference-docs/android-sdk-1.md)
-  * [Flutter SDK](other-docs/reference-docs/android-sdk-2.md)
 * [Legacy Docs](other-docs/legacy-docs/README.md)
   * [Android SDK V3](other-docs/legacy-docs/v3/README.md)
     * [Getting Started](other-docs/legacy-docs/v3/getting-started/README.md)
