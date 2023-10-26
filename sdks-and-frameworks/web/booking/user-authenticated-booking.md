@@ -1,7 +1,5 @@
 # User Authenticated Booking
 
-<mark style="background-color:red;">Missing intro about User Authenticated Booking as a concept</mark>
-
 Before commencing on user authenticated booking, we recommend reading the guide on Booking first to understand how booking functions in the MapsIndoors SDK.
 
 ### User Authenticated Bookings[​](https://docs.mapsindoors.com/user-authenticated-booking#user-authenticated-bookings-for-web) <a href="#user-authenticated-bookings-for-web" id="user-authenticated-bookings-for-web"></a>

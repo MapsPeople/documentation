@@ -1,6 +1,6 @@
 # Change Building Outline
 
-**Crafting a Dynamic, Color-Transitioning Example**
+## Crafting a Dynamic, Color-Transitioning Example
 
 Here's a code snippet that alternates the building outline color every second, cycling through a palette of contrasting colors, it's not the most practical application, but it shows how to achieve it.
 
@@ -24,7 +24,7 @@ setInterval(() => {
 }, 1000);
 ```
 
-**Additional Details**
+### Additional Details
 
 To change the building outline color use the [`strokeColor`](https://developer.mozilla.org/en-US/docs/Web/CSS/color\_value) property of the [`BuildingOutlineOptions` interface](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/BuildingOutlineOptions.html). This property accepts any color as defined by conventional CSS color values.&#x20;
 
@@ -36,7 +36,15 @@ To do this in practice, on the MapsIndoors instance, call `setBuildingOutlineOpt
 mapsIndoors.setBuildingOutlineOptions({strokeColor: '#3071d9'});
 ```
 
-The building outline design will be taken from the values set through the CMS. To change the building outline you can use the different properties of the `BuildingOutlineOptions` interface. The properties are the following:
+## CMS configuration
+
+The building outline design will be taken from the values set through the CMS.&#x20;
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-10-24 at 11.43.09 AM.png" alt=""><figcaption></figcaption></figure>
+
+### Overriding the CMS configuration via the SDK
+
+To change the building outline you can use the different properties of the `BuildingOutlineOptions` interface. The properties are the following:
 
 1. `visible` - Controls whether the Building Outline is visible on the map.
    * The value should be a Boolean here, so either `true` or `false`.

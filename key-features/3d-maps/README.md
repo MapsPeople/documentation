@@ -19,7 +19,7 @@ layout:
 
 # 3D Maps
 
-Starting with the V4 versions of our SDK's, MapsIndoors has introduced the functionality to have your map viewed in 3D, with the appropriate navigational features, rather than just a flat 2D image.
+Starting with the V4 versions of our SDKs, MapsIndoors has introduced the functionality to have your map viewed in 3D, with the appropriate navigational features, rather than just a flat 2D image.
 
 ### Requirements[​](https://docs.mapsindoors.com/3d-maps#requirements) <a href="#requirements" id="requirements"></a>
 
@@ -27,7 +27,7 @@ Regardless of your app platform, you need to use the **Mapbox** map provider in 
 
 * Android SDK v4.0.0
 * Web SDK v4.18.0
-* iOS SDK does NOT yet support 3D, but will be coming soon!
+* iOS SDK v4.2.6
 
 If you fulfill the above requirements, you can contact your MapsPeople representative to have the 3D map functionality enabled for your Solution(s).
 

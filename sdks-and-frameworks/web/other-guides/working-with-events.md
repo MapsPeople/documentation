@@ -8,11 +8,7 @@ Let's take a look at the events that MapsIndoors offers and how to utilize them.
 
 For example, if the user clicks on a Location on the map, then you can react to that action by presenting the user with additional info about the Location.
 
-A code example is shown in the JSFiddle below, but will be run through bit by bit in this guide. <mark style="background-color:red;">(Kan ikke se JSFiddle)</mark>
-
-
-
-<mark style="background-color:red;">Der nævnes fire typer events. Ville det ikke være godt med et eksempel/en use case til hver om hvordan man ville kunne bruge pågældende event.</mark>&#x20;
+A code example is shown in the JSFiddle below, but will be run through bit by bit in this guide.
 
 #### Ready Event[​](https://docs.mapsindoors.com/working-with-events#ready-event) <a href="#ready-event" id="ready-event"></a>
 
@@ -30,7 +26,7 @@ The `building_changed` event will be fired when the map is moved around and a ne
 
 This is also related to the Floor Selector which will update its view to show the Floors of the current Building.
 
-The event handler is called with a [building](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/global.html#Building) (<mark style="background-color:red;">jeg forstår ikke det her link</mark>) object representing the building in focus.
+The event handler is called with a [building](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/global.html#Building) object representing the building in focus.
 
 ```javascript
 mapsIndoors.addListener('building_changed', (e) => {
