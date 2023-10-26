@@ -1,12 +1,12 @@
 # Show User's Location aka. Blue Dot
 
-### Overview[​](https://docs.mapsindoors.com/blue-dot#overview) <a href="#overview" id="overview"></a>
+## Overview[​](https://docs.mapsindoors.com/blue-dot#overview) <a href="#overview" id="overview"></a>
 
 In this guide, you will learn how to show a dot on the map, representing the user's current location.
 
 The JSFiddle example below draws a MapsIndoors map, and adds a position control. Whenever a position is received or updated, if the user has not moved the map themselves, the map will pan to the new location. If the user has moved the map, it will not center on the new location until position control is clicked.
 
-#### How the position is determined[​](https://docs.mapsindoors.com/blue-dot#how-the-position-is-determined) <a href="#how-the-position-is-determined" id="how-the-position-is-determined"></a>
+### How the position is determined[​](https://docs.mapsindoors.com/blue-dot#how-the-position-is-determined) <a href="#how-the-position-is-determined" id="how-the-position-is-determined"></a>
 
 The position is determined by utilizing the [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation\_API), which all modern browsers expose.
 
@@ -16,7 +16,7 @@ All browsers will ask the user for permission to share the location by displayin
 
 Also note that the Geolocation API will only work on `https` websites (and `localhost` for development).
 
-#### The MapsIndoors `PositionControl` class[​](https://docs.mapsindoors.com/blue-dot#the-mapsindoors-positioncontrol-class) <a href="#the-mapsindoors-positioncontrol-class" id="the-mapsindoors-positioncontrol-class"></a>
+### The MapsIndoors `PositionControl` class[​](https://docs.mapsindoors.com/blue-dot#the-mapsindoors-positioncontrol-class) <a href="#the-mapsindoors-positioncontrol-class" id="the-mapsindoors-positioncontrol-class"></a>
 
 The MapsIndoors JavaScript SDK exposes a `PositionControl` class.
 

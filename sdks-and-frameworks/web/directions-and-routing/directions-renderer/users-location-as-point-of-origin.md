@@ -45,6 +45,6 @@ function errorHandler(err) {
 navigator.geolocation.getCurrentPosition(getRoute, errorHandler, options);
 ```
 
-Further details on how user positioning works, and how to display it, can be found [here](https://docs.mapsindoors.com/blue-dot/). <mark style="background-color:blue;">MJE: Link needs an update to the right page on the new site.</mark>
+Further details on how user positioning works, and how to display it, can be found [here](https://docs.mapsindoors.com/blue-dot/).&#x20;
 
 This results in directions queries originating from the user's current location.

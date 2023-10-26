@@ -20,7 +20,7 @@ Setting German as default language:
 
 If you do not specify a language, MapsIndoors will show information in the default language defined in the MapsIndoors CMS. Likewise, if you specify a language that is not supported, MapsIndoors will also show information in the default language.
 
-Additionally, aside from methods mentioned here, you can provide translations via the standard method for your device, such as using individual localized strings.
+Additionally, aside from methods mentioned here, you can provide translations via the standard method for your device, such as using individual localised strings.
 
 ### Configuring POI translations in CMS[​](https://docs.mapsindoors.com/display-language#configuring-poi-translations-in-cms) <a href="#configuring-poi-translations-in-cms" id="configuring-poi-translations-in-cms"></a>
 

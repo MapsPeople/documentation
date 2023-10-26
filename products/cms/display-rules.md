@@ -35,8 +35,6 @@ No matter what is specified in this hierarchy, you can override it _runtime_ in 
 
 To remove a value from the Display Rule (to make it inherit from further up the hierarchy) set the property to `null`.
 
-<mark style="color:red;">**TODO: Add a code snippet on how to change (setDisplayRule)**</mark>
-
 ### Display Rule Properties[​](https://docs.mapsindoors.com/display-rules#display-rule-properties) <a href="#display-rule-properties" id="display-rule-properties"></a>
 
 In the CMS, you can edit your Types' Display Rules in `Solution Details > Types > Edit [Location Type name] > Display Rules`. This will open an overview of all Display Rules properties.

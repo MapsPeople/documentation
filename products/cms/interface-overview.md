@@ -118,11 +118,7 @@ When accessing Multiple doors creation mode, there is an option to choose door t
 
 Under Solution Details, you can find several subpages, which are described below:
 
-### TODO: Types[​](https://docs.mapsindoors.com/cms-interface-overview#types) <a href="#types" id="types"></a>
-
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
-
-This page organizes the "Types" you can add to your Locations.
+This page organises the "Types" you can add to your Locations.
 
 1. Create a new Type.
 2. Select multiple Types for easy deletion.
@@ -144,8 +140,6 @@ Categories are similar to Types, but whereas Locations can only be of one Type, 
 2. "Edit Category" to edit properties of your Category.
 3. The name of the Category.
 4. The Category's Key.
-
-### **TODO: Buildings**[**​**](https://docs.mapsindoors.com/cms-interface-overview#buildings)
 
 ![A screenshot of the page overview of Buildings](https://docs.mapsindoors.com/img/cms/Solution\_Details\_Buildings.png)
 
