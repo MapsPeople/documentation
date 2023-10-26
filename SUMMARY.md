@@ -192,7 +192,6 @@
 
 ## Other Docs
 
-* [Glossary](other-docs/glossary.md)
 * [Changelog](other-docs/changelog/README.md)
   * [React Native SDK](other-docs/changelog/react-native-sdk.md)
   * [iOS SDK](other-docs/changelog/ios-sdk/README.md)
@@ -239,6 +238,9 @@
     * [Application User Roles](other-docs/legacy-docs/v3-1/application-user-roles.md)
     * [Getting a Polygon from a Location](other-docs/legacy-docs/v3-1/getting-a-polygon-from-a-location.md)
     * [Location Details](other-docs/legacy-docs/v3-1/location-details.md)
+* [Map Design](other-docs/map-design/README.md)
+  * [Map Design System](https://www.mapsindoors.com/design)
+* [Glossary](other-docs/glossary.md)
 * [MapsIndoors SDK Firewall](other-docs/mapsindoors-sdk-firewall.md)
 * [Google Analytics & Logging](other-docs/google-analytics-and-logging.md)
 
@@ -247,4 +249,3 @@
 * [CMS](https://cms.mapsindoors.com/)
 * [Support](https://mapspeople.atlassian.net/servicedesk/customer/portals)
 * [GitHub](https://github.com/MapsPeople)
-* [Map Design System](https://www.mapsindoors.com/design)

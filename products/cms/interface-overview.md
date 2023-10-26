@@ -4,8 +4,6 @@
 
 The Map section is the main navigation of the MapsIndoors CMS and includes the Filter bar at the top, a Toolbar at the bottom, a Floor selector on the right, and your Map in the center.
 
-
-
 <figure><img src="../../.gitbook/assets/cms (6).jpg" alt=""><figcaption></figcaption></figure>
 
 1. Use the "Solution Switcher" to select your active Solution.
@@ -35,7 +33,7 @@ The Solution switcher allows you to search for the Solutions you have access to.
 
 ## Toolbar[​](https://docs.mapsindoors.com/cms-interface-overview#toolbar) <a href="#toolbar" id="toolbar"></a>
 
-<figure><img src="https://docs.mapsindoors.com/img/cms/Map_Toolbar.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-10-24 at 11.43.09 AM.png" alt=""><figcaption></figcaption></figure>
 
 From left to right, the functionalities in the Toolbar are as follows (you can also hover over the icons in the CMS to see their names):
 
@@ -52,7 +50,7 @@ Doors and Barriers are Route Elements that allow you to manipulate certain porti
 
 **Doors** are a Route Element that indicates the presence of a door - or other entryway - in a building.
 
-![A screenshot of menu for adjusting doors](https://docs.mapsindoors.com/img/cms/door\_menu.png)
+
 
 * **Type** - Lets you define what type of Door this is. Each type has different defaults.
   * **Door** - A Door between two Rooms inside the same Building.
@@ -69,8 +67,6 @@ Doors and Barriers are Route Elements that allow you to manipulate certain porti
 * **Radius (meters)** - Set the Radius in meters for this Door, to ensure it touches the Route Network.
 * **Floor Index** - Use this to move a Door from one Floor to another.
 * **One-way direction (bearing)** - The _exit angle_ of a one-way Door, in degrees, like a compass bearing. In the illustration below, the entered value would be 45, as the user would exit at a 45-degree bearing.
-
-![An illustration that demonstrates how to interpret bearing](https://docs.mapsindoors.com/img/cms/one\_way\_bearing\_compass.png)
 
 By default doors are snapping, meaning they are following the lines of current solution's geometry:
 
@@ -103,8 +99,6 @@ When accessing Multiple doors creation mode, there is an option to choose door t
 
 **Barriers** are similar to Doors in that they are used to modify the Route Network. Many of the settings and restrictions you can set are the same between the two kinds.
 
-![A screenshot of menu for adjusting barriers](https://docs.mapsindoors.com/img/cms/barrier\_menu.png)
-
 * **Restrictions** - Set optional limits on who can bypass this Barrier.
   * **Open for all** - Open for all Users.
   * **Open for specific App User Roles** - Define certain App User Roles that can bypass this Barrier.
@@ -118,7 +112,7 @@ When accessing Multiple doors creation mode, there is an option to choose door t
 
 Under Solution Details, you can find several subpages, which are described below:
 
-This page organises the "Types" you can add to your Locations.
+This page organizes the "Types" you can add to your Locations.
 
 1. Create a new Type.
 2. Select multiple Types for easy deletion.
@@ -128,20 +122,16 @@ This page organises the "Types" you can add to your Locations.
 6. The Display Name of the Type.
 7. The Administrative ID of the Type.
 8. The number of Locations with the given Type applied.
-9. Whether the Type's "General Visibility" is set to Visible or Not visible.
+9. Whether the Type's "General Visibility" is set to Visible or Not Visible.
 
 ### Categories[​](https://docs.mapsindoors.com/cms-interface-overview#categories) <a href="#categories" id="categories"></a>
-
-<figure><img src="https://docs.mapsindoors.com/img/cms/Solution_Details_Categories.png" alt=""><figcaption></figcaption></figure>
 
 Categories are similar to Types, but whereas Locations can only be of one Type, they can have multiple Categories. Categories are used for browsing important Locations or amenities in your application. For example, a canteen might be in a Category of both "Food" and "Leisure", but still only be of the Type "Canteen".
 
 1. Create a new Category.
-2. "Edit Category" to edit properties of your Category.
+2. "Edit Category" to edit the properties of your Category.
 3. The name of the Category.
 4. The Category's Key.
-
-![A screenshot of the page overview of Buildings](https://docs.mapsindoors.com/img/cms/Solution\_Details\_Buildings.png)
 
 This page lists the Buildings in the selected Venue in your Solution.
 
@@ -163,8 +153,6 @@ This page lists the Buildings in the selected Venue in your Solution.
 
 ### Venues[​](https://docs.mapsindoors.com/cms-interface-overview#venues) <a href="#venues" id="venues"></a>
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
-
 The list of Venues in your Solution.
 
 1. "Edit Venue"
@@ -185,11 +173,7 @@ This page contains various subpages with more advanced settings about your app.
 
 This page contains various settings, such as names for your API keys, App User Roles and App Categories.
 
-<figure><img src="https://docs.mapsindoors.com/img/cms/Solution_Details_App_Title.png" alt=""><figcaption></figcaption></figure>
-
 The "App Title" is used to set a name for your app in your application.
-
-<figure><img src="https://docs.mapsindoors.com/img/cms/Solution_Details_Alias.PNG" alt=""><figcaption></figcaption></figure>
 
 The "Alias" is a shorter name you can use for loading your application in your app. Think of it as a "named API key", so instead of a random combinations of letters and numbers, it's an easy to remember name instead.
 
@@ -202,8 +186,6 @@ Do not set an Alias if you want to make it more difficult to find and load your 
 1. Click the "Edit Role" icon to edit its name, including translations.
 2. The Display Name.
 3. Click "Add App User Role" to add to the list.
-
-<figure><img src="https://docs.mapsindoors.com/img/cms/Solution_Details_App_Categories.png" alt=""><figcaption></figcaption></figure>
 
 In the "App Categories" section, you can edit more details about your Categories.
 
@@ -220,8 +202,6 @@ Here you manage the active API keys generated for your Solution. You need an API
 You can create as many API keys as you want, and it is good practice to use one for each place you need to load data from MapsIndoors (each mobile platform, web app etc.).
 
 You can easily delete an API key if it is unused, or has been compromised.
-
-<figure><img src="https://docs.mapsindoors.com/img/cms/Solution_Details_API_Keys_V2.png" alt=""><figcaption></figcaption></figure>
 
 1. The name that you want to use to identify the new API key.
 2. Generate an API key.
