@@ -10,6 +10,7 @@
     * [Tutorial](sdks-and-frameworks/web/getting-started/tutorial.md)
   * [Map Visualization](sdks-and-frameworks/web/map-visualization/README.md)
     * [Display Rules in Practice](sdks-and-frameworks/web/map-visualization/display-rules-in-practice.md)
+    * [How to change the state DisplayRules](sdks-and-frameworks/web/map-visualization/how-to-change-the-state-display-rules.md)
     * [Display a Map](sdks-and-frameworks/web/map-visualization/display-a-map.md)
     * [Switching Solutions](sdks-and-frameworks/web/map-visualization/switching-solutions.md)
     * [Remove Labels from Buildings and Venues](sdks-and-frameworks/web/remove-labels-from-buildings-and-venues.md)
