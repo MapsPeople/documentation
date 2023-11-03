@@ -56,7 +56,7 @@ Use query parameters to configure the Web Component by setting the `supports-url
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Map</title>
     <script type="module">
-        import MapsindoorsMap from '@mapsindoors/map-template@stable/dist/mapsindoors-webcomponent.es.js';
+        import MapsindoorsMap from 'https://www.unpkg.com/@mapsindoors/map-template@stable/dist/mapsindoors-webcomponent.es.js';
         window.customElements.define('mapsindoors-map', MapsIndoorsMap)
     </script>
     <style>
