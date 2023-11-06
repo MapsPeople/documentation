@@ -189,6 +189,9 @@
   * [Change building outline](products/cms/change-building-outline.md)
   * [Data Concepts](products/cms/data-concepts.md)
   * [User Roles](products/cms/user-roles.md)
+  * [Route Network](products/cms/route-network/README.md)
+    * [Barrier Route Element](products/cms/route-network/barrier-route-element.md)
+    * [Door Route Element](products/cms/route-network/door-route-element.md)
 
 ## Reference Docs
 
