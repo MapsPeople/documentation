@@ -1,8 +1,8 @@
 # Flutter Plugin
 
-### \[2.0.0] 2023-08-15[​](https://docs.mapsindoors.com/changelogs/flutter#200-2023-08-15) <a href="#200-2023-08-15" id="200-2023-08-15"></a>
-
 Changelog for the MapsIndoors Flutter Plugin. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+### \[2.0.0] 2023-08-15[​](https://docs.mapsindoors.com/changelogs/flutter#200-2023-08-15) <a href="#200-2023-08-15" id="200-2023-08-15"></a>
 
 #### Changed[​](https://docs.mapsindoors.com/changelogs/flutter#changed) <a href="#changed" id="changed"></a>
 

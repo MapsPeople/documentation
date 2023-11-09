@@ -10,6 +10,3 @@ Parts of this guide rely on having access to a MapsIndoors Solution which suppor
 * Implementing search functionality to interact with the displayed map
 * Generate and show directions between two points on the map
 * Display one type of Live Data on the map
-
-[\
-](https://docs.mapsindoors.com/getting-started/android/v3/mapsindoors-template)

@@ -6,7 +6,9 @@ You can access data through the Integration API using a range of endpoints. The 
 
 In Swagger, each `GET` method is pre-loaded with all mandatory fields needed to get a live example of data. Click the "_Try it out_" button in Swagger to see the example data.
 
-> **NOTE:** ⚠️ Only HTTPS is supported. There is a rate limit of 10 requests per second per Solution.
+{% hint style="info" %}
+Only **HTTPS** is supported. There is a **rate limit of 10 requests per second** per Solution.
+{% endhint %}
 
 You can access the Integration API in various ways, for more on accessing it see [the API Login section](https://docs.mapsindoors.com/api-login)
 
@@ -71,7 +73,9 @@ First, log in to the service to get an `access token` to access the data. To get
 
 The Auth API supports multiple ways to log in. The most common way is with your MapsIndoors username and password. If you need to sign in with other providers, please [contact support](https://mapspeople.com/support).
 
-> **NOTE:** ⚠️ To obtain an access token do a POST call to: [https://auth.mapsindoors.com/connect/token](https://auth.mapsindoors.com/connect/token)
+{% hint style="info" %}
+To obtain an access token do a **POST** call to: [https://auth.mapsindoors.com/connect/token](https://auth.mapsindoors.com/connect/token)
+{% endhint %}
 
 No matter what login method you use, you will always need to use the following content-type header when talking to the Auth API:
 
@@ -121,7 +125,9 @@ You will need the value from the key `access_token` for all your requests to the
 authorization: Bearer eyJhbGciOiJ...vmERrovsg
 ```
 
-> **NOTE:** ⚠️ The access token is valid for 24 hours. After that you will need to reauthenticate, following the same steps as explained above.
+{% hint style="warning" %}
+The access token is valid for 24 hours. After that you will need to reauthenticate, following the same steps as explained above.
+{% endhint %}
 
 With the access token you can now make further calls to the Integration API such as making changes to your geodata. Here is an example on how to use the auth token for a Mapsindoors API call. This examples will call the Integration API and delete the geodata object with ID: "123456789012345678901234".
 

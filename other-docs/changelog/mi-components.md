@@ -1,15 +1,6 @@
----
-description: >-
-  All notable changes to this project will be documented in this file. The
-  format is based on Keep a Changelog, and this project adheres to Semantic
-  Versioning.
----
-
 # MI Components
 
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Changelog for the MapsIndoors Web Components. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ### \[12.1] - 2023-01-25[​](https://docs.mapsindoors.com/changelogs/components#121---2023-01-25) <a href="#121---2023-01-25" id="121---2023-01-25"></a>
 
