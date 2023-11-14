@@ -16,6 +16,8 @@ Remember to enable relevant _scopes_ on the Mapbox Access Token, such as:
 * [<mark style="color:purple;">Styles API</mark>](https://docs.mapbox.com/api/maps/styles/)
 * [<mark style="color:purple;">Directions API</mark>](https://docs.mapbox.com/api/navigation/directions/)
 
+Our solutions are supporting both major Mapbox versions - v2 and v3.
+
 ### Option 2: Get your Google Maps API Keys[​](https://docs.mapsindoors.com/getting-started/web/prerequisites#option-1-get-your-google-maps-api-keys) <a href="#option-1-get-your-google-maps-api-keys" id="option-1-get-your-google-maps-api-keys"></a>
 
 To make sure you can use the full feature set of MapsIndoors you'll need to enable these services.&#x20;
