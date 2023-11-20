@@ -6,7 +6,7 @@ This page will give you an introduction on how to get started using the Map Temp
 
 Install the package:
 
-`npm install @mapsindoors/map-template`
+`npm install @mapsindoors/map-template@stable`
 
 In your script:
 
