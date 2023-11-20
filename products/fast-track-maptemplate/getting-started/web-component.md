@@ -76,6 +76,6 @@ Use query parameters to configure the Web Component by setting the `supports-url
 </html>
 ```
 
-Add attributes to the Web Component as needed (see supported properties above).([see list](broken-reference/)).
+Add attributes to the Web Component as needed ([see list](../configuration/)).
 
 Use query parameters to configure the Web Component by setting the `supports-url-parameters` attribute to `true`.
