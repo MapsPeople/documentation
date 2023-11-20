@@ -43,8 +43,6 @@ const mapsIndoorsMapElement = document.querySelector('mapsindoors-map')
 mapsIndoorsMapElement.externalIDs = externalIDsArray;
 ```
 
-Use query parameters to configure the Web Component by setting the `supports-url-parameters` attribute to `true`.
-
 ### Using just the browser
 
 ```html
@@ -78,4 +76,4 @@ Use query parameters to configure the Web Component by setting the `supports-url
 
 Add attributes to the Web Component as needed ([see list](../configuration/)).
 
-Use query parameters to configure the Web Component by setting the `supports-url-parameters` attribute to `true`.
+Use query parameters to configure the Web Component by setting the `supports-url-parameters` attribute to `true`  in your `mapsindoors-map` component.

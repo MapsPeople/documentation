@@ -25,4 +25,5 @@ import MapsIndoorsMap from '@mapsindoors/map-template/dist/mapsindoors-react.es.
 
 Add properties to the MapsIndoorsMap component as needed ([see list](../configuration/)).
 
-Use query parameters to configure the MapsIndoorsMap component by setting the `supportsUrlParameters` prop to `true`.
+Use query parameters to configure the MapsIndoorsMap component by setting the `supportsUrlParameters` prop to `true`  in your `MapsIndoorsMap` component.
+
