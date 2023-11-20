@@ -117,7 +117,7 @@ Using the demo API key you should now be able to see a "Staff Person" moving fro
 
 Expected result:
 
-![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/android\_live\_data\_gif.gif)
+<figure><img src="../../../.gitbook/assets/android_live_data_gif.gif" alt=""><figcaption></figcaption></figure>
 
 Learn more about controlling and rendering Live Data in MapsIndoors in the [introduction to Live Data](https://docs.mapsindoors.com/live-data-intro/).
 

@@ -74,7 +74,7 @@ Material 1.5 is used for this app. If another version is used some UI elements m
 
 #### The Final Result[​](https://docs.mapsindoors.com/getting-started/android/v4/mapsindoors-template#the-final-result) <a href="#the-final-result" id="the-final-result"></a>
 
-![Android Single Page App](https://docs.mapsindoors.com/img/getting-started/Android\_Single\_Page\_App.png)
+
 
 ### Summary[​](https://docs.mapsindoors.com/getting-started/android/v4/mapsindoors-template#summary) <a href="#summary" id="summary"></a>
 

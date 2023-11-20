@@ -4,9 +4,7 @@ description: Android V4
 
 # Directions
 
-As a key element in the MapsIndoors platform, we offer API's for effeciently calculating and displaying the most optimal routes from anywhere in the world to any Location inside a Building in MapsIndoors. In the case of travelling internally at a Venue, this calculation can be done on a local map provided by MapsIndoors. In the case of travelling between Venues or from outdoors to indoors, MapsIndoors provide a seamless journey outline from a specified _Origin_ through automatically selected _Entry Points_ at the edge of your Venues to the specified _destination_. See illustration below:
-
-<figure><img src="https://docs.mapsindoors.com/img/directions/directions-with-entry-points.svg" alt="" width="563"><figcaption></figcaption></figure>
+As a key element in the MapsIndoors platform, we offer API's for effeciently calculating and displaying the most optimal routes from anywhere in the world to any Location inside a Building in MapsIndoors. In the case of travelling internally at a Venue, this calculation can be done on a local map provided by MapsIndoors. In the case of travelling between Venues or from outdoors to indoors, MapsIndoors provide a seamless journey outline from a specified _Origin_ through automatically selected _Entry Points_ at the edge of your Venues to the specified _destination_.
 
 In order to provide a route between Venues, MapsIndoors integrate with external and global map providers. Our preferred provider is Google Maps.
 

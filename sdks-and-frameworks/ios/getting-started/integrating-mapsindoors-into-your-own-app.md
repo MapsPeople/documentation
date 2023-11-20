@@ -56,7 +56,7 @@ Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) 
 
 #### The Final Result[​](https://docs.mapsindoors.com/getting-started/ios/v4/mapsindoors-template#the-final-result) <a href="#the-final-result" id="the-final-result"></a>
 
-![A screenshot of the iOS single page app](https://docs.mapsindoors.com/img/getting-started/iOS\_Single\_Page\_App.png)
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 ### Summary[​](https://docs.mapsindoors.com/getting-started/ios/v4/mapsindoors-template#summary) <a href="#summary" id="summary"></a>
 

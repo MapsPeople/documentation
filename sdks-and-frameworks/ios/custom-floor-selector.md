@@ -100,4 +100,6 @@ It is important that the class representing the custom floor selector you have d
 
 ### Expected Result[​](https://docs.mapsindoors.com/Map/Map%20Styling/custom-floor-selector#expected-result) <a href="#expected-result" id="expected-result"></a>
 
-![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/ios-custom-floor-selector.gif)
+### &#x20;<a href="#expected-result" id="expected-result"></a>
+
+<figure><img src="../../.gitbook/assets/ios-custom-floor-selector.gif" alt=""><figcaption></figcaption></figure>

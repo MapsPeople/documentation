@@ -4,8 +4,6 @@ Your 3D maps are managed and customised through the use of Display Rules. For a 
 
 #### 3D Walls[​](https://docs.mapsindoors.com/managing-3d-maps#3d-walls) <a href="#3d-walls" id="3d-walls"></a>
 
-<figure><img src="https://docs.mapsindoors.com/img/cms/3d-walls.png" alt=""><figcaption></figcaption></figure>
-
 The MapsIndoors CMS gives you the option of displaying your map in 3D. This is achieved by ensuring that any walls present in your solution are displayed as an extrusion, giving the user the appearance of a 3D map. The appearance of the walls can be customized to match your desired visual identity.
 
 1. **Visibility** - Controls whether the 3D walls are visible on the map.
@@ -23,8 +21,6 @@ The MapsIndoors CMS gives you the option of displaying your map in 3D. This is a
 
 #### 3D Room Extrusion[​](https://docs.mapsindoors.com/managing-3d-maps#3d-room-extrusion) <a href="#3d-room-extrusion" id="3d-room-extrusion"></a>
 
-<figure><img src="https://docs.mapsindoors.com/img/cms/3d-room-extrusion.png" alt=""><figcaption></figcaption></figure>
-
 In addition to the ability to extrude all walls, you can additionally extrude specific rooms or areas, for example, if you wish to highlight a specific meeting room where an important meeting is taking place.
 
 1. **Visibility** - Controls whether the extrusion is visible on the map.
@@ -41,8 +37,6 @@ In addition to the ability to extrude all walls, you can additionally extrude sp
 5. **Extrusion height** - Controls the height of the room extrusion, measured in meters.
 
 #### 3D models[​](https://docs.mapsindoors.com/managing-3d-maps#3d-models) <a href="#3d-models" id="3d-models"></a>
-
-<figure><img src="https://docs.mapsindoors.com/img/cms/3d-model-display-rules.webp" alt=""><figcaption></figcaption></figure>
 
 3D models are a way of including models on the map, and customising their appearance. They are uploaded using the Media Library.
 

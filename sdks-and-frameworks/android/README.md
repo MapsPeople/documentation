@@ -1,6 +1,6 @@
 # Android
 
-**Documentation reflects the latest version:**&#x20;
+**Documentation reflects the latest version.**
 
 You can find documentation on legacy versions here:
 

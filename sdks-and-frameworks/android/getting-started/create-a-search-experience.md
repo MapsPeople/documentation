@@ -401,6 +401,6 @@ private fun search(searchQuery: String) {
 
 Expected result:
 
-![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/android\_search\_gif.gif)
+<figure><img src="../../../.gitbook/assets/android_search_gif.gif" alt=""><figcaption></figcaption></figure>
 
 The accompanying UI and implementation of this search experience can be found in the getting started app sample. [Getting Started App sample](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google\_Maps/mapsindoorsgettingstartedjava) or [Getting Started App sample kotlin](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google\_Maps/mapsindoorsgettingstartedkotlin).

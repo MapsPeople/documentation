@@ -34,4 +34,4 @@ It's important to notice that you need to adjust the padding so it fits your sol
 
 ### Expected Result[​](https://docs.mapsindoors.com/Map/Map%20Styling/custom-map-padding#expected-result) <a href="#expected-result" id="expected-result"></a>
 
-![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/ios-map-padding.png)
+<figure><img src="../../.gitbook/assets/ios-map-padding.png" alt=""><figcaption></figcaption></figure>

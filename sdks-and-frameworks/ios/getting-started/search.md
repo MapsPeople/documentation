@@ -120,4 +120,6 @@ At this point we should have a functional map with a search feature.
 
 ### Expected Result[​](https://docs.mapsindoors.com/getting-started/ios/v4/search#expected-result) <a href="#expected-result" id="expected-result"></a>
 
+<figure><img src="../../../.gitbook/assets/ios_search.gif" alt=""><figcaption></figcaption></figure>
+
 ![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/ios\_search.gif)

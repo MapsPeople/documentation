@@ -175,7 +175,7 @@ The "Alias" is a shorter name you can use for loading your application in your a
 
 Do not set an Alias if you want to make it more difficult to find and load your MapsIndoors data. In that case, you should only load the data with an API key.
 
-<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
 "App User Roles" are used for controlling access to Location data, and for Wayfinding for specific users of your app.
 

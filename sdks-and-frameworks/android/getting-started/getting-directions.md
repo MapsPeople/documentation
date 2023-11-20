@@ -454,7 +454,4 @@ fun createRoute(mpLocation: MPLocation) {
 
 Expected result:
 
-![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/android\_directions\_gif.gif)
-
-
-
+<figure><img src="../../../.gitbook/assets/android_directions_gif.gif" alt=""><figcaption></figcaption></figure>

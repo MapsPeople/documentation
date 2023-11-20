@@ -270,7 +270,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 Expected result:
 
-![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/android\_map\_gif.gif)
+<figure><img src="../../../.gitbook/assets/android_map_gif.gif" alt=""><figcaption></figcaption></figure>
 
 See the full example of MapsActivity here: [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google\_Maps/mapsindoorsgettingstartedjava) or [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google\_Maps/mapsindoorsgettingstartedkotlin)
 
