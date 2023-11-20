@@ -10,6 +10,8 @@ The following diagram represents the flow of information from MapsIndoors to Goo
 
 <figure><img src="https://docs.mapsindoors.com/img/various/Google_Analytics_Flow.png" alt=""><figcaption></figcaption></figure>
 
+<figure><img src="../.gitbook/assets/Google_Analytics_Flow.png" alt=""><figcaption></figcaption></figure>
+
 ### Getting Started with Google Analytics[​](https://docs.mapsindoors.com/analytics-and-logging#getting-started-with-google-analytics) <a href="#getting-started-with-google-analytics" id="getting-started-with-google-analytics"></a>
 
 * If you are developing using the Android SDK for MapsIndoors, we recommend this "Getting Started" guide for Google Analytics.
