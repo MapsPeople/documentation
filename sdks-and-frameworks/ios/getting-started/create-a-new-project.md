@@ -98,7 +98,7 @@ Finally, remember to replace `YOUR_GOOGLE_API_KEY` or `YOUR_MAPBOX_API_KEY` with
 1. Add the following import statements to the top of the file:
 
 ```swift
-import Mapbox  
+import MapboxMaps  
 import MapsIndoorsCore
 ```
 
