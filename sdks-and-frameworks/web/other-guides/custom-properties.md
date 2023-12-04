@@ -4,14 +4,14 @@ description: Web v4
 
 # Custom Properties
 
-Custom Properties are key/value data that can be associated with any piece of geodata within MapsIndoors. MapsIndoors supports two different types of Custom Properties:
+Custom Properties are key/value data that can be associated with different geodata (Venue/Building/Location) within MapsIndoors. MapsIndoors supports two different types of Custom Properties:
 
 * Language-specific Custom Properties
 * Generic Custom Properties
 
-Language-specific Custom Properties are meant for values that is displayed to the enduser in their preferred language. Using language-specific Custom Properties, it is possible to store a key/value combination in multiple different languages. The MapsIndoors SDKs allows for retrieval of the correct values based on the user's preferred language. If your Solution has multiple languages, you must provide the necessary translations for each Custom Property in each of these languages.
+**Language-specific Custom Properties** are meant for values that is displayed to the enduser in their preferred language. Using language-specific Custom Properties, it is possible to store a key/value combination in multiple different languages. The MapsIndoors SDKs allows for retrieval of the correct values based on the user's preferred language. If your Solution has multiple languages, you must provide the necessary translations for each Custom Property in each of these languages.
 
-Generic Custom Properties are meant for tagging data with key/value data that is relevant for the apps using the map data. These values will be available to the app regardless of the language of the end user, and are often not directly displayed. Examples of values that might be added as Generic Custom Properties could be:
+**Generic Custom Properties** are meant for tagging data with key/value data that is relevant for the apps using the map data. These values will be available to the app regardless of the language of the end user, and are often not directly displayed. Examples of values that might be added as Generic Custom Properties could be:
 
 * Whether or not a room is bookable
 * The calendar id of a room used for booking
@@ -66,10 +66,46 @@ let type = data.type
 
 #### Example 1[​](https://docs.mapsindoors.com/custom-properties#example-1) <a href="#example-1" id="example-1"></a>
 
-You are a conference organizer that needs to associate some pieces of data with each exhibitor, like the sponsor level they are are on, and what the size of their stand should be. You would create two Language-specific Custom Properties, one called `sponsorLevel` and another called `standSize`. When building your app on top of our SDK, you could use these Custom Properties to assign a gold color to your highest paying sponsors' names, and a larger image because of their larger stand size.
+You are a conference organizer that needs to associate some pieces of data with each exhibitor, like the contact info / email address, and if there's any kinds of refreshments at the stand.
+
+Should this be the same value for all end users, or just for a subset of those users based on their language?
+
+`contactInfo=(123) 555-5555`
+
+{% hint style="info" %}
+It could make sense to make this a **generic custom property** if your app does not render anything language specific in the application based on this value's string.&#x20;
+
+All custom property values are strings. You'll need to potentially convert the data type on the front end of your application.
+{% endhint %}
+
+`refreshments@gen=True`
+
+{% hint style="info" %}
+It could make sense to make this a **generic custom property** if your app does not render anything language specific in the application based on this value's string.&#x20;
+
+All custom property values are strings. You'll need to convert it to a Boolean value on the front end of your application.
+{% endhint %}
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-10-24 at 8.41.02 PM.png" alt=""><figcaption></figcaption></figure>
 
 #### Example 2[​](https://docs.mapsindoors.com/custom-properties#example-2) <a href="#example-2" id="example-2"></a>
 
-You are a museum operator providing a digital map of your venue. Your digital map presents points of interest for the various exhibits and you would like to associate both a text description of the item exhibited as well as a link to a video of an expert giving additional insight about the item. To accomplish this you create a Generic Custom Property called `itemDescription` and provide a description for each language your Solution supports. You choose a Generic Custom Property for this purpose as the values is to be displayed to the end user and you need the user to be given description in their preferred language.
+You are a museum operator providing a digital map of your venue.&#x20;
 
-In addition to this you create a Language-specific Custom Property called `videoLink` to store the link to the explanation video. As this is a Language-specific Custom Property, it will be available to the app regardless of the user's preferred language.
+Your digital map presents points of interest for the various exhibits and you would like to associate both a text description of the item exhibited as well as a link to a video of an expert giving additional insight about the item.
+
+To accomplish this you create a **language specific custom property** called `itemDescription` and provide a description for each language your Solution supports. You choose a Language specific Custom Property for this purpose as the values is to be displayed to the end user and you need the user to be given description in their preferred language.
+
+In addition to this you create a **language-specific custom property** called `videoLink` to store the link to the explanation video. This can make sense as a language specific custom property as the video's audio would be in the language of the user.
+
+If for example you wish to show the same video to each user regardless of their language, it would make sense to have a **generic custom property.**
+
+<div>
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-10-24 at 8.50.33 PM.png" alt=""><figcaption><p>generic property for video without audio</p></figcaption></figure>
+
+ 
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-10-24 at 8.50.27 PM.png" alt=""><figcaption><p>description and videoLink with language specific properties</p></figcaption></figure>
+
+</div>

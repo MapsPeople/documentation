@@ -1,6 +1,6 @@
 # Utilizing MapsIndoors Web Components and Other Searches
 
-MapsIndoors web components are intended to take advantage of pre-designed and already integated HTML elements which will greatly reduce the complexity of your user-interface design and help minimize the amount of MapsIndoors specific SDK implementation code you'll need to write.&#x20;
+MapsIndoors web components are intended to take advantage of pre-designed and already integrated HTML elements which will greatly reduce the complexity of your user-interface design and help minimize the amount of MapsIndoors specific SDK implementation code you'll need to write.&#x20;
 
 {% embed url="https://www.npmjs.com/package/@mapsindoors/components" %}
 
@@ -17,3 +17,7 @@ MapsIndoors web components are intended to take advantage of pre-designed and al
 </div>
 
 While the MapsIndoors components will not cover every full user experience, it will allow you to implement MapsIndoors more efficiently.&#x20;
+
+To learn more about each component, please see the component specific documentation at
+
+[https://components.mapsindoors.com](https://components.mapsindoors.com)

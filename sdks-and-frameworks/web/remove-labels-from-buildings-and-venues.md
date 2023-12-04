@@ -14,7 +14,7 @@ Here, `MI_BUILDING` and `MI_VENUE` are specific Location Types dedicated to faci
 
 **Enhancing User Interaction with Adaptive Zoom-Level Popups**
 
-<figure><img src="../../.gitbook/assets/zoom_popup_venue_building (1).gif" alt=""><figcaption><p>Dynamically adding a Mapbox Popup based on zoom level</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/zoom_out_popup.gif" alt=""><figcaption><p>Dynamically adding a Mapbox Popup based on zoom level</p></figcaption></figure>
 
 Let's say a user zooms out to get a broad overview of a large campus or city area. At a lower zoom level, the display becomes less cluttered, paving the way for a more clear, bird's eye view of the venues available. Here’s where dynamic, zoom-dependent [**popups**](https://docs.mapbox.com/mapbox-gl-js/example/popup/) come into play, serving as intuitive markers and information windows. This example is specific to Mapbox, for Google Maps you will need to use [**info windows**](https://developers.google.com/maps/documentation/javascript/infowindows).
 
