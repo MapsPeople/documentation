@@ -18,7 +18,7 @@ Add some member variables to `MyPositionProvider`.
 
 * `delegate`: The delegate object
 * `running`: A running state boolean flag
-* `latestPositionResult`: The latest positioning result
+* `latestPosition`: The latest positioning result
 
 INFO
 
@@ -31,7 +31,7 @@ The following properties are not included in this example since position is mock
 Create a method called `updatePosition`. This will be our "loop" constantly posting a new position to the delegate.
 
 * Check if the provider has a running state
-* Assign a new `MPPositionResult` to `latestPositionResult`
+* Assign a new `MPPositionResult` to `latestPosition`
 * Assign a new position point
 * Optionally specify that heading is available and set a heading
 * Notify the delegate by calling `onPositionUpdate` passing the new position as argument
