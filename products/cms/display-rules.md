@@ -25,9 +25,11 @@ In each MapsIndoors SDK, the "Main Display Rule" outlines a list of sensible def
 
 Each Location (Room, Area or POI) uses the Display Rule from the combined Main and Type Display Rules, except for values that are specifically set for the individual Location.
 
-Here's a visualization of the inheritance principle:
+Here's a visualisation of the inheritance principle:
 
-<figure><img src="https://docs.mapsindoors.com/img/map/display-rule-inheritance.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 10.26.37.png" alt=""><figcaption><p>Location's Display Rule</p></figcaption></figure>
+
+Unlocked properties are Location's specific values. Locked ones are inheriting value from Type Display Rules.
 
 As an example, you set all polygons to be `red` in your Main Display Rule. The Location Type for "Meeting Room" specifies that their polygons should be `blue`, while the "Executive Meeting Room" Location specifically has an `orange` polygon.
 
@@ -39,45 +41,41 @@ To remove a value from the Display Rule (to make it inherit from further up the 
 
 In the CMS, you can edit your Types' Display Rules in `Solution Details > Types > Edit [Location Type name] > Display Rules`. This will open an overview of all Display Rules properties.
 
-The "Lock" icon present in all sections determines whether or not the Display Rule is inheriting from the Main Display Rule. Click the lock to enable overriding the value.
-
-#### General[​](https://docs.mapsindoors.com/display-rules#general) <a href="#general" id="general"></a>
-
-![Display Rules](https://docs.mapsindoors.com/img/map/Display\_Rules\_General.png)
+### General <a href="#general" id="general"></a>
 
 The "General" visibility switch determines whether Locations of this Type are visible on the map. The system will accept a Boolean here, so either `true` or `false`.
 
-#### Icon[​](https://docs.mapsindoors.com/display-rules#icon) <a href="#icon" id="icon"></a>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 10.34.26.png" alt=""><figcaption><p>General Display Rules section</p></figcaption></figure>
 
-<figure><img src="https://docs.mapsindoors.com/img/map/Display_Rules_Icon.png" alt=""><figcaption></figcaption></figure>
+### Icon <a href="#icon" id="icon"></a>
 
 The "Icon" section contains options related to the appearance of the Icon.
 
 1. **Visibility** - Controls whether the Icon is visible on the map.
    * The system will accept a Boolean here, so either `true` or `false`.
 2. **Zoom from** - Sets the minimum Zoom Level at which the Icon is visible.
-   * The value must be a number between 1 and 999, with 1 being very far away, and 999 acting as "max zoom". Google Maps only supports up to zoom level 22 at most, with Mapbox supporting up to level 25. Setting a value above these, your Icons will not show up on the map.
+   * The value must be a number between 1 and 999, with 1 being very far away, and 999 acting as "max zoom". **Google Maps** only supports up to zoom level 22 at most, with Mapbox supporting up to level 25. Setting a value above these, your Icons will not show up on the map.
    * In a general use case, most maps will only need values from zoom level 15, unless you're building a view to show multiple Venues across a country or the like.
 3. **Zoom to** - Sets the maximum Zoom Level at which the Icon is visible.
-   * The value must be a number between 1 and 999, with 1 being very far away, and 999 acting as "max zoom". Google Maps only supports up to zoom level 22 at most, with Mapbox supporting up to level 25.
+   * The value must be a number between 1 and 999, with 1 being very far away, and 999 acting as "max zoom". **Google Maps** only supports up to zoom level 22 at most, with Mapbox supporting up to level 25.
    * The recommended setting is to click the "Max zoom" checkbox, which sets the value to 999 in the data.
 4. **Icon** - Use the Media Library in the CMS to control which Icon is shown on the map.
    * The Media Library is a tool to select the displayed Icon from either a pre-loaded selection of Icons, or for you to upload your own.
    * In-app, you can provide a URL to a desired Icon.
    * In-app, you can also define `iconSize`, by giving the desired size in pixels.
 
-#### Label[​](https://docs.mapsindoors.com/display-rules#label) <a href="#label" id="label"></a>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 10.38.02.png" alt=""><figcaption><p>Icon Display Rules section</p></figcaption></figure>
 
-<figure><img src="https://docs.mapsindoors.com/img/map/Display_Rules_Label.png" alt=""><figcaption></figcaption></figure>
+### **Label**[​](https://docs.mapsindoors.com/display-rules#label) <a href="#label" id="label"></a>
 
 The "Label" section contains options related to the appearance of the Label. The Label is the text associated with the Location on the map, positioned next to the Icon or on its own.
 
 1. **Visibility** - Controls whether the Label is visible on the map.
    * The system will accept a Boolean here, so either `true` or `false`.
 2. **Zoom from** - Sets the minimum Zoom Level at which the Label is visible.
-   * The value must be a number between 1 and 999, with 1 being very far away, and 999 acting as "max zoom". Google Maps only supports up to zoom level 22 at most, with Mapbox supporting up to level 25. Setting a value above these, your Labels will not show up on the map.
+   * The value must be a number between 1 and 999, with 1 being very far away, and 999 acting as "max zoom". **Google Maps** only supports up to zoom level 22 at most, with Mapbox supporting up to level 25. Setting a value above these, your Labels will not show up on the map.
 3. **Zoom to** - Sets the maximum Zoom Level at which the Label is visible.
-   * The value must be a number between 1 and 999, with 1 being very far away, and 999 acting as "max zoom". Google Maps only supports up to zoom level 22 at most, with Mapbox supporting up to level 25.
+   * The value must be a number between 1 and 999, with 1 being very far away, and 999 acting as "max zoom". **Google Maps** only supports up to zoom level 22 at most, with Mapbox supporting up to level 25.
    * The recommended setting is to click the "Max zoom" checkbox, which sets the value to 999 in the data.
 4. **Template** - Controls the information the Label should contain. Only applies to the CMS, any change at runtime will overwrite the information set up by the Template.
    * Location Name - Only displays the Name of the Location.
@@ -87,9 +85,35 @@ The "Label" section contains options related to the appearance of the Label. The
 5. **Max width** - Specify how wide (in pixels) a Label can be before forcing a line-break.
    * A value of `0` will ensure no line-breaks for this label.
 
-#### Polygon[​](https://docs.mapsindoors.com/display-rules#polygon) <a href="#polygon" id="polygon"></a>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 10.40.10.png" alt=""><figcaption><p>Label Display Rules section</p></figcaption></figure>
 
-<figure><img src="https://docs.mapsindoors.com/img/map/Display_Rules_Polygon.png" alt=""><figcaption></figcaption></figure>
+### Label Style <a href="#polygon" id="polygon"></a>
+
+The "Label Style" section contains options related to the style of the Label. **Google Maps** does not support Label Style section inside Display Rules.
+
+1. **Label Type** - Controls which label Type is used.
+   * The system will accept either **Text Label** or **Flat Label**.
+2. **Text Size** - Sets the size of the Label.
+   * The value must be a number between 1 and 255, with 1 being very small, and 255 being the maximum size of the Label.
+3. **Text Color** - Sets the color of the Label.
+   * In the CMS, you can select a color using the color picker displayed when clicking the color input field.
+   * If setting the color in-app, the value provided must be in 6-digit HEX code (eg. #3071D9).
+4. **Text Opacity** - Controls the text opacity of the Label.
+   * The value here should be between `0` and `1`. A value of `1` gives 100% opacity, `0.2` gives 20% opacity, etc.
+5. **Halo color** - Sets the halo color of around the Label.
+   * In the CMS, you can select a color using the color picker displayed when clicking the color input field.
+   * If setting the color in-app, the value provided must be in 6-digit HEX code (eg. #3071D9).
+6. **Halo Width** - Sets the halo thickness/width. Defined in pixels.
+7. **Halo Blur** - Sets when halo blurring effect should be applied. (eg. With Halo Width = 10px, and Halo Blur = 5px, blurring effect will be applied in the middle of the Halo Width).
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 10.44.37.png" alt=""><figcaption><p>Label Style Display Rules section</p></figcaption></figure>
+
+By choosing Flat Label type, the new sub-section would appear: Bearing. It controls the rotation of the Flat Label. Measured in degrees, like a compass bearing.\
+
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 11.12.57 (1).png" alt=""><figcaption><p>Bearing Display Rules sub-section</p></figcaption></figure>
+
+### Polygon[​](https://docs.mapsindoors.com/display-rules#polygon) <a href="#polygon" id="polygon"></a>
 
 Polygons are independent from tiles. Tiles are drawn by MapsPeople and overlaid onto the mapping engine (Mapbox or Google Maps). Polygons are an overlay with customisable attributes that are then overlaid on top of the Tiles. Therefore, while you can edit the "Polygon" attributes of a Location connected to a Tile, be that an Area or a Room, you need to account for attributes such as the opacity of the Polygon in the resulting appearance. It is not currently possible to override the appearance of Tiles.
 
@@ -114,13 +138,13 @@ The "Polygon" section contains options related to the appearance of the Polygon.
 8. **Fill opacity** - Controls the fill opacity of the Polygon.
    * The value here should be between `0` and `1`. A value of `1` gives 100% opacity, `0.2` gives 20% opacity, etc.
 
-#### 2D Model[​](https://docs.mapsindoors.com/display-rules#2d-model) <a href="#2d-model" id="2d-model"></a>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 11.01.53.png" alt=""><figcaption><p>Polygon Display Rules Section</p></figcaption></figure>
+
+### 2D Model[​](https://docs.mapsindoors.com/display-rules#2d-model) <a href="#2d-model" id="2d-model"></a>
 
 {% hint style="info" %}
 Please note that this functionality needs to be enabled by MapsPeople. You can contact your MapsPeople representative to have the 2D model functionality enabled for your Solution(s).
 {% endhint %}
-
-<figure><img src="https://docs.mapsindoors.com/img/cms/2d-models.png" alt=""><figcaption></figcaption></figure>
 
 2D Models are a way of including images on the map, and customising their appearance. They are uploaded using the Media Library.
 
@@ -139,17 +163,13 @@ The size of the 2D Models on the map follow the zoom levels, as opposed to how i
 5. **Width x Height** - Controls the width and height of the 2D model, measured in meters. These values cannot be changed individually, the 2D model must maintain its original aspect ratio.
    * "Fit to Location" is a great option for quickly setting a Width and Height that makes the 2D Model take up as much space as possible in the polygon.&#x20;
      * Note that the "anchor point" is the deciding factor here. For Locations where the anchor point has not been moved (the place where the icon is shown inside the polygon), it will be computed to be in the center of the polygon. This is also the point that is used for the calculation of where to place the 2D Model and have it take as much space as possible — if the anchor point is close to an edge of the polygon, there will not be a lot of space as there would be if it was placed at the center.&#x20;
-6. **Bearing (rotation)** - Controls the rotation of the 2D model. Measured in degrees, like a compass bearing. In the illustration below, the entered value would be 45, as the image would be placed at a 45 degree bearing.
+6. **Bearing (rotation)** - Controls the rotation of the 2D model. Measured in degrees, like a compass bearing.
 
-![An illustration that demonstrates how to interpret bearing](https://docs.mapsindoors.com/img/cms/one\_way\_bearing\_compass.png)
-
-### 3D Walls[​](https://docs.mapsindoors.com/display-rules#3d-walls) <a href="#3d-walls" id="3d-walls"></a>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 11.05.55.png" alt=""><figcaption><p>2D Model Display Rules section</p></figcaption></figure>
 
 {% hint style="warning" %}
 [Please visit this page](https://docs.mapsindoors.com/3d-maps) to see what the requirements are to use the 3D functionality in MapsIndoors.
 {% endhint %}
-
-<figure><img src="https://docs.mapsindoors.com/img/cms/3d-walls.png" alt=""><figcaption></figcaption></figure>
 
 The MapsIndoors CMS gives you the options for to display your map in 3D. This is achieved by visualising Rooms as Walls and Extrusions. The appearance of these can be determined by these Display Rule configurations.
 
@@ -165,13 +185,13 @@ The MapsIndoors CMS gives you the options for to display your map in 3D. This is
    * If setting the color in-app, the value provided must be in 6-digit HEX code (eg. #3071D9).
 5. **Wall height** - Controls the height of the 3D Walls, measured in meters.
 
+<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 11.08.14.png" alt=""><figcaption><p>3D Walls Display Rules section</p></figcaption></figure>
+
 ### 3D Room Extrusion[​](https://docs.mapsindoors.com/display-rules#3d-room-extrusion) <a href="#3d-room-extrusion" id="3d-room-extrusion"></a>
 
 {% hint style="warning" %}
 [Please visit this page](https://docs.mapsindoors.com/3d-maps) to see what the requirements are to use the 3D functionality in MapsIndoors.
 {% endhint %}
-
-<figure><img src="https://docs.mapsindoors.com/img/cms/3d-room-extrusion.png" alt=""><figcaption></figcaption></figure>
 
 The MapsIndoors CMS gives you the options for to display your map in 3D. This is achieved by visualising Rooms as Walls and Extrusions. The appearance of these can be determined by these Display Rule configurations.
 
@@ -187,15 +207,15 @@ The MapsIndoors CMS gives you the options for to display your map in 3D. This is
    * If setting the color in-app, the value provided must be in 6-digit HEX code (eg. #3071D9).
 5. **Extrusion height** - Controls the height of the Extrusion, measured in meters.
 
-### 3D models[​](https://docs.mapsindoors.com/display-rules#3d-models) <a href="#3d-models" id="3d-models"></a>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 11.08.55.png" alt=""><figcaption><p>3D Room Extrusion Display Rules section</p></figcaption></figure>
+
+### 3D Model[​](https://docs.mapsindoors.com/display-rules#3d-models) <a href="#3d-models" id="3d-models"></a>
 
 {% hint style="warning" %}
 [Please visit this page](https://docs.mapsindoors.com/3d-maps) to see what the requirements are to use the 3D functionality in MapsIndoors.
 {% endhint %}
 
-<figure><img src="https://docs.mapsindoors.com/img/cms/3d-model-display-rules.webp" alt=""><figcaption></figcaption></figure>
-
-3D Models are essential for creating a great 3D map experience. They are uploaded using the Media Library.
+3D Model section is essential for creating a great 3D map experience. They are uploaded using the Media Library.
 
 1. **Visibility** - Controls whether the 3D Model is visible on the map.
    * The system will accept a Boolean here, so either `true` or `false`.
@@ -215,6 +235,8 @@ The MapsIndoors CMS gives you the options for to display your map in 3D. This is
    * This value is the rotation on a given axis measured in degrees, and can be any value between 0 and 360.
 8. **Scale** - Control the scale of the model. Can be used to make the model larger or smaller on the map.
    * This value is a multiplier in relation to the original size of the uploaded model.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 11.09.42.png" alt=""><figcaption><p>3D Model Display Rules section</p></figcaption></figure>
 
 ## Conclusion[​](https://docs.mapsindoors.com/display-rules#conclusion) <a href="#conclusion" id="conclusion"></a>
 
@@ -238,6 +260,16 @@ Putting all this together, a sample set of Display Rules for a given Type could 
     "labelZoomFrom": 16.0,
     "labelZoomTo": 22.0,
     "labelMaxWidth": 0, //0 means infinite eg lines will not be broken based on width
+    "labelType": "flat",
+    "labelStyle": {
+        "textSize": 12,
+        "textColor": "#000000",
+        "textOpacity": 0.9,
+        "haloColor": "#FFFFFF",
+        "haloWidth": 1,
+        "haloBlur": 1,
+        "bearing": 0
+    },
     "polygon": {
         "visible": false,
         "zoomFrom": 18,
@@ -285,30 +317,39 @@ Putting all this together, a sample set of Display Rules for a given Type could 
 
 All properties are optional.
 
-| Properties              | Type    | Validation      | Description                                                                                                                                                                                                                                           |
-| ----------------------- | ------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `visible`               | boolean |                 | Must be true for the location to be shown in the map. If not true all other parameters are ignored.                                                                                                                                                   |
-| `iconVisible`           | boolean |                 | Must be `true` for the icon to be visible in the map. If this is not `true` the `zoomFrom`, `zoomTo`, `iconUrl`, `iconScale` and `iconSize` parameters are ignored.                                                                                   |
-| `zoomFrom`              | number  | `1`-`999`       | The minimum zoom level the image/icon will be visible on the map.                                                                                                                                                                                     |
-| `zoomTo`                | number  | `1`-`999`       | The maximum zoom level the image/icon will be visible on the map.                                                                                                                                                                                     |
-| `icon`                  | string  |                 | A URL to an image to represent the Location on the map.                                                                                                                                                                                               |
-| `iconScale`             | double  | `> 0`           | ⚠️ Deprecated                                                                                                                                                                                                                                         |
-| `iconSize`              | object  |                 | Specifies the size that the image will appear on the map. `{{ "{width: number, height: number" }}}`.                                                                                                                                                  |
-| `iconSize.width`        | double  | `> 0`           |                                                                                                                                                                                                                                                       |
-| `iconSize.height`       | double  | `> 0`           |                                                                                                                                                                                                                                                       |
-| `labelVisible`          | boolean |                 | Controls the visibility of the label.                                                                                                                                                                                                                 |
-| `label`                 | string  |                 | Descriptive text for the Location. This can either be a static text or a dynamic text, retrieved from a property on the Location, using double curly braces as delimiters. E.g. `"{{ "{{ name " }}}}"` or a combination `"Room: {{ "{{ name " }}}}"`. |
-| `labelZoomFrom`         | number  | `1`-`999`       | The maximum zoom level the image/icon will be visible on the map.                                                                                                                                                                                     |
-| `labelZoomTo`           | number  | `1`-`999`       | The maximum zoom level the image/icon will be visible on the map.                                                                                                                                                                                     |
-| `labelMaxWidth`         | double  | `>= 0`          | In pixels. `0` represents an unlimited max length.                                                                                                                                                                                                    |
-| `polygon`               | object  |                 | Everything under this parameter apply only to locations that have polygon data defined such as Rooms and Areas, but not POIs.                                                                                                                         |
-| `polygon.visible`       | boolean |                 | Must be `true` for the polygon to be visible on the map. If this is not `true` all parameters under polygon are ignored.                                                                                                                              |
-| `polygon.zoomFrom`      |         | `1`-`999`       | The lowest zoom level where the polygon will be shown.                                                                                                                                                                                                |
-| `polygon.zoomTo`        |         | `1`-`999`       | The highest zoom level where the polygon will be shown. This number must be higher than `polygon.zoomFrom` unless `polygon.zoomFrom` is equal to the highest available zoom level for the Solution (this is `22` in some cases).                      |
-| `polygon.strokeWidth`   |         | `>= 0`          | The width of the outline of the polygon.                                                                                                                                                                                                              |
-| `polygon.strokeColor`   |         | Valid hex color | The color of the outline of the polygon.                                                                                                                                                                                                              |
-| `polygon.strokeOpacity` |         | `0`-`1`         | The opacity of the outline of the polygon. Set this to `0` if only the interior is to be shown.                                                                                                                                                       |
-| `polygon.fillColor`     |         | Valid hex color | The color of the interior of the polygon.                                                                                                                                                                                                             |
-| `polygon.fillOpacity`   |         | `0`-`1`         | The color of the interior of the polygon. Set this to 0 if only the outline is to be shown.                                                                                                                                                           |
+| Properties               | Type    | Validation      | Description                                                                                                                                                                                                                                           |
+| ------------------------ | ------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `visible`                | boolean |                 | Must be true for the location to be shown in the map. If not true all other parameters are ignored.                                                                                                                                                   |
+| `iconVisible`            | boolean |                 | Must be `true` for the icon to be visible in the map. If this is not `true` the `zoomFrom`, `zoomTo`, `iconUrl`, `iconScale` and `iconSize` parameters are ignored.                                                                                   |
+| `zoomFrom`               | number  | `1`-`999`       | The minimum zoom level the image/icon will be visible on the map.                                                                                                                                                                                     |
+| `zoomTo`                 | number  | `1`-`999`       | The maximum zoom level the image/icon will be visible on the map.                                                                                                                                                                                     |
+| `icon`                   | string  |                 | A URL to an image to represent the Location on the map.                                                                                                                                                                                               |
+| `iconScale`              | double  | `> 0`           | ⚠️ Deprecated                                                                                                                                                                                                                                         |
+| `iconSize`               | object  |                 | Specifies the size that the image will appear on the map. `{{ "{width: number, height: number" }}}`.                                                                                                                                                  |
+| `iconSize.width`         | double  | `> 0`           |                                                                                                                                                                                                                                                       |
+| `iconSize.height`        | double  | `> 0`           |                                                                                                                                                                                                                                                       |
+| `labelVisible`           | boolean |                 | Controls the visibility of the label.                                                                                                                                                                                                                 |
+| `label`                  | string  |                 | Descriptive text for the Location. This can either be a static text or a dynamic text, retrieved from a property on the Location, using double curly braces as delimiters. E.g. `"{{ "{{ name " }}}}"` or a combination `"Room: {{ "{{ name " }}}}"`. |
+| `labelZoomFrom`          | number  | `1`-`999`       | The maximum zoom level the image/icon will be visible on the map.                                                                                                                                                                                     |
+| `labelZoomTo`            | number  | `1`-`999`       | The maximum zoom level the image/icon will be visible on the map.                                                                                                                                                                                     |
+| `labelMaxWidth`          | double  | `>= 0`          | In pixels. `0` represents an unlimited max length.                                                                                                                                                                                                    |
+| `labelType`              | string  |                 | The type of the Label.                                                                                                                                                                                                                                |
+| `labelStyle`             | object  |                 | Everything under this parameter apply only to locations that have label data defined.                                                                                                                                                                 |
+| `labelStyle.textSize`    | number  | `1-255`         | In pixels, sets the size of the Label.                                                                                                                                                                                                                |
+| `labelStyle.textColor`   |         | Valid hex color | The color of the Label.                                                                                                                                                                                                                               |
+| `labelStyle.textOpacity` | double  | `0-1`           | The opacity of the Label.                                                                                                                                                                                                                             |
+| `labelStyle.haloColor`   |         | Valid hex color | The color of the halo effect around the Label.                                                                                                                                                                                                        |
+| `labelStyle.haloWidth`   | number  | `0-64`          | The width of the halo effect around the Label.                                                                                                                                                                                                        |
+| `labelStyle.haloBlur`    | number  | `0-64`          | The halo blur effect width around the Label.                                                                                                                                                                                                          |
+| `labelStyle.bearing`     | double  | `0-360`         | Only applied when label is Flat. Sets the bearing position for the Label.                                                                                                                                                                             |
+| `polygon`                | object  |                 | Everything under this parameter apply only to locations that have polygon data defined such as Rooms and Areas, but not POIs.                                                                                                                         |
+| `polygon.visible`        | boolean |                 | Must be `true` for the polygon to be visible on the map. If this is not `true` all parameters under polygon are ignored.                                                                                                                              |
+| `polygon.zoomFrom`       |         | `1`-`999`       | The lowest zoom level where the polygon will be shown.                                                                                                                                                                                                |
+| `polygon.zoomTo`         |         | `1`-`999`       | The highest zoom level where the polygon will be shown. This number must be higher than `polygon.zoomFrom` unless `polygon.zoomFrom` is equal to the highest available zoom level for the Solution (this is `22` in some cases).                      |
+| `polygon.strokeWidth`    |         | `>= 0`          | The width of the outline of the polygon.                                                                                                                                                                                                              |
+| `polygon.strokeColor`    |         | Valid hex color | The color of the outline of the polygon.                                                                                                                                                                                                              |
+| `polygon.strokeOpacity`  |         | `0`-`1`         | The opacity of the outline of the polygon. Set this to `0` if only the interior is to be shown.                                                                                                                                                       |
+| `polygon.fillColor`      |         | Valid hex color | The color of the interior of the polygon.                                                                                                                                                                                                             |
+| `polygon.fillOpacity`    |         | `0`-`1`         | The color of the interior of the polygon. Set this to 0 if only the outline is to be shown.                                                                                                                                                           |
 
 For further guides on how to use Display Rules in Practice, see [the following guides](https://docs.mapsindoors.com/display-rules-in-practice/).
