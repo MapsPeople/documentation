@@ -16,12 +16,13 @@ The Map Template supports using query parameters for all the properties provided
 8. `directionsTo` - Used like this `directionsTo=yourDestinationLocationId`.
 9. `externalIDs` - Used like this `externalIDs=0.0.1,0.0.2,0.0.3`. **Note!** You need to provide a list of comma separated values, **without** any spaces between the comma and the value. This will further be converted into an array of external IDs. Because of the way browsers work, you **cannot** use External IDs with the `,`, `&`, `#` and `+`, character in them, as they are interpreted by the browser in a particular way.
 10. `tileStyle` - Used like this `tileStyle=yourTileStyleName`. If no tile style is provided, the app will show the default tile style.&#x20;
-11. `mapboxAccessToken` - Used like this `mapboxAccessToken=yourMapboxAccessToken`. If no mapboxAccessToken is provided, the app will default to the access token in the `.env` file. If both the mapboxAccessToken and the gmApiKey are present, the app will load a Mapbox map.
-12. `gmApiKey` - Used like this `gmApiKey=yourGmApiKey`. If no gmApiKey is provided, the app will default to the access token in the `.env` file. If both the mapboxAccessToken and the gmApiKey are present, the app will load a Mapbox map.
+11. `mapboxAccessToken` - Used like this `mapboxAccessToken=yourMapboxAccessToken`. If no mapboxAccessToken is provided, the app will default to the access token in the `.env` file. Can also be set in the MapsIndoors App Config "mapboxAccessToken" under "appSettings". If both the mapboxAccessToken and the gmApiKey are present, the app will load a Mapbox map.
+12. `gmApiKey` - Used like this `gmApiKey=yourGmApiKey`. If no gmApiKey is provided, the app will default to the access token in the `.env` file. Can also be set in the MapsIndoors App Config as "gmKey" under "appSettings". If both the mapboxAccessToken and the gmApiKey are present, the app will load a Mapbox map.
 13. `startZoomLevel` - Used like this `startZoomLevel=22`.
 14. `gmMapId` - Used like this `gmMapId=yourGmMapId`.
 15. `pitch` - Used like this `pitch=30`. Not compatible with MapsIndoors 2D models and MapsIndoors labels on Google Maps. The value of the pitch can be between 0-85 degrees on a Mapbox map.
 16. `bearing` - Used like this `bearing=180`. Not compatible with MapsIndoors 2D models and MapsIndoors labels on Google Maps. It accepts any value, and will modify it to fit into the range \[0, 360].
+17. `useMapProviderModule` - Set to true if the Map Template should take MapsIndoors solution modules into consideration when determining what map type to use.
 
 
 
