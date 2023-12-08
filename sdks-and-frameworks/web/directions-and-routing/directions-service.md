@@ -26,19 +26,19 @@ This guide will show you how to implement directions, render routes, and interac
 * Would you like to show directions on the map?
   * How will the end user let the map know it's time to update with the next part of their journey?
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Creating and combining the interfaces and the map view.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Creating and combining the interfaces and the map view.</p></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Determining the scope and simplicity of your end user experience should be a big focus when implementing the MapsIndoors SDK</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Determining the scope and simplicity of your end user experience should be a big focus when implementing the MapsIndoors SDK</p></figcaption></figure>
 
 From an implementation standpoint, there are two functional things that need to be taken care of.
 
 1. Setting up and requesting directions
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
-1. [Handling and rendering directions responses](../../wayfinding/directions-renderer.md)
+1. [Handling and rendering directions responses](../wayfinding/directions-renderer.md)
 
-<figure><img src="../../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -118,7 +118,7 @@ const routeParameters = {
 
 #### App User Role Restrictions[​](https://docs.mapsindoors.com/directions-service#app-user-role-restrictions-3) <a href="#app-user-role-restrictions-3" id="app-user-role-restrictions-3"></a>
 
-Application User Roles is a feature that lets you define various roles, you can assign to your users. In the context of route calculation, the feature is used to differentiate routing from one user type to the another. In the MapsIndoors CMS it is possible to restrict paths and doors in the route network for certain [User Roles](../../other-guides/application-user-roles.md).
+Application User Roles is a feature that lets you define various roles, you can assign to your users. In the context of route calculation, the feature is used to differentiate routing from one user type to the another. In the MapsIndoors CMS it is possible to restrict paths and doors in the route network for certain [User Roles](../other-guides/application-user-roles.md).
 
 You can get available Roles for your MapsIndoors Solution with the help of the `SolutionsService:`
 
