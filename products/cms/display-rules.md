@@ -7,7 +7,7 @@ description: >-
 
 # Display Rules
 
-## Introduction
+### Introduction
 
 Display Rules are the backbone of how you style the MapsIndoors data on your map. They are an incredibly powerful and flexible way to decide at which zoom levels icons appear, what colors to use for different types of places, and which 3D Models to use for your bookable desks, landmarks, or office decoration.
 
@@ -27,7 +27,7 @@ Each Location (Room, Area or POI) uses the Display Rule from the combined Main a
 
 Here's a visualisation of the inheritance principle:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 10.26.37.png" alt=""><figcaption><p>Location's Display Rule</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/fix.png" alt=""><figcaption><p>Location's Display Rule</p></figcaption></figure>
 
 Unlocked properties are Location's specific values. Locked ones are inheriting value from Type Display Rules.
 
@@ -66,52 +66,7 @@ The "Icon" section contains options related to the appearance of the Icon.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 10.38.02.png" alt=""><figcaption><p>Icon Display Rules section</p></figcaption></figure>
 
-### **Label**[​](https://docs.mapsindoors.com/display-rules#label) <a href="#label" id="label"></a>
 
-The "Label" section contains options related to the appearance of the Label. The Label is the text associated with the Location on the map, positioned next to the Icon or on its own.
-
-1. **Visibility** - Controls whether the Label is visible on the map.
-   * The system will accept a Boolean here, so either `true` or `false`.
-2. **Zoom from** - Sets the minimum Zoom Level at which the Label is visible.
-   * The value must be a number between 1 and 999, with 1 being very far away, and 999 acting as "max zoom". **Google Maps** only supports up to zoom level 22 at most, with Mapbox supporting up to level 25. Setting a value above these, your Labels will not show up on the map.
-3. **Zoom to** - Sets the maximum Zoom Level at which the Label is visible.
-   * The value must be a number between 1 and 999, with 1 being very far away, and 999 acting as "max zoom". **Google Maps** only supports up to zoom level 22 at most, with Mapbox supporting up to level 25.
-   * The recommended setting is to click the "Max zoom" checkbox, which sets the value to 999 in the data.
-4. **Template** - Controls the information the Label should contain. Only applies to the CMS, any change at runtime will overwrite the information set up by the Template.
-   * Location Name - Only displays the Name of the Location.
-   * External ID - Only displays the External ID set on the Location.
-   * External ID & Location Name - Displays both the External ID and the Location Name, with the External ID first.
-   * Location Name & External ID - Displays both the Location Name and the External ID, with the Location Name first.
-5. **Max width** - Specify how wide (in pixels) a Label can be before forcing a line-break.
-   * A value of `0` will ensure no line-breaks for this label.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 10.40.10.png" alt=""><figcaption><p>Label Display Rules section</p></figcaption></figure>
-
-### Label Style <a href="#polygon" id="polygon"></a>
-
-The "Label Style" section contains options related to the style of the Label. **Google Maps** does not support Label Style section inside Display Rules.
-
-1. **Label Type** - Controls which label Type is used.
-   * The system will accept either **Text Label** or **Flat Label**.
-2. **Text Size** - Sets the size of the Label.
-   * The value must be a number between 1 and 255, with 1 being very small, and 255 being the maximum size of the Label.
-3. **Text Color** - Sets the color of the Label.
-   * In the CMS, you can select a color using the color picker displayed when clicking the color input field.
-   * If setting the color in-app, the value provided must be in 6-digit HEX code (eg. #3071D9).
-4. **Text Opacity** - Controls the text opacity of the Label.
-   * The value here should be between `0` and `1`. A value of `1` gives 100% opacity, `0.2` gives 20% opacity, etc.
-5. **Halo color** - Sets the halo color of around the Label.
-   * In the CMS, you can select a color using the color picker displayed when clicking the color input field.
-   * If setting the color in-app, the value provided must be in 6-digit HEX code (eg. #3071D9).
-6. **Halo Width** - Sets the halo thickness/width. Defined in pixels.
-7. **Halo Blur** - Sets when halo blurring effect should be applied. (eg. With Halo Width = 10px, and Halo Blur = 5px, blurring effect will be applied in the middle of the Halo Width).
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 10.44.37.png" alt=""><figcaption><p>Label Style Display Rules section</p></figcaption></figure>
-
-By choosing Flat Label type, the new sub-section would appear: Bearing. It controls the rotation of the Flat Label. Measured in degrees, like a compass bearing.\
-
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 11.12.57 (1).png" alt=""><figcaption><p>Bearing Display Rules sub-section</p></figcaption></figure>
 
 ### Polygon[​](https://docs.mapsindoors.com/display-rules#polygon) <a href="#polygon" id="polygon"></a>
 
@@ -161,8 +116,8 @@ The size of the 2D Models on the map follow the zoom levels, as opposed to how i
    * The Media Library is a tool to select the displayed Icon from either a pre-loaded selection of Icons, or for you to upload your own.
    * In-app, you can provide a URL to a desired 2D Model.
 5. **Width x Height** - Controls the width and height of the 2D model, measured in meters. These values cannot be changed individually, the 2D model must maintain its original aspect ratio.
-   * "Fit to Location" is a great option for quickly setting a Width and Height that makes the 2D Model take up as much space as possible in the polygon.&#x20;
-     * Note that the "anchor point" is the deciding factor here. For Locations where the anchor point has not been moved (the place where the icon is shown inside the polygon), it will be computed to be in the center of the polygon. This is also the point that is used for the calculation of where to place the 2D Model and have it take as much space as possible — if the anchor point is close to an edge of the polygon, there will not be a lot of space as there would be if it was placed at the center.&#x20;
+   * "Fit to Location" is a great option for quickly setting a Width and Height that makes the 2D Model take up as much space as possible in the polygon.
+     * Note that the "anchor point" is the deciding factor here. For Locations where the anchor point has not been moved (the place where the icon is shown inside the polygon), it will be computed to be in the center of the polygon. This is also the point that is used for the calculation of where to place the 2D Model and have it take as much space as possible — if the anchor point is close to an edge of the polygon, there will not be a lot of space as there would be if it was placed at the center.
 6. **Bearing (rotation)** - Controls the rotation of the 2D model. Measured in degrees, like a compass bearing.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-12-06 at 11.05.55.png" alt=""><figcaption><p>2D Model Display Rules section</p></figcaption></figure>
