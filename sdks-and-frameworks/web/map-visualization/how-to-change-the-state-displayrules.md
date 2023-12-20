@@ -1,6 +1,6 @@
 # Highlight, Hover and Select
 
-**Want to change the appearance of our highlight, hover and select solution?**&#x20;
+**How to change the appearance of the different states**
 
 The state DisplayRules controls how Locations are displayed on the map in different states For example, you can change the icon scale of a Location when it is hovered over or highlight a search result. The state DisplayRules gives access to the same properties as the regular [DisplayRules](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/DisplayRule.html), which can be used to control the appearance of Locations.
 
