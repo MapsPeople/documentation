@@ -9,7 +9,7 @@
     * [Map Engine Setup](sdks-and-frameworks/web/getting-started/prerequisites.md)
     * [Tutorial](sdks-and-frameworks/web/getting-started/tutorial.md)
   * [Map Visualization](sdks-and-frameworks/web/map-visualization/README.md)
-    * [How to change the state DisplayRules](sdks-and-frameworks/web/map-visualization/how-to-change-the-state-displayrules.md)
+    * [Highlight, Hover and Select](sdks-and-frameworks/web/map-visualization/how-to-change-the-state-displayrules.md)
     * [Remove Labels from Buildings and Venues](sdks-and-frameworks/web/remove-labels-from-buildings-and-venues.md)
     * [Change Building Outline](sdks-and-frameworks/web/change-building-outline-color.md)
     * [Managing Collisions Based on Zoom Level](sdks-and-frameworks/web/map-visualization/managing-collisions-based-on-zoom-level.md)

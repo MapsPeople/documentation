@@ -1,6 +1,6 @@
-# How to change the state DisplayRules
+# Highlight, Hover and Select
 
-**This article assumes that you have already read the** [**Getting Started guide**](../getting-started/)**.**
+**Want to change the appearance of our highlight, hover and select solution?**&#x20;
 
 The state DisplayRules controls how Locations are displayed on the map in different states For example, you can change the icon scale of a Location when it is hovered over or highlight a search result. The state DisplayRules gives access to the same properties as the regular [DisplayRules](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/DisplayRule.html), which can be used to control the appearance of Locations.
 
@@ -37,13 +37,14 @@ The default SDK behavior is to scale the icon and lighten the fill and stroke co
 ```json
 {
     'iconScale': 1.25,
-    'polygonLightnessFactor': 0.2,
-    'extrusionLightnessFactor': 0.2,
-    'badgeScale': 1.25
+    'polygonLightnessFactor': -0.1,
+    'extrusionLightnessFactor': -0.1,
+    'badgeScale': 1.25,
+    'badgePosition': 'top_left'
 }
 ```
 
-The lightnessFactor is used to lighten the fill and stroke color of both the polygon and the extrusion by 20%.
+The lightnessFactor is used to darken the fill and stroke color of both the polygon and the extrusion by 10%.
 
 #### Highlight and Selection
 
@@ -58,17 +59,18 @@ The `hoverHighlight` and `hoverSelection` is two separate state DisplayRules to 
     'iconScale': 1.25,
     'polygonZoomFrom': 15.0,
     'polygonZoomTo': 999,
-    'polygonLightnessFactor': 0.4,
+    'polygonLightnessFactor': -0.15,
     'extrusionZoomFrom': 15.0,
     'extrusionZoomTo': 999,
-    'extrusionLightnessFactor': 0.4,
+    'extrusionLightnessFactor': -0.15,
     'badgeVisible': true,
     'badgeZoomFrom': 15,
     'badgeZoomTo': 999,
     'badgeRadius': 6,
     'badgeStrokeWidth': 4.0,
-    'badgeStrokeColor': '#fafafa',
+    'badgeStrokeColor': '#ffffff',
     'badgeFillColor': '#ec4899',
+    'badgePosition': 'top_left'
     'badgeScale': 1.25
 };
 ```
@@ -83,17 +85,17 @@ The `hoverHighlight` and `hoverSelection` is two separate state DisplayRules to 
     'iconVisible': true,
     'icon': 'https://app.mapsindoors.com/mapsindoors/gfx/select-pin.png',
     'iconScale': 1.25,
-    'iconPlacement': 'ABOVE',
+    'iconPlacement': 'above',
     'iconSize': {
         'width': 24.0,
         'height': 28.0
     },
     'polygonZoomFrom': 15.0,
     'polygonZoomTo': 999,
-    'polygonLightnessFactor': 0.4,
+    'polygonLightnessFactor': -0.15,
     'extrusionZoomFrom': 15.0,
     'extrusionZoomTo': 999,
-    'extrusionLightnessFactor': 0.4
+    'extrusionLightnessFactor': -0.15
 }
 ```
 
@@ -109,17 +111,18 @@ The default SDK behavior is to add a small badge to the upper left corner of the
     'zoomTo': 999,
     'polygonZoomFrom': 15.0,
     'polygonZoomTo': 999,
-    'polygonLightnessFactor': 0.2,
+    'polygonLightnessFactor': -0.1,
     'extrusionZoomFrom': 15.0,
     'extrusionZoomTo': 999,
-    'extrusionLightnessFactor': 0.2,
+    'extrusionLightnessFactor': -0.1,
     'badgeVisible': true,
     'badgeZoomFrom': 15,
     'badgeZoomTo': 999,
     'badgeRadius': 6,
     'badgeStrokeWidth': 4.0,
-    'badgeStrokeColor': '#fafafa',
+    'badgeStrokeColor': '#ffffff',
     'badgeFillColor': '#ec4899',
+    'badgePosition': 'top_left'
     'badgeScale': 1
 };
 ```
@@ -159,17 +162,17 @@ The selection state is for changing the appearance of a single Location, for exa
     'iconVisible': true,
     'icon': 'https://app.mapsindoors.com/mapsindoors/gfx/select-pin.png',
     'iconScale': 1.0,
-    'iconPlacement': 'ABOVE',
+    'iconPlacement': 'above',
     'iconSize': {
         'width': 24.0,
         'height': 28.0
     },
     'polygonZoomFrom': 15.0,
     'polygonZoomTo': 999,
-    'polygonLightnessFactor': 0.2,
+    'polygonLightnessFactor': -0.1,
     'extrusionZoomFrom': 15.0,
     'extrusionZoomTo': 999,
-    'extrusionLightnessFactor': 0.2
+    'extrusionLightnessFactor': -0.1
 }
 ```
 
