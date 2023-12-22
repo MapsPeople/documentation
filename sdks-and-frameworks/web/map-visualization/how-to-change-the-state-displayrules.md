@@ -81,7 +81,6 @@ The `hoverHighlight` and `hoverSelection` is two separate state DisplayRules to 
 {
     'zoomFrom': 0.0,
     'zoomTo': 999,
-    'visible': true,
     'iconVisible': true,
     'icon': 'https://app.mapsindoors.com/mapsindoors/gfx/select-pin.png',
     'iconScale': 1.25,
@@ -158,7 +157,6 @@ The selection state is for changing the appearance of a single Location, for exa
 {
     'zoomFrom': 0.0,
     'zoomTo': 999,
-    'visible': true,
     'iconVisible': true,
     'icon': 'https://app.mapsindoors.com/mapsindoors/gfx/select-pin.png',
     'iconScale': 1.0,
