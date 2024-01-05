@@ -2,7 +2,9 @@
 
 ## How to implement a custom floor selector
 
-To implement a custom floor selector we expect you to already have a View with a Map using MapControl. Start by creating a class, in this example named; `CustomFloorSelector`. Extend the class with `FrameLayout` and implement `MPFloorSelectorInterface` as well as it's methods.
+To implement a custom floor selector we expect you to already have a View with a Map using MapControl. [Show a map](https://docs.mapsindoors.com/getting-started/android/v4/map#show-a-map-with-mapsindoors)
+
+Start by creating a class, in this example named; `CustomFloorSelector`. Extend the class with `FrameLayout` and implement `MPFloorSelectorInterface` as well as it's methods.
 
 ```kotlin
     class CustomFloorSelector(private val context: Context, attrs: AttributeSet): MPFloorSelectorInterface, FrameLayout(context, attrs)  {
@@ -149,7 +151,7 @@ class CustomFloorSelector(private val context: Context, attrs: AttributeSet): MP
 }
 ```
 
-Now all that should be left is adding this view component to your layout containing the map and adding it to your `MPMapConfig` when creating `MapControl`. Here is an example layout where the floor selector is added to a layout.
+Now all that is left is adding this view component to your layout containing the map and adding it to your `MPMapConfig` when creating `MapControl`. Here is an example layout where the floor selector is added to a layout.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -184,4 +186,4 @@ fun initMapControl() {
 }
 ```
 
-There we go, you should now have succesfully implemented a custom floor selector into your own app.
+You have now succesfully implemented a custom floor selector into your own app.
