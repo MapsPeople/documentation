@@ -93,6 +93,7 @@
   * [Configuring a menu with AppConfig](sdks-and-frameworks/android/configuring-a-menu-with-appconfig.md)
   * [Display Heatmap Overlay](sdks-and-frameworks/android/display-heatmap-overlay.md)
   * [Custom Properties](sdks-and-frameworks/android/custom-properties.md)
+  * [Custom Floor Selector](sdks-and-frameworks/android/custom-floor-selector.md)
   * [External IDs](sdks-and-frameworks/android/external-ids.md)
   * [User Positioning](sdks-and-frameworks/android/user-positioning/README.md)
     * [Show User's Location aka. Blue Dot](sdks-and-frameworks/android/user-positioning/show-users-location-aka.-blue-dot.md)

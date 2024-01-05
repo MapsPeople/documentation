@@ -37,6 +37,10 @@ You can also follow the steps below to start your app from scratch or to enhance
 
 If you don't already have a project, we recommend using the Google Maps Activity preset from Android Studio to getting started on developing your MapsIndoors project. You find the Google Maps Activity project through **File -> New -> New Project... -> Google Maps Activity**.
 
+{% hint style="info" %}
+On newer versions of android studio this preset has been moved. You can instead choose an empty activity and inside you package you can right click and choose **New -> Google -> Google Maps Activity**. It is explained in google maps documentation here: [Create a Google Maps project in Android Studio](https://developers.google.com/maps/documentation/android-sdk/start#create-project)
+{% endhint %}
+
 Add the MapsIndoors SDK as a dependency to your project. The _AAR_ for the MapsIndoors SDK contains both Java classes, SDK resources and an `AndroidManifest.xml` template which gets merged into your application's `AndroidManifest.xml` during build process.
 
 Add or merge in the following to your app's build gradle file (usually called `build.gradle`).
