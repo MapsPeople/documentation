@@ -5,10 +5,11 @@
 
 #### Latest
 
-* [MapsIndoors Android SDK v4.2.9](https://app.mapsindoors.com/mapsindoors/reference/android/4.2.9/index.html)
+* [MapsIndoors Android SDK v4.2.10](https://app.mapsindoors.com/mapsindoors/reference/android/4.2.10/index.html)
 
 #### Previous versions
 
+* [MapsIndoors Android SDK v4.2.9](https://app.mapsindoors.com/mapsindoors/reference/android/4.2.9/index.html)
 * [MapsIndoors Android SDK v4.2.8](https://app.mapsindoors.com/mapsindoors/reference/android/4.2.8/index.html)
 * [MapsIndoors Android SDK v4.2.7](https://app.mapsindoors.com/mapsindoors/reference/android/4.2.7/index.html)
 * [MapsIndoors Android SDK v4.2.6](https://app.mapsindoors.com/mapsindoors/reference/android/4.2.6/index.html)
