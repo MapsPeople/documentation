@@ -2,9 +2,17 @@
 
 Changelog for the MapsIndoors Flutter Plugin. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-### \[2.0.0] 2023-08-15[​](https://docs.mapsindoors.com/changelogs/flutter#200-2023-08-15) <a href="#200-2023-08-15" id="200-2023-08-15"></a>
+### \[2.0.1] 2024-01-08
 
-#### Changed[​](https://docs.mapsindoors.com/changelogs/flutter#changed) <a href="#changed" id="changed"></a>
+* Updated Mapsindoors SDKs
+  * Android to 4.2.10
+  * iOS to 4.2.13
+* Added `showRouteLegButtons` to `MPDirectionsRenderer`
+* Added `setLabelOptions` to `MapsindoorsWidget`
+
+### \[2.0.0] 2023-08-15
+
+#### Changed
 
 * Moved from [mapsindoors](https://pub.dev/packages/mapsindoors) to allow for multiple map providers
 * Changes to classes:
