@@ -4,7 +4,7 @@
 {% tab title="Google Maps" %}
 #### Latest
 
-* [MapsIndoors Google Maps Flutter SDK v2.0.1](https://pub.dev/documentation/mapsindoors_googlemaps/latest/)
+* [MapsIndoors Google Maps Flutter SDK v2.1.0](https://pub.dev/documentation/mapsindoors_googlemaps/latest/)
 
 #### Previous versions
 
@@ -15,7 +15,7 @@
 {% tab title="Mapbox" %}
 #### Latest
 
-* [MapsIndoors Mapbox Flutter SDK v2.0.1](https://pub.dev/documentation/mapsindoors_mapbox/latest/)
+* [MapsIndoors Mapbox Flutter SDK v2.1.0](https://pub.dev/documentation/mapsindoors_mapbox/latest/)
 
 #### Previous versions
 
