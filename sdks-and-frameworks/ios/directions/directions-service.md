@@ -6,34 +6,25 @@ description: iOS V4
 
 The class `MPDirectionsService` is used to request routes from one point to another. The minimal required input is an `origin` and a `destination`. You need to build a query using the `MPDirectionsQuery` class.
 
-This example shows how to setup and execute a query for a Route:
+This example shows how to setup and execute a query for a route:
 
 ```swift
-Task {
-  try await MPMapsIndoors.shared.load(apiKey: #INSERT_API_KEY)
+try await MPMapsIndoors.shared.load(apiKey: #INSERT_API_KEY)
           
-  mapControl = MPMapsIndoors.createMapControl(mapConfig: #INSERT_YOUR_MAPCONFIG)
+mapControl = MPMapsIndoors.createMapControl(mapConfig: #INSERT_YOUR_MAPCONFIG)
           
-  let origin = MPPoint(latitude:57.059884140172585, longitude: 9.939936105948238, z: 0)
+let origin = MPPoint(latitude:57.059884140172585, longitude: 9.939936105948238, z: 0)
+let destination = MPPoint(latitude: 57.05718292988392, longitude: 9.930720035736968, z: 0)
+let directionsQuery = MPDirectionsQuery(originPoint: origin, destinationPoint: destination)
+let route = try? await directionsService.routingWith(query: directionsQuery)
 
-  let destination = MPPoint(latitude: 57.05718292988392, longitude: 9.930720035736968, z: 0)
-
-  let directionsQuery = MPDirectionsQuery(originPoint: origin, destinationPoint: destination)
-
-  let directionsService = MPMapsIndoors.shared.directionsService
-
-  let route = try? await directionsService.routingWith(query: directionsQuery)
-
-  let renderer = mapControl?.newDirectionsRenderer()
-  renderer?.fitBounds = true
-  renderer?.route = route
-  renderer?.animate(duration: 5)
-}
+let renderer = mapControl?.newDirectionsRenderer()
+renderer?.fitBounds = true
+renderer?.route = route
+renderer?.animate(duration: 5)
 ```
 
-### Custom properties via renderer[​](https://docs.mapsindoors.com/directions-service#custom-properties-via-renderer) <a href="#custom-properties-via-renderer" id="custom-properties-via-renderer"></a>
-
-The route can be customized via the `directionsRenderer`. A example could be the color of the rendered path and the background color of the renderet line. This can be sat like this:
+The route can be customized via the `directionsRenderer`. An example could be the color of the rendered path and the background color of the rendered line. This can be set like this:
 
 ```swift
 let renderer = mapControl?.newDirectionsRenderer()
@@ -56,34 +47,48 @@ The travel modes generally applies for outdoor navigation. Indoor navigation cal
 
 ### Route Restrictions[​](https://docs.mapsindoors.com/directions-service#route-restrictions-2) <a href="#route-restrictions-2" id="route-restrictions-2"></a>
 
-#### Avoiding Stairs and Steps[​](https://docs.mapsindoors.com/directions-service#avoiding-stairs-and-steps-2) <a href="#avoiding-stairs-and-steps-2" id="avoiding-stairs-and-steps-2"></a>
+There are several ways to influence the calculated route by applying various restrictions to the directions query:
 
-For a wheelchair user or a user with physical disabilities it may be relevant to request a Route that avoids stairs and steps. Avoid certain **way types** on the route using the `avoidWayTypes` property.
+* **Avoid** and/or **exclude** certain **way types** under certain circumstances
+* Apply restrictions based on User Roles
+
+#### Avoid and exclude way types <a href="#route-restrictions-2" id="route-restrictions-2"></a>
+
+It is possible to avoid and/or exclude certain way types when calculating a route. **Avoiding** a way type means that `DirectionsService` will do its best to find a route without the avoided way types, but if no route can be found without them, it will try to find a route where the avoided way types may be used. To eliminate certain way types entirely, add them as **excluded** way types. If a way type is both avoided and excluded, excluded will be obeyed.
+
+It may for example be desirable to provide a route better suited for users with physical disabilities by avoiding e.g. stairs. This can be achieved by avoiding that **way type** on the route using the `avoidWayTypes` property:
 
 ```swift
 let directionsQuery = MPDirectionsQuery(originPoint: origin, destinationPoint: destination)
 directionsQuery.avoidWayTypes = [.stairs]
 ```
 
-#### App User Role Restrictions[​](https://docs.mapsindoors.com/directions-service#app-user-role-restrictions-2) <a href="#app-user-role-restrictions-2" id="app-user-role-restrictions-2"></a>
-
-In the MapsIndoors CMS it is possible to restrict certain ways in the Route Network to be used by users of certain Roles.
-
-It is possible to get the available Roles with help of the `MPSolutionProvider`:
+In an emergency situation it may be required to not use elevators at all. This can be achieved by adding the way type elevator to the `excludeWayTypes` property:
 
 ```swift
-MPSolutionProvider.init().getUserRoles { (userRoles, error) in
+let directionsQuery = MPDirectionsQuery(originPoint: origin, destinationPoint: destination)
+directionsQuery.excludeWayTypes = [.elevator]
+```
+
+#### App User Role Restrictions[​](https://docs.mapsindoors.com/directions-service#app-user-role-restrictions-2)
+
+In the MapsIndoors CMS it is possible to restrict certain ways in the route network to be used by users of certain user roles.
+
+It is possible to get the available user roles with help of the `MPSolutionProvider`:
+
+```swift
+MPSolutionProvider().getUserRoles { (userRoles, error) in
     let myUserRole = myUserRole.first
 }
 ```
 
-User Roles can be set on a global level using `MapsIndoors.shared.userRoles`.
+User roles can be set on a global level using `MapsIndoors.shared.userRoles`.
 
 ```swift
 MPMapsIndoors.shared.userRoles = [myUserRole]
 ```
 
-Setting the user roles globally will effect all services that uses userroles. The `MPDirectionsQuery` will also use the user roles.
+Setting the user roles globally will effect all services that uses user roles. The `MPDirectionsService` will also use the user roles.
 
 ### Transit Departure and Arrival Time[​](https://docs.mapsindoors.com/directions-service#transit-departure-and-arrival-time-2) <a href="#transit-departure-and-arrival-time-2" id="transit-departure-and-arrival-time-2"></a>
 
@@ -91,5 +96,5 @@ Set a **departure date** or an **arrival date** on the route using the `departur
 
 ```swift
 let directionsQuery = MPDirectionsQuery(origin: origin, destination: destination)
-directionsQuery.departure = Date.init()
+directionsQuery.departure = Date()
 ```
