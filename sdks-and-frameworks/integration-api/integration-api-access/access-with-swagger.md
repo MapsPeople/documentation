@@ -4,11 +4,11 @@
 
 The Integration API can be accessed using our [swagger](https://integration.mapsindoors.com/doc/index.html) frontend. The first thing you want to do is to log in. This is done by pressing Authorize:
 
-<figure><img src="https://docs.mapsindoors.com/img/api/SwaggerLogin.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/SwaggerLogin (1).png" alt=""><figcaption></figcaption></figure>
 
 After this a confirmation window will be shown. Everything is already prefilled here, so just press Authorize and you will be lead to the mapsindoos Authorize service. Use your email and your password here to login.
 
-<figure><img src="https://docs.mapsindoors.com/img/api/SwaggerLogin2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/SwaggerLogin2.png" alt=""><figcaption></figcaption></figure>
 
 Once logged in you can start using the Integration API. Each endpoint will grouped by function like "Categories" and "Geodata". Each of these groups offer a number endpoints that allow you to get existing data, create new data, change existing data or delete data. There are examples of each of these for you to look at, but not that this is a read-only sample solution
 

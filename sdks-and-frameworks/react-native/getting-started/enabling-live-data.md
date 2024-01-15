@@ -51,7 +51,7 @@ Using the demo API key you should now be able to see a "Staff Person" moving fro
 
 Expected result:
 
-![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/react\_native\_live\_data.gif)
+<figure><img src="../../../.gitbook/assets/react_native_live_data.gif" alt=""><figcaption></figcaption></figure>
 
 ### Summary[​](https://docs.mapsindoors.com/getting-started/React%20Native/livedata#summary) <a href="#summary" id="summary"></a>
 

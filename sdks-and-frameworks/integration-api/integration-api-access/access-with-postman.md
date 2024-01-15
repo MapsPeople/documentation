@@ -12,7 +12,7 @@ The first thing you need before getting started is importing the Mapsindoors Int
 
 > [https://integration.mapsindoors.com/swagger/v1/swagger.json](https://integration.mapsindoors.com/swagger/v1/swagger.json)
 
-<figure><img src="https://docs.mapsindoors.com/img/api/postmanimport.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/postmanimport.png" alt=""><figcaption></figcaption></figure>
 
 #### Direct Postman to the API.[​](https://docs.mapsindoors.com/access-with-postman#direct-postman-to-the-api) <a href="#direct-postman-to-the-api" id="direct-postman-to-the-api"></a>
 
@@ -22,7 +22,7 @@ Now a new collection called "Integration API" will be created. Select it and cha
 
 !\[Postman BaseVariable]\(\{{ site.url \}}/assets/api/v1/postmanbasevariable.png)
 
-<figure><img src="https://docs.mapsindoors.com/img/api/SwaggerLogin.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/SwaggerLogin (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Setup Postman authorization[​](https://docs.mapsindoors.com/access-with-postman#setup-postman-authorization) <a href="#setup-postman-authorization" id="setup-postman-authorization"></a>
 
@@ -38,8 +38,12 @@ Now set the:
 
 Click "Get New Access Token" and a postman will log in using your credentials. Be sure to save your changes again by clicking the floppy disk icon.
 
+<figure><img src="../../../.gitbook/assets/postmanAuth.png" alt=""><figcaption></figcaption></figure>
+
 <figure><img src="https://docs.mapsindoors.com/img/api/postmanAuth.png" alt=""><figcaption></figcaption></figure>
 
-You should now be able to access your mapsindoors data in Postman.
+You should now be able to access your MapsIndoors data in Postman.
+
+<figure><img src="../../../.gitbook/assets/postmanGetExample.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="https://docs.mapsindoors.com/img/api/postmanGetExample.png" alt=""><figcaption></figcaption></figure>

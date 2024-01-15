@@ -2,10 +2,6 @@
 
 Your environment is now fully configured, and you have the necessary map platform and MapsIndoors API keys. Next you will learn how to load a map with MapsIndoors.
 
-
-
-
-
 {% hint style="info" %}
 Please note that data in MapsIndoors is loaded asynchronously. This results in behavior where data might not have finished loading if you call methods accessing it immediately after initializing MapsIndoors. Best practice is to set up `listeners` or `delegates` to inform of when data is ready. Please be aware of this when developing using the MapsIndoors SDK.
 {% endhint %}
@@ -150,6 +146,6 @@ class _MapState extends State<Map> {
 
 Expected result:
 
-![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/flutter\_map.gif)
+<figure><img src="../../../.gitbook/assets/flutter_map.gif" alt=""><figcaption></figcaption></figure>
 
 See the full example of the app here: [main.dart](https://github.com/MapsPeople/getting\_started\_flutter/blob/main/lib/main.dart)

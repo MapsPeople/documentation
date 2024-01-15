@@ -154,7 +154,7 @@ void search(String value) {
 }
 ```
 
-See the full example of the search method here: [main.dart](https://github.com/MapsPeople/getting_started_flutter/blob/main/lib/main.dart#L133-L165)
+See the full example of the search method here: [main.dart](https://github.com/MapsPeople/getting\_started\_flutter/blob/main/lib/main.dart#L133-L165)
 
 ### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/flutter/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
 
@@ -188,7 +188,7 @@ When you are done showing the search results you can [call `clearFliter`](https:
 
 Expected result:
 
-![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/flutter\_search.gif)
+<figure><img src="../../../.gitbook/assets/flutter_search.gif" alt=""><figcaption></figcaption></figure>
 
 The accompanying UI and implementation of this search experience can be found in the getting started app sample. [Getting Started App sample](https://github.com/MapsPeople/getting\_started\_flutter)
 
