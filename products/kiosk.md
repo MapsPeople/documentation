@@ -29,7 +29,7 @@ Splitting the URL, this is what it contains:
 
 * **`originLocation=652cf26a26784b4e9a390d8b`** is the Location selected as "origin Location", i.e. where your Kiosk is located in the real world. This is a Location ID found in the "Location Details" panel, in the "Details" tab:
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * **`zoom=22`** is the zoom level to start at
 * **`&timeout=20`** is the timeout period (in seconds) before resetting the map view
@@ -48,7 +48,7 @@ When testing the Kiosk, it is highly recommended to use Chrome's "Incognito" or 
 
 It is also possible to launch the kiosk without utilising URL parameters like those specified above, by using the link [http://kiosk.mapsindoors.com/](http://kiosk.mapsindoors.com/). If the kiosk is launched in this manner, you will be asked to enter an API-key and a Location ID to use as an origin point, information on which can be found [here](https://docs.mapsindoors.com/kiosk#configure-the-kiosk/). The kiosk will then launch based on these parameters.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Legend Fields[​](https://docs.mapsindoors.com/kiosk#legend-fields) <a href="#legend-fields" id="legend-fields"></a>
 

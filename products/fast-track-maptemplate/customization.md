@@ -1,3 +1,7 @@
+---
+description: Building on top of the Map Template
+---
+
 # Customization
 
 ### Working with the components package and the map-template package
