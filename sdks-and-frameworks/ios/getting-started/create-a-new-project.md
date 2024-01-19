@@ -63,6 +63,10 @@ MapsIndoors can be installed using CocoaPods ([Getting Started with CocoaPods](h
 In the line containing `pod 'MapsIndoors', '~>4.0'`, where it currently says `4.0`, be sure to replace this number with whatever the latest version of the iOS SDK is.
 {% endhint %}
 
+{% hint style="danger" %}
+If you're using Mapbox, make sure to configure your secret token in order to download the required dependencies from Mapbox when running `pod install`: [https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials](https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials)
+{% endhint %}
+
 4. Save the `Podfile` and close Xcode.
 5. Open a terminal in the directory of the project. `cd <path-to-project>`
 6. Run `pod install` in the terminal.
