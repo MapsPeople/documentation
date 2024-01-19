@@ -153,6 +153,7 @@
   * [Data Description](sdks-and-frameworks/integration-api/data-description.md)
   * [Reverse Geocoding](sdks-and-frameworks/integration-api/reverse-geocoding.md)
   * [Route Access](sdks-and-frameworks/integration-api/route-access.md)
+  * [OpenAPI Specification](sdks-and-frameworks/integration-api/openapi-specification.md)
 * [React Native](sdks-and-frameworks/react-native/README.md)
   * [Getting Started](sdks-and-frameworks/react-native/getting-started/README.md)
     * [Prerequisites](sdks-and-frameworks/react-native/getting-started/prerequisites.md)
