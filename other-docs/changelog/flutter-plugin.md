@@ -2,11 +2,22 @@
 
 Changelog for the MapsIndoors Flutter Plugin. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.1.1] 2024-01-24
+
+#### Fixed
+
+* Fixed issue where `OnMapReadyListener` would not be invoked during the initial load on iOS.
+
 ### \[2.1.0] 2024-01-11
+
+#### Changed
 
 * Updated Mapsindoors SDKs
   * Android to 4.2.10
   * iOS to 4.2.13
+
+#### Added
+
 * Added `showRouteLegButtons` to `MPDirectionsRenderer`
 * Added `setLabelOptions` to `MapsindoorsWidget`
 
