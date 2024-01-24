@@ -200,7 +200,7 @@
 
 ## Reference Docs
 
-* [Web SDK](reference-docs/web-sdk.md)
+* [Web SDK](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/)
 * [iOS SDK](reference-docs/ios-sdk.md)
 * [Android SDK](reference-docs/android-sdk.md)
 * [React Native SDK](reference-docs/react-native-sdk.md)
