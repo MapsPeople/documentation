@@ -23,6 +23,9 @@ The Map Template supports using query parameters for all the properties provided
 15. `pitch` - Used like this `pitch=30`. Not compatible with MapsIndoors 2D models and MapsIndoors labels on Google Maps. The value of the pitch can be between 0-85 degrees on a Mapbox map.
 16. `bearing` - Used like this `bearing=180`. Not compatible with MapsIndoors 2D models and MapsIndoors labels on Google Maps. It accepts any value, and will modify it to fit into the range \[0, 360].
 17. `language` - The language to show textual content in. Supported values are "en" for English, "da" for Danish, "de" for German and "fr" for French. If the prop is not set, the language of the browser will be used (if it is one of the four supported languages - otherwise it will default to English).
+18. `kioskOriginLocationId` - If running the Map Template as a Kiosk, provide the Location ID that represents the location of the Kiosk.
+19. `timeout` - If you want the Map Template to reset the map position and the UI elements to the initial state after some time of inactivity, use this to specify the number of seconds of inactivity before resetting. This property is not dependent on the `kioskOriginLocationId`.
+20. `useKeyboard` - If running the Map Template as a Kiosk, set this prop to `true` and it will prompt a virtual keyboard. This property is dependent on the `kioskOriginLocationId`.
 
 **Note!** All the query parameters need to be separated with the `&` symbol, without any spaces in between.
 

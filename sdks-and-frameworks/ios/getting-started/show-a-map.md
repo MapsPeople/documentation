@@ -118,7 +118,7 @@ We have now added a _very_ simple search feature! Running the app now should yie
 
 ### Expected Result[​](https://docs.mapsindoors.com/getting-started/ios/v4/display-a-map#expected-result) <a href="#expected-result" id="expected-result"></a>
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 ![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/ios\_display-a-map.png)
 

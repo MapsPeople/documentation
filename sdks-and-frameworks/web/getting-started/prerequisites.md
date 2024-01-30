@@ -89,7 +89,7 @@ const mi = new mapsindoors.MapsIndoors({
 
 After successful `mapView` load you should be able to use Mapbox v2:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Solution using Mapbox v2</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption><p>Solution using Mapbox v2</p></figcaption></figure>
 
 ## Option 2: Get your Google Maps API Keys[​](https://docs.mapsindoors.com/getting-started/web/prerequisites#option-1-get-your-google-maps-api-keys) <a href="#option-1-get-your-google-maps-api-keys" id="option-1-get-your-google-maps-api-keys"></a>
 

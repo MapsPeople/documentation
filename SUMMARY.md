@@ -43,7 +43,6 @@
     * [Application User Roles](sdks-and-frameworks/web/other-guides/application-user-roles.md)
     * [Custom Properties](sdks-and-frameworks/web/other-guides/custom-properties.md)
     * [Display Language](sdks-and-frameworks/web/other-guides/display-language.md)
-    * [Kiosk](products/kiosk.md)
     * [Language](sdks-and-frameworks/web/other-guides/display-language-1.md)
     * [User Positioning](sdks-and-frameworks/web/other-guides/user-positioning/README.md)
       * [Show User's Location aka. Blue Dot](sdks-and-frameworks/web/other-guides/user-positioning/show-users-location-aka.-blue-dot.md)
@@ -197,6 +196,7 @@
   * [Route Network](products/cms/route-network/README.md)
     * [Barrier Route Element](products/cms/route-network/barrier-route-element.md)
     * [Door Route Element](products/cms/route-network/door-route-element.md)
+* [Kiosk](products/kiosk.md)
 
 ## Reference Docs
 
