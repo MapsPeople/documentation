@@ -4,15 +4,15 @@
 
 Our MapsIndoors Kiosk is an extension of new features built on top of our [Map Template](fast-track-maptemplate/) repository. It enables you to only in a few steps add the Kiosk mode to your solution, and in this guide we will walk you through how you can easily get started right away.&#x20;
 
-
+<figure><img src="../.gitbook/assets/Kiosk GIF compress.gif" alt=""><figcaption></figcaption></figure>
 
 The MapsIndoors Kiosk builds on top of the design we have designed for Map Template. The kiosk is of course compatible with both Mapbox and Google Maps.\
 With our Kiosk you can enable different features as you like to customize your Kiosk, through different Query Parameters.&#x20;
 
 In Kiosk mode the key features are:&#x20;
 
-* [UI design for a Kiosk](kiosk.md#ui-design)
-* [Directions](kiosk.md#directions-in-kiosk-mode)
+* [UI design optimization for a Kiosk](kiosk.md#ui-design)
+* [Directions](kiosk.md#directions)
 * [QR code](kiosk.md#create-a-qr-code-to-share-directions)
 * [On-screen Keyboard ](kiosk.md#on-screen-keyboard)
 * [Time-out ](kiosk.md#timeout)
@@ -50,13 +50,13 @@ https://map.mapsindoors.com/?apiKey=02c329e6777d431a88480a09&kioskOriginLocation
 
 ###
 
-### **UI design for a Kiosk**
+### **UI design optimization for a Kiosk** <a href="#ui-design" id="ui-design"></a>
 
 With the kiosk mode enabled, your app will use our UI design for a Kiosk. Building upon the design of MapTemplate components, the MapsIndoors Kiosk delivers a seamless and intuitive user experience optimized the user of experience of interaction with a large screen Kiosk. The design is specifically crafted to ensure effortless navigation and interaction, even for individuals who may be unfamiliar with the technology.&#x20;
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-### **Instant directions in Kiosk mode**
+### **Instant directions in Kiosk mode** <a href="#directions" id="directions"></a>
 
 For a smooth user experience when interacting with the kiosk, you can now select any location on the map to instantly get directions.&#x20;
 
