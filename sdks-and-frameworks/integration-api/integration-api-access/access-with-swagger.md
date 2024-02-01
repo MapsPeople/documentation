@@ -6,7 +6,7 @@ The Integration API can be accessed using our [swagger](https://integration.maps
 
 <figure><img src="../../../.gitbook/assets/SwaggerLogin (1).png" alt=""><figcaption></figcaption></figure>
 
-After this a confirmation window will be shown. Everything is already prefilled here, so just press Authorize and you will be lead to the mapsindoos Authorize service. Use your email and your password here to login.
+After this, a confirmation window will be shown. Everything is already prefilled here, so **do not change the `client_id` and `client_secret` input fields — just press Authorize**, and you will be lead to the MapsIndoors authorization service.
 
 <figure><img src="../../../.gitbook/assets/SwaggerLogin2.png" alt=""><figcaption></figcaption></figure>
 
