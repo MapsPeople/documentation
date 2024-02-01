@@ -1,6 +1,6 @@
 # Kiosk
 
-## **What is the MapsIndoors Kiosk?**&#x20;
+**What is the MapsIndoors Kiosk?**&#x20;
 
 Our MapsIndoors Kiosk is an extension of new features built on top of our [Map Template](fast-track-maptemplate/) repository. It enables you to only in a few steps add the Kiosk mode to your solution, and in this guide we will walk you through how you can easily get started right away.&#x20;
 
@@ -23,7 +23,7 @@ In order to enable the Kiosk mode you can use query parameters and properties to
 
 A new property has now been added to the list, which is `kioskOriginLocationId`. This property enables the kiosk mode on the Map Template.&#x20;
 
-We have three simple way so use the `kioskOriginLocationId` property, however it is important that the `kioskOriginLocationId` must belong to the correct solution (`apiKey`) in order to be displayed on the map.
+We have three simple ways to use the `kioskOriginLocationId` property, however it is important that the `kioskOriginLocationId` must belong to the correct solution (`apiKey`) in order to be displayed on the map.
 
 #### Using query parameters:&#x20;
 
@@ -52,7 +52,7 @@ https://map.mapsindoors.com/?apiKey=02c329e6777d431a88480a09&kioskOriginLocation
 
 ### **UI design optimization for a Kiosk** <a href="#ui-design" id="ui-design"></a>
 
-With the kiosk mode enabled, your app will use our UI design for a Kiosk. Building upon the design of MapTemplate components, the MapsIndoors Kiosk delivers a seamless and intuitive user experience optimized the user of experience of interaction with a large screen Kiosk. The design is specifically crafted to ensure effortless navigation and interaction, even for individuals who may be unfamiliar with the technology.&#x20;
+With the kiosk mode enabled, your app will use our UI design for a Kiosk. Building upon the design of Map Template components, the MapsIndoors Kiosk delivers a seamless and intuitive user experience optimised the user of experience of interaction with a large screen Kiosk. The design is specifically crafted to ensure effortless navigation and interaction, even for individuals who may be unfamiliar with the technology.&#x20;
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
@@ -62,7 +62,7 @@ For a smooth user experience when interacting with the kiosk, you can now select
 
 <figure><img src="../.gitbook/assets/directions-next-step.gif" alt=""><figcaption></figcaption></figure>
 
-You can change the accessibility if needed, and you can also scan the QR code for an easier view of the route on your mobile device . QR codes are further described later in this article.
+You can change the accessibility if needed, and you can also scan the QR code for an easier view of the route on your mobile device . The QR code feature is further described in this article.
 
 ### Create a QR code to share directions
 
@@ -82,7 +82,9 @@ You can now set the `useKeyboard` boolean property to `true`, and a virtual keyb
 
 Just like the `kioskOriginLocationId` property described above, the `useKeyboard` can be used as a URL parameter, as a property on the React component - or as an attribute on the web component.
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+```
+https://map.mapsindoors.com/?apiKey=02c329e6777d431a88480a09&kioskOriginLocationId=b47a973a8450439598c0189c&useKeyboard=true
+```
 
 Simply click on the search field to display the virtual keyboard.
 
@@ -92,7 +94,9 @@ Simply click on the search field to display the virtual keyboard.
 
 If you want the map template kiosk to reset the map position and the UI elements to the initial state after some time of inactivity, use this property to specify inactivity in seconds before resetting.
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+```
+https://map.mapsindoors.com/?apiKey=02c329e6777d431a88480a09&kioskOriginLocationId=b47a973a8450439598c0189c&timeout=10
+```
 
 <figure><img src="../.gitbook/assets/timeout.gif" alt=""><figcaption></figcaption></figure>
 
@@ -100,7 +104,7 @@ If you want the map template kiosk to reset the map position and the UI elements
 
 You can of course use any other combination of our URL parameters (listed [here](fast-track-maptemplate/configuration/query-parameters.md)) in combination with our Kiosk.&#x20;
 
-If you wish to initialize your app with a specific zoom level or change the You can also use the `pitch`, `bearing` and `startZoomLevel`  or any other properties you want to configure as the starting point of the Kiosk. Read more about all the properties [here](fast-track-maptemplate/configuration/).
+If you wish to initialise your app with a specific zoom level or change the You can also use the `pitch`, `bearing` and `startZoomLevel`  or any other properties you want to configure as the starting point of the Kiosk. Read more about all the properties [here](fast-track-maptemplate/configuration/).
 
 If you want your kiosk to be displayed in a different language than English, make sure you check out the language options listed on the link above, under the \`language\` query parameter. The currently supported languages are English, German, French and Danish.
 
