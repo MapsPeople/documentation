@@ -131,4 +131,4 @@ extension UIButton {
 
 ### Expected Result[​](https://docs.mapsindoors.com/live-data-in-practice#expected-result) <a href="#expected-result" id="expected-result"></a>
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
