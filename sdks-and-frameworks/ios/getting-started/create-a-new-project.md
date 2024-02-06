@@ -50,17 +50,16 @@ MapsIndoors can be installed using CocoaPods ([Getting Started with CocoaPods](h
     target 'YOUR_APPLICATION_TARGET_NAME_HERE' do
       use_frameworks!
 
-      pod 'MapsIndoors', '~>4.1'
-      # and your Map Specific pod
-      # pod MapsIndoorsGoogleMaps
+      # Remove the comment mark to use your map specific MapsIndoors pod
+      # pod MapsIndoorsGoogleMaps, '~> 4.2'
       # or
-      # pod MapsIndoorsMapbox
+      # pod MapsIndoorsMapbox, '~> 4.2'
     end
     ```
 3. Add the `post_install` [for Google Maps](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/wiki/Podfile-post\_install-v4) or [for Mapbox Maps](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/wiki/Podfile-post\_install-Mapbox-v4) to the end of the `Podfile`.
 
 {% hint style="warning" %}
-In the line containing `pod 'MapsIndoors', '~>4.0'`, where it currently says `4.0`, be sure to replace this number with whatever the latest version of the iOS SDK is.
+In the line containing `pod 'MapsIndoors<MapEngine>', '~> 4.2'`, where it currently says `4.2`, be sure to replace this number with whatever the latest minor version of the iOS SDK is.
 {% endhint %}
 
 {% hint style="danger" %}
