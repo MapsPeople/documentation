@@ -4,7 +4,7 @@ The Android SDK for MapsIndoors has been upgraded from V3 to V4, which comes wit
 
 ### MapsIndoors SDK Map Engine Flavors[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#mapsindoors-sdk-map-engine-flavors) <a href="#mapsindoors-sdk-map-engine-flavors" id="mapsindoors-sdk-map-engine-flavors"></a>
 
-With the release of V4 the MapsIndoors SDK is released as two separate libraries depending on the Map Provider - Google Maps or Mapbox. You can get them through Maven by changing your dependency to get:
+With the release of V4 the MapsIndoors SDK is released as two separate libraries depending on the map provider - Google Maps or Mapbox. You can get them through Maven by changing your dependency to get:
 
 ```gradle
 implementation 'com.mapspeople.mapsindoors:googlemaps:4.2.5'
@@ -52,7 +52,7 @@ MapsIndoors.load(getApplicationContext(), "mapsindoors-key", listener);
 
 Map engine specific API keys are handled by `MPMapConfig`, covered in the "MapControl Initialization" section of this guide.
 
-Switching to another MapsIndoors API key, such as for switching active Solutions, is now done by invoking `MapsIndoors.load()` again with a new key. The SDK will close down, and reload with the new API key.
+Switching to another MapsIndoors API key, such as for switching active solutions, is now done by invoking `MapsIndoors.load()` again with a new key. The SDK will close down, and reload with the new API key.
 
 To close down the SDK without reloading a new API key, invoke:
 
@@ -517,4 +517,4 @@ public interface MPPositionProvider {
 | VenueCollection               | MPVenueCollection                                                   |
 | VenueInfo                     | MPVenueInfo                                                         |
 
-## MapsIndoors Initialization <a href="#mapsindoors-initialization" id="mapsindoors-initialization"></a>
+## &#x20;<a href="#mapsindoors-initialization" id="mapsindoors-initialization"></a>
