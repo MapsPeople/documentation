@@ -2,6 +2,14 @@
 
 Changelog for the MapsIndoors Flutter Plugin. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.1.2] 2024-02-01
+
+#### Changed
+
+* Updated Mapsindoors SDKs
+  * Android to 4.2.12
+  * iOS to 4.2.14
+
 ### \[2.1.1] 2024-01-24
 
 #### Fixed
