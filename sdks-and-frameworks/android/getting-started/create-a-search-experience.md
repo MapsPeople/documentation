@@ -36,7 +36,7 @@ void search(String searchQuery) {
 }
 ```
 
-To be able to search we will use a text input field where a user can write what they want to search for. This is placed at the top of the MapsActivity
+To be able to search we will use a text input field where a user can write what they want to search for. This is placed at the top of the MapsActivity.
 
 To call our search method with the text in the search input field, we then add an `EditorActionListener` and a `OnClickListener` to the text input field and the search button in the `onCreate` of `MapsActivity`. Find the full `onCreate` example here: [MapsActivity.java](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android/blob/master/app/src/main/java/com/example/mapsindoorsgettingstarted/MapsActivity.java#L53-L117) or [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android-Kotlin/blob/main/app/src/main/java/com/example/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L42-L106)
 
@@ -115,7 +115,7 @@ public MapControl getMapControl() {
 }
 ```
 
-Inside the `SearchItemAdapter` implement logic to display the locations you get from a search result. Here we show an image of the location marker and show the name of the locations.
+Inside the `SearchItemAdapter` implement logic to display the locations you get from a search result. Here we show an image of the location marker and show the name of the location.
 
 [SearchItemAdapter.java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedjava/src/main/java/com/mapspeople/mapsindoorsgettingstartedjava/SearchItemAdapter.java)
 
@@ -359,7 +359,7 @@ The standard implementation animates the camera to fit all Locations on the map 
 
 When you are done showing the search results you can [call `clearMap()` on `MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl).
 
-Since the default `displaySearchResults(List<MPLocation> locations)` uses camera animation we will call it from the UI Thread and implement it in our search method inside the getLocationsAsync result with the list from the method.
+Since the default `displaySearchResults(List<MPLocation> locations)` uses camera animation we will call it from the UI Thread and implement it in our search method inside the `getLocationsAsync` result with the list from the method.
 
 
 

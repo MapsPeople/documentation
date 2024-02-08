@@ -11,7 +11,7 @@ here are two ways to change the appearance of the map content in MapsIndoors and
 
 Each has its own purpose which will be explained below.
 
-To get an overview of what Display Rules are and can be used for, read the [Display Rules](../../../products/cms/display-rules.md) page first.
+To get an overview of what Display Rules are and can be used for, read the [Display Rules](../../products/cms/display-rules.md) page first.
 
 
 
