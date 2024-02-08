@@ -6,21 +6,21 @@ The External ID is a reference from your real-life data to a piece of MapsIndoor
 
 In a large venue like a conference hall, headquarter, or university, every room will have a unique ID like `1.234AB` or `HALL_A` in a naming scheme that makes sense to that organization.
 
-In MapsIndoors, we create all Rooms, Buildings, and Venues with an internal id that is a unique identifier, and it will not change.&#x20;
+All MapsIndoors geospatial objects contain an internal ID. While this can be used for performing lookups, it means that in general as a developer you'll need to either query for them, or create your own mapping tables against your own resources.
 
-You will likely want to use the `externalId` as an identifier for an your system's ID or another external system of your choosing. If you have a queue monitoring system and want to display some regularly updated statuses on a piece of geodata in MapsIndoors, you can use the External ID as the common denominator between the systems.
+Our recommendation is to use the `externalId` as the identifier for an your system's ID or another external system of your choosing.
 
-
+If you have a queue monitoring system and want to display some regularly updated statuses on a piece of geodata in MapsIndoors like a room, poi, or area, you can use the External ID as the common denominator between the systems.
 
 There are many ways you can utilize the power of external ID as a reference point for one of your systems, and we recommend looking at the [Integration API documentation](https://docs.mapsindoors.com/api/) and [getting in touch](https://resources.mapspeople.com/contact-us) to hear more about your options with this feature.
 
-Alternatively, you might need to change the ID for a particular room in your physical building. It might be a large meeting room that is now split in two smaller rooms and one of them keeps that original ID. The external ID should then reflect your naming scheme, and not concern itself with the internal random identifier our database handed out to any of your rooms, as they will now be two new ones.
+Alternatively, you might need to change the ID for a particular room in your physical building. It might be a large meeting room that is now split in two smaller rooms and one of them keeps that original ID. The external ID should then reflect your naming scheme, and not concern itself with the internal random identifier our database handed out to any of your rooms, as they can potentially be two new ones.
 
 Historically, we referred to this as room ID, so if you see a property on an object when working with the SDK and see a `roomId`, it should be consistent with the external ID property.
 
 ## Getting Locations by External ID
 
-A method on MapsIndoors is available to retrieve locations by their external ID. This is only for exact matches and is not a part of the general search implementations, so must be specifically implemented.
+A method on MapsIndoors is available to retrieve locations by their external ID. This method generally assumes that your first party system will do querying of different data, and only need to use the externalId to find the equivalent MapsIndoors location.
 
 The function on all 3 platforms functions similarly, returning an Array or List of Locations that match the supplied External ID strings.
 
@@ -114,10 +114,10 @@ Let's dig into how to implement this
 
 Use the relevant script tag for the MapsIndoors SDK. There is no API directly accessible as a developer, so the script tag must be run and therefore you need to have a javascript environment.
 
-As of the date of writing this Oct, 2023 the most recent version is&#x20;
+As of the date of writing this Dec, 2023 the most recent version is&#x20;
 
 ```html
-<script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.8/mapsindoors-4.24.8.js.gz"></script>
+<script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.26.3/mapsindoors-4.26.3.js.gz"></script>
 ```
 
 However, you can find the latest version of our SDK [here](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/).
