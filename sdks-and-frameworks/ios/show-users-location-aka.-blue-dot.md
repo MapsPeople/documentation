@@ -85,18 +85,20 @@ Inside `viewDidLoad` or any method of your app's lifecycle, generate and apply a
 
 ```swift
  if let validPosition = await getRandomLocation()?.position {
-        let provider = MyPositionProvider(mockAt: validPosition)
-            
-        MPMapsIndoors.shared.positionProvider = provider
-        mapControl?.showUserPosition = true
-            
-        provider.startPositioning(nil)
-            
-        if let dr = MPMapsIndoors.shared.displayRuleFor(displayRuleType: .blueDot)
-        {
-            originalIcon = dr.icon
-        }
+    let provider = MyPositionProvider(mockAt: validPosition)
+
+    MPMapsIndoors.shared.positionProvider = provider
+    mapControl?.showUserPosition = true
+
+    provider.startPositioning(nil)
+
+    if let dr = MPMapsIndoors.shared.displayRuleFor(displayRuleType: .blueDot)
+    {
+        originalIcon = dr.icon
+        // Optionally override the icon for the blue dot by supplying another image
+        dr.icon = UIImage(named: "MyOwnPositionIcon")
     }
+}
 ```
 
 Inside `viewDidLoad`, we
@@ -104,3 +106,13 @@ Inside `viewDidLoad`, we
 * Tell mapControl to show the users location
 * Assign your position provider `MyPositionProvider` to `MapsIndoors.positionProvider` and then finally,
 * Start positioning
+
+It is possible to change the default icon for the user position to include heading by using an image included in the MapsIndoors bundle:
+
+```swift
+if let assetPath = Bundle(identifier: "com.mapspeople.mapsindoors")?.bundlePath,
+   let assetBundle = Bundle(path: assetPath + "/MapsIndoors.bundle") {
+    let directionImage = UIImage(named: "Mylocation_direction", in: assetBundle, with: nil)
+    dr.icon = directionImage
+}
+```
