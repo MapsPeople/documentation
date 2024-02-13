@@ -26,6 +26,7 @@ The Map Template supports using query parameters for all the properties provided
 18. `kioskOriginLocationId` - If running the Map Template as a Kiosk, provide the Location ID that represents the location of the Kiosk.
 19. `timeout` - If you want the Map Template to reset the map position and the UI elements to the initial state after some time of inactivity, use this to specify the number of seconds of inactivity before resetting. This property is not dependent on the `kioskOriginLocationId`.
 20. `useKeyboard` - If running the Map Template as a Kiosk, set this prop to `true` and it will prompt a virtual keyboard. This property is dependent on the `kioskOriginLocationId`.
+21. `miTransitionLevel` - The zoom level on which to transition from Mapbox to MapsIndoors data. Default value is 17. This feature is only available for Mapbox.
 
 **Note!** All the query parameters need to be separated with the `&` symbol, without any spaces in between.
 
