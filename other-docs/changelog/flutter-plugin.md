@@ -2,6 +2,17 @@
 
 Changelog for the MapsIndoors Flutter Plugin. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.1.3] 2024-02-13
+
+**Changed**
+
+* New Example app included.
+
+**Fixed**
+
+* Fixed another issue where `OnMapReadyListener` would not be invoked during the initial load on iOS.
+* Fixed issues where `setOnMarkerClickListener`, `setOnMapClickListener` and `setOnLocationSelectedListener` would not accept being called with optional parameters.
+
 ### \[2.1.2] 2024-02-01
 
 #### Changed
