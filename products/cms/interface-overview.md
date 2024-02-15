@@ -106,13 +106,15 @@ When accessing Multiple doors creation mode, there is an option to choose door t
 
 ## Solution Details <a href="#solution-details" id="solution-details"></a>
 
-Under Solution Details, you can find several subpages, which are described below:
+Under Solution Details, you can find several subpages, which are described below.
 
-This page organizes the "Types" you can add to your Locations.
+### Types
+
+This page organises the "Types" you can add to your Locations.
 
 1. Create a new Type.
 2. Select multiple Types for easy deletion.
-3. "Edit Type" - Gives you the option to change the name of the Type, modify the App User Role restrictions, Sync to other Solutions, or Add Custom Properties.
+3. "Edit Type" - Gives you the option to change the name of the Type, edit if given type is selectable, not selectable or if value should be inherited from Solution Settings, modify the App User Role restrictions, Sync to other Solutions or Add Custom Properties.
 4. "Edit Display Rules" - The ability to modify the Display Rules for a given Type.
 5. The Icon assigned to the Type.
 6. The Display Name of the Type.

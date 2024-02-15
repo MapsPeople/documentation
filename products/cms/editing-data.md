@@ -2,13 +2,13 @@
 
 ## Location[​](https://docs.mapsindoors.com/cms-editing-data#location) Details Editor <a href="#location" id="location"></a>
 
-<figure><img src="../../.gitbook/assets/CleanShot 2023-07-05 at 15.09.24@2x.png" alt=""><figcaption></figcaption></figure>
+Each Location has several settings associated with it. If you select a Location on the Map or in the List view in the CMS, you will be presented with a modal with the following settings:
 
-Each Location also has several settings associated with it. If you select a Location on the Map or in the List view in the CMS, you will be presented with a modal with the following settings:
+<figure><img src="../../.gitbook/assets/CleanShot 2023-07-05 at 15.09.24@2x.png" alt=""><figcaption><p>Part of Location Details Editor</p></figcaption></figure>
 
 #### General
 
-* **Location Type** - Locations must have a Type applied, which can be set in the Location details editor. When creating a new Location, some settings are inherited from the selected Type e.g., Name and Icon. You can always change the inherited settings to something else if necessary.
+* **Location Type** - Locations must have a Type applied, which can be set in the Location details editor. When creating a new Location, some settings are inherited from the selected Type e.g. Icon. You can always change the inherited settings to something else if necessary.
 * **Name & Description** - Type the name of your Location and a Description. Entering it in the default language is mandatory, but you can also enter it in alternative languages if set on your Solution.
 * **Categories** - Add which, if any, Categories this Location belongs to.
 * **External ID** - You can define an External ID that a Location should use alongside its internal ID.
@@ -17,6 +17,10 @@ Each Location also has several settings associated with it. If you select a Loca
 
 * **Search Status** - Toggle whether or not this Location appears in searches.
 * **Search Aliases** - Other search terms that can be searched and still return this Location, even if it does not match the Name, Type, or Category.
+
+#### Selectable
+
+* Selectable - Determine if the Location is clickable on the Map or not. You can choose to inherit selectable value from Location Type.
 
 #### Restrictions
 
