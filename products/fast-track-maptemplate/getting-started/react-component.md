@@ -17,7 +17,7 @@ import MapsIndoorsMap from '@mapsindoors/map-template/dist/mapsindoors-react.es.
 <div style={{
       display: 'block',
       width: '100vw',
-      height: '100svh'
+      height: '100dvh'
 }}>
       <MapsIndoorsMap></MapsIndoorsMap>
 </div>

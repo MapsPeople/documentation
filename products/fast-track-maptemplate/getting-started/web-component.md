@@ -21,7 +21,7 @@ In your styles, make sure to give it a size. For example:
 mapsindoors-map {
     display: block;
     width: 100vw;
-    height: 100svh;
+    height: 100dvh;
 }
 ```
 
@@ -64,7 +64,7 @@ mapsIndoorsMapElement.externalIDs = externalIDsArray;
         mapsindoors-map {
             display: block;
             width: 100vw;
-            height: 100svh;
+            height: 100dvh;
         }
     </style>
 </head>
