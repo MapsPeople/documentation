@@ -148,6 +148,7 @@
   * [Application User Roles](sdks-and-frameworks/ios/application-user-roles.md)
   * [Getting a Polygon from a Location](sdks-and-frameworks/ios/getting-a-polygon-from-a-location.md)
   * [Location Details](sdks-and-frameworks/ios/location-details.md)
+  * [Highlight and Select](sdks-and-frameworks/ios/highlight-and-select.md)
 * [Integration API](sdks-and-frameworks/integration-api/README.md)
   * [Integration API Access](sdks-and-frameworks/integration-api/integration-api-access/README.md)
     * [Access with Swagger](sdks-and-frameworks/integration-api/integration-api-access/access-with-swagger.md)
