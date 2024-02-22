@@ -2,6 +2,53 @@
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[1.1.0] 2024-02-15
+
+#### Changed[​](https://docs.mapsindoors.com/changelogs/react-native#changed) <a href="#changed" id="changed"></a>
+
+* Updated iOS SDK to 4.3.2
+* Updated Android SDK to 4.3.1
+* New default rendering of selection. Can be reverted by changing `isNewSelection` to `false`
+
+#### Added[​](https://docs.mapsindoors.com/changelogs/react-native#added) <a href="#added" id="added"></a>
+
+* Exclude highway support
+* Select/highlight support with new DisplayRule settings
+  * iconScale
+  * iconPlacement
+  * labelType
+  * polygonLightnessFactor
+  * wallLightnessFactor
+  * extrusionLightnessFactor
+  * labelStyleTextSize
+  * labelStyleTextColor
+  * labelStyleTextOpacity
+  * labelStyleHaloOpacity
+  * labelStyleHaloWidth
+  * labelStyleHaloBlur
+  * labelStyleBearing
+  * badgeVisible
+  * badgeZoomFrom
+  * badgeZoomTo
+  * badgeRadius
+  * badgeStrokeWidth
+  * badgeStrokeColor
+  * badgeFillColor
+  * badgePosition
+* Support for non-selectable locations
+* Support for flat labels
+
+#### Fixed[​](https://docs.mapsindoors.com/changelogs/react-native#fixed) <a href="#fixed" id="fixed"></a>
+
+* Issue where compass would not show up on Mapbox for iOS
+* Fixes from updates to native SDKs
+
+### \[1.0.9] 2024-01-04
+
+#### Fixed[​](https://docs.mapsindoors.com/changelogs/react-native#fixed) <a href="#fixed" id="fixed"></a>
+
+* Issue where subsequent maps would not be able to draw a route on iOS
+
 ### \[1.0.8] 2023-12-19[​](https://docs.mapsindoors.com/changelogs/react-native#103-2023-12-19) <a href="#106-2023-12-19" id="106-2023-12-19"></a>
 
 #### Changed[​](https://docs.mapsindoors.com/changelogs/react-native#changed) <a href="#changed" id="changed"></a>
