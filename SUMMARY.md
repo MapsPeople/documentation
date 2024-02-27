@@ -82,7 +82,6 @@
   * [Display Language](sdks-and-frameworks/android/display-language.md)
   * [Displaying Objects](sdks-and-frameworks/android/displaying-objects/README.md)
     * [Application User Roles](sdks-and-frameworks/android/displaying-objects/application-user-roles.md)
-    * [Turn Off Collisions Based on Zoom Level](sdks-and-frameworks/android/displaying-objects/turn-off-collisions-based-on-zoom-level.md)
     * [Getting a Polygon from a Location](sdks-and-frameworks/android/displaying-objects/getting-a-polygon-from-a-location.md)
     * [Location Clustering](sdks-and-frameworks/android/displaying-objects/location-clustering.md)
     * [Location Data Sources](sdks-and-frameworks/android/displaying-objects/location-data-sources.md)
