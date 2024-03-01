@@ -4,6 +4,10 @@ Changelog for the MapsIndoors Flutter Plugin. This document structure is based o
 
 ### [2.1.4] 2024-02-28
 
+#### Changed
+
+* Updated Mapsindoors Android SDK 4.3.4
+
 **Fixed**
 
 * Fixed issue with not being able to always get a correct route involving one way paths.
