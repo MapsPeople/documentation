@@ -2,6 +2,16 @@
 
 Changelog for the MapsIndoors Flutter Plugin. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### [2.1.4] 2024-02-28
+
+#### Changed
+
+* Updated Mapsindoors Android SDK 4.3.4
+
+**Fixed**
+
+* Fixed issue with not being able to always get a correct route involving one way paths.
+
 ### \[2.1.3] 2024-02-13
 
 **Changed**
