@@ -54,7 +54,7 @@ https://map.mapsindoors.com/?apiKey=02c329e6777d431a88480a09&kioskOriginLocation
 
 With the kiosk mode enabled, your app will use our UI design for a Kiosk. Building upon the design of Map Template components, the MapsIndoors Kiosk delivers a seamless and intuitive user experience optimised the user of experience of interaction with a large screen Kiosk. The design is specifically crafted to ensure effortless navigation and interaction, even for individuals who may be unfamiliar with the technology.\
 \
-Talking specifics, **here are the additional UI components we've added:**
+Specifically, **here are the additional UI components we've added:**
 
 <figure><img src="../.gitbook/assets/CleanShot 2024-03-12 at 12.51 1.png" alt=""><figcaption><p>"Open information modal" button</p></figcaption></figure>
 
