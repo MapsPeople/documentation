@@ -4,7 +4,7 @@
 {% tab title="V4" %}
 #### Latest[​](https://docs.mapsindoors.com/reference-docs/ios#latest-1) <a href="#latest-1" id="latest-1"></a>
 
-* [MapsIndoors iOS SDK v4.3.7](https://app.mapsindoors.com/mapsindoors/reference/ios/4.3.8/documentation/mapsindoors/)
+* [MapsIndoors iOS SDK v4.3.8](https://app.mapsindoors.com/mapsindoors/reference/ios/4.3.8/documentation/mapsindoors/)
 
 #### Previous versions[​](https://docs.mapsindoors.com/reference-docs/ios#previous-versions) <a href="#previous-versions" id="previous-versions"></a>
 
