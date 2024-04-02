@@ -25,7 +25,7 @@ MapsIndoors empowers you to tailor maps to fit your brand and user interface. Th
 
 Maps are most effective when they're easy to scan at a glance. Scannability should be considered the highest priority when designing an indoor map because it directly affects how quickly and accurately users can locate themselves and navigate to their destinations.&#x20;
 
-<figure><img src="../.gitbook/assets/scanability.png" alt=""><figcaption><p>3D workplace map</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/scanability.png" alt=""><figcaption><p>Office map using MapsIndoors default styling</p></figcaption></figure>
 
 A map that's easily scannable allows users to understand the layout of a space within seconds, making navigation feel intuitive and effortless. This is accomplished through clear design choices, such as a consistent color scheme and iconography, that guide the user's eye to crucial information without overwhelming them with details.
 
@@ -33,15 +33,13 @@ A map that's easily scannable allows users to understand the layout of a space w
 
 Choosing a consistent color scheme is crucial for enhancing the scannability of your map. This method simplifies the visual experience, allowing users to quickly identify different sections, landmarks, or points of interest based on color coding. Consistency in color usage reduces cognitive load, providing a more intuitive navigation experience. It also aids in reinforcing brand identity, as users begin to associate certain colors with specific types of information or locations on your map. When colors are used strategically, they can direct attention, signify importance, and improve overall comprehension for a smoother user journey.
 
-<figure><img src="../.gitbook/assets/colors (1).png" alt=""><figcaption><p>MapsIndoors color scheme for location type</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/colors (1).png" alt=""><figcaption><p>MapsIndoors default color scheme</p></figcaption></figure>
 
 ### Use consistent iconography <a href="#colors" id="colors"></a>
 
 Using a consistent icon style is fundamental to enhancing the scannability of your map. Icons serve as visual shorthand, conveying important information and functions with simple imagery. By maintaining a unified style, users can quickly recognize and understand what each icon represents without needing to stop and study them individually. This consistency helps in reducing confusion and ensures a smoother navigation process as users become familiar with the iconography used throughout the map. Moreover, a well-chosen icon set complements the overall design aesthetic and contributes to a cleaner, more organized visual layout, thereby improving the user's ability to scan and comprehend the map efficiently.
 
-<figure><img src="../.gitbook/assets/icons.png" alt=""><figcaption><p>Default MapsIndoors icons</p></figcaption></figure>
-
-<figure><img src="../.gitbook/assets/CleanShot 2024-03-21 at 13.10.50@2x.webp" alt=""><figcaption><p>2D map example with outlined icon style</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/icons.png" alt="" width="563"><figcaption><p>MapsIndoors default icon style</p></figcaption></figure>
 
 By prioritizing scannability, you significantly enhance the usability and effectiveness of your map, ensuring a positive user experience.
 
@@ -49,7 +47,7 @@ By prioritizing scannability, you significantly enhance the usability and effect
 
 ### Use 2D models <a href="#id-2d-models" id="id-2d-models"></a>
 
-Improve your maps with visual elements like logos, workstations, and plants to enhance clarity and appeal. These images help users navigate and understand maps better. Specific logos aid brand recognition, while workstations and plant images show space layout and functionality. This approach makes maps more informative and engaging.
+Using 2D models, such as logos or representations of models like plants and furniture, can greatly enhance the clarity and readability of your maps. These simplified icons allow for quick recognition and understanding, making it easier for users to navigate through complex environments. By incorporating clear, visually distinct 2D models, you can improve the user's ability to identify specific locations or amenities, resulting in a more efficient and user-friendly experience. This approach is especially useful in densely populated or intricate spaces where too much detail can overwhelm or confuse the viewer.
 
 <figure><img src="../.gitbook/assets/2dmodels.png" alt=""><figcaption><p>2D logos used on mercant stores</p></figcaption></figure>
 
