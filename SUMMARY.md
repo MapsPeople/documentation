@@ -213,7 +213,8 @@
 
 ## Other Docs
 
-* [Map Design](other-docs/map-design.md)
+* [Map Design](other-docs/map-design/README.md)
+  * [Standard MapsIndoors Map Style](other-docs/map-design/standard-mapsindoors-map-style.md)
 * [Changelog](other-docs/changelog/README.md)
   * [React Native SDK](other-docs/changelog/react-native-sdk.md)
   * [iOS SDK](other-docs/changelog/ios-sdk/README.md)
