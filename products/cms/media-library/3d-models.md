@@ -1,6 +1,6 @@
 # 3D Models
 
-3D Models in your MapsIndoors solution are uploaded and managed through [the Media Library](https://docs.mapsindoors.com/cms-media-library) just like 2D Models and Icons. However, due to the nature of 3D Models, there are a few additional steps to manage, particularly when uploading your 3D Model.
+3D Models in your MapsIndoors solution are uploaded and managed through [the Media Library](https://docs.mapsindoors.com/cms-media-library) just like 2D Models and Icons. However, due to the nature of 3D Models, there are a few additional steps to manage, particularly when uploading your 3D Model. 3D Models can be uploaded to the Media Libray in `.glb` file format.
 
 ### Set Preview Image[​](https://docs.mapsindoors.com/cms-3d-models#set-preview-image) <a href="#set-preview-image" id="set-preview-image"></a>
 

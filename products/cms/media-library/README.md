@@ -66,7 +66,7 @@ Various filtering options have been built into the Media Library, to ensure that
 
 <figure><img src="https://docs.mapsindoors.com/img/cms/media-library-filter-filetype.png" alt=""><figcaption></figcaption></figure>
 
-The "Filter" option in the filter-bar opens a drop-down menu allowing you to select which file-type should be displayed. These are currently `.svg`, `.png` and `.jpg/.jpeg`. You can select more than one option. If no option is selected, content of all file types will be displayed.
+The "Filter" option in the filter-bar opens a drop-down menu allowing you to select which file-type should be displayed. These are currently `.svg`, `.png`, `.jpg/.jpeg` and `.glb`. You can select more than one option. If no option is selected, content of all file types will be displayed.
 
 **MapsIndoors Filter**[**​**](https://docs.mapsindoors.com/cms-media-library#mapsindoors-filter)
 
