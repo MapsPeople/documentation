@@ -41,6 +41,8 @@ In addition to improving user experience, 3D indoor mapping solutions like MapsI
 
 While exact best practices will depend on your specific solution and implementation, we can provide some general pointers of things to consider when developing your solution to work with MapsIndoors 3D maps. Most of these will be specifically pertaining to the inclusion of 3D models in your solution, not to utilising 3D walls and 3D room extrusions.
 
+* Use .gltf file format
+* Ideally 25-100kb size. You go can higher if you want, just be aware that it impacts load time.
 * Keep your models as low-poly as possible.
 * Consider whether all your locations need a 3D model.
 * Where possible, consider reusing the same model, instead of uploading 3 different models with only minor variations.
