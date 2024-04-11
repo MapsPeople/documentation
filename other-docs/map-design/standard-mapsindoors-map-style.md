@@ -48,4 +48,6 @@ We don't draw custom land when using the Mapbox base map, but instead place item
 
 And when using Mapbox 3D, trees and other environmental items are a part of the base map. If more is wished, you can always add more using 3D models.
 
-<figure><img src="../../.gitbook/assets/mapbox-3d-outdoor.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mapbox-3d-outdoor.png" alt=""><figcaption><p>Mapbox base map 3D landscape</p></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/ipad-mockup-light-landmarkoutside.webp" alt=""><figcaption><p>Mapbox 3D map includes extrusions and landmarks for other buildings (this can be turned off)</p></figcaption></figure>
