@@ -16,6 +16,7 @@
     * [3D Maps](key-features/3d-maps/README.md)
       * [Managing your 3D Maps](sdks-and-frameworks/web/map-visualization/3d-maps/managing-your-3d-maps.md)
     * [Base Map Styling - Google Maps](sdks-and-frameworks/web/map-visualization/base-map-styling-google-maps.md)
+    * [Managing features visibility for Mapbox v3](sdks-and-frameworks/web/map-visualization/managing-features-visibility-for-mapbox-v3.md)
   * [Wayfinding](sdks-and-frameworks/web/directions-and-routing/README.md)
     * [Directions](sdks-and-frameworks/web/directions-and-routing/directions.md)
     * [Directions Service](sdks-and-frameworks/web/directions-and-routing/directions-service/README.md)
