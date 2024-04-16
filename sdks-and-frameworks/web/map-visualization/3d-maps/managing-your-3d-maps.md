@@ -2,8 +2,6 @@
 
 Your 3D maps are managed and customised through the use of Display Rules. For a more extensive and detailed explanation on Display Rules, [please read this article covering the topic](https://docs.mapsindoors.com/display-rules). The following information can also be found in the articles detailing Display Rules, but 3D-specific information will be covered in this article.
 
-### 3D Walls[​](https://docs.mapsindoors.com/managing-3d-maps#3d-walls) <a href="#id-3d-walls" id="id-3d-walls"></a>
-
 The MapsIndoors CMS gives you the option of displaying your map in 3D. This is achieved by ensuring that any walls present in your solution are displayed as an extrusion, giving the user the appearance of a 3D map. The appearance of the walls can be customized to match your desired visual identity.
 
 1. **Visibility** - Controls whether the 3D walls are visible on the map.
@@ -19,8 +17,6 @@ The MapsIndoors CMS gives you the option of displaying your map in 3D. This is a
    * If setting the color in-app, the value provided must be in 6-digit HEX code (eg. #3071D9).
 5. **Wall height** - Controls the height of the 3D walls, measured in meters.
 
-### 3D Room Extrusion[​](https://docs.mapsindoors.com/managing-3d-maps#3d-room-extrusion) <a href="#id-3d-room-extrusion" id="id-3d-room-extrusion"></a>
-
 In addition to the ability to extrude all walls, you can additionally extrude specific rooms or areas, for example, if you wish to highlight a specific meeting room where an important meeting is taking place.
 
 1. **Visibility** - Controls whether the extrusion is visible on the map.
@@ -35,8 +31,6 @@ In addition to the ability to extrude all walls, you can additionally extrude sp
    * In the CMS, you can select a color using the color picker displayed when clicking the color input field.
    * If setting the color in-app, the value provided must be in 6-digit HEX code (eg. #3071D9).
 5. **Extrusion height** - Controls the height of the room extrusion, measured in meters.
-
-### 3D models[​](https://docs.mapsindoors.com/managing-3d-maps#3d-models) <a href="#id-3d-models" id="id-3d-models"></a>
 
 3D models are a way of including models on the map, and customising their appearance. They are uploaded using the Media Library.
 
