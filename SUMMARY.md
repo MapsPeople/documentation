@@ -202,7 +202,8 @@
   * [Route Network](products/cms/route-network/README.md)
     * [Barrier Route Element](products/cms/route-network/barrier-route-element.md)
     * [Door Route Element](products/cms/route-network/door-route-element.md)
-* [Kiosk](products/kiosk.md)
+* [Kiosk](products/kiosk/README.md)
+  * [QR code configuration](products/kiosk/qr-code-configuration.md)
 
 ## Reference Docs
 

@@ -1,0 +1,14 @@
+# QR code configuration
+
+When running the Map Template in Kiosk mode, you have the possibility to scan a QR code and get the route on your mobile device.
+
+The QR code is configured to offer you the flexibility that you need in order to load the directions between two locations in your own app.
+
+We do that by constructing the URL using the `origin` and the `pathname` belonging to the domain used at the moment. Furthermore, we are adding the necessary query parameters to indicate the `directionsTo` and `directionsFrom`, `apiKey` and other parameters that you may have configured on your app.
+
+Below there is an example of how these URLs are constructed when using the QR code functionality on the Map Template Kiosk:
+
+1. Running the Map Template Kiosk on the MapsPeople domain `map.mapsindoors.com` will open up a QR code with the following URL: [https://map.mapsindoors.com/?mapboxAccessToken=pk.eyJ1IjoibWFwc3Blb3BsZSIsImEiOiJjbG5pdGJtNnYxaWFrMmpydWVkM2prYzV1In0.AjH1bTWr0QHEY9FftxU7Rw\&apiKey=02c329e6777d431a88480a09\&primaryColor=005655\&logo=https%3A%2F%2Fapp.mapsindoors.com%2Fmapsindoors%2Fgfx%2Fmapspeople-logo%2Fmapspeople-pin.svg\&directionsFrom=b47a973a8450439598c0189c\&directionsTo=0cb9848a8bcf4388a50371bc](https://map.mapsindoors.com/?mapboxAccessToken=pk.eyJ1IjoibWFwc3Blb3BsZSIsImEiOiJjbG5pdGJtNnYxaWFrMmpydWVkM2prYzV1In0.AjH1bTWr0QHEY9FftxU7Rw\&apiKey=02c329e6777d431a88480a09\&primaryColor=005655\&logo=https%3A%2F%2Fapp.mapsindoors.com%2Fmapsindoors%2Fgfx%2Fmapspeople-logo%2Fmapspeople-pin.svg\&directionsFrom=b47a973a8450439598c0189c\&directionsTo=0cb9848a8bcf4388a50371bc)
+2. Running the Map Template Kiosk on your own domain, `example-domain.com` will open up a QR code with the following URL: [https://example-domain.com/?mapboxAccessToken=pk.eyJ1IjoibWFwc3Blb3BsZSIsImEiOiJjbG5pdGJtNnYxaWFrMmpydWVkM2prYzV1In0.AjH1bTWr0QHEY9FftxU7Rw\&apiKey=02c329e6777d431a88480a09\&primaryColor=005655\&logo=https%3A%2F%2Fapp.mapsindoors.com%2Fmapsindoors%2Fgfx%2Fmapspeople-logo%2Fmapspeople-pin.svg\&directionsFrom=b47a973a8450439598c0189c\&directionsTo=0cb9848a8bcf4388a50371bc](https://example-domain.com/?mapboxAccessToken=pk.eyJ1IjoibWFwc3Blb3BsZSIsImEiOiJjbG5pdGJtNnYxaWFrMmpydWVkM2prYzV1In0.AjH1bTWr0QHEY9FftxU7Rw\&apiKey=02c329e6777d431a88480a09\&primaryColor=005655\&logo=https%3A%2F%2Fapp.mapsindoors.com%2Fmapsindoors%2Fgfx%2Fmapspeople-logo%2Fmapspeople-pin.svg\&directionsFrom=b47a973a8450439598c0189c\&directionsTo=0cb9848a8bcf4388a50371bc)
+
+At the moment, there is no option to configure the QR code URL to open up on your own app. In order to do that, we advise you to fork the repository on your local machine and proceed with implementing the necessary steps to configure the universal links on Apple (read more about it [here](https://developer.apple.com/ios/universal-links/)) and app links on Android (read more about it [here](https://developer.android.com/training/app-links)).
