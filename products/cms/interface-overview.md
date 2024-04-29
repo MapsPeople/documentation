@@ -163,6 +163,10 @@ The list of Venues in your Solution.
 2. The Name of your Venues.
 3. The Venue ID
 
+### Solution Settings
+
+This page contains various subpages with more advanced styling settings. Read more about Solution Setting [here](solution-settings.md).
+
 ### App Settings[​](https://docs.mapsindoors.com/cms-interface-overview#app-settings) <a href="#app-settings" id="app-settings"></a>
 
 This page contains various subpages with more advanced settings about your app.

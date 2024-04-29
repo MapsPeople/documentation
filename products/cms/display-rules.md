@@ -7,7 +7,7 @@ description: >-
 
 # Display Rules
 
-### Introduction
+## Introduction
 
 Display Rules are the backbone of how you style the MapsIndoors data on your map. They are an incredibly powerful and flexible way to decide at which zoom levels icons appear, what colors to use for different types of places, and which 3D Models to use for your bookable desks, landmarks, or office decoration.
 
@@ -18,6 +18,21 @@ Here are a few examples for cases where it could make sense to change the Locati
 1. You can use Display Rules to match the colors of the selected Location's polygon to your brand guidelines to ensure a coherent visual expression throughout your application.
 2. It is possible to connect your MapsIndoors Solution to an _occupancy_ monitoring system using [Live Data integrations](../../sdks-and-frameworks/web/data-visualization/live-data/), so the information about whether or not a room is occupied, and by how many people, is relayed to the MapsIndoors system. This information could then be used to color a Room red when it is occupied, or green if it is available.
 3. A similar concept could be applied to Icons. Instead of the color of the Polygon changing depending on occupancy status, the Icon used for the Location could change based on whether or not the room is available.
+
+## How to access Display Rules?
+
+You have two convenient pathways for accessing Display Rules: via Location Details or Location Types. To initiate Display Rules through Location Details, simply select any location on the map. Once the Location Details Editor is displayed, you'll notice a small icon representing Display Rules in the top right corner:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-04-26 at 10.49.35.png" alt=""><figcaption><p>Location Details Editor</p></figcaption></figure>
+
+By clicking this icon, you'll gain access to the Display Rules specifically tailored to that particular location. Alternatively, you can access Display Rules through Location Types. Here's how:\
+
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-04-26 at 10.52.11.png" alt=""><figcaption><p>Open Solution Details</p></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-04-26 at 10.53.07.png" alt=""><figcaption><p>Open Display Rules for a given Location Type</p></figcaption></figure>
+
+Navigate to Display Rules for a designated Location Type to manage Display Rules for the entire type efficiently. This method provides a comprehensive approach to editing Display Rules across multiple locations within a specific type.
 
 ## Display Rule Hierarchy[​](https://docs.mapsindoors.com/display-rules#display-rule-hierarchy) <a href="#display-rule-hierarchy" id="display-rule-hierarchy"></a>
 
