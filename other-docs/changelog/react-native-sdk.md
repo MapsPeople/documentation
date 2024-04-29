@@ -2,6 +2,26 @@
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[1.2.0] 2024-04-29
+
+#### Changed[​](https://docs.mapsindoors.com/changelogs/react-native#changed) <a href="#changed" id="changed"></a>
+
+* Updated iOS SDK to 4.3.9
+* Updated Android SDK to 4.6.0
+
+#### Added[​](https://docs.mapsindoors.com/changelogs/react-native#added) <a href="#added" id="added"></a>
+
+* New optional list of strings, with venue id's on `load`. For optional venue loading.
+* New methods to support optional venue loading.
+  * `addVenuesToSync(venues: string[])`
+  * `removeVenuesToSync(venues: string[])`
+  * `getSyncedVenues(): Promise<string[]>`
+* The MapsIndoors iOS SDK now includes a Privacy Manifest as described by Apple in Upcoming third-party SDK requirements. This also includes an update to the Mapbox 10.17.0 that includes a fix to the privacy manifest of Mapbox.
+
+#### Fixed[​](https://docs.mapsindoors.com/changelogs/react-native#fixed) <a href="#fixed" id="fixed"></a>
+
+* Fixes from updates to native SDKs
+
 ### \[1.1.0] 2024-02-15
 
 #### Changed[​](https://docs.mapsindoors.com/changelogs/react-native#changed) <a href="#changed" id="changed"></a>
