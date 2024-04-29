@@ -24,7 +24,7 @@ In order to access Mapbox v3 and its options, use `mapView`:&#x20;
 
 ```
 const mapView = new mapsindoors.mapView.MapboxV3View({
-    accessToken: YOUR_MAPBOX_ACCESS_TOKEN
+    accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
     element: document.getElementById('map'),
     center: { lat: 38.8974905, lng: -77.0362723 },
     zoom: 17,
@@ -34,7 +34,7 @@ const mapView = new mapsindoors.mapView.MapboxV3View({
     lightPreset: 'dusk'
 });
 
-//Then the MapsIndoors SDK is initialized
+// Then the MapsIndoors SDK is initialized
 const mi = new mapsindoors.MapsIndoors({
     mapView: mapView,
     floor: "1",
@@ -77,7 +77,7 @@ const mapView = new mapsindoors.mapView.MapboxView({
     maxZoom: 25,
 });
 
-//Then the MapsIndoors SDK is initialized
+// Then the MapsIndoors SDK is initialized
 const mi = new mapsindoors.MapsIndoors({
     mapView: mapView,
     floor: "1",

@@ -311,7 +311,7 @@ const mapViewOptions = {
     element: document.getElementById('map'),
     center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
     zoom: 17,
-    maxZoom: 22,
+    maxZoom: 22
 };
 const mapViewInstance = new mapsindoors.mapView.MapboxView(mapViewOptions);
 const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
@@ -337,7 +337,7 @@ const mapViewOptions = {
   element: document.getElementById('map'),
   center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
   zoom: 17,
-  maxZoom: 22,
+  maxZoom: 22
 };
 
 const mapViewInstance = new mapsindoors.mapView.MapboxView(mapViewOptions);
@@ -359,6 +359,118 @@ You should now be able to switch between floors.&#x20;
 Here's a JSFiddle demonstrating the result you should have by now:
 
 {% embed url="https://jsfiddle.net/mapspeople/o12hrcL8/2/" %}
+{% endtab %}
+
+{% tab title="Mapbox v3 - Manually" %}
+The MapsIndoors SDK is hosted on a Content Delivery Network (CDN) and should be loaded using a script tag.
+
+Insert the MapsIndoors SDK script tag into `<head>`, followed by the Mapbox `script` and `style` tag:
+
+```html
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MapsIndoors</title>
+<script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.8/mapsindoors-4.24.8.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+  <script src="main.js"></script>
+</body>
+</html>
+```
+
+> Remember to add your API keys to the links in your code. You can use the demo MapsIndoors API key: `d876ff0e60bb430b8fabb145`.
+
+Add an empty `<div>` element to `<body>` with the `id` attribute set to "map":
+
+```html
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MapsIndoors</title>
+<script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.8/mapsindoors-4.24.8.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+<div id="map" style="width: 600px; height: 600px;"></div>
+  <script src="main.js"></script>
+</body>
+</html>
+```
+
+To load data and display it on the map, we need to create a new _instance_ of the [`MapsIndoors` class](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#MapsIndoors) with a [`mapView` instance](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.MapboxV3View.html) with a few _properties_ set. This is all done by placing the following code in the `main.js` file you created earlier:
+
+```javascript
+// main.js
+
+const mapViewOptions = {
+    accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
+    element: document.getElementById('map'),
+    center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+    zoom: 17,
+    maxZoom: 22,
+    mapsIndoorsTransitionLevel: 17,
+    lightPreset: 'dusk',
+    showMapMarkers: false
+};
+const mapViewInstance = new mapsindoors.mapView.MapboxV3View(mapViewOptions);
+const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
+    mapView: mapViewInstance,
+});
+```
+
+What happens in this snippet is we create a `mapViewInstance` that pulls up a [`MapboxView`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.MapboxV3View.html) with some [`mapViewOptions`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.MapboxV3View.html). The options define which element in the html-file to display the map in (in this case `<div id="map">`), where the map should center, what zoom level to display, and what the max zoom level is. You can also control `mapsIndoorsTransitionLevel`  which defines when Mapbox' Extruded buildings disappear and MapsIndoors data is shown. `lightPreset` sets the global [light](prerequisites.md#mapbox-v3) for you application, while `showMapMarkers` property defines if Mapbox' Markers are shown on the map.
+
+You should now see a map from your chosen map engine with MapsIndoors data loaded on top.
+
+### Display a Floor Selector <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
+
+Next, we'll add a Floor Selector for changing between floors.
+
+First, we add an empty `<div>` element programmatically. Then we create a new [`FloorSelector` _instance_](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/FloorSelector.html) and push the `floorSelectorElement` to the `mapboxInstance` to position it as a map controller:
+
+```javascript
+// main.js
+
+const mapViewOptions = {
+  accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
+  element: document.getElementById('map'),
+  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  zoom: 17,
+  maxZoom: 22,
+  mapsIndoorsTransitionLevel: 17,
+  lightPreset: 'dusk',
+  showMapMarkers: false
+};
+
+const mapViewInstance = new mapsindoors.mapView.MapboxV3View(mapViewOptions);
+const mapsIndoorsInstance = new mapsindoors.MapsIndoors({ mapView: mapViewInstance });
+const mapboxInstance = mapViewInstance.getMap();
+
+// Floor Selector
+const floorSelectorElement = document.createElement('div');
+new mapsindoors.FloorSelector(floorSelectorElement, mapsIndoorsInstance);
+mapboxInstance.addControl({ onAdd: function () { return floorSelectorElement }, onRemove: function () { } });
+```
+
+{% embed url="https://docs.mapbox.com/mapbox-gl-js/api/map/#map#addcontrol" %}
+
+> See all available control positions in the [Mapbox Documentation](https://docs.mapbox.com/mapbox-gl-js/api/map/#map#addcontrol).
+
+You should now be able to switch between floors.&#x20;
 {% endtab %}
 
 {% tab title="Mapbox - MI Components" %}
@@ -465,6 +577,8 @@ Here's a JSFiddle demonstrating the result you should have by now:
 {% embed url="https://jsfiddle.net/mapspeople/vr1wkmho/1/" %}
 {% endtab %}
 {% endtabs %}
+
+
 
 ## Step 3. Create a Search Experience
 
@@ -690,8 +804,6 @@ To remove the location filter again, call `mapsIndoorsInstance.filter(null)`.
 Here's a JSFiddle demonstrating the result you should have by now:
 
 {% embed url="https://jsfiddle.net/mapspeople/cwg9eumd/2/" %}
-
-
 {% endtab %}
 
 {% tab title="Google Maps - MI Components" %}
@@ -1295,8 +1407,6 @@ Here's a JSFiddle demonstrating the result you should have by now:
 {% endtab %}
 {% endtabs %}
 
-
-
 ## Step 4. Getting Directions
 
 In this step you'll create directions between two points and change the transportation mode.
@@ -1309,8 +1419,6 @@ To get directions between two MapsIndoors Locations, or places outside of your M
 2. The Directions Render instance
 
 We need the Directions Service to calculate the fastest route between two points, and use the Directions Render to actually draw the route on the map.
-
-
 
 {% tabs %}
 {% tab title="Google Maps - Manually" %}
@@ -1387,8 +1495,6 @@ In the following example, this is what happens:
 
     > See all available route parameters in the [reference documentation](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.DirectionsService.html#getRoute).
 5. Using the [MapsIndoors Directions Renderer](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html#setRoute) call the `setRoute` method to display the route on the map
-
-
 
 ```javascript
 // main.js
