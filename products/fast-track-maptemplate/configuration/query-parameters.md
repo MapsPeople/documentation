@@ -29,6 +29,7 @@ The Map Template supports using query parameters for all the properties provided
 21. `miTransitionLevel` - The zoom level on which to transition from Mapbox to MapsIndoors data. Default value is 17. This feature is only available for Mapbox.
 22. `category` - If you want to indicate an active category on the map. The value should be the Key (Administrative ID).
 23. `searchAllVenues` - If you want to perform search across all venues in the solution. The standard behaviour is searching in one venue.
+24. `useMapProviderModule` - Set to "true" if the Map Template should take MapsIndoors solution modules into consideration when determining what map type to use.
 
 **Note!** All the query parameters need to be separated with the `&` symbol, without any spaces in between.
 
