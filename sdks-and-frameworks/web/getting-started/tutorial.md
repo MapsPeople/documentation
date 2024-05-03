@@ -645,7 +645,8 @@ googleMapsInstance.controls[google.maps.ControlPosition.RIGHT_TOP].push(floorSel
     mapsindoors.services.LocationsService.getLocations(searchParameters).then(locations => {
       console.log(locations);
     });
-  }
+  });
+}
 ```
 
 See all available search parameters in the [reference documentation](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations).
