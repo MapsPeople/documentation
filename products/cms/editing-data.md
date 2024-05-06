@@ -33,7 +33,25 @@ Each Location has several settings associated with it. If you select a Location 
 
 #### Image
 
-* **Image Options** - Here you can add an image to a Location. You can select one from the [Media Library](media-library/), or set a url for an image hosted elsewhere. This should be a photo, as opposed to the pictogram you use for the Icon.
+*   **Image Options** - Here you can add an image to a Location. You can select one from the [Media Library](media-library/), or set a url for an image hosted elsewhere. This should be a photo, as opposed to the pictogram you use for the Icon.
+
+    * This image can be used when accessing the Location data using the MapsIndoors SDKs
+
+    ```html
+    {
+      "id": "586ce41ebc1f571794b9e924",
+       ...
+      "properties": {
+        "name": "Copenhagen",
+         ...
+        "imageURL": "https://media.mapsindoors.com/[SOLUTION_ID]/media/[MEDIA_NAME].png",
+      }
+    }
+    ```
+
+    * The Location image can be seamlessly integrated into your application as needed. Given the dynamic nature of its usage, specifying an exact size can be challenging. However, for users of our **Map Template** product, we offer some guidance.\
+      \
+      Within the **Map Template** interface for mobile-centric applications, a Location image  typically occupies around 90% of the screen resolution. For instance, on an iPhone with a browser width of 414px, the Location image is displayed at a width of 382px. To ensure crispness on such devices, accounting for a device pixel density of at least 2 is crucial. Therefore, for the iPhone example, the image should ideally be at least 382x2 = 764px wide. Though there's no fixed height limit, the standard aspect ratio tends towards 4:3, indicating a projected height spanning between 573px. Furthermore, keeping file sizes minimal enhances performance and expedites loading times, a vital consideration across all platforms.
 
 #### Custom Properties
 
@@ -78,6 +96,7 @@ When developing your own app, you can still use the MapsIndoors CMS to save the 
 
 Location Object:
 
+{% code overflow="wrap" fullWidth="false" %}
 ```
 {
   "id": "586ce41ebc1f571794b9e924",
@@ -93,6 +112,7 @@ Location Object:
   }
 }
 ```
+{% endcode %}
 
 The parameters above can show a static Street View image through the Street View Static API. Please see [the Street View documentation](https://developers.google.com/maps/documentation/streetview/intro) for more information.
 
