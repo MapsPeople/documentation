@@ -376,7 +376,7 @@ Insert the MapsIndoors SDK script tag into `<head>`, followed by the Mapbox `scr
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-<script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.8/mapsindoors-4.24.8.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
+<script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.33.0/mapsindoors-4.33.0.js.gz?apiKey=YOUR_MAPSINDOORS_API_KEY"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
 </head>
@@ -400,7 +400,7 @@ Add an empty `<div>` element to `<body>` with the `id` attribute set to "map":
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-<script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.8/mapsindoors-4.24.8.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
+<script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.33.0/mapsindoors-4.33.0.js.gz?apiKey=YOUR_MAPSINDOORS_API_KEY"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
 </head>
