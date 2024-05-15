@@ -33,6 +33,7 @@
     * [Booking](sdks-and-frameworks/web/booking/README.md)
       * [User Authenticated Booking](sdks-and-frameworks/web/booking/user-authenticated-booking.md)
     * [Live Data](sdks-and-frameworks/web/data-visualization/live-data/README.md)
+      * [BadgeRenderer](sdks-and-frameworks/web/data-visualization/live-data/badgerenderer.md)
       * [Webex Integration](sdks-and-frameworks/web/data-visualization/live-data/webex-integration.md)
     * [Display Heatmap Overlay](sdks-and-frameworks/web/data-visualization/display-heatmap-overlay.md)
   * [Other guides](sdks-and-frameworks/web/other-guides/README.md)
