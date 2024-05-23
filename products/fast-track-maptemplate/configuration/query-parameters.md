@@ -30,6 +30,7 @@ The Map Template supports using query parameters for all the properties provided
 22. `category` - If you want to indicate an active category on the map. The value should be the Key (Administrative ID).
 23. `searchAllVenues` - If you want to perform search across all venues in the solution. The standard behaviour is searching in one venue.
 24. `useMapProviderModule` - Set to "true" if the Map Template should take MapsIndoors solution modules into consideration when determining what map type to use.
+25. `hideNonMatches` - Determine whether the locations on the map should be filtered (only show the matched locations and hide the rest) or highlighted (show all locations and highlight the matched ones with a red dot by default). If set to true, the locations will be filtered.
 
 **Note!** All the query parameters need to be separated with the `&` symbol, without any spaces in between.
 
