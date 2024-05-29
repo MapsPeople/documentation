@@ -797,6 +797,7 @@ function onSearch() {
 
    // Filter map to only display search results
     mapsIndoorsInstance.filter(locations.map(location => location.id), false);
+    });
 }
 ```
 
