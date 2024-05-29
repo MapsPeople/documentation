@@ -1642,38 +1642,36 @@ In MapsIndoors, the transportation mode is referred to as travel mode. There are
 
 To change between travel modes we first need to add a `<select>` element with all four transportation options above the search field:
 
-```html
-<!-- index.html -->
+<pre class="language-html"><code class="lang-html">&#x3C;!-- index.html -->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MapsIndoors</title>
-  <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.8/mapsindoors-4.24.8.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
-<script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=YOUR_GOOGLE_MAPS_API_KEY"></script>
-</head>
-<body>
-  <div id="map" style="width: 600px; height: 600px;"></div>
+&#x3C;!DOCTYPE html>
+&#x3C;html lang="en">
+&#x3C;head>
+  &#x3C;meta charset="UTF-8">
+  &#x3C;meta http-equiv="X-UA-Compatible" content="IE=edge">
+  &#x3C;meta name="viewport" content="width=device-width, initial-scale=1.0">
+  &#x3C;title>MapsIndoors&#x3C;/title>
+  &#x3C;script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.24.8/mapsindoors-4.24.8.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY">&#x3C;/script>
+&#x3C;script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&#x26;key=YOUR_GOOGLE_MAPS_API_KEY">&#x3C;/script>
+&#x3C;/head>
+&#x3C;body>
+  &#x3C;div id="map" style="width: 600px; height: 600px;">&#x3C;/div>
 
-<!-- Travel mode selector -->
-<label for="travel-modes">Choose a travel mode:</label>
-<select name="travelModeSelector" id="travel-modes">
-  <option value="walking" selected>Walking</option>
-  <option value="bicycling">Bicycling</option>
-  <option value="driving">Driving</option>
-  <option value="transit">Transit</option>
-</select>
-
-  <input type="text" placeholder="Search">
-  <button onclick="onSearch()">Search</button>
-
-  <ul id="search-results"></ul>
-</body>
-</html>
-```
+&#x3C;!-- Travel mode selector -->
+&#x3C;label for="travel-modes">Choose a travel mode:&#x3C;/label>
+&#x3C;select name="travelModeSelector" id="travel-modes">
+  &#x3C;option value="walking" selected>Walking&#x3C;/option>
+  &#x3C;option value="bicycling">Bicycling&#x3C;/option>
+  &#x3C;option value="driving">Driving&#x3C;/option>
+  &#x3C;option value="transit">Transit&#x3C;/option>
+&#x3C;/select>
+<strong>  &#x3C;script src="main.js">&#x3C;/script>
+</strong>  &#x3C;input type="text" placeholder="Search">
+  &#x3C;button onclick="onSearch()">Search&#x3C;/button>
+  &#x3C;ul id="search-results">&#x3C;/ul>
+&#x3C;/body>
+&#x3C;/html>
+</code></pre>
 
 To use the chosen travel mode when getting a route, we need to replace the hardcoded value for `travelMode` parameter inside the `getRoute` method with the `<select>` elements value:
 
@@ -2299,10 +2297,9 @@ To change between travel modes we first need to add a `<select>` element with al
   <option value="driving">Driving</option>
   <option value="transit">Transit</option>
 </select>
-
+  <script src="main.js"></script>
   <input type="text" placeholder="Search">
   <button onclick="onSearch()">Search</button>
-
   <ul id="search-results"></ul>
 </body>
 </html>
