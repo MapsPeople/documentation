@@ -56,6 +56,7 @@
     * [Remove Labels from Buildings and Venues for Web](sdks-and-frameworks/web/other-guides/remove-labels-from-buildings-and-venues-for-web.md)
     * [Synchronizing data for a subset of venues](sdks-and-frameworks/web/other-guides/synchronizing-data-for-a-subset-of-venues.md)
   * [Display Rules in Practice](sdks-and-frameworks/web/display-rules-in-practice.md)
+  * [Managing map visibility](sdks-and-frameworks/web/managing-map-visibility.md)
 * [Android](sdks-and-frameworks/android/README.md)
   * [Getting Started](sdks-and-frameworks/android/getting-started/README.md)
     * [Migrating from V3 to V4](sdks-and-frameworks/android/getting-started/migrating-from-v3-to-v4.md)
@@ -203,7 +204,7 @@
   * [Route Network](products/cms/route-network/README.md)
     * [Barrier Route Element](products/cms/route-network/barrier-route-element.md)
     * [Door Route Element](products/cms/route-network/door-route-element.md)
-* [Kiosk](products/kiosk/README.md)
+* [Kiosk](products/kiosk.md)
   * [QR code configuration](products/kiosk/qr-code-configuration.md)
 
 ## Reference Docs

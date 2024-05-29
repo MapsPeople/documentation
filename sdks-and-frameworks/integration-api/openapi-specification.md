@@ -1,6 +1,6 @@
 # OpenAPI Specification
 
-### Endpoint root: [https://integration.mapsindoors.com/](https://integration.mapsindoors.com/)
+Endpoint root: [https://integration.mapsindoors.com/](https://integration.mapsindoors.com/)
 
 {% swagger src="https://integration.mapsindoors.com/swagger/v1/swagger.json" path="/{apiKey}/api/appUserRoles" method="get" %}
 [https://integration.mapsindoors.com/swagger/v1/swagger.json](https://integration.mapsindoors.com/swagger/v1/swagger.json)
