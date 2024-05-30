@@ -75,14 +75,6 @@ Both examples work off a click event attached to a card element. The key differe
 
 Take advantage of using MapsIndoors native filtering and highlighting functionality via the SDK without needing to implement your own custom display logic.
 
-
-
-DESCRIPTION OF BOTH FILTERING AND HIGHLIGHTING WILL GO HERE
-
-IMAGE\_PLACEHOLDER\_HERE
-
-HOLDING OFF ON THIS UNTIL I GET MORE DETAILS ON HOW THESE METHODS WORK
-
 ### **Use-Case 3: Modify Display Rule**
 
 #### Example 1: Customizing Display Rule on Click Event with MapsIndoors Location ID
