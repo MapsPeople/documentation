@@ -73,6 +73,7 @@
       * [User's Location as Point of Origin](sdks-and-frameworks/android/directions/directions-renderer/users-location-as-point-of-origin.md)
     * [Wayfinding Instructions](sdks-and-frameworks/android/directions/wayfinding-instructions/README.md)
       * [See Route Element Details](sdks-and-frameworks/android/directions/wayfinding-instructions/see-route-element-details.md)
+    * [Using multi-stop navigation](sdks-and-frameworks/android/directions/using-multi-stop-navigation.md)
   * [Booking](sdks-and-frameworks/android/booking/README.md)
     * [User Authenticated Booking](sdks-and-frameworks/android/booking/user-authenticated-booking.md)
   * [Searching](sdks-and-frameworks/android/searching/README.md)
