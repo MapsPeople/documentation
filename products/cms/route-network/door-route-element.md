@@ -1,6 +1,6 @@
 # Door Route Element
 
-Doors are Route Elements that allow you to manipulate certain portions of the Route Network and indicate the presence of a door - or other entryway - in a building. A Door is a connection between two Rooms, or from outside a Building and into it.
+Doors are Route Elements that allow you to manipulate certain portions of the Route Network and indicate the presence of a door - or other entryway - in a building. A Door is a connection between two Rooms, or from outside a Building and into it. A new door can be created only for solutions with [Automatic Graph Setup](./).
 
 Automatically calculating the Route from an Origin to a Destination in reality means calculating how to get from Door to Door between the Origin and Destination while avoiding all Walls.
 

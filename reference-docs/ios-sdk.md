@@ -8,6 +8,7 @@
 
 #### Previous versions[​](https://docs.mapsindoors.com/reference-docs/ios#previous-versions) <a href="#previous-versions" id="previous-versions"></a>
 
+* [MapsIndoors iOS SDK v4.4.1](https://app.mapsindoors.com/mapsindoors/reference/ios/4.4.1/documentation/mapsindoors/)
 * [MapsIndoors iOS SDK v4.4.0](https://app.mapsindoors.com/mapsindoors/reference/ios/4.4.0/documentation/mapsindoors/)
 * [MapsIndoors iOS SDK v4.3.13](https://app.mapsindoors.com/mapsindoors/reference/ios/4.3.13/documentation/mapsindoors/)
 * [MapsIndoors iOS SDK v4.3.12](https://app.mapsindoors.com/mapsindoors/reference/ios/4.3.12/documentation/mapsindoors/)
