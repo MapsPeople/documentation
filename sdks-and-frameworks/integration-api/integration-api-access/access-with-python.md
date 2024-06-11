@@ -1,6 +1,6 @@
 # Access with Python
 
-#### Using the Integration API via Python[​](https://docs.mapsindoors.com/access-with-python#using-the-integration-api-via-python) <a href="#using-the-integration-api-via-python" id="using-the-integration-api-via-python"></a>
+## Using the Integration API via Python[​](https://docs.mapsindoors.com/access-with-python#using-the-integration-api-via-python) <a href="#using-the-integration-api-via-python" id="using-the-integration-api-via-python"></a>
 
 The Integration API can be access from python for automation of tasks such as updating data. In the example below we:
 
@@ -9,6 +9,37 @@ The Integration API can be access from python for automation of tasks such as up
 * Send the updated GeoData to the integration API using the access token
 
 > **Note** For this example to work you'll need to insert you own username and password in the second line of code
+
+
+
+#### Login
+
+There are two authentication flows you can use: username/password and Client Id/Secret. \
+The difference boils down to the payload you will be sending to the authorization server. \
+\
+For User/Pass the payload should be formatted like this:
+
+```
+grant_type=password&client_id=client&username=example@example.com&password=your_password_here
+```
+
+For Client Id/Secret the payload should be formatted like this:
+
+```
+grant_type=client_credentials&client_id=your_client&client_secret=your_secret'
+```
+
+\
+For more information about client Id/Secret you can read about it here:\
+
+
+{% content-ref url="client-credentials-flow.md" %}
+[client-credentials-flow.md](client-credentials-flow.md)
+{% endcontent-ref %}
+
+
+
+### Example script
 
 The code below is meant as an example, not final production code. Eg. storing username/password in code is not recommended; It's only done here to keep things short and easy to read. Also do note that the example here tries to change data in the read-only demo solution **which will fail** - it's just an example. Change the solution ID, username password and json content to something in your solution and it will work though.
 
@@ -22,7 +53,7 @@ import json
 #
 conn = http.client.HTTPSConnection("auth.mapsindoors.com")
 payload = 'grant_type=password&client_id=client&username=example@example.com&password=your_password_here'
-headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
+headers = {'Content-Type': 'application/x-www-form-urlencoded'}
 
 conn.request("POST", "/connect/token", payload, headers)
 res = conn.getresponse()
@@ -30,62 +61,62 @@ response = res.read().decode("utf-8")
 
 # Got a response back from Mapspeople. Check if everything is ok
 #
-if( res.status == 200):
-  access_token = json.loads(response)["access_token"]
-else :
-  print ("Authorization failed. Response: " + str(response))
-  quit()
+if res.status == 200:
+    access_token = json.loads(response)["access_token"]
+else:
+    print(f"Authorization failed. Response: {response}")
+    quit()
 
 print("Got an access token from Mapspeople")
 
-#Lets create an updated geojson as payload to a PUT request
+# Let's create an updated geojson as payload to a PUT request
 #
 payload = json.dumps([
-  {
-    "id": "c88c996b231746d096db5eaa",
-    "parentId": "34c588fecbee45f199e8d67c",
-    "datasetId": "550c26a864617400a40f0000",
-    "baseType": "poi",
-    "displayTypeId": "52c120dfae7e47269e930b80",
-    "displaySetting": {
-      "name": "default"
-    },
-    "geometry": {
-      "coordinates": [
-        9.95688874041662,
-        57.0859076569953
-      ],
-      "type": "Point"
-    },
-    "anchor": {
-      "coordinates": [
-        9.95688874041662,
-        57.0859076569953
-      ],
-      "type": "Point"
-    },
-    "aliases": [],
-    "categories": [
-      "5823246d07215b23a02e3cd9"
-    ],
-    "status": 3,
-    "baseTypeProperties": {
-      "administrativeid": "311a5837-395f-4e2b-9b88-c21b1b5c7833",
-      "activefrom": "2015-01-16T07:09:00Z",
-      "capacity": "0"
-    },
-    "properties": {
-      "name@en": "Printing facilities1",
-      "name@da": "Print new"
+    {
+        "id": "c88c996b231746d096db5eaa",
+        "parentId": "34c588fecbee45f199e8d67c",
+        "datasetId": "550c26a864617400a40f0000",
+        "baseType": "poi",
+        "displayTypeId": "52c120dfae7e47269e930b80",
+        "displaySetting": {
+            "name": "default"
+        },
+        "geometry": {
+            "coordinates": [
+                9.95688874041662,
+                57.0859076569953
+            ],
+            "type": "Point"
+        },
+        "anchor": {
+            "coordinates": [
+                9.95688874041662,
+                57.0859076569953
+            ],
+            "type": "Point"
+        },
+        "aliases": [],
+        "categories": [
+            "5823246d07215b23a02e3cd9"
+        ],
+        "status": 3,
+        "baseTypeProperties": {
+            "administrativeid": "311a5837-395f-4e2b-9b88-c21b1b5c7833",
+            "activefrom": "2015-01-16T07:09:00Z",
+            "capacity": "0"
+        },
+        "properties": {
+            "name@en": "Printing facilities1",
+            "name@da": "Print new"
+        }
     }
-  }
 ])
 
 # Added our access token as Authorization to the server. Note: This needs 'bearer' in front of it.
 #
 headers = {
-  'Content-Type': 'application/json',
-  'Authorization': 'bearer ' + access_token
+    'Content-Type': 'application/json',
+    'Authorization': f'bearer {access_token}'
 }
 
 print("Attempting to change a geodata object")
@@ -94,9 +125,21 @@ conn.request("PUT", "https://integration.mapsindoors.com/550c26a864617400a40f000
 res = conn.getresponse()
 response = res.read().decode("utf-8")
 
-if( res.status != 204):
-  print ("Update failed. Response: " + str(response))
-  quit()
+if res.status != 204:
+    print(f"Update failed. Response: {response}")
+    quit()
 else:
-  print ("Success. One geodata object was updated.")pyt
+    print("Success. One geodata object was updated.")
+
 ```
+
+
+
+
+
+
+
+
+
+
+

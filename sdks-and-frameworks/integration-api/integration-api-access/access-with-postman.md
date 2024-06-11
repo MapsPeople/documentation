@@ -40,7 +40,16 @@ Click "Get New Access Token" and a postman will log in using your credentials. B
 
 <figure><img src="../../../.gitbook/assets/postmanAuth.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://docs.mapsindoors.com/img/api/postmanAuth.png" alt=""><figcaption></figcaption></figure>
+If you use client credentials you will need to select "Client Credentials" as you Grant type and add your ClientID (Ask us if you don't have one) and you Client Secret like this:\
+
+
+<figure><img src="../../../.gitbook/assets/image (38).png" alt=""><figcaption><p>Client Credential Flow example</p></figcaption></figure>
+
+See the client credentials flow for more details:
+
+{% content-ref url="client-credentials-flow.md" %}
+[client-credentials-flow.md](client-credentials-flow.md)
+{% endcontent-ref %}
 
 You should now be able to access your MapsIndoors data in Postman.
 
