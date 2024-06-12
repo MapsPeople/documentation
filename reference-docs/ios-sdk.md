@@ -4,10 +4,11 @@
 {% tab title="V4" %}
 #### Latest[​](https://docs.mapsindoors.com/reference-docs/ios#latest-1) <a href="#latest-1" id="latest-1"></a>
 
-* [MapsIndoors iOS SDK v4.5.2](https://app.mapsindoors.com/mapsindoors/reference/ios/4.5.2/documentation/mapsindoors/)
+* [MapsIndoors iOS SDK v4.5.3](https://app.mapsindoors.com/mapsindoors/reference/ios/4.5.3/documentation/mapsindoors/)
 
 #### Previous versions[​](https://docs.mapsindoors.com/reference-docs/ios#previous-versions) <a href="#previous-versions" id="previous-versions"></a>
 
+* [MapsIndoors iOS SDK v4.5.2](https://app.mapsindoors.com/mapsindoors/reference/ios/4.5.2/documentation/mapsindoors/)
 * [MapsIndoors iOS SDK v4.5.1](https://app.mapsindoors.com/mapsindoors/reference/ios/4.5.1/documentation/mapsindoors/)
 * [MapsIndoors iOS SDK v4.5.0](https://app.mapsindoors.com/mapsindoors/reference/ios/4.5.0/documentation/mapsindoors/)
 * [MapsIndoors iOS SDK v4.4.1](https://app.mapsindoors.com/mapsindoors/reference/ios/4.4.1/documentation/mapsindoors/)
