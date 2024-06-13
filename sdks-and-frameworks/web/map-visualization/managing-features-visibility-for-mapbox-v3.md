@@ -93,3 +93,7 @@ console.log(features); // [MODEL2D, WALLS2D, MODEL3D, WALLS3D, EXTRUSION3D, EXTR
 ## Conclusion
 
 You now have powerful tools to control the visibility of features on your maps. By utilizing the `hideFeatures`, `FeatureType`, and `getHiddenFeatures` methods, you can enhance user experience and customize map displays according to your needs.
+
+
+
+See example of the implementation [here](../../../products/fast-track-maptemplate/2d-3d-visibility-switch.md).

@@ -192,6 +192,7 @@
     * [Query Parameters](products/fast-track-maptemplate/configuration/query-parameters.md)
   * [Customization](products/fast-track-maptemplate/customization.md)
   * [Deploying Map Template to a cloud storage provider](products/fast-track-maptemplate/deploying-map-template-to-a-cloud-storage-provider.md)
+  * [2D/3D Visibility Switch](products/fast-track-maptemplate/2d-3d-visibility-switch.md)
 * [CMS](products/cms/README.md)
   * [Interface Overview](products/cms/interface-overview.md)
   * [Display Rules](products/cms/display-rules.md)
