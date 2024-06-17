@@ -6,7 +6,7 @@ The Map Template supports using query parameters for all the properties provided
 
 **The supported query parameters are the following:**
 
-1. `apiKey` - Used like this `apiKey=yourApiKey`. If no apiKey is provided, the app will default to `3ddemo`.
+1. `apiKey` - Used like this `apiKey=yourApiKey`. If no apiKey is provided, the app will default to `mapspeople3d`.
 2. `venue` - Used like this `venue=yourVenueName`. If no venue is provided, the app will select the first venue from the solution in alphabetical order.
 3. `locationId` - Used like this `locationId=yourLocationId`
 4. `primaryColor` - Used like this `primaryColor=000000`. **Note!** You need to provide a hex color value, **without** the `#`, due to the hashtag being a reserved symbol that has a predefined purpose in a query string. If no primary color is provided, the app will default to the MapsPeople brand color.
@@ -31,6 +31,7 @@ The Map Template supports using query parameters for all the properties provided
 23. `searchAllVenues` - If you want to perform search across all venues in the solution. The standard behaviour is searching in one venue.
 24. `useMapProviderModule` - Set to "true" if the Map Template should take MapsIndoors solution modules into consideration when determining what map type to use.
 25. `hideNonMatches` - Determine whether the locations on the map should be filtered (only show the matched locations and hide the rest) or highlighted (show all locations and highlight the matched ones with a red dot by default). If set to true, the locations will be filtered.
+26. `showRoadNames` - A boolean parameter that dictates whether Mapbox road names should be shown. By default, Mapbox road names are hidden when MapsIndoors data is shown. It is dictated by `mi-transition-level` which default value is 17.
 
 **Note!** All the query parameters need to be separated with the `&` symbol, without any spaces in between.
 
