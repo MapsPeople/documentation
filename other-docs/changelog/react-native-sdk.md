@@ -2,6 +2,125 @@
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.0.0] 2024-06-19
+
+#### Added
+
+* Added new `MPCameraViewFitMode.none`to disable camera movement, when changing legs on `MPDirectionsRenderer`
+* Added new properties to `MPDisplayRule`:
+  * `setLabelStyleGraphic` sets a graphic label:
+    * `backgroundImage`
+    * `stretchX`
+    * `stretchY`
+    * `content`
+  * `getLabelStyleGraphic`
+  * `set/getModel3DModel`
+  * `set/getModel3DRotationX`
+  * `set/getModel3DRotationY`
+  * `set/getModel3DrotationZ`
+  * `set/getModel3DScale`
+  * `set/getModel3DZoomFrom`
+  * `set/getModel3DZoomTo`
+  * `set/isModel3DVisible`
+* Added new methods on `MapControl`:
+  * `setHiddenFeatures` set a list of `MPFeatureType` to be hidden from the map
+  * `getHiddenFeatures` get a list of currently hidden `MPFeatureType`
+  * `setBuildingSelectionMode` set a Selection mode for Buildings on the Map with `MPSelectionMode` (automatic or manual)
+  * `setFloorSelectionMode` set a Selection mode for Floors on the Map with `MPSelectionMode` (automatic or manual)
+  * `getBuildingSelectionMode` get the current selection mode on `MapControl`
+  * `getFloorSelectionMode` get the current selection mode on `MapControl`
+* Added `types: MPPOIType[]` on `MPSolution` to get a list of types for the solution
+* Added `setSelectable` and `isSelectable` on `MPLocation`, `MPPOIType` and `MPSolutionConfig`
+* Added `mapsIndoorsTransitionLevel?: number` to `MPMapConfig`
+  * Sets the zoom level at which the MapsIndoors data should show, instead of extruded buildings on Mapbox Maps. Can be set to 0, if extruded buildings should not show.
+* Added `showMapMarkers?: boolean` to `MPMapConfig`
+  * Sets wether the Mapbox POI and Places markers hould be shown on the map. If left undefined, it follows the transition level.
+
+#### Updated
+
+* Updated iOS SDK to 4.5.4
+* Updated Android SDK to 4.8.5
+
+### \[1.3.2] 2024-06-07
+
+#### Updated
+
+* Updated iOS SDK to 4.5.1
+* Updated Android SDK to 4.8.4
+
+#### Fixed
+
+* Fixed issue where route would not be optimised on iOS when querying multi stop routes
+* Fixed issue where the first leg would not be animated on iOS
+
+### \[1.3.1] 2024-05-31
+
+#### Updated
+
+* Updated iOS SDK to 4.4.1
+* Updated Android SDK to 4.8.3
+
+### \[1.3.0] 2024-05-27
+
+#### Added
+
+* Added Support for Mutli-stop navigation
+  * Added optional `stops: MPPoint[]` and `optimize: boolean` to `MPDirectionsService.getRoute`
+  * Added `setDefaultRouteStopIcon` to `MPDirectionsRenderer`
+  * Added optional `stopIcons: Map<number, RouteStopIconConfig>`  to `MPDirectionsRenderer.setRoute`
+  * Added `MPRouteStopIconConfig` for changing the look of the default stop icons
+  * Added `ordered_stop_indexes` to `MPRoute`
+  * Added `legStartReason`, `legEndReason` and `stopIndex` to `MPRouteLeg`
+
+#### Updated
+
+* Updated iOS SDK to 4.4.0
+* Updated Android SDK to 4.8.1
+* Updated Android Mapbox SDK to 10.17.1
+
+#### Fixed
+
+* Fixed zoom not being applied when changing camera with a `MPCameraPosition` on Mapbox iOS
+
+### \[1.2.1] 2024-05-03
+
+#### Changed
+
+* Upped the minimum version requirement for iOS to 14.
+
+#### Updated
+
+* Updated iOS SDK to 4.3.9
+* Updated Android SDK to 4.6.0
+
+#### Fixed
+
+* Fixed an issue with the privacy manifest not allowing release of apps on app store
+
+#### Fixed[​](https://docs.mapsindoors.com/changelogs/react-native#fixed) <a href="#fixed" id="fixed"></a>
+
+* Fixes from updates to native SDKs
+
+### \[1.2.0] 2024-04-29
+
+#### Changed[​](https://docs.mapsindoors.com/changelogs/react-native#changed) <a href="#changed" id="changed"></a>
+
+* Updated iOS SDK to 4.3.9
+* Updated Android SDK to 4.6.0
+
+#### Added[​](https://docs.mapsindoors.com/changelogs/react-native#added) <a href="#added" id="added"></a>
+
+* New optional list of strings, with venue id's on `load`. For optional venue loading.
+* New methods to support optional venue loading.
+  * `addVenuesToSync(venues: string[])`
+  * `removeVenuesToSync(venues: string[])`
+  * `getSyncedVenues(): Promise<string[]>`
+* The MapsIndoors iOS SDK now includes a Privacy Manifest as described by Apple in Upcoming third-party SDK requirements. This also includes an update to the Mapbox 10.17.0 that includes a fix to the privacy manifest of Mapbox.
+
+#### Fixed[​](https://docs.mapsindoors.com/changelogs/react-native#fixed) <a href="#fixed" id="fixed"></a>
+
+* Fixes from updates to native SDKs
+
 ### \[1.2.0] 2024-04-29
 
 #### Changed[​](https://docs.mapsindoors.com/changelogs/react-native#changed) <a href="#changed" id="changed"></a>
