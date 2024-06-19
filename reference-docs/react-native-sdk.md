@@ -2,5 +2,36 @@
 
 ## Latest
 
-* [React Native SDK v2.0.0 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/2.0.0/index.html)
 * [React Native SDK v2.0.0 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/2.0.0/index.html)
+* [React Native SDK v2.0.0 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/2.0.0/index.html)
+
+## Previous versions
+
+* [React Native SDK v1.3.2 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.3.2/index.html)
+* [React Native SDK v1.3.2 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.3.2/index.html)
+* [React Native SDK v1.3.1 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.3.1/index.html)
+* [React Native SDK v1.3.1 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.3.1/index.html)
+* [React Native SDK v1.3.0 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.3.0/index.html)
+* [React Native SDK v1.3.0 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.3.0/index.html)
+* [React Native SDK v1.2.1 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.2.1/index.html)
+* [React Native SDK v1.2.1 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.2.1/index.html)
+* [React Native SDK v1.2.0 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.2.0/index.html)
+* [React Native SDK v1.2.0 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.2.0/index.html)
+* [React Native SDK v1.1.0 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.1.0/index.html)
+* [React Native SDK v1.1.0 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.1.0/index.html)
+* [React Native SDK v1.0.9 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.0.9/index.html)
+* [React Native SDK v1.0.9 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.0.9/index.html)
+* [React Native SDK v1.0.8 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.0.8/index.html)
+* [React Native SDK v1.0.8 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.0.8/index.html)
+* [React Native SDK v1.0.7 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.0.7/index.html)
+* [React Native SDK v1.0.7 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.0.7/index.html)
+* [React Native SDK v1.0.6 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.0.6/index.html)
+* [React Native SDK v1.0.6 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.0.6/index.html)
+* [React Native SDK v1.0.4 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.0.4/index.html)
+* [React Native SDK v1.0.4 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.0.4/index.html)
+* [React Native SDK v1.0.3 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.0.3/index.html)
+* [React Native SDK v1.0.3 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.0.3/index.html)
+* [React Native SDK v1.0.2 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.0.2/index.html)
+* [React Native SDK v1.0.2 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.0.2/index.html)
+* [React Native SDK v1.0.0 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.0.0/index.html)
+* [React Native SDK v1.0.0 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.0.0/index.html)
