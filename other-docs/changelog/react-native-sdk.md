@@ -2,7 +2,13 @@
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-### \[1.3.2] 2024-06-20
+### \[2.0.2] 2024-06-25
+
+#### Updated
+
+* Updated iOS SDK to 4.5.6
+
+### \[2.0.1] 2024-06-20
 
 #### Updated
 
