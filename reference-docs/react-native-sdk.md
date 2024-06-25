@@ -2,11 +2,13 @@
 
 ## Latest
 
-* [React Native SDK v2.0.1 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/2.0.1/index.html)
-* [React Native SDK v2.0.1 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/2.0.1/index.html)
+* [React Native SDK v2.0.2 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/2.0.2/index.html)
+* [React Native SDK v2.0.2 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/2.0.2/index.html)
 
 ## Previous versions
 
+* [React Native SDK v2.0.1 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/2.0.1/index.html)
+* [React Native SDK v2.0.1 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/2.0.1/index.html)
 * [React Native SDK v2.0.0 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/2.0.0/index.html)
 * [React Native SDK v2.0.0 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/2.0.0/index.html)
 * [React Native SDK v1.3.2 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/1.3.2/index.html)
