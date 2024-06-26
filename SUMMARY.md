@@ -130,6 +130,7 @@
     * [Wayfinding Instructions](sdks-and-frameworks/ios/directions/wayfinding-instructions.md)
       * [See Route Element Details](sdks-and-frameworks/ios/directions/wayfinding-instructions/see-route-element-details.md)
     * [Directions Service](sdks-and-frameworks/ios/directions/directions-service.md)
+    * [Using multi-stop navigation](sdks-and-frameworks/ios/directions/using-multi-stop-navigation.md)
   * [Searching](sdks-and-frameworks/ios/searching/README.md)
     * [Searching on a Map](sdks-and-frameworks/ios/searching/searching-on-a-map.md)
     * [Creating a Search Experience](sdks-and-frameworks/ios/searching/creating-a-search-experience.md)
