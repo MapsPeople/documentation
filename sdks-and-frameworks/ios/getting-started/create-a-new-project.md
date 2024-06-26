@@ -70,12 +70,12 @@ If you're using Mapbox, make sure to configure your secret token in order to dow
 {% endtab %}
 
 {% tab title="Manually for Google Maps" %}
-* Download the [Google Maps iOS SDK 7.4.0](https://dl.google.com/geosdk/12cdf90d54d85bfcc90d340148d86362ee3189ea24b4bd20ca891e9bd33ded21/GoogleMaps-7.4.0.tar.gz)
+* Download the [Google Maps iOS SDK 8.4.0](https://dl.google.com/dl/cpdc/bad57bdf1f06c544/GoogleMaps-8.4.0.tar.gz)
 * Copy the following frameworks to the root folder of your app project (in Finder, _<mark style="color:red;">**not**</mark>_ in Xcode)
-  * GoogleMaps-7.4.0/Base/Frameworks/GoogleMapsBase.framework
-  * GoogleMaps-7.4.0/Maps/Frameworks/GoogleMaps.framework
-  * GoogleMaps-7.4.0/Maps/Frameworks/GoogleMapsCore.framework
-* In Xcode, drag the `GoogleMaps.bundle` from the `GoogleMaps.xcframework/ios-arm64/GoogleMaps.framework/Resources` folder into the top level directory of your Xcode project. When prompted, ensure **"**Copy items if needed" is _**not**_ selected.
+  * GoogleMaps-8.4.0/Base/Frameworks/GoogleMapsBase.framework
+  * GoogleMaps-8.4.0/Maps/Frameworks/GoogleMaps.framework
+  * GoogleMaps-8.4.0/Maps/Frameworks/GoogleMapsCore.framework
+* In Xcode, drag the `GoogleMaps.bundle` from the `GoogleMaps-8.4.0/Maps/Resources/GoogleMapsResources` folder into the top level directory of your Xcode project. When prompted, ensure **"**Copy items if needed" **is** selected.
 * Download and unzip the following MapsIndoors SDK v4 XCFrameworks from the [latest release](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/releases):
   * MapsIndoors
   * MapsIndoorsCore
