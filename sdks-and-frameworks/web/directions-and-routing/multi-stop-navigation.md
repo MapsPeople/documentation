@@ -112,5 +112,3 @@ miDirectionsRendererInstance.setRoute(routeResult, routeStopConfigs);
 </code></pre>
 
 <figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption><p>Numbered stop icons with labels displayed underneath.</p></figcaption></figure>
-
-####
