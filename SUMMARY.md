@@ -22,6 +22,7 @@
     * [Directions Service](sdks-and-frameworks/web/directions-and-routing/directions-service/README.md)
       * [Tailoring the directions to your specific needs](sdks-and-frameworks/web/directions-and-routing/directions-service/tailoring-the-directions-to-your-specific-needs.md)
     * [Directions Renderer](sdks-and-frameworks/web/wayfinding/directions-renderer.md)
+    * [Multi-stop navigation](sdks-and-frameworks/web/directions-and-routing/multi-stop-navigation.md)
     * [User's Location as Point of Origin](sdks-and-frameworks/web/directions-and-routing/directions-renderer/users-location-as-point-of-origin.md)
   * [Search](sdks-and-frameworks/web/search/README.md)
     * [Search Operations](sdks-and-frameworks/web/search/search-operations.md)
