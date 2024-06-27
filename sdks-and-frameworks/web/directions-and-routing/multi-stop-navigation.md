@@ -5,6 +5,8 @@ The MapsIndoors Javascript SDK empowers you to streamline your navigation within
 * **Navigation with multiple stops:** Navigate through the stops in the exact order you specify. This is ideal when the order of visits is crucial.
 * **Optimized multi-stop navigation (traveling salesman algorithm):** Let MapsIndoors intelligently reorder your stops to create the fastest possible route, saving you valuable time.
 
+<figure><img src="../../../.gitbook/assets/27.06.2024_10.47.23_REC 2.gif" alt=""><figcaption><p>Navigation with multiple stops</p></figcaption></figure>
+
 ### Leverage Multi-Stop Navigation in Your App
 
 To get a route with multiple stops along the path, use the  [`DirectionsService's`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.DirectionsService.html) [`getRoute`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.DirectionsService.html#getRoute) in combination with the stops parameter. The stops parameter takes an array of [`LatLngLiterals`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/LatLngLiteral.html)
@@ -30,9 +32,7 @@ miDirectionsRendererInstance.setRoute(routeResult);
 
 <figure><img src="../../../.gitbook/assets/image (43).png" alt=""><figcaption><p>Route with multiple stops, in the given input order.</p></figcaption></figure>
 
-
-
-**Optimize travel time**
+### **Optimized multi-stop navigation**
 
 To optimize the route for the most direct path, you can use the `optimize` parameter. When set to `true`, this parameter ensures that the stops are ordered to optimize the travel time.
 
@@ -58,7 +58,7 @@ miDirectionsRendererInstance.setRoute(routeResult);
 
 <figure><img src="../../../.gitbook/assets/image (44).png" alt=""><figcaption><p>Route with multiple stops, optimized for shortest travel time.</p></figcaption></figure>
 
-#### Customizing Route Stop Icons
+### Customizing Route Stop Icons
 
 The MapsIndoors Javascript SDK offers customization options to tailor the appearance of your multi-stop route. By default, MapsIndoors provides a standard icon to visually represent each stop on your route. However, you can override the `DefaultRouteStopIconProvider` on the [`DirectionsRenderer`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html) to create a more customized experience.
 
@@ -96,7 +96,7 @@ const miDirectionsRendererInstance = new mapsindoors.directions.DirectionsRender
 
 <figure><img src="../../../.gitbook/assets/image (47).png" alt=""><figcaption><p>Stop icons without numbers.</p></figcaption></figure>
 
-#### Adding Labels to Route Stops
+### Adding Labels to Route Stops
 
 The MapsIndoors Javascript SDK allows you to enhance the visual representation of your multi-stop routes by incorporating labels beneath each stop icon. This can provide additional context or information about the stop for users.
 
