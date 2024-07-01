@@ -6,7 +6,9 @@ Node version
 
 We recommend using the latest LTS version of [Node.js](https://nodejs.org/en/).
 
-{% embed url="https://vimeo.com/860055569" %}
+
+
+{% embed url="https://youtu.be/ILnqlCTVhr4?si=F7RnYGgtk2Tqqu5b" %}
 
 ## 1. Getting Started[​](https://docs.mapsindoors.com/web-map-template#getting-started)
 
