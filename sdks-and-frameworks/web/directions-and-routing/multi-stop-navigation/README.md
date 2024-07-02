@@ -5,7 +5,7 @@ The MapsIndoors Javascript SDK empowers you to streamline navigation within venu
 * **Navigation with multiple stops:** Navigate through the stops in the exact order you specify. This is ideal when the order of visits is crucial.
 * **Optimized multi-stop navigation (traveling salesman algorithm):** Let MapsIndoors intelligently reorder your stops to create the fastest possible route, saving you valuable time.
 
-<figure><img src="../../../.gitbook/assets/27.06.2024_10.47.23_REC 2.gif" alt=""><figcaption><p>Navigation with multiple stops</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/27.06.2024_10.47.23_REC 2.gif" alt=""><figcaption><p>Navigation with multiple stops</p></figcaption></figure>
 
 ### Leverage Multi-Stop Navigation in Your App
 
@@ -30,7 +30,7 @@ const routeResult = await miDirectionsServiceInstance.getRoute({
 miDirectionsRendererInstance.setRoute(routeResult);
 ```
 
-<figure><img src="../../../.gitbook/assets/image (43).png" alt=""><figcaption><p>Route with multiple stops, in the given input order.</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (43).png" alt=""><figcaption><p>Route with multiple stops, in the given input order.</p></figcaption></figure>
 
 ### **Optimized multi-stop navigation**
 
@@ -56,7 +56,7 @@ const routeResult = await miDirectionsServiceInstance.getRoute({
 miDirectionsRendererInstance.setRoute(routeResult);
 ```
 
-<figure><img src="../../../.gitbook/assets/image (44).png" alt=""><figcaption><p>Route with multiple stops, optimized for shortest travel time.</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (44).png" alt=""><figcaption><p>Route with multiple stops, optimized for shortest travel time.</p></figcaption></figure>
 
 ### Customizing all Route Stop Icons
 
@@ -76,7 +76,7 @@ const directionsRendererOptions = {
 const miDirectionsRendererInstance = new mapsindoors.directions.DirectionsRenderer(directionsRendererOptions);
 ```
 
-<figure><img src="../../../.gitbook/assets/image (46).png" alt=""><figcaption><p>Stop icons with a different background color.</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (46).png" alt=""><figcaption><p>Stop icons with a different background color.</p></figcaption></figure>
 
 To omit the numbering of the icons, set the `numbered` boolean parameter to `false`:
 
@@ -94,7 +94,7 @@ const directionsRendererOptions = {
 const miDirectionsRendererInstance = new mapsindoors.directions.DirectionsRenderer(directionsRendererOptions);
 ```
 
-<figure><img src="../../../.gitbook/assets/image (47).png" alt=""><figcaption><p>Stop icons without numbers.</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (47).png" alt=""><figcaption><p>Stop icons without numbers.</p></figcaption></figure>
 
 ### Adding Labels to Route Stops
 
@@ -111,7 +111,7 @@ To add labels to your stops, create a Map of `RouteStopConfig` objects, using th
 miDirectionsRendererInstance.setRoute(routeResult, routeStopConfigs);
 </code></pre>
 
-<figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption><p>Numbered stop icons with labels displayed underneath.</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (45).png" alt=""><figcaption><p>Numbered stop icons with labels displayed underneath.</p></figcaption></figure>
 
 ### Customizing Individual Stop Icons
 
@@ -138,4 +138,4 @@ const routeStopConfigs = new Map([
 miDirectionsRendererInstance.setRoute(routeResult, routeStopConfigs);
 ```
 
-<figure><img src="../../../.gitbook/assets/image (50).png" alt=""><figcaption><p>Stop icons with different background colors.</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (50).png" alt=""><figcaption><p>Stop icons with different background colors.</p></figcaption></figure>
