@@ -8,7 +8,7 @@ description: >-
 # Label styling through Display Rules
 
 {% hint style="success" %}
-Basic styling and Flat Labels are available as of SDK version 4.3.0, Graphic Labels are available as of SDK version 4.4.0
+Basic styling and Flat Labels are available as of SDK version 4.3.0, Graphic Labels are available as of SDK version 4.7.0
 {% endhint %}
 
 {% hint style="info" %}
@@ -22,17 +22,17 @@ There are a number of fields in Display Rules that can be used to style the labe
 ```kotlin
 MapsIndoors.getMainDisplayRule()?.let { dr ->
     // The color of the label as a hex string
-    val labelTextColor: String? = dr.labelTextColor
+    val labelTextColor: String? = dr.labelStyleTextColor
     // The size of the label in pixels
-    val labelTextSize: Int? = dr.labelTextSize
+    val labelTextSize: Int? = dr.labelStyleTextSize
     // The opacity of the label as a value between 0 and 1
-    val labelTextOpacity: Float? = dr.labelTextOpacity
+    val labelTextOpacity: Float? = dr.labelStyleTextOpacity
     // The color of the label's halo
-    val labelHaloColor: String? = dr.labelHaloColor
+    val labelHaloColor: String? = dr.labelStyleHaloColor
     // The width of the halo in pixels, this value should not be more than 1/4 of the LabelSize
-    val labelHaloWidth: Int? = dr.labelHaloWidth
+    val labelHaloWidth: Int? = dr.labelStyleHaloWidth
     // The distance at which the halo begins to blur, this should not be larger than HaloWidth
-    val labelHaloBlur: Int? = dr.labelHaloBlur
+    val labelHaloBlur: Int? = dr.labelStyleHaloBlur
 }
 ```
 
@@ -46,8 +46,8 @@ With these fields it is possible to style the label to fit your design. In the f
 
 ```kotlin
 fun styleLabelText(dr: MPDisplayRule) {
-    dr.labelTextSize = dr.labelTextSize?.times(2)
-    dr.labelTextColor = "#00FF00"
+    dr.labelStyleTextSize = dr.labelStyleTextSize?.times(2)
+    dr.labelStyleTextColor = "#00FF00"
 }
 ```
 
@@ -61,10 +61,10 @@ It is also possible to style the halo, but the halo is a bit harder to properly 
 
 ```kotlin
 fun styleLabelHalo(dr: MPDisplayRule) {
-    dr.labelTextSize = 24
-    dr.labelHaloWidth = 1
-    dr.labelHaloColor = "#000040"
-    dr.labelHaloBlur = 3
+    dr.labelStyleTextSize = 24
+    dr.labelStyleHaloWidth = 1
+    dr.labelStyleHaloColor = "#000040"
+    dr.labelStyleHaloBlur = 3
 }
 ```
 
@@ -78,17 +78,19 @@ With the knowledge of styling the text and label we can now coordinate the styli
 
 ```kotlin
 fun styleLabel(dr: MPDisplayRule) {
-    dr.labelTextSize = dr.labelTextSize?.times(2)
-    dr.labelTextColor = "#FFFFFF"
-    dr.labelHaloWidth = 1
-    dr.labelHaloColor = "#000000"
-    dr.labelHaloBlur = 0
+    dr.labelStyleTextSize = dr.labelTextSize?.times(2)
+    dr.labelStyleTextColor = "#FFFFFF"
+    dr.labelStyleHaloWidth = 1
+    dr.labelStyleHaloColor = "#000000"
+    dr.labelStyleHaloBlur = 0
 }
 ```
 
 If applied it might look like this:
 
 <figure><img src="../../../.gitbook/assets/android_label_dr_label_example.png" alt=""><figcaption><p>An example of labels with white text and a black outline</p></figcaption></figure>
+
+
 
 ## Flat labels
 
@@ -112,7 +114,7 @@ It is possible to change the rotation of the label by modifying the `bearing` fi
 ```kotlin
 fun changeLabelBearing(dr: MPDisplayRule, newBearing: Float) {
     dr.labelType = MPLabelType.FLAT
-    dr.labelBearing = newBearing
+    dr.labelStyleBearing = newBearing
 }
 ```
 
@@ -126,11 +128,11 @@ A `flat` label is styleable, just like a `floating` label:
 fun styleFlatLabel(dr: MPDisplayRule) {
     dr.isIconVisible = false
     dr.labelType = MPLabelType.FLAT
-    dr.labelBearing = 45.0f
-    dr.labelTextColor = "#FF0000"
-    dr.labelTextSize = 100
-    dr.labelHaloColor = "#FFFF00"
-    dr.labelHaloWidth = 3
+    dr.labelStyleBearing = 45.0f
+    dr.labelStyleTextColor = "#FF0000"
+    dr.labelStyleTextSize = 100
+    dr.labelStyleHaloColor = "#FFFF00"
+    dr.labelStyleHaloWidth = 3
 }
 ```
 
