@@ -13,17 +13,22 @@ To change the state DisplayRules, you can access the Solution Config object usin
 **Example:**
 
 ```javascript
-// Get the Solution Config object.
-const solutionConfig = mapsIndoors.getSolutionConfig();
+// This should happen after the 'ready' event has fired.
+mapsIndoors.addListener('ready', () => {
 
-// Get the hover state DisplayRule.
-const hoverDisplayRule = solutionConfig.stateDisplayRules.hover;
+    // Get the Solution Config object.
+    const solutionConfig = mapsIndoors.getSolutionConfig();
 
-// Set the icon scale to 2. This will result in the icon being scaled to double size on hover.
-hoverDisplayRule.iconScale = 2;
+    // Get the hover state DisplayRule.
+    const hoverDisplayRule = solutionConfig.stateDisplayRules.hover;
 
-// Update the SolutionCofig to apply the changes.
-mapsIndoors.setSolutionConfig(solutionConfig);
+    // Set the icon scale to 2. This will result in the icon being scaled to double size on hover.
+    hoverDisplayRule.iconScale = 2;
+
+    // Update the SolutionCofig to apply the changes.
+    mapsIndoors.setSolutionConfig(solutionConfig);
+
+});    
 ```
 
 <figure><img src="../../../.gitbook/assets/how-to-change-the-state-display-rules_hover.png" alt=""><figcaption><p>An example of the hover state DisplayRule in action</p></figcaption></figure>
