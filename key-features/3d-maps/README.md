@@ -29,7 +29,7 @@ Regardless of your app platform, you need to use the **Mapbox** map provider in 
 * Web SDK v4.18.0
 * iOS SDK v4.2.6
 
-If you fulfill the above requirements, you can contact your MapsPeople representative to have the 3D map functionality enabled for your Solution(s).
+If you have fulfilled the above requirements, you can contact your MapsPeople representative to have the 3D map functionality enabled for your Solution(s).
 
 ### Why 3D Maps?[​](https://docs.mapsindoors.com/3d-maps#why-3d-maps) <a href="#why-3d-maps" id="why-3d-maps"></a>
 
@@ -42,7 +42,7 @@ In addition to improving user experience, 3D indoor mapping solutions like MapsI
 While exact best practices will depend on your specific solution and implementation, we can provide some general pointers of things to consider when developing your solution to work with MapsIndoors 3D maps. Most of these will be specifically pertaining to the inclusion of 3D models in your solution, not to utilising 3D walls and 3D room extrusions.
 
 * Use .glb file format
-* Ideally 25-100kb size. You go can higher if you want, just be aware that it impacts load time.
+* Ideally 25-100kb size. You can go higher if you want, just be aware that it impacts load time.
 * Keep your models as low-poly as possible.
 * Consider whether all your locations need a 3D model.
 * Where possible, consider reusing the same model, instead of uploading 3 different models with only minor variations.
