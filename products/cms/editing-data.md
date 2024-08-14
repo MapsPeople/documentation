@@ -9,7 +9,9 @@ Each Location has several settings associated with it. If you select a Location 
 #### General
 
 * **Location Type** - Locations must have a Type applied, which can be set in the Location details editor. When creating a new Location, some settings are inherited from the selected Type e.g. Icon. You can always change the inherited settings to something else if necessary.
-* **Name & Description** - Type the name of your Location and a Description. Entering it in the default language is mandatory, but you can also enter it in alternative languages if set on your Solution.
+* **Name & Description** - Type the name of your Location and a Description. Entering it in the default language is mandatory, but you can also enter it in alternative languages if set on your Solution. Provided name is going to be used as a Label. In order to modify Label presentation under the Location: \
+  \- For Mapbox Map Provider: use Space to separate words in-between. Use Enter to introduce a line-breaker.\
+  \- For Google Maps Map Provider: use Space to separate words in-between. Use Enter to introduce a line-breaker.
 * **Categories** - Add which, if any, Categories this Location belongs to.
 * **External ID** - You can define an External ID that a Location should use alongside its internal ID.
 
