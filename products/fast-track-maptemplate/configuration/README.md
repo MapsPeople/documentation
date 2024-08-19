@@ -18,11 +18,9 @@ Note that when using the React component, the properties should conform to JSX p
 
 You have many ways to set Mapbox Access Tokens and Google Maps API keys in order to show your preferred map:
 
-As a query parameter in the URL if you use the `supportsUrlParameters` property
-
-As an attribute of the component
-
-In the MapsIndoors App Config object
+* As a query parameter in the URL if you use the `supportsUrlParameters` property
+* As an attribute of the component
+* In the MapsIndoors App Config object
 
 A query parameter will have precedence over component property, which again will have precedence over the App Config.
 
