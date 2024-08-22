@@ -2,6 +2,54 @@
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.0.5] 2024-08-21
+
+#### Added
+
+* Added optional legIndex, to set the initial leg index of a route. When using `setRoute` on `MPDirectionsRenderer`
+
+#### Fixed
+
+* Fixed issue with directions not being rendered on subsequent map renderings
+* Fixed issue with imageUrl being undefined on `MPLocation`
+* Fixed issue where camera events was not being sent on iOS
+* Fixed issue where tilt was not used when set on Camera updates
+* Fixed flickering when selecting locations on iOS
+
+#### Updated
+
+* Updated Android SDK to 4.8.8
+* Updated iOS SDK to 4.5.12
+
+### \[2.0.4] 2024-08-01
+
+#### Updated
+
+#### Fixed
+
+* Issue with subsequent Mapcontrol creation on iOS, causing rendering errors
+
+#### Updated
+
+* Updated iOS SDK to 4.5.11
+
+### \[2.0.3] 2024-07-30
+
+#### Added
+
+* showRoadLabels to MPMapConfig
+  * Sets wether the Mapbox Road labels should be shown on the map. If left undefined, it follows the transition level.
+
+#### Fixed
+
+* Issue with where map data is not rendered on the map, while MapControl has loaded successfully on iOS
+* Issue with DisplayRule changes not updating before a map interaction
+
+#### Updated
+
+* Updated Android SDK to 4.8.7
+* Updated iOS SDK to 4.5.10
+
 ### \[2.0.2] 2024-06-25
 
 #### Updated
