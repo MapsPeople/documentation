@@ -58,6 +58,7 @@
     * [Remove Labels from Buildings and Venues for Web](sdks-and-frameworks/web/other-guides/remove-labels-from-buildings-and-venues-for-web.md)
     * [Synchronizing data for a subset of venues](sdks-and-frameworks/web/other-guides/synchronizing-data-for-a-subset-of-venues.md)
   * [Display Rules in Practice](sdks-and-frameworks/web/display-rules-in-practice.md)
+  * [Offline Data](sdks-and-frameworks/web/offline-data.md)
   * [Managing map visibility](sdks-and-frameworks/web/managing-map-visibility.md)
 * [Android](sdks-and-frameworks/android/README.md)
   * [Getting Started](sdks-and-frameworks/android/getting-started/README.md)
