@@ -52,6 +52,18 @@ No matter what is specified in this hierarchy, you can override it _runtime_ in 
 
 To remove a value from the Display Rule (to make it inherit from further up the hierarchy) set the property to `null`.
 
+### Pushing Display Rules from Location to Type
+
+When you open the Display Rules at the Location level and have specific settings defined, you have the option to push these settings to the Location's Type. The settings that can be pushed are identifiable by the state of the lock button at the beginning of each setting's row. If the button is unlocked, the setting is available to be pushed.
+
+<figure><img src="../../.gitbook/assets/push-display-rule-to-type--lock-button.png" alt=""><figcaption></figcaption></figure>
+
+To push a Display Rule to the Location Type, you have three options. First, you can click the upward-pointing arrow on the right side of a specific setting to push that individual Display Rule to the Location Type. When one or more settings in a section are unlocked, an upward-pointing arrow will appear for the entire section. Clicking this arrow will push all the Display Rules in that section to the Location Type. Lastly, if any settings are unlocked, an upward-pointing arrow will also appear in the editor's header. Clicking this arrow will push the entire Display Rule to the Location Type.
+
+<figure><img src="../../.gitbook/assets/push-display-rule-to-type--push-buttons.png" alt=""><figcaption></figcaption></figure>
+
+Once the Display Rules are pushed to the Location Type, the settings will automatically be set to inherit from the Location Type, indicated by a locked lock button. Before pushing the Display Rules, a confirmation box will appear, informing you of the number of changes you are about to apply. It is important to review the settings carefully, as once they are pushed, the only way to revert the Location Type's Display Rule to its original state is by directly editing it—there is no undo option.
+
 ### Display Rule Properties[​](https://docs.mapsindoors.com/display-rules#display-rule-properties) <a href="#display-rule-properties" id="display-rule-properties"></a>
 
 In the CMS, you can edit your Types' Display Rules in `Solution Details > Types > Edit [Location Type name] > Display Rules`. This will open an overview of all Display Rules properties.
