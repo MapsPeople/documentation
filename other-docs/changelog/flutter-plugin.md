@@ -2,6 +2,25 @@
 
 Changelog for the MapsIndoors Flutter Plugin. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[3.0.2] 2024-08-27
+
+Fixed
+
+* Completed fix for build issue on Android devices
+* Fixed issues where updating display rules would not trigger a refresh on iOS
+
+#### Changed
+
+* Updated Mapsindoors SDKs:
+  * Android to 4.8.8
+  * iOS to 4.5.12
+
+### \[3.0.1] 2024-07-08
+
+**Fixed**
+
+* Fixed build error when using Google Maps on Android
+
 ### \[3.0.0] 2024-06-26
 
 #### Added

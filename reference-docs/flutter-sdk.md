@@ -4,7 +4,7 @@
 {% tab title="Google Maps" %}
 **Latest**
 
-* [MapsIndoors Google Maps Flutter SDK v3.0.0](https://pub.dev/documentation/mapsindoors\_googlemaps/3.0.0/)
+* [MapsIndoors Google Maps Flutter SDK v3](https://pub.dev/documentation/mapsindoors\_googlemaps/3.0.0/)
 
 **Previous versions**
 
@@ -14,7 +14,7 @@
 {% tab title="Mapbox" %}
 **Latest**
 
-* [MapsIndoors Mapbox Flutter SDK v3.0.0](https://pub.dev/documentation/mapsindoors\_mapbox/3.0.0/)
+* [MapsIndoors Mapbox Flutter SDK v3](https://pub.dev/documentation/mapsindoors\_mapbox/3.0.0/)
 
 **Previous versions**
 
