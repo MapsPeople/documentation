@@ -130,4 +130,143 @@ If applied the labels might look like this:
 
 You now have knowledge of how to style labels and create flat labels when using MapsIndoors on iOS – use it wisely.
 
+## Graphic Labels
+
+The idea behind Graphic Labels is based on [9-slicing](https://en.wikipedia.org/wiki/9-slice\_scaling) and [Mapbox's stretchable images](https://docs.mapbox.com/mapbox-gl-js/example/add-image-stretchable/).
+
+By changing the `labelType` field from the default `floating` to `graphic`, the label will be moved to center on the anchor point and it will be adorned with a background, like shown here below:
+
+<figure><img src="../../../.gitbook/assets/standard_label.png" alt="" width="375"><figcaption></figcaption></figure>
+
+### Parts of a Graphic Label
+
+A graphic label is a combination of multiple values that make it work, namely: a Label, a Background image, a content area, and stretch points in both the vertical (Y) and horizontal (X) directions. Most of these values are kept in a `MPLabelGraphic`, which is used to ensure that the values are inherited together. This is important because changing just a single one of these values will have major implications on the entire graphic label.
+
+```json
+"graphic": {
+    "backgroundImage": "https://someurl.com",
+    "stretchX": [
+        [
+            15,
+            16
+        ]
+    ],
+    "stretchY": [
+        [
+            15,
+            16
+        ]
+    ],
+    "content": [
+        9,
+        9,
+        17,
+        17
+    ]
+}
+```
+
+Above is an example of the contents of the `MPLabelGraphic` in JSON format, in this example the size of the image is 32x32px. Notice that the label itself is not present in the data structure, that is because the graphic label itself **is invariant to the label**, these values will ensure that no matter then length, size or styling of the label text, the graphic label will adapt.
+
+#### Label
+
+The label is the same as for all the other label types, and all styling still applies. If you skipped the part click [here](label-styling-through-display-rules.md#basic-styling) to learn more about label styling.
+
+#### Background Image
+
+The background image is in essence just an image with specific dimension. It is important that if the background image is changed, it must maintain the same size as the previous image, otherwise you might encounter weird stretching behavior, or in the worst case the graphic will not even show.
+
+#### Content Area
+
+The content area denotes a rectangle defined as `[left, top, right, bottom]` where each value is the number of pixels from the images origin.
+
+The content area describes the area within the image where it can place the text from the label.
+
+#### StretchX/StretchY
+
+The stretch points describe areas that should be repeated to seamlessly stretch the image to contain the text.
+
+A stretch point is defined as a double array `[[Int]]`, because it is possible to define multiple stretch points. each area is defined in the inner array, like `[[15,16]]`. In that stretch point we have defined that the Graphic Label can duplicate, or stretch, the pixels from 15 to 16 in order to contain the label text.
+
+it is possible to set multiple stretch point in the same direction, take this example: `[[15,16],[31,32]]`, in this example we have some element between pixel `16` and `31` that we do not want to stretch, therefore we have placed the stretch points on both sides of the element.
+
+{% hint style="warning" %}
+It is not possible to set the stretch point to be placed on the same pixel, eg. `[[15,15]] will not work.`
+{% endhint %}
+
+If you want to see an example of how a graphic label could be defined, see [this](label-styling-through-display-rules.md#example) section.
+
+### Showing Graphic Labels
+
+To start showing Graphic Labels you simply need to update the `labelType` on the Display Rule to `MPLabelType.GRAPHIC`
+
+<pre class="language-swift"><code class="lang-swift">func setLabelToGraphic(rule: MPDisplayRule) {
+<strong>    rule.labelType = .graphic
+</strong>}
+</code></pre>
+
+### Inserting Custom Graphics
+
+To insert your own Graphic Label, you will have to reference an image using a URL and override the Display Rule with it.
+
+```swift
+func setNewGraphicLabel(rule: MPDisplayRule, imageUrl: String) {
+    rule.labelStyleGraphicBackgroundImage = imageUrl
+}
+```
+
+Configuring the graphic label's scaling is a bit more involved, follow the example below to get a better idea of how to set it up.
+
+#### Example
+
+In this example we will create a simple graphic label with rounded corners, and one that is similar, but also has a feature in the middle that we have to work around. We will make the graphic in 200x200px as this makes it a bit easier to see how the graphic will look when stretched. In essence we only need the graphic to encompass the un-stretchable features + 2 pixels per stretch point.
+
+<figure><img src="../../../.gitbook/assets/image (28).png" alt=""><figcaption><p>A graphic with rounded corners, a white background and a black border.</p></figcaption></figure>
+
+Above we have the example, the corners have a radius of 16 pixels. Now we have to define the stretchable areas, which should range from the end of the first corner to the start of the next corner. We also want to define a content area, here we want 6 pixels of padding from the black border.
+
+<figure><img src="../../../.gitbook/assets/image (26).png" alt=""><figcaption><p>A simple white graphic with rounded corners, notice that StretchX/Y encompass the entire image aside from the corners.</p></figcaption></figure>
+
+Above the `StretchX/Y` has been illustrated, with the Content area in <mark style="background-color:red;">red</mark>, the `StretchX` in <mark style="background-color:blue;">blue</mark> and `StretchY` in <mark style="background-color:green;">green</mark>. Notice how the stretchable areas are already repeating a lot, in theory this image could be reduced to 32x32 pixels!
+
+<figure><img src="../../../.gitbook/assets/image (30).png" alt=""><figcaption><p>The same graphic but reduced to its smallest possible size</p></figcaption></figure>
+
+Lets define the graphic label in numbers:
+
+```swift
+func setNewGraphicLabel(rule: MPDisplayRule) {
+    rule.labelStyleGraphicBackgroundImage = "https://www.website.com/graphic.png" // not a real link
+    rule.labelStyleGraphicStretchX = [[15, 184]] // use all the flat pixels
+    rule.labelStyleGraphicStretchY = [[15, 184]]
+    rule.labelStyleGraphicContent = [10, 10, 189, 189] // the border is 4px wide + 6px padding
+}
+```
+
+This example is similar to the first, but has a star on top of the box, and as we do not want to stretch the star, so we will have to be more creative with our stretchable areas.
+
+<figure><img src="../../../.gitbook/assets/image (35).png" alt=""><figcaption><p>A graphic with rounded corners, a white background, a black border, and a star on top.</p></figcaption></figure>
+
+We can color in the stretchable areas and the content area:
+
+<figure><img src="../../../.gitbook/assets/image (34).png" alt=""><figcaption><p>A white graphic with rounded corners and a star in the middle, as we do not want to stretch the star, StretchX have been split in two, placed on both sides of  the star.</p></figcaption></figure>
+
+This example can be described numerically like this:
+
+```swift
+func setNewGraphicLabel(rule: MPDisplayRule) {
+    rule.labelStyleGraphicBackgroundImage = "https://www.website.com/graphic_with_star.png" // not a real link
+    rule.labelStyleGraphicStretchX = [[15, 79], [120, 184]]
+    rule.labelStyleGraphicStretchY = [[55, 184]]
+    rule.labelStyleGraphicContent = [10, 50, 189, 189]
+}
+```
+
+And this is how it will look when place on the map:
+
+<figure><img src="../../../.gitbook/assets/star_label.png" alt="" width="375"><figcaption></figcaption></figure>
+
+Now you know how to enable Graphic Labels, and how to define your own.
+
+
+
 [^1]: 
