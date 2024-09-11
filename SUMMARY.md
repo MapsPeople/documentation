@@ -270,6 +270,7 @@
     * [Getting a Polygon from a Location](other-docs/legacy-docs/ios-sdk-v3/getting-a-polygon-from-a-location.md)
     * [Location Details](other-docs/legacy-docs/ios-sdk-v3/location-details.md)
 * [Glossary](other-docs/glossary.md)
+* [Copy of Glossary](other-docs/glossary-1.md)
 * [MapsIndoors SDK Firewall](other-docs/mapsindoors-sdk-firewall.md)
 * [Google Analytics & Logging](other-docs/google-analytics-and-logging.md)
 
