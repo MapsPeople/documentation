@@ -6,8 +6,6 @@ In order to show a user's position in an indoor map with MapsIndoors, a Position
 
 A Position Provider in MapsIndoors must adhere to the `MPPositionProvider` protocol. Once you have an instance of an `MPPositionProvider` you can register it by assigning it to `MapsIndoors.positionProvider`. See the overview of the interface dependencies below.
 
-<figure><img src="https://docs.mapsindoors.com/img/map/positioning-diagram.png" alt=""><figcaption></figcaption></figure>
-
 ### MapsIndoors and CiscoDNA for iOS[​](https://docs.mapsindoors.com/cisco-dna/#mapsindoors-and-ciscodna-for-ios) <a href="#mapsindoors-and-ciscodna-for-ios" id="mapsindoors-and-ciscodna-for-ios"></a>
 
 MapsIndoors is a dynamic mapping platform from MapsPeople that can provide maps of your indoor and outdoor localities and helps you create search and navigation experiences for your local users. CiscoDNA is Cisco’s newest digital and cloud-based IT infrastructure management platform. Among many other things, CiscoDNA can pinpoint the physical and geographic position of devices connected wirelessly to the local IT network.
@@ -26,7 +24,7 @@ The `PureCiscoDNAProvider` communicates with some MapsIndoors services to get th
 4. Drag and drop the file in the downloaded folder to your new group. Choose "Copy items if needed".
 5.  In your app where you setup your position provider, add the following code:
 
-    ```
+    ```swift
     let dnaPositionProvider = PureCiscoDNAProvider()
     dnaPositionProvider.tenantId = "my-cisco-dna-spaces-tenant-id"
     MPMapsIndoors.shared.positionProvider = dnaPositionProvider
@@ -40,10 +38,10 @@ The `PureCiscoDNAProvider` communicates with some MapsIndoors services to get th
 
 You can choose to fetch the Position Provider information (`CMS` > `Solution Details` > `App Settings` > `Position Provider`) from the CMS as follows:
 
-```
+```swift
 guard let configs = MPMapsIndoors.shared.solution?.positionProviderConfigs,
-            let ciscodnaConfig = configs["ciscodna"],
-            let tenantId = ciscodnaConfig["ciscoDnaSpaceTenantId"] as? String else {
+      let ciscodnaConfig = configs["ciscodna"],
+      let tenantId = ciscodnaConfig["ciscoDnaSpaceTenantId"] as? String else {
         return nil
     }
 }

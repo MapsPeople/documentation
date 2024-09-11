@@ -8,10 +8,10 @@ In this tutorial we will show how you can show a blue dot on the map, representi
 
 We will start by creating our implementation of a positioning provider.
 
-Create a class `MyPositionProvider` that inherits from NSObject and implements `MPPositionProvider`.
+Create a class `MyPositionProvider` that  implements `MPPositionProvider`.
 
 ```swift
-class MyPositionProvider : NSObject, MPPositionProvider {
+class MyPositionProvider: MPPositionProvider {
 ```
 
 Add some member variables to `MyPositionProvider`.
@@ -19,14 +19,6 @@ Add some member variables to `MyPositionProvider`.
 * `delegate`: The delegate object
 * `running`: A running state boolean flag
 * `latestPosition`: The latest positioning result
-
-INFO
-
-The following properties are not included in this example since position is mocked but may be necessary depending upon your use case.
-
-* `preferAlwaysLocationPermission`: A boolean that indicates whether this provider requires Apple Location Services to always be active
-* `locationServicesActive`: A boolean that indicates whether Apple Location Services is currently active
-* `providerType`: A provider type enum, convenient when working with multiple positioning providers in the same application
 
 Create a method called `updatePosition`. This will be our "loop" constantly posting a new position to the delegate.
 
@@ -59,7 +51,7 @@ func updatePosition() {
 Implement the `startPositioning` method. We set the `running` boolean to true and call `updatePos`.
 
 ```swift
-func startPositioning(_ arg: String?) {
+func startPositioning() {
     running = true
     updatePosition()
 }
@@ -68,7 +60,7 @@ func startPositioning(_ arg: String?) {
 Implement the `stopPositioning` method. We set the `running` boolean to false.
 
 ```swift
-func stopPositioning(_ arg: String?) {
+func stopPositioning() {
     running = false
 }
 ```
@@ -90,29 +82,18 @@ Inside `viewDidLoad` or any method of your app's lifecycle, generate and apply a
     MPMapsIndoors.shared.positionProvider = provider
     mapControl?.showUserPosition = true
 
-    provider.startPositioning(nil)
+    provider.startPositioning()
 
+    // Optionally override the icon for the blue dot by supplying another image
     if let dr = MPMapsIndoors.shared.displayRuleFor(displayRuleType: .blueDot)
     {
-        originalIcon = dr.icon
-        // Optionally override the icon for the blue dot by supplying another image
         dr.icon = UIImage(named: "MyOwnPositionIcon")
     }
 }
 ```
 
-Inside `viewDidLoad`, we
+Inside `viewDidLoad` we
 
-* Tell mapControl to show the users location
-* Assign your position provider `MyPositionProvider` to `MapsIndoors.positionProvider` and then finally,
+* Tell `mapControl` to show the users location
+* Assign your position provider `MyPositionProvider` to `MPMapsIndoors.shared.positionProvider` and then finally,
 * Start positioning
-
-It is possible to change the default icon for the user position to include heading by using an image included in the MapsIndoors bundle:
-
-```swift
-if let assetPath = Bundle(identifier: "com.mapspeople.mapsindoors")?.bundlePath,
-   let assetBundle = Bundle(path: assetPath + "/MapsIndoors.bundle") {
-    let directionImage = UIImage(named: "Mylocation_direction", in: assetBundle, with: nil)
-    dr.icon = directionImage
-}
-```
