@@ -57,6 +57,7 @@
     * [Turn Off Collisions Based on Zoom Level](sdks-and-frameworks/web/other-guides/turn-off-collisions-based-on-zoom-level.md)
     * [Remove Labels from Buildings and Venues for Web](sdks-and-frameworks/web/other-guides/remove-labels-from-buildings-and-venues-for-web.md)
     * [Synchronizing data for a subset of venues](sdks-and-frameworks/web/other-guides/synchronizing-data-for-a-subset-of-venues.md)
+    * [Custom Floor Selector](sdks-and-frameworks/web/other-guides/custom-floor-selector.md)
   * [Display Rules in Practice](sdks-and-frameworks/web/display-rules-in-practice.md)
   * [Offline Data](sdks-and-frameworks/web/offline-data.md)
   * [Managing map visibility](sdks-and-frameworks/web/managing-map-visibility.md)
