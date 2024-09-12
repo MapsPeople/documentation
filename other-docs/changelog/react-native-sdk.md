@@ -2,6 +2,23 @@
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.0.7] 2024-09-12
+
+#### Updated
+
+#### Fixed
+
+* Fixed a potential crash happening when hot reloads happen to the Mapview
+* Fixed an issue where selectable property was nul on locations
+* Fixed an issue where the map would not render before a map interaction
+* Fixed an issue where requesting a route would never resolve/reject the promise
+* Fixed an issue where the route would reappear after clearing it on the DirectionsRenderer
+
+#### Updated
+
+* Updated iOS SDK to 4.5.15
+* Updated Android SDK to 4.8.9
+
 ### \[2.0.6] 2024-08-30
 
 #### Updated
