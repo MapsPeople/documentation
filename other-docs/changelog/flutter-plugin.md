@@ -2,9 +2,23 @@
 
 Changelog for the MapsIndoors Flutter Plugin. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[3.1.0]  2024-09-11
+
+#### Added
+
+* Added functionality for Android to update the map whenever a Display Rule is changed
+* Added method on MapsIndoorsWidget to disable built-in compass
+
+#### Changed
+
+* Disabled Mapbox Attributions button on Android as it would crash when clicked
+* Updated Mapsindoors SDKs:
+  * Android to 4.8.9
+  * iOS to 4.5.14
+
 ### \[3.0.2] 2024-08-27
 
-Fixed
+#### Fixed
 
 * Completed fix for build issue on Android devices
 * Fixed issues where updating display rules would not trigger a refresh on iOS
