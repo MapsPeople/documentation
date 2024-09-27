@@ -2,9 +2,22 @@
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-### \[2.0.7] 2024-09-12
+### \[2.1.0] 2024-09-27
+
+#### Added
+
+* `camera:MPCameraPosition`  to the `MapView` view. To set an initial camera position when showing the map.
+* `showCompass:boolean` to the `MapView` view. To enable/disable if the compass should show when rotating the map
+
+#### Fixed
+
+* Fixed a compile issue with xcode 16
 
 #### Updated
+
+* Updated to Mapbox 11.7.0 on Android
+
+### \[2.0.7] 2024-09-12
 
 #### Fixed
 
