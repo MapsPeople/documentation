@@ -35,7 +35,7 @@ The App User Roles are useful for setting limits on who can find certain Locatio
 
 For any Location defined on the map, there is a menu named `Restrictions`, where you are presented with options for limiting functionality certain App User Roles.
 
-<figure><img src="../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **Open for all** - All users can view, search for, and get directions to this Location.
 * **Open for specific App User Roles** - Select which App User Roles have access to viewing, searching and getting directions to this specific Location.
