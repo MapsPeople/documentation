@@ -2,6 +2,22 @@
 
 Changelog for the MapsIndoors Flutter Plugin. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[3.1.1] 2024-10-16
+
+#### Fixed
+
+* Fixed issue where camera events would not be propagated to the Flutter layer
+* Fixed issue on iOS where setting a custom floor selector
+* Fixed issue on Android where `goTo(MPLocation)` did not function properly
+* Fixed tilt not being applied when moving the camera using a `MPCameraUpdate` on iOS
+* Fixed blank screen on Android when not using the `MapsindoorsStyle`
+
+#### Changed
+
+* Updated Mapsindoors SDKs:
+* Android to 4.8.11 (Google Maps only)
+* iOS to 4.6.1
+
 ### \[3.1.0]  2024-09-11
 
 #### Added
