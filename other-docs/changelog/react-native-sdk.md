@@ -6,7 +6,7 @@ Changelog for the MapsIndoors React Native SDK. This document structure is based
 
 #### Changed
 
-* Specified Google Maps linkage on iOS. If upgrading from earlier versions make sure to remove the script inside the podfile that removes the static linked library from `MapsIndoorsGoogleMaps`
+* Specified Google Maps linkage on iOS. If upgrading from earlier versions make sure to remove the `post_install` script inside the podfile that removes the static linked library from `MapsIndoorsGoogleMaps`
 
 #### Updated
 
