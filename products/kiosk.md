@@ -146,7 +146,7 @@ You can of course use any other combination of our URL parameters (listed [here]
 
 You can also use the `pitch`, `bearing` and `startZoomLevel`  or any other properties you want to configure as the starting point of the Kiosk. Read more about all the properties here.
 
-If you want your kiosk to be displayed in a different language than English, make sure you check out the language options listed on the link above, under the \`language\` query parameter. The currently supported languages are English, German, French and Danish.
+If you want your kiosk to be displayed in a different language than English, make sure you check out the language options listed on the link above, under the \`language\` query parameter. The currently supported languages are English, German, French, Danish, Italian, Spanish and Dutch.
 
 You can find an example [here](https://map.mapsindoors.com/?apiKey=02c329e6777d431a88480a09\&kioskOriginLocationId=b47a973a8450439598c0189c\&useKeyboard=true\&pitch=50\&bearing=180\&timeout=10), of our own-pre-built web app with the Kiosk mode, pitch and bearing set to set the angle of our virtual Kiosk on the map.
 
