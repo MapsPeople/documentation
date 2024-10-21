@@ -33,6 +33,7 @@ The Map Template supports using query parameters for all the properties provided
 25. `hideNonMatches` - Determine whether the locations on the map should be filtered (only show the matched locations and hide the rest) or highlighted (show all locations and highlight the matched ones with a red dot by default). If set to true, the locations will be filtered.
 26. `showRoadNames` - A boolean parameter that dictates whether Mapbox road names should be shown. By default, Mapbox road names are hidden when MapsIndoors data is shown. It is dictated by `mi-transition-level` which default value is 17.
 27. `showExternalIDs` - Determine whether the Location details should show the external ID or not. The default value is set to false.
+28. `searchExternalLocations` - If you want to perform search for external locations in the Wayfinding mode. If set to true, Mapbox/Google places will be displayed depending on the Map Provider you are using. If set to false, the results returned will only be MapsIndoors results. The default is false.
 
 **Note!** All the query parameters need to be separated with the `&` symbol, without any spaces in between.
 
