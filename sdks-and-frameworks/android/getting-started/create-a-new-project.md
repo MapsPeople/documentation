@@ -17,7 +17,7 @@ To benefit from the guides, you will need basic knowledge about:
 * Android Development
 * Google Maps Android API
 
-You can get started in two ways, either by reviewing and modifying the [basic example](https://docs.mapsindoors.com/getting-started/android/v4/new-project#basic-example) or do the [clean setup](https://docs.mapsindoors.com/getting-started/android/v4/new-project#setup-mapsindoors). The clean setup is only written for Google Maps, and we recommend following the [basic example](https://docs.mapsindoors.com/getting-started/android/v4/new-project#basic-example).
+You can get started in two ways, either by reviewing and modifying the [basic example](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google\_Maps/mapsindoorsgettingstartedbasickotlin) or do the [clean setup](https://docs.mapsindoors.com/getting-started/android/v4/new-project#setup-mapsindoors). The clean setup is only written for Google Maps, and we recommend following the [basic example](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google\_Maps/mapsindoorsgettingstartedbasickotlin).
 
 ### Basic Example[​](https://docs.mapsindoors.com/getting-started/android/v4/new-project#basic-example) <a href="#basic-example" id="basic-example"></a>
 
@@ -25,9 +25,9 @@ The tutorial will be based on you starting from our basic map implementation. Th
 
 The basic example contains a single `activity` app with already made `fragments` to host the different logic to get a complete app interacting with a map and `MapsIndoors` data.
 
-You can find the basic example for Google Maps here: [Java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google\_Maps/mapsindoorsgettingstartedbasicjava) or [Kotlin](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google\_Maps/mapsindoorsgettingstartedbasickotlin)
+You can find the basic example for Google Maps here: [Kotlin](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google\_Maps/mapsindoorsgettingstartedbasickotlin)
 
-The Mapbox basic example is located here: [Java](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/MapBox/mapsindoorsgettingstartedbasicjava) or [Kotlin](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/MapBox/mapsindoorsgettingstartedbasickotlin)
+The Mapbox basic example is located here: [Kotlin](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/MapBox/mapsindoorsgettingstartedbasickotlin)
 
 You can open the project through Android Studio by navigating through **File -> New -> Project from Version Control -> GitHub**. Log in and clone the project.
 
@@ -78,7 +78,6 @@ Add the following dependencies and the MapsIndoors maven repository:
 
 {% tabs %}
 {% tab title="Google Maps" %}
-
 `play-services-maps` is used for Google Maps which MapsIndoors is build on top of on Android.
 
 ```gradle
@@ -86,7 +85,7 @@ dependencies {
     ...
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.mapspeople.mapsindoors:googlemaps:4.2.5'
+    implementation 'com.mapspeople.mapsindoors:googlemaps:4.8.6'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 }
 repositories{
@@ -98,7 +97,7 @@ repositories{
 
 Put those lines in your proguard-rules files:
 
-```
+```properties
 -keep interface com.mapsindoors.core.** { *; }
 -keep class com.mapsindoors.core.errors.** { *; }
 -keepclassmembers class com.mapsindoors.core.models.** { <fields>; }
@@ -111,15 +110,14 @@ Sync your project with gradle.
 {% endtab %}
 
 {% tab title="Mapbox" %}
-
 ```gradle
 dependencies {
     ...
-    implementation ('com.mapbox.maps:android:10.8.0'){
+    implementation ('com.mapbox.maps:android:11.4.0'){
         exclude group: 'group_name', module: 'module_name'
     }
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.mapspeople.mapsindoors:mapbox:4.2.5'
+    implementation 'com.mapspeople.mapsindoors:mapbox:4.8.6'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 }
 repositories{
