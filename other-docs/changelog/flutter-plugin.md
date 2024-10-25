@@ -2,6 +2,20 @@
 
 Changelog for the MapsIndoors Flutter Plugin. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[3.1.2] 2024-10-25
+
+#### Fixed
+
+* Fixed issue where camera events would not be propagated to the Flutter layer on iOS
+* Fixed behavior where iOS would throw an error when `getLocationById` could not find a location, it now returns null like on Android
+* Fixed `setCollisionHandling` on `MPSolutionConfig` causing a crash
+* Fixed `moveCamera`/`AnimateCamera` from a `MPCameraPosition` would not work on iOS
+
+#### Changed
+
+* Updated Mapsindoors SDKs:
+  * Android to 4.8.11 (Mapbox only)
+
 ### \[3.1.1] 2024-10-16
 
 #### Fixed
