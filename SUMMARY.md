@@ -97,6 +97,7 @@
     * [Location Data Sources](sdks-and-frameworks/android/displaying-objects/location-data-sources.md)
     * [Location Details](sdks-and-frameworks/android/displaying-objects/location-details.md)
     * [Turn Off Collisions Based on Zoom Level](sdks-and-frameworks/android/displaying-objects/turn-off-collisions-based-on-zoom-level-1.md)
+    * [Enabling and Disabling features on the map](sdks-and-frameworks/android/displaying-objects/enabling-and-disabling-features-on-the-map.md)
   * [Change Building Outline Color](sdks-and-frameworks/android/change-building-outline-color.md)
   * [Event Logging](sdks-and-frameworks/android/event-logging.md)
   * [Configuring a menu with AppConfig](sdks-and-frameworks/android/configuring-a-menu-with-appconfig.md)
