@@ -90,7 +90,25 @@ If applied it might look like this:
 
 <figure><img src="../../../.gitbook/assets/android_label_dr_label_example.png" alt=""><figcaption><p>An example of labels with white text and a black outline</p></figcaption></figure>
 
+### Changing Label Position
 
+It is possible to define what position the label should have in relation to the icon. The options are defined by the `MPLabelPosition` enum; `TOP`, `BOTTOM`, `LEFT`, `RIGHT` .
+
+```kotlin
+fun setLabelPosition(dr: MPDisplayRule) {
+    dr.labelStylePosition = MPLabelPosition.RIGHT
+}
+```
+
+With the introduction of configurable label positions, all labels will by default move to the bottom from the right. If not additional display rule changes has been made since the introduction the behavior change can be reverted by changing the position on the main `MPDisplayRule`
+
+```kotlin
+fun changeLabelPositionToRight() {
+    MapsIndoors.getMainDisplayRule()?.apply {
+        labelStylePosition = MPLabelPosition.RIGHT
+    }
+}
+```
 
 ## Flat labels
 
