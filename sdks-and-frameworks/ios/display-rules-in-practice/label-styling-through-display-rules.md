@@ -38,8 +38,13 @@ With these fields it is possible to style the label to fit your design. In the f
 func styleLabelText(displayRule: MPDisplayRule) {
     displayRule.labelStyleTextSize *= 2
     displayRule.labelStyleTextColor = .green
+    displayRule.labelStylePosition = .right
 }
 ```
+
+{% hint style="warning" %}
+Label position was introduced to `MPDisplayRule` in SDK version 4.6.0. Previously, labels were always positioned to the right of icons. To retain this behavior, make sure to adjust display rules programmatically (see code snippet above), or using the MapsIndoors CMS.
+{% endhint %}
 
 If we apply this function to a Display Rule, it could look like this:
 
