@@ -2,6 +2,18 @@
 
 Changelog for the MapsIndoors Flutter Plugin. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[3.1.3] 2024-10-31
+
+#### Fixed&#x20;
+
+* Fixed custom floorselectors not working properly on iOS
+
+#### Changed&#x20;
+
+* Updated Mapsindoors SDKs:
+  * Android to 4.8.12
+  * iOS to 4.6.2
+
 ### \[3.1.2] 2024-10-25
 
 #### Fixed
