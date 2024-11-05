@@ -37,7 +37,7 @@ MapsIndoors can be installed using Swift Package Manger, CocoaPods or you can in
 
     [`https://github.com/MapsPeople/mapsindoors-googlemaps-ios.git`](https://github.com/MapsPeople/mapsindoors-googlemaps-ios.git) (to use Google Maps)
 3. Select the _Dependency Rule_ you want to apply to the MapsIndoors SDK
-   * A common choice for _Dependency Rule_ is "Up to Next Major Version", specifying `4.6.0` as the minimum version. To instead install a specific version set the _Dependency Rule_ field to "Exact Version" and insert the desired version. The latest version of the MapsIndoors SDK is `4.6.0`.
+   * A common choice for _Dependency Rule_ is "Up to Next Major Version", specifying `4.6.0` as the minimum version. To instead install a specific version set the _Dependency Rule_ field to "Exact Version" and insert the desired version. The latest version of the MapsIndoors SDK is `4.6.2`.
 4. Hit enter or Click **Add Package**.
 5. In the new window select the `MapsIndoorsMapbox` or `MapsIndoorsGoogleMaps` library and click **Add Package**. Once SPM finishes installing the SDK you will see 3 new dependencies under **Package Dependencies**: `MapsIndoors`, `MapsIndoorsCore`, and `MapsIndoorsMapbox` or `MapsIndoorsGoogleMaps` (plus their respective dependencies).
 6. Click on your project's target, scroll down to `Frameworks, Libraries, and Embedded Content` and click the plus button.
