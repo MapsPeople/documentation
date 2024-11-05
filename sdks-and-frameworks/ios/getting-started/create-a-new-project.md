@@ -2,13 +2,6 @@
 
 Now that you have taken care of all the preliminary issues, we can start building the app. Throughout this guide, you will continously modify this project to extend its functionality to cover a number of basic features.
 
-{% hint style="warning" %}
-Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the `post_install` hook in your Podfile. The `post_install` is different depending on if you use Google Maps or Mapbox Maps:
-
-* [Google Maps `post_install`](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/wiki/Podfile-post\_install-v4).
-* [Mapbox Maps `post_install`](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/wiki/Podfile-post\_install-Mapbox-v4).
-{% endhint %}
-
 ### Create an Xcode Project[​](https://docs.mapsindoors.com/getting-started/ios/v4/set-up-your-environment#create-an-xcode-project) <a href="#create-an-xcode-project" id="create-an-xcode-project"></a>
 
 We recommend using [Xcode](https://developer.apple.com/xcode/) for following along. For this guide we will be using Xcode 15.4. Note that an iOS mobile device is not required, as Xcode allows the use of a simulator.
