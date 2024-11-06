@@ -161,6 +161,7 @@
     * [Label styling through Display Rules](sdks-and-frameworks/ios/display-rules-in-practice/label-styling-through-display-rules.md)
   * [Switching Solutions](sdks-and-frameworks/ios/switching-solutions.md)
   * [Show User's Location aka. Blue Dot](sdks-and-frameworks/ios/show-users-location-aka.-blue-dot/README.md)
+    * [Using Indoor Atlas](sdks-and-frameworks/ios/show-users-location-aka.-blue-dot/using-indoor-atlas.md)
     * [Using Cisco DNA Spaces](sdks-and-frameworks/ios/show-users-location-aka.-blue-dot/using-cisco-dna-spaces.md)
   * [Highlight and Select](sdks-and-frameworks/ios/highlight-and-select.md)
 * [Integration API](sdks-and-frameworks/integration-api/README.md)
