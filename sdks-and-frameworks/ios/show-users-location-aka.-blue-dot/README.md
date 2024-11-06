@@ -31,19 +31,22 @@ Create a method called `updatePosition`. This will be our "loop" constantly post
 
 ```swift
 func updatePosition() {
-    if running {
-        latestPosition?.bearing = (latestPosition!.bearing + 10)
-        latestPosition?.coordinate = generateRandomCoordinate()
-        latestPosition?.bearing = Double.random(in: 0..<360)
-        latestPosition?.accuracy = Double.random(in: 0..<10)
-            
-        if let delegate = self.delegate, let latestPosition = self.latestPosition {
-                delegate.onPositionUpdate(position: latestPosition)
-        }
-        weak var _self = self
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                _self?.updatePosition()
-        }
+    guard running else { return }
+
+    latestPosition?.bearing = (latestPosition!.bearing + 10)
+    latestPosition?.coordinate = generateRandomCoordinate()
+    latestPosition?.bearing = Double.random(in: 0 ..< 360)
+    latestPosition?.accuracy = Double.random(in: 0 ..< 10)
+
+    if let delegate, let latestPosition {
+        delegate.onPositionUpdate(position: latestPosition)
+    }
+
+    Task { @MainActor [weak self] in
+        try await Task.sleep(nanoseconds: 1_000_000_000)
+        guard let self else { return }
+
+        updatePosition()
     }
 }
 ```
