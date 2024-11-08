@@ -63,7 +63,7 @@ If you're using Mapbox, make sure to configure your secret token in order to dow
       # Remove the comment mark to use your map specific MapsIndoors pod
       # pod 'MapsIndoorsGoogleMaps', '~> 4.6'
       # or
-      # pod 'MapsIndoorsMapbox', '~> 4.6'
+      # pod 'MapsIndoorsMapbox11', '~> 4.6'
     end
     ```
 
@@ -71,8 +71,8 @@ If you're using Mapbox, make sure to configure your secret token in order to dow
 If you're using Mapbox, make sure to configure your secret token in order to download the required dependencies from Mapbox when running `pod install`: [https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials](https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials)
 {% endhint %}
 
-{% hint style="warning" %}
-If you are upgrading from a version previous to 4.6.0 you should remove the `post_install` script parts previously required by MapsIndoors ([for Google Maps](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/wiki/Podfile-post\_install-v4) or [for Mapbox Maps](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/wiki/Podfile-post\_install-Mapbox-v4)).
+{% hint style="danger" %}
+If you are upgrading from a version previous to 4.6.0 you must remove the `post_install` script parts previously required by MapsIndoors [for Google Maps](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/wiki/Podfile-post\_install-v4).
 {% endhint %}
 
 4. Save the `Podfile` and close Xcode.
