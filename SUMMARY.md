@@ -224,7 +224,7 @@
 ## Reference Docs
 
 * [Web SDK](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/)
-* [iOS SDK](reference-docs/ios-sdk.md)
+* [MapsIndoors iOS SDK](reference-docs/ios-sdk.md)
 * [Android SDK](reference-docs/android-sdk.md)
 * [React Native SDK](reference-docs/react-native-sdk.md)
 * [Flutter SDK](reference-docs/flutter-sdk.md)
