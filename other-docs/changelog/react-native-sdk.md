@@ -2,6 +2,19 @@
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.1.2] 2024-11-15
+
+#### Fixed
+
+* Fixed issue where `MPCameraUpdate.zoomBy` on iOS Mapbox would set the zoom to the given value, instead of adjusting by the value
+* Fixed issue where `MapControl.animateCamera`, did not actually animate on Mapbox
+* Fixed issue where you could not set parameters to false, on `MPSelectionBehavior` and `MPHighlightBehavior` when calling create
+
+#### Updated
+
+* Updated MapsIndoors iOS SDK to 4.6.1
+* Updated MapsIndoors Android SDK to 4.8.11
+
 ### \[2.1.1] 2024-10-17
 
 #### Changed
