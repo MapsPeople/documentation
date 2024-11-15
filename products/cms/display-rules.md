@@ -131,7 +131,7 @@ By choosing Floating Label type, the new sub-section will appear: Label Position
 <figure><img src="../../.gitbook/assets/Screenshot 2024-08-28 at 09.57.09.png" alt="" width="563"><figcaption><p>Label Position Display Rules sub-section</p></figcaption></figure>
 
 {% hint style="warning" %}
-The ability to change label positioning is expected to be available in December in the Web SDK version v4.38.0. See the [Web SDK Changelog](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/) for the actual version of the SDK once released.
+Note: The ability to change label positioning is expected to be available in December in the SDKs with the following versions: Web SDK (v4.38.0) and Mobile SDKs (Android v4.9.0 and iOS v4.8.0). For the Mobile SDKs this changes the previous default postioning. See the [changelog](https://docs.mapsindoors.com/other-docs/changelog) for the actual versions of the SDKs once released.
 {% endhint %}
 
 It is possible to define what position the label by choosing Flat Label type, the new sub-section will appear: Bearing. It controls the rotation of the Flat Label. Measured in degrees, like a compass bearing.
