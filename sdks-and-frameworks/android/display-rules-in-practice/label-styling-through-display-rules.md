@@ -93,7 +93,7 @@ If applied it might look like this:
 ### Changing Label Position
 
 {% hint style="warning" %}
-The ability to change label positioning is expected to be available in December with version 4.9.0. See the [Android SDK changelog](https://docs.mapsindoors.com/other-docs/changelog/android-sdk/v4) for the actual version of the SDKs once released.
+The ability to change label positioning is expected to be available at the end of November with version 4.9.0. See the [Android SDK changelog](https://docs.mapsindoors.com/other-docs/changelog/android-sdk/v4) for the actual version of the SDKs once released.
 
 Previously, labels were always positioned to the right of icons. To retain this behavior, make sure to adjust display rules programmatically (see code snippet above), or using the MapsIndoors CMS.
 {% endhint %}

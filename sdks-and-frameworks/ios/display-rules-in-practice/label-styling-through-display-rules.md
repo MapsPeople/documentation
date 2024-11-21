@@ -43,7 +43,7 @@ func styleLabelText(displayRule: MPDisplayRule) {
 ```
 
 {% hint style="warning" %}
-The ability to change label positioning is expected to be available in December in version 4.8.0. See the [iOS SDK changelog](https://docs.mapsindoors.com/other-docs/changelog/ios-sdk/v4) for the actual version of the SDKs once released.
+The ability to change label positioning is expected to be available at the end of November in version 4.8.0. See the [iOS SDK changelog](https://docs.mapsindoors.com/other-docs/changelog/ios-sdk/v4) for the actual version of the SDKs once released.
 
 Previously, labels were always positioned to the right of icons. To retain this behavior, make sure to adjust display rules programmatically (see code snippet above), or using the MapsIndoors CMS.
 {% endhint %}
