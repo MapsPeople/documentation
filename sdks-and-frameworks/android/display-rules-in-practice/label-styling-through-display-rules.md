@@ -93,9 +93,9 @@ If applied it might look like this:
 ### Changing Label Position
 
 {% hint style="warning" %}
-The ability to change label positioning is expected to be available at the end of November with version 4.9.0. See the [Android SDK changelog](https://docs.mapsindoors.com/other-docs/changelog/android-sdk/v4) for the actual version of the SDKs once released.
+The ability to change label positioning is available from version 4.9.0. See the [Android SDK changelog](https://docs.mapsindoors.com/other-docs/changelog/android-sdk/v4).
 
-Previously, labels were always positioned to the right of icons. To retain this behavior, make sure to adjust display rules programmatically (see code snippet above), or using the MapsIndoors CMS.
+Previously, labels were always positioned to the right of icons. To retain this behavior, make sure to adjust display rules programmatically (see code snippet below), or using the MapsIndoors CMS.
 {% endhint %}
 
 It is possible to define what position the label should have in relation to the icon. The options are defined by the `MPLabelPosition` enum; `TOP`, `BOTTOM`, `LEFT`, `RIGHT` .
@@ -168,7 +168,7 @@ You now have knowledge of how to style labels and create flat labels when using 
 
 ## Graphic Labels
 
-The idea behind Graphic Labels is based on [9-slicing](https://en.wikipedia.org/wiki/9-slice\_scaling) and [Mapbox's stretchable images](https://docs.mapbox.com/mapbox-gl-js/example/add-image-stretchable/).
+The idea behind Graphic Labels is based on [9-slicing](https://en.wikipedia.org/wiki/9-slice_scaling) and [Mapbox's stretchable images](https://docs.mapbox.com/mapbox-gl-js/example/add-image-stretchable/).
 
 By changing the `labelType` field from the default `floating` to `graphic`, the label will be moved to center on the anchor point and it will be adorned with a background, like shown here below:
 
