@@ -22,7 +22,7 @@ MapsIndoors provides support for both Mapbox GL JS v2 and v3. Our commitment to 
 
 In order to access Mapbox v3 and its options, use `mapView`:&#x20;
 
-```
+```javascript
 const mapView = new mapsindoors.mapView.MapboxV3View({
     accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
     element: document.getElementById('map'),
@@ -68,7 +68,7 @@ You can read more about the latest Mapbox v3 Standard Style [here](https://www.m
 
 In order to access Mapbox v2 and its options, use `mapView` and instantiate it as a new MapsIndoors object:
 
-```
+```javascript
 const mapView = new mapsindoors.mapView.MapboxView({
     accessToken: YOUR_MAPBOX_ACCESS_TOKEN
     element: document.getElementById('map'),
