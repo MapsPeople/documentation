@@ -1,6 +1,29 @@
-# Flutter Plugin
+---
+icon: flutter
+---
 
-Changelog for the MapsIndoors Flutter Plugin. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+# Flutter SDK
+
+Changelog for the MapsIndoors Flutter SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+### \[4.0.0] 2024-11-28
+
+Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md) to see what changes are needed to upgrade from v3 to v4.
+
+#### Added
+
+* Added `initialCameraPosition: MPCameraPosition` to the `MapWidget` constructor. If set, the initial position of the camera will be moved to the given `MPCameraPosition`.
+
+#### Changed
+
+* Changed all uses of color `String`s to use `dart:ui` `Color` instead.
+* Updated Mapsindoors SDKs:
+  * Android to 4.9.0
+  * iOS to 4.7.0
+
+#### Removed
+
+* `ClearWayType` has been removed, use `ClearAvoidWayType` instead.
 
 ### \[3.1.3] 2024-10-31
 

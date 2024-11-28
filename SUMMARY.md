@@ -190,6 +190,7 @@
     * [Create a Search Experience](sdks-and-frameworks/flutter/getting-started/create-a-search-experience.md)
     * [Getting Directions](sdks-and-frameworks/flutter/getting-started/getting-directions.md)
     * [Enable Live Data](sdks-and-frameworks/flutter/getting-started/enable-live-data.md)
+  * [Migration Guide](sdks-and-frameworks/flutter/migration-guide.md)
 
 ## Products
 
@@ -234,7 +235,6 @@
 * [Map Design](other-docs/map-design/README.md)
   * [Standard MapsIndoors Map Style](other-docs/map-design/standard-mapsindoors-map-style.md)
 * [Changelog](other-docs/changelog/README.md)
-  * [React Native SDK](other-docs/changelog/react-native-sdk.md)
   * [iOS SDK](other-docs/changelog/ios-sdk/README.md)
     * [V4](other-docs/changelog/ios-sdk/v4.md)
     * [V3](other-docs/changelog/ios-sdk/v3.md)
@@ -244,7 +244,8 @@
   * [Web SDK](other-docs/changelog/web-sdk/README.md)
     * [V4](other-docs/changelog/web-sdk/v4.md)
     * [V3](other-docs/changelog/web-sdk/v3.md)
-  * [Flutter Plugin](other-docs/changelog/flutter-plugin.md)
+  * [React Native SDK](other-docs/changelog/react-native-sdk.md)
+  * [Flutter SDK](other-docs/changelog/flutter-plugin.md)
   * [MI Components](https://github.com/MapsPeople/web-ui/blob/main/packages/components/CHANGELOG.md)
   * [Map Template](https://github.com/MapsPeople/web-ui/blob/main/packages/map-template/CHANGELOG.md)
 * [Legacy Docs](other-docs/legacy-docs/README.md)
