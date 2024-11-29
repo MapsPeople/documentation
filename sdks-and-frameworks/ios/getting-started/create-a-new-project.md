@@ -72,7 +72,7 @@ If you're using Mapbox, make sure to configure your secret token in order to dow
 {% endhint %}
 
 {% hint style="danger" %}
-If you are upgrading from a version previous to 4.6.0 you must remove the `post_install` script parts previously required by MapsIndoors [for Google Maps](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/wiki/Podfile-post\_install-v4).
+If you are upgrading from a version previous to 4.6.0 you must remove the `post_install` script parts previously required by MapsIndoors [for Google Maps](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/wiki/Podfile-post_install-v4).
 {% endhint %}
 
 4. Save the `Podfile` and close Xcode.
@@ -87,7 +87,7 @@ If you are upgrading from a version previous to 4.6.0 you must remove the `post_
   * GoogleMaps-8.4.0/Base/Frameworks/GoogleMapsBase.framework
   * GoogleMaps-8.4.0/Maps/Frameworks/GoogleMaps.framework
   * GoogleMaps-8.4.0/Maps/Frameworks/GoogleMapsCore.framework
-* In Xcode, drag the `GoogleMaps.bundle` from the `GoogleMaps-8.4.0/Maps/Resources/GoogleMapsResources` folder into the top level directory of your Xcode project. When prompted, ensure **"**Copy items if needed" **is** selected.
+* In Xcode, drag the `GoogleMaps.bundle` from the `GoogleMaps-8.4.0/Maps/Resources/GoogleMapsResources` folder into the top level directory of your Xcode project. When prompted, ensure **"**&#x43;opy items if needed" **is** selected.
 * Download and unzip the following MapsIndoors SDK v4 XCFrameworks from the [latest release](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/releases):
   * MapsIndoors
   * MapsIndoorsCore
