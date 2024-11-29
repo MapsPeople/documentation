@@ -164,6 +164,7 @@
     * [Using Indoor Atlas](sdks-and-frameworks/ios/show-users-location-aka.-blue-dot/using-indoor-atlas.md)
     * [Using Cisco DNA Spaces](sdks-and-frameworks/ios/show-users-location-aka.-blue-dot/using-cisco-dna-spaces.md)
   * [Highlight and Select](sdks-and-frameworks/ios/highlight-and-select.md)
+  * [Display Language](sdks-and-frameworks/ios/display-language.md)
 * [Integration API](sdks-and-frameworks/integration-api/README.md)
   * [Integration API Access](sdks-and-frameworks/integration-api/integration-api-access/README.md)
     * [Access with Swagger](sdks-and-frameworks/integration-api/integration-api-access/access-with-swagger.md)

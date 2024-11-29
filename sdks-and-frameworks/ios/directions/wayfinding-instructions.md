@@ -6,6 +6,8 @@ description: iOS V4
 
 In this tutorial we will show how to work with the route model returned from a directions service call. We will also show how you can utilize interaction between the route rendering on the map and textual instructions showed in another view.
 
+See [Wayfinding Translations](../display-language.md#wayfinding-translations), for examples of how to handle localization of routes and their presentation on the map.
+
 In the route model there are some text properties that we will interpret as enum values, so start out by creating enums `RouteContext` describing whether we are outside or inside.
 
 ```swift
