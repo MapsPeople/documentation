@@ -10,19 +10,19 @@ MapsIndoors solutions come with a default map style that balances ease of readin
 
 The standard map style can be rendered in the **four** **following ways** to suit various application requirements:
 
-1. **2D **<mark style="background-color:red;">**Without Models**</mark> (base map providers: Google, Mapbox)
+1. **2D&#x20;**<mark style="background-color:red;">**Without Models**</mark> (base map providers: Google, Mapbox)
 
 <figure><img src="../../.gitbook/assets/ipad-mockup-light.webp" alt=""><figcaption></figcaption></figure>
 
-2. **2D **<mark style="background-color:green;">**With Models**</mark> (base map providers: Google, Mapbox)
+2. **2D&#x20;**<mark style="background-color:green;">**With Models**</mark> (base map providers: Google, Mapbox)
 
 <figure><img src="../../.gitbook/assets/ipad-mockup-light-1.webp" alt=""><figcaption></figcaption></figure>
 
-3. **3D **<mark style="background-color:red;">**Without Models**</mark> (base map provider: Mapbox only)
+3. **3D&#x20;**<mark style="background-color:red;">**Without Models**</mark> (base map provider: Mapbox only)
 
 <figure><img src="../../.gitbook/assets/ipad-mockup-light-2.webp" alt=""><figcaption></figcaption></figure>
 
-4. **3D **<mark style="background-color:green;">**With Models**</mark> (base map provider: Mapbox only)
+4. **3D&#x20;**<mark style="background-color:green;">**With Models**</mark> (base map provider: Mapbox only)
 
 <figure><img src="../../.gitbook/assets/ipad-mockup-light-3.webp" alt=""><figcaption></figcaption></figure>
 

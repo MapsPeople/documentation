@@ -1,6 +1,6 @@
-# Synchronizing data for a subset of venues in MapsIndoors
+# Synchronizing data for a subset of venues
 
-__This article assumes that you have already read the [Getting Started guide.](../getting-started/README.md)__
+**This article assumes that you have already read the** [**Getting Started guide.**](../tutorial/getting-started/)
 
 In this article, we will discuss how to synchronize data for a subset of venues in MapsIndoors. There are multiple benefits to doing this, including performance and control over which data the user can search for.
 

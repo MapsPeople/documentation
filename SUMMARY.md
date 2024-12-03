@@ -5,9 +5,14 @@
 ## SDKS & Frameworks
 
 * [Web](sdks-and-frameworks/web/README.md)
-  * [Getting Started](sdks-and-frameworks/web/getting-started/README.md)
-    * [Map Engine Setup](sdks-and-frameworks/web/getting-started/prerequisites.md)
-    * [Tutorial](sdks-and-frameworks/web/getting-started/tutorial.md)
+  * [Getting Started](sdks-and-frameworks/web/tutorial/README.md)
+    * [Prerequisites](sdks-and-frameworks/web/tutorial/getting-started/README.md)
+      * [MapsIndoors](sdks-and-frameworks/web/tutorial/getting-started/mapsindoors.md)
+      * [Map Engine Provider](sdks-and-frameworks/web/tutorial/getting-started/map-engine-provider/README.md)
+        * [Option 1: Get your Mapbox Access Token](sdks-and-frameworks/web/tutorial/getting-started/map-engine-provider/option-1-get-your-mapbox-access-token.md)
+        * [Option 2: Get your Google Maps API Keys​](sdks-and-frameworks/web/tutorial/getting-started/map-engine-provider/option-2-get-your-google-maps-api-keys.md)
+      * [Map Engine Setup](sdks-and-frameworks/web/tutorial/getting-started/prerequisites.md)
+    * [Getting Started: MapsIndoors](sdks-and-frameworks/web/tutorial/tutorial.md)
   * [Map Visualization](sdks-and-frameworks/web/map-visualization/README.md)
     * [Highlight, Hover and Select](sdks-and-frameworks/web/map-visualization/how-to-change-the-state-displayrules.md)
     * [Remove Labels from Buildings and Venues](sdks-and-frameworks/web/remove-labels-from-buildings-and-venues.md)
