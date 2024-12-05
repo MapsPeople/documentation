@@ -36,15 +36,17 @@ On Types it is possible to define Custom Property templates, which can ease gett
 
 Custom Properties are created for each Location, defined using a `key` and a `value`. This is found in a section in the menu for each Location. When adding a Generic Custom Property through the CMS, a value input field will be provided for each language in your Solution allowing you to input the translated values directly in the CMS.
 
-![Screenshot of where to find Custom Properties](https://docs.mapsindoors.com/img/data/custom-properties.png)
+<figure><img src="../../.gitbook/assets/custom-properties.png" alt=""><figcaption></figcaption></figure>
 
 You can add Custom Properties through the Integration API with the exact same requirements and options as when adding them via the MapsIndoors CMS.
 
-### Reading Custom Properties[​](https://docs.mapsindoors.com/custom-properties#reading-custom-properties) <a href="#reading-custom-properties" id="reading-custom-properties"></a>
+### Reading Custom Properties <a href="#reading-custom-properties" id="reading-custom-properties"></a>
 
-The method for reading and using these custom properties depends on which platform you're developing for. Here are some examples:
+The method for reading and using these custom properties depends on which platform you're developing for. Here is an example:
 
-![Screenshot of where to find Custom Properties](https://docs.mapsindoors.com/img/data/custom-properties-cms-example.png)
+<figure><img src="../../.gitbook/assets/custom-properties-cms-example.png" alt=""><figcaption></figcaption></figure>
+
+
 
 Using the above screenshot as an example basis you fetch the entire custom property using the following code:
 
