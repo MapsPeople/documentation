@@ -1,3 +1,7 @@
+---
+icon: react
+---
+
 # React Native SDK
 
 ## Latest

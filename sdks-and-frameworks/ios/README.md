@@ -1,3 +1,7 @@
+---
+icon: apple
+---
+
 # iOS
 
 **Documentation reflects the latest version:**&#x20;

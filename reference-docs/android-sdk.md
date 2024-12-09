@@ -1,3 +1,7 @@
+---
+icon: android
+---
+
 # Android SDK
 
 {% tabs %}
