@@ -6,6 +6,27 @@ icon: react
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.2.0] 2024-12-09
+
+#### Added
+
+* Added `setLabelStylePosition` and `getLabelStylePosition` on `MPDisplayRule`
+* Added `MPLabelPosition` Enum representing the different places the label can be anchored to the Marker
+
+#### Fixed
+
+* Fixed an issue where `showUserPosition` on the `MPMapConfig` would not work on iOS
+* Fixed an issue where `MPPositionResultInterface` would cause an error, when the `MPPoint` had an undefined or null floor index.
+
+#### Changed
+
+* New default positioning of labels relative to the icon is `MPLabelPosition.bottom`. If you want to keep the previous default of `MPLabelPosition.right` you can place the following line in your code after loading MapsIndoors data with `MapsIndoors.getMainDisplayRule().then((displayRule) => {  displayRule.setLabelStylePosition(MPLabelPosition.right); });`
+
+#### Updated
+
+* Updated MapsIndoors iOS SDK to 4.8.0
+* Updated MapsIndoors Android SDK to 4.9.0
+
 ### \[2.1.2] 2024-11-15
 
 #### Fixed
