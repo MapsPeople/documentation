@@ -8,7 +8,7 @@ icon: flutter
 {% tab title="Google Maps" %}
 **Current**
 
-* [MapsIndoors Google Maps Flutter SDK v4 latest](https://pub.dev/documentation/mapsindoors_googlemaps/3.0.0/)
+* [MapsIndoors Google Maps Flutter SDK v4 latest](https://pub.dev/documentation/mapsindoors_mapbox/4.0.1/)
 
 **Previous versions**
 
@@ -19,7 +19,7 @@ icon: flutter
 {% tab title="Mapbox" %}
 **Current**
 
-* [MapsIndoors Mapbox Flutter SDK v4 latest](https://pub.dev/documentation/mapsindoors_mapbox/3.0.0/)
+* [MapsIndoors Mapbox Flutter SDK v4 latest](https://pub.dev/documentation/mapsindoors_googlemaps/4.0.1/)
 
 **Previous versions**
 

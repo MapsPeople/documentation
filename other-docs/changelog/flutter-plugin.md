@@ -6,6 +6,17 @@ icon: flutter
 
 Changelog for the MapsIndoors Flutter SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[4.0.1] 2024-12-11
+
+**Fixed**
+
+* Improved rendering performance of Mapbox Map view especially when pinch zooming.
+
+#### Changed
+
+* Updated Mapsindoors SDKs:
+  * iOS to 4.8.0
+
 ### \[4.0.0] 2024-11-28
 
 Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md) to see what changes are needed to upgrade from v3 to v4.
