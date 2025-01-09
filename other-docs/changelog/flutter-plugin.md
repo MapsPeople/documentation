@@ -6,6 +6,22 @@ icon: flutter
 
 Changelog for the MapsIndoors Flutter SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[4.1.0] 2025-01-09
+
+#### Added
+
+* Added the ability to set a custom Mapbox style using the new `mapStyleUri` on `MapsIndoorsWidget`
+
+#### Fixed
+
+* Fixed issue where setting `mapsIndoorsTransitionLevel` on `MapsIndoorsWidget` had no effect
+* Fixed error when parsing `MPRoute` objects
+
+#### Changed
+
+* Updated Mapsindoors SDKs:
+  * iOS to 4.8.3
+
 ### \[4.0.2] 2025-01-07
 
 #### Changed
