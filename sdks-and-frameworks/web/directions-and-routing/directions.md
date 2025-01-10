@@ -26,7 +26,7 @@ A leg represents a logical subset of the journey from Origin to Destination. A R
 * Changing context, such as entering or exiting a building.
 * Changing travel mode, for example parking your car and continuing by foot.
 
-If you examine the illustration above, you will see that the blue line representing the Route has been marked with blue circles where the Route would be separated into legs.
+If you examine the illustration above, you will see that the purple line representing the Route has been marked with purple circles where the Route would be separated into legs.
 
 #### The Route Step Model[​](https://docs.mapsindoors.com/directions-intro#the-route-step-model) <a href="#the-route-step-model" id="the-route-step-model"></a>
 
