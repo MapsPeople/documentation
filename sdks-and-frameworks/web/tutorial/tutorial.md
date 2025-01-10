@@ -358,7 +358,7 @@ You should now be able to switch between floors.&#x20;
 
 Here's a JSFiddle demonstrating the result you should have by now:
 
-{% embed url="https://jsfiddle.net/mapspeople/o12hrcL8/2/" %}
+[https://jsfiddle.net/mapspeople/o12hrcL8/6/](https://jsfiddle.net/mapspeople/o12hrcL8/6/)
 {% endtab %}
 
 {% tab title="Mapbox v3 - Manually" %}
@@ -1221,6 +1221,8 @@ function onSearch() {
 To remove the location filter again, call `mapsIndoorsInstance.filter(null)`.
 
 Here's a JSFiddle demonstrating the result you should have by now:
+
+[https://jsfiddle.net/mapspeople/r86903om/3/](https://jsfiddle.net/mapspeople/r86903om/3/)
 
 {% embed url="https://jsfiddle.net/mapspeople/r86903om/" %}
 {% endtab %}
@@ -2372,9 +2374,10 @@ function getRoute(location) {
 }
 ```
 
-You now have something like this:
+You now have something like this:\
 
-{% embed url="https://jsfiddle.net/mapspeople/z23vjhf4/1/" %}
+
+[https://jsfiddle.net/mapspeople/z23vjhf4/7/](https://jsfiddle.net/mapspeople/z23vjhf4/7/)
 {% endtab %}
 
 {% tab title="Mapbox - MI Components" %}
