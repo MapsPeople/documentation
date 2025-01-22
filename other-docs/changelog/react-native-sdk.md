@@ -6,6 +6,23 @@ icon: react
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.3.0] 2025-01-22
+
+#### Added
+
+* Added `automatedZoomLimit` on the `MPSolutionConfig`
+  * This controls the maximum zoom level the camera can zoom to when doing MapsIndoors camera operations. It is still possible to zoom further in manually
+* Added `maxZoom` to `MPSelectionBehavior`,`MPHiglightBehavior`,`MPFilterBehavior`
+  * Overwrites the automatedZoomLimit for a specific camera operation
+  * Null by default
+* Added optional `mapboxMapStyle` to the `MapView` to be able to set a custom mapbox style.
+  * Requires `useMapsIndoorsDefaultStyle` to be set to `false` in the `MPMapConfig`. For the style to work when `MapControl` is created
+
+#### Updated
+
+* Updated MapsIndoors iOS SDK to 4.9.1
+* Updated MapsIndoors Android SDK to 4.10.0
+
 ### \[2.2.0] 2024-12-09
 
 #### Added
