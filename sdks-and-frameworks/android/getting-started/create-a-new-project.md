@@ -85,7 +85,7 @@ dependencies {
     ...
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.mapspeople.mapsindoors:googlemaps:4.8.6'
+    implementation 'com.mapspeople.mapsindoors:googlemaps:4.10.0'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 }
 repositories{
@@ -117,7 +117,7 @@ dependencies {
         exclude group: 'group_name', module: 'module_name'
     }
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.mapspeople.mapsindoors:mapbox:4.8.6'
+    implementation 'com.mapspeople.mapsindoors:mapbox:4.10.0'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 }
 repositories{
