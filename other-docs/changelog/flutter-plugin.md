@@ -6,6 +6,20 @@ icon: flutter
 
 Changelog for the MapsIndoors Flutter SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[4.1.2] 2025-01-30
+
+#### Changed
+
+* Updated MapsIndoors SDKs:
+  * Android to 4.10.1
+  * iOS to 4.9.2
+
+### \[4.1.1] 2025-01-09
+
+#### Fixed
+
+* Fixed Android build issue
+
 ### \[4.1.0] 2025-01-09
 
 #### Added
@@ -19,14 +33,14 @@ Changelog for the MapsIndoors Flutter SDK. This document structure is based on [
 
 #### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * iOS to 4.8.3
 
 ### \[4.0.2] 2025-01-07
 
 #### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to 4.9.1
   * iOS to 4.8.1
 
@@ -38,7 +52,7 @@ Changelog for the MapsIndoors Flutter SDK. This document structure is based on [
 
 #### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * iOS to 4.8.0
 
 ### \[4.0.0] 2024-11-28
@@ -52,7 +66,7 @@ Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md
 #### Changed
 
 * Changed all uses of color `String`s to use `dart:ui` `Color` instead.
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to 4.9.0
   * iOS to 4.7.0
 
@@ -68,7 +82,7 @@ Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md
 
 #### Changed&#x20;
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to 4.8.12
   * iOS to 4.6.2
 
@@ -83,7 +97,7 @@ Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md
 
 #### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to 4.8.11 (Mapbox only)
 
 ### \[3.1.1] 2024-10-16
@@ -98,7 +112,7 @@ Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md
 
 #### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
 * Android to 4.8.11 (Google Maps only)
 * iOS to 4.6.1
 
@@ -112,7 +126,7 @@ Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md
 #### Changed
 
 * Disabled Mapbox Attributions button on Android as it would crash when clicked
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to 4.8.9
   * iOS to 4.5.14
 
@@ -125,7 +139,7 @@ Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md
 
 #### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to 4.8.8
   * iOS to 4.5.12
 
@@ -197,7 +211,7 @@ Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md
 
 #### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to 4.8.5
   * iOS to 4.5.7
 
@@ -209,14 +223,14 @@ Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md
 
 #### Changed
 
-* Updated Mapsindoors SDKs
+* Updated MapsIndoors SDKs
   * iOS to 4.3.11
 
 ### \[2.1.5] 2024-03-25
 
 #### Changed
 
-* Updated Mapsindoors SDKs
+* Updated MapsIndoors SDKs
   * Android to 4.4.1
   * iOS to 4.3.8
 
@@ -224,7 +238,7 @@ Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md
 
 #### Changed
 
-* Updated Mapsindoors Android SDK 4.3.4
+* Updated MapsIndoors Android SDK 4.3.4
 
 **Fixed**
 
@@ -245,7 +259,7 @@ Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md
 
 #### Changed
 
-* Updated Mapsindoors SDKs
+* Updated MapsIndoors SDKs
   * Android to 4.2.12
   * iOS to 4.2.14
 
@@ -259,7 +273,7 @@ Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md
 
 #### Changed
 
-* Updated Mapsindoors SDKs
+* Updated MapsIndoors SDKs
   * Android to 4.2.10
   * iOS to 4.2.13
 
