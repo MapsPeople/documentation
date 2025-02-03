@@ -1,3 +1,7 @@
+---
+icon: lightbulb
+---
+
 # Product Overview
 
 <figure><img src="../.gitbook/assets/mapsindoors-banner-devices.png" alt=""><figcaption></figcaption></figure>

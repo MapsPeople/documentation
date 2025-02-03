@@ -1,3 +1,7 @@
+---
+icon: book-open-reader
+---
+
 # Glossary
 
 MapsIndoors, a versatile mapping platform by MapsPeople, offers detailed maps for both indoor and outdoor areas. It enables you to create search and navigation experiences tailored to your native users.

@@ -8,6 +8,6 @@ icon: apple
 
 You can find documentation on legacy versions here:
 
-{% content-ref url="../../other-docs/legacy-docs/" %}
-[legacy-docs](../../other-docs/legacy-docs/)
+{% content-ref url="../../legacy-docs/" %}
+[legacy-docs](../../legacy-docs/)
 {% endcontent-ref %}

@@ -1,6 +1,6 @@
 ---
+icon: globe
 description: Documentation on the MapsIndoors Web SDK
-icon: js
 layout:
   title:
     visible: true

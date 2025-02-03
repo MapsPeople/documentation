@@ -1,3 +1,7 @@
+---
+icon: webhook
+---
+
 # Integration API
 
 The MapsIndoors Integration API offers an alternative to changing your Mapsindoors data via the [CMS](https://cms.mapsindoors.com/). From this API you can get, add, change and delete either directly via third party tools like [Postman](https://www.postman.com/) or via the provided Swagger frontend.

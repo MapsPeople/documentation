@@ -1,4 +1,5 @@
 ---
+icon: cube
 layout:
   title:
     visible: true
