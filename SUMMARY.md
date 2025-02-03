@@ -233,7 +233,7 @@
 * [Design](other/map-design/README.md)
   * [Standard MapsIndoors Map Style](other/map-design/standard-mapsindoors-map-style.md)
 * [Self-service](other/self-service/README.md)
-  * [QGIS Guide](other/self-service/qgis-guide.md)
+  * [QGIS Plugin](other/self-service/qgis-plugin.md)
 * [Changelog](other/changelog/README.md)
   * [Web SDK](other/changelog/web-sdk/README.md)
     * [V4](other/changelog/web-sdk/v4.md)

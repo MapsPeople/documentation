@@ -1,14 +1,14 @@
 ---
+icon: book-open
 description: >-
   The MapsIndoors QGIS plugin seamlessly bridges the gap between QGIS and the
   MapsIndoors CMS, allowing you to harness QGIS's powerful editing capabilities
   while keeping your data in sync.
-icon: book-open
-cover: ../../.gitbook/assets/qgis-cover.png
+cover: ../../.gitbook/assets/qgis-cover (3).png
 coverY: 0
 ---
 
-# QGIS Guide
+# QGIS Plugin
 
 Whether you need to add a new floor to a building, split rooms, or make precise geometric adjustments, this guide will walk you through the essential workflows to manage your indoor mapping data effectively.&#x20;
 
