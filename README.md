@@ -1,15 +1,19 @@
 ---
 icon: hand-wave
+description: >-
+  Your go-to resource for tapping into the full potential of the MapsIndoors®
+  platform. Dive into comprehensive guides, tutorials, and reference materials
+  designed to make your implementation process se
 cover: .gitbook/assets/Frame 16 (1).png
 coverY: 0
 layout:
   cover:
     visible: true
-    size: full
+    size: hero
   title:
     visible: true
   description:
-    visible: false
+    visible: true
   tableOfContents:
     visible: true
   outline:
@@ -19,8 +23,6 @@ layout:
 ---
 
 # Welcome
-
-Your go-to resource for tapping into the full potential of the MapsIndoors® platform. Dive into comprehensive guides, tutorials, and reference materials designed to make your implementation process seamless and your indoor mapping solution shine.
 
 ## SDKs & Frameworks
 
