@@ -1,6 +1,6 @@
 # Showing blue dot
 
-Often it is necesarry to show the users position to deliver valuable context on the map. We do not offer any positioning inside the MapsIndoors SDK. But do deliver a positioning interface that allows you to hook up positioning data on the map.
+Often it is necesarry to show the user's position to deliver valuable context on the map. We do not offer any positioning inside the MapsIndoors SDK, but do deliver a positioning interface that allows you to hook up positioning data on the map.
 
 Create a class that implements the `MPPositionProviderInterface`.
 
