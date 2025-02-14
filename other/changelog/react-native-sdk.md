@@ -6,6 +6,22 @@ icon: react
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.4.0] 2025-02-14
+
+#### Added
+
+* Added a method `cacheData` on `MapsIndoors` - allows you to cache all data before loading a solution. Allowing for full offline usage
+
+#### Fixed
+
+* Fixed an issue that `goTo` with `maxZoom` supplied was not implemented on the native side
+
+#### Updated
+
+* Updated MapsIndoors iOS SDK to 4.9.3
+* Updated MapsIndoors Android SDK to 4.11.0
+
+
 ### \[2.3.1] 2025-01-30
 
 #### Updated
