@@ -30,7 +30,7 @@ export class MyPositionProvider implements MPPositionProviderInterface {
 }
 ```
 
-Note that the MyPositionResult that we store as a variable `latestPosition` is a `MyPositionResult`
+Note the variable `latestPosition` we store on the position provider is a `MyPositionResult`
 Go ahead and implement that class, this class implements the `MPPositionResultInterface`, and is used to assign data like the users current floor index, the accuracy that might be known from the used position provider, user bearing etc.
 
 ```tsx
