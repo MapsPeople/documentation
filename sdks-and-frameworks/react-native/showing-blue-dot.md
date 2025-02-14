@@ -31,7 +31,7 @@ export class MyPositionProvider implements MPPositionProviderInterface {
 ```
 
 Note the variable `latestPosition` we store on the position provider is a `MyPositionResult`.
-Go ahead and implement that class, this class implements the `MPPositionResultInterface`, and is used to assign data like the users current floor index, the accuracy that might be known from the used position provider, user bearing etc.
+Go ahead and implement that class, implementing the `MPPositionResultInterface`, and is used to assign data like the user's current floor index, the accuracy that might be known from the used position provider, user bearing etc.
 
 ```tsx
 import { MPPoint, MPPositionResultInterface } from "@mapsindoors/react-native-maps-indoors-mapbox";
