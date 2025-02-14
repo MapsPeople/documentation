@@ -77,4 +77,4 @@ mapControl.showUserPosition(true);
 positionProvider.updatePosition(new MPPoint(57.0582701 + (Math.random() - 0.5) / 2500, 9.9508396 + (Math.random() - 0.5) / 2500));
 ```
 
-The point that we send to the update positon can be replaced and hooked into any positioning library callback, and by that you will have positioning shown inside your app on the map.
+The point that we send to the update position can be replaced and hooked into any positioning library callback, and by that you will have positioning shown inside your app on the map.
