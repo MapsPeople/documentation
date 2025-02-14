@@ -53,7 +53,7 @@ export class MyPositionResult implements MPPositionResultInterface {
 }
 ```
 
-Inside the `MyPositionProvider` class we will now implement a `updatePosition` method that receives a `MPPoint` we can then show on our map by hooking it up with MapsIndoors.
+Inside the `MyPositionProvider` class we will now implement a `updatePosition` method that receives a `MPPoint` that can be shown on our map by hooking it up with MapsIndoors.
 
 ```tsx
 updatePosition(point: MPPoint) {
