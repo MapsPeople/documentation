@@ -178,6 +178,7 @@
     * [Creating a Search Experience](sdks-and-frameworks/react-native/getting-started/creating-a-search-experience.md)
     * [Getting Directions](sdks-and-frameworks/react-native/getting-started/getting-directions.md)
     * [Enabling Live Data](sdks-and-frameworks/react-native/getting-started/enabling-live-data.md)
+  * [Showing Blue Dot](sdks-and-frameworks/react-native/showing-blue-dot.md)
 * [Flutter](sdks-and-frameworks/flutter/README.md)
   * [Getting Started](sdks-and-frameworks/flutter/getting-started/README.md)
     * [Prerequisites](sdks-and-frameworks/flutter/getting-started/prerequisites.md)
