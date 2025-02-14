@@ -9,11 +9,11 @@ icon: apple
 {% tab title="v4" %}
 **Latest**[**​**](https://docs.mapsindoors.com/reference-docs/ios#latest-1)
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>4.9.2</strong></td><td><a href="https://app.mapsindoors.com/mapsindoors/reference/ios/4.9.2/documentation/mapsindoors/">https://app.mapsindoors.com/mapsindoors/reference/ios/4.9.2/documentation/mapsindoors/</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>4.9.3</strong></td><td><a href="https://app.mapsindoors.com/mapsindoors/reference/ios/4.9.3/documentation/mapsindoors/">https://app.mapsindoors.com/mapsindoors/reference/ios/4.9.3/documentation/mapsindoors/</a></td></tr></tbody></table>
 
 **Previous versions**[**​**](https://docs.mapsindoors.com/reference-docs/ios#previous-versions)
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>4.9.1</td><td><a href="https://app.mapsindoors.com/mapsindoors/reference/ios/4.9.1/documentation/mapsindoors/">https://app.mapsindoors.com/mapsindoors/reference/ios/4.9.1/documentation/mapsindoors/</a></td></tr><tr><td>4.9.0</td><td><a 
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>4.9.2</td><td><a href="https://app.mapsindoors.com/mapsindoors/reference/ios/4.9.2/documentation/mapsindoors/">https://app.mapsindoors.com/mapsindoors/reference/ios/4.9.2/documentation/mapsindoors/</a></td></tr><tr><td>4.9.1</td><td><a href="https://app.mapsindoors.com/mapsindoors/reference/ios/4.9.1/documentation/mapsindoors/">https://app.mapsindoors.com/mapsindoors/reference/ios/4.9.1/documentation/mapsindoors/</a></td></tr><tr><td>4.9.0</td><td><a 
 href="https://app.mapsindoors.com/mapsindoors/reference/ios/4.9.0/documentation/mapsindoors/">https://app.mapsindoors.com/mapsindoors/reference/ios/4.9.0/documentation/mapsindoors/</a></td></tr><tr><td>4.8.3</td><td><a 
 href="https://app.mapsindoors.com/mapsindoors/reference/ios/4.8.3/documentation/mapsindoors/">https://app.mapsindoors.com/mapsindoors/reference/ios/4.8.3/documentation/mapsindoors/</a></td></tr><tr><td>4.8.1</td><td><a 
 href="https://app.mapsindoors.com/mapsindoors/reference/ios/4.8.1/documentation/mapsindoors/">https://app.mapsindoors.com/mapsindoors/reference/ios/4.8.1/documentation/mapsindoors/</a></td></tr><tr><td>4.8.0</td><td><a 
