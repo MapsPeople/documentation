@@ -34,6 +34,7 @@ The Map Template supports using query parameters for all the properties provided
 26. `showRoadNames` - A boolean parameter that dictates whether Mapbox road names should be shown. By default, Mapbox road names are hidden when MapsIndoors data is shown. It is dictated by `mi-transition-level` which default value is 17.
 27. `showExternalIDs` - Determine whether the Location details should show the external ID or not. The default value is set to false.
 28. `searchExternalLocations` - If you want to perform search for external locations in the Wayfinding mode. If set to true, Mapbox/Google places will be displayed depending on the Map Provider you are using. If set to false, the results returned will only be MapsIndoors results. The default is true.
+29. `center`- Specifies the coordinates where the map should load, represented as latitude and longitude values separated by a comma. If the specified coordinates intersect with a Venue, that Venue will be set as the current Venue.
 
 **Note!** All the query parameters need to be separated with the `&` symbol, without any spaces in between.
 
@@ -51,3 +52,10 @@ Example of URL:
 2. `locationId` + `externalIDs` → the `locationId` has priority over the `externalIDs`
 3. `directionsTo` + `directionsFrom` + `locationId` → the `directionsTo` + `directionsFrom` have priority over the `locationId`
 4. `directionsTo` + `directionsFrom` + `externalIDs` → the `directionsTo` + `directionsFrom` have priority over the `externalIDs`
+5. `center` + `startZoomLevel` → the `startZoomLevel` is respected
+6. If there is no `center` → view port fits to venue bounds
+7. `center` + `venue` → the `center` has priority over the `venue`
+8. `locationId` + `center` → the `center` has priority over the locationId
+9. `kioskOriginLocationId` + `center` → the `center` has priority over the `kioskOriginLocationId`
+10. `externalIds` + `center` → the `center` has priority over the `externalIds`
+11. If `center` intersects with venue bounds, this venue is selected as a current venue
