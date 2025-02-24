@@ -108,7 +108,11 @@ Label is visible in the CMS, only when Location is being edited. In other words,
    External ID - Only displays the External ID set on the Location.\
    External ID & Location Name - Displays both the External ID and the Location Name, with the External ID first.\
    Location Name & External ID - Displays both the Location Name and the External ID, with the Location Name first.
-5. **Max width** - Only for Google Maps Map Provider: Specify how wide (in pixels) a Label can be before forcing a line-break.A value of `0` will ensure no line-breaks for this label.
+5. **Max width** -&#x20;
+
+If your map uses Google Maps as base map provider: Specify how wide (in pixels) a Label can be before forcing a line-break. A value of `0` will ensure no line-breaks for this label.
+
+If your map uses Mapbox as base map provider: Specify how wide (in em value) a Label can be before forcing a line-break. The EM value is a relative value based on the font size (default is 16). Meaning 1 _em_ is almost a character wide. A value of `0` will ensure no line-breaks for this label.
 
 <figure><img src="../../.gitbook/assets/image (21).png" alt=""><figcaption><p>Label Display Rules section</p></figcaption></figure>
 
