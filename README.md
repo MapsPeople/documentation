@@ -4,7 +4,7 @@ description: >-
   Your go-to resource for tapping into the full potential of the MapsIndoors®
   platform. Dive into comprehensive guides, tutorials, and reference materials
   designed to make your implementation process se
-cover: .gitbook/assets/Frame 16 (1).png
+cover: .gitbook/assets/Frame 16 (2).png
 coverY: 0
 layout:
   cover:
