@@ -6,6 +6,19 @@ icon: flutter
 
 Changelog for the MapsIndoors Flutter SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[4.1.4] 2025-03-06
+
+**Fixed**
+
+* Removed a number of potential memory retentions in the iOS part of the Flutter plugin.
+* Restored functionality of the listeners on iOS that were disabled in version 4.1.3.
+
+**Changed**
+
+* Updated MapsIndoors SDKs:
+  * Android to 4.11.2
+  * iOS to 4.9.5
+
 ### \[4.1.3] 2025-02-20
 
 #### Changed
