@@ -111,13 +111,13 @@ The JSON string that you apply in this case can be built using the [Google Maps 
 
 > Further documentation on the Mapbox styling can be found here: [https://docs.mapbox.com/android/maps/guides/styles/set-a-style/](https://docs.mapbox.com/android/maps/guides/styles/set-a-style/)
 
-Since version 4.11.1 it is possible to change the Mapbox style at anytime during runtime. Changing the style is done simply by calling loadStyle on a `MapboxMap` object. Read more about Mapbox styling in the link above
+Since version 4.11.3 it is possible to change the Mapbox style at anytime during runtime. Changing the style is done simply by calling loadStyle on a `MapboxMap` object. Read more about Mapbox styling in the link above
 
 ```kotlin
 mapboxMap.loadStyle(Style.MAPBOX_STREETS)
 ```
 
-On versions previous to 4.11.1 it was not possible to change the style during runtime and it was required through the `MPMapConfig` to inform that the MapsIndoors Default Style should be used, and any required style should be loaded before creating `MapControl`
+On versions previous to 4.11.3 it was not possible to change the style during runtime and it was required through the `MPMapConfig` to inform that the MapsIndoors Default Style should be used, and any required style should be loaded before creating `MapControl`
 
 ```kotlin
 val mapConfig = MPMapConfig.Builder(
