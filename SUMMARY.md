@@ -57,7 +57,6 @@
     * [User Positioning](sdks-and-frameworks/web/other-guides/user-positioning/README.md)
       * [Show User's Location aka. Blue Dot](sdks-and-frameworks/web/other-guides/user-positioning/show-users-location-aka.-blue-dot.md)
       * [Using Cisco DNA Spaces](sdks-and-frameworks/web/other-guides/user-positioning/using-cisco-dna-spaces.md)
-      * [Using Google Fused Location Provider](sdks-and-frameworks/web/other-guides/user-positioning/using-google-fused-location-provider.md)
     * [Working with Events](sdks-and-frameworks/web/other-guides/working-with-events.md)
     * [Turn Off Collisions Based on Zoom Level](sdks-and-frameworks/web/other-guides/turn-off-collisions-based-on-zoom-level.md)
     * [Remove Labels from Buildings and Venues for Web](sdks-and-frameworks/web/other-guides/remove-labels-from-buildings-and-venues-for-web.md)
