@@ -1,6 +1,5 @@
 ---
 description: Your Indoor Map, Ready in Minutes
-hidden: true
 icon: cube
 layout:
   title:
