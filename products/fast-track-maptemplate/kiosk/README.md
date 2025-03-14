@@ -118,15 +118,15 @@ In the Kiosk you can add an information modal which is a modal that can contain 
 
 The info legend can be configured in the CMS by clicking on the location which you selected to be the `kioskOriginLocationId`  and going to the `Custom Properties` section.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 In order to add content on the legend info you need to use pre-defined custom properties: `1LegendHeading, 1LegendContent, 2LegendHeading, 2LegendContent etc`  as keys and add a value that you want to be displayed in the legend. (i.e. title, phone number, opening hours, information about the kiosk etc)
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In the Kiosk the information modal button will be presented in on the left side of the search field, as shown below:&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Clicking on the information modal button will open up the modal containing all the information added above.
 

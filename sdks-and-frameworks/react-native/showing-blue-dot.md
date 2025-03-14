@@ -1,4 +1,4 @@
-# Showing blue dot
+# Showing Blue Dot
 
 Often it is necesarry to show the user's position to deliver valuable context on the map. We do not offer any positioning inside the MapsIndoors SDK, but do deliver a positioning interface that allows you to hook up positioning data on the map.
 
@@ -30,8 +30,7 @@ export class MyPositionProvider implements MPPositionProviderInterface {
 }
 ```
 
-Note the variable `latestPosition` we store on the position provider is a `MyPositionResult`.
-Go ahead and implement that class, implementing the `MPPositionResultInterface`, and is used to assign data like the user's current floor index, the accuracy that might be known from the used position provider, user bearing etc.
+Note the variable `latestPosition` we store on the position provider is a `MyPositionResult`. Go ahead and implement that class, implementing the `MPPositionResultInterface`, and is used to assign data like the user's current floor index, the accuracy that might be known from the used position provider, user bearing etc.
 
 ```tsx
 import { MPPoint, MPPositionResultInterface } from "@mapsindoors/react-native-maps-indoors-mapbox";

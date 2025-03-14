@@ -26,7 +26,7 @@ This guide will show you how to implement directions, render routes, and interac
 * Would you like to show directions on the map?
   * How will the end user let the map know it's time to update with the next part of their journey?
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Creating and combining the interfaces and the map view.</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>Creating and combining the interfaces and the map view.</p></figcaption></figure>
 
 <figure><img src="../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Determining the scope and simplicity of your end user experience should be a big focus when implementing the MapsIndoors SDK</p></figcaption></figure>
 

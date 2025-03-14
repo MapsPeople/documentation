@@ -21,8 +21,6 @@ You should now have a project folder with the following files:
 
 <figure><img src="../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
 
-For the sake of simplicity we will only be operating on these pre-generated files throughout the guide.
-
 ### Installing the MapsIndoors SDK[​](https://docs.mapsindoors.com/getting-started/ios/v4/set-up-your-environment#installing-the-mapsindoors-sdk) <a href="#installing-the-mapsindoors-sdk" id="installing-the-mapsindoors-sdk"></a>
 
 MapsIndoors can be installed using Swift Package Manger, CocoaPods or you can install the XCFrameworks manually if using Google Maps.
@@ -37,7 +35,7 @@ MapsIndoors can be installed using Swift Package Manger, CocoaPods or you can in
 
     [`https://github.com/MapsPeople/mapsindoors-googlemaps-ios.git`](https://github.com/MapsPeople/mapsindoors-googlemaps-ios.git) (to use Google Maps)
 3. Select the _Dependency Rule_ you want to apply to the MapsIndoors SDK
-   * A common choice for _Dependency Rule_ is "Up to Next Major Version", specifying `4.6.0` as the minimum version. To instead install a specific version set the _Dependency Rule_ field to "Exact Version" and insert the desired version. The latest version of the MapsIndoors SDK is `4.6.2`.
+   * A common choice for _Dependency Rule_ is "Up to Next Major Version", specifying `4.9.0` as the minimum version. To instead install a specific version set the _Dependency Rule_ field to "Exact Version" and insert the desired version. The latest version of the MapsIndoors SDK is `4.9.5`.
 4. Hit enter or Click **Add Package**.
 5. In the new window select the `MapsIndoorsMapbox` or `MapsIndoorsGoogleMaps` library and click **Add Package**. Once SPM finishes installing the SDK you will see 3 new dependencies under **Package Dependencies**: `MapsIndoors`, `MapsIndoorsCore`, and `MapsIndoorsMapbox` or `MapsIndoorsGoogleMaps` (plus their respective dependencies).
 6. Click on your project's target, scroll down to `Frameworks, Libraries, and Embedded Content` and click the plus button.
@@ -61,9 +59,9 @@ If you're using Mapbox, make sure to configure your secret token in order to dow
 
     target 'YOUR_APPLICATION_TARGET_NAME_HERE' do
       # Remove the comment mark to use your map specific MapsIndoors pod
-      # pod 'MapsIndoorsGoogleMaps', '~> 4.6'
+      # pod 'MapsIndoorsGoogleMaps', '~> 4.9'
       # or
-      # pod 'MapsIndoorsMapbox11', '~> 4.6'
+      # pod 'MapsIndoorsMapbox11', '~> 4.9'
     end
     ```
 
@@ -133,7 +131,7 @@ Task {
 }
 ```
 
-Finally, remember to replace `YOUR_MAPBOX_API_KEY` with your Mapbox Access Token and `YOUR_MAPSINDOORS_API_KEY` with your MapsIndoors API key (or use the demo key `d876ff0e60bb430b8fabb145)`.
+Finally, remember to replace `YOUR_MAPBOX_API_KEY` with your Mapbox Access Token and `YOUR_MAPSINDOORS_API_KEY` with your MapsIndoors API key (or use the demo key `mapspeople3d)`.
 {% endtab %}
 
 {% tab title="Google Maps" %}

@@ -2,49 +2,13 @@
 
 ### Search for a Location[​](https://docs.mapsindoors.com/getting-started/ios/v4/search#search-for-a-location) <a href="#search-for-a-location" id="search-for-a-location"></a>
 
-Examples
+From here onwards, code for both Mapbox and Google Map`s` is similar.
 
-See the full example of Searching here: [SearchLocation.swift](https://github.com/MapsPeople/MapsIndoorsSDK-iOS-Examples/blob/main/MapsIndoorsSDK-iOS-Examples/Getting%20Started/SearchLocation.swift)
+Take a look at the following code. As discussed before, this will select a location specifically named "The Crow".
 
-From here onwards, code for both `Mapbox` and `Google Maps` is similar.
+{% @github-files/github-code-block url="https://github.com/MapsPeople/MapsIndoorsGettingStarted-Mapbox/blob/12aaf3c15d8516842e76effddec95416f3a7e3c4/MapsIndoorsGettingStarted-Mapbox/ViewController.swift#L28-L35" %}
 
-Take a look at the following code. As discussed before, this will select a location named "Family Dining Room".
-
-```swift
-Task {
-        do {
-                // Load MapsIndoors with the MapsIndoors API key.
-                try await MPMapsIndoors.shared.load(apiKey: YOUR_MAPSINDOORS_API_KEY)
-                
-                if let mapConfig = mapConfig {
-                    if let mapControl = MPMapsIndoors.createMapControl(mapConfig: mapConfig) {
-                        
-                        // Retain the mapControl object
-                        self.mpMapControl = mapControl
-                        
-                        let query = MPQuery()
-                        let filter = MPFilter()
-                        
-                        query.query = "Family Dining Room"
-                        filter.take = 1
-                        
-                        let locations = await MPMapsIndoors.shared.locationsWith(query: query, filter: filter)
-                        if let firstLocation = locations.first {
-                            mapControl.select(location: firstLocation, behavior: .default)
-                            mapControl.select(floorIndex: firstLocation.floorIndex.intValue)
-                            // set the origin as Family Dining room
-                            origin = firstLocation
-                        }
-                    }
-                }
-                
-            } catch {
-                print("Error loading MapsIndoors: \(error.localizedDescription)")
-        }
-}
-```
-
-Our goal now is to enable the user to interact with a search bar and move the map with respect to their search. Therefore, we need to implement a bit more functionality into our ViewController class, so feel free to update it as followed.
+Our goal now is to enable the user to interact with a search bar and move the map with respect to their search. Therefore, we need to implement a bit more functionality in our ViewController class, so feel free to update it as follows.
 
 ```swift
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
@@ -52,74 +16,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 }
 ```
 
-Let us start off by implementing the search bar. In this case, we add the following variables to our class. The vertical offset of the search bar here is simply to avoid the search bar from colliding with the navigation bar. The tableView will be used to allow the user to see and interact with the search results.
+Let us start off by implementing the search bar. In this case, we add the following variables to our `ViewController` class. The tableView will be used to allow the user to see and interact with the search results.
 
-```swift
-var searchResult:[MPLocation]?
-lazy var destinationSearch:UISearchBar = UISearchBar(frame: CGRect.init(x: 0, y: 40, width: 0, height: 0))
-var tableView = UITableView.init(frame: CGRect.init(x: 0, y: 90, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-```
+{% @github-files/github-code-block url="https://github.com/MapsPeople/MapsIndoorsGettingStarted-Mapbox/blob/12aaf3c15d8516842e76effddec95416f3a7e3c4/MapsIndoorsGettingStarted-Mapbox/ViewController.swift#L86-L87" %}
 
-And let us also make sure the search bar delegated and correctly displayed in our view.
+And let us also make sure the search bar is correctly displayed in our view and the `ViewController` is its delegate.
 
-```swift
-override func viewDidLoad(){
-    destinationSearch.sizeToFit()
-    self.destinationSearch.delegate = self
-    self.view.addSubview(destinationSearch)
-    tableView.dataSource = self
-    tableView.delegate = self
-    //...
-}
-```
+{% @github-files/github-code-block url="https://github.com/MapsPeople/MapsIndoorsGettingStarted-Mapbox/blob/12aaf3c15d8516842e76effddec95416f3a7e3c4/MapsIndoorsGettingStarted-Mapbox/ExampleUI.swift#L19-L31" %}
 
-Finally, let us add the functions neccessary for our class to conform to the UITableViewDataSource protocol and the actual search button functionality.
+Finally, let us add the functions necessary for our class to conform to the `UISearchBarDelegate` and  `UITableViewDataSource` protocols for the actual search button functionality.
 
-```swift
-func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.searchResult?.count ?? 0
-}
+{% @github-files/github-code-block url="https://github.com/MapsPeople/MapsIndoorsGettingStarted-Mapbox/blob/12aaf3c15d8516842e76effddec95416f3a7e3c4/MapsIndoorsGettingStarted-Mapbox/ViewController%2BUISearchBarDelegate.swift" %}
 
-func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
-}
+This responds to what the user enters in the search bar and tells MapsIndoors to search for the entered text and show the found Locations in the table view. This is almost exactly the same as the initial simple search we included in [Display a Map](https://docs.mapsindoors.com/getting-started/ios/display-a-map/) with MapsIndoors.
 
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = UITableViewCell()
-    let location = self.searchResult?[indexPath.row]
-    cell.textLabel?.text = location?.name ?? ""
-    return cell
-}
+{% @github-files/github-code-block url="https://github.com/MapsPeople/MapsIndoorsGettingStarted-Mapbox/blob/12aaf3c15d8516842e76effddec95416f3a7e3c4/MapsIndoorsGettingStarted-Mapbox/ViewController%2BUITableViewDataSource.swift" %}
 
-func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard let location = searchResult?[indexPath.row] else { return }
-        mpMapControl?.goTo(entity: location) // Use the retained mpMapControl object
-        tableView.removeFromSuperview()
-}
+These three functions simply outline the appearance of the table. Namely, how many rows to show and which text to represent each entry.
 
-func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        view.addSubview(tableView)
-        let query = MPQuery()
-        let filter = MPFilter()
-        query.query = searchText
-        filter.take = 100
-        Task {
-            searchResult = await MPMapsIndoors.shared.locationsWith(query: query, filter: filter)
-            tableView.reloadData()
-        }
-}
-```
+{% @github-files/github-code-block url="https://github.com/MapsPeople/MapsIndoorsGettingStarted-Mapbox/blob/12aaf3c15d8516842e76effddec95416f3a7e3c4/MapsIndoorsGettingStarted-Mapbox/ViewController%2BUITableViewDelegate.swift" %}
 
-Here, the first 3 functions simply outline the appearence of the table. Namely, how many rows to show and which text to represent each entry.
-
-The main functions of note in this case are, `func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)` and `func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)`.
-
-The former denotes what to do once an item is selected, in this case we simply go to the specified location and hide the table view again, while the latter functions almost exactly the same as the initial simple search we included in [Display a Map](https://docs.mapsindoors.com/getting-started/ios/display-a-map/) with MapsIndoors.
+This instructs what to do once an item is selected – in this case we simply go to the specified Location and hide the table view again.
 
 At this point we should have a functional map with a search feature.
 
 ### Expected Result[​](https://docs.mapsindoors.com/getting-started/ios/v4/search#expected-result) <a href="#expected-result" id="expected-result"></a>
 
-<figure><img src="../../../.gitbook/assets/ios_search.gif" alt=""><figcaption></figcaption></figure>
-
-![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/ios\_search.gif)
+<figure><img src="../../../.gitbook/assets/iOS Search result.gif" alt=""><figcaption></figcaption></figure>

@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Enable Live Data
 
 Examples
@@ -27,9 +31,9 @@ Assuming the demo key is utilising you should now see a "Staff Person" moving fr
 
 ### Expected Result[​](https://docs.mapsindoors.com/getting-started/ios/v4/live-data#expected-result) <a href="#expected-result" id="expected-result"></a>
 
-![](../../../.gitbook/assets/ios\_live-data.gif)
+![](../../../.gitbook/assets/ios_live-data.gif)
 
-![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/ios\_live-data.gif)
+![An animation showing the desired behaviour of this tutorial](https://docs.mapsindoors.com/img/getting-started/ios_live-data.gif)
 
 Learn more about about controlling and rendering Live Data in MapsIndoors in the [introduction to Live Data](https://docs.mapsindoors.com/live-data-intro/)
 

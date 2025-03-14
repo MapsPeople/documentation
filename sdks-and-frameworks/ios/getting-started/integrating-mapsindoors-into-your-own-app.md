@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Integrating MapsIndoors into your own App
 
 The **MapsIndoors Template** is a downloadable starting point for you to integrate basic usage of MapsIndoors, containing search and directions functionalities, into your existing app. If you just want to get started with a simple solution with no customisation, this should fulfil your needs. Going through this guide will also teach you some principles on how MapsIndoors interacts with an app, and is a natural next step after the "Getting Started" guides.
@@ -12,14 +16,14 @@ Before you get started, you need to get the API keys needed. This process is the
 
 #### Get Your Google Maps API key[​](https://docs.mapsindoors.com/getting-started/ios/v4/mapsindoors-template#get-your-google-maps-api-key) <a href="#get-your-google-maps-api-key" id="get-your-google-maps-api-key"></a>
 
-First, you need to [setup at a new project in the Google Cloud Console](https://developers.google.com/maps/gmp-get-started), just like you did in the ["Getting Started"](https://docs.mapsindoors.com/getting-started/ios/v4/getting-started/ios) guide (**Please note:** You are going to need a Google Billing Account for this step, so go ahead and [create one](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create\_a\_new\_billing\_account) if you haven't already). When the project is created, the following APIs and the specific SDK you plan to use must be enabled from the [Maps API Library Page](https://console.cloud.google.com/apis/library?filter=category:maps).
+First, you need to [setup at a new project in the Google Cloud Console](https://developers.google.com/maps/gmp-get-started), just like you did in the ["Getting Started"](https://docs.mapsindoors.com/getting-started/ios/v4/getting-started/ios) guide (**Please note:** You are going to need a Google Billing Account for this step, so go ahead and [create one](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create_a_new_billing_account) if you haven't already). When the project is created, the following APIs and the specific SDK you plan to use must be enabled from the [Maps API Library Page](https://console.cloud.google.com/apis/library?filter=category:maps).
 
 * Google Maps Distance Matrix API
 * Google Maps Directions API
 * Google Places API Web Service
 * Maps SDK for Android/iOS
 
-When the above 3 APIs and the relevant SDK are enabled, you can retrieve the API key from the [Credentials page](https://console.cloud.google.com/project/\_/apiui/credential). On the Credentials page, click _Create credentials_ > _API key_.
+When the above 3 APIs and the relevant SDK are enabled, you can retrieve the API key from the [Credentials page](https://console.cloud.google.com/project/_/apiui/credential). On the Credentials page, click _Create credentials_ > _API key_.
 
 #### Mapbox API Key[​](https://docs.mapsindoors.com/getting-started/ios/v4/mapsindoors-template#mapbox-api-key) <a href="#mapbox-api-key" id="mapbox-api-key"></a>
 
@@ -51,7 +55,7 @@ This project is specifically built so you can easily re-use this functionality i
 * You can extend this to fit your needs.
 
 {% hint style="warning" %}
-Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the `post_install` hook in your Podfile described in the [PodFile post\_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post\_install-v4) wiki.
+Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the `post_install` hook in your Podfile described in the [PodFile post\_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install-v4) wiki.
 {% endhint %}
 
 #### The Final Result[​](https://docs.mapsindoors.com/getting-started/ios/v4/mapsindoors-template#the-final-result) <a href="#the-final-result" id="the-final-result"></a>

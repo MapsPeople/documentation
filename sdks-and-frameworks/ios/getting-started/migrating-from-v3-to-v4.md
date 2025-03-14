@@ -1,4 +1,4 @@
-# Migrating from V3 to V4
+# Migrating from v3 to v4
 
 The iOS SDK for MapsIndoors has received a major update to version 4.0.0, which comes with improved interfaces and flexibility for developing your own map experience. The MapsIndoors SDK now additionally supports Mapbox, alongside some reworked and refactored features that simplify development and SDK behavior. This guide will cover changes to the SDK and how to use it to provide you with a guide on how to upgrade from v3 to v4. _If you have any questions concerning this document, or migrating to v4 in general, please contact MapsPeople technical support._
 
@@ -7,13 +7,13 @@ The iOS SDK for MapsIndoors has received a major update to version 4.0.0, which 
 With the release of v4, the MapsIndoors SDK is released as multiple separate libraries depending on the Map Provider - Google Maps or Mapbox. You now import the SDK flavor of your choosing with either:
 
 ```properties
-pod 'MapsIndoorsGoogleMaps', '~> 4.0.0'
+pod 'MapsIndoorsGoogleMaps', '~> 4.9'
 ```
 
 or
 
 ```properties
-pod 'MapsIndoorsMapbox', '~> 4.0.0'
+pod 'MapsIndoorsMapbox11', '~> 4.9'
 ```
 
 (Remember to check the [changelog](https://docs.mapsindoors.com/changelogs/ios) for the latest version)
