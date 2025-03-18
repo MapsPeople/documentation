@@ -35,6 +35,7 @@ The Map Template supports using query parameters for all the properties provided
 27. `showExternalIDs` - Determine whether the Location details should show the external ID or not. The default value is set to false.
 28. `searchExternalLocations` - If you want to perform search for external locations in the Wayfinding mode. If set to true, Mapbox/Google places will be displayed depending on the Map Provider you are using. If set to false, the results returned will only be MapsIndoors results. The default is true.
 29. `center`- Specifies the coordinates where the map should load, represented as latitude and longitude values separated by a comma. If the specified coordinates intersect with a Venue, that Venue will be set as the current Venue.
+30. `useAppTitle`- Specifies if the Map Template should set the document title as defined in the App Config. The default value is set to false.
 
 **Note!** All the query parameters need to be separated with the `&` symbol, without any spaces in between.
 
