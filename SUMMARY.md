@@ -232,6 +232,7 @@
 
 * [Design](other/map-design/README.md)
   * [Standard MapsIndoors Map Style](other/map-design/standard-mapsindoors-map-style.md)
+  * [Using a Custom Mapbox MapStyle](other/map-design/using-a-custom-mapbox-mapstyle.md)
 * [Changelog](other/changelog/README.md)
   * [Web SDK](other/changelog/web-sdk/README.md)
     * [V4](other/changelog/web-sdk/v4.md)
