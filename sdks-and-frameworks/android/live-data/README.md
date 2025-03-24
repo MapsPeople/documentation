@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Live Data
 
 This guide gives an overview of how to work with _Live Data_ in the MapsIndoors Android SDK. As opposed to _static data_, which does not change unless data is synchronized, Live Data can change in real time, and these changes can be instantly reflected on the map and in searches.

@@ -1,5 +1,6 @@
 ---
 description: iOS v4
+hidden: true
 ---
 
 # Booking

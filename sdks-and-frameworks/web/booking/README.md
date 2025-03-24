@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Booking
 
 This guide covers the different aspects of Booking in the MapsIndoors Web SDK. The concept of booking in MapsIndoors implies that specific Locations in your MapsIndoors dataset are treated as bookable resources. Typical bookable resources are meeting rooms and workspaces.

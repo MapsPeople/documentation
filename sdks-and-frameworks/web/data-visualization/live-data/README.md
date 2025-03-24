@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Live Data
 
 ## Live Updates[​](https://docs.mapsindoors.com/live-data-intro#live-updates) <a href="#live-updates" id="live-updates"></a>
