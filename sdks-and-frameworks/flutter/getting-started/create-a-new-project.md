@@ -39,10 +39,10 @@ If you want to see an example of how this guide will look when completed, you ca
 
 #### Google Maps[​](https://docs.mapsindoors.com/getting-started/flutter/new-project#google-maps) <a href="#google-maps" id="google-maps"></a>
 
-To get started with your project add MapsIndoors version `.0` to your `pubspec.yaml`.
+To get started with your project add the latest MapsIndoors version to your `pubspec.yaml`, it can be found [here](https://pub.dev/documentation/mapsindoors_googlemaps/latest/).
 
 ```yaml
-mapsindoors_googlemaps: ^.0.0
+mapsindoors_googlemaps: ^4.0.0 # replace with the latest version
 ```
 
 {% tabs %}
@@ -74,6 +74,60 @@ To get the underlying Google Map to work, you need to perform the following step
     <string name="google_maps_key">YOUR_KEY_HERE</string>
 </resources>
 ```
+
+To ensure that the app is able to build properly after obfuscation, we need to add some proguard rules:
+
+1. Navigate to `android/app/proguard-rules.pro`, create it if neccesary
+2. Copy and paste the below code snippet
+
+```
+##---------------Begin: proguard configuration for MapsIndoors  ----------
+-keep interface com.mapsindoors.core.** { *; }
+-keep class com.mapsindoors.core.errors.** { *; }
+-keepclassmembers class com.mapsindoors.core.models.** { <fields>; }
+-keep class com.mapsindoors.core.MPDebugLog
+##---------------End: proguard configuration for MapsIndoors  ----------
+
+##---------------Begin: proguard configuration for Gson  ----------
+# Gson uses generic type information stored in a class file when working with fields. Proguard
+# removes such information by default, so configure it to keep all of it.
+
+-keep class com.google.gson.* {*;}
+-keepclassmembers class com.google.gson.* {*;}
+
+-keepattributes Signature
+
+# For using GSON @Expose annotation
+-keepattributes *Annotation*
+
+# Gson specific classes
+-dontwarn sun.misc.**
+#-keep class com.google.gson.stream.** { *; }
+
+# Application classes that will be serialized/deserialized over Gson
+-keep class com.google.gson.examples.android.model.** { <fields>; }
+
+# Prevent proguard from stripping interface information from TypeAdapter, TypeAdapterFactory,
+# JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)
+-keep class * extends com.google.gson.TypeAdapter
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+
+# Prevent R8 from leaving Data object members always null
+-keepclassmembers,allowobfuscation class * {
+  @com.google.gson.annotations.SerializedName <fields>;
+}
+
+-keep class com.google.gson.reflect.TypeToken { *; }
+
+# Retain generic signatures of TypeToken and its subclasses with R8 version 3.0 and higher.
+-keep,allowobfuscation,allowshrinking class com.google.gson.reflect.TypeToken
+-keep,allowobfuscation,allowshrinking class * extends com.google.gson.reflect.TypeToken
+
+##---------------End: proguard configuration for Gson  ----------
+```
+
 {% endtab %}
 
 {% tab title="iOS" %}
@@ -99,10 +153,10 @@ To get the underlying Google Map to function, you need to perform the following 
 
 #### Mapbox[​](https://docs.mapsindoors.com/getting-started/flutter/new-project#mapbox) <a href="#mapbox" id="mapbox"></a>
 
-To get started with your project add MapsIndoors version `.0` to your `pubspec.yaml`.
+To get started with your project add the latest MapsIndoors version to your `pubspec.yaml`, it can be found [here](https://pub.dev/documentation/mapsindoors_mapbox/latest/).
 
 ```yaml
-mapsindoors_mapbox: ^.0.0
+mapsindoors_mapbox: ^4.0.0 # replace with the latest version
 ```
 
 {% tabs %}
@@ -154,6 +208,59 @@ To get the underlying Mapbox Map to work, you need to perform the following step
     <string name="mapbox_api_key" translatable="false">YOUR_KEY_HERE</string>
     <string name="mapbox_access_token" translatable="false">YOUR_KEY_HERE</string>
 </resources>
+```
+
+To ensure that the app is able to build properly after obfuscation, we need to add some proguard rules:
+
+1. Navigate to `android/app/proguard-rules.pro`, create it if neccesary
+2. Copy and paste the below code snippet
+
+```
+##---------------Begin: proguard configuration for MapsIndoors  ----------
+-keep interface com.mapsindoors.core.** { *; }
+-keep class com.mapsindoors.core.errors.** { *; }
+-keepclassmembers class com.mapsindoors.core.models.** { <fields>; }
+-keep class com.mapsindoors.core.MPDebugLog
+##---------------End: proguard configuration for MapsIndoors  ----------
+
+##---------------Begin: proguard configuration for Gson  ----------
+# Gson uses generic type information stored in a class file when working with fields. Proguard
+# removes such information by default, so configure it to keep all of it.
+
+-keep class com.google.gson.* {*;}
+-keepclassmembers class com.google.gson.* {*;}
+
+-keepattributes Signature
+
+# For using GSON @Expose annotation
+-keepattributes *Annotation*
+
+# Gson specific classes
+-dontwarn sun.misc.**
+#-keep class com.google.gson.stream.** { *; }
+
+# Application classes that will be serialized/deserialized over Gson
+-keep class com.google.gson.examples.android.model.** { <fields>; }
+
+# Prevent proguard from stripping interface information from TypeAdapter, TypeAdapterFactory,
+# JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)
+-keep class * extends com.google.gson.TypeAdapter
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+
+# Prevent R8 from leaving Data object members always null
+-keepclassmembers,allowobfuscation class * {
+  @com.google.gson.annotations.SerializedName <fields>;
+}
+
+-keep class com.google.gson.reflect.TypeToken { *; }
+
+# Retain generic signatures of TypeToken and its subclasses with R8 version 3.0 and higher.
+-keep,allowobfuscation,allowshrinking class com.google.gson.reflect.TypeToken
+-keep,allowobfuscation,allowshrinking class * extends com.google.gson.reflect.TypeToken
+
+##---------------End: proguard configuration for Gson  ----------
 ```
 {% endtab %}
 
