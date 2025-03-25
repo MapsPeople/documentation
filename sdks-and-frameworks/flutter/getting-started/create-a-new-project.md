@@ -42,7 +42,7 @@ If you want to see an example of how this guide will look when completed, you ca
 To get started with your project add the latest MapsIndoors version to your `pubspec.yaml`, it can be found [here](https://pub.dev/documentation/mapsindoors_googlemaps/latest/).
 
 ```yaml
-mapsindoors_googlemaps: ^4.0.0 # replace with the latests version
+mapsindoors_googlemaps: ^4.0.0 # replace with the latest version
 ```
 
 {% tabs %}
@@ -156,7 +156,7 @@ To get the underlying Google Map to function, you need to perform the following 
 To get started with your project add the latest MapsIndoors version to your `pubspec.yaml`, it can be found [here](https://pub.dev/documentation/mapsindoors_mapbox/latest/).
 
 ```yaml
-mapsindoors_mapbox: ^4.0.0 # replace with the latests version
+mapsindoors_mapbox: ^4.0.0 # replace with the latest version
 ```
 
 {% tabs %}
