@@ -6,6 +6,18 @@ icon: flutter
 
 Changelog for the MapsIndoors Flutter SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[4.1.6] 2025-03-26
+
+#### Fixed
+
+* Made `getLocations()` return the same result on both Android and iOS.
+
+**Changed**
+
+* Updated MapsIndoors SDKs:
+  * Android to 4.11.3
+  * iOS to 4.9.6
+
 ### \[4.1.5] 2025-03-13
 
 #### Fixed
