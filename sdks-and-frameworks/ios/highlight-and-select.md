@@ -6,11 +6,11 @@ description: >-
 
 # Highlight and Select
 
-### How to change the appearance of different states <a href="#how-to-change-the-appearance-of-different-states" id="how-to-change-the-appearance-of-different-states"></a>
+## How to change the appearance of different states <a href="#how-to-change-the-appearance-of-different-states" id="how-to-change-the-appearance-of-different-states"></a>
 
-The state Display Rules controls how Locations are displayed on the map in different states. For example, you can change the icon scale of a Location when it is hovered over or highlight a search result. The state Display Rules gives access to the same properties as the regular Display Rules, which can be used to control the appearance of Locations.
+{% include "../../.gitbook/includes/state-display-rules-intro.md" %}
 
-The iOS SDK supports Select and Highlight Display Rules these can be received and edited through `MapsIndoors`.
+The MapsIndoors iOS SDK supports Select and Highlight Display Rules and they can be retrieved and edited through `MPMapsIndoors.shared`.
 
 #### **Example**
 
@@ -26,11 +26,11 @@ if let displayRule = MPMapsIndoors.shared.displayRuleFor(displayRuleType: .highl
 }
 ```
 
-### Highlight <a href="#highlight" id="highlight"></a>
+## Highlight <a href="#highlight" id="highlight"></a>
 
-Highlight is for changing the appearance for a collection of `MPLocation`'s, for example to highlight where the restrooms are located in an office building.
+{% include "../../.gitbook/includes/highlight-intro.md" %}
 
-#### **Highlight all Restrooms**
+### **Highlight all Restrooms**
 
 ```swift
 // Create a filter to only receive locations with the category Toilet
@@ -40,9 +40,9 @@ filter.categories = ["Toilet"]
 // Query locations with the created filter
 let locations = await MPMapsIndoors.shared.locationsWith(query: nil, filter: filter)
 
-// Highlighting all current toilets, with default MPHighlightBehavior.
-// The MPHighlightBehavior can be used to customize the camera and map behavior when applying it.
-// Like fitting the view to show all highlighted locations, if possible.
+// Highlighting all current toilets, with the default MPHighlightBehavior.
+// The MPHighlightBehavior can be used to customize the camera and map behavior,
+// like fitting the view to show all highlighted locations.
 mapControl?.setHighlight(locations: locations, behavior: .default)
 ```
 
@@ -54,9 +54,32 @@ mapControl?.setHighlight(locations: locations, behavior: .default)
 mapControl?.clearHighlight()
 ```
 
-### Selection <a href="#selection" id="selection"></a>
+### Styling the Highlight Badge <a href="#selection" id="selection"></a>
 
-The selection Display Rule is for changing the appearance of a single Location, for example when the user clicks on it. To select a Location manually, call the method [MPMapControl.select(location:behavior)](https://app.mapsindoors.com/mapsindoors/reference/ios/4.3.2/documentation/mapsindoors/mpmapcontrol/select\(location:behavior:\))
+The new Highlight Display Rule has a collection of new properties that can be used to change the style of the Highlight badge. You can see all current Display Rule properties in [the reference documentation](https://app.mapsindoors.com/mapsindoors/reference/ios/4.9.6/documentation/mapsindoors/mpdisplayrule#instance-properties).
+
+#### Example: Change the color of the Highlight Badge
+
+```swift
+if let highlightRule = MPMapsIndoors.shared.displayRuleFor(displayRuleType: .highlight) {
+    highlightRule.badgeFillColor = .blue
+    highlightRule.badgeStrokeColor = .red
+}
+mapControl?.setHighlight(locations: [loc], behavior: .default)
+```
+
+#### Example: Hide the Highlight Badge
+
+```swift
+if let highlightRule = MPMapsIndoors.shared.displayRuleFor(displayRuleType: .highlight) {
+    highlightRule.badgeVisible = false
+}
+mapControl?.setHighlight(locations: [loc], behavior: .default)
+```
+
+## Selection <a href="#selection" id="selection"></a>
+
+The selection Display Rule is for changing the appearance of single selected Location, for example when the user clicks on it. To select a Location programmatically, call the method [MPMapControl.select(location:behavior)](https://app.mapsindoors.com/mapsindoors/reference/ios/4.9.6/documentation/mapsindoors/mpmapcontrol/select\(location:behavior:\)/)
 
 ```swift
 mapControl?.select(location: location, behavior: .default)
@@ -64,20 +87,42 @@ mapControl?.select(location: location, behavior: .default)
 
 <figure><img src="../../.gitbook/assets/ios-selected-location.jpg" alt="" width="563"><figcaption><p>An example of the selection solution DisplayRule in action</p></figcaption></figure>
 
-#### **Clear current selection**
+#### **Clear current Selection**
 
 ```swift
 mapControl?.select(location: nil, behavior: .default)
 ```
 
-### Previous selection <a href="#previous-selection" id="previous-selection"></a>
+### Styling the Selection Marker <a href="#previous-selection" id="previous-selection"></a>
 
-Before the release of 4.3.0 the iOS SDK already had a visual implementation of selection with a Display Rule. That can also be changed like the newly introduced Selection Display Rules Type. If you want to retain the old selection rendering, it can be toggled through the Solution Config on the SDK.
+You can easily change the icon to an image from your app Asset Catalogue. In this example it is assumed that you have an image in the project Asset Catalogue named `selectionIcon`:
+
+```swift
+if let selectionRule = MPMapsIndoors.shared.displayRuleFor(displayRuleType: .selection) {
+    selectionRule.icon = UIImage(named: "selectionIcon")
+}
+mapControl?.select(location: loc, behavior: .default)
+```
+
+<figure><img src="../../.gitbook/assets/customSelectionIcon.png" alt="" width="375"><figcaption><p>Example of a custom Selection Marker.</p></figcaption></figure>
+
+## Deprecated Selection Highlight <a href="#previous-selection" id="previous-selection"></a>
+
+{% include "../../.gitbook/includes/deprecation-of-selectionhighlight.md" %}
+
+Before the release of 4.3.0 the MapsIndoors SDK already had a visual implementation of selection with a Display Rule. That Display Rule can also be changed like the newly introduced Selection Display Rule. If you want to retain the old selection rendering, it can be toggled through the Solution Config on the SDK.
 
 #### **Example**
 
 ```swift
 MPMapsIndoors.shared.solution?.config.newSelection = false
+let selectionRule = MPMapsIndoors.shared.displayRuleFor(displayRuleType: .selectionHighlight)
+selectionRule?.polygonFillColor = .blue
+selectionRule?.polygonFillOpacity = 0.2
+selectionRule?.polygonStrokeWidth = 2.0
+selectionRule?.polygonStrokeColor = .blue
+selectionRule?.polygonVisible = true
+selectionRule?.iconVisible = false
 ```
 
-Note that this is based on the Solution, so with any subsequent load of MapsIndoors, it will be necessary to set the value to `false` again, as it defaults to `true`.
+Note that the `newSelection` setting lives on the Solution, so with any subsequent load of MapsIndoors it will be necessary to set the value to `false` again, as it defaults to `true`.
