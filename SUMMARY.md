@@ -197,6 +197,10 @@
   * [Reverse Geocoding](sdks-and-frameworks/integration-api/reverse-geocoding.md)
   * [Route Access](sdks-and-frameworks/integration-api/route-access.md)
   * [OpenAPI Specification](sdks-and-frameworks/integration-api/openapi-specification.md)
+* [Built-In Map Edits](sdks-and-frameworks/built-in-map-edits/README.md)
+  * [Getting started](sdks-and-frameworks/built-in-map-edits/getting-started.md)
+  * [Authentication](sdks-and-frameworks/built-in-map-edits/authentication.md)
+  * [Release notes](sdks-and-frameworks/built-in-map-edits/release-notes.md)
 
 ## Products
 
@@ -248,20 +252,7 @@
   * [MI Components](https://github.com/MapsPeople/web-ui/blob/main/packages/components/CHANGELOG.md)
   * [Map Template](https://github.com/MapsPeople/web-ui/blob/main/packages/map-template/CHANGELOG.md)
 * [Glossary](other/glossary.md)
-
-## Reference Docs
-
-* [Web SDK](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/)
-* [Android SDK](reference-docs/android-sdk.md)
-* [iOS SDK](reference-docs/ios-sdk.md)
-* [React Native SDK](reference-docs/react-native-sdk.md)
-* [Flutter SDK](reference-docs/flutter-sdk.md)
-
-## Links
-
-* [CMS](https://cms.mapsindoors.com/)
-* [Support](https://mapspeople.atlassian.net/servicedesk/customer/portals)
-* [GitHub](https://github.com/MapsPeople)
+* [QGIS Guide](other/qgis-guide.md)
 
 ***
 
@@ -294,3 +285,11 @@
     * [Location Details](legacy-docs/ios-sdk-v3/location-details.md)
 * [MapsIndoors SDK Firewall](mapsindoors-sdk-firewall.md)
 * [Google Analytics & Logging](google-analytics-and-logging.md)
+
+## Reference Docs
+
+* [Web SDK](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/)
+* [Android SDK](reference-docs/android-sdk.md)
+* [iOS SDK](reference-docs/ios-sdk.md)
+* [React Native SDK](reference-docs/react-native-sdk.md)
+* [Flutter SDK](reference-docs/flutter-sdk.md)
