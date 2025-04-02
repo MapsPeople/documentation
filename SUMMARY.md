@@ -201,6 +201,7 @@
   * [Getting started](sdks-and-frameworks/built-in-map-edits/getting-started.md)
   * [Authentication](sdks-and-frameworks/built-in-map-edits/authentication.md)
   * [Release notes](sdks-and-frameworks/built-in-map-edits/release-notes.md)
+  * [Reference docs](https://app.mapsindoors.com/mapsindoors/js/bime/latest/)
 
 ## Products
 
