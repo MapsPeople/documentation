@@ -6,6 +6,20 @@ icon: react
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.4.2] 2025-04-02
+
+#### Fixed
+
+* Fixed a possible memory leak on Android when creating `MapControl`
+* Fixed a parsing issue when a negative floor index was assigned on objects
+* Fixed possible threading issues between native and react on iOS
+* Fixed an issue with parsing `MultiPolygons` on the Floor objects
+
+#### Updated
+
+* Updated MapsIndoors iOS SDK to 4.9.7
+* Updated MapsIndoors Android SDK to 4.11.3
+
 ### \[2.4.1] 2025-02-27
 
 #### Updated
