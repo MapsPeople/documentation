@@ -19,6 +19,10 @@ const mapView = new mapsindoors.mapView.MapboxV3View({
 
 ### Android SDK
 
+{% hint style="warning" %}
+This requires using Mapbox 11, i.e. you will need to use the MapsIndoors dependency `com.mapspeople.mapsindoors:mapbox-v11` in your `build.gradle` file.
+{% endhint %}
+
 ```kotlin
 mMap.loadStyle("URI_TO_YOUR_CUSTOM_STYLE")
 val mapConfig = MPMapConfig.Builder(
@@ -38,6 +42,10 @@ MapControl.create(mapConfig) {mc, error ->
 ```
 
 ### iOS SDK
+
+{% hint style="warning" %}
+This requires using Mapbox 11, i.e. you will need to use the Swift Package Manager distribution of the MapsIndoors iOS SDK or specify the `MapsIndoorsMapbox11` pod in your `Podfile`.
+{% endhint %}
 
 ```swift
 self.mapView.mapboxMap.loadStyle("URI_TO_YOUR_CUSTOM_STYLE") { _ in
