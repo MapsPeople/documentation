@@ -4,7 +4,7 @@
 
 Each Location has several settings associated with it. If you select a Location on the Map or in the List view in the CMS, you will be presented with a modal with the following settings:
 
-<figure><img src="../../.gitbook/assets/CleanShot 2023-07-05 at 15.09.24@2x.png" alt=""><figcaption><p>Part of Location Details Editor</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (63).png" alt=""><figcaption><p>Part of the Location Details editor</p></figcaption></figure>
 
 #### General
 
@@ -14,6 +14,7 @@ Each Location has several settings associated with it. If you select a Location 
   \- For Google Maps Map Provider: use Space to separate words in-between. Use Enter to introduce a line-breaker.
 * **Categories** - Add which, if any, Categories this Location belongs to.
 * **External ID** - You can define an External ID that a Location should use alongside its internal ID.
+* **Additional details** - You can define additional details which can then be used in your own implementations or they can be visualised on the MapsIndoors Web App. They can be: links, phone numbers, e-mails and opening hours. Read more about it [here](additional-location-details.md).
 
 #### Search
 

@@ -220,6 +220,7 @@
   * [Route Network](products/cms/route-network/README.md)
     * [Barrier Route Element](products/cms/route-network/barrier-route-element.md)
     * [Door Route Element](products/cms/route-network/door-route-element.md)
+  * [Additional Location Details](products/cms/additional-location-details.md)
 * [Map Template](products/fast-track-maptemplate/README.md)
   * [Getting Started](products/fast-track-maptemplate/getting-started/README.md)
     * [Web Component](products/fast-track-maptemplate/getting-started/web-component.md)
@@ -230,6 +231,7 @@
   * [Deploying Map Template to a cloud storage provider](products/fast-track-maptemplate/deploying-map-template-to-a-cloud-storage-provider.md)
   * [2D/3D Visibility Switch](products/fast-track-maptemplate/2d-3d-visibility-switch.md)
   * [External customization of the Map Template](products/fast-track-maptemplate/external-customization-of-the-map-template.md)
+  * [Location Details configuration](products/fast-track-maptemplate/location-details-configuration.md)
   * [Kiosk](products/fast-track-maptemplate/kiosk/README.md)
     * [QR code configuration](products/fast-track-maptemplate/kiosk/qr-code-configuration.md)
 

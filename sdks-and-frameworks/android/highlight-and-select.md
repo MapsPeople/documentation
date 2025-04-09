@@ -8,8 +8,6 @@ description: >-
 
 ## How to change the appearance of different states
 
-{% include "../../.gitbook/includes/state-display-rules-intro.md" %}
-
 The MapsIndoors Android SDK supports Select and Highlight Display Rules and they can be retrieved and edited through `MapsIndoors`.\
 \
 **Example**
@@ -27,8 +25,6 @@ MapsIndoors.getDisplayRule(MPSolutionDisplayRule.HIGHLIGHT)?.let {
 ```
 
 ## Highlight
-
-{% include "../../.gitbook/includes/highlight-intro.md" %}
 
 ### **Highlight all Restrooms**
 
@@ -110,8 +106,6 @@ mapControl?.selectLocation(loc, MPSelectionBehavior.DEFAULT)
 <figure><img src="../../.gitbook/assets/customSelectionIcon.png" alt="" width="375"><figcaption><p>Example of a custom Selection Marker.</p></figcaption></figure>
 
 ## Deprecated Selection Highlight
-
-{% include "../../.gitbook/includes/deprecation-of-selectionhighlight.md" %}
 
 Before the release of 4.3.0 the Android SDK already had a visual implementation of selection with a Display Rule. This is the [`MPSolutionDisplayRule.SELECTION_HIGHLIGHT`](https://app.mapsindoors.com/mapsindoors/reference/android/4.11.3/MapsIndoorsSDK/com.mapsindoors.core/-m-p-solution-display-rule/index.html#-486711157%2FClasslikes%2F651798082) that can also be changed like the newly introduced `MPSolutionDisplayRule`. If you want to retain the old selection rendering, it can be toggled through the Solution Config on the SDK.
 

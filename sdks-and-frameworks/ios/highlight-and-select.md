@@ -8,8 +8,6 @@ description: >-
 
 ## How to change the appearance of different states <a href="#how-to-change-the-appearance-of-different-states" id="how-to-change-the-appearance-of-different-states"></a>
 
-{% include "../../.gitbook/includes/state-display-rules-intro.md" %}
-
 The MapsIndoors iOS SDK supports Select and Highlight Display Rules and they can be retrieved and edited through `MPMapsIndoors.shared`.
 
 #### **Example**
@@ -27,8 +25,6 @@ if let displayRule = MPMapsIndoors.shared.displayRuleFor(displayRuleType: .highl
 ```
 
 ## Highlight <a href="#highlight" id="highlight"></a>
-
-{% include "../../.gitbook/includes/highlight-intro.md" %}
 
 ### **Highlight all Restrooms**
 
@@ -107,8 +103,6 @@ mapControl?.select(location: loc, behavior: .default)
 <figure><img src="../../.gitbook/assets/customSelectionIcon.png" alt="" width="375"><figcaption><p>Example of a custom Selection Marker.</p></figcaption></figure>
 
 ## Deprecated Selection Highlight <a href="#previous-selection" id="previous-selection"></a>
-
-{% include "../../.gitbook/includes/deprecation-of-selectionhighlight.md" %}
 
 Before the release of 4.3.0 the MapsIndoors SDK already had a visual implementation of selection with a Display Rule. That Display Rule can also be changed like the newly introduced Selection Display Rule. If you want to retain the old selection rendering, it can be toggled through the Solution Config on the SDK.
 
