@@ -29,7 +29,7 @@ Once this is setup for the project, you can use the MapsIndoors Mapbox flavor.
 
 ### Get Your MapsIndoors API key[​](https://docs.mapsindoors.com/getting-started/android/v4/prerequisites#get-your-mapsindoors-api-key) <a href="#get-your-mapsindoors-api-key" id="get-your-mapsindoors-api-key"></a>
 
-If you are not a customer yet, you can use this demo MapsIndoors API key `d876ff0e60bb430b8fabb145` to follow this guide, or you can [contact MapsPeople](https://resources.mapspeople.com/contact-us) to get your building drawings processed and hosted by us to receive a unique API key. For the purpose of this guide, both methods will work.
+If you are not a customer yet, you can use this demo MapsIndoors API key `02c329e6777d431a88480a09` to follow this guide, or you can [contact MapsPeople](https://resources.mapspeople.com/contact-us) to get your building drawings processed and hosted by us to receive a unique API key. For the purpose of this guide, both methods will work.
 
 ### Work with MapsIndoors SDK behind a Firewall[​](https://docs.mapsindoors.com/getting-started/android/v4/prerequisites#work-with-mapsindoors-sdk-behind-a-firewall) <a href="#work-with-mapsindoors-sdk-behind-a-firewall" id="work-with-mapsindoors-sdk-behind-a-firewall"></a>
 
