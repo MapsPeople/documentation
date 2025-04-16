@@ -51,7 +51,7 @@ export default function FrontScreen({navigation}) {
 
   return (
       <>
-        <Button title={'White House demo'} onPress={() => navigation.navigate('Map', {apiKey: 'd876ff0e60bb430b8fabb145'})}/>
+        <Button title={'Mapspeople demo'} onPress={() => navigation.navigate('Map', {apiKey: '02c329e6777d431a88480a09'})}/>
         <View style={{flexDirection: 'row'}}>
           <TextInput placeholder={'Enter an API key for your solution'} placeholderTextColor={'#AAA'} onChangeText={setApiKeyString} style={{flex: 1, backgroundColor: Colors.white}}/>
           <Button title={'Go to map'} onPress={() => navigation.navigate('Map', {apiKey: apiKeyString})}/>

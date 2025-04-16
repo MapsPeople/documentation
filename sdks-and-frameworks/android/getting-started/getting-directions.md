@@ -9,19 +9,13 @@ description: >-
 
 ### Get Directions Between Two Locations[​](https://docs.mapsindoors.com/getting-started/android/v4/directions#get-directions-between-two-locations) <a href="#get-directions-between-two-locations" id="get-directions-between-two-locations"></a>
 
-After having created our list of search results, we have a good starting point for creating directions between two Locations. Since our search only supports a single search, we will hardcode a Location's coordinate into our app, and use that as the basis for our Origin. Then we'll create a route, navigate to a view of the navigation details, and show a route on the map from the Origin to the Destination.
-
-We have already created a point in the basic example, called `mUserLocation` to use as a starting point for directions on `MapsActivity`
-
-```kotlin
-var mUserLocation: MPPoint = MPPoint(38.897389429704695, -77.03740973527613,0)
-```
+After having created our list of search results, we have a good starting point for creating directions between two Locations. Since our search only supports a single search, we will query a random Location within the venue when requesting a route, and use that as the basis for our Origin. Then we'll create a route, navigate to a view of the navigation details, and show a route on the map from the Origin to the Destination.
 
 Now we will create a method that can generate a route for us with a Location (picked from the search list). Start by implementing `OnRouteResultListener` to your MapsActivity.
 
 {% tabs %}
 {% tab title="Kotlin - Google Maps" %}
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L28)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L26)
 
 ```kotlin
 class MapsActivity : FragmentActivity(), OnMapReadyCallback, OnRouteResultListener
@@ -29,7 +23,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, OnRouteResultListen
 {% endtab %}
 
 {% tab title="Kotlin - Mapbox" %}
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L26)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L24)
 
 ```kotlin
 class MapsActivity : FragmentActivity(), OnRouteResultListener
@@ -43,7 +37,7 @@ Use this method to query the [`MPDirectionsService`](https://app.mapsindoors.com
 
 To generate a route with the `MPLocation`, we start by creating an `onClickListener` on our search `ViewHolder` inside the `SearchItemAdapter`. In the method `onBindViewHolder` we will call our `createRoute` on the `MapsActivity` for our route to be generated.
 
-[SearchItemAdapter.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/SearchItemAdapter.kt#L18-L32)
+[SearchItemAdapter.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/SearchItemAdapter.kt#L18-L32)
 
 ```kotlin
 override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -63,7 +57,7 @@ When we receive a result on our listener, we render the route through the `MPDir
 
 We create global variables of the [`MPdirectionsRenderer`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-renderer/index.html?query=class%20MPDirectionsRenderer) and [`MPDirectionsService`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-service/index.html?query=class%20MPDirectionsService%20:%20MPDirectionsServiceInterface) and create a getter to the [`MPdirectionsRenderer`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-renderer/index.html?query=class%20MPDirectionsRenderer) to access it from _fragments_ later on.
 
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L186-L218)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L182-L237)
 
 ```kotlin
 fun createRoute(mpLocation: MPLocation) {
@@ -71,9 +65,32 @@ fun createRoute(mpLocation: MPLocation) {
     if (mpRoutingProvider == null) {
         mpRoutingProvider = MPDirectionsService(this)
         mpRoutingProvider?.setRouteResultListener(this)
+        mpRoutingProvider?.setTravelMode(MPTravelMode.WALKING)
     }
-    //Queries the MPRouting provider for a route with the hardcoded user location and the point from a location.
-    mpRoutingProvider?.query(mUserLocation, mpLocation.point)
+
+    //Use the locations venue to query an origin point for the route. Within the venue bounds.
+    if (mpLocation.venue == null) {
+        //Open dialog telling user to try another location, as no venue is assigned to the location.
+        AlertDialog.Builder(this)
+            .setTitle("No venue assigned")
+            .setMessage("Please try another location")
+            .show()
+    } else {
+        val venue = MapsIndoors.getVenues()?.getVenueByName(mpLocation.venue!!)
+        MapsIndoors.getLocationsAsync(null, MPFilter.Builder().setMapExtend(MPMapExtend(venue!!.bounds!!)).build()) { list: List<MPLocation?>?, miError: MIError? ->
+            if (!list.isNullOrEmpty()) {
+                list.first()?.let { location ->
+                    //Queries the MPRouting provider for a route with the hardcoded user location and the point from a location.
+                    mpRoutingProvider?.query(location.point, mpLocation.point)
+                }
+            }else {
+                AlertDialog.Builder(this)
+                    .setTitle("No locations found within venue of location")
+                    .setMessage("Please try another location")
+                    .show()
+            }
+        }
+    }
 }
 
 override fun onRouteResult(@Nullable route: Route?, @Nullable miError: MIError?) {
@@ -91,7 +108,7 @@ override fun onRouteResult(@Nullable route: Route?, @Nullable miError: MIError?)
 }
 ```
 
-See the full implementation of these methods here: [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android-Kotlin/blob/main/app/src/main/java/com/example/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L185-L225)
+See the full implementation of these methods here: [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L182-L237)
 
 Now we will implement logic to our `NavigationFragment` that we can put into our BottomSheet and show the steps for each route, as well as the time and distance it takes to travel the route.
 
@@ -99,7 +116,7 @@ Here we'll use a `viewpager` to allow the user to switch between each step, as w
 
 We will start by making a getter for our [`MPdirectionsRenderer`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-renderer/index.html?query=class%20MPDirectionsRenderer) that we store on `MapsActivity`:
 
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L182-L184)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L178-L180)
 
 ```kotlin
 fun getMpDirectionsRenderer(): MPDirectionsRenderer? {
@@ -109,7 +126,7 @@ fun getMpDirectionsRenderer(): MPDirectionsRenderer? {
 
 Inside the `NavigationFragment` we will implement logic to navigate through Legs of our Route.
 
-[NavigationFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/NavigationFragment.kt)
+[NavigationFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/NavigationFragment.kt)
 
 ```kotlin
 class NavigationFragment : Fragment() {
@@ -180,11 +197,11 @@ class NavigationFragment : Fragment() {
 }
 ```
 
-See the full implementation of `NavigationFragment` and the accompanying adapter here: [NavigationFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/NavigationFragment.kt)
+See the full implementation of `NavigationFragment` and the accompanying adapter here: [NavigationFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/NavigationFragment.kt)
 
 We will then create a simple textview to describe each step of the Route Leg in the `RouteLegFragment` for the `ViewPager`:
 
-[RouteLegFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/RouteLegFragment.kt)
+[RouteLegFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/RouteLegFragment.kt)
 
 ```kotlin
 class RouteLegFragment : Fragment() {
@@ -218,7 +235,7 @@ class RouteLegFragment : Fragment() {
 }
 ```
 
-See the full implementation of the fragment here: [RouteLegFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/RouteLegFragment.kt)
+See the full implementation of the fragment here: [RouteLegFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/RouteLegFragment.kt)
 
 ### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/android/v4/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
 
@@ -242,3 +259,12 @@ fun createRoute(mpLocation: MPLocation) {
 Expected result:
 
 <figure><img src="../../../.gitbook/assets/android_directions_gif.gif" alt=""><figcaption></figcaption></figure>
+
+Congratulations! You're at the end of your journey (for now), and you've accomplished a lot! 🎉
+
+* You learned which prerequisites is needed to start building with MapsIndoors.
+* You loaded a interactive map with MapsIndoors locations and added a floor selector for navigating between floors.
+* You created a search experience to search for specific locations on the map.
+* You added functionality for getting directions from one Location to another.
+
+This concludes the "Getting Started" tutorial, but there's always more to discover. To get more inspiration on what to build next please visit our [showcase page](https://www.mapspeople.com/showcases) to see how other clients use MapsIndoors! For more documentation, please visit the rest of our Docs site!.

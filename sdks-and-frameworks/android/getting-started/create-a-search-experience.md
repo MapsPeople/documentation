@@ -19,7 +19,7 @@ For advanced usage of the search functionality read the Search guide and tutoria
 
 Create a search method that takes a search string as a parameter on your `MapsActivity` class. In this example we only use the [`setTake` on the `MPFilter`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-m-p-filter/index.html?query=open%20class%20MPFilter) to limit our result to 30 locations. We will expand on this method later.
 
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L137-L176)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L133-L172)
 
 ```kotlin
 private fun search(searchQuery: String) {
@@ -37,9 +37,9 @@ private fun search(searchQuery: String) {
 
 To be able to search we will use a text input field where a user can write what they want to search for. This is placed at the top of the MapsActivity
 
-To call our search method with the text in the search input field, we then add an `EditorActionListener` and a `OnClickListener` to the text input field and the search button in the `onCreate` of `MapsActivity`. Find the full `onCreate` example here: [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Getting-Started-Android-Kotlin/blob/main/app/src/main/java/com/example/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L42-L106)
+To call our search method with the text in the search input field, we then add an `EditorActionListener` and a `OnClickListener` to the text input field and the search button in the `onCreate` of `MapsActivity`. Find the full `onCreate` example here: [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L42-L105)
 
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L58-L84)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L56-L81)
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,13 +68,13 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-Find the full `onCreate` example here: [MapsActivity.kt](https://github.com/MapsIndoors/MapsIndoors-Getting-started-android-Kotlin/blob/main/app/src/main/java/com/example/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L42-L106)
+Find the full `onCreate` example here: [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L42-L105)
 
 To accompany this we use the `SearchFragment` that is already created for you and a `BottomSheet` to handle the `SearchFragment`.
 
 Observe that the `SearchFragment`is just a simple _fragment_ with a `RecyclerView` and a `SearchItemAdapter` added to it
 
-[SearchFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/SearchFragment.kt#L14-L41)
+[SearchFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/SearchFragment.kt#L14-L37)
 
 ```kotlin
 class SearchFragment : Fragment() {
@@ -104,7 +104,7 @@ See the full example of `SearchFragment` here: [SearchFragment.kt](https://githu
 
 Create a getter for your [`MapControl` object](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) on the `MapsActivity` so that it can be used in the `SearchAdapter`.
 
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L178-L180)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L174-L176)
 
 ```kotlin
 fun getMapControl(): MapControl {
@@ -114,7 +114,7 @@ fun getMapControl(): MapControl {
 
 Inside the `SearchItemAdapter` implement logic to display the locations you get from a search result. Here we show an image of the location marker and show the name of the locations.
 
-[SearchItemAdapter.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/mapbox\_v11\_getting\_started\_update/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/SearchItemAdapter.kt)
+[SearchItemAdapter.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/SearchItemAdapter.kt)
 
 ```kotlin
 internal class SearchItemAdapter(private val mLocations: List<MPLocation?>, private val mMapActivity: MapsActivity?) : RecyclerView.Adapter<ViewHolder>() {
@@ -148,11 +148,11 @@ internal class ViewHolder(inflater: LayoutInflater, parent: ViewGroup?) : Recycl
 }
 ```
 
-See the full example of `SearchItemAdapter` and accompanying `ViewHolder` here: [SearchItemAdapter.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/mapbox\_v11\_getting\_started\_update/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/SearchItemAdapter.kt)
+See the full example of `SearchItemAdapter` and accompanying `ViewHolder` here: [SearchItemAdapter.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/SearchItemAdapter.kt)
 
 We have already implemented the BottomSheet in the UI. Now we add the search _fragment_ to the `BottomSheet` in our search query method on our `MapsActivity`. You can use the `addFragmentToBottomSheet` too add the created _fragment_ to the `BottomSheet`. When we have received the search results
 
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L137-L176)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L133-L172)
 
 ```kotlin
 private fun search(searchQuery: String) {
@@ -177,7 +177,7 @@ private fun search(searchQuery: String) {
 }
 ```
 
-See the full example of the search method here: [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/mapbox\_v11\_getting\_started\_update/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt)
+See the full example of the search method here: [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt)
 
 ## Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/android/v4/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
 
@@ -189,7 +189,7 @@ When you are done showing the search results you can [call `clearMap()` on `MapC
 
 Since the default `displaySearchResults(List<MPLocation> locations)` uses camera animation we will call it from the UI Thread and implement it in our search method inside the `getLocationsAsync` result with the list from the method.
 
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L154)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L150)
 
 ```kotlin
 private fun search(searchQuery: String) {

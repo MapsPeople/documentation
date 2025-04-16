@@ -23,7 +23,7 @@ Place the following initialization code in the `onCreate` method in the `MapsAct
 
 {% tabs %}
 {% tab title="Google Maps" %}
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L44-L107)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L42-L105)
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +39,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 {% endtab %}
 
 {% tab title="Mapbox" %}
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L42-L99)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L39-L96)
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +51,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 {% endtab %}
 {% endtabs %}
 
-If you do not have your own key, you can use this demo MapsIndoors API key: `d876ff0e60bb430b8fabb145`.
+If you do not have your own key, you can use this demo MapsIndoors API key: `02c329e6777d431a88480a09`.
 
 #### Initialize MapsControl[​](https://docs.mapsindoors.com/getting-started/android/v4/map#initialize-mapscontrol) <a href="#initialize-mapscontrol" id="initialize-mapscontrol"></a>
 
@@ -65,7 +65,7 @@ Start by creating an `initMapControl` method which is used to initiate the [`Map
 
 {% tabs %}
 {% tab title="Google maps" %}
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L117-L135)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L115-L131)
 
 ```kotlin
 private fun initMapControl(view: View) {
@@ -91,7 +91,7 @@ private fun initMapControl(view: View) {
 {% endtab %}
 
 {% tab title="Mapbox" %}
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L101-L119)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L98-L114)
 
 ```kotlin
 private fun initMapControl() {
@@ -122,7 +122,7 @@ In your `onMapReady` callback function, assign the `mMap` variable with the `Goo
 
 {% tabs %}
 {% tab title="Google Maps" %}
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L109-L115)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L107-L113)
 
 ```kotlin
 override fun onMapReady(googleMap: GoogleMap) {
@@ -136,7 +136,7 @@ override fun onMapReady(googleMap: GoogleMap) {
 {% endtab %}
 
 {% tab title="Mapbox" %}
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L98)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L95)
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
