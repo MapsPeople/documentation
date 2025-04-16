@@ -83,7 +83,7 @@ fun createRoute(mpLocation: MPLocation) {
                     //Queries the MPRouting provider for a route with the hardcoded user location and the point from a location.
                     mpRoutingProvider?.query(location.point, mpLocation.point)
                 }
-            }else {
+            } else {
                 AlertDialog.Builder(this)
                     .setTitle("No locations found within venue of location")
                     .setMessage("Please try another location")
