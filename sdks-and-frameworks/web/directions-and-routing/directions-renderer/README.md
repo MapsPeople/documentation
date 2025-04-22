@@ -63,7 +63,7 @@ If using a positioning service to get the current position of the end user, you 
 Directions response object
 {% endembed %}
 
-<figure><img src="../../../.gitbook/assets/route_response.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/route_response.png" alt=""><figcaption></figcaption></figure>
 
 {% embed url="https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/Route.html" %}
 Route object

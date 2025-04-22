@@ -8,7 +8,7 @@ As a key element in the MapsIndoors platform, we offer APIs for efficiently calc
 
 In order to provide a route between Venues, MapsIndoors integrates with external and global map engines (Mapbox and Google Maps).
 
-The central components that utilize a Directions experience is the [Directions Service](directions-service/) and the [Directions Renderer](../wayfinding/directions-renderer.md). Let's examine some key concepts first.
+The central components that utilize a Directions experience is the [Directions Service](directions-service/) and the [Directions Renderer](directions-renderer/). Let's examine some key concepts first.
 
 ### Entry Points[​](https://docs.mapsindoors.com/directions-intro#entry-points) <a href="#entry-points" id="entry-points"></a>
 

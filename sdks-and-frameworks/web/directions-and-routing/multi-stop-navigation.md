@@ -1,6 +1,6 @@
 # Multi-stop navigation
 
-This article builds on existing knowledge and assumes familiarity with the [Directions Service](directions-service/) and the [Directions Renderer](../wayfinding/directions-renderer.md).
+This article builds on existing knowledge and assumes familiarity with the [Directions Service](directions-service/) and the [Directions Renderer](directions-renderer/).
 
 The MapsIndoors Javascript SDK empowers you to streamline navigation within venues using the multi-stop feature. This functionality allows you to obtain directions to multiple destinations within a venue effortlessly. Provide a sequence of stops, and MapsIndoors will generate the most efficient route, considering two options:
 

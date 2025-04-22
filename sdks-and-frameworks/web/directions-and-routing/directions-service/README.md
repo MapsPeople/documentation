@@ -36,7 +36,7 @@ From an implementation standpoint, there are two functional things that need to 
 
 <figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
-1. [Handling and rendering directions responses](../../wayfinding/directions-renderer.md)
+1. [Handling and rendering directions responses](../directions-renderer/)
 
 <figure><img src="../../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
