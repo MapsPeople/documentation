@@ -6,7 +6,7 @@ Throughout the Getting Started guide, you will modify and extend the same code t
 
 1. If you do not have prior development experience, you can install an Integrated Development Environment (IDE), e.g. [<mark style="color:purple;">Visual Studio Code</mark>](https://code.visualstudio.com/).
 2. Start by creating a new project folder. The location is not important, just remember the location, and ensure your newly created project folder is empty.
-3.  Inside that, create two empty files: `index.html` and `main.js`.
+3. Inside that, create two empty files: `index.html` and `main.js`.
 
     > The file `index.html` is the entry point for our application and contains the HTML code. The file `main.js` will be read by `index.html` and consists of the JavaScript code for the actual application to run. To try the app you will be creating, run `index.html` in your web browser.
 4. Open `index.html`. Create a basic HTML structure and include the `main.js` file as follows:
@@ -61,7 +61,7 @@ Insert the MapsIndoors SDK script tag into `<head>`, followed by the Google Maps
 </html>
 ```
 
-Remember to add your API keys to the links in your code. If you do not have your own API key, you can use the demo MapsIndoors API key: `d876ff0e60bb430b8fabb145`.
+Remember to add your API keys to the links in your code. If you do not have your own API key, you can use the demo MapsIndoors API key: `02c329e6777d431a88480a09`.
 
 Add an empty `<div>` element to `<body>` with the `id` attribute set to `"map"`:
 
@@ -92,7 +92,7 @@ To load data and display it on the map, we need to create a new _instance_ of th
 
 const mapViewOptions = {
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -117,7 +117,7 @@ First, we add an empty `<div>` element programmatically. Then we create a new [`
 
 const mapViewOptions = {
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -204,7 +204,7 @@ const miMapElement = document.querySelector('mi-map-googlemaps');
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
 })
 ```
@@ -309,7 +309,7 @@ To load data and display it on the map, we need to create a new _instance_ of th
 const mapViewOptions = {
     accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
     element: document.getElementById('map'),
-    center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+    center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
     zoom: 17,
     maxZoom: 22
 };
@@ -335,7 +335,7 @@ First, we add an empty `<div>` element programmatically. Then we create a new [`
 const mapViewOptions = {
   accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22
 };
@@ -419,7 +419,7 @@ To load data and display it on the map, we need to create a new _instance_ of th
 const mapViewOptions = {
     accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
     element: document.getElementById('map'),
-    center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+    center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
     zoom: 17,
     maxZoom: 22,
     mapsIndoorsTransitionLevel: 17,
@@ -448,7 +448,7 @@ First, we add an empty `<div>` element programmatically. Then we create a new [`
 const mapViewOptions = {
   accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
   mapsIndoorsTransitionLevel: 17,
@@ -532,7 +532,7 @@ First we get a reference to the `<mi-map-mapbox>` element. Then we attach the [`
 const miMapElement = document.querySelector('mi-map-mapbox');
 miMapElement.addEventListener('mapsIndoorsReady', () => {
     miMapElement.getMapInstance().then((mapInstance) => {
-        mapInstance.setCenter([-77.0362723, 38.8974905]); // The White House
+        mapInstance.setCenter([-97.7412840716576, 30.359285384]); // MapsPeople - Austin Office
     });
 });
 ```
@@ -625,7 +625,7 @@ MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`
 
 const mapViewOptions = {
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -688,7 +688,7 @@ To display a list of search results you can append each search result to a list 
 
 const mapViewOptions = {
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -721,7 +721,7 @@ function onSearch() {
 
 const mapViewOptions = {
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -765,7 +765,7 @@ To filter the map to only display the search results you can use the `filter` me
 
 const mapViewOptions = {
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -851,7 +851,7 @@ const miSearchElement = document.querySelector('mi-search');
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
 })
 
@@ -912,7 +912,7 @@ const miListElement = document.querySelector('mi-list');
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
 })
 
@@ -933,7 +933,7 @@ const miListElement = document.querySelector('mi-list');
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
 })
 
@@ -965,7 +965,7 @@ const miListElement = document.querySelector('mi-list');
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
 })
 
@@ -994,10 +994,10 @@ Here's a JSFiddle demonstrating the result you should have by now:
 
 {% embed url="https://jsfiddle.net/mapspeople/jtnw0u1y/1/" fullWidth="false" %}
 
-
 {% endtab %}
 
 {% tab title="Mapbox - Manually" %}
+
 ## Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
 
 MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`LocationsService.getLocations()` method](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations) but first you need to add an `<input>` and `<button>` element to the DOM.
@@ -1039,7 +1039,7 @@ MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`
 const mapViewOptions = {
     accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
     element: document.getElementById('map'),
-    center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+    center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
     zoom: 17,
     maxZoom: 22,
 };
@@ -1102,7 +1102,7 @@ To display a list of search results you can append each search result to a list 
 const mapViewOptions = {
   accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -1136,7 +1136,7 @@ function onSearch() {
 const mapViewOptions = {
   accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -1183,7 +1183,7 @@ To filter the map to only display the search results you can use the `filter` me
 const mapViewOptions = {
   accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -1270,7 +1270,7 @@ const miMapElement = document.querySelector('mi-map-mapbox');
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
     miMapElement.getMapInstance().then((mapInstance) => {
-        mapInstance.setCenter([-77.0362723, 38.8974905]); // The White House
+        mapInstance.setCenter([-97.7412840716576, 30.359285384]); // MapsPeople - Austin Office
     });
 });
 
@@ -1328,7 +1328,7 @@ const miListElement = document.querySelector('mi-list');
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
 })
 
@@ -1349,7 +1349,7 @@ const miListElement = document.querySelector('mi-list');
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
 })
 
@@ -1381,7 +1381,7 @@ const miListElement = document.querySelector('mi-list');
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
 })
 
@@ -1437,7 +1437,7 @@ Then, we need to initialize the [MapsIndoors Directions Render](https://app.maps
 
 const mapViewOptions = {
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -1505,7 +1505,7 @@ In the following example, this is what happens:
 
 const mapViewOptions = {
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -1573,7 +1573,7 @@ You will now have something like this:
 
 const mapViewOptions = {
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -1682,7 +1682,7 @@ To use the chosen travel mode when getting a route, we need to replace the hardc
 
 const mapViewOptions = {
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -1763,7 +1763,7 @@ let miDirectionsRendererInstance;
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
 miMapElement.getDirectionsServiceInstance()
   .then((directionsServiceInstance) => miDirectionsServiceInstance = directionsServiceInstance);
@@ -1828,7 +1828,7 @@ let miDirectionsRendererInstance;
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
   miMapElement.getDirectionsServiceInstance()
     .then((directionsServiceInstance) => miDirectionsServiceInstance = directionsServiceInstance);
@@ -1887,7 +1887,7 @@ let miDirectionsRendererInstance;
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
   miMapElement.getDirectionsServiceInstance()
     .then((directionsServiceInstance) => miDirectionsServiceInstance = directionsServiceInstance);
@@ -2001,7 +2001,7 @@ let miDirectionsRendererInstance;
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
 
   miMapElement.getDirectionsServiceInstance().then((directionsServiceInstance) => miDirectionsServiceInstance = directionsServiceInstance);
@@ -2067,7 +2067,7 @@ Then, we need to initialize the [MapsIndoors Directions Renderer](https://app.ma
 const mapViewOptions = {
   accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
   element: document.getElementById("map"),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -2136,7 +2136,7 @@ In the following example, this is what happens:
 const mapViewOptions = {
   accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -2203,7 +2203,7 @@ Now, to make it more dynamic, we attach a `click` event listener for each locati
 const mapViewOptions = {
   accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -2315,7 +2315,7 @@ To use the chosen transportation when getting a route, we need to replace the ha
 const mapViewOptions = {
   accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
   element: document.getElementById('map'),
-  center: { lat: 38.8974905, lng: -77.0362723 }, // The White House
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
   zoom: 17,
   maxZoom: 22,
 };
@@ -2397,7 +2397,7 @@ let miDirectionsRendererInstance;
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
 miMapElement.getDirectionsServiceInstance()
   .then((directionsServiceInstance) => miDirectionsServiceInstance = directionsServiceInstance);
@@ -2457,7 +2457,7 @@ let miDirectionsRendererInstance;
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
   miMapElement.getDirectionsServiceInstance()
     .then((directionsServiceInstance) => miDirectionsServiceInstance = directionsServiceInstance);
@@ -2516,7 +2516,7 @@ let miDirectionsRendererInstance;
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-      mapInstance.setCenter([-77.0362723, 38.8974905]); // The White House
+      mapInstance.setCenter([-97.7412840716576, 30.359285384]); // MapsPeople - Austin Office
   });
   miMapElement.getDirectionsServiceInstance()
     .then((directionsServiceInstance) => miDirectionsServiceInstance = directionsServiceInstance);
@@ -2630,7 +2630,7 @@ let miDirectionsRendererInstance;
 
 miMapElement.addEventListener('mapsIndoorsReady', () => {
   miMapElement.getMapInstance().then((mapInstance) => {
-    mapInstance.setCenter({ lat: 38.8974905, lng: -77.0362723 }); // The White House
+    mapInstance.setCenter({ lat: 30.359285384, lng: -97.7412840716576 }); // MapsPeople - Austin Office
   });
 
   miMapElement.getDirectionsServiceInstance().then((directionsServiceInstance) => miDirectionsServiceInstance = directionsServiceInstance);
