@@ -182,8 +182,8 @@ After you added the script tag into `<head>`, add the `<mi-map-googlemaps>` cust
 </head>
 <body>
 <mi-map-googlemaps
-  style="width: 600px;
-  height: 600px;"
+  style="width: 720px;
+  height: 480px;"
   gm-api-key="YOUR_GOOGLE_MAPS_API_KEY"
   mi-api-key="YOUR_MAPSINDOORS_API_KEY">
 </mi-map-googlemaps>
@@ -233,8 +233,8 @@ Using the `<mi-map-googlemaps>` element, you can add the [floorSelectorControlPo
 </head>
 <body>
   <mi-map-googlemaps
-  style="width: 600px;
-  height: 600px;"
+  style="width: 720px;
+  height: 480px;"
   gm-api-key="YOUR_GOOGLE_MAPS_API_KEY"
   mi-api-key="YOUR_MAPSINDOORS_API_KEY"
   floor-selector-control-position="TOP_RIGHT">
@@ -411,7 +411,7 @@ After you added the script tag into `<head>`, add the `<mi-map-mapbox>` custom e
   <script src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
-<mi-map-mapbox style="width: 600px; height: 600px;" access-token="YOUR_MAPBOX_ACCESS_TOKEN" mi-api-key="YOUR_MAPSINDOORS_API_KEY">
+<mi-map-mapbox style="width: 720px; height: 480px;" access-token="YOUR_MAPBOX_ACCESS_TOKEN" mi-api-key="YOUR_MAPSINDOORS_API_KEY">
 </mi-map-mapbox>
   <script src="main.js"></script>
 </body>
@@ -457,7 +457,7 @@ Using the `<mi-map-mapbox>` element, you can add the [floorSelectorControlPositi
 </head>
 
 <body>
-<mi-map-mapbox style="width: 600px; height: 600px;" access-token="YOUR_MAPBOX_ACCESS_TOKEN" mi-api-key="YOUR_MAPSINDOORS_API_KEY" floor-selector-control-position="TOP_RIGHT">
+<mi-map-mapbox style="width: 720px; height: 480px;" access-token="YOUR_MAPBOX_ACCESS_TOKEN" mi-api-key="YOUR_MAPSINDOORS_API_KEY" floor-selector-control-position="TOP_RIGHT">
   </mi-map-mapbox>
   <script src="main.js"></script>
 </body>
@@ -721,10 +721,10 @@ Using the `<mi-search>` component you get a `<input>`element tied tightly togeth
   <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
-  <mi-map-googlemaps style="width: 600px; height: 600px;" gm-api-key="YOUR_GOOGLE_MAPS_API_KEY" mi-api-key="YOUR_MAPSINDOORS_API_KEY" floor-selector-control-position="TOP_RIGHT">
+  <mi-map-googlemaps style="width: 720px; height: 480px;" gm-api-key="YOUR_GOOGLE_MAPS_API_KEY" mi-api-key="YOUR_MAPSINDOORS_API_KEY" floor-selector-control-position="TOP_RIGHT">
   </mi-map-googlemaps>
   <mi-search
-  style="width: 600px;"
+  style="width: 720px;"
   mapsindoors="true"
   placeholder="Search">
   </mi-search>
@@ -776,12 +776,12 @@ To display a list of search results you can append each search result to a list 
   <script type="module" src="https://unpkg.com/@mapsindoors/components@13.7.1/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
-  <mi-map-googlemaps style="width: 600px; height: 600px;" gm-api-key="YOUR_GOOGLE_MAPS_API_KEY" mi-api-key="YOUR_MAPSINDOORS_API_KEY" floor-selector-control-position="TOP_RIGHT">
+  <mi-map-googlemaps style="width: 720px; height: 480px;" gm-api-key="YOUR_GOOGLE_MAPS_API_KEY" mi-api-key="YOUR_MAPSINDOORS_API_KEY" floor-selector-control-position="TOP_RIGHT">
   </mi-map-googlemaps>
-  <mi-search style="width: 600px;" mapsindoors="true" placeholder="Search">
+  <mi-search style="width: 720px;" mapsindoors="true" placeholder="Search">
   </mi-search>
 <mi-list
-  style="width: 600px; height: 400px;"
+  style="width: 720px; height: 400px;"
   scroll-buttons-enabled="true"
   scroll-length="200">
 </mi-list>
@@ -1137,12 +1137,12 @@ Using the `<mi-search>` component you get an `<input>`element tied tightly toget
   <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
-  <mi-map-mapbox style="width: 600px; height: 600px;"
+  <mi-map-mapbox style="width: 720px; height: 480px;"
     access-token="YOUR_MAPBOX_ACCESS_TOKEN"
     mi-api-key="YOUR_MAPSINDOORS_API_KEY"
     floor-selector-control-position="TOP_RIGHT">
   </mi-map-mapbox>
-<mi-search style="width: 600px;" mapsindoors="true" placeholder="Search">
+<mi-search style="width: 720px;" mapsindoors="true" placeholder="Search">
 </mi-search>
   <script src="main.js"></script>
 </body>
@@ -1191,11 +1191,11 @@ To display a list of search results you can append each search result to a list 
   <script type="module" src="https://unpkg.com/@mapsindoors/components@13.7.1/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
-  <mi-map-mapbox style="width: 600px; height: 600px;" access-token="YOUR_MAPBOX_ACCESS_TOKEN" mi-api-key="YOUR_MAPSINDOORS_API_KEY">
+  <mi-map-mapbox style="width: 720px; height: 480px;" access-token="YOUR_MAPBOX_ACCESS_TOKEN" mi-api-key="YOUR_MAPSINDOORS_API_KEY">
   </mi-map-mapbox>
-  <mi-search style="width: 600px;" mapsindoors="true" placeholder="Search">
+  <mi-search style="width: 720px;" mapsindoors="true" placeholder="Search">
   </mi-search>
-  <mi-list style="width: 600px; height: 400px;" scroll-buttons-enabled="true" scroll-length="200">
+  <mi-list style="width: 720px; height: 400px;" scroll-buttons-enabled="true" scroll-length="200">
   </mi-list>
   <script src="main.js"></script>
 </body>
@@ -1545,7 +1545,7 @@ To change between travel modes we first need to add a `<select>` element with al
 &#x3C;script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&#x26;key=YOUR_GOOGLE_MAPS_API_KEY">&#x3C;/script>
 &#x3C;/head>
 &#x3C;body>
-  &#x3C;div id="map" style="width: 600px; height: 600px;">&#x3C;/div>
+  &#x3C;div id="map" style="width: 720px; height: 480px;">&#x3C;/div>
 
 &#x3C;!-- Travel mode selector -->
 &#x3C;label for="travel-modes">Choose a travel mode:&#x3C;/label>
@@ -1845,7 +1845,7 @@ To change between travel modes we first need to add a `<select>` element with al
 </head>
 <body>
   <mi-map-googlemaps
-    style="width: 600px; height: 600px;"
+    style="width: 720px; height: 480px;"
     mi-api-key="d876ff0e60bb430b8fabb145"
     floor-selector-control-position="TOP_RIGHT">
   </mi-map-googlemaps>
@@ -1860,13 +1860,13 @@ To change between travel modes we first need to add a `<select>` element with al
 </select>
 
   <mi-search
-    style="width: 600px;"
+    style="width: 720px;"
     mapsindoors="true"
     placeholder="Search">
   </mi-search>
 
   <mi-list
-    style="width: 600px; height: 400px;"
+    style="width: 720px; height: 400px;"
     scroll-buttons-enabled="true"
     scroll-length="200">
   </mi-list>
@@ -2473,7 +2473,7 @@ To change between travel modes we first need to add a `<select>` element with al
 <body>
   <mi-map-mapbox
     access-token="YOUR_MAPBOX_ACCESS_TOKEN"
-    style="width: 600px; height: 600px;"
+    style="width: 720px; height: 480px;"
     mi-api-key="d876ff0e60bb430b8fabb145"
     floor-selector-control-position="TOP_RIGHT">
   </mi-map-mapbox>
@@ -2488,13 +2488,13 @@ To change between travel modes we first need to add a `<select>` element with al
 </select>
 
   <mi-search
-    style="width: 600px;"
+    style="width: 720px;"
     mapsindoors="true"
     placeholder="Search">
   </mi-search>
 
   <mi-list
-    style="width: 600px; height: 400px;"
+    style="width: 720px; height: 400px;"
     scroll-buttons-enabled="true"
     scroll-length="200">
   </mi-list>
