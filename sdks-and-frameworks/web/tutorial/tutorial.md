@@ -69,21 +69,22 @@ Add an empty `<div>` element to `<body>` with the `id` attribute set to `"map"`:
 
 ```html
 <!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
   <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.40.1/mapsindoors-4.40.1.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=YOUR_GOOGLE_MAPS_API_KEY"></script>
 </head>
+
 <body>
-<div id="map" style="width: 600px; height: 600px;"></div>
-<script src="main.js"></script>
+  <div id="map" style="width: 720px; height: 480px;"></div>
+  <script src="main.js"></script>
 </body>
+
 </html>
 ```
 
@@ -507,7 +508,7 @@ MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`
   <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=YOUR_GOOGLE_MAPS_API_KEY"></script>
 </head>
 <body>
-  <div id="map" style="width: 600px; height: 600px;"></div>
+  <div id="map" style="width: 720px; height: 480px;"></div>
   <script src="main.js"></script>
   <input type="text" placeholder="Search">
   <button onclick="onSearch()">Search</button>
@@ -571,7 +572,7 @@ To display a list of search results you can append each search result to a list 
   <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=YOUR_GOOGLE_MAPS_API_KEY"></script>
 </head>
 <body>
-  <div id="map" style="width: 600px; height: 600px;"></div>
+  <div id="map" style="width: 720px; height: 480px;"></div>
   <script src="main.js"></script>
   <input type="text" placeholder="Search">
   <button onclick="onSearch()">Search</button>
@@ -920,7 +921,7 @@ MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css">
 </head>
 <body>
-  <div id="map" style="width: 600px; height: 600px;"></div>
+  <div id="map" style="width: 720px; height: 480px;"></div>
   <script src="main.js"></script>
   <input type="text" placeholder="Search">
   <button onclick="onSearch()">Search</button>
@@ -984,7 +985,7 @@ To display a list of search results you can append each search result to a list 
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css">
 </head>
 <body>
-  <div id="map" style="width: 600px; height: 600px;"></div>
+  <div id="map" style="width: 720px; height: 480px;"></div>
   <script src="main.js"></script>
   <input type="text" placeholder="Search">
   <button onclick="onSearch()">Search</button>
@@ -2189,7 +2190,7 @@ To change between travel modes we first need to add a `<select>` element with al
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css">
 </head>
 <body>
-  <div id="map" style="width: 600px; height: 600px;"></div>
+  <div id="map" style="width: 720px; height: 480px;"></div>
 
 <!-- Travel mode selector -->
 <label for="travel-modes">Choose a travel mode:</label>
