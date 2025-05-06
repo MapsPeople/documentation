@@ -316,9 +316,7 @@ const mapViewOptions = {
     center: { lng: -97.74204591828197, lat: 30.36022358949809 }, // MapsPeople - Austin Office
     zoom: 17,
     maxZoom: 22,
-    mapsIndoorsTransitionLevel: 17,
-    lightPreset: 'dusk',
-    showMapMarkers: false
+    mapsIndoorsTransitionLevel: 16,
 };
 
 //Set the MapsIndoors API key
@@ -349,9 +347,7 @@ const mapViewOptions = {
     center: { lng: -97.74204591828197, lat: 30.36022358949809 }, // MapsPeople - Austin Office
     zoom: 17,
     maxZoom: 22,
-    mapsIndoorsTransitionLevel: 17,
-    lightPreset: 'dusk',
-    showMapMarkers: false
+    mapsIndoorsTransitionLevel: 16,
 };
 
 //Set the MapsIndoors API key
