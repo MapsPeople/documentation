@@ -91,7 +91,7 @@ Add an empty `<div>` element to `<body>` with the `id` attribute set to `"map"`:
 To load data and display it on the map, we need to create a new _instance_ of the [`MapsIndoors` class](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#MapsIndoors) with a [`mapView` instance](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.GoogleMapsView.html#GoogleMapsView) with a few _properties_ set. This is all done by placing the following code in the `main.js` file you created earlier:
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   element: document.getElementById('map'),
@@ -116,7 +116,7 @@ Next, we'll add a Floor Selector for changing between floors.
 First, we add an empty `<div>` element programmatically. Then we create a new [`FloorSelector` _instance_](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/FloorSelector.html) and push the `floorSelectorElement` to the `googleMapsInstance` to position it as a map controller:
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   element: document.getElementById('map'),
@@ -199,7 +199,7 @@ To center the map correctly, you need need the Google Maps _instance_ in your Ja
 First, we get a reference to the `<mi-map-googlemaps>` element. Then we attach the [`mapsIndoorsReady`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#event:ready) event listener so we'll know when MapsIndoors is ready after loading. Lastly, on the `mapsIndoorsReady` event, get the Google Maps _instance_ and call its [`setCenter` method](https://developers.google.com/maps/documentation/javascript/reference/map#Map.setCenter) to center the map on the loaded data:
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector('mi-map-googlemaps');
 
@@ -308,7 +308,7 @@ Add an empty `<div>` element to `<body>` with the `id` attribute set to "map":
 To load data and display it on the map, we need to create a new _instance_ of the [`MapsIndoors` class](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#MapsIndoors) with a [`mapView` instance](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.MapboxV3View.html) with a few _properties_ set. This is all done by placing the following code in the `main.js` file you created earlier:
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
     accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
@@ -339,7 +339,7 @@ Next, we'll add a Floor Selector for changing between floors.
 First, we add an empty `<div>` element programmatically. Then we create a new [`FloorSelector` _instance_](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/FloorSelector.html) and push the `floorSelectorElement` to the `mapboxInstance` to position it as a map controller:
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
     accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
@@ -436,7 +436,7 @@ To center the map correctly, you need need the Mapbox _instance_ in your JavaScr
 First we get a reference to the `<mi-map-mapbox>` element. Then we attach the [`mapsIndoorsReady`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#event:ready) event listener so we'll know when MapsIndoors is ready after loading. Lastly, on the `mapsIndoorsReady` event, get the Mapbox _instance_ and call its [`setCenter` method](https://docs.mapbox.com/mapbox-gl-js/api/map/#map#setcenter) to center the map on the loaded data:
 
 ```javascript
-// main.js
+// script.js
 const miMapElement = document.querySelector('mi-map-mapbox');
 miMapElement.addEventListener('mapsIndoorsReady', () => {
     miMapElement.getMapInstance().then((mapInstance) => {
@@ -527,7 +527,7 @@ MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`
 * Call the `getLocations` method and log out the results to the console.
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   element: document.getElementById('map'),
@@ -589,7 +589,7 @@ To display a list of search results you can append each search result to a list 
 * Reset the list on every complete search.
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   element: document.getElementById('map'),
@@ -622,7 +622,7 @@ function onSearch() {
 * Add a _for_ loop and append every result to the search results list element.
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   element: document.getElementById('map'),
@@ -666,7 +666,7 @@ To filter the map to only display the search results you can use the `filter` me
 * Call `mapsIndoorsInstance.filter` with an array of Location IDs.
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   element: document.getElementById('map'),
@@ -748,7 +748,7 @@ Using the `<mi-search>` component you get a `<input>`element tied tightly togeth
 * Attach an `results` event listener and log out the results to the console.
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector('mi-map-googlemaps');
 const miSearchElement = document.querySelector('mi-search');
@@ -807,7 +807,7 @@ For more information on how to configure the `<mi-list>` component, see [compone
 * Reset the list on every complete search.
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector('mi-map-googlemaps');
 const miSearchElement = document.querySelector('mi-search');
@@ -828,7 +828,7 @@ miSearchElement.addEventListener('results', (event) => {
 * Add a _for_ loop and append every result to the search results list element.
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector('mi-map-googlemaps');
 const miSearchElement = document.querySelector('mi-search');
@@ -860,7 +860,7 @@ To filter the map to only display the search results you can use the `filter` me
 
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector('mi-map-googlemaps');
 const miSearchElement = document.querySelector('mi-search');
@@ -936,7 +936,7 @@ MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`
 * Call the `getLocations` method and log out the results to the console.
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
     accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
@@ -998,7 +998,7 @@ To display a list of search results you can append each search result to a list 
 * Reset the list on every complete search.
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
@@ -1032,7 +1032,7 @@ function onSearch() {
 * Add a _for_ loop and append every result to the search results list element.
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
@@ -1079,7 +1079,7 @@ To filter the map to only display the search results you can use the `filter` me
 * Call `mapsIndoorsInstance.filter` with an array of Location IDs.
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
@@ -1164,7 +1164,7 @@ Using the `<mi-search>` component you get an `<input>`element tied tightly toget
 * Attach a `results` event listener and log the results in the console.
 
 ```javascript
-// main.js
+// script.js
 const miMapElement = document.querySelector('mi-map-mapbox');
 + const miSearchElement = document.querySelector('mi-search');
 
@@ -1219,7 +1219,7 @@ For more information on how to configure the `<mi-list>` component, see [compone
 * Reset the list on every complete search.
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector("mi-map-mapbox");
 const miSearchElement = document.querySelector('mi-search');
@@ -1240,7 +1240,7 @@ miSearchElement.addEventListener('results', (event) => {
 * Add a _for_ loop and append every result to the search results list element.
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector('mi-map-mapbox');
 const miSearchElement = document.querySelector('mi-search');
@@ -1272,7 +1272,7 @@ To filter the map to only display the search results you can use the `filter` me
 
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector("mi-map-mapbox");
 const miSearchElement = document.querySelector('mi-search');
@@ -1332,7 +1332,7 @@ First, initialize the [MapsIndoors Directions Service](https://app.mapsindoors.c
 Then, we need to initialize the [MapsIndoors Directions Render](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html) with the MapsIndoors instance:
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   element: document.getElementById('map'),
@@ -1400,7 +1400,7 @@ In the following example, this is what happens:
 5. Using the [MapsIndoors Directions Renderer](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html#setRoute) call the `setRoute` method to display the route on the map
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   element: document.getElementById('map'),
@@ -1468,7 +1468,7 @@ Now, to make it more dynamic, we attach a `click` event listener for each locati
 You will now have something like this:
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   element: document.getElementById('map'),
@@ -1577,7 +1577,7 @@ To change between travel modes we first need to add a `<select>` element with al
 To use the chosen travel mode when getting a route, we need to replace the hardcoded value for `travelMode` parameter inside the `getRoute` method with the `<select>` elements value:
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   element: document.getElementById('map'),
@@ -1651,7 +1651,7 @@ You now have something like this:
 First, add two new `let` statements all the way at the top, after the `miMapElement` constant for storing our Directions Service and Directions Renderer instances. Then, we populate them with the instances within the `mapsIndoorsReady` event:
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector('mi-map-googlemaps');
 const miSearchElement = document.querySelector('mi-search');
@@ -1716,7 +1716,7 @@ In the following example, this is what happens:
 5. Using the [MapsIndoors Directions Renderer](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html#setRoute) call the `setRoute` method to display the route on the map
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector('mi-map-googlemaps');
 const miSearchElement = document.querySelector('mi-search');
@@ -1775,7 +1775,7 @@ function getRoute(location) {
 Now, to make it more dynamic, we attach a `click` event listener for each location appended to the search results list element with the `getRoute` method as a callback function.
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector('mi-map-googlemaps');
 const miSearchElement = document.querySelector('mi-search');
@@ -1888,7 +1888,7 @@ To change between travel modes we first need to add a `<select>` element with al
 To use the chosen travel mode when getting a route, we need to replace the hardcoded value for `travelMode` parameter inside the `getRoute` method with the `<select>` elements value:
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector('mi-map-googlemaps');
 const miSearchElement = document.querySelector('mi-search');
@@ -1960,7 +1960,7 @@ First, initialize the [MapsIndoors Directions Service](https://app.mapsindoors.c
 Then, we need to initialize the [MapsIndoors Directions Renderer](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html) with the MapsIndoors instance:
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
@@ -2029,7 +2029,7 @@ In the following example, this is what happens:
 5. Using the [MapsIndoors Directions Renderer](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html#setRoute) call the `setRoute` method to display the route on the map
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
@@ -2096,7 +2096,7 @@ function getRoute(location) {
 Now, to make it more dynamic, we attach a `click` event listener for each location appended to the search results list element with the `getRoute` method as a callback function.
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
@@ -2207,7 +2207,7 @@ To change between travel modes we first need to add a `<select>` element with al
 To use the chosen transportation when getting a route, we need to replace the hardcoded value for `travelMode` parameter inside the `getRoute` method with the `<select>` elements value:
 
 ```javascript
-// main.js
+// script.js
 
 const mapViewOptions = {
   accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
@@ -2283,7 +2283,7 @@ You now have something like this:\
 First, add two new `let` statements all the way at the top, after the `miMapElement` constant for storing our Directions Service and Directions Renderer instances. Then, we populate them with the instances within the `mapsIndoorsReady` event:
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector('mi-map-mapbox');
 const miSearchElement = document.querySelector('mi-search');
@@ -2343,7 +2343,7 @@ In the following example, this is what happens:
 5. Using the [MapsIndoors Directions Renderer](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html#setRoute) call the `setRoute` method to display the route on the map
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector("mi-map-mapbox");
 const miSearchElement = document.querySelector('mi-search');
@@ -2402,7 +2402,7 @@ function getRoute(location) {
 Now, to make it more dynamic, we attach a `click` event listener for each location appended to the search results list element with the `getRoute` method as a callback function.
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector("mi-map-mapbox");
 const miSearchElement = document.querySelector('mi-search');
@@ -2516,7 +2516,7 @@ To change between travel modes we first need to add a `<select>` element with al
 To use the chosen travel mode when getting a route, we need to replace the hardcoded value for `travelMode` parameter inside the `getRoute` method with the `<select>` elements value:
 
 ```javascript
-// main.js
+// script.js
 
 const miMapElement = document.querySelector('mi-map-mapbox');
 const miSearchElement = document.querySelector('mi-search');
