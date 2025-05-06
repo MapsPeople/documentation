@@ -313,13 +313,17 @@ To load data and display it on the map, we need to create a new _instance_ of th
 const mapViewOptions = {
     accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
     element: document.getElementById('map'),
-    center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
+    center: { lng: -97.74204591828197, lat: 30.36022358949809 }, // MapsPeople - Austin Office
     zoom: 17,
     maxZoom: 22,
     mapsIndoorsTransitionLevel: 17,
     lightPreset: 'dusk',
     showMapMarkers: false
 };
+
+//Set the MapsIndoors API key
+mapsindoors.MapsIndoors.setMapsIndoorsApiKey('02c329e6777d431a88480a09');
+
 const mapViewInstance = new mapsindoors.mapView.MapboxV3View(mapViewOptions);
 const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
     mapView: mapViewInstance,
@@ -340,24 +344,35 @@ First, we add an empty `<div>` element programmatically. Then we create a new [`
 // main.js
 
 const mapViewOptions = {
-  accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
-  element: document.getElementById('map'),
-  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
-  zoom: 17,
-  maxZoom: 22,
-  mapsIndoorsTransitionLevel: 17,
-  lightPreset: 'dusk',
-  showMapMarkers: false
+    accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
+    element: document.getElementById('map'),
+    center: { lng: -97.74204591828197, lat: 30.36022358949809 }, // MapsPeople - Austin Office
+    zoom: 17,
+    maxZoom: 22,
+    mapsIndoorsTransitionLevel: 17,
+    lightPreset: 'dusk',
+    showMapMarkers: false
 };
 
+//Set the MapsIndoors API key
+mapsindoors.MapsIndoors.setMapsIndoorsApiKey('02c329e6777d431a88480a09');
+
 const mapViewInstance = new mapsindoors.mapView.MapboxV3View(mapViewOptions);
-const mapsIndoorsInstance = new mapsindoors.MapsIndoors({ mapView: mapViewInstance });
+const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
+    mapView: mapViewInstance,
+});
+
 const mapboxInstance = mapViewInstance.getMap();
 
 // Floor Selector
 const floorSelectorElement = document.createElement('div');
 new mapsindoors.FloorSelector(floorSelectorElement, mapsIndoorsInstance);
-mapboxInstance.addControl({ onAdd: function () { return floorSelectorElement }, onRemove: function () { } });
+mapboxInstance.addControl({
+    onAdd: function () {
+        return floorSelectorElement;
+    },
+    onRemove: function () { },
+});
 ```
 
 {% embed url="https://docs.mapbox.com/mapbox-gl-js/api/map/#map#addcontrol" %}
