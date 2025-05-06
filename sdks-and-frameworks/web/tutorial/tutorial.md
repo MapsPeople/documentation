@@ -361,6 +361,10 @@ mapboxInstance.addControl({ onAdd: function () { return floorSelectorElement }, 
 > See all available control positions in the [Mapbox Documentation](https://docs.mapbox.com/mapbox-gl-js/api/map/#map#addcontrol).
 
 You should now be able to switch between floors.&#x20;
+
+Here's a CodeSandbox demonstrating the result you should have by now:
+
+{% embed url="https://codesandbox.io/p/sandbox/github/MapsPeople/mapsindoors-getting-started-for-web/tree/main/sdk/mapbox/1-display-a-map" %}
 {% endtab %}
 
 {% tab title="Mapbox - MI Components" %}
