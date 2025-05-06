@@ -11,6 +11,8 @@ Throughout the Getting Started guide, you will modify and extend the same code t
     > The file `index.html` is the entry point for our application and contains the HTML code. The file `main.js` will be read by `index.html` and consists of the JavaScript code for the actual application to run. To try the app you will be creating, run `index.html` in your web browser.
 4. Open `index.html`. Create a basic HTML structure and include the `main.js` file as follows:
 
+{% github_embed "http://github.com/MapsPeople/mapsindoors-getting-started-for-web/blob/main/sdk/mapbox/1-initial-setup/index.html" %}{% endgithub_embed %}
+
 ```html
 <!-- index.html -->
 
