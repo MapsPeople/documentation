@@ -1086,32 +1086,40 @@ mapboxInstance.addControl({
 });
 
 function onSearch() {
-  const searchInputElement = document.querySelector('input');
-  // Get list element reference
-  const searchResultsElement = document.getElementById('search-results');
+    const searchInputElement = document.querySelector('input');
+    // Get list element reference
+    const searchResultsElement = document.getElementById('search-results');
+    const searchParameters = { q: searchInputElement.value };
 
-  const searchParameters = { q: searchInputElement.value };
-  mapsindoors.services.LocationsService.getLocations(searchParameters).then(locations => {
-    // Reset search results list
-    searchResultsElement.innerHTML = null;
+    // Check if input is empty
+    if (searchInputElement.value === '') {
+        // Reset search results list
+        searchResultsElement.innerHTML = null;
+        return;
+    }
 
-  // Append new search results
-  locations.forEach(location => {
-    const listElement = document.createElement('li');
-    listElement.innerHTML = location.properties.name;
-    searchResultsElement.appendChild(listElement);
-  });
-  });
+    mapsindoors.services.LocationsService.getLocations(searchParameters).then(locations => {
+        // Reset search results list
+        searchResultsElement.innerHTML = null;
+
+        // Append new search results
+        locations.forEach(location => {
+            const listElement = document.createElement('li');
+            listElement.innerHTML = location.properties.name;
+            searchResultsElement.appendChild(listElement);
+        });
+    });
+}
 }
 ```
 
-### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
+### Highlight Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#highlight-locations-on-map-based-on-search-results" id="highlight-locations-on-map-based-on-search-results"></a>
 
-To filter the map to only display the search results you can use the `filter` method.
+To filter the map to only display the search results you can use the `highlight` method.
 
 
 
-* Call `mapsIndoorsInstance.filter` with an array of Location IDs.
+* Call `mapsIndoorsInstance.highlight` with an array of Location IDs.
 
 ```javascript
 // script.js
@@ -1146,34 +1154,44 @@ mapboxInstance.addControl({
 });
 
 function onSearch() {
-  const searchInputElement = document.querySelector('input');
-  // Get list element reference
-  const searchResultsElement = document.getElementById('search-results');
+    const searchInputElement = document.querySelector('input');
+    // Get list element reference
+    const searchResultsElement = document.getElementById('search-results');
+    
+    // Check if input is empty
+    if (searchInputElement.value === '') {
+        // Reset search results list
+        searchResultsElement.innerHTML = null;
+        // Clear map
+        mapsIndoorsInstance.Highlight();
+        return;
+    }
 
-  const searchParameters = { q: searchInputElement.value };
-  mapsindoors.services.LocationsService.getLocations(searchParameters).then(locations => {
-    // Reset search results list
-    searchResultsElement.innerHTML = null;
+    const searchParameters = { q: searchInputElement.value };
+    mapsindoors.services.LocationsService.getLocations(searchParameters).then(locations => {
+        // Reset search results list
+        searchResultsElement.innerHTML = null;
 
-    // Append new search results
-    locations.forEach(location => {
-      const listElement = document.createElement('li');
-      listElement.innerHTML = location.properties.name;
-      searchResultsElement.appendChild(listElement);
+        // Append new search results
+        locations.forEach(location => {
+            const listElement = document.createElement('li');
+            listElement.innerHTML = location.properties.name;
+            searchResultsElement.appendChild(listElement);
+        });
+
+        // Filter map to only display search results
+        mapsIndoorsInstance.highlight(locations.map(location => location.id), false);
     });
-
-  // Filter map to only display search results
-  mapsIndoorsInstance.filter(locations.map(location => location.id), false);
 }
 ```
 
-To remove the location filter again, call `mapsIndoorsInstance.filter(null)`.
+To remove the location filter again, call `mapsIndoorsInstance.highlight()`.
 
 Here's a JSFiddle demonstrating the result you should have by now:
 
-[https://jsfiddle.net/mapspeople/r86903om/3/](https://jsfiddle.net/mapspeople/r86903om/3/)
+[CodeSandbox - 3. Create a Search Experience](https://codesandbox.io/p/sandbox/github/MapsPeople/mapsindoors-getting-started-for-web/tree/main/sdk/mapbox/3-create-a-search-experience)
 
-{% embed url="https://jsfiddle.net/mapspeople/r86903om/" %}
+{% embed url="https://codesandbox.io/p/sandbox/github/MapsPeople/mapsindoors-getting-started-for-web/tree/main/sdk/mapbox/3-create-a-search-experience" %}
 {% endtab %}
 
 {% tab title="Mapbox - MI Components" %}
