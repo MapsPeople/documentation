@@ -6,10 +6,10 @@ Throughout the Getting Started guide, you will modify and extend the same code t
 
 1. If you do not have prior development experience, you can install an Integrated Development Environment (IDE), e.g. [<mark style="color:purple;">Visual Studio Code</mark>](https://code.visualstudio.com/).
 2. Start by creating a new project folder. The location is not important, just remember the location, and ensure your newly created project folder is empty.
-3. Inside that, create two empty files: `index.html` and `main.js`.
+3. Inside that, create two empty files: `index.html` and `script.js`.
 
-    > The file `index.html` is the entry point for our application and contains the HTML code. The file `main.js` will be read by `index.html` and consists of the JavaScript code for the actual application to run. To try the app you will be creating, run `index.html` in your web browser.
-4. Open `index.html`. Create a basic HTML structure and include the `main.js` file as follows:
+    > The file `index.html` is the entry point for our application and contains the HTML code. The file `script.js` will be read by `index.html` and consists of the JavaScript code for the actual application to run. To try the app you will be creating, run `index.html` in your web browser.
+4. Open `index.html`. Create a basic HTML structure and include the `script.js` file as follows:
 
 ```html
 <!-- index.html -->
@@ -82,13 +82,13 @@ Add an empty `<div>` element to `<body>` with the `id` attribute set to `"map"`:
 
 <body>
   <div id="map" style="width: 720px; height: 480px;"></div>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
 ```
 
-To load data and display it on the map, we need to create a new _instance_ of the [`MapsIndoors` class](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#MapsIndoors) with a [`mapView` instance](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.GoogleMapsView.html#GoogleMapsView) with a few _properties_ set. This is all done by placing the following code in the `main.js` file you created earlier:
+To load data and display it on the map, we need to create a new _instance_ of the [`MapsIndoors` class](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#MapsIndoors) with a [`mapView` instance](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.GoogleMapsView.html#GoogleMapsView) with a few _properties_ set. This is all done by placing the following code in the `script.js` file you created earlier:
 
 ```javascript
 // script.js
@@ -160,7 +160,7 @@ Insert script tag into `<head>`:
 <script src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
 ```
@@ -187,7 +187,7 @@ After you added the script tag into `<head>`, add the `<mi-map-googlemaps>` cust
   gm-api-key="YOUR_GOOGLE_MAPS_API_KEY"
   mi-api-key="YOUR_MAPSINDOORS_API_KEY">
 </mi-map-googlemaps>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
 ```
@@ -239,7 +239,7 @@ Using the `<mi-map-googlemaps>` element, you can add the [floorSelectorControlPo
   mi-api-key="YOUR_MAPSINDOORS_API_KEY"
   floor-selector-control-position="TOP_RIGHT">
   </mi-map-googlemaps>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
 ```
@@ -305,7 +305,7 @@ Add an empty `<div>` element to `<body>` with the `id` attribute set to "map":
 </html>
 ```
 
-To load data and display it on the map, we need to create a new _instance_ of the [`MapsIndoors` class](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#MapsIndoors) with a [`mapView` instance](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.MapboxV3View.html) with a few _properties_ set. This is all done by placing the following code in the `main.js` file you created earlier:
+To load data and display it on the map, we need to create a new _instance_ of the [`MapsIndoors` class](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#MapsIndoors) with a [`mapView` instance](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.MapboxV3View.html) with a few _properties_ set. This is all done by placing the following code in the `script.js` file you created earlier:
 
 ```javascript
 // script.js
@@ -401,7 +401,7 @@ Insert script tag into `<head>`:
 <script src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
 ```
@@ -424,7 +424,7 @@ After you added the script tag into `<head>`, add the `<mi-map-mapbox>` custom e
 <body>
 <mi-map-mapbox style="width: 720px; height: 480px;" access-token="YOUR_MAPBOX_ACCESS_TOKEN" mi-api-key="YOUR_MAPSINDOORS_API_KEY">
 </mi-map-mapbox>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
 ```
@@ -470,7 +470,7 @@ Using the `<mi-map-mapbox>` element, you can add the [floorSelectorControlPositi
 <body>
 <mi-map-mapbox style="width: 720px; height: 480px;" access-token="YOUR_MAPBOX_ACCESS_TOKEN" mi-api-key="YOUR_MAPSINDOORS_API_KEY" floor-selector-control-position="TOP_RIGHT">
   </mi-map-mapbox>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
 ```
@@ -514,7 +514,7 @@ MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`
 </head>
 <body>
   <div id="map" style="width: 720px; height: 480px;"></div>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
   <input type="text" placeholder="Search">
   <button onclick="onSearch()">Search</button>
 </body>
@@ -577,7 +577,7 @@ To display a list of search results you can append each search result to a list 
 </head>
 <body>
   <div id="map" style="width: 720px; height: 480px;"></div>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
   <input type="text" placeholder="Search">
   <button onclick="onSearch()">Search</button>
   <ul id="search-results"></ul>
@@ -739,7 +739,7 @@ Using the `<mi-search>` component you get a `<input>`element tied tightly togeth
   mapsindoors="true"
   placeholder="Search">
   </mi-search>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
 ```
@@ -796,7 +796,7 @@ To display a list of search results you can append each search result to a list 
   scroll-buttons-enabled="true"
   scroll-length="200">
 </mi-list>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
 ```
@@ -923,7 +923,7 @@ MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`
 </head>
 <body>
   <div id="map" style="width: 720px; height: 480px;"></div>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
   <input type="text" placeholder="Search">
   <button onclick="onSearch()">Search</button>
 </body>
@@ -986,7 +986,7 @@ To display a list of search results you can append each search result to a list 
 </head>
 <body>
   <div id="map" style="width: 720px; height: 480px;"></div>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
   <input type="text" placeholder="Search">
   <button onclick="onSearch()">Search</button>
   <ul id="search-results"></ul>
@@ -1155,7 +1155,7 @@ Using the `<mi-search>` component you get an `<input>`element tied tightly toget
   </mi-map-mapbox>
 <mi-search style="width: 720px;" mapsindoors="true" placeholder="Search">
 </mi-search>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
 ```
@@ -1206,7 +1206,7 @@ To display a list of search results you can append each search result to a list 
   </mi-search>
   <mi-list style="width: 720px; height: 400px;" scroll-buttons-enabled="true" scroll-length="200">
   </mi-list>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
 ```
@@ -1387,7 +1387,7 @@ In this tutorial, the Origin is, naturally, a hardcoded coordinate in the demo A
 
 In the following example, this is what happens:
 
-1. Create a new `getRoute` method in `main.js` which accepts a location
+1. Create a new `getRoute` method in `script.js` which accepts a location
 2. Create two new constants, one for the Origin's coordinate, and another for the Destination's coordinate
 3. Add another constant defining the `routeParameters`
 4. Using the [MapsIndoors Directions Service](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.DirectionsService.html#getRoute) call the `getRoute` method to get the fastest route between the two coordinates
@@ -1565,7 +1565,7 @@ To change between travel modes we first need to add a `<select>` element with al
   <input type="text" placeholder="Search">
   <button onclick="onSearch()">Search</button>
   <ul id="search-results"></ul>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
@@ -1704,7 +1704,7 @@ In this tutorial, the Origin is, naturally, a hardcoded coordinate in the demo A
 
 In the following example, this is what happens:
 
-1. Create a new `getRoute` method in `main.js` which accepts a `location`
+1. Create a new `getRoute` method in `script.js` which accepts a `location`
 2. Create two new constants, one for the Origin's coordinate, and another for the Destination's coordinate
 3. Add another constant defining the `routeParameters`
 4. Using the [MapsIndoors Directions Service](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.DirectionsService.html#getRoute) call the `getRoute` method to get the fastest route between the two coordinates
@@ -2017,7 +2017,7 @@ In this tutorial, the Origin is, naturally, a hardcoded coordinate in the demo A
 
 In the following example, this is what happens:
 
-1. Create a new `getRoute` method in `main.js` which accepts a `location`
+1. Create a new `getRoute` method in `script.js` which accepts a `location`
 2. Create two new constants, one for the Origin's coordinate, and another for the Destination's coordinate
 3. Add another constant defining the `routeParameters`
 4.  Using the [MapsIndoors Directions Service](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.DirectionsService.html#getRoute) call the `getRoute` method to get the fastest route between the two coordinates
@@ -2193,7 +2193,7 @@ To change between travel modes we first need to add a `<select>` element with al
   <option value="driving">Driving</option>
   <option value="transit">Transit</option>
 </select>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
   <input type="text" placeholder="Search">
   <button onclick="onSearch()">Search</button>
   <ul id="search-results"></ul>
@@ -2331,7 +2331,7 @@ In this tutorial, the Origin is, naturally, a hardcoded coordinate in the demo A
 
 In the following example, this is what happens:
 
-1. Create a new `getRoute` method in `main.js` which accepts a `location`
+1. Create a new `getRoute` method in `script.js` which accepts a `location`
 2. Create two new constants, one for the Origin's coordinate, and another for the Destination's coordinate
 3. Add another constant defining the `routeParameters`
 4.  Using the [MapsIndoors Directions Service](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.DirectionsService.html#getRoute) call the `getRoute` method to get the fastest route between the two coordinates
