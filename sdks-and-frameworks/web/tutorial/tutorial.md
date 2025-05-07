@@ -31,8 +31,6 @@ Throughout the Getting Started guide, you will modify and extend the same code t
 
 Both here, and in the following examples, you will always be able to see which of the two files the code should go in, by looking at the first line, where the name of the file is written.
 
-
-
 Your environment is now fully configured, and you have the necessary API keys. Next, you will learn how to display a map with MapsIndoors.
 
 ## Step 2. Display a Map with MapsIndoors[​](https://docs.mapsindoors.com/getting-started/web/map#show-a-map-with-mapsindoors) <a href="#show-a-map-with-mapsindoors" id="show-a-map-with-mapsindoors"></a>
