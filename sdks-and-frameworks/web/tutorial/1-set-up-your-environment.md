@@ -1,3 +1,7 @@
+---
+description: Step 1. Set Up Your Environment
+---
+
 # Step 1. Set Up Your Environment
 
 1. If you do not have prior development experience, you can install an Integrated Development Environment (IDE), e.g. [<mark style="color:purple;">Visual Studio Code</mark>](https://code.visualstudio.com/).
