@@ -155,7 +155,7 @@ Insert script tag into `<head>`:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-<script src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
   <script src="script.js"></script>
@@ -176,7 +176,7 @@ After you added the script tag into `<head>`, add the `<mi-map-googlemaps>` cust
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.js"></script>
 </head>
 <body>
 <mi-map-googlemaps
@@ -227,7 +227,7 @@ Using the `<mi-map-googlemaps>` element, you can add the [floorSelectorControlPo
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script src="https://unpkg.com/@mapsindoors/components@8.2.0/dist/mi-components/mi-components.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.js"></script>
 </head>
 <body>
   <mi-map-googlemaps
@@ -396,7 +396,7 @@ Insert script tag into `<head>`:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-<script src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
   <script src="script.js"></script>
@@ -417,7 +417,7 @@ After you added the script tag into `<head>`, add the `<mi-map-mapbox>` custom e
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
 <mi-map-mapbox style="width: 720px; height: 480px;" access-token="YOUR_MAPBOX_ACCESS_TOKEN" mi-api-key="YOUR_MAPSINDOORS_API_KEY">
@@ -462,7 +462,7 @@ Using the `<mi-map-mapbox>` element, you can add the [floorSelectorControlPositi
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 
 <body>
@@ -780,7 +780,7 @@ To display a list of search results you can append each search result to a list 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script type="module" src="https://unpkg.com/@mapsindoors/components@13.7.1/dist/mi-components/mi-components.esm.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
   <mi-map-googlemaps style="width: 720px; height: 480px;" gm-api-key="YOUR_GOOGLE_MAPS_API_KEY" mi-api-key="YOUR_MAPSINDOORS_API_KEY" floor-selector-control-position="TOP_RIGHT">
@@ -1263,7 +1263,7 @@ To display a list of search results you can append each search result to a list 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script type="module" src="https://unpkg.com/@mapsindoors/components@13.7.1/dist/mi-components/mi-components.esm.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
   <mi-map-mapbox style="width: 720px; height: 480px;" access-token="YOUR_MAPBOX_ACCESS_TOKEN" mi-api-key="YOUR_MAPSINDOORS_API_KEY">
@@ -1915,7 +1915,7 @@ To change between travel modes we first need to add a `<select>` element with al
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-    <script type="module" src="https://unpkg.com/@mapsindoors/components@13.7.1/dist/mi-components/mi-components.esm.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
   <mi-map-googlemaps
@@ -2219,7 +2219,7 @@ To change between travel modes we first need to add a `<select>` element with al
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script type="module" src="https://unpkg.com/@mapsindoors/components@13.7.1/dist/mi-components/mi-components.esm.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
   <mi-map-mapbox
