@@ -190,8 +190,7 @@ After you added the script tag into `<head>`, add the `<mi-map-googlemaps>` cust
 </head>
 <body>
 <mi-map-googlemaps
-  style="width: 720px;
-  height: 480px;"
+  style="width: 720px; height: 480px;"
   gm-api-key="YOUR_GOOGLE_MAPS_API_KEY"
   mi-api-key="YOUR_MAPSINDOORS_API_KEY">
 </mi-map-googlemaps>
@@ -242,11 +241,10 @@ Using the `<mi-map-googlemaps>` element, you can add the [floorSelectorControlPo
 
 <body>
   <mi-map-googlemaps
-  style="width: 720px;
-  height: 480px;"
-  gm-api-key="YOUR_GOOGLE_MAPS_API_KEY"
-  mi-api-key="YOUR_MAPSINDOORS_API_KEY"
-  floor-selector-control-position="TOP_RIGHT">
+    style="width: 720px; height: 480px;"
+    gm-api-key="YOUR_GOOGLE_MAPS_API_KEY"
+    mi-api-key="YOUR_MAPSINDOORS_API_KEY"
+    floor-selector-control-position="TOP_RIGHT">
   </mi-map-googlemaps>
   <script src="script.js"></script>
 </body>
@@ -744,7 +742,11 @@ Using the `<mi-search>` component you get a `<input>`element tied tightly togeth
   <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
-  <mi-map-googlemaps style="width: 720px; height: 480px;" gm-api-key="YOUR_GOOGLE_MAPS_API_KEY" mi-api-key="YOUR_MAPSINDOORS_API_KEY" floor-selector-control-position="TOP_RIGHT">
+  <mi-map-googlemaps
+    style="width: 720px; height: 480px;"
+    gm-api-key="YOUR_GOOGLE_MAPS_API_KEY"
+    mi-api-key="YOUR_MAPSINDOORS_API_KEY"
+    floor-selector-control-position="TOP_RIGHT">
   </mi-map-googlemaps>
   <mi-search
   style="width: 720px;"
@@ -797,7 +799,11 @@ To display a list of search results you can append each search result to a list 
   <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
-  <mi-map-googlemaps style="width: 720px; height: 480px;" gm-api-key="YOUR_GOOGLE_MAPS_API_KEY" mi-api-key="YOUR_MAPSINDOORS_API_KEY" floor-selector-control-position="TOP_RIGHT">
+  <mi-map-googlemaps
+    style="width: 720px; height: 480px;"
+    gm-api-key="YOUR_GOOGLE_MAPS_API_KEY"
+    mi-api-key="YOUR_MAPSINDOORS_API_KEY"
+    floor-selector-control-position="TOP_RIGHT">
   </mi-map-googlemaps>
   <mi-search style="width: 720px;" mapsindoors="true" placeholder="Search">
   </mi-search>
