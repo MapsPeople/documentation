@@ -176,7 +176,7 @@ After you added the script tag into `<head>`, add the `<mi-map-googlemaps>` cust
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
 <mi-map-googlemaps
@@ -227,7 +227,7 @@ Using the `<mi-map-googlemaps>` element, you can add the [floorSelectorControlPo
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.js"></script>
+  <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
 <body>
   <mi-map-googlemaps
