@@ -1441,7 +1441,7 @@ function onSearch() {
 }
 
 function getRoute(location) {
-  const originLocationCoordinate = { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }; // Oval Office, The White House (Hardcoded coordinate and floor index)
+  const originLocationCoordinate = { lat: 30.360337, lng: -97.7421792, floor: 0 }; // Meeting room: Ocean's Eleven (Hardcoded coordinate and floor index)
   const destinationCoordinate = { lat: location.properties.anchor.coordinates[1], lng: location.properties.anchor.coordinates[0], floor: location.properties.floor };
 
   // Route parameters
@@ -1513,7 +1513,7 @@ function onSearch() {
 }
 
 function getRoute(location) {
-  const originLocationCoordinate = { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }; // Oval Office, The White House (Hardcoded coordinate and floor index)
+  const originLocationCoordinate = { lat: 30.360337, lng: -97.7421792, floor: 0 }; // Meeting room: Ocean's Eleven (Hardcoded coordinate and floor index)
   const destinationCoordinate = { lat: location.properties.anchor.coordinates[1], lng: location.properties.anchor.coordinates[0], floor: location.properties.floor };
 
   // Route parameters
@@ -1618,8 +1618,8 @@ function onSearch() {
   });
 }
 
-function getRoute(location) {
-  const originLocationCoordinate = { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }; // Oval Office, The White House (Hardcoded coordinate and floor index)
+function getRoute(location) {,  
+  const originLocationCoordinate = { lat: 30.360337, lng: -97.7421792, floor: 0 }; // Meeting room: Ocean's Eleven (Hardcoded coordinate and floor index)
   const destinationCoordinate = { lat: location.properties.anchor.coordinates[1], lng: location.properties.anchor.coordinates[0], floor: location.properties.floor };
 
   // Route parameters
@@ -1751,7 +1751,7 @@ miSearchElement.addEventListener('results', (event) => {
 });
 
 function getRoute(location) {
-  const originLocationCoordinate = { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }; // Oval Office, The White House (Hardcoded coordinate and floor index)
+  const originLocationCoordinate = { lat: 30.360337, lng: -97.7421792, floor: 0 }; // Meeting room: Ocean's Eleven (Hardcoded coordinate and floor index)
   const destinationCoordinate = { lat: location.properties.anchor.coordinates[1], lng: location.properties.anchor.coordinates[0], floor: location.properties.floor };
 
   // Route parameters
@@ -1814,7 +1814,7 @@ miSearchElement.addEventListener('results', (event) => {
 });
 
 function getRoute(location) {
-  const originLocationCoordinate = { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }; // Oval Office, The White House (Hardcoded coordinate and floor index)
+  const originLocationCoordinate = { lat: 30.360337, lng: -97.7421792, floor: 0 }; // Meeting room: Ocean's Eleven (Hardcoded coordinate and floor index)
   const destinationCoordinate = { lat: location.properties.anchor.coordinates[1], lng: location.properties.anchor.coordinates[0], floor: location.properties.floor };
 
   // Route parameters
@@ -1924,7 +1924,7 @@ miSearchElement.addEventListener('results', (event) => {
 });
 
 function getRoute(location) {
-  const originLocationCoordinate = { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }; // Oval Office, The White House (Hardcoded coordinate and floor index)
+  const originLocationCoordinate = { lat: 30.360337, lng: -97.7421792, floor: 0 }; // Meeting room: Ocean's Eleven (Hardcoded coordinate and floor index)
   const destinationCoordinate = { lat: location.properties.anchor.coordinates[1], lng: location.properties.anchor.coordinates[0], floor: location.properties.floor };
 
   // Route parameters
@@ -2072,7 +2072,7 @@ function onSearch() {
 }
 
 function getRoute(location) {
-  const originLocationCoordinate = { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }; // Oval Office, The White House (Hardcoded coordinate and floor index)
+  const originLocationCoordinate = { lat: 30.360337, lng: -97.7421792, floor: 0 }; // Meeting room: Ocean's Eleven (Hardcoded coordinate and floor index)
   const destinationCoordinate = { lat: location.properties.anchor.coordinates[1], lng: location.properties.anchor.coordinates[0], floor: location.properties.floor };
 
   // Route parameters
@@ -2143,7 +2143,7 @@ function onSearch() {
 }
 
 function getRoute(location) {
-  const originLocationCoordinate = { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }; // Oval Office, The White House (Hardcoded coordinate and floor index)
+  const originLocationCoordinate = { lat: 30.360337, lng: -97.7421792, floor: 0 }; // Meeting room: Ocean's Eleven (Hardcoded coordinate and floor index)
   const destinationCoordinate = { lat: location.properties.anchor.coordinates[1], lng: location.properties.anchor.coordinates[0], floor: location.properties.floor };
 
   // Route parameters
@@ -2250,7 +2250,7 @@ function onSearch() {
 }
 
 function getRoute(location) {
-  const originLocationCoordinate = { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }; // Oval Office, The White House (Hardcoded coordinate and floor index)
+  const originLocationCoordinate = { lat: 30.360337, lng: -97.7421792, floor: 0 }; // Meeting room: Ocean's Eleven (Hardcoded coordinate and floor index)
   const destinationCoordinate = { lat: location.properties.anchor.coordinates[1], lng: location.properties.anchor.coordinates[0], floor: location.properties.floor };
 
   // Route parameters
@@ -2378,7 +2378,7 @@ miSearchElement.addEventListener('results', (event) => {
 });
 
 function getRoute(location) {
-  const originLocationCoordinate = { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }; // Oval Office, The White House (Hardcoded coordinate and floor index)
+  const originLocationCoordinate = { lat: 30.360337, lng: -97.7421792, floor: 0 }; // Meeting room: Ocean's Eleven (Hardcoded coordinate and floor index)
   const destinationCoordinate = { lat: location.properties.anchor.coordinates[1], lng: location.properties.anchor.coordinates[0], floor: location.properties.floor };
 
   // Route parameters
@@ -2441,7 +2441,7 @@ miSearchElement.addEventListener('results', (event) => {
 });
 
 function getRoute(location) {
-  const originLocationCoordinate = { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }; // Oval Office, The White House (Hardcoded coordinate and floor index)
+  const originLocationCoordinate = { lat: 30.360337, lng: -97.7421792, floor: 0 }; // Meeting room: Ocean's Eleven (Hardcoded coordinate and floor index)
   const destinationCoordinate = { lat: location.properties.anchor.coordinates[1], lng: location.properties.anchor.coordinates[0], floor: location.properties.floor };
 
   // Route parameters
@@ -2552,7 +2552,7 @@ miSearchElement.addEventListener('results', (event) => {
 });
 
 function getRoute(location) {
-  const originLocationCoordinate = { lat: 38.897389429704695, lng: -77.03740973527613, floor: 0 }; // Oval Office, The White House (Hardcoded coordinate and floor index)
+  const originLocationCoordinate = { lat: 30.360337, lng: -97.7421792, floor: 0 }; // Meeting room: Ocean's Eleven (Hardcoded coordinate and floor index)
   const destinationCoordinate = { lat: location.properties.anchor.coordinates[1], lng: location.properties.anchor.coordinates[0], floor: location.properties.floor };
 
   // Route parameters
