@@ -176,7 +176,7 @@ After you added the script tag into `<head>`, add the `<mi-map-googlemaps>` cust
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script src="https://unpkg.com/@mapsindoors/components@8.2.0/dist/mi-components/mi-components.js"></script>
+  <script src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.js"></script>
 </head>
 <body>
 <mi-map-googlemaps
@@ -190,7 +190,7 @@ After you added the script tag into `<head>`, add the `<mi-map-googlemaps>` cust
 </html>
 ```
 
-Remember to add your API keys where indicated. You can use the demo MapsIndoors API key: `d876ff0e60bb430b8fabb145`
+Remember to add your API keys where indicated. You can use the demo MapsIndoors API key: `02c329e6777d431a88480a09`
 
 To center the map correctly, you need need the Google Maps _instance_ in your JavaScript-file.
 
@@ -276,7 +276,7 @@ Insert the MapsIndoors SDK script tag into `<head>`, followed by the Mapbox `scr
 </html>
 ```
 
-> Remember to add your API keys to the links in your code. You can use the demo MapsIndoors API key: `d876ff0e60bb430b8fabb145`.
+> Remember to add your API keys to the links in your code. You can use the demo MapsIndoors API key: `02c329e6777d431a88480a09`.
 
 Add an empty `<div>` element to `<body>` with the `id` attribute set to "map":
 
@@ -427,7 +427,7 @@ After you added the script tag into `<head>`, add the `<mi-map-mapbox>` custom e
 </html>
 ```
 
-Remember to add your API keys where indicated. You can use the demo MapsIndoors API key: `d876ff0e60bb430b8fabb145`.
+Remember to add your API keys where indicated. You can use the demo MapsIndoors API key: `02c329e6777d431a88480a09`.
 
 To center the map correctly, you need need the Mapbox _instance_ in your JavaScript-file.
 
@@ -1852,7 +1852,7 @@ To change between travel modes we first need to add a `<select>` element with al
 <body>
   <mi-map-googlemaps
     style="width: 720px; height: 480px;"
-    mi-api-key="d876ff0e60bb430b8fabb145"
+    mi-api-key="02c329e6777d431a88480a09"
     floor-selector-control-position="TOP_RIGHT">
   </mi-map-googlemaps>
 
@@ -2480,7 +2480,7 @@ To change between travel modes we first need to add a `<select>` element with al
   <mi-map-mapbox
     access-token="YOUR_MAPBOX_ACCESS_TOKEN"
     style="width: 720px; height: 480px;"
-    mi-api-key="d876ff0e60bb430b8fabb145"
+    mi-api-key="02c329e6777d431a88480a09"
     floor-selector-control-position="TOP_RIGHT">
   </mi-map-mapbox>
 
