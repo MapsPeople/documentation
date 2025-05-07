@@ -229,6 +229,7 @@ Using the `<mi-map-googlemaps>` element, you can add the [floorSelectorControlPo
   <title>MapsIndoors</title>
   <script type="module" src="https://unpkg.com/@mapsindoors/components@latest/dist/mi-components/mi-components.esm.js"></script>
 </head>
+
 <body>
   <mi-map-googlemaps
   style="width: 720px;
@@ -239,6 +240,7 @@ Using the `<mi-map-googlemaps>` element, you can add the [floorSelectorControlPo
   </mi-map-googlemaps>
   <script src="script.js"></script>
 </body>
+
 </html>
 ```
 
