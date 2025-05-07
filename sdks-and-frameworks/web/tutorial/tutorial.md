@@ -892,7 +892,275 @@ To remove the location filter again, call `mapsIndoorsInstance.filter(null)`.
 Here's a JSFiddle demonstrating the result you should have by now:
 
 {% embed url="https://jsfiddle.net/mapspeople/jtnw0u1y/1/" fullWidth="false" %}
+{% endtab %}
 
+{% tab title="Mapbox - Manually" %}
+
+## Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
+
+MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`LocationsService.getLocations()` method](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations) but first you need to add an `<input>` and `<button>` element to the DOM.
+
+* Create an `<input>` and `<button>` element in `<body>`.
+* Attach an `onclick` event to the `<button>` element and call a `onSearch` method, which you will create next.
+
+```html
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MapsIndoors</title>
+  <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.40.1/mapsindoors-4.40.1.js.gz"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+  <div id="map" style="width: 720px; height: 480px;"></div>
+  <script src="script.js"></script>
+  <input type="text" placeholder="Search">
+  <button onclick="onSearch()">Search</button>
+</body>
+</html>
+```
+
+* Create the `onSearch` method.
+* Get a reference to the search `<input>` element.
+* Define a new object with the search parameter `q` and the value of `searchInputElement`.
+* Call the `getLocations` method and log out the results to the console.
+
+```javascript
+// script.js
+
+const mapViewOptions = {
+    accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
+    element: document.getElementById('map'),
+    center: { lng: -97.74204591828197, lat: 30.36022358949809 }, // MapsPeople - Austin Office
+    zoom: 17,
+    maxZoom: 22,
+    mapsIndoorsTransitionLevel: 16,
+};
+
+//Set the MapsIndoors API key
+mapsindoors.MapsIndoors.setMapsIndoorsApiKey('02c329e6777d431a88480a09');
+
+const mapViewInstance = new mapsindoors.mapView.MapboxV3View(mapViewOptions);
+const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
+    mapView: mapViewInstance,
+});
+
+const mapboxInstance = mapViewInstance.getMap();
+
+// Floor Selector
+const floorSelectorElement = document.createElement('div');
+new mapsindoors.FloorSelector(floorSelectorElement, mapsIndoorsInstance);
+mapboxInstance.addControl({
+    onAdd: function () {
+        return floorSelectorElement;
+    },
+    onRemove: function () { },
+});
+
+  function onSearch() {
+    const searchInputElement = document.querySelector('input');
+
+    const searchParameters = { q: searchInputElement.value };
+    mapsindoors.services.LocationsService.getLocations(searchParameters).then(locations => {
+      console.log(locations);
+    });
+  }
+```
+
+See all available search parameters in the [reference documentation](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations).
+
+### Display a List of Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#show-a-list-of-search-results) <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
+
+To display a list of search results you can append each search result to a list element.
+
+* Add the `<ul>` list element below the search field in `<body>` with the `id` attribute set to "search-results".
+
+```html
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MapsIndoors</title>
+  <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.40.1/mapsindoors-4.40.1.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css">
+</head>
+<body>
+  <div id="map" style="width: 720px; height: 480px;"></div>
+  <script src="script.js"></script>
+  <input type="text" placeholder="Search">
+  <button onclick="onSearch()">Search</button>
+  <ul id="search-results"></ul>
+</body>
+</html>
+```
+
+* Get a reference to the list element.
+* Reset the list on every complete search.
+
+```javascript
+// script.js
+
+const mapViewOptions = {
+    accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
+    element: document.getElementById('map'),
+    center: { lng: -97.74204591828197, lat: 30.36022358949809 }, // MapsPeople - Austin Office
+    zoom: 17,
+    maxZoom: 22,
+    mapsIndoorsTransitionLevel: 16,
+};
+
+//Set the MapsIndoors API key
+mapsindoors.MapsIndoors.setMapsIndoorsApiKey('02c329e6777d431a88480a09');
+
+const mapViewInstance = new mapsindoors.mapView.MapboxV3View(mapViewOptions);
+const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
+    mapView: mapViewInstance,
+});
+
+const mapboxInstance = mapViewInstance.getMap();
+
+// Floor Selector
+const floorSelectorElement = document.createElement('div');
+new mapsindoors.FloorSelector(floorSelectorElement, mapsIndoorsInstance);
+mapboxInstance.addControl({
+    onAdd: function () {
+        return floorSelectorElement;
+    },
+    onRemove: function () { },
+});
+
+function onSearch() {
+  const searchInputElement = document.querySelector('input');
+ // Get list element reference
+  const searchResultsElement = document.getElementById('search-results');
+
+  const searchParameters = { q: searchInputElement.value };
+  mapsindoors.services.LocationsService.getLocations(searchParameters).then(locations => {
+   // Reset search results list
+    searchResultsElement.innerHTML = null;
+  });
+}
+```
+
+* Add a _for_ loop and append every result to the search results list element.
+
+```javascript
+// script.js
+
+const mapViewOptions = {
+    accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
+    element: document.getElementById('map'),
+    center: { lng: -97.74204591828197, lat: 30.36022358949809 }, // MapsPeople - Austin Office
+    zoom: 17,
+    maxZoom: 22,
+    mapsIndoorsTransitionLevel: 16,
+};
+
+//Set the MapsIndoors API key
+mapsindoors.MapsIndoors.setMapsIndoorsApiKey('02c329e6777d431a88480a09');
+
+const mapViewInstance = new mapsindoors.mapView.MapboxV3View(mapViewOptions);
+const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
+    mapView: mapViewInstance,
+});
+
+const mapboxInstance = mapViewInstance.getMap();
+
+// Floor Selector
+const floorSelectorElement = document.createElement('div');
+new mapsindoors.FloorSelector(floorSelectorElement, mapsIndoorsInstance);
+mapboxInstance.addControl({
+    onAdd: function () {
+        return floorSelectorElement;
+    },
+    onRemove: function () { },
+});
+
+function onSearch() {
+  const searchInputElement = document.querySelector('input');
+  // Get list element reference
+  const searchResultsElement = document.getElementById('search-results');
+
+  const searchParameters = { q: searchInputElement.value };
+  mapsindoors.services.LocationsService.getLocations(searchParameters).then(locations => {
+    // Reset search results list
+    searchResultsElement.innerHTML = null;
+
+  // Append new search results
+  locations.forEach(location => {
+    const listElement = document.createElement('li');
+    listElement.innerHTML = location.properties.name;
+    searchResultsElement.appendChild(listElement);
+  });
+  });
+}
+```
+
+### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
+
+To filter the map to only display the search results you can use the `filter` method.
+
+
+
+* Call `mapsIndoorsInstance.filter` with an array of Location IDs.
+
+```javascript
+// script.js
+
+const mapViewOptions = {
+  accessToken: "YOUR_MAPBOX_ACCESS_TOKEN",
+  element: document.getElementById('map'),
+  center: { lat: 30.359285384, lng: -97.7412840716576 }, // MapsPeople - Austin Office
+  zoom: 17,
+  maxZoom: 22,
+};
+const mapViewInstance = new mapsindoors.mapView.MapboxView(mapViewOptions);
+const mapsIndoorsInstance = new mapsindoors.MapsIndoors({ mapView: mapViewInstance });
+const mapboxInstance = mapViewInstance.getMap();
+
+// Floor Selector
+const floorSelectorElement = document.createElement('div');
+new mapsindoors.FloorSelector(floorSelectorElement, mapsIndoorsInstance);
+mapboxInstance.addControl({ onAdd: function () { return floorSelectorElement }, onRemove: function () { } });
+
+function onSearch() {
+  const searchInputElement = document.querySelector('input');
+  // Get list element reference
+  const searchResultsElement = document.getElementById('search-results');
+
+  const searchParameters = { q: searchInputElement.value };
+  mapsindoors.services.LocationsService.getLocations(searchParameters).then(locations => {
+    // Reset search results list
+    searchResultsElement.innerHTML = null;
+
+    // Append new search results
+    locations.forEach(location => {
+      const listElement = document.createElement('li');
+      listElement.innerHTML = location.properties.name;
+      searchResultsElement.appendChild(listElement);
+    });
+
+  // Filter map to only display search results
+  mapsIndoorsInstance.filter(locations.map(location => location.id), false);
+}
+```
+
+To remove the location filter again, call `mapsIndoorsInstance.filter(null)`.
+
+Here's a JSFiddle demonstrating the result you should have by now:
+
+[https://jsfiddle.net/mapspeople/r86903om/3/](https://jsfiddle.net/mapspeople/r86903om/3/)
+
+{% embed url="https://jsfiddle.net/mapspeople/r86903om/" %}
 {% endtab %}
 
 {% tab title="Mapbox - MI Components" %}
