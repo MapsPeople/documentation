@@ -1163,7 +1163,7 @@ function onSearch() {
         // Reset search results list
         searchResultsElement.innerHTML = null;
         // Clear map
-        mapsIndoorsInstance.Highlight();
+        mapsIndoorsInstance.highlight();
         return;
     }
 
