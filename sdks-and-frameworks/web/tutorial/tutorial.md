@@ -50,7 +50,7 @@ Insert the MapsIndoors SDK script tag into `<head>`, followed by the Google Maps
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.40.1/mapsindoors-4.40.1.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
+  <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.40.1/mapsindoors-4.40.1.js.gz"></script>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=YOUR_GOOGLE_MAPS_API_KEY"></script>
 </head>
 
@@ -60,8 +60,6 @@ Insert the MapsIndoors SDK script tag into `<head>`, followed by the Google Maps
 
 </html>
 ```
-
-Remember to add your API keys to the links in your code. If you do not have your own API key, you can use the demo MapsIndoors API key: `02c329e6777d431a88480a09`.
 
 Add an empty `<div>` element to `<body>` with the `id` attribute set to `"map"`:
 
@@ -74,7 +72,7 @@ Add an empty `<div>` element to `<body>` with the `id` attribute set to `"map"`:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
-  <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.40.1/mapsindoors-4.40.1.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
+  <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.40.1/mapsindoors-4.40.1.js.gz"></script>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=YOUR_GOOGLE_MAPS_API_KEY"></script>
 </head>
 
@@ -88,6 +86,8 @@ Add an empty `<div>` element to `<body>` with the `id` attribute set to `"map"`:
 
 To load data and display it on the map, we need to create a new _instance_ of the [`MapsIndoors` class](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#MapsIndoors) with a [`mapView` instance](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.GoogleMapsView.html#GoogleMapsView) with a few _properties_ set. This is all done by placing the following code in the `script.js` file you created earlier:
 
+In the `script.js` code below, replace `YOUR_MAPSINDOORS_API_KEY` with your actual MapsIndoors API key. For testing, you can use the demo API key: `02c329e6777d431a88480a09`.
+
 ```javascript
 // script.js
 
@@ -97,6 +97,10 @@ const mapViewOptions = {
   zoom: 17,
   maxZoom: 22,
 };
+
+//Set the MapsIndoors API key
+mapsindoors.MapsIndoors.setMapsIndoorsApiKey('YOUR_MAPSINDOORS_API_KEY');
+
 const mapViewInstance = new mapsindoors.mapView.GoogleMapsView(mapViewOptions);
 const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
     mapView: mapViewInstance
@@ -113,6 +117,8 @@ Next, we'll add a Floor Selector for changing between floors.
 
 First, we add an empty `<div>` element programmatically. Then we create a new [`FloorSelector` _instance_](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/FloorSelector.html) and push the `floorSelectorElement` to the `googleMapsInstance` to position it as a map controller:
 
+In the `script.js` code below, replace `YOUR_MAPSINDOORS_API_KEY` with your actual MapsIndoors API key. For testing, you can use the demo API key: `02c329e6777d431a88480a09`.
+
 ```javascript
 // script.js
 
@@ -122,6 +128,10 @@ const mapViewOptions = {
   zoom: 17,
   maxZoom: 22,
 };
+
+//Set the MapsIndoors API key
+mapsindoors.MapsIndoors.setMapsIndoorsApiKey('YOUR_MAPSINDOORS_API_KEY');
+
 const mapViewInstance = new mapsindoors.mapView.GoogleMapsView(mapViewOptions);
 const mapsIndoorsInstance = new mapsindoors.MapsIndoors({ mapView: mapViewInstance });
 const googleMapsInstance = mapViewInstance.getMap();
@@ -278,8 +288,6 @@ Insert the MapsIndoors SDK script tag into `<head>`, followed by the Mapbox `scr
 </html>
 ```
 
-> Remember to add your API keys to the links in your code. You can use the demo MapsIndoors API key: `02c329e6777d431a88480a09`.
-
 Add an empty `<div>` element to `<body>` with the `id` attribute set to "map":
 
 ```html
@@ -307,6 +315,8 @@ Add an empty `<div>` element to `<body>` with the `id` attribute set to "map":
 
 To load data and display it on the map, we need to create a new _instance_ of the [`MapsIndoors` class](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html#MapsIndoors) with a [`mapView` instance](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.MapboxV3View.html) with a few _properties_ set. This is all done by placing the following code in the `script.js` file you created earlier:
 
+In the `script.js` code below, replace `YOUR_MAPSINDOORS_API_KEY` with your actual MapsIndoors API key. For testing, you can use the demo API key: `02c329e6777d431a88480a09`.
+
 ```javascript
 // script.js
 
@@ -320,7 +330,7 @@ const mapViewOptions = {
 };
 
 //Set the MapsIndoors API key
-mapsindoors.MapsIndoors.setMapsIndoorsApiKey('02c329e6777d431a88480a09');
+mapsindoors.MapsIndoors.setMapsIndoorsApiKey('YOUR_MAPSINDOORS_API_KEY');
 
 const mapViewInstance = new mapsindoors.mapView.MapboxV3View(mapViewOptions);
 const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
@@ -338,6 +348,8 @@ Next, we'll add a Floor Selector for changing between floors.
 
 First, we add an empty `<div>` element programmatically. Then we create a new [`FloorSelector` _instance_](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/FloorSelector.html) and push the `floorSelectorElement` to the `mapboxInstance` to position it as a map controller:
 
+In the `script.js` code below, replace `YOUR_MAPSINDOORS_API_KEY` with your actual MapsIndoors API key. For testing, you can use the demo API key: `02c329e6777d431a88480a09`.
+
 ```javascript
 // script.js
 
@@ -351,7 +363,7 @@ const mapViewOptions = {
 };
 
 //Set the MapsIndoors API key
-mapsindoors.MapsIndoors.setMapsIndoorsApiKey('02c329e6777d431a88480a09');
+mapsindoors.MapsIndoors.setMapsIndoorsApiKey('YOUR_MAPSINDOORS_API_KEY');
 
 const mapViewInstance = new mapsindoors.mapView.MapboxV3View(mapViewOptions);
 const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
@@ -932,6 +944,8 @@ MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`
 * Define a new object with the search parameter `q` and the value of `searchInputElement`.
 * Call the `getLocations` method and log out the results to the console.
 
+In the `script.js` code below, replace `YOUR_MAPSINDOORS_API_KEY` with your actual MapsIndoors API key. For testing, you can use the demo API key: `02c329e6777d431a88480a09`.
+
 ```javascript
 // script.js
 
@@ -945,7 +959,7 @@ const mapViewOptions = {
 };
 
 //Set the MapsIndoors API key
-mapsindoors.MapsIndoors.setMapsIndoorsApiKey('02c329e6777d431a88480a09');
+mapsindoors.MapsIndoors.setMapsIndoorsApiKey('YOUR_MAPSINDOORS_API_KEY');
 
 const mapViewInstance = new mapsindoors.mapView.MapboxV3View(mapViewOptions);
 const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
@@ -1008,6 +1022,8 @@ To display a list of search results you can append each search result to a list 
 * Get a reference to the list element.
 * Reset the list on every complete search.
 
+In the `script.js` code below, replace `YOUR_MAPSINDOORS_API_KEY` with your actual MapsIndoors API key. For testing, you can use the demo API key: `02c329e6777d431a88480a09`.
+
 ```javascript
 // script.js
 
@@ -1021,7 +1037,7 @@ const mapViewOptions = {
 };
 
 //Set the MapsIndoors API key
-mapsindoors.MapsIndoors.setMapsIndoorsApiKey('02c329e6777d431a88480a09');
+mapsindoors.MapsIndoors.setMapsIndoorsApiKey('YOUR_MAPSINDOORS_API_KEY');
 
 const mapViewInstance = new mapsindoors.mapView.MapboxV3View(mapViewOptions);
 const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
@@ -1068,7 +1084,7 @@ const mapViewOptions = {
 };
 
 //Set the MapsIndoors API key
-mapsindoors.MapsIndoors.setMapsIndoorsApiKey('02c329e6777d431a88480a09');
+mapsindoors.MapsIndoors.setMapsIndoorsApiKey('YOUR_MAPSINDOORS_API_KEY');
 
 const mapViewInstance = new mapsindoors.mapView.MapboxV3View(mapViewOptions);
 const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
@@ -1136,7 +1152,7 @@ const mapViewOptions = {
 };
 
 //Set the MapsIndoors API key
-mapsindoors.MapsIndoors.setMapsIndoorsApiKey('02c329e6777d431a88480a09');
+mapsindoors.MapsIndoors.setMapsIndoorsApiKey('YOUR_MAPSINDOORS_API_KEY');
 
 const mapViewInstance = new mapsindoors.mapView.MapboxV3View(mapViewOptions);
 const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
@@ -1922,7 +1938,8 @@ To change between travel modes we first need to add a `<select>` element with al
 <body>
   <mi-map-googlemaps
     style="width: 720px; height: 480px;"
-    mi-api-key="02c329e6777d431a88480a09"
+    mi-api-key="YOUR_MAPSINDOORS_API_KEY"
+    gm-api-key="YOUR_GOOGLE_MAPS_API_KEY"
     floor-selector-control-position="TOP_RIGHT">
   </mi-map-googlemaps>
 
@@ -2227,7 +2244,7 @@ To change between travel modes we first need to add a `<select>` element with al
   <mi-map-mapbox
     access-token="YOUR_MAPBOX_ACCESS_TOKEN"
     style="width: 720px; height: 480px;"
-    mi-api-key="02c329e6777d431a88480a09"
+    mi-api-key="YOUR_MAPSINDOORS_API_KEY"
     floor-selector-control-position="TOP_RIGHT">
   </mi-map-mapbox>
 
