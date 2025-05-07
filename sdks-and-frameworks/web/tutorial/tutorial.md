@@ -1267,8 +1267,6 @@ miSearchElement.addEventListener('results', (event) => {
 
 To filter the map to only display the search results you can use the `filter` method.
 
-
-
 ```javascript
 // script.js
 
@@ -1543,33 +1541,33 @@ To change between travel modes we first need to add a `<select>` element with al
 
 ```html
 <!-- index.html -->
-​
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MapsIndoors</title>
   <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.40.1/mapsindoors-4.40.1.js.gz?apikey=YOUR_MAPSINDOORS_API_KEY"></script>
 <script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=YOUR_GOOGLE_MAPS_API_KEY"></script>
 </head>
+
 <body>
-  <div id="map" style="width: 720px; height: 480px;"></div>
-​
-<!-- Travel mode selector -->
-<label for="travel-modes">Choose a travel mode:</label>
-<select name="travelModeSelector" id="travel-modes">
-  <option value="walking" selected>Walking</option>
-  <option value="bicycling">Bicycling</option>
-  <option value="driving">Driving</option>
-  <option value="transit">Transit</option>
-</select>
-  <script src="main.js"></script>
+  <div id="map" style="width: 720px; height: 480px;"></div>​
+  <!-- Travel mode selector -->
+  <label for="travel-modes">Choose a travel mode:</label>
+  <select name="travelModeSelector" id="travel-modes">
+    <option value="walking" selected>Walking</option>
+    <option value="bicycling">Bicycling</option>
+    <option value="driving">Driving</option>
+    <option value="transit">Transit</option>
+  </select>
   <input type="text" placeholder="Search">
   <button onclick="onSearch()">Search</button>
   <ul id="search-results"></ul>
+  <script src="main.js"></script>
 </body>
+
 </html>
 ```
 
