@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Enable Live Data
 
 As opposed to _static data_, which does not change unless data is synchronized, Live Data can change in real time, and these changes can be instantly reflected on the map and in searches.
@@ -11,7 +15,7 @@ Support for Live Data requires that server-side integrations are in place. For e
 
 The following section relies on the existence of Live Position Data. If you do not have access to a MapsIndoors Dataset that have a Live Data integration, you should use our demo API key: `d876ff0e60bb430b8fabb145`.
 
-Enabling Live Data through [`MapsIndoorsWidget`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/MapsIndoorsWidget-class.html) is as simple as [calling `mapsindoorsWidget.enableLiveData`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/MapsIndoorsWidget/enableLiveData.html) with a [Domain Type](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/LiveDataDomainTypes.html).
+Enabling Live Data through [`MapsIndoorsWidget`](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/MapsIndoorsWidget-class.html) is as simple as [calling `mapsindoorsWidget.enableLiveData`](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/MapsIndoorsWidget/enableLiveData.html) with a [Domain Type](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/LiveDataDomainTypes.html).
 
 We will create a new method on our `MapState` called `enableLiveData` to enable Live Data for the Solution.
 

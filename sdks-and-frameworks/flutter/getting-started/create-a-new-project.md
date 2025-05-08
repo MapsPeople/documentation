@@ -10,7 +10,7 @@ This guide explains how to start using a MapsIndoors map in your Flutter applica
 
 You will need to [download and install](https://docs.flutter.dev/get-started/install) the flutter toolchain.
 
-We recommend using Android Studio and XCode for using this tutorial. Read how to set Android Studio up here: [Installing Android Studio](https://developer.android.com/studio/install)
+We recommend using Android Studio and Xcode for using this tutorial. Read how to set Android Studio up here: [Installing Android Studio](https://developer.android.com/studio/install)
 
 If you do not have any devices, you can [set up an emulator through Android Studio](https://developer.android.com/studio/run/emulator), or in Xcode.
 
@@ -42,7 +42,7 @@ If you want to see an example of how this guide will look when completed, you ca
 To get started with your project add the latest MapsIndoors version to your `pubspec.yaml`, it can be found [here](https://pub.dev/documentation/mapsindoors_googlemaps/latest/).
 
 ```yaml
-mapsindoors_googlemaps: ^4.0.0 # replace with the latest version
+mapsindoors_googlemaps: ^4.1.6 # replace with the latest version
 ```
 
 {% tabs %}
@@ -127,7 +127,6 @@ To ensure that the app is able to build properly after obfuscation, we need to a
 
 ##---------------End: proguard configuration for Gson  ----------
 ```
-
 {% endtab %}
 
 {% tab title="iOS" %}
@@ -146,8 +145,6 @@ To get the underlying Google Map to function, you need to perform the following 
 1. Navigate to `iOS/Runner/AppDelegate.h`.
 2. Import `#import "GoogleMaps/GoogleMaps.h"` on the class.
 3. Add this code as the first line inside the application function: `[GMSServices provideAPIKey:@"YOUR GOOGLE MAPS API KEY HERE"];`
-
-**Adding MapsIndoors script specific to Google Maps, to Podfile**[**​**](https://docs.mapsindoors.com/getting-started/flutter/new-project#adding-mapsindoors-script-specific-to-google-maps-to-podfile)
 {% endtab %}
 {% endtabs %}
 
@@ -156,7 +153,7 @@ To get the underlying Google Map to function, you need to perform the following 
 To get started with your project add the latest MapsIndoors version to your `pubspec.yaml`, it can be found [here](https://pub.dev/documentation/mapsindoors_mapbox/latest/).
 
 ```yaml
-mapsindoors_mapbox: ^4.0.0 # replace with the latest version
+mapsindoors_mapbox: ^4.1.6 # replace with the latest version
 ```
 
 {% tabs %}
@@ -164,8 +161,8 @@ mapsindoors_mapbox: ^4.0.0 # replace with the latest version
 First you need to extend the allowed gradle repositories to allow the SDK to resolve correctly:
 
 1. Navigate to the app's project level `build.gradle`.
-2. add `maven { url 'https://maven.mapsindoors.com/' }` to `allprojects`/`repositories` after `mavenCentral()`
-3. add mapbox to repositories like in the example below:
+2. Add `maven { url 'https://maven.mapsindoors.com/' }` to `allprojects`/`repositories` after `mavenCentral()`
+3. Add mapbox to repositories like in the example below:
 
 ```gradle
 allprojects {
@@ -190,7 +187,7 @@ allprojects {
 }
 ```
 
-4. add your mapbox download token to gradle.properties
+4. Add your mapbox download token to gradle.properties
 
 ```properties
 MAPBOX_DOWNLOADS_TOKEN=YOUR_DOWNLOAD_TOKEN
@@ -265,10 +262,10 @@ To ensure that the app is able to build properly after obfuscation, we need to a
 {% endtab %}
 
 {% tab title="iOS" %}
-The MapsIndoors SDK requires iOS 1, so make sure that your odfile is configured for iOS 1. Add use\_framework inside your app target as well.
+The MapsIndoors SDK requires iOS 15, so make sure that your Podfile is configured for iOS 15. Add `use_frameworks!` inside your app target as well.
 
 ```
-platform :ios, '1.0
+platform :ios, '15.0'
 
 target 'MyApp' do
   use_frameworks!
@@ -285,6 +282,6 @@ end
 
 **Providing** [**​**](https://docs.mapsindoors.com/getting-started/flutter/new-project#providing-api-key-1)
 
-Navigate to your application settings in Xode and add your Mapbox public access token to info with the key MBXAccessTokenSetup your secret access token for downloading the . Read how to do this here: [Configure credentials](https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials)
+Navigate to your application settings in Xode and add your Mapbox public access token to info with the key `MBXAccessTokenSetup` your secret access token for downloading the . Read how to do this here: [Configure credentials](https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials)
 {% endtab %}
 {% endtabs %}

@@ -9,10 +9,10 @@ Please note that data in MapsIndoors is loaded asynchronously. This results in b
 \
 Lets start by setting up a simple app with a stateful map widget to contain the app.
 
-First add the app to your main and import mapsindoors
+First add the app to your main and import `mapsindoors`
 
 ```dart
-import 'package:mapsindoors_googlemaps/mapsindoors.dart';
+import 'package:mapsindoors_mapbox/mapsindoors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -79,7 +79,7 @@ class MapsIndoorsDemoApp extends StatelessWidget {
 
 We start by loading `MapsIndoors`. `MapsIndoors` is used to get and store all references to MapsIndoors-specific data. This includes access to all MapsIndoors-specific geodata.
 
-Place the following initialization code in the `initState` method of your apps `State` that displays the Google map, Ensure that the [`loadMapsIndoors`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/loadMapsIndoors.html) callback returns before accessing other `MapsIndoors` methods.
+Place the following initialization code in the `initState` method of your apps `State` that displays the Google map, Ensure that the [`loadMapsIndoors`](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/loadMapsIndoors.html) callback returns before accessing other `MapsIndoors` methods.
 
 ```dart
 class _MapState extends State<Map> {
@@ -96,11 +96,11 @@ class _MapState extends State<Map> {
 }
 ```
 
-If you are not a customer you can use this demo MapsIndoors API key `d876ff0e60bb430b8fabb145`.
+If you are not a customer you can use this demo MapsIndoors API key `mapspeople3d`.
 
 #### Initialize MapsIndoorsWidget[​](https://docs.mapsindoors.com/getting-started/flutter/map#initialize-mapsindoorswidget) <a href="#initialize-mapsindoorswidget" id="initialize-mapsindoorswidget"></a>
 
-We now want to add all the data we get by initializing `MapsIndoors` to our map. This is done by initializing [`MapsIndoorsWidget`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/MapsIndoorsWidget-class.html) onto the map. `MapsIndoorsWidget` is used as a layer between the map and MapsIndoors.
+We now want to add all the data we get by initializing `MapsIndoors` to our map. This is done by initializing [`MapsIndoorsWidget`](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/MapsIndoorsWidget-class.html) onto the map. `MapsIndoorsWidget` is used as a layer between the map and MapsIndoors.
 
 First add the `MapsIndoorsWidget` to the build hierarchy, in this example it is placed in the body of a `Scaffold`, but it can be placed anywhere, just ensure there is enough space to use the map comfortably.
 
@@ -146,6 +146,6 @@ class _MapState extends State<Map> {
 
 Expected result:
 
-<figure><img src="../../../.gitbook/assets/flutter_map.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/flutter_show_a_map.gif" alt=""><figcaption></figcaption></figure>
 
-See the full example of the app here: [main.dart](https://github.com/MapsPeople/getting\_started\_flutter/blob/main/lib/main.dart)
+See the full example of the app here: [main.dart](https://github.com/MapsPeople/getting_started_flutter/blob/main/lib/main.dart)

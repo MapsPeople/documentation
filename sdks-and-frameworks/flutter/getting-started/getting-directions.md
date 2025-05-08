@@ -1,6 +1,6 @@
 # Getting Directions
 
-Now we have a simple map where you can search for locations. When finishing this step you'll be able to create a directions between two points and change the transportation mode.
+Now we have a simple map where you can search for locations. When finishing this step you'll be able to create a route with directions between two points and change the transportation mode.
 
 ### Get Directions Between Two Locations[​](https://docs.mapsindoors.com/getting-started/flutter/directions#get-directions-between-two-locations) <a href="#get-directions-between-two-locations" id="get-directions-between-two-locations"></a>
 
@@ -10,12 +10,12 @@ We have already created a point in the basic example, called `_userPosition` to 
 
 ```dart
 final _userPosition = MPPoint.withCoordinates(
-    longitude: -77.03740973527613,
-    latitude: 38.897389429704695,
-    floorIndex: 0);
+    longitude: -97.74182,
+    latitude: 30.3607287,
+    floorIndex: 30);
 ```
 
-We can extend the search functionality we made earlier by implementing the [`onLocationSelected`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/OnLocationSelectedListener.html) listener on the [`MapsIndoorsWidget`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/MapsIndoorsWidget-class.html), and showing the selected location's details on the bottom sheet:
+We can extend the search functionality we made earlier by implementing the [`onLocationSelected`](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/OnLocationSelectedListener.html) listener on the [`MapsIndoorsWidget`](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/MapsIndoorsWidget-class.html), and showing the selected location's details on the bottom sheet:
 
 ```dart
 void onMapControlReady(MPError? error) async {
@@ -75,7 +75,7 @@ void onLocationSelected(MPLocation? location) {
 
 Now we will create a class that takes a origin and destination and can handle the controls of a route. This is a rather complex class that creates a route, lets us traverse it without errors and displays the steps of the route in the bottom sheet. A minimal example would only require the constructor, the leg selected listener and the UI.
 
-First lets set up the constructor and services, we want to create the `RouteHandler` with an origin, destination and the state of our `Scaffold` (to create a bottom sheet later). We will also set up our [`MPDirectionsService`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/MPDirectionsService-class.html) and [`MPDirectionsRenderer`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/MPDirectionsRenderer-class.html) and generate a route immediately. finally we show the route on the Renderer.
+First lets set up the constructor and services, we want to create the `RouteHandler` with an origin, destination and the state of our `Scaffold` (to create a bottom sheet later). We will also set up our [`MPDirectionsService`](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/MPDirectionsService-class.html) and [`MPDirectionsRenderer`](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/MPDirectionsRenderer-class.html) and generate a route immediately. finally we show the route on the Renderer.
 
 ```dart
 class RouteHandler {
@@ -95,7 +95,7 @@ class RouteHandler {
 }
 ```
 
-Now we want some controllers for the state of our route, we want a method to safely update the leg index, we want to listen to when the leg index changes and we want to be able to remove the route again. First we add a [`onLegSelectedListener`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/OnLegSelectedListener.html) to the class and set it on the renderer. Then we add a getter/setter for the current leg index, where we ensure that we cannot get an index that is out of bounds for the current route. and finally we add a `removeRoute` method that clears the route from the map.
+Now we want some controllers for the state of our route, we want a method to safely update the leg index, we want to listen to when the leg index changes and we want to be able to remove the route again. First we add a [`onLegSelectedListener`](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/OnLegSelectedListener.html) to the class and set it on the renderer. Then we add a getter/setter for the current leg index, where we ensure that we cannot get an index that is out of bounds for the current route. and finally we add a `removeRoute` method that clears the route from the map.
 
 ```dart
 class RouteHandler {
@@ -219,7 +219,7 @@ class RouteHandler {
 }
 ```
 
-With this we now have a class that will handle creating a Route and displaying it on the map for us. You can see the entire implementation of RouteHandler here: [main.dart](https://github.com/MapsPeople/getting\_started\_flutter/blob/main/lib/main.dart#L230-L345)
+With this we now have a class that will handle creating a Route and displaying it on the map for us. You can see the entire implementation of RouteHandler here: [main.dart](https://github.com/MapsPeople/getting_started_flutter/blob/main/lib/main.dart#L230-L345)
 
 We can now add a button on our `onLocationSelected` bottomsheet to generate a route from `_userPosition` to the selected location:
 
@@ -289,6 +289,6 @@ RouteHandler(
 
 Expected result:
 
-<figure><img src="../../../.gitbook/assets/flutter_directions.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/flutter_directions (1).gif" alt=""><figcaption></figcaption></figure>
 
-The accompanying UI and implementation of this directions experience can be found in the getting started app sample. [Getting Started App sample](https://github.com/MapsPeople/getting\_started\_flutter)
+The accompanying UI and implementation of this directions experience can be found in the getting started app sample. [Getting Started App sample](https://github.com/MapsPeople/getting_started_flutter)
