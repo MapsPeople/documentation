@@ -16,10 +16,11 @@ Each Location has several settings associated with it. If you select a Location 
 * **External ID** - You can define an External ID that a Location should use alongside its internal ID.
 * **Additional details** - You can define additional details which can then be used in your own implementations or they can be visualised on the MapsIndoors Web App. They can be: links, phone numbers, e-mails and opening hours. Read more about it [here](additional-location-details.md).
 
-#### Search
+#### Area
 
-* **Search Status** - Toggle whether or not this Location appears in searches.
-* **Search Aliases** - Other search terms that can be searched and still return this Location, even if it does not match the Name, Type, or Category.
+* This section is only visible for Areas. It is **not** visible for rooms and locations without an Area.
+* **Rotation (angle)** - Set the rotation of the Area. Positive values will rotate the are to the right, while negative values will rotate the are to the left.
+* **Area as an Obstacle** - This section is only visible if your `Graph Setup` is set to `Automatic`. Checking this checkbox will set the Area to be an `Obstacle`. If an Area is an `Obstacle`, the Area will have an effect on the routing. Read more about this feature here.
 
 #### Selectable
 
@@ -29,6 +30,11 @@ Each Location has several settings associated with it. If you select a Location 
 
 * **Restrictions** - Determine which, if any, App User Role Restrictions this Location should be subject to.
 * You can choose to inherit Restrictions that might be set on the Location's Type, or override them for this particular Location.
+
+#### Search
+
+* **Search Status** - Toggle whether or not this Location appears in searches.
+* **Search Aliases** - Other search terms that can be searched and still return this Location, even if it does not match the Name, Type, or Category.
 
 #### Visibility
 
