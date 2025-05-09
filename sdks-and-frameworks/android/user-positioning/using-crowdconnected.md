@@ -94,7 +94,7 @@ class MainActivity : FragmentActivity(), ActivityCompat.OnRequestPermissionsResu
 
 The positioning manager should only be initialized when positioning is required. It depends on the necessary permissions (mentioned above) and MapsIndoors being initialized.
 
-{% code title="MainActivity.kt" overflow="wrap" lineNumbers="true" %}
+{% code title="[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L223-L228)" overflow="wrap" lineNumbers="true" %}
 
 ```kotlin
 import android.util.Log
