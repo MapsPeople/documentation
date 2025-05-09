@@ -110,7 +110,7 @@ class MainActivity : FragmentActivity() {
   fun startPositioning() {
     positionManager = MPCrowdConnectedManager(
       getApplication(),
-      MPCrowdConnectedConfig("your_app_key", "your_token", "your_secret") // you should not input your secrets directly, fetch them from somewhere secure
+      MPCrowdConnectedConfig("your_app_key", "your_token", "your_secret"), // you should not input your secrets directly, fetch them from somewhere secure
       object : StatusCallback {
         override fun onStartUpSuccess() {
           Log.i("IPS", "CrowdConnected started successfully")
