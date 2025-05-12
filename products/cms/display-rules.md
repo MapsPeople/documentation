@@ -3,6 +3,22 @@ description: >-
   In this guide you will be introduced to the concept of Display Rules and how
   you can use Display Rules to change how Locations (POIs, Rooms and Areas) are
   displayed on the map.
+cover: ../../.gitbook/assets/displayrules.jpg
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Display Rules

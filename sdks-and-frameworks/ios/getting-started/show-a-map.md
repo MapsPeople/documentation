@@ -78,7 +78,7 @@ We have now added a _very_ simple, non-interactive search feature! Running the a
 
 ### Expected Result[​](https://docs.mapsindoors.com/getting-started/ios/v4/display-a-map#expected-result) <a href="#expected-result" id="expected-result"></a>
 
-<figure><img src="../../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt="" width="375"><figcaption></figcaption></figure>
 
 Feel free to change the query from the solution "mapspeople3d" to a known building in your MapsIndoors dataset.
 

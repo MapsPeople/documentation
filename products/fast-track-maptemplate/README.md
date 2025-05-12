@@ -1,5 +1,5 @@
 ---
-description: Your Indoor Map, Ready in Minutes
+description: Your indoor map, ready in minutes
 icon: cube
 layout:
   title:
@@ -18,7 +18,7 @@ layout:
 
 The Map Template is a ready-to-use web application that lets you showcase your MapsIndoors solution with minimal setup. Whether you need a stand-alone indoor mapping solution, a kiosk for on-site navigation or an embedded map in your website, Map Template provides a fully functional indoor map experience right out of the box.
 
-### Built-in Features
+## Built-in Features
 
 When you load Map Template as-is, you get essential indoor mapping features without writing a single line of code:
 
@@ -32,9 +32,9 @@ But there is more to Map Template. While it can work as you no-code out of the b
 
 <figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfmsZnjEUXi0rjm2hsxv96LjP4mRPqb2Ri475Dk8Uuf_mWwBn66NyhlNR1bdIiARbPTeP3_aUFrj8-tt1Wgk28ztuoSplV-is_PnvCi3R2L_WFvxaQCUnT-fmKrQ23zvwM3WbmD_g?key=lU4RKwP5a_-6tXr6a6m61hcF" alt=""><figcaption></figcaption></figure>
 
-### Three Ways to Use Map Template
+## Three Ways to Use Map Template
 
-#### 1 Zero-code setup&#x20;
+### 1. Zero-code setup&#x20;
 
 Configure everything using simple [URL parameters](https://docs.mapsindoors.com/products/fast-track-maptemplate/configuration), no coding required.
 
@@ -42,25 +42,18 @@ Example: Want the app to open on a specific venue, adjust the primary UI colour 
 
 Ease of implementation: Very easy. Requires no software development resources.&#x20;
 
-
-
-#### 2 Map component in your existing website&#x20;
+### 2. Map component in your existing website&#x20;
 
 Use it as a [Web Component](https://docs.mapsindoors.com/products/fast-track-maptemplate/getting-started/web-component) or [React Component](https://docs.mapsindoors.com/products/fast-track-maptemplate/getting-started/react-component) to integrate with your existing site. Once integrated, you can further expand the feature sets of Map Template through [customization options](https://docs.mapsindoors.com/products/fast-track-maptemplate/external-customization-of-the-map-template).&#x20;
 
 Example: Need an interactive indoor map on your company website and customize Map Template beyond the URL parameter options? Embed the Web Component, set the necessary properties and optionally make deeper customization through direct access to Map Template.&#x20;
 
-Ease of implementation: Easy to medium. Requires some software development resources. \
+Ease of implementation: Easy to medium. Requires some software development resources.&#x20;
 
-
-#### 3 Full customization&#x20;
+### 3. Full customization&#x20;
 
 For experienced developers, the [open-source GitHub repository](https://docs.mapsindoors.com/products/fast-track-maptemplate/getting-started) allows for deep customization—but this requires advanced coding skills.
 
 Example: Want to integrate proprietary business logic or completely redesign the interface? Fork the repository and build your own version.
 
 Ease of implementation: Medium to complex. Requires software development resources.&#x20;
-
-\
-
-

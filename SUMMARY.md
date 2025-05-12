@@ -210,6 +210,8 @@
 * [CMS](products/cms/README.md)
   * [Interface Overview](products/cms/interface-overview.md)
   * [Display Rules](products/cms/display-rules.md)
+  * [Location Types](products/cms/location-types.md)
+  * [Categories](products/cms/categories.md)
   * [Media Library](products/cms/media-library/README.md)
     * [2D Models and Icons](products/cms/media-library/2d-models-and-icons.md)
     * [3D Models](products/cms/media-library/3d-models.md)
@@ -228,6 +230,7 @@
     * [React Component](products/fast-track-maptemplate/getting-started/react-component.md)
   * [Configuration](products/fast-track-maptemplate/configuration/README.md)
     * [Query Parameters](products/fast-track-maptemplate/configuration/query-parameters.md)
+    * [Categories](products/fast-track-maptemplate/configuration/categories.md)
   * [Customization](products/fast-track-maptemplate/customization.md)
   * [Deploying Map Template to a cloud storage provider](products/fast-track-maptemplate/deploying-map-template-to-a-cloud-storage-provider.md)
   * [2D/3D Visibility Switch](products/fast-track-maptemplate/2d-3d-visibility-switch.md)
@@ -238,9 +241,10 @@
 
 ## Other
 
-* [Design](other/map-design/README.md)
-  * [Standard MapsIndoors Map Style](other/map-design/standard-mapsindoors-map-style.md)
+* [Map Design](other/map-design/README.md)
+  * [Map Design System](other/map-design/standard-mapsindoors-map-style.md)
   * [Using a Custom Mapbox MapStyle](other/map-design/using-a-custom-mapbox-mapstyle.md)
+  * [2D Models](other/map-design/2d-models.md)
 * [Changelog](other/changelog/README.md)
   * [Web SDK](other/changelog/web-sdk/README.md)
     * [V4](other/changelog/web-sdk/v4.md)
@@ -256,7 +260,6 @@
   * [MI Components](https://github.com/MapsPeople/web-ui/blob/main/packages/components/CHANGELOG.md)
   * [Map Template](https://github.com/MapsPeople/web-ui/blob/main/packages/map-template/CHANGELOG.md)
 * [Glossary](other/glossary.md)
-* [QGIS Guide](other/qgis-guide.md)
 
 ***
 
@@ -292,6 +295,7 @@
 
 ## Reference Docs
 
+* [Web SDK](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/)
 * [Web SDK](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/)
 * [Android SDK](reference-docs/android-sdk.md)
 * [iOS SDK](reference-docs/ios-sdk.md)

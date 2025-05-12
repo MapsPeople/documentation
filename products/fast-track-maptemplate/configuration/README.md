@@ -1,6 +1,6 @@
 # Configuration
 
-ùThe Map Template can be configured through a wide range of properties which ensures that the final version of the map will fit your user's needs.
+The Map Template can be configured through a wide range of properties which ensures that the final version of the map will fit your user's needs.
 
 ## Supported properties on the MapsIndoors Map component[​](https://docs.mapsindoors.com/web-map-template#supported-properties-on-the-mapsindoors-map-component) <a href="#supported-properties-on-the-mapsindoors-map-component" id="supported-properties-on-the-mapsindoors-map-component"></a>
 

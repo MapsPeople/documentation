@@ -25,13 +25,15 @@ The Map section is the main navigation of the MapsIndoors CMS and includes the F
 17. A Floor selector to set the Floor for the Map.
 18. The main toolbar to modify your data.
 
-## Solution Switcher[​](https://docs.mapsindoors.com/cms-interface-overview#combo-box) <a href="#combo-box" id="combo-box"></a>
+## Solution Switcher​ <a href="#combo-box" id="combo-box"></a>
 
 <figure><img src="../../.gitbook/assets/CleanShot 2023-07-05 at 15.06.45@2x.png" alt=""><figcaption></figcaption></figure>
 
 The Solution switcher allows you to search for the Solutions you have access to.
 
-## Toolbar[​](https://docs.mapsindoors.com/cms-interface-overview#toolbar) <a href="#toolbar" id="toolbar"></a>
+
+
+## Toolbar
 
 From left to right, the functionalities in the Toolbar are as follows (you can also hover over the icons in the CMS to see their names):
 
@@ -42,7 +44,7 @@ From left to right, the functionalities in the Toolbar are as follows (you can a
 * **Reload Route Network** - Reloads the Route Network. Route Element changes' effect on the Network becomes visible after reloading the Network.
 * **Zoom Level** - Adjust the Zoom Level. Values range from 15 (zoom out) to 999 (also known as "max zoom").
 
-## Doors & Barriers[​](https://docs.mapsindoors.com/cms-interface-overview#doors--barriers) <a href="#doors--barriers" id="doors--barriers"></a>
+## Doors & Barriers​ <a href="#doors--barriers" id="doors--barriers"></a>
 
 Doors and Barriers are Route Elements that allow you to manipulate certain portions of the Route Network. They appear if you click the **Show Network** button mentioned above.
 
@@ -104,6 +106,8 @@ When accessing Multiple doors creation mode, there is an option to choose door t
 * **Floor Index** - Use this to move a Barrier to another Floor.
 * **One-way direction (bearing)** - The _exit angle_ of a one-way Barrier, in degrees, like a compass bearing. In the illustration above, the entered value would be 45, as the user would exit at a 45-degree bearing.
 
+
+
 ## Solution Details <a href="#solution-details" id="solution-details"></a>
 
 Under Solution Details, you can find several subpages, which are described below.
@@ -122,7 +126,7 @@ This page organises the "Types" you can add to your Locations.
 8. The number of Locations with the given Type applied.
 9. Whether the Type's "General Visibility" is set to Visible or Not Visible.
 
-### Categories[​](https://docs.mapsindoors.com/cms-interface-overview#categories) <a href="#categories" id="categories"></a>
+### Categories <a href="#categories" id="categories"></a>
 
 Categories are similar to Types, but whereas Locations can only be of one Type, they can have multiple Categories. Categories are used for browsing important Locations or amenities in your application. For example, a canteen might be in a Category of both "Food" and "Leisure", but still only be of the Type "Canteen".
 
@@ -149,7 +153,7 @@ This page lists the Buildings in the selected Venue in your Solution.
 3. The Administrative ID of the Building.
 4. The Address of the Building.
 
-### Venues[​](https://docs.mapsindoors.com/cms-interface-overview#venues) <a href="#venues" id="venues"></a>
+### Venues <a href="#venues" id="venues"></a>
 
 The list of Venues in your Solution.
 
@@ -167,11 +171,11 @@ The list of Venues in your Solution.
 
 This page contains various subpages with more advanced styling settings. Read more about Solution Setting [here](solution-settings.md).
 
-### App Settings[​](https://docs.mapsindoors.com/cms-interface-overview#app-settings) <a href="#app-settings" id="app-settings"></a>
+### App Settings​ <a href="#app-settings" id="app-settings"></a>
 
 This page contains various subpages with more advanced settings about your app.
 
-#### **App Configuration**[**​**](https://docs.mapsindoors.com/cms-interface-overview#app-configuration)
+#### **App Configuration​**
 
 This page contains various settings, such as names for your API keys, App User Roles and App Categories.
 
@@ -197,7 +201,7 @@ In the "App Categories" section, you can edit more details about your Categories
 4. The Icon selected for the Category.
 5. Select an Icon to be used for the Category. Opens the [Media Library](media-library/).
 
-### **API Keys**[**​**](https://docs.mapsindoors.com/cms-interface-overview#api-keys)
+### **API Keys​**
 
 Here you manage the active API keys generated for your Solution. You need an API key to load your MapsIndoors data in your apps.
 
@@ -213,14 +217,14 @@ You can easily delete an API key if it is unused, or has been compromised.
 6. Your API key is located here in text form.
 7. Delete the API key.
 
-### **Booking Provider**[**​**](https://docs.mapsindoors.com/cms-interface-overview#booking-provider)
+### Booking Provider
 
 This submenu gives you the option of integrating a Booking system into your Solution. The exact menus presented here depend on which provider you opt for.
 
-### **Position Provider**[**​**](https://docs.mapsindoors.com/cms-interface-overview#position-provider)
+### Position Provider
 
 MapsIndoors also allows you to integrate a Positioning system into your Solution. The exact menus presented here, like the Booking system, depend on which provider you opt for.
 
-### **Webex**[**​**](https://docs.mapsindoors.com/cms-interface-overview#webex)
+### Webex
 
 As the options above, the possibilities presented for WebEx integration depend on the exact manner of integration.
