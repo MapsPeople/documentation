@@ -2,7 +2,7 @@
 
 To get started with CrowdConnected positioning, you can either create your own implementation by using the `MPPositionProvider` interface from the MapsIndoors SDK to visualize position updates from CrowdConnected.
 
-Alternatively, you can use the MapsIndoors CrowdConnected Compatibility Package (MCCP for short), which handles this work for you, requiring minimal setup. This guide shows how to implement MCCP.
+Alternatively, you can use the MapsIndoors CrowdConnected Positioning Provider, which handles this work for you, requiring minimal setup. This guide shows how to implement it.
 
 This guide assumes you already have an app with MapsIndoors.
 
@@ -38,7 +38,7 @@ dependencyResolutionManagement {
 
 ### Fork the project
 
-If you prefer more control, want to understand how it works, or want to customize the compatibility package, you can go to the publicly available GitHub project. The source code is hosted at [MapsIndoors CrowdConnected Package GitHub Repository](https://github.com/MapsPeople/mapsindoors_crowdconnected_package) (Not currently available). By forking the repository, you create your own copy of the project, which you can modify to suit your specific requirements while retaining the base functionality.
+If you prefer more control, want to understand how it works, or want to customize the positioning provider package, you can go to the publicly available GitHub project. The source code is hosted at [MapsIndoors CrowdConnected Package GitHub Repository](https://github.com/MapsPeople/mapsindoors_crowdconnected_positioning_provider) (Not currently available). By forking the repository, you create your own copy of the project, which you can modify to suit your specific requirements while retaining the base functionality.
 
 ## Get Android permissions
 
