@@ -20,8 +20,7 @@ layout:
 # 2D Models
 
 {% hint style="info" %}
-This feature must be enabled by MapsPeople. \
-Contact your MapsPeople representative to activate it for your solution(s).
+This feature must be enabled by MapsPeople. Contact your MapsPeople representative to activate it for your solution(s).
 {% endhint %}
 
 2D models are a way of including images on the map and customizing their appearance. They are uploaded using the Media Library.

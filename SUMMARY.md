@@ -296,7 +296,6 @@
 ## Reference Docs
 
 * [Web SDK](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/)
-* [Web SDK](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/)
 * [Android SDK](reference-docs/android-sdk.md)
 * [iOS SDK](reference-docs/ios-sdk.md)
 * [React Native SDK](reference-docs/react-native-sdk.md)
