@@ -12,7 +12,7 @@ Changelog for the MapsIndoors Flutter SDK. This document structure is based on [
 
 * LabelPositioning on DisplayRules
 * Elevated 2D Models (Mapbox)
-  * 2D Models that are placed on Extrusions, will now be raised to be placed on top
+  * 2D Models that are placed on Extrusions will now be raised to be placed on top
 * Clip Layer (Mapbox)
   * Extruded buildings and Trees from the MapBox standard style can now be removed, when inside venue's geometry.
   * Does not remove landmarks consistently, will be solved with a future version of Mapbox
