@@ -11,7 +11,6 @@ Changelog for the MapsIndoors React Native SDK. This document structure is based
 #### Updated
 
 * Updated MapsIndoors iOS SDK to 4.11.0
-* Updated MapsIndoors Android SDK to 4.12.0
 
 ### \[2.5.0] 2025-05-14
 
