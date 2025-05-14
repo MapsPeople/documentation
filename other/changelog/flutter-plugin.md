@@ -16,7 +16,7 @@ Changelog for the MapsIndoors Flutter SDK. This document structure is based on [
 * Clip Layer (Mapbox)
   * Extruded buildings and Trees from the MapBox standard style can now be removed, when inside venue's geometry.
   * Does not remove landmarks consistently, will be solved with a future version of Mapbox
-  * Requires a module enabled. Contact MapsPeople to have it enabled
+  * Requires the module to be enabled; contact MapsPeople to enable it.
 
 #### Fixed
 
