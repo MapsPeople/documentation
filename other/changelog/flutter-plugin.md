@@ -6,13 +6,40 @@ icon: flutter
 
 Changelog for the MapsIndoors Flutter SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[4.2.0] 2025-05-14
+
+#### Added
+
+* LabelPositioning on DisplayRules
+* Elevated 2D Models (Mapbox)
+  * 2D Models that are placed on Extrusions, will now be raised to be placed on top
+* Clip Layer (Mapbox)
+  * Extruded buildings and Trees from the MapBox standard style can now be removed, when inside venue's geometry.
+  * Does not remove landmarks consistently, will be solved with a future version of Mapbox
+  * Requires a module enabled. Contact MapsPeople to have it enabled
+
+#### Fixed
+
+* Added additional guards against the map being used before it is ready (Android/Google Maps)
+* Fixed issue causing compass to persist even when disabled (Android)
+* getLocationsByExternalIds now can return more than a single Location in the list (as would be expected) (iOS)
+* Fixed issue where some routes would be incorrect if the route was calculated while offline
+* Fixed issue where moving beyond the venue could cause a crash due to the floor selector
+* Reenabled Mapbox Attribution as it no longer causes a crash when tapped (Android/Mapbox)
+
+#### Changed
+
+* Updated Mapsindoors SDKs:
+  * Android to 4.12.0
+  * iOS to 4.11.0
+
 ### \[4.1.6] 2025-03-26
 
 #### Fixed
 
 * Made `getLocations()` return the same result on both Android and iOS.
 
-**Changed**
+#### Changed
 
 * Updated MapsIndoors SDKs:
   * Android to 4.11.3
@@ -26,12 +53,12 @@ Changelog for the MapsIndoors Flutter SDK. This document structure is based on [
 
 ### \[4.1.4] 2025-03-06
 
-**Fixed**
+#### Fixed
 
 * Removed a number of potential memory retentions in the iOS part of the Flutter plugin.
 * Restored functionality of the listeners on iOS that were disabled in version 4.1.3.
 
-**Changed**
+#### Changed
 
 * Updated MapsIndoors SDKs:
   * Android to 4.11.2
