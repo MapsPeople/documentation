@@ -116,6 +116,7 @@
     * [Using Cisco DNA Spaces](sdks-and-frameworks/android/user-positioning/using-cisco-dna-spaces.md)
     * [Using Google Fused Location Provider](sdks-and-frameworks/android/user-positioning/using-google-fused-location-provider.md)
     * [Using Indoor Atlas](sdks-and-frameworks/android/user-positioning/using-indoor-atlas.md)
+    * [Using CrowdConnected](sdks-and-frameworks/android/user-positioning/using-crowdconnected.md)
   * [Authentication](sdks-and-frameworks/android/authentication/README.md)
     * [Single Sign-On](sdks-and-frameworks/android/authentication/single-sign-on/README.md)
       * [SSO Configuration](sdks-and-frameworks/android/authentication/single-sign-on/sso-configuration.md)
