@@ -8,21 +8,7 @@ This guide assumes you already have an app with MapsIndoors.
 
 ## Download maven package
 
-First, download the Maven package and the CrowdConnected IPS:
-
-{% code title="build.gradle.kts" overflow="wrap" lineNumbers="false" %}
-
-```kts
-dependencies {
-  implementation("com.mapspeople.mapsindoors:mapsindoors-crowdconnected-positioning-provider:1.0.0")
-  implementation("net.crowdconnected.android.core:android-core:2.0.2")
-  implementation("net.crowdconnected.android.ips:android-ips:2.0.2")
-}
-```
-
-{% endcode %}
-
-And add the CrowdConnected maven url to your dependency resolution:
+First, add the CrowdConnected maven url to your dependency resolution:
 
 {% code title="settings.gradle.kts" overflow="wrap" lineNumbers="false" %}
 
@@ -35,6 +21,20 @@ dependencyResolutionManagement {
         maven { url = uri("https://maven.mapsindoors.com/") }
         maven { url = uri("https://maven2.crowdconnected.net/") }
     }
+}
+```
+
+{% endcode %}
+
+Then download the Maven package and the CrowdConnected IPS:
+
+{% code title="build.gradle.kts" overflow="wrap" lineNumbers="false" %}
+
+```kts
+dependencies {
+  implementation("com.mapspeople.mapsindoors:mapsindoors-crowdconnected-positioning-provider:1.0.0")
+  implementation("net.crowdconnected.android.core:android-core:2.0.2")
+  implementation("net.crowdconnected.android.ips:android-ips:2.0.2")
 }
 ```
 
