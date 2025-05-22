@@ -20,7 +20,11 @@ dependencies {
 }
 ```
 
+{% endcode %}
+
 And add the CrowdConnected maven url to your dependency resolution:
+
+{% code title="settings.gradle.kts" overflow="wrap" lineNumbers="false" %}
 
 ```kts
 dependencyResolutionManagement {
@@ -42,7 +46,7 @@ If you prefer more control, want to understand how it works, or want to customiz
 
 ## Get Android permissions
 
-Before positioning can be enabled, you must ask the user for permissions. The required permissions are: `ACCESS_FINE_LOCATION`, `BLUETOOTH_SCAN`, and `BLUETOOTH_CONNECT`.
+Before positioning can be enabled, you must ask the user for permissions. The required permissions are: `ACCESS_FINE_LOCATION`, `BLUETOOTH_SCAN`, and `BLUETOOTH_CONNECT`. Apps below API level 31 should not request `BLUETOOTH_SCAN` and `BLUETOOTH_CONNECT` as these were added in 31.
 
 You can decide where to request these permissions, it should be naturally integrated into the flow of opening the map or when the user interacts with the app to enable positioning themselves.
 
@@ -53,12 +57,21 @@ To request the permissions, it is easiest to use `ActivityCompat`. In this examp
 ```kotlin
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentActivity
+import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.Manifest.permission.BLUETOOTH_CONNECT
+import android.Manifest.permission.BLUETOOTH_SCAN
+import android.os.Build
+import android.os.Bundle
 
 class MainActivity : FragmentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-    ActivityCompat.requestPermissions(this, arrayOf(ACCESS_FINE_LOCATION, BLUETOOTH_SCAN, BLUETOOTH_CONNECT ), 0)
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+      ActivityCompat.requestPermissions(this, arrayOf(ACCESS_FINE_LOCATION, BLUETOOTH_SCAN, BLUETOOTH_CONNECT ), 0)
+    } else {
+      ActivityCompat.requestPermissions(this, arrayOf(ACCESS_FINE_LOCATION), 0)
+    }
   }
 }
 ```
@@ -74,12 +87,23 @@ If you want to await the user granting permissions, you must implement the `OnRe
 ```kotlin
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentActivity
+import android.content.pm.PackageManager.PERMISSION_GRANTED
+import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.Manifest.permission.BLUETOOTH_CONNECT
+import android.Manifest.permission.BLUETOOTH_SCAN
+import android.os.Build
+import android.os.Bundle
 
 class MainActivity : FragmentActivity(), ActivityCompat.OnRequestPermissionsResultCallback {
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-    ActivityCompat.requestPermissions(this, arrayOf(ACCESS_FINE_LOCATION, BLUETOOTH_SCAN, BLUETOOTH_CONNECT ), 0)
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+      ActivityCompat.requestPermissions(this, arrayOf(ACCESS_FINE_LOCATION, BLUETOOTH_SCAN, BLUETOOTH_CONNECT ), 0)
+    } else {
+      ActivityCompat.requestPermissions(this, arrayOf(ACCESS_FINE_LOCATION), 0)
+    }
   }
 
   override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String?>, grantResults: IntArray) {
@@ -138,15 +162,80 @@ class MainActivity : FragmentActivity() {
         }
       }
     )
+    MapsIndoors.setPositionProvider(positionManager!!)
   }
 }
 ```
 
 {% endcode %}
 
-In the above example we initialized the `positionManager` using a set of CrowdConnected secrets that we got from their CMS. It is optional to add a `StatusCallback`, in this example we added it for debug purposes, it will print to the log and create a `Toast` informing the status of initialization.
+In the above example we initialized the `positionManager` using a set of CrowdConnected secrets that we got from their CMS, you can follow the CrowdConnected guide on how to generate them [here](https://customer.support.crowdconnected.com/servicedesk/customer/portal/1/article/2888139205). It is optional to add a `StatusCallback`, in this example we added it for debug purposes, it will print to the log and create a `Toast` informing the status of initialization.
 
 With this, positioning is up and running, and can be tested out in your app. The only thing we are missing is lifecycle handling.
+
+## Show it on the map
+
+The last step to get the positioning shown on the map is to enable it in `MapControl`. This is typically done when creating the `MapControl`, but it can be turned on at any time. In the following example we turn on positioning when creating our `MapControl`, by adding it to the `MPMapConfig`. The example is based on using Mapbox, but this can be done for any supported map.
+
+{% code title="MainActivity.kt" overflow="wrap" lineNumbers="true" %}
+
+```kotlin
+import android.os.Bundle
+import androidx.fragment.app.FragmentActivity
+import com.mapsindoors.core.MapControl
+import com.mapsindoors.mapbox.MPMapConfig
+import com.mapsindoors.core.errors.MIError
+import com.mapbox.maps.MapView
+import com.mapbox.maps.MapboxMap
+
+class MainActivity : FragmentActivity() {
+  private var mMapControl: MapControl? = null
+  private var mMap: MapBoxMap? = null
+  private var mMapView: MapBoxMapView? = null
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+    // initialize Map
+    mMapView = requireActivity().findViewById(R.id.mapView)
+    mMap = mMapView.mapboxMap
+    // start building MapControl
+    initMapControl()
+  }
+
+  private fun initMapControl() {
+    val mapConfig = MPMapConfig.Builder(this, mMap ?: return, mMapView ?: return, "YOUR_MAPSINDOORS_API_KEY", true)
+      .setShowUserPosition(true) // setShowUserPosition to true to show the latest position given to MapsIndoors on the map
+      .build()
+    MapControl.create(mapConfig) { mapControl: MapControl?, miError: MIError? ->
+      if (miError == null) {
+        mMapControl = mapControl
+      }
+    }
+  }
+}
+```
+
+{% endcode %}
+
+Positioning can also be enabled or disabled on `MapControl` at any time by calling `showUserPosition` on `MapControl`:
+
+{% code title="MainActivity.kt" overflow="wrap" lineNumbers="true" %}
+
+```kotlin
+import androidx.fragment.app.FragmentActivity
+import com.mapsindoors.core.MapControl
+
+class MainActivity : FragmentActivity() {
+  private var mMapControl: MapControl? = null
+
+  private fun showPosition(show: Boolean) {
+    // positioning can be enabled at any time mapcontrol is accessible
+    mMapControl?.showUserPosition(show)
+  }
+}
+```
+{% endcode %}
 
 ## Lifecycle
 
