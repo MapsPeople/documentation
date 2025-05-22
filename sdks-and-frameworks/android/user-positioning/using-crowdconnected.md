@@ -204,7 +204,7 @@ class MainActivity : FragmentActivity() {
   }
 
   private fun initMapControl() {
-    val mapConfig = MPMapConfig.Builder(this, mMap ?: return, mMapView ?: return, "YOUR_MAPSINDOORS_API_KEY", true)
+    val mapConfig = MPMapConfig.Builder(this, mMap ?: return, mMapView ?: return, "your_mapbox_api_key", true)
       .setShowUserPosition(true) // setShowUserPosition to true to show the latest position given to MapsIndoors on the map
       .build()
     MapControl.create(mapConfig) { mapControl: MapControl?, miError: MIError? ->
