@@ -8,10 +8,11 @@ icon: android
 {% tab title="V4" %}
 **Latest**
 
-* [MapsIndoors Android SDK v4.12.0](https://app.mapsindoors.com/mapsindoors/reference/android/4.12.0/index.html)
+* [MapsIndoors Android SDK v4.12.1](https://app.mapsindoors.com/mapsindoors/reference/android/4.12.1/index.html)
 
 **Previous versions**
 
+* [MapsIndoors Android SDK v4.12.0](https://app.mapsindoors.com/mapsindoors/reference/android/4.12.0/index.html)
 * [MapsIndoors Android SDK v4.11.5](https://app.mapsindoors.com/mapsindoors/reference/android/4.11.5/index.html)
 * [MapsIndoors Android SDK v4.11.4](https://app.mapsindoors.com/mapsindoors/reference/android/4.11.4/index.html)
 * [MapsIndoors Android SDK v4.11.3](https://app.mapsindoors.com/mapsindoors/reference/android/4.11.3/index.html)
