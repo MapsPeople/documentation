@@ -10,7 +10,7 @@ Changelog for the MapsIndoors Flutter SDK. This document structure is based on [
 
 ### Fixed
 
-* Fixed Android not respecting setHiddenFeatures for 3D models
+* Fixed Android not respecting `setHiddenFeatures` for 3D models
 
 ### Changed
 
