@@ -1,8 +1,6 @@
 # Using CrowdConnected
 
-To get started with CrowdConnected positioning, you can either create your own implementation by using the `MPPositionProvider` interface from the MapsIndoors SDK to visualize position updates from CrowdConnected.
-
-Alternatively, you can use the MapsIndoors CrowdConnected Positioning Provider, which handles this work for you, requiring minimal setup. This guide shows how to implement it.
+To get started with CrowdConnected positioning, you can either create your own implementation by using the `MPPositionProvider` interface from the MapsIndoors SDK to visualize position updates from CrowdConnected or you can use the MapsIndoors CrowdConnected Positioning Provider, which handles this work for you, requiring minimal setup. This guide shows how to make use of it.
 
 This guide assumes you already have an app with MapsIndoors.
 
