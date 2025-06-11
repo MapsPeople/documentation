@@ -169,6 +169,7 @@
   * [Show User's Location aka. Blue Dot](sdks-and-frameworks/ios/show-users-location-aka.-blue-dot/README.md)
     * [Using Indoor Atlas](sdks-and-frameworks/ios/show-users-location-aka.-blue-dot/using-indoor-atlas.md)
     * [Using Cisco DNA Spaces](sdks-and-frameworks/ios/show-users-location-aka.-blue-dot/using-cisco-dna-spaces.md)
+    * [Using CrowdConnected](sdks-and-frameworks/ios/show-users-location-aka.-blue-dot/using-crowdconnected.md)
   * [Highlight and Select](sdks-and-frameworks/ios/highlight-and-select.md)
   * [Display Language](sdks-and-frameworks/ios/display-language.md)
 * [React Native](sdks-and-frameworks/react-native/README.md)
