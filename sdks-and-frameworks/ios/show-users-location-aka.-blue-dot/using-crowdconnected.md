@@ -12,7 +12,7 @@ First, add the MapsIndoors CrowdConnected Swift Package to your dependencies
 
 1.  In Xcode, open your project.
 2.  Go to `File` -> `Add Package Dependencies…`
-3.  Enter the repository URL for the MApsIndoors CrowdConnected package (https://github.com/MapsPeople/mapsindoors-crowdconnected-ios.git)
+3.  Enter the repository URL for the MapsIndoors CrowdConnected package (https://github.com/MapsPeople/mapsindoors-crowdconnected-ios.git)
 4.  Follow the prompts to select the package and target for installation.
 
 ### Using Swift Package Manager Manifest
