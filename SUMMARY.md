@@ -126,6 +126,7 @@
   * [Display Rules in Practice](sdks-and-frameworks/android/display-rules-in-practice.md)
     * [Label styling through Display Rules](sdks-and-frameworks/android/display-rules-in-practice/label-styling-through-display-rules.md)
   * [Highlight and Select](sdks-and-frameworks/android/highlight-and-select.md)
+  * [Using multiple Map Providers](sdks-and-frameworks/android/using-multiple-map-providers.md)
 * [iOS](sdks-and-frameworks/ios/README.md)
   * [Getting Started](sdks-and-frameworks/ios/getting-started/README.md)
     * [Prerequisites](sdks-and-frameworks/ios/getting-started/prerequisites.md)
