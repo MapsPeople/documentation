@@ -162,6 +162,7 @@ class MapboxMapFragment : MapFragment(R.layout.mapbox_map_fragment) {
 ```
 {% endcode %}
 {% endtab %}
+{% endtabs %}
 
 ### Map implementation
 
@@ -346,6 +347,7 @@ class MapboxMapFragment : MapFragment(R.layout.mapbox_map_fragment) {
 ```
 {% endcode %}
 {% endtab %}
+{% endtabs %}
 
 ### Init and isReady
 
@@ -448,6 +450,7 @@ class MapboxMapFragment : MapFragment(R.layout.mapbox_map_fragment) {
 ```
 {% endcode %}
 {% endtab %}
+{% endtabs %}
 
 ### MapConfigBuilder
 
@@ -490,6 +493,7 @@ class MapboxMapFragment : MapFragment(R.layout.mapbox_map_fragment) {
 ```
 {% endcode %}
 {% endtab %}
+{% endtabs %}
 
 ### Final class
 
@@ -754,10 +758,9 @@ class MapboxMapFragment : MapFragment(R.layout.mapbox_map_fragment) {
 ```
 {% endcode %}
 {% endtab %}
+{% endtabs %}
 
 ## Views
-
-
 
 ### Main Activity view
 
@@ -823,6 +826,7 @@ The actual fragments contains a `Mapview` inside a `FrameLayout`.
 ```
 {% endcode %}
 {% endtab %}
+{% endtabs %}
 
 ### Secrets
 
