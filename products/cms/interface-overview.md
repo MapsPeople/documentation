@@ -1,39 +1,31 @@
 # Interface Overview
 
-## Map <a href="#map" id="map"></a>
+## :pencil2: Edit <a href="#map" id="map"></a>
 
-The Map section is the main navigation of the MapsIndoors CMS and includes the Filter bar at the top, a Toolbar at the bottom, a Floor selector on the right, and your Map in the center.
+The **Edit** section is the main navigation of the MapsIndoors CMS and includes the Filter bar at the top, a Toolbar at the bottom, a Floor selector on the right, and your Map in the center.
 
-<figure><img src="../../.gitbook/assets/cms (6).jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/cms-overview.png" alt=""><figcaption></figcaption></figure>
 
 1. Use the "Solution Switcher" to select your active Solution.
-2. Enters the "Map" view (shown on the image). This is the page you see when logging into the CMS.
-3. Enters the "Solution Details" menu containing the submenus mentioned earlier.
-4. Open the Standard Web App using the information entered in the CMS. (Only available if you have set an Alias)
-5. Enter the "Settings" menu page containing subpages.
-6. Opens a drop-down menu containing options such as "Docs," "Log Out," and a link to enabling two-factor authentication.
-7. Select the active Venue. The filter bar can then narrow down the data you see on the Map and Lists for this Venue.
-8. Select one or more Buildings.
-9. Select one or more Floors. This is active when a single Building is selected.
-10. Filters on whether Rooms, POIs, and Areas should be shown on the Map and in the List.
-11. A filter to narrow down Locations to display specific Location Types.
-12. A filter to narrow down Locations to display specific Categories.
-13. A filter to narrow down Locations to display with specific App User Roles applied.
-14. Click to search for Locations using a Location’s name, Location ID, Alias, or External ID.
-15. Selecting one or more Locations in the List view activates the bulk edit button. This allows you to bulk update Location Attributes, such as Location Type, Searchability, Categories, Aliases, and more.
-16. Expands a list containing all your Locations. Filters are applied to Location data shown on the Map and the List view.
-17. A Floor selector to set the Floor for the Map.
-18. The main toolbar to modify your data.
+2. Enters the "Edit" view (shown on the image). This is the page you see when logging into the CMS.
+3. Enters the "View" view. Here you can preview how your map will look in production.
+4. Enters the "Solution Details" menu containing the submenus mentioned earlier.
+5. Opens your solution's "Media Library"
+6. Enter the "Settings" menu page containing subpages.
+7. Opens a drop-down menu containing options such as "Docs," "Log Out," and a link to enabling two-factor authentication.
+8. Select the active Venue. The filter bar can then narrow down the data you see on the Map and Lists for this Venue.
+9. Select one or more Buildings.
+10. Select one or more Floors. This is active when a single Building is selected.
+11. Filters on whether Rooms, POIs, and Areas should be shown on the Map and in the List.
+12. A filter to narrow down Locations to display specific Location Types.
+13. A filter to narrow down Locations to display specific Categories.
+14. A filter to narrow down Locations to display with specific App User Roles applied.
+15. Click to search for Locations using a Location’s name, Location ID, Alias, or External ID.
+16. Selecting one or more Locations in the List view activates the bulk edit button. This allows you to bulk update Location Attributes, such as Location Type, Searchability, Categories, Aliases, and more.
+17. Expands a list containing all your Locations. Filters are applied to Location data shown on the Map and the List view.
+18. A Floor selector to set the Floor for the Map.
 
-## Solution Switcher​ <a href="#combo-box" id="combo-box"></a>
-
-<figure><img src="../../.gitbook/assets/CleanShot 2023-07-05 at 15.06.45@2x.png" alt=""><figcaption></figcaption></figure>
-
-The Solution switcher allows you to search for the Solutions you have access to.
-
-
-
-## Toolbar
+### 19. The toolbar
 
 From left to right, the functionalities in the Toolbar are as follows (you can also hover over the icons in the CMS to see their names):
 
@@ -44,7 +36,7 @@ From left to right, the functionalities in the Toolbar are as follows (you can a
 * **Reload Route Network** - Reloads the Route Network. Route Element changes' effect on the Network becomes visible after reloading the Network.
 * **Zoom Level** - Adjust the Zoom Level. Values range from 15 (zoom out) to 999 (also known as "max zoom").
 
-## Doors & Barriers​ <a href="#doors--barriers" id="doors--barriers"></a>
+### Doors & Barriers​ <a href="#doors--barriers" id="doors--barriers"></a>
 
 Doors and Barriers are Route Elements that allow you to manipulate certain portions of the Route Network. They appear if you click the **Show Network** button mentioned above.
 
@@ -106,9 +98,19 @@ When accessing Multiple doors creation mode, there is an option to choose door t
 * **Floor Index** - Use this to move a Barrier to another Floor.
 * **One-way direction (bearing)** - The _exit angle_ of a one-way Barrier, in degrees, like a compass bearing. In the illustration above, the entered value would be 45, as the user would exit at a 45-degree bearing.
 
+## :eye: View
 
+In the **View** tab, you can see what your map will look like in a real-world production environment, including routing and styling
 
-## Solution Details <a href="#solution-details" id="solution-details"></a>
+{% hint style="info" %}
+If you're working in "Edit" mode and also have the "View" tab open, be sure to refresh the "View" tab to see your changes. They won't appear there automatically.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/cms-view.png" alt=""><figcaption></figcaption></figure>
+
+You configurations in "[App Configuration](../web-app.md#configuration)" will also be represented here.
+
+## :wrench: Solution Details <a href="#solution-details" id="solution-details"></a>
 
 Under Solution Details, you can find several subpages, which are described below.
 

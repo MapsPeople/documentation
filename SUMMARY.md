@@ -240,6 +240,7 @@
   * [Location Details configuration](products/fast-track-maptemplate/location-details-configuration.md)
   * [Kiosk](products/fast-track-maptemplate/kiosk/README.md)
     * [QR code configuration](products/fast-track-maptemplate/kiosk/qr-code-configuration.md)
+* [Web App](products/web-app.md)
 
 ## Other
 

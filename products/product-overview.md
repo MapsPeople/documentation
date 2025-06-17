@@ -1,12 +1,26 @@
 ---
 icon: lightbulb
+cover: ../.gitbook/assets/product-overview.jpg
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Product Overview
 
-<figure><img src="../.gitbook/assets/mapsindoors-banner-devices.png" alt=""><figcaption></figcaption></figure>
-
-#### Introducing MapsIndoors: Your Ultimate Indoor Mapping Solution
+## Introducing MapsIndoors: Your Ultimate Indoor Mapping Solution
 
 MapsIndoors is the dynamic mapping platform that seamlessly integrates indoor maps, points of interest (POIs), wayfinding, and location data into your own application. Whether you need it for web, mobile, kiosk, or as a standalone solution, MapsIndoors has you covered.
 
