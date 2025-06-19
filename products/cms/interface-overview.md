@@ -8,7 +8,7 @@ The **Edit** section is the main navigation of the MapsIndoors CMS and includes 
 
 1. Use the "Solution Switcher" to select your active Solution.
 2. Enters the "Edit" view (shown on the image). This is the page you see when logging into the CMS.
-3. Enters the "View" view. Here you can preview how your map will look in production.
+3. Enters the "[View](interface-overview.md#view)" view. Here you can preview how your map will look in production.
 4. Enters the "Solution Details" menu containing the submenus mentioned earlier.
 5. Opens your solution's "Media Library"
 6. Enter the "Settings" menu page containing subpages.
@@ -100,7 +100,7 @@ When accessing Multiple doors creation mode, there is an option to choose door t
 
 ## :eye: View
 
-In the **View** tab, you can see what your map will look like in a real-world production environment, including routing and styling
+In the **View** tab, you can see what your map will act in a real-world production environment, including routing and styling. Use this tab to QA your map.
 
 {% hint style="info" %}
 If you're working in "Edit" mode and also have the "View" tab open, be sure to refresh the "View" tab to see your changes. They won't appear there automatically.
@@ -175,7 +175,7 @@ This page contains various subpages with more advanced styling settings. Read mo
 
 ### App Settings​ <a href="#app-settings" id="app-settings"></a>
 
-This page contains various subpages with more advanced settings about your app.
+This page is where you configure your app and also setup the web app, if you want to use the map like that. [More information here](../web-app.md).
 
 #### **App Configuration​**
 
@@ -218,15 +218,3 @@ You can easily delete an API key if it is unused, or has been compromised.
 5. Toggle between active and inactive API keys.
 6. Your API key is located here in text form.
 7. Delete the API key.
-
-### Booking Provider
-
-This submenu gives you the option of integrating a Booking system into your Solution. The exact menus presented here depend on which provider you opt for.
-
-### Position Provider
-
-MapsIndoors also allows you to integrate a Positioning system into your Solution. The exact menus presented here, like the Booking system, depend on which provider you opt for.
-
-### Webex
-
-As the options above, the possibilities presented for WebEx integration depend on the exact manner of integration.
