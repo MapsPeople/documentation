@@ -6,6 +6,18 @@ icon: flutter
 
 Changelog for the MapsIndoors Flutter SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## \[4.2.2] 2025-06-20
+
+### Fixed
+
+* Fixed iOS not respecting `setHiddenFeatures` for 3D models
+
+### Changed
+
+* Updated MapsIndoors SDKs:
+  * Android to [4.12.3](https://docs.mapsindoors.com/other/changelog/android-sdk/v4#id-4.12.3-2025-06-19)
+  * iOS to  [4.12.1](https://docs.mapsindoors.com/other/changelog/ios-sdk/v4#id-4.12.1-2025-06-19)
+
 ## \[4.2.1] 2025-06-05
 
 ### Fixed
@@ -14,7 +26,7 @@ Changelog for the MapsIndoors Flutter SDK. This document structure is based on [
 
 ### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to 4.12.1
 
 ## \[4.2.0] 2025-05-14
@@ -152,11 +164,11 @@ Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md
 
 ## \[3.1.3] 2024-10-31
 
-### Fixed&#x20;
+### Fixed
 
 * Fixed custom floorselectors not working properly on iOS
 
-### Changed&#x20;
+### Changed
 
 * Updated MapsIndoors SDKs:
   * Android to 4.8.12
@@ -192,7 +204,7 @@ Visit the [migration guide](../../sdks-and-frameworks/flutter/migration-guide.md
 * Android to 4.8.11 (Google Maps only)
 * iOS to 4.6.1
 
-## \[3.1.0]  2024-09-11
+## \[3.1.0] 2024-09-11
 
 ### Added
 
