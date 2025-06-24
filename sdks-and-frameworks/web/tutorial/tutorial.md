@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Getting Started: MapsIndoors
 
 Throughout the Getting Started guide, you will modify and extend the same code to create your map. Let's start by creating the initial app.
