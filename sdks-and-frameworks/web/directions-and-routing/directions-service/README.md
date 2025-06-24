@@ -42,7 +42,7 @@ From an implementation standpoint, there are two functional things that need to 
 
 
 
-The first step in getting directions is initializaing the directions service instance. By passing the externalDirectionsProvider, the MapsIndoors SDK will handle merging responses from the base map, e.g. outdoor directions that will charge billable requests if you request from somewhere else other than MapsIndoors data (e.g. an end users house, to somewhere indoors.)
+The first step in getting directions is initializing the directions service instance. By passing the externalDirectionsProvider, the MapsIndoors SDK will handle merging responses from the base map, e.g. outdoor directions that will charge billable requests if you request from somewhere else other than MapsIndoors data (e.g. an end users house, to somewhere indoors.)
 
 ## **Implementation**
 
@@ -51,9 +51,11 @@ The class `DirectionsService` is used to request routes from one point to anothe
 **Mapbox** (required parameter of the DirectionsService instance)
 
 ```javascript
-const externalDirectionsProvider = new mapsindoors.directions.MapboxProvider();
+const externalDirectionsProvider = new mapsindoors.directions.MapboxProvider("YOUR_MAPBOX_TOKEN");
 const miDirectionsServiceInstance = new mapsindoors.services.DirectionsService(externalDirectionsProvider);
 ```
+
+MapboxProvider reference documentation: [**https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.MapboxProvider.html**](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.MapboxProvider.html)
 
 **Google** (not required for legacy reasons, but recommended to pass an externalDirectionsProvider as a parameter)
 
@@ -61,6 +63,8 @@ const miDirectionsServiceInstance = new mapsindoors.services.DirectionsService(e
 const externalDirectionsProvider = new mapsindoors.directions.GoogleMapsProvider();
 const miDirectionsServiceInstance = new mapsindoors.services.DirectionsService(externalDirectionsProvider);
 ```
+
+GoogleMapsProvider reference documentation: [https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.GoogleMapsProvider.html](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.GoogleMapsProvider.html)
 
 In the below example, the coordinates are hard coded, but you'll likely want to retrieve them from location objects. It's recommended to get those from the anchor points, e.g.&#x20;
 
@@ -104,7 +108,7 @@ Relevant for outdoor directions only
 
 #### Avoiding Stairs and Steps[​](https://docs.mapsindoors.com/directions-service#avoiding-stairs-and-steps-3) <a href="#avoiding-stairs-and-steps-3" id="avoiding-stairs-and-steps-3"></a>
 
-For a wheelchair user or a user with physical disabilities it could be relevant to request a Route that avoids stairs, escalators and steps.
+For a wheelchair user or a user with physical disabilities, it could be relevant to request a Route that avoids stairs, escalators, and steps.
 
 Set avoid stairs on your request using the `avoidStairs` property on `routeParameters`:
 
@@ -118,7 +122,7 @@ const routeParameters = {
 
 #### App User Role Restrictions[​](https://docs.mapsindoors.com/directions-service#app-user-role-restrictions-3) <a href="#app-user-role-restrictions-3" id="app-user-role-restrictions-3"></a>
 
-Application User Roles is a feature that lets you define various roles, you can assign to your users. In the context of route calculation, the feature is used to differentiate routing from one user type to the another. In the MapsIndoors CMS it is possible to restrict paths and doors in the route network for certain [User Roles](../../other-guides/application-user-roles.md).
+Application User Roles is a feature that lets you define various roles that you can assign to your users. In the context of route calculation, the feature is used to differentiate routing from one user type to the another. In the MapsIndoors CMS it is possible to restrict paths and doors in the route network for certain [User Roles](../../other-guides/application-user-roles.md).
 
 You can get available Roles for your MapsIndoors Solution with the help of the `SolutionsService:`
 
