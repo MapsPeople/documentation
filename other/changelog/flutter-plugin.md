@@ -6,6 +6,12 @@ icon: flutter
 
 Changelog for the MapsIndoors Flutter SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## \[4.2.3] 2025-06-24
+
+### Fixed
+
+* Fixed iOS compilation error
+
 ## \[4.2.2] 2025-06-20
 
 ### Fixed
