@@ -100,7 +100,7 @@ When accessing Multiple doors creation mode, there is an option to choose door t
 
 ## :eye: View
 
-In the **View** tab, you can see what your map will act in a real-world production environment, including routing and styling. Use this tab to QA your map.
+In the View tab, you can see how your map will act in a real-world production environment, including routing and styling. Use this tab to do quality assurance for your map.
 
 {% hint style="info" %}
 If you're working in "Edit" mode and also have the "View" tab open, be sure to refresh the "View" tab to see your changes. They won't appear there automatically.
@@ -108,7 +108,7 @@ If you're working in "Edit" mode and also have the "View" tab open, be sure to r
 
 <figure><img src="../../.gitbook/assets/cms-view.png" alt=""><figcaption></figcaption></figure>
 
-You configurations in "[App Configuration](../web-app.md#configuration)" will also be represented here.
+Your configurations in "[App Configuration](../web-app.md#configuration)" will also be represented here.
 
 ## :wrench: Solution Details <a href="#solution-details" id="solution-details"></a>
 
