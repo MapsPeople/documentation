@@ -85,7 +85,7 @@ dependencies {
     ...
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.mapspeople.mapsindoors:googlemaps:4.10.0'
+    implementation 'com.mapspeople.mapsindoors:googlemaps:4.12.3'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 }
 repositories{
@@ -113,11 +113,11 @@ Sync your project with gradle.
 ```gradle
 dependencies {
     ...
-    implementation ('com.mapbox.maps:android:11.4.0'){
+    implementation ('com.mapbox.maps:android:11.13.1'){
         exclude group: 'group_name', module: 'module_name'
     }
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.mapspeople.mapsindoors:mapbox:4.10.0'
+    implementation 'com.mapspeople.mapsindoors:mapbox-v11:4.12.3'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 }
 repositories{
