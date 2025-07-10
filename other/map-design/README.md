@@ -2,23 +2,9 @@
 icon: pen-paintbrush
 cover: ../../.gitbook/assets/docs-overview.jpg
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: full
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
-# Design
+# Map Design
 
 MapsIndoors empowers you to tailor maps to fit your brand and user interface. This customization enhances user experience. Yet, the multitude of options poses challenges. The abundance of choices can be overwhelming, hindering decision-making. So, let's begin by setting a clear goal.
 

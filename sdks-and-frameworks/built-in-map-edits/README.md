@@ -5,20 +5,6 @@ description: >-
 icon: location-pen
 cover: ../../.gitbook/assets/builtin.jpg
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: false
-  pagination:
-    visible: true
 ---
 
 # Built-In Map Edits

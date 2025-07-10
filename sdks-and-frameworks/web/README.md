@@ -1,17 +1,6 @@
 ---
-icon: globe
 description: Documentation on the MapsIndoors Web SDK
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
+icon: globe
 ---
 
 # Web

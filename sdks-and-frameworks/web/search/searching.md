@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
----
-
 # Searching
 
 Searching through your MapsIndoors data is an key part of a great user experience with your maps. Users can look for places to go, or filter what is shown on the map.
@@ -243,7 +229,7 @@ All three return a list of Locations from your solution matching the parameters 
 
 * If a "near" parameter is set, how close is the origin point to the result?
 * How well does the search input text match the text of the result?&#x20;
-  * (Our base algorithm for searching is using the "[Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein\_distance)" algorithm)
+  * (Our base algorithm for searching is using the "[Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)" algorithm)
 * Which kind of geodata is the result (e.g. Buildings are ranked over POIs)?
 
 This means that the first item in the search result list will be the one best matching the three factors. **You always have the ability to reorder your array of locations based on your preference before rendering them in your user interface, if you choose to handle that via some client-side code.**

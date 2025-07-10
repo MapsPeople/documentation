@@ -4,20 +4,6 @@ description: >-
   maintain your data within the MapsIndoors platform.
 cover: broken-reference
 coverY: 0
-layout:
-  cover:
-    visible: false
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Data Concepts

@@ -1,25 +1,11 @@
 ---
-icon: hand-wave
 description: >-
   Your go-to resource for tapping into the full potential of the MapsIndoors®
   platform. Dive into comprehensive guides, tutorials, and reference materials
   designed to make your implementation process se
+icon: hand-wave
 cover: .gitbook/assets/logobanner.png
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
 ---
 
 # Welcome
@@ -30,7 +16,7 @@ layout:
 
 ## Products
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td>Product Overview</td><td></td><td></td><td><a href="products/product-overview.md">product-overview.md</a></td><td><a href=".gitbook/assets/android (1).jpg">android (1).jpg</a></td></tr><tr><td>CMS</td><td></td><td></td><td><a href="products/cms/">cms</a></td><td><a href=".gitbook/assets/cms.jpg">cms.jpg</a></td></tr><tr><td>Map Template</td><td></td><td></td><td><a href="products/fast-track-maptemplate/">fast-track-maptemplate</a></td><td><a href=".gitbook/assets/android-1.jpg">android-1.jpg</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-hidden></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td>Product Overview</td><td></td><td></td><td><a href="products/product-overview.md">product-overview.md</a></td><td><a href=".gitbook/assets/android (1).jpg">android (1).jpg</a></td></tr><tr><td>CMS</td><td></td><td></td><td><a href="products/cms/">cms</a></td><td><a href=".gitbook/assets/cms (1).jpg">cms (1).jpg</a></td></tr><tr><td>Map Template</td><td></td><td></td><td><a href="products/fast-track-maptemplate/">fast-track-maptemplate</a></td><td><a href=".gitbook/assets/android-1.jpg">android-1.jpg</a></td></tr></tbody></table>
 
 ## Other
 

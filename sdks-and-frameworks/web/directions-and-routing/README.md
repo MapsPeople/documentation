@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
----
-
 # Wayfinding
 
 Wayfinding is a critical component of your indoor map solution enabling efficient route calculations and optimal navigation within indoor spaces.\

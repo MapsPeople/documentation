@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Authentication
 
 MapsIndoors Auth is handled in two ways:
@@ -30,7 +16,7 @@ Usually, access to the services behind the MapsIndoors SDK is restricted with AP
 We recommend using a library such as AppAuth to handle verification and response to get a token to use in the MapsIndoors SDK.
 
 {% hint style="info" %}
-If you are looking for documentation on Android SDK v3, please [see here](https://docs-legacy.mapsindoors.com/content/legacy/android\_v3/).
+If you are looking for documentation on Android SDK v3, please [see here](https://docs-legacy.mapsindoors.com/content/legacy/android_v3/).
 {% endhint %}
 
 In order to utilize an OAuth2 login flow for your MapsIndoors project, you will need to provide some details to the OAuth2 client, like the _issuer URL_, _client id_, _scopes_ and possibly a _preferred identity provider_ if there are more than one option. These details can be fetched using `MapsIndoors.getAuthenticationDetails`
