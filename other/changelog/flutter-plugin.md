@@ -4,7 +4,24 @@ icon: flutter
 
 # Flutter SDK
 
-Changelog for the MapsIndoors Flutter SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+Change log for the MapsIndoors Flutter SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## \[4.2.4] 2025-07-11
+
+### Added
+
+* Added possibility to define which map features to show when initializing the MapsIndoors widget
+
+### Fixed
+
+* `zoomBy` on iOS now actually zooms by the given amount from the current zoom level
+* `zoom` level reported by Android when using Mapbox to not be off by 1
+
+### Changed
+
+* Updated MapsIndoors SDKs:
+  * Android to [4.12.4](https://docs.mapsindoors.com/other/changelog/android-sdk/v4#id-4.12.4-2025-07-11)
+  * iOS to [4.12.2](https://docs.mapsindoors.com/other/changelog/ios-sdk/v4#id-4.12.2-2025-07-09)
 
 ## \[4.2.3] 2025-06-24
 
