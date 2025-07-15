@@ -6,11 +6,13 @@ icon: react
 
 ## Latest
 
-* [React Native SDK v2.5.1 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/2.5.1/index.html)
-* [React Native SDK v2.5.1 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/2.5.1/index.html)
+* [React Native SDK v2.5.2 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/2.5.2/index.html)
+* [React Native SDK v2.5.2 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/2.5.2/index.html)
 
 ## Previous versions
 
+* [React Native SDK v2.5.1 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/2.5.1/index.html)
+* [React Native SDK v2.5.1 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/2.5.1/index.html)
 * [React Native SDK v2.5.0 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/2.5.0/index.html)
 * [React Native SDK v2.5.0 (Google Maps)](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/2.5.0/index.html)
 * [React Native SDK v2.4.2 (Mapbox)](https://app.mapsindoors.com/mapsindoors/reference/react-native/mapbox/2.4.2/index.html)
