@@ -255,6 +255,7 @@
 
 ## Other
 
+* [Build on MapsIndoors with LLMs](other/build-on-mapsindoors-with-llms.md)
 * [Map Design](other/map-design/README.md)
   * [Map Design System](other/map-design/standard-mapsindoors-map-style.md)
   * [Using a Custom Mapbox MapStyle](other/map-design/using-a-custom-mapbox-mapstyle.md)
