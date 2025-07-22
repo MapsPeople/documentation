@@ -10,7 +10,7 @@ icon: flutter
 {% tab title="Google Maps" %}
 **Current**
 
-* [MapsIndoors Google Maps Flutter SDK v4 latest](https://pub.dev/documentation/mapsindoors_googlemaps/4.2.5/)
+* [MapsIndoors Google Maps Flutter SDK v4 latest](https://pub.dev/documentation/mapsindoors_googlemaps/4.3.0/)
 
 **Previous versions**
 
