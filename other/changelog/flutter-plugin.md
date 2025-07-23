@@ -8,6 +8,12 @@ Change log for the MapsIndoors Flutter SDK. This document structure is based on 
 
 ## \[4.3.0] 2025-07-22
 
+### Fixed
+
+* Fixed a build issue on iOS
+
+## \[4.3.0] 2025-07-22
+
 ### Added
 
 * Added `enableMapsIndoorsDebugLogging(bool)` function to enable SDK logging to help with debugging.
