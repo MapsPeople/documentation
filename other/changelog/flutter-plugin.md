@@ -18,7 +18,7 @@ Change log for the MapsIndoors Flutter SDK. This document structure is based on 
 
 ### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to [4.13.0](https://docs.mapsindoors.com/other/changelog/android-sdk/v4#id-4.13.0-2025-07-29)
 
 ## \[4.3.2] 2025-07-24
