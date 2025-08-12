@@ -162,7 +162,7 @@ mMapControl.clearFilter()
 
 If you have set up nested categories in your solution, then it has become much easier to search for these categories than before, but it might not make sense right now, lets go over it with an example:
 
-You have three categories: `Restroom`, `Unisex`, and `Handicap`. Of these three, `Unisex` and `Handicap` are sub categories of `Restroom`.
+You have three categories: `Restroom`, `Unisex`, and `Handicap`. Of these three, `Unisex` and `Handicap` are sub-categories of `Restroom`.
 
 before we get to searching, lets see what we can do in the SDK:
 
@@ -172,7 +172,7 @@ val categoryCollection = MapsIndoors.getCategories()
 
 
 // chech whether a category has a named child category
-val isChild = categoryCollection?.getCategory("Restroom")?.hasChild("Unisex")
+val isChild = categoryCollection?.getCategory("Restroom")?.childKeys?.contains("Unisex")
 if (isChild == true) {
     print("Restroom has a child with the key 'Unisex'!")
 }
