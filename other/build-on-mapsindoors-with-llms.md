@@ -2,21 +2,6 @@
 icon: robot
 cover: ../.gitbook/assets/llm.jpg
 coverY: 0
-layout:
-  width: default
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Build on MapsIndoors with LLMs

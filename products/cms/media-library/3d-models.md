@@ -1,21 +1,6 @@
 ---
 cover: ../../../.gitbook/assets/3dmodels.jpg
 coverY: 0
-layout:
-  width: default
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # 3D Models
