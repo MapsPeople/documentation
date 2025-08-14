@@ -196,6 +196,80 @@ await locationEditor.save();
 
 _Remember to replace `'LOCATION_ID'`, `'LANGUAGE_SPECIFIC_NAME'`, and `'LANGUAGE_SPECIFIC_DESCRIPTION'` with your actual values._
 
+#### Update a Location's ExternalID
+
+Set or update the external ID for a specific location, typically used to link MapsIndoors locations with external systems or identifiers.
+
+```js
+const locationEditor = await solutionManager.getLocation('LOCATION_ID');
+
+let externalId = locationEditor.getExternalId();
+
+locationEditor.setExternalId('NEW_EXTERNAL_ID')
+
+await locationEditor.save();
+```
+
+_Remember to replace `'LOCATION_ID'`, and `'NEW_EXTERNAL_ID'` with your actual values._
+
+**Note:**
+
+* `locationEditor.getExternalId()` returns `null` if no external ID is set.
+* `locationEditor.setExternalId()` with no argument or with `null` will reset the external ID to `null`.
+* Only string values are accepted for `setExternalId`. Passing a non-string value will throw an error.
+
+#### Creating a new Location
+
+You can create a new Location by calling solutionManager.createLocation() with the required data. This method returns a [`LocationEditor`](https://app.mapsindoors.com/mapsindoors/js/bime/latest/LocationEditor.html) instance, which you can further modify and then save.
+
+```js
+// Example: Creating a new Location
+const newLocationData = {
+    geometry: {
+        type: 'Point',
+        coordinates: [longitude, latitude] // Replace longitude, latitude with actual coordinates
+    },
+    floor: mapsIndoorsInstance.getFloor(), // Get the current floor index from MapsIndoors, if available, else set it to the desired floor index.
+    type: 'LOCATION_TYPE_KEY', // Replace LOCATION_TYPE_KEY with a valid type key from solutionManager.locationTypes
+};
+
+const locationEditor = await solutionManager.createLocation(newLocationData);
+
+// Set the name and description
+locationEditor
+    .setName('en', 'Parking')
+    .setDescription('en', 'Parking area for visitors');
+
+// Save the new Location to persist it
+await locationEditor.save();
+
+console.log('Location created with ID:', locationEditor.id);
+```
+
+* You can use solutionManager.locationTypes to get valid type keys.
+* The translations array should include at least one language with a name.
+
+#### Deleting a Location
+
+To delete a location, simply call the delete() method on the [`LocationEditor`](https://app.mapsindoors.com/mapsindoors/js/bime/latest/LocationEditor.html).
+
+```js
+const locationEditor = await solutionManager.getLocation('LOCATION_ID');
+if(confirm('Are you sure you want to delete this Location? This action is permanent.')) {
+    try {
+        await locationEditor.delete();
+        console.log('Location deleted successfully.');
+    } catch (error) {
+        console.error('Error deleting location:', error);
+        alert('Failed to delete location. Please try again.');
+    }
+}
+```
+
+**Note:** Deleting a Location is a permanent operation and cannot be undone.\
+It is the responsibility of the implementing developer to put appropriate safeguards in place—such as confirmation dialogs, permission checks, or undo mechanisms—to prevent accidental or unauthorized deletion of Locations.\
+Always ensure that users are clearly informed and have explicitly confirmed their intent before performing a delete operation.
+
 #### Retrieving a LocationEditor on Click
 
 This example assumes you have a working MapsIndoors Web SDK integration. If you're new to the SDK, please refer to the [MapsIndoors Web SDK Tutorial](https://docs.mapsindoors.com/sdks-and-frameworks/web/tutorial) for setup and basic usage instructions.
