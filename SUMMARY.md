@@ -172,6 +172,7 @@
     * [Using Cisco DNA Spaces](sdks-and-frameworks/ios/show-users-location-aka.-blue-dot/using-cisco-dna-spaces.md)
     * [Using CrowdConnected](sdks-and-frameworks/ios/show-users-location-aka.-blue-dot/using-crowdconnected.md)
   * [Highlight and Select](sdks-and-frameworks/ios/highlight-and-select.md)
+  * [Using multiple Map Providers](sdks-and-frameworks/ios/using-multiple-map-providers.md)
   * [Display Language](sdks-and-frameworks/ios/display-language.md)
 * [React Native](sdks-and-frameworks/react-native/README.md)
   * [Getting Started](sdks-and-frameworks/react-native/getting-started/README.md)
