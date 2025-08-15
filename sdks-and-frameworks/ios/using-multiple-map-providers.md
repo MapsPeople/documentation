@@ -62,7 +62,7 @@ struct APIKeys {
 {% tab title="Mapbox Maps" %}
 
 ```swift
-MapboxMaps
+import MapboxMaps
 import MapsIndoorsCore
 import MapsIndoorsMapbox
 
