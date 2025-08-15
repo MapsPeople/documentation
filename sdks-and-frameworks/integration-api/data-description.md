@@ -83,6 +83,8 @@ All Geodata BaseTypes have some common keys that is available for all, and then 
       _Only relevant for Venue._
 * `TileStyles [TileStyle]`
   * How the tiles should Only relevant for Venue.
+* `AdditionalDetails [Array<GeodataDetail>]`
+  * A list of details related to the Geodata. Can contain emails, phone numbers, links and opening hours.
 
 **BaseTypeProperties for Venue**[**​**](https://docs.mapsindoors.com/api-data-description#basetypeproperties-for-venue)
 
@@ -429,3 +431,126 @@ As a simple example: All rooms and areas across any building/venue related to en
     `<keyname>@<language>`
 
     The name property must be specified for every language defined in the dataset.
+
+#### Additional Details
+
+Additional details are used to describe emails, links, phone numbers and opening hours for a location. A use case could be to add a link to a menu for a restaurant, as shown in the example below.
+
+```json
+{
+  "key": "url-1",
+  "detailType": "url",
+  "value": "https://www.example.com/menu",
+  "active": true,
+  "icon": "https://www.example.com/menuicon.png",
+  "displayText": {
+    "en": "Menu",
+    "da": "Menukort"
+  }
+}
+```
+
+* **Key**
+  
+  Must be unique for the collection of additional details related to the Geodata.
+
+* **DetailType**
+
+  The type of detail. Can be `email`, `url`, `phone`, or `openinghours`.
+
+* **Value**
+
+  Contains the value of the detail. Only used for detail types `email`, `url`, and `phone`. Different validation rules apply based on the detail type.
+
+  * `email`: 
+    * Must include an `@` character. 
+    * The `@` character must not be at the beginning or the end of the email.
+  * `url`: 
+    * Must not be empty.
+    * Must include a domain.
+    * Spaces must be encoded.
+    * If the link contains a scheme, it must be valid (e.g. `https://`).
+    * Must not contain invalid characters (e.g. curly braces `{\"isJson\": true}`).
+  * `phone`
+    * Digits can be numbers or letters (to accommodate phonewords).
+    * Must include at least 1 digit.
+    * Must contain no more than 15 digits.
+    * Allowed characters: Numbers, letters, spaces, `(`, `)`, `-`, and `.`.
+    * A `+` is allowed if it is the first non-whitespace character.
+
+* **Active**
+
+  Controls whether or not the detail should be shown in the application.
+
+* **Icon**
+
+  A link to an icon to be shown in the application.
+
+* **DisplayText**
+
+  A map between the text to be displayed for each language.
+
+* **OpeningHours**
+
+  Contains the opening hours data. Only used for the `openinghours` detail type. Can be used to describe opening hours for each day in the week, as shown in the example below.
+
+  ```json
+  {
+    "key": "openinghours-1",
+    "detailType": "openinghours",
+    "active": false,
+    "icon": "https://www.example.com/openinghoursicon.png",
+    "displayText": {
+      "en": "Opening hours",
+      "da": "Åbningstider"
+    },
+    "openingHours": {
+      "standardOpeningHours": {
+        "monday": {
+          "closedAllDay": false,
+          "startTime": "15:00",
+          "endTime": "21:00"
+        },
+        "tuesday": {
+          "closedAllDay": false,
+          "startTime": "15:00",
+          "endTime": "21:00"
+        },
+        "wednesday": {
+          "closedAllDay": false,
+          "startTime": "15:00",
+          "endTime": "21:00"
+        },
+        "thursday": {
+          "closedAllDay": false,
+          "startTime": "15:00",
+          "endTime": "21:00"
+        },
+        "friday": {
+          "closedAllDay": false,
+          "startTime": "15:00",
+          "endTime": "22:00"
+        },
+        "saturday": {
+          "closedAllDay": false,
+          "startTime": "12:00",
+          "endTime": "22:00"
+        },
+        "sunday": {
+          "closedAllDay": true
+        }
+      }
+    }
+  }
+  ```
+
+  The values in the `openingHours` property must adhere to the following rules:
+  
+  * The `startTime` and `endTime` properties must not be equal.
+  * The `startTime` and `endTime` properties must be in a valid time format, valid examples are:
+    * `04:00 PM` (12-hour clock).
+    * `16:00` (24-hour clock).
+    * `04:00:00 PM` (12-hour clock with seconds).
+    * `16:00:00` (24-hour clock with seconds).
+
+  > Note: Seconds will be ignored; only hours and minutes are retained.
