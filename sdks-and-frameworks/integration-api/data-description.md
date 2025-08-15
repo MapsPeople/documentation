@@ -434,7 +434,7 @@ As a simple example: All rooms and areas across any building/venue related to en
 
 #### Additional Details
 
-Additional details are used to describe emails, links, phone numbers and opening hours for a location. An use case could be to add a link to a menu for a restaurant, as shown in the example below.
+Additional details are used to describe emails, links, phone numbers and opening hours for a location. A use case could be to add a link to a menu for a restaurant, as shown in the example below.
 
 ```json
 {
@@ -464,7 +464,7 @@ Additional details are used to describe emails, links, phone numbers and opening
 
   * `email`: 
     * Must include an `@` character. 
-    * The `@` character must not be in the beginning or the end of the email.
+    * The `@` character must not be at the beginning or the end of the email.
   * `url`: 
     * Must not be empty.
     * Must include a domain.
@@ -472,11 +472,11 @@ Additional details are used to describe emails, links, phone numbers and opening
     * If the link contains a scheme, it must be valid (e.g. `https://`).
     * Must not contain invalid characters (e.g. curly braces `{\"isJson\": true}`).
   * `phone`
-    * A digit can be a number or a letter (for phonewords).
+    * Digits can be numbers or letters (to accommodate phonewords).
     * Must include at least 1 digit.
     * Must contain no more than 15 digits.
     * Allowed characters: Numbers, letters, spaces, `(`, `)`, `-`, and `.`.
-    * A `+` is allowed if it is the first non whitespace character.
+    * A `+` is allowed if it is the first non-whitespace character.
 
 * **Active**
 
@@ -492,7 +492,7 @@ Additional details are used to describe emails, links, phone numbers and opening
 
 * **OpeningHours**
 
-  Contains the opening hour data. Only used for the `openinghours` detail type. Can be used to describe opening hours for each day in the week, as shown in the example below.
+  Contains the opening hours data. Only used for the `openinghours` detail type. Can be used to describe opening hours for each day in the week, as shown in the example below.
 
   ```json
   {
@@ -553,4 +553,4 @@ Additional details are used to describe emails, links, phone numbers and opening
     * `04:00:00 PM` (12-hour clock with seconds).
     * `16:00:00` (24-hour clock with seconds).
 
-  *Note: Only hours and minutes will be retained, seconds will not be retained.*
+  > Note: Seconds will be ignored; only hours and minutes are retained.
