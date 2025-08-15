@@ -83,6 +83,8 @@ All Geodata BaseTypes have some common keys that is available for all, and then 
       _Only relevant for Venue._
 * `TileStyles [TileStyle]`
   * How the tiles should Only relevant for Venue.
+* `AdditionalDetails [Array<GeodataDetail>]`
+  * A list of details related to the Geodata. Can contain emails, phone numbers, links and opening hours.
 
 **BaseTypeProperties for Venue**[**​**](https://docs.mapsindoors.com/api-data-description#basetypeproperties-for-venue)
 
@@ -242,68 +244,148 @@ It will look a lot like the POI example, with a few differences:
 
 ```json
 {
-"id": "7b2fe3da61b34cd9991ba510",
-"parentId": "f43b931f09314f3f9dd796f9",
-"datasetId": "550c26a864617400a40f0000",
-"baseType": "area",
-"displayTypeId": "41b1a5274fe8454ba2b6e6ff",
-"geometry": {
-  "coordinates": [
-    [
+  "id": "7b2fe3da61b34cd9991ba510",
+  "parentId": "f43b931f09314f3f9dd796f9",
+  "datasetId": "550c26a864617400a40f0000",
+  "baseType": "area",
+  "displayTypeId": "41b1a5274fe8454ba2b6e6ff",
+  "geometry": {
+    "coordinates": [
       [
-        9.95615091100001,
-        57.085511788
-      ],
-      [
-        9.95631731999998,
-        57.085424259
-      ],
-      [
-        9.95635468799998,
-        57.085445236
-      ],
-      [
-        9.95618828099998,
-        57.085532766
-      ],
-      [
-        9.95615091100001,
-        57.085511788
+        [
+          9.95615091100001,
+          57.085511788
+        ],
+        [
+          9.95631731999998,
+          57.085424259
+        ],
+        [
+          9.95635468799998,
+          57.085445236
+        ],
+        [
+          9.95618828099998,
+          57.085532766
+        ],
+        [
+          9.95615091100001,
+          57.085511788
+        ]
       ]
-    ]
+    ],
+    "bbox": [
+      9.95615091100001,
+      57.085424259,
+      9.95635468799998,
+      57.085532766
+    ],
+    "type": "Polygon"
+  },
+  "anchor": {
+    "coordinates": [
+      9.9562527993,
+      57.0854785126
+    ],
+    "type": "Point"
+  },
+  "aliases": [],
+  "categories": [
   ],
-  "bbox": [
-    9.95615091100001,
-    57.085424259,
-    9.95635468799998,
-    57.085532766
-  ],
-  "type": "Polygon"
-},
-"anchor": {
-  "coordinates": [
-    9.9562527993,
-    57.0854785126
-  ],
-  "type": "Point"
-},
-"aliases": [],
-"categories": [
-],
-"status": 3,
-"baseTypeProperties": {
-  "class": "area",
-  "imageurl": "",
-  "activefrom": null,
-  "activeto": null,
-  "administrativeid": "DCC843A7-C762-6D95-94AE-FDBFCEE189EC"
-},
-"properties": {
-  "name@en": "Changing area",
-  "description@en": "",
-  "name@da": "Omklædnings område",
-  "description@da": ""
-}
+  "status": 3,
+  "baseTypeProperties": {
+    "class": "area",
+    "imageurl": "",
+    "activefrom": null,
+    "activeto": null,
+    "administrativeid": "DCC843A7-C762-6D95-94AE-FDBFCEE189EC"
+  },
+  "properties": {
+    "name@en": "Canteen",
+    "description@en": "",
+    "name@da": "Kantine",
+    "description@da": ""
+  },
+  "additionalDetails": [
+    {
+      "key": "url-1",
+      "detailType": "url",
+      "value": "https://www.example.com/menu",
+      "active": true,
+      "icon": "https://app.mapsindoors.com/mapsindoors/cms/assets/icons/misc/mi-icon-link.png",
+      "displayText": {
+        "en": "Menu",
+        "da": "Menu"
+      }
+    },
+    {
+      "key": "email-1",
+      "detailType": "email",
+      "value": "support@example.com",
+      "active": true,
+      "icon": "https://app.mapsindoors.com/mapsindoors/cms/assets/icons/misc/mi-icon-email.png",
+      "displayText": {
+        "en": "Support email",
+        "da": "Support email"
+      }
+    },
+    {
+      "key": "phone-1",
+      "detailType": "phone",
+      "value": "+45 12 34 56 78",
+      "active": true,
+      "icon": "https://app.mapsindoors.com/mapsindoors/cms/assets/icons/misc/mi-icon-phone.png",
+      "displayText": {
+        "en": "Support phone number",
+        "da": "Support telefonnummer"
+      }
+    },
+    {
+      "key": "openinghours-1",
+      "detailType": "openinghours",
+      "active": false,
+      "icon": "https://app.mapsindoors.com/mapsindoors/cms/assets/icons/misc/mi-icon-opening-hours.png",
+      "displayText": {
+        "en": "Dining hours",
+        "da": "Spisetider"
+      },
+      "openingHours": {
+        "standardOpeningHours": {
+          "monday": {
+            "closedAllDay": false,
+            "startTime": "11:30",
+            "endTime": "13:00"
+          },
+          "tuesday": {
+            "closedAllDay": false,
+            "startTime": "11:30",
+            "endTime": "13:00"
+          },
+          "wednesday": {
+            "closedAllDay": false,
+            "startTime": "11:30",
+            "endTime": "13:00"
+          },
+          "thursday": {
+            "closedAllDay": false,
+            "startTime": "11:30",
+            "endTime": "13:00"
+          },
+          "friday": {
+            "closedAllDay": false,
+            "startTime": "11:30",
+            "endTime": "13:00"
+          },
+          "saturday": {
+            "closedAllDay": true
+          },
+          "sunday": {
+            "closedAllDay": true
+          }
+        }
+      }
+    }
+  ]
 }
 ```
 
