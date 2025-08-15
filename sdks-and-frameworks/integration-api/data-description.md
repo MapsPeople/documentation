@@ -244,148 +244,68 @@ It will look a lot like the POI example, with a few differences:
 
 ```json
 {
-  "id": "7b2fe3da61b34cd9991ba510",
-  "parentId": "f43b931f09314f3f9dd796f9",
-  "datasetId": "550c26a864617400a40f0000",
-  "baseType": "area",
-  "displayTypeId": "41b1a5274fe8454ba2b6e6ff",
-  "geometry": {
-    "coordinates": [
+"id": "7b2fe3da61b34cd9991ba510",
+"parentId": "f43b931f09314f3f9dd796f9",
+"datasetId": "550c26a864617400a40f0000",
+"baseType": "area",
+"displayTypeId": "41b1a5274fe8454ba2b6e6ff",
+"geometry": {
+  "coordinates": [
+    [
       [
-        [
-          9.95615091100001,
-          57.085511788
-        ],
-        [
-          9.95631731999998,
-          57.085424259
-        ],
-        [
-          9.95635468799998,
-          57.085445236
-        ],
-        [
-          9.95618828099998,
-          57.085532766
-        ],
-        [
-          9.95615091100001,
-          57.085511788
-        ]
+        9.95615091100001,
+        57.085511788
+      ],
+      [
+        9.95631731999998,
+        57.085424259
+      ],
+      [
+        9.95635468799998,
+        57.085445236
+      ],
+      [
+        9.95618828099998,
+        57.085532766
+      ],
+      [
+        9.95615091100001,
+        57.085511788
       ]
-    ],
-    "bbox": [
-      9.95615091100001,
-      57.085424259,
-      9.95635468799998,
-      57.085532766
-    ],
-    "type": "Polygon"
-  },
-  "anchor": {
-    "coordinates": [
-      9.9562527993,
-      57.0854785126
-    ],
-    "type": "Point"
-  },
-  "aliases": [],
-  "categories": [
+    ]
   ],
-  "status": 3,
-  "baseTypeProperties": {
-    "class": "area",
-    "imageurl": "",
-    "activefrom": null,
-    "activeto": null,
-    "administrativeid": "DCC843A7-C762-6D95-94AE-FDBFCEE189EC"
-  },
-  "properties": {
-    "name@en": "Canteen",
-    "description@en": "",
-    "name@da": "Kantine",
-    "description@da": ""
-  },
-  "additionalDetails": [
-    {
-      "key": "url-1",
-      "detailType": "url",
-      "value": "https://www.example.com/menu",
-      "active": true,
-      "icon": "https://app.mapsindoors.com/mapsindoors/cms/assets/icons/misc/mi-icon-link.png",
-      "displayText": {
-        "en": "Menu",
-        "da": "Menu"
-      }
-    },
-    {
-      "key": "email-1",
-      "detailType": "email",
-      "value": "support@example.com",
-      "active": true,
-      "icon": "https://app.mapsindoors.com/mapsindoors/cms/assets/icons/misc/mi-icon-email.png",
-      "displayText": {
-        "en": "Support email",
-        "da": "Support email"
-      }
-    },
-    {
-      "key": "phone-1",
-      "detailType": "phone",
-      "value": "+45 12 34 56 78",
-      "active": true,
-      "icon": "https://app.mapsindoors.com/mapsindoors/cms/assets/icons/misc/mi-icon-phone.png",
-      "displayText": {
-        "en": "Support phone number",
-        "da": "Support telefonnummer"
-      }
-    },
-    {
-      "key": "openinghours-1",
-      "detailType": "openinghours",
-      "active": false,
-      "icon": "https://app.mapsindoors.com/mapsindoors/cms/assets/icons/misc/mi-icon-opening-hours.png",
-      "displayText": {
-        "en": "Dining hours",
-        "da": "Spisetider"
-      },
-      "openingHours": {
-        "standardOpeningHours": {
-          "monday": {
-            "closedAllDay": false,
-            "startTime": "11:30",
-            "endTime": "13:00"
-          },
-          "tuesday": {
-            "closedAllDay": false,
-            "startTime": "11:30",
-            "endTime": "13:00"
-          },
-          "wednesday": {
-            "closedAllDay": false,
-            "startTime": "11:30",
-            "endTime": "13:00"
-          },
-          "thursday": {
-            "closedAllDay": false,
-            "startTime": "11:30",
-            "endTime": "13:00"
-          },
-          "friday": {
-            "closedAllDay": false,
-            "startTime": "11:30",
-            "endTime": "13:00"
-          },
-          "saturday": {
-            "closedAllDay": true
-          },
-          "sunday": {
-            "closedAllDay": true
-          }
-        }
-      }
-    }
-  ]
+  "bbox": [
+    9.95615091100001,
+    57.085424259,
+    9.95635468799998,
+    57.085532766
+  ],
+  "type": "Polygon"
+},
+"anchor": {
+  "coordinates": [
+    9.9562527993,
+    57.0854785126
+  ],
+  "type": "Point"
+},
+"aliases": [],
+"categories": [
+],
+"status": 3,
+"baseTypeProperties": {
+  "class": "area",
+  "imageurl": "",
+  "activefrom": null,
+  "activeto": null,
+  "administrativeid": "DCC843A7-C762-6D95-94AE-FDBFCEE189EC"
+},
+"properties": {
+  "name@en": "Changing area",
+  "description@en": "",
+  "name@da": "Omklædnings område",
+  "description@da": ""
+}
 }
 ```
 
@@ -511,3 +431,126 @@ As a simple example: All rooms and areas across any building/venue related to en
     `<keyname>@<language>`
 
     The name property must be specified for every language defined in the dataset.
+
+#### Additional Details
+
+Additional details are used to describe emails, links, phone numbers and opening hours for a location. An use case could be to add a link to a menu for a restaurant, as shown in the example below.
+
+```json
+{
+  "key": "url-1",
+  "detailType": "url",
+  "value": "https://www.example.com/menu",
+  "active": true,
+  "icon": "https://www.example.com/menuicon.png",
+  "displayText": {
+    "en": "Menu",
+    "da": "Menukort"
+  }
+}
+```
+
+* **Key**
+  
+  Must be unique for the collection of additional details related to the Geodata.
+
+* **DetailType**
+
+  The type of detail. Can be `email`, `url`, `phone`, or `openinghours`.
+
+* **Value**
+
+  Contains the value of the detail. Only used for detail types `email`, `url`, and `phone`. Different validation rules apply based on the detail type.
+
+  * `email`: 
+    * Must include an `@` character. 
+    * The `@` character must not be in the beginning or the end of the email.
+  * `url`: 
+    * Must not be empty.
+    * Must include a domain.
+    * Spaces must be encoded.
+    * If the link contains a scheme, it must be valid (e.g. `https://`).
+    * Must not contain invalid characters (e.g. curly braces `{\"isJson\": true}`).
+  * `phone`
+    * A digit can be a number or a letter (for phonewords).
+    * Must include at least 1 digit.
+    * Must contain no more than 15 digits.
+    * Allowed characters: Numbers, letters, spaces, `(`, `)`, `-`, and `.`.
+    * A `+` is allowed if it is the first non whitespace character.
+
+* **Active**
+
+  Controls whether or not the detail should be shown in the application.
+
+* **Icon**
+
+  A link to an icon to be shown in the application.
+
+* **DisplayText**
+
+  A map between the text to be displayed for each language.
+
+* **OpeningHours**
+
+  Contains the opening hour data. Only used for the `openinghours` detail type. Can be used to describe opening hours for each day in the week, as shown in the example below.
+
+  ```json
+  {
+    "key": "openinghours-1",
+    "detailType": "openinghours",
+    "active": false,
+    "icon": "https://www.example.com/openinghoursicon.png",
+    "displayText": {
+      "en": "Opening hours",
+      "da": "Åbningstider"
+    },
+    "openingHours": {
+      "standardOpeningHours": {
+        "monday": {
+          "closedAllDay": false,
+          "startTime": "15:00",
+          "endTime": "21:00"
+        },
+        "tuesday": {
+          "closedAllDay": false,
+          "startTime": "15:00",
+          "endTime": "21:00"
+        },
+        "wednesday": {
+          "closedAllDay": false,
+          "startTime": "15:00",
+          "endTime": "21:00"
+        },
+        "thursday": {
+          "closedAllDay": false,
+          "startTime": "15:00",
+          "endTime": "21:00"
+        },
+        "friday": {
+          "closedAllDay": false,
+          "startTime": "15:00",
+          "endTime": "22:00"
+        },
+        "saturday": {
+          "closedAllDay": false,
+          "startTime": "12:00",
+          "endTime": "22:00"
+        },
+        "sunday": {
+          "closedAllDay": true
+        }
+      }
+    }
+  }
+  ```
+
+  The values in the `openingHours` property must adhere to the following rules:
+  
+  * The `startTime` and `endTime` properties must not be equal.
+  * The `startTime` and `endTime` properties must be in a valid time format, valid examples are:
+    * `04:00 PM` (12-hour clock).
+    * `16:00` (24-hour clock).
+    * `04:00:00 PM` (12-hour clock with seconds).
+    * `16:00:00` (24-hour clock with seconds).
+
+  *Note: Only hours and minutes will be retained, seconds will not be retained.*
