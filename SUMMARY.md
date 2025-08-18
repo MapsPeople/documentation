@@ -83,6 +83,7 @@
     * [Integrating MapsIndoors into your own App](sdks-and-frameworks/android/getting-started/integrating-mapsindoors-into-your-own-app.md)
     * [Migrating from V3 to V4](sdks-and-frameworks/android/getting-started/migrating-from-v3-to-v4/README.md)
       * [Migrating to Mapbox V11](sdks-and-frameworks/android/getting-started/migrating-from-v3-to-v4/migrating-to-mapbox-v11.md)
+  * [Additional Location Details](sdks-and-frameworks/android/additional-location-details.md)
   * [Directions](sdks-and-frameworks/android/directions/README.md)
     * [Directions Service](sdks-and-frameworks/android/directions/directions-service.md)
     * [Directions Renderer](sdks-and-frameworks/android/directions/directions-renderer/README.md)
