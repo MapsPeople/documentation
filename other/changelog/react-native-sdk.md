@@ -6,6 +6,17 @@ icon: react
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.5.3] 2025-08-18
+
+#### Fixed
+
+* Removed warnings on iOS caused by `requiresMainQueueSetup` method signature missing
+
+#### Updated
+
+* Updated MapsIndoors iOS SDK to 4.13.2
+* Updated MapsIndoors Android SDK to 4.14.0
+
 ### \[2.5.2] 2025-07-15
 
 #### Updated
