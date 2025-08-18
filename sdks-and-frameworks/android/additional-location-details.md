@@ -54,7 +54,7 @@ fun printDetails(location: MPLocation) {
 
 ### Filtering and Printing Specific Details
 
-Your locations can have multiple details, in this case the location has mutile phone numbers: customer service and sales with the respective keys `customerService` and `sales`, you can filter and print them by key:
+Your locations can have multiple details, in this case the location has multiple phone numbers: customer service and sales with the respective keys `customerService` and `sales`, you can filter and print them by key:
 
 {% code title="Print specific phone numbers example" overflow="wrap" lineNumbers="true" %}
 ```kotlin
