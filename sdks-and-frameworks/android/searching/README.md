@@ -160,18 +160,19 @@ mMapControl.clearFilter()
 
 ### Searching for Nested Categories <a href="#searching-for-nested-categories" id="searching-for-nested-categories">
 
-If you have set up nested categories in your solution, then it has become much easier to search for these categories than before, but it might not make sense right now, lets go over it with an example:
+If your solution uses nested categories, searching for them is now much more intuitive. When you search for a parent category, all of its sub-categories are automatically included in the search—no extra setup is required.
 
-You have three categories: `Restroom`, `Unisex`, and `Handicap`. Of these three, `Unisex` and `Handicap` are sub-categories of `Restroom`.
+#### Understanding Nested Categories
 
-before we get to searching, lets see what we can do in the SDK:
+Suppose you have three categories: `Restroom`, `Unisex`, and `Handicap`. Here, `Unisex` and `Handicap` are sub-categories of `Restroom`. This hierarchy allows you to organize your data more flexibly and makes searching more powerful.
+
+Before searching, you might want to inspect the category structure in the SDK. For example, you can check if a category has specific children, or list all sub-categories:
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```kotlin
 val categoryCollection = MapsIndoors.getCategories()
 
-
-// chech whether a category has a named child category
+// check whether a category has a named child category
 val isChild = categoryCollection?.getCategory("Restroom")?.childKeys?.contains("Unisex")
 if (isChild == true) {
     print("Restroom has a child with the key 'Unisex'!")
@@ -188,7 +189,9 @@ for (key in keys ?: emptyList()) {
 ```
 {% endcode %}
 
-Now, the above example is not necessary when searching with nested categories, the approach is actually quite simple. When searching for a specific category, all its sub-categories, its children, are automatically added to the query. This means if you search for locations in the category `Restroom`, you will also find all locations with the categories `Unisex` and `Handicap`, thus there is no setup needed for searching with nested categories. Lets see it in action:
+#### Searching with Nested Categories
+
+When you perform a search for a parent category, such as `Restroom`, the SDK will automatically include all its sub-categories (`Unisex`, `Handicap`, etc.) in the search results. This means you only need to specify the parent category in your filter, and all relevant locations will be found.
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```kotlin
@@ -208,4 +211,5 @@ MapsIndoors.getLocationsAsync(query, filter) { locations, error ->
 ```
 {% endcode %}
 
-It is important to note that when searching for a category, then all sub-categories will be included in the search space. If that is not the wanted experience, the solution is quite simply to create a new sub-category that contains the expected locations, and using that for searching.
+
+> **Note:** When you search for a parent category, all of its sub-categories are always included in the results, there is no way to limit the search to only the parent category itself. If you need more granular control (for example, to only return locations with a specific sub-category), consider organizing your categories so that each search target has its own unique sub-category. This way, you can search for exactly the locations you want by specifying the appropriate sub-category in your filter.
