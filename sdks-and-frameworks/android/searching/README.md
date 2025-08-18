@@ -38,7 +38,7 @@ See the full list of parameters:
 {% code overflow="wrap" lineNumbers="true" %}
 ```java
 void findRestroom() {
-    //Here we will create an empty query because we are only interrested in getting locations that match a category. If you want to be more specific here where you can add a query text like "Unisex Restroom"
+    //Here we will create an empty query because we are only interested in getting locations that match a category. If you want to be more specific here where you can add a query text like "Unisex Restroom"
     MPQuery mpQuery = new MPQuery
             .Builder()
             .build();
@@ -117,10 +117,10 @@ MapsIndoors.getLocationsAsync(mpQuery, mpFilter, (locations, error) -> {
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```kotlin
-MapsIndoors.getLocationsAsync(mpQuery, mpFilter, (locations, error) -> {
+MapsIndoors.getLocationsAsync(mpQuery, mpFilter) { locations, error ->
     //Query with the locations from the query result. Use default camera behavior
     mMapControl.setFilter(locations, MPFilterBehavior.DEFAULT)
-});
+};
 ```
 {% endcode %}
 
