@@ -35,7 +35,7 @@ MapsIndoors can be installed using Swift Package Manger, CocoaPods or you can in
 
     [`https://github.com/MapsPeople/mapsindoors-googlemaps-ios.git`](https://github.com/MapsPeople/mapsindoors-googlemaps-ios.git) (to use Google Maps)
 3. Select the _Dependency Rule_ you want to apply to the MapsIndoors SDK
-   * A common choice for _Dependency Rule_ is "Up to Next Major Version", specifying `4.9.0` as the minimum version. To instead install a specific version set the _Dependency Rule_ field to "Exact Version" and insert the desired version. The latest version of the MapsIndoors SDK is `4.9.5`.
+   * A common choice for _Dependency Rule_ is "Up to Next Major Version", specifying `4.13.2` as the minimum version. To instead install a specific version set the _Dependency Rule_ field to "Exact Version" and insert the desired version. The latest version of the MapsIndoors SDK is `4.13.2`.
 4. Hit enter or Click **Add Package**.
 5. In the new window select the `MapsIndoorsMapbox` or `MapsIndoorsGoogleMaps` library and click **Add Package**. Once SPM finishes installing the SDK you will see 3 new dependencies under **Package Dependencies**: `MapsIndoors`, `MapsIndoorsCore`, and `MapsIndoorsMapbox` or `MapsIndoorsGoogleMaps` (plus their respective dependencies).
 6. Click on your project's target, scroll down to `Frameworks, Libraries, and Embedded Content` and click the plus button.
@@ -59,9 +59,9 @@ If you're using Mapbox, make sure to configure your secret token in order to dow
 
     target 'YOUR_APPLICATION_TARGET_NAME_HERE' do
       # Remove the comment mark to use your map specific MapsIndoors pod
-      # pod 'MapsIndoorsGoogleMaps', '~> 4.9'
+      # pod 'MapsIndoorsGoogleMaps', '~> 4.13'
       # or
-      # pod 'MapsIndoorsMapbox11', '~> 4.9'
+      # pod 'MapsIndoorsMapbox11', '~> 4.13'
     end
     ```
 
@@ -70,35 +70,16 @@ If you're using Mapbox, make sure to configure your secret token in order to dow
 {% endhint %}
 
 {% hint style="danger" %}
-If you are upgrading from a version previous to 4.6.0 you must remove the `post_install` script parts previously required by MapsIndoors [for Google Maps](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/wiki/Podfile-post_install-v4).
+If you are upgrading from a version prior to 4.6.0 you must remove the `post_install` script parts previously required by MapsIndoors [for Google Maps](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/wiki/Podfile-post_install-v4).
 {% endhint %}
 
 4. Save the `Podfile` and close Xcode.
 5. Open a terminal in the directory of the project. `cd <path-to-project>`
 6. Run `pod install` in the terminal.
 7. From this time onwards, use the _.xcworkspace_ file to open the project.
+
 {% endtab %}
 
-{% tab title="Manually for Google Maps" %}
-* Download the [Google Maps iOS SDK 8.4.0](https://dl.google.com/dl/cpdc/bad57bdf1f06c544/GoogleMaps-8.4.0.tar.gz)
-* Copy the following frameworks to the root folder of your app project (in Finder, _<mark style="color:red;">**not**</mark>_ in Xcode)
-  * GoogleMaps-8.4.0/Base/Frameworks/GoogleMapsBase.framework
-  * GoogleMaps-8.4.0/Maps/Frameworks/GoogleMaps.framework
-  * GoogleMaps-8.4.0/Maps/Frameworks/GoogleMapsCore.framework
-* In Xcode, drag the `GoogleMaps.bundle` from the `GoogleMaps-8.4.0/Maps/Resources/GoogleMapsResources` folder into the top level directory of your Xcode project. When prompted, ensure **"**&#x43;opy items if needed" **is** selected.
-* Download and unzip the following MapsIndoors SDK v4 XCFrameworks from the [latest release](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/releases):
-  * MapsIndoors
-  * MapsIndoorsCore
-  * MapsIndoorsGoogleMaps
-* Drag and drop the three MapsIndoors XCFrameworks into your Xcode project. In the dialog that pops up, choose “Copy items if needed” and make sure the XCFramework is added to your app target.
-* In Xcode, go to "General" and expand "Frameworks, Libraries, and Embedded Content" and make sure the three MapsIndoors XCFrameworks are marked as "Embed & Sign".
-* In Xcode, go to "Build Settings" for your target and make sure the following entries are present in the `FRAMEWORK_SEARCH_PATHS`
-
-```
-$(inherited)
-$(PROJECT_DIR)/**
-```
-{% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}
