@@ -137,6 +137,7 @@
     * [Getting Directions](sdks-and-frameworks/ios/getting-started/getting-directions.md)
     * [Integrating MapsIndoors into your own App](sdks-and-frameworks/ios/getting-started/integrating-mapsindoors-into-your-own-app.md)
     * [Migrating from v3 to v4](sdks-and-frameworks/ios/getting-started/migrating-from-v3-to-v4.md)
+  * [Additional Location Details](sdks-and-frameworks/ios/additional-location-details.md)
   * [Directions](sdks-and-frameworks/ios/directions/README.md)
     * [Directions Renderer](sdks-and-frameworks/ios/directions/directions-renderer/README.md)
       * [User's Location as Point of Origin](sdks-and-frameworks/ios/directions/directions-renderer/users-location-as-point-of-origin.md)
