@@ -100,6 +100,7 @@
   * [Searching](sdks-and-frameworks/android/searching/README.md)
     * [Searching on a Map](sdks-and-frameworks/android/searching/searching-on-a-map.md)
     * [Creating a Search Experience](sdks-and-frameworks/android/searching/creating-a-search-experience.md)
+  * [Additional Location Details](sdks-and-frameworks/android/additional-location-details.md)
   * [Live Data](sdks-and-frameworks/android/live-data/README.md)
     * [Webex Integration](sdks-and-frameworks/android/live-data/webex-integration.md)
     * [Live Data in Practice](sdks-and-frameworks/android/live-data/live-data-in-practice.md)
