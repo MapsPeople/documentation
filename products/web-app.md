@@ -52,20 +52,6 @@ Input either your Mapbox Access Token or your Google Maps API key. Once you have
 If you don't have a Mapbox token/Google Maps API key yet, [go here](../sdks-and-frameworks/web/tutorial/getting-started/map-engine-provider/).
 {% endhint %}
 
-### Customizing Your Web App's Basemap
-
-To customize the appearance of your map in the Web App, you can set a custom Mapbox map style URL in the MapsIndoors CMS. Enter your Mapbox style URL to apply your personalized map aesthetics, providing a unique and tailored map view for your users.
-
-This customization will only affect the basemap appearance - your MapsIndoors location data, POIs, and indoors mapping content will still display normally on top of your customized basemap style (please read our note of caution below).
-
-Create custom styles [here](https://www.mapbox.com/mapbox-studio).
-
-Browse pre-built styles [here](https://docs.mapbox.com/api/maps/styles/#classic-mapbox-styles).
-
-{% hint style="warning" %}
-Be cautious when configuring your map style and initial load settings. Incorrect configurations may impact how the map and MapsIndoors data are displayed to users, potentially leading to a suboptimal user experience. Double-check settings to ensure they align with your desired appearance and functionality.
-{% endhint %}
-
 ### Styling
 
 **Loading screen logo:** Customize the logo that appears on the loading screen/splash screen by browsing through the MapsIndoors Media Library. You can upload any JPG, PNG, or SVG file to the Media Library (we recommend limiting the image file size to below 1 MB). By default, the MapsIndoors logo will be displayed on load.
