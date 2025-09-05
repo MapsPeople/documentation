@@ -28,24 +28,42 @@ For route details, the unit of measure will be metric, unless the user has set t
 
 **Map Markers Visibility:** The MapsIndoors maps are layered on top of either Google or Mapbox basemaps. This setting allows you to:
 
-* Completely hide basemap markers (e.g., POIs)
-* Always make them visible
-* Use the default setting, which removes them at zoom level 17 or closer (or according to the MITransitionLevel set using [Query Parameters](https://docs.mapsindoors.com/products/fast-track-maptemplate/configuration/query-parameters)) if your map uses Mapbox as basemap
+* Completely hide basemap markers (e.g., POIs).
+* Always make them visible.
+* Use the default setting, which removes them at zoom level 17 or closer (or according to the MITransitionLevel set using [Query Parameters](https://docs.mapsindoors.com/products/fast-track-maptemplate/configuration/query-parameters)) if your map uses Mapbox as basemap.
 
 **Road Names Visibility:** Similar to Map Markers Visibility, this setting controls basemap road names. You can:
 
-* Completely hide basemap road names
-* Always make them visible
-* Use the default setting, which removes them at zoom level 17 or closer (or according to the MITransitionLevel set using [Query Parameters](https://docs.mapsindoors.com/products/fast-track-maptemplate/configuration/query-parameters))) if your map uses Mapbox as basemap
+* Completely hide basemap road names.
+* Always make them visible.
+* Use the default setting, which removes them at zoom level 17 or closer (or according to the MITransitionLevel set using [Query Parameters](https://docs.mapsindoors.com/products/fast-track-maptemplate/configuration/query-parameters))) if your map uses Mapbox as basemap.
+
+This configuration only applies to Mapbox maps.
 
 **View Selector visibility:** The view selector allows users to quickly jump between buildings. This can only be enabled if there is more than one building on the map.
+
+**Language Selector visibility**: The language selector allows users to choose the desired language. Supported languages: English, Danish, French, German, Italian, Spanish, Dutch and Chinese.
 
 ### Map Provider
 
 Input either your Mapbox Access Token or your Google Maps API key. Once you have successfully entered a key/token, you'll be able to open your Web App, ready for you and your customers to use.
 
 {% hint style="info" %}
-If you don't have a Mapbox token/Google Maps API key yet, [go here](../sdks-and-frameworks/web/tutorial/getting-started/map-engine-provider/)
+If you don't have a Mapbox token/Google Maps API key yet, [go here](../sdks-and-frameworks/web/tutorial/getting-started/map-engine-provider/).
+{% endhint %}
+
+### Customizing Your Web App's Basemap
+
+To customize the appearance of your map in the Web App, you can set a custom Mapbox map style URL in the MapsIndoors CMS. Enter your Mapbox style URL to apply your personalized map aesthetics, providing a unique and tailored map view for your users.
+
+This customization will only affect the basemap appearance - your MapsIndoors location data, POIs, and indoors mapping content will still display normally on top of your customized basemap style (please read our note of caution below).
+
+Create custom styles [here](https://www.mapbox.com/mapbox-studio).
+
+Browse pre-built styles [here](https://docs.mapbox.com/api/maps/styles/#classic-mapbox-styles).
+
+{% hint style="warning" %}
+Be cautious when configuring your map style and initial load settings. Incorrect configurations may impact how the map and MapsIndoors data are displayed to users, potentially leading to a suboptimal user experience. Double-check settings to ensure they align with your desired appearance and functionality.
 {% endhint %}
 
 ### Styling
@@ -64,7 +82,7 @@ If you don't have a Mapbox token/Google Maps API key yet, [go here](../sdks-and-
 
 ### Center
 
-**Latitude and Longitude:** Set the default center of the map. To find your desired latitudual and longitudual coordinates, you can find a location on your map close to the center of your map. Click on it and find the coordinates at the bottom of "Location Details".&#x20;
+**Latitude and Longitude:** Set the default center of the map. To find your desired latitudinal and longitudinal coordinates, you can find a location on your map close to the center of your map. Click on it and find the coordinates at the bottom of "Location Details".&#x20;
 
 ### App Title
 
