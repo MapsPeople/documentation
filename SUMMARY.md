@@ -277,6 +277,7 @@
   * [MI Components](https://github.com/MapsPeople/web-ui/blob/main/packages/components/CHANGELOG.md)
   * [Map Template](https://github.com/MapsPeople/web-ui/blob/main/packages/map-template/CHANGELOG.md)
 * [Glossary](other/glossary.md)
+* [Technical Requirements](other/technical-requirements.md)
 
 ***
 
