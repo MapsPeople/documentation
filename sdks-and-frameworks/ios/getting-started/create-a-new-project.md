@@ -23,7 +23,7 @@ You should now have a project folder with the following files:
 
 ### Installing the MapsIndoors SDK[​](https://docs.mapsindoors.com/getting-started/ios/v4/set-up-your-environment#installing-the-mapsindoors-sdk) <a href="#installing-the-mapsindoors-sdk" id="installing-the-mapsindoors-sdk"></a>
 
-MapsIndoors can be installed using Swift Package Manger, CocoaPods or you can install the XCFrameworks manually if using Google Maps.
+MapsIndoors can be installed using Swift Package Manager or CocoaPods.
 
 {% tabs %}
 {% tab title="Swift Package Manager" %}
@@ -35,7 +35,7 @@ MapsIndoors can be installed using Swift Package Manger, CocoaPods or you can in
 
     [`https://github.com/MapsPeople/mapsindoors-googlemaps-ios.git`](https://github.com/MapsPeople/mapsindoors-googlemaps-ios.git) (to use Google Maps)
 3. Select the _Dependency Rule_ you want to apply to the MapsIndoors SDK
-   * A common choice for _Dependency Rule_ is "Up to Next Major Version", specifying `4.13.2` as the minimum version. To instead install a specific version set the _Dependency Rule_ field to "Exact Version" and insert the desired version. The latest version of the MapsIndoors SDK is `4.13.2`.
+   * A common choice for _Dependency Rule_ is "Up to Next Major Version", specifying `4.14.0` as the minimum version. To instead install a specific version set the _Dependency Rule_ field to "Exact Version" and insert the desired version. The latest version of the MapsIndoors SDK is `4.14.0`.
 4. Hit enter or Click **Add Package**.
 5. In the new window select the `MapsIndoorsMapbox` or `MapsIndoorsGoogleMaps` library and click **Add Package**. Once SPM finishes installing the SDK you will see 3 new dependencies under **Package Dependencies**: `MapsIndoors`, `MapsIndoorsCore`, and `MapsIndoorsMapbox` or `MapsIndoorsGoogleMaps` (plus their respective dependencies).
 6. Click on your project's target, scroll down to `Frameworks, Libraries, and Embedded Content` and click the plus button.
@@ -44,11 +44,15 @@ MapsIndoors can be installed using Swift Package Manger, CocoaPods or you can in
 Now you can use start using MapsIndoors in your project by using `import MapsIndoors` in your source code.
 
 {% hint style="warning" %}
-If you're using Mapbox, make sure to configure your secret token in order to download the required dependencies from Mapbox when installing the Swift Package: [https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials](https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials)
+If you are using Mapbox, make sure to configure your secret token in order to download the required dependencies from Mapbox when installing the Swift Package: [https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials](https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials)
 {% endhint %}
 {% endtab %}
 
-{% tab title="Cocoapods" %}
+{% tab title="CocoaPods" %}
+{% include "../../../.gitbook/includes/cocoapods-is-soon-going-int....md" %}
+
+{% include "../../../.gitbook/includes/version-4.14.0-is-the-last-....md" %}
+
 1. Create a new `Podfile` in your project directory (same folder as your _.xcodeproj_) by running `pod init <XCODEPROJECTNAME>` in Terminal.
 2.  Add your dependecies to the `Podfile` as follows (replace `YOUR_APPLICATION_TARGET_NAME_HERE` with your actual target name),
 
@@ -59,14 +63,14 @@ If you're using Mapbox, make sure to configure your secret token in order to dow
 
     target 'YOUR_APPLICATION_TARGET_NAME_HERE' do
       # Remove the comment mark to use your map specific MapsIndoors pod
-      # pod 'MapsIndoorsGoogleMaps', '~> 4.13'
+      # pod 'MapsIndoorsGoogleMaps', '~> 4.14'
       # or
-      # pod 'MapsIndoorsMapbox11', '~> 4.13'
+      # pod 'MapsIndoorsMapbox11', '~> 4.14'
     end
     ```
 
 {% hint style="warning" %}
-If you're using Mapbox, make sure to configure your secret token in order to download the required dependencies from Mapbox when running `pod install`: [https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials](https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials)
+If you are using Mapbox, make sure to configure your secret token in order to download the required dependencies from Mapbox when running `pod install`: [https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials](https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials)
 {% endhint %}
 
 {% hint style="danger" %}
@@ -77,9 +81,7 @@ If you are upgrading from a version prior to 4.6.0 you must remove the `post_ins
 5. Open a terminal in the directory of the project. `cd <path-to-project>`
 6. Run `pod install` in the terminal.
 7. From this time onwards, use the _.xcworkspace_ file to open the project.
-
 {% endtab %}
-
 {% endtabs %}
 
 {% hint style="info" %}
@@ -129,6 +131,6 @@ import MapsIndoorsCore
 GMSServices.provideAPIKey("YOUR_GOOGLE_API_KEY")
 ```
 
-Finally, remember to replace `YOUR_GOOGLE_API_KEY`  with your Google API key.
+Finally, remember to replace `YOUR_GOOGLE_API_KEY` with your Google API key.
 {% endtab %}
 {% endtabs %}
