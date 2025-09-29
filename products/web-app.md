@@ -58,6 +58,10 @@ If you don't have a Mapbox token/Google Maps API key yet, [go here](../sdks-and-
 
 **Primary Color:** Sets the primary color used in the web app's UI using hex color code.&#x20;
 
+### Kiosk Styling
+
+**Horizontal Categories Enabled:** Controls the styling of the kiosk view. If enabled, the categories will be displayed horizontally instead of vertically.
+
 ### Initial load view
 
 **Start Zoom Level:** Sets the zoom level at which the map loads. Depending on the map size, values from 17 to 19 are most common. Zoom 22 is the maximum and very close, while any value of 15 and lower will be deemed too far away by most users.
