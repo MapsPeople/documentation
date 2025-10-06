@@ -23,6 +23,8 @@ Here is a guide on which materials to include or exclude in your model exports f
 
 <figure><img src="../../../.gitbook/assets/CleanShot 2025-07-10 at 11.12.04 (1).png" alt=""><figcaption><p>Always use "Principled BSDF" shader</p></figcaption></figure>
 
+Using Blender or third-party tools to compress models is **incompatible** with Mapbox.
+
 ## Set Preview Image​ <a href="#set-preview-image" id="set-preview-image"></a>
 
 <figure><img src="../../../.gitbook/assets/CleanShot 2025-07-10 at 10.56.56.png" alt=""><figcaption></figcaption></figure>
