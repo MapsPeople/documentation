@@ -72,7 +72,7 @@ If you don't have a Mapbox token/Google Maps API key yet, [go here](../sdks-and-
 
 ### Center
 
-**Latitude and Longitude:** Set the default center of the map. To find your desired latitudinal and longitudinal coordinates, you can find a location on your map close to the center of your map. Click on it and find the coordinates at the bottom of "Location Details".&#x20;
+**Longitude and Latitude:** Set the default center of the map. To find your desired latitudinal and longitudinal coordinates, you can find a location on your map close to the center of your map. Click on it and find the coordinates at the bottom of "Location Details".&#x20;
 
 ### App Title
 
