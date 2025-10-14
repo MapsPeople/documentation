@@ -48,7 +48,7 @@ https://map.mapsindoors.com/?apiKey=02c329e6777d431a88480a09&kioskOriginLocation
     kioskOriginLocationId="b47a973a8450439598c0189c"/>
 ```
 
-###
+
 
 ### **UI design optimization for a Kiosk** <a href="#ui-design" id="ui-design"></a>
 
@@ -73,6 +73,12 @@ For a smooth user experience when interacting with the kiosk, you can now select
 <figure><img src="../../../.gitbook/assets/directions-next-step.gif" alt=""><figcaption></figcaption></figure>
 
 You can change the accessibility if needed, and you can also scan the QR code for an easier view of the route on your mobile device . The QR code feature is further described in this article.
+
+### Reset view button
+
+If you ever get lost while navigating your web app in kiosk mode, you can use the **Reset View** button located in the bottom-right corner of the map. This will smoothly pan the view back to the location specified by the `kioskOriginLocationId` property.
+
+<figure><img src="../../../.gitbook/assets/Screen Recording 2025-10-07 at 09.48.18.gif" alt=""><figcaption></figcaption></figure>
 
 ### Create a QR code to share directions
 
