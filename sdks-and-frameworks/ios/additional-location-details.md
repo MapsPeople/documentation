@@ -31,7 +31,7 @@ func printDetails(location: MPLocation) {
             // Email details (details can be supplied with an icon URL)
             "\(location.name)'s email: \(detail.value ?? "nil") (icon: \(detail.icon ?? "nil"))"
         case .openingHours:
-            // Opening hours (has a special field 'openingHours' that is only used for this
+            // Opening hours (has a special field 'openingHours' that is only used for this)
             "\(location.name) opening hours: \(detail.openingHours?.description ?? "No opening hours")"
         case .none:
             "Unknown detail type for \(location.name)"
