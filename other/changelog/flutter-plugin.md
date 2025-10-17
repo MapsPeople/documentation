@@ -6,6 +6,50 @@ icon: flutter
 
 Change log for the MapsIndoors Flutter SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## \[4.6.0] 2025-10-17
+
+### Added
+
+* Added support for [Additional Details](https://docs.mapsindoors.com/products/cms/additional-location-details)
+* Added support for [Nested Categories](https://docs.mapsindoors.com/products/cms/categories#subcategories)
+
+### Fixed
+
+* Fixed a number of build issues on both Android and iOS
+
+### Changed
+
+* Updated Mapsindoors SDKs:
+  * Android to [4.15.5](https://docs.mapsindoors.com/other/changelog/android-sdk/v4#id-4.15.5-2025-10-15)
+  * iOS to [4.15.2](https://docs.mapsindoors.com/other/changelog/ios-sdk/v4)
+
+## \[4.5.1] 2025-09-23
+
+### Fixed
+
+* Inconsistencies in color values across Android and iOS are gone
+* Avoid crashes when accessing a number of properties due to null values
+* The callback for `onLegSelected` in the `onLegSelectedListener` is now called on iOS
+
+### Changed
+
+* Updated Mapsindoors SDKs:
+  * Android to [4.15.2](https://docs.mapsindoors.com/other/changelog/android-sdk/v4#id-4.15.2-2025-09-22), making Android 16 kB page size compatible (Google Play requirement from November 1)
+  * iOS to [4.14.0](https://docs.mapsindoors.com/other/changelog/ios-sdk/v4#id-4.14.0-2025-09-16)
+
+## \[4.5.0] 2025-08-28
+
+### Added
+
+* Added support for `automatedZoomLevel` property in `MPSolutionConfig` to limit the zoom level when using e.g. the `goTo(entity:)` method
+* Added `goTo(entity:maxZoom:)` method to allow for limiting the zoom level manually instead of using `automatedZoomLevel`
+
+### Changed
+
+* Updated Mapsindoors SDKs:
+  * Android to [4.14.1](https://docs.mapsindoors.com/other/changelog/android-sdk/v4#id-4.14.1-2025-08-28)
+  * iOS to [4.13.2](https://docs.mapsindoors.com/other/changelog/ios-sdk/v4#id-4.13.2-2025-08-06)
+
 ## \[4.4.1] 2025-08-05
 
 ### Fixed
