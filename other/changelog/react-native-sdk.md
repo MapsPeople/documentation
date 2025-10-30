@@ -6,6 +6,17 @@ icon: react
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.5.4] 2025-10-30
+
+#### Fixed
+
+* Compliance with google play requirement for 16kb Page sizes
+
+#### Updated
+
+* Updated MapsIndoors iOS SDK to 4.15.5
+* Updated MapsIndoors Android SDK to 4.15.1
+
 ### \[2.5.3] 2025-08-18
 
 #### Fixed
