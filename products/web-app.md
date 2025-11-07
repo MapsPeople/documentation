@@ -52,11 +52,24 @@ Input either your Mapbox Access Token or your Google Maps API key. Once you have
 If you don't have a Mapbox token/Google Maps API key yet, [go here](../sdks-and-frameworks/web/tutorial/getting-started/map-engine-provider/).
 {% endhint %}
 
+### Customizing Your Web App's Basemap
+
+To customize the appearance of your map in the Web App, you can set a custom Mapbox map style URL in the MapsIndoors CMS. Enter your Mapbox style URL to apply your personalized map aesthetics, providing a unique and tailored map view for your users.\
+This customization will only affect the basemap appearance - your MapsIndoors location data, POIs, and indoors mapping content will still display normally on top of your customized basemap style (please read our note of caution below).
+
+Create custom styles [here](https://www.mapbox.com/mapbox-studio).
+
+Browse pre-built styles [here](https://docs.mapbox.com/api/maps/styles/#classic-mapbox-styles).
+
+{% hint style="info" %}
+Be cautious when configuring your map style and initial load settings. Incorrect configurations may impact how the map and MapsIndoors data are displayed to users, potentially leading to a suboptimal user experience. Double-check settings to ensure they align with your desired appearance and functionality.
+{% endhint %}
+
 ### Styling
 
 **Loading screen logo:** Customize the logo that appears on the loading screen/splash screen by browsing through the MapsIndoors Media Library. You can upload any JPG, PNG, or SVG file to the Media Library (we recommend limiting the image file size to below 1 MB). By default, the MapsIndoors logo will be displayed on load.
 
-**Primary Color:** Sets the primary color used in the web app's UI using hex color code.&#x20;
+**Primary Color:** Sets the primary color used in the web app's UI using hex color code.
 
 ### Kiosk Styling
 
@@ -66,29 +79,29 @@ If you don't have a Mapbox token/Google Maps API key yet, [go here](../sdks-and-
 
 **Start Zoom Level:** Sets the zoom level at which the map loads. Depending on the map size, values from 17 to 19 are most common. Zoom 22 is the maximum and very close, while any value of 15 and lower will be deemed too far away by most users.
 
-**Bearing:** Controls the rotation of the map. Bearing=0 is due North, 90=East, 180=South, 270=West. Can only be used on Mapbox maps.&#x20;
+**Bearing:** Controls the rotation of the map. Bearing=0 is due North, 90=East, 180=South, 270=West. Can only be used on Mapbox maps.
 
-**Pitch:** Controls the angle at which the map is viewed. Pitch=0 is top-down. Pitch=85 is flat. Can only be used on Mapbox maps.&#x20;
+**Pitch:** Controls the angle at which the map is viewed. Pitch=0 is top-down. Pitch=85 is flat. Can only be used on Mapbox maps.
 
 ### Center
 
-**Longitude and Latitude:** Set the default center of the map. To find your desired latitudinal and longitudinal coordinates, you can find a location on your map close to the center of your map. Click on it and find the coordinates at the bottom of "Location Details".&#x20;
+**Longitude and Latitude:** Set the default center of the map. To find your desired latitudinal and longitudinal coordinates, you can find a location on your map close to the center of your map. Click on it and find the coordinates at the bottom of "Location Details".
 
 ### App Title
 
-Find more information in our [CMS documentation](https://docs.mapsindoors.com/products/cms/interface-overview#app-configuration).&#x20;
+Find more information in our [CMS documentation](https://docs.mapsindoors.com/products/cms/interface-overview#app-configuration).
 
 ### Alias
 
-Find more information in our [CMS documentation](https://docs.mapsindoors.com/products/cms/interface-overview#app-configuration).&#x20;
+Find more information in our [CMS documentation](https://docs.mapsindoors.com/products/cms/interface-overview#app-configuration).
 
 ### App User Roles
 
-Find more information in our [CMS documentation](https://docs.mapsindoors.com/products/cms/interface-overview#app-configuration).&#x20;
+Find more information in our [CMS documentation](https://docs.mapsindoors.com/products/cms/interface-overview#app-configuration).
 
 ### App Categories
 
-Find more information in our [CMS documentation](https://docs.mapsindoors.com/products/cms/interface-overview#app-configuration).&#x20;
+Find more information in our [CMS documentation](https://docs.mapsindoors.com/products/cms/interface-overview#app-configuration).
 
 ## How Web App Configuration works with Query Parameters
 
@@ -96,7 +109,7 @@ In addition to the configurations applied directly in the CMS, you can also use 
 
 Using query parameters, you can override any setting that has been applied in the CMS. For instance, if you have set the "Center" option in the CMS, you can use the "center" query parameter to set a different center for a specific URL. This will not change the setting applied in the CMS, but will be limited to the specific URL you created.
 
-### Parameters Configurable in CMS vs Query Parameters Only&#x20;
+### Parameters Configurable in CMS vs Query Parameters Only
 
 The table below shows which parameters can be configured from the MapsIndoors CMS and which parameters can only be configured through query parameters.
 
