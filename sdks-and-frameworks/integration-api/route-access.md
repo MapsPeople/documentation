@@ -22,7 +22,7 @@ Wait time is set in seconds and affects how long it takes to walk past this poin
 
 **OnewayDirection**[**​**](https://docs.mapsindoors.com/api-route-access#onewaydirection)
 
-Oneway direction is an [absolute\_bearing](https://en.wikipedia.org/wiki/Absolute\_bearing) and can be set to any number between 0 and 360 (degrees). Oneway is not mandatory, but can be used in situations where users can only walk in one direction. IF set - end users may only walk in the direction stated within the area (+/- 90 degrees)
+Oneway direction is an [absolute\_bearing](https://en.wikipedia.org/wiki/Absolute_bearing) and can be set to any number between 0 and 360 (degrees). Oneway is not mandatory, but can be used in situations where users can only walk in one direction. IF set - end users may only walk in the direction stated within the area (+/- 90 degrees)
 
 **Restrictions**[**​**](https://docs.mapsindoors.com/api-route-access#restrictions)
 
@@ -30,7 +30,7 @@ With this setting you can restrict if users are allowed to go though this point.
 
 1\) It can be set to "locked" which implies that it's not possible to go though this point for anyone 2) It can be set to one or more App User Roles (refered by ID). App User Roles can be defined via the CMS in App Settings -> App Configuration:
 
-<figure><img src="../../.gitbook/assets/CleanShot 2023-08-31 at 08.23.41@2x (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/CleanShot Aug 31 (1).png" alt=""><figcaption></figcaption></figure>
 
 Notice that you can get a list of available user roles using this endpoint from the intregrationAPI: /{apiKey}/api/appUserRoles
 

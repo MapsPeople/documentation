@@ -11,7 +11,7 @@ The MapsIndoors Javascript SDK empowers you to streamline navigation within venu
 
 ### Leverage Multi-Stop Navigation in Your App
 
-To get a route with multiple stops along the path, use the  [`DirectionsService's`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.DirectionsService.html) [`getRoute`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.DirectionsService.html#getRoute) in combination with the stops parameter. The stops parameter takes an array of [`LatLngLiterals`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/LatLngLiteral.html)
+To get a route with multiple stops along the path, use the [`DirectionsService's`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.DirectionsService.html) [`getRoute`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.DirectionsService.html#getRoute) in combination with the stops parameter. The stops parameter takes an array of [`LatLngLiterals`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/LatLngLiteral.html)
 
 ```javascript
 const origin = { lat: 30.362364120965957, lng: -97.74102144956545 };
@@ -141,4 +141,4 @@ const routeStopConfigs = new Map([
 miDirectionsRendererInstance.setRoute(routeResult, routeStopConfigs);
 ```
 
-<figure><img src="../../../.gitbook/assets/image (50).png" alt=""><figcaption><p>Stop icons with different background colors.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (49) (1).png" alt=""><figcaption><p>Stop icons with different background colors.</p></figcaption></figure>

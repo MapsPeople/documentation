@@ -30,7 +30,7 @@ See the full list of parameters:
 
 {% tabs %}
 {% tab title="Java" %}
-#### Example of Creating a Search Query <a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
+**Example of Creating a Search Query**
 
 ```
 void findRestroom() {
@@ -55,13 +55,11 @@ void findRestroom() {
 }
 ```
 
-### Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map) <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
+#### Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map) <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
 
 When displaying the search results it is helpful to filter the map to only show matching Locations. Matching Buildings and Venues will still be shown on the map, as they give context to the user, even if they aren't selectable on the map.
 
-#### Example of Filtering the Map to Display Searched Locations on the Map <a href="#example-of-filtering-the-map-to-display-searched-locations-on-the-map" id="example-of-filtering-the-map-to-display-searched-locations-on-the-map"></a>
-
-
+**Example of Filtering the Map to Display Searched Locations on the Map**
 
 ```
 MapsIndoors.getLocationsAsync(mpQuery, mpFilter, (locations, error) -> {
@@ -72,11 +70,11 @@ MapsIndoors.getLocationsAsync(mpQuery, mpFilter, (locations, error) -> {
 });
 ```
 
-### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
+#### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
 
 After displaying the search results on your map you can then clear the filter so that all Locations show up on the map again.
 
-#### Example of Clearing Your Map Filter to Show All Locations Again <a href="#example-of-clearing-your-map-filter-to-show-all-locations-again" id="example-of-clearing-your-map-filter-to-show-all-locations-again"></a>
+**Example of Clearing Your Map Filter to Show All Locations Again**
 
 ```
 mMapControl.clearFilter();
@@ -84,9 +82,7 @@ mMapControl.clearFilter();
 {% endtab %}
 
 {% tab title="Kotlin" %}
-#### Example of Creating a Search Query <a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
-
-
+**Example of Creating a Search Query**
 
 ```
 fun findRestroom() {
@@ -108,13 +104,11 @@ fun findRestroom() {
 }
 ```
 
-### Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map) <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
+#### Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map) <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
 
 When displaying the search results it is helpful to filter the map to only show matching Locations. Matching Buildings and Venues will still be shown on the map, as they give context to the user, even if they aren't selectable on the map.
 
-#### Example of Filtering the Map to Display Searched Locations on the Map <a href="#example-of-filtering-the-map-to-display-searched-locations-on-the-map" id="example-of-filtering-the-map-to-display-searched-locations-on-the-map"></a>
-
-
+**Example of Filtering the Map to Display Searched Locations on the Map**
 
 ```
 MapsIndoors.getLocationsAsync(mpQuery, mpFilter, (locations, error) -> {
@@ -123,15 +117,14 @@ MapsIndoors.getLocationsAsync(mpQuery, mpFilter, (locations, error) -> {
 });
 ```
 
-### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
+#### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
 
 After displaying the search results on your map you can then clear the filter so that all Locations show up on the map again.
 
-#### Example of Clearing Your Map Filter to Show All Locations Again <a href="#example-of-clearing-your-map-filter-to-show-all-locations-again" id="example-of-clearing-your-map-filter-to-show-all-locations-again"></a>
+**Example of Clearing Your Map Filter to Show All Locations Again**
 
 ```
 mMapControl.clearFilter()
 ```
 {% endtab %}
 {% endtabs %}
-

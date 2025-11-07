@@ -4,33 +4,33 @@ This guide is made based off a basic application already made, to keep most of t
 
 {% tabs %}
 {% tab title="Basic example" %}
-## Using basic example[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#using-basic-example) <a href="#using-basic-example" id="using-basic-example"></a>
+### Using basic example[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#using-basic-example) <a href="#using-basic-example" id="using-basic-example"></a>
 
-### Set Up Your Environment[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#set-up-your-environment) <a href="#set-up-your-environment" id="set-up-your-environment"></a>
+#### Set Up Your Environment[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#set-up-your-environment) <a href="#set-up-your-environment" id="set-up-your-environment"></a>
 
 Read here how to set up your [**React Native development environment**](https://reactnative.dev/docs/environment-setup)
 
-### Basic Example[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#basic-example) <a href="#basic-example" id="basic-example"></a>
+#### Basic Example[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#basic-example) <a href="#basic-example" id="basic-example"></a>
 
 You can find the basic example to start from here: [Basic example](https://github.com/MapsPeople/getting-started-react-native-basic) Follow the included README on how to get the project up and running.
 
-### Setup MapsIndoors[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#setup-mapsindoors) <a href="#setup-mapsindoors" id="setup-mapsindoors"></a>
+#### Setup MapsIndoors[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#setup-mapsindoors) <a href="#setup-mapsindoors" id="setup-mapsindoors"></a>
 
 To run MapsIndoors you need to insert a google API key inside your project.
 
-#### Android:
+**Android:**
 
 Inside the project navigate to `android/app/src/main/res/values/google_maps_api.xml` and replace the `INSERT_KEY_HERE` with your google API key
 
-#### iOS:
+**iOS:**
 
 Inside the project navigate to `ios/GettingStartedProject/AppDelegate.mm` and replace the `/*Your Google API key here*/` inside `provideAPIKey` with your Google API key
 {% endtab %}
 
 {% tab title="Manual setup" %}
-### Manual setup[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#manual-setup) <a href="#manual-setup" id="manual-setup"></a>
+#### Manual setup[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#manual-setup) <a href="#manual-setup" id="manual-setup"></a>
 
-#### Project creation[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#project-creation) <a href="#project-creation" id="project-creation"></a>
+**Project creation**[**​**](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#project-creation)
 
 Create a new React Native project by running the following command
 
@@ -38,7 +38,7 @@ Create a new React Native project by running the following command
 npx react-native@latest init GettingStartedProject
 ```
 
-#### Dependencies[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#dependencies) <a href="#dependencies" id="dependencies"></a>
+**Dependencies**[**​**](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#dependencies)
 
 Start by installing the bindings for your preferred map provider. There is currently only support for using one of these packages at a time.
 
@@ -69,7 +69,7 @@ Please see the following links for additional steps needed for installing the de
 [https://docs.swmansion.com/react-native-gesture-handler/docs/installation/](https://docs.swmansion.com/react-native-gesture-handler/docs/installation/)\
 [https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation/](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation/)
 
-#### Pod install[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#pod-install) <a href="#pod-install" id="pod-install"></a>
+**Pod install**[**​**](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#pod-install)
 
 After making changes to dependecies, especially those involving native code, you will need to run the following command from the ios folder of your project:
 

@@ -266,7 +266,7 @@ Above we have the example, the corners have a radius of 16 pixels. Now we have t
 
 Above the `StretchX/Y` has been illustrated, with the Content area in <mark style="background-color:red;">red</mark>, the `StretchX` in <mark style="background-color:blue;">blue</mark> and `StretchY` in <mark style="background-color:green;">green</mark>. Notice how the stretchable areas are already repeating a lot, in theory this image could be reduced to 32x32 pixels!
 
-<figure><img src="../../../.gitbook/assets/image (30).png" alt=""><figcaption><p>The same graphic but reduced to its smallest possible size</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (29) (1).png" alt=""><figcaption><p>The same graphic but reduced to its smallest possible size</p></figcaption></figure>
 
 Lets define the graphic label in numbers:
 
@@ -290,7 +290,7 @@ This example is similar to the first, but has a star on top of the box, and as w
 
 We can color in the stretchable areas and the content area:
 
-<figure><img src="../../../.gitbook/assets/image (34).png" alt=""><figcaption><p>A white graphic with rounded corners and a star in the middle, as we do not want to stretch the star, StretchX have been split in two, placed on both sides of  the star.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (34).png" alt=""><figcaption><p>A white graphic with rounded corners and a star in the middle, as we do not want to stretch the star, StretchX have been split in two, placed on both sides of the star.</p></figcaption></figure>
 
 This example can be described numerically like this:
 

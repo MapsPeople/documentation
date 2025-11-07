@@ -34,8 +34,6 @@ Throughout the Getting Started guide, you will modify and extend the same code t
 
 Both here, and in the following examples, you will always be able to see which of the two files the code should go in, by looking at the first line, where the name of the file is written.
 
-
-
 Your environment is now fully configured, and you have the necessary API keys. Next, you will learn how to display a map with MapsIndoors.
 
 ## Step 2. Display a Map with MapsIndoors[​](https://docs.mapsindoors.com/getting-started/web/map#show-a-map-with-mapsindoors) <a href="#show-a-map-with-mapsindoors" id="show-a-map-with-mapsindoors"></a>
@@ -110,7 +108,7 @@ What happens in this snippet is we create a `mapViewInstance` that pulls up a [`
 
 You should now see a map from your chosen map engine with MapsIndoors data loaded on top.
 
-### Display a Floor Selector <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
+#### Display a Floor Selector <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
 
 Next, we'll add a Floor Selector for changing between floors.
 
@@ -217,7 +215,7 @@ miMapElement.addEventListener('mapsIndoorsReady', () => {
 
 You should now see a map from your chosen map engine with MapsIndoors data loaded on top.
 
-### Display a Floor Selector[​](https://docs.mapsindoors.com/getting-started/web/map#show-a-floor-selector) <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
+#### Display a Floor Selector[​](https://docs.mapsindoors.com/getting-started/web/map#show-a-floor-selector) <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
 
 Next, we'll add a Floor Selector for changing between floors.
 
@@ -248,7 +246,7 @@ Using the `<mi-map-googlemaps>` element, you can add the [floorSelectorControlPo
 </html>
 ```
 
-You should now be able to switch between floors.&#x20;
+You should now be able to switch between floors.
 
 Here's a JSFiddle demonstrating the result you should have by now:
 
@@ -327,7 +325,7 @@ What happens in this snippet is we create a `mapViewInstance` that pulls up a [`
 
 You should now see a map from your chosen map engine with MapsIndoors data loaded on top.
 
-### Display a Floor Selector <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
+#### Display a Floor Selector <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
 
 Next, we'll add a Floor Selector for changing between floors.
 
@@ -358,7 +356,7 @@ mapboxInstance.addControl({ onAdd: function () { return floorSelectorElement }, 
 
 > See all available control positions in the [Mapbox Documentation](https://docs.mapbox.com/mapbox-gl-js/api/map/#map#addcontrol).
 
-You should now be able to switch between floors.&#x20;
+You should now be able to switch between floors.
 
 Here's a JSFiddle demonstrating the result you should have by now:
 
@@ -436,11 +434,11 @@ const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
 });
 ```
 
-What happens in this snippet is we create a `mapViewInstance` that pulls up a [`MapboxView`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.MapboxV3View.html) with some [`mapViewOptions`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.MapboxV3View.html). The options define which element in the html-file to display the map in (in this case `<div id="map">`), where the map should center, what zoom level to display, and what the max zoom level is. You can also control `mapsIndoorsTransitionLevel`  which defines when Mapbox' Extruded buildings disappear and MapsIndoors data is shown. `lightPreset` sets the global [light](getting-started/prerequisites.md#mapbox-v3) for you application, while `showMapMarkers` property defines if Mapbox' Markers are shown on the map.
+What happens in this snippet is we create a `mapViewInstance` that pulls up a [`MapboxView`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.MapboxV3View.html) with some [`mapViewOptions`](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.mapView.MapboxV3View.html). The options define which element in the html-file to display the map in (in this case `<div id="map">`), where the map should center, what zoom level to display, and what the max zoom level is. You can also control `mapsIndoorsTransitionLevel` which defines when Mapbox' Extruded buildings disappear and MapsIndoors data is shown. `lightPreset` sets the global [light](getting-started/prerequisites.md#mapbox-v3) for you application, while `showMapMarkers` property defines if Mapbox' Markers are shown on the map.
 
 You should now see a map from your chosen map engine with MapsIndoors data loaded on top.
 
-### Display a Floor Selector <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
+#### Display a Floor Selector <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
 
 Next, we'll add a Floor Selector for changing between floors.
 
@@ -474,7 +472,7 @@ mapboxInstance.addControl({ onAdd: function () { return floorSelectorElement }, 
 
 > See all available control positions in the [Mapbox Documentation](https://docs.mapbox.com/mapbox-gl-js/api/map/#map#addcontrol).
 
-You should now be able to switch between floors.&#x20;
+You should now be able to switch between floors.
 {% endtab %}
 
 {% tab title="Mapbox - MI Components" %}
@@ -545,7 +543,7 @@ For more information on how to configure the `<mi-map-mapbox>` component, see [c
 
 You should now see a map from your chosen map engine with MapsIndoors data loaded on top.
 
-### Display a Floor Selector <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
+#### Display a Floor Selector <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
 
 Next, we'll add a Floor Selector for changing between floors.
 
@@ -574,7 +572,7 @@ Using the `<mi-map-mapbox>` element, you can add the [floorSelectorControlPositi
 
 > See all available control positions in the [Mapbox Documentation](https://docs.mapbox.com/mapbox-gl-js/api/map/#map#addcontrol).
 
-You should now be able to switch between floors.&#x20;
+You should now be able to switch between floors.
 
 Here's a JSFiddle demonstrating the result you should have by now:
 
@@ -582,15 +580,13 @@ Here's a JSFiddle demonstrating the result you should have by now:
 {% endtab %}
 {% endtabs %}
 
-
-
 ## Step 3. Create a Search Experience
 
 In this step, you'll create a simple search and display the search results in a list. You'll also learn how to filter the data displayed on the map.
 
 {% tabs %}
 {% tab title="Google Maps - Manually" %}
-## Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
+### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
 
 MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`LocationsService.getLocations()` method](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations) but first you need to add a `<input>` and `<button>` element to the DOM.
 
@@ -655,7 +651,7 @@ googleMapsInstance.controls[google.maps.ControlPosition.RIGHT_TOP].push(floorSel
 
 See all available search parameters in the [reference documentation](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations).
 
-### Display a List of Search Results <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
+#### Display a List of Search Results <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
 
 To display a list of search results you can append each search result to a list element.
 
@@ -758,7 +754,7 @@ function onSearch() {
 }
 ```
 
-### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
+#### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
 
 To filter the map to only display the search results you can use the `filter` method.
 
@@ -812,7 +808,7 @@ Here's a JSFiddle demonstrating the result you should have by now:
 {% endtab %}
 
 {% tab title="Google Maps - MI Components" %}
-## Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
+### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
 
 Using the `<mi-search>` component you get a `<input>`element tied tightly together with the [Location Service](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/LocationsService.html).
 
@@ -866,11 +862,9 @@ miSearchElement.addEventListener('results', (event) => {
 
 For more information on available events and how to configure the `<mi-search>` component, see [components.mapsindoors.com/search](https://components.mapsindoors.com/search/).
 
-### Display a List of Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#show-a-list-of-search-results) <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
+#### Display a List of Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#show-a-list-of-search-results) <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
 
 To display a list of search results you can append each search result to a list element.
-
-
 
 * Insert the `<mi-list>` custom element below the search field in `<body>`.
 * Add the `scroll-buttons-enabled` and `scroll-length` attributes.
@@ -954,11 +948,9 @@ event.detail.forEach(location => {
 });
 ```
 
-### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
+#### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
 
 To filter the map to only display the search results you can use the `filter` method.
-
-
 
 ```javascript
 // main.js
@@ -997,12 +989,10 @@ To remove the location filter again, call `mapsIndoorsInstance.filter(null)`.
 Here's a JSFiddle demonstrating the result you should have by now:
 
 {% embed url="https://jsfiddle.net/mapspeople/jtnw0u1y/1/" fullWidth="false" %}
-
-
 {% endtab %}
 
 {% tab title="Mapbox - Manually" %}
-## Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
+### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
 
 MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`LocationsService.getLocations()` method](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations) but first you need to add an `<input>` and `<button>` element to the DOM.
 
@@ -1067,7 +1057,7 @@ mapboxInstance.addControl({ onAdd: function () { return floorSelectorElement }, 
 
 See all available search parameters in the [reference documentation](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations).
 
-### Display a List of Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#show-a-list-of-search-results) <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
+#### Display a List of Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#show-a-list-of-search-results) <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
 
 To display a list of search results you can append each search result to a list element.
 
@@ -1173,11 +1163,9 @@ function onSearch() {
 }
 ```
 
-### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
+#### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
 
 To filter the map to only display the search results you can use the `filter` method.
-
-
 
 * Call `mapsIndoorsInstance.filter` with an array of Location IDs.
 
@@ -1232,7 +1220,7 @@ Here's a JSFiddle demonstrating the result you should have by now:
 {% endtab %}
 
 {% tab title="Mapbox - MI Components" %}
-## Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
+### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
 
 Using the `<mi-search>` component you get an `<input>`element tied tightly together with the [Location Service](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/LocationsService.html).
 
@@ -1285,11 +1273,9 @@ miSearchElement.addEventListener('results', (event) => {
 
 For more information on available events and how to configure the `<mi-search>` component, see [components.mapsindoors.com/search](https://components.mapsindoors.com/search/).
 
-### Display a List of Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#show-a-list-of-search-results) <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
+#### Display a List of Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#show-a-list-of-search-results) <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
 
 To display a list of search results you can append each search result to a list element.
-
-
 
 * Insert the `<mi-list>` custom element below the search field in `<body>`.
 * Add the `scroll-buttons-enabled` and `scroll-length` attributes.
@@ -1370,11 +1356,9 @@ miSearchElement.addEventListener('results', (event) => {
 });
 ```
 
-### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
+#### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
 
 To filter the map to only display the search results you can use the `filter` method.
-
-
 
 ```javascript
 // main.js
@@ -1430,7 +1414,7 @@ We need the Directions Service to calculate the fastest route between two points
 
 {% tabs %}
 {% tab title="Google Maps - Manually" %}
-#### Get Directions Service and Render instances <a href="#get-directions-service-and-render-instances" id="get-directions-service-and-render-instances"></a>
+**Get Directions Service and Render instances**
 
 First, initialize the [MapsIndoors Directions Service](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.DirectionsService.html), and add an external Directions Provider (in this case Google Maps).
 
@@ -1486,11 +1470,11 @@ function onSearch() {
 
 Now our app is ready to provide directions. Next up is how to give it an Origin and Destination _-_ and draw a route between those.
 
-#### Draw a Route on the Map[​](https://docs.mapsindoors.com/getting-started/web/directions#draw-a-route-on-the-map) <a href="#draw-a-route-on-the-map" id="draw-a-route-on-the-map"></a>
+**Draw a Route on the Map**[**​**](https://docs.mapsindoors.com/getting-started/web/directions#draw-a-route-on-the-map)
 
 To display a route on the map, we use the coordinates of an Origin and Destination and draw a line between them. For this, we use MapsIndoors' [DirectionsRenderer](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html).
 
-The Destination coordinate is retrieved dynamically using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result in the text list. Different solutions can of course be implemented into your own solution later.&#x20;
+The Destination coordinate is retrieved dynamically using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result in the text list. Different solutions can of course be implemented into your own solution later.
 
 In this tutorial, the Origin is, naturally, a hardcoded coordinate in the demo API key supplied with this guide. If you're using you own key, you can hardcode coordinates from a Location in your building instead.
 
@@ -1642,7 +1626,7 @@ function getRoute(location) {
 
 Now you can click on any item in the search results list to get directions from the hardcoded origin to that destination.
 
-### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
+#### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
 
 In MapsIndoors, the transportation mode is referred to as travel mode. There are four travel modes; walking, bicycling, driving and transit (public transportation). The travel modes apply for outdoor navigation. Indoor navigation calculations are based on walking travel mode.
 
@@ -1751,7 +1735,7 @@ You now have something like this:
 {% endtab %}
 
 {% tab title="Google Maps - MI Components" %}
-#### Get Directions Service and Render instances <a href="#get-directions-service-and-render-instances" id="get-directions-service-and-render-instances"></a>
+**Get Directions Service and Render instances**
 
 First, add two new `let` statements all the way at the top, after the `miMapElement` constant for storing our Directions Service and Directions Renderer instances. Then, we populate them with the instances within the `mapsIndoorsReady` event:
 
@@ -1798,15 +1782,15 @@ miSearchElement.addEventListener('results', (event) => {
 
 Now our app is ready to provide directions. Next up is how to give it an Origin and Destination - and draw a route between those.
 
-#### Draw a Route on the Map[​](https://docs.mapsindoors.com/getting-started/web/directions#draw-a-route-on-the-map) <a href="#draw-a-route-on-the-map" id="draw-a-route-on-the-map"></a>
+**Draw a Route on the Map**[**​**](https://docs.mapsindoors.com/getting-started/web/directions#draw-a-route-on-the-map)
 
 Now our app is ready to provide directions. Next up is how to give it an Origin and Destination _-_ and draw a route between those.
 
-#### Draw a Route on the Map[​](https://docs.mapsindoors.com/getting-started/web/directions#draw-a-route-on-the-map) <a href="#draw-a-route-on-the-map" id="draw-a-route-on-the-map"></a>
+**Draw a Route on the Map**[**​**](https://docs.mapsindoors.com/getting-started/web/directions#draw-a-route-on-the-map)
 
 To display a route on the map, we use the coordinates of an Origin and Destination and draw a line between them. For this, we use MapsIndoors' [DirectionsRenderer](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html).
 
-The Destination coordinate is retrieved dynamically using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result in the text list. Different solutions can of course be implemented into your own solution later.&#x20;
+The Destination coordinate is retrieved dynamically using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result in the text list. Different solutions can of course be implemented into your own solution later.
 
 In this tutorial, the Origin is, naturally, a hardcoded coordinate in the demo API key supplied with this guide. If you're using you own key, you can hardcode coordinates from a Location in your building instead.
 
@@ -1942,7 +1926,7 @@ function getRoute(location) {
 
 Now you can click on any item in the search results list to get directions from the hardcoded origin to that destination.
 
-### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
+#### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
 
 In MapsIndoors, the transportation mode is referred to as travel mode. There are four travel modes; walking, bicycling, driving and transit (public transportation). The travel modes apply for outdoor navigation. Indoor navigation calculations are based on walking travel mode.
 
@@ -2051,15 +2035,13 @@ function getRoute(location) {
 }
 ```
 
-
-
 You now have something like this:
 
 {% embed url="https://jsfiddle.net/mapspeople/jzqx7kmy/1/" %}
 {% endtab %}
 
 {% tab title="Mapbox - Manually" %}
-#### Get Directions Service and Render instances <a href="#get-directions-service-and-render-instances" id="get-directions-service-and-render-instances"></a>
+**Get Directions Service and Render instances**
 
 First, initialize the [MapsIndoors Directions Service](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.DirectionsService.html), and add an external Directions Provider (in this case Mapbox).
 
@@ -2116,11 +2098,11 @@ function onSearch() {
 
 Now our example app is ready to provide Directions. Next up is how to give it an Origin and Destination and draw the route between.
 
-#### Draw a Route on the Map[​](https://docs.mapsindoors.com/getting-started/web/directions#draw-a-route-on-the-map) <a href="#draw-a-route-on-the-map" id="draw-a-route-on-the-map"></a>
+**Draw a Route on the Map**[**​**](https://docs.mapsindoors.com/getting-started/web/directions#draw-a-route-on-the-map)
 
 To display a route on the map, we use the coordinates of an Origin and Destination and draw a line between them. For this, we use MapsIndoors' [Directions Renderer](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html).
 
-The Destination coordinate is retrieved dynamically, using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result in the text list. Different solutions can of course be implemented into your own solution later.&#x20;
+The Destination coordinate is retrieved dynamically, using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result in the text list. Different solutions can of course be implemented into your own solution later.
 
 In this tutorial, the Origin is, naturally, a hardcoded coordinate in the demo API key supplied with this guide. If you're using you own key, you can hardcode coordinates from a Location in your building instead.
 
@@ -2272,7 +2254,7 @@ function getRoute(location) {
 
 Now you can click on each item in the search results list to get directions.
 
-### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
+#### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
 
 In MapsIndoors, the transportation mode is referred to as travel mode. There are four travel modes; walking, bicycling, driving and transit (public transportation). The travel modes apply for outdoor navigation. Indoor navigation calculations are based on walking travel mode.
 
@@ -2378,14 +2360,13 @@ function getRoute(location) {
 }
 ```
 
-You now have something like this:\
-
+You now have something like this:\\
 
 [https://jsfiddle.net/mapspeople/z23vjhf4/7/](https://jsfiddle.net/mapspeople/z23vjhf4/7/)
 {% endtab %}
 
 {% tab title="Mapbox - MI Components" %}
-#### Get Directions Service and Render instances <a href="#get-directions-service-and-render-instances" id="get-directions-service-and-render-instances"></a>
+**Get Directions Service and Render instances**
 
 First, add two new `let` statements all the way at the top, after the `miMapElement` constant for storing our Directions Service and Directions Renderer instances. Then, we populate them with the instances within the `mapsIndoorsReady` event:
 
@@ -2431,11 +2412,11 @@ miSearchElement.addEventListener('results', (event) => {
 
 Now our app is ready to provide directions. Next up is how to give it an Origin and Destination - and draw a route between those.
 
-#### Draw a Route on the Map[​](https://docs.mapsindoors.com/getting-started/web/directions#draw-a-route-on-the-map) <a href="#draw-a-route-on-the-map" id="draw-a-route-on-the-map"></a>
+**Draw a Route on the Map**[**​**](https://docs.mapsindoors.com/getting-started/web/directions#draw-a-route-on-the-map)
 
 To display a route on the map, we use the coordinates of an Origin and Destination and draw a line between them. For this, we use MapsIndoors' [Directions Renderer](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.directions.DirectionsRenderer.html).
 
-The Destination coordinate is retrieved dynamically, using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result in the text list. Different solutions can of course be implemented into your own solution later.&#x20;
+The Destination coordinate is retrieved dynamically, using the coordinate of the selected Location in the search results list. Therefore, you must search for the destination to get directions, and then click the result in the text list. Different solutions can of course be implemented into your own solution later.
 
 In this tutorial, the Origin is, naturally, a hardcoded coordinate in the demo API key supplied with this guide. If you're using you own key, you can hardcode coordinates from a Location in your building instead.
 
@@ -2571,7 +2552,7 @@ function getRoute(location) {
 
 Now you can click on any item in the search results list to get directions from the hardcoded origin to that destination.
 
-### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
+#### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
 
 In MapsIndoors, the transportation mode is referred to as travel mode. There are four travel modes; walking, bicycling, driving and transit (public transportation). The travel modes apply for outdoor navigation. Indoor navigation calculations are based on walking travel mode.
 

@@ -26,13 +26,9 @@ See the full list of parameters:
 | Near       | Sorts the list of Locations on which Location is nearest the point given                                                                    | MPQuery  |
 | Depth      | The Depth property makes it possible to get "x" amount of descendants to the given parent. The default for this is 1 (eg. Building > Floor) | MPFilter |
 
-
-
 {% tabs %}
 {% tab title="iOS v4" %}
-#### Example of Creating a Search Query <a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
-
-
+**Example of Creating a Search Query**
 
 ```swift
 let filter = MPFilter()
@@ -47,13 +43,11 @@ if let location = locations?.first {
 }
 ```
 
-### Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map) <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
+#### Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map) <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
 
 When displaying the search results it is helpful to filter the map to only show matching Locations. Matching Buildings and Venues will still be shown on the map, as they give context to the user, even if they aren't selectable on the map.
 
-#### Example of Filtering the Map to Display Searched Locations on the Map <a href="#example-of-filtering-the-map-to-display-searched-locations-on-the-map" id="example-of-filtering-the-map-to-display-searched-locations-on-the-map"></a>
-
-
+**Example of Filtering the Map to Display Searched Locations on the Map**
 
 ```swift
 let filter = MPFilter()
@@ -66,11 +60,11 @@ let locations = await MPMapsIndoors.shared.locationsWith(query: query, filter: f
 myMapControl.setFilter(locations: locations, behavior: .default)
 ```
 
-### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
+#### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
 
 After displaying the search results on your map you can then clear the filter so that all Locations show up on the map again.
 
-#### Example of Clearing Your Map Filter to Show All Locations Again <a href="#example-of-clearing-your-map-filter-to-show-all-locations-again" id="example-of-clearing-your-map-filter-to-show-all-locations-again"></a>
+**Example of Clearing Your Map Filter to Show All Locations Again**
 
 ```swift
 myMapControl.clearFilter()
@@ -78,9 +72,7 @@ myMapControl.clearFilter()
 {% endtab %}
 
 {% tab title="iOS v3" %}
-#### Example of Creating a Search Query <a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
-
-
+**Example of Creating a Search Query**
 
 ```swift
 let filter = MPFilter.init()
@@ -96,13 +88,11 @@ MPLocationService.sharedInstance().getLocationsUsing(query, filter: filter) { (l
 }
 ```
 
-### Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map) <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
+#### Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map) <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
 
 When displaying the search results it is helpful to filter the map to only show matching Locations. Matching Buildings and Venues will still be shown on the map, as they give context to the user, even if they aren't selectable on the map.
 
-#### Example of Filtering the Map to Display Searched Locations on the Map <a href="#example-of-filtering-the-map-to-display-searched-locations-on-the-map" id="example-of-filtering-the-map-to-display-searched-locations-on-the-map"></a>
-
-
+**Example of Filtering the Map to Display Searched Locations on the Map**
 
 ```swift
 let filter = MPFilter()
@@ -116,11 +106,11 @@ MPLocationService.sharedInstance().getLocationsUsing(query, filter: filter) { (l
 }
 ```
 
-### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
+#### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
 
 After displaying the search results on your map you can then clear the filter so that all Locations show up on the map again.
 
-#### Example of Clearing Your Map Filter to Show All Locations Again <a href="#example-of-clearing-your-map-filter-to-show-all-locations-again" id="example-of-clearing-your-map-filter-to-show-all-locations-again"></a>
+**Example of Clearing Your Map Filter to Show All Locations Again**
 
 ```swift
 myMapControl.clearMap()

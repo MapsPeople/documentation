@@ -1,10 +1,10 @@
 # External customization of the Map Template
 
-When using the Map Template as a React Component or as a Web Component, you can customize the application by accessing the MapsIndoors instance. To do this, listen for the `mapsIndoorsInstanceAvailable` event on the `window` object.&#x20;
+When using the Map Template as a React Component or as a Web Component, you can customize the application by accessing the MapsIndoors instance. To do this, listen for the `mapsIndoorsInstanceAvailable` event on the `window` object.
 
 You can read about all the methods that can be used on the MapsIndoors Instance [here](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html).
 
-1. ### React Component
+1. #### React Component
 
 To use the MapsIndoors instance within a React Component, you can create a `useEffect` hook that listens for the `mapsIndoorsInstanceAvailable` event on the `window` object.
 
@@ -29,9 +29,7 @@ function App() {
 export default App;
 </code></pre>
 
-
-
-2. ### Web Component
+2. #### Web Component
 
 To use the MapsIndoors instance within a Web Component, include a script tag that listens for the `mapsIndoorsInstanceAvailable` event on the `window` object.
 
@@ -46,10 +44,10 @@ To use the MapsIndoors instance within a Web Component, include a script tag tha
 </body>
 ```
 
-In conclusion, integrating the Map Template as either a React Component or a Web Component allows for great customization through the MapsIndoors instance.&#x20;
+In conclusion, integrating the Map Template as either a React Component or a Web Component allows for great customization through the MapsIndoors instance.
 
-By listening for the `mapsIndoorsInstanceAvailable` event, you can easily access and manipulate various features of the map, enhancing the functionality and user experience of your application.&#x20;
+By listening for the `mapsIndoorsInstanceAvailable` event, you can easily access and manipulate various features of the map, enhancing the functionality and user experience of your application.
 
-Whether you prefer working within a React framework or using the standard web components, the flexibility of the MapsIndoors instance will enable you to achieve your goals effectively.&#x20;
+Whether you prefer working within a React framework or using the standard web components, the flexibility of the MapsIndoors instance will enable you to achieve your goals effectively.
 
 Explore the available methods and tailor your map to fit your specific needs, ensuring a seamless and dynamic interaction for your users [here](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html).

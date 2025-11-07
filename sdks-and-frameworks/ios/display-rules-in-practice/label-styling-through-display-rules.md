@@ -104,7 +104,7 @@ Now the label will be drawn "below" the marker, flat on the ground.
 
 <figure><img src="../../../.gitbook/assets/ios-flat-labels.jpg" alt=""><figcaption><p>An example of flat labels without icons</p></figcaption></figure>
 
-It is possible to change the rotation of the label by modifying the `bearing` field, this field is measured in degrees where 0° is pointing north and [90° is pointing west.](#user-content-fn-1)[^1] Here is an example where the type is changed to flat and the bearing of the label is changed to a new value:
+It is possible to change the rotation of the label by modifying the `bearing` field, this field is measured in degrees where 0° is pointing north and 90° is pointing west. Here is an example where the type is changed to flat and the bearing of the label is changed to a new value:
 
 ```swift
 func changeLabelBearing(displayRule: MPDisplayRule, newBearing: Double) {
@@ -236,7 +236,7 @@ Above we have the example, the corners have a radius of 16 pixels. Now we have t
 
 Above the `StretchX/Y` has been illustrated, with the Content area in <mark style="background-color:red;">red</mark>, the `StretchX` in <mark style="background-color:blue;">blue</mark> and `StretchY` in <mark style="background-color:green;">green</mark>. Notice how the stretchable areas are already repeating a lot, in theory this image could be reduced to 32x32 pixels!
 
-<figure><img src="../../../.gitbook/assets/image (30).png" alt=""><figcaption><p>The same graphic but reduced to its smallest possible size</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (29) (1).png" alt=""><figcaption><p>The same graphic but reduced to its smallest possible size</p></figcaption></figure>
 
 Lets define the graphic label in numbers:
 
@@ -255,7 +255,7 @@ This example is similar to the first, but has a star on top of the box, and as w
 
 We can color in the stretchable areas and the content area:
 
-<figure><img src="../../../.gitbook/assets/image (34).png" alt=""><figcaption><p>A white graphic with rounded corners and a star in the middle, as we do not want to stretch the star, StretchX have been split in two, placed on both sides of  the star.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (34).png" alt=""><figcaption><p>A white graphic with rounded corners and a star in the middle, as we do not want to stretch the star, StretchX have been split in two, placed on both sides of the star.</p></figcaption></figure>
 
 This example can be described numerically like this:
 
@@ -273,7 +273,3 @@ And this is how it will look when place on the map:
 <figure><img src="../../../.gitbook/assets/star_label.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Now you know how to enable Graphic Labels, and how to define your own.
-
-
-
-[^1]: 

@@ -25,7 +25,7 @@ The Booking Service can help with the following tasks:
   * [Performing a Booking of a Location](https://docs.mapsindoors.com/booking#performing-a-booking-of-a-location)
   * [Cancelling a Booking of a Location](https://docs.mapsindoors.com/booking#cancelling-a-booking-of-a-location)
 
-### Bookable Locations in Java[​](https://docs.mapsindoors.com/booking#bookable-locations-in-java) <a href="#bookable-locations-in-java" id="bookable-locations-in-java"></a>
+#### Bookable Locations in Java[​](https://docs.mapsindoors.com/booking#bookable-locations-in-java) <a href="#bookable-locations-in-java" id="bookable-locations-in-java"></a>
 
 To determine whether or not a Location is bookable can be looked up using the `MPBookingService.getBookableLocations()` method. Below is an example of querying for bookable locations:
 
@@ -45,11 +45,11 @@ The above example creates a query for locations that are bookable for a timespan
 
 It is also possible to check a location statically using `MPLocation.isBookable`, but please note that this information is not a dynamic property reflecting the current bookable state from the Booking Service. If `MPLocation.isBookable` is true it means that the Location has a potentially bookable resource known by the integrated booking provider, but still it might be booked for a specific time.
 
-### Bookings in Java[​](https://docs.mapsindoors.com/booking#bookings-in-java) <a href="#bookings-in-java" id="bookings-in-java"></a>
+#### Bookings in Java[​](https://docs.mapsindoors.com/booking#bookings-in-java) <a href="#bookings-in-java" id="bookings-in-java"></a>
 
 A Booking is a timeboxed event model referring to the resource being booked and the users participating in the booked event.
 
-#### Listing Bookings for a Location in Java[​](https://docs.mapsindoors.com/booking#listing-bookings-for-a-location-in-java) <a href="#listing-bookings-for-a-location-in-java" id="listing-bookings-for-a-location-in-java"></a>
+**Listing Bookings for a Location in Java**[**​**](https://docs.mapsindoors.com/booking#listing-bookings-for-a-location-in-java)
 
 Before trying to book a Location for a given time, it is convenient to know in advance whether or not the Location is already booked for the given time.
 
@@ -70,7 +70,7 @@ bookingService.getBookingsUsingQuery(bookingsQuery, (bookings, error) -> {
 
 The above example creates a query for bookings that exists for a location with timespan between 1 hour ago and 24 hours ahead.
 
-#### Performing a Booking of a Location in Java[​](https://docs.mapsindoors.com/booking#performing-a-booking-of-a-location-in-java) <a href="#performing-a-booking-of-a-location-in-java" id="performing-a-booking-of-a-location-in-java"></a>
+**Performing a Booking of a Location in Java**[**​**](https://docs.mapsindoors.com/booking#performing-a-booking-of-a-location-in-java)
 
 It is possible execute a booking creation request using the `MPBookingService.perform()` method which takes a booking object as input. If the booking is successfully performed, the booking will return in the block with an assigned `bookingId`.
 
@@ -103,7 +103,7 @@ Depending on the Booking provider, the participants will receive invites for an 
 
 > By default, the `MPBookingService` performs anonymous bookings using a service account known to MapsIndoors. However, it is also possible to list, perform and cancel Bookings [on behalf of a user](http://docs.mapsindoors.com/data/booking/user-authenticated-booking-android/).
 
-#### Cancelling a Booking of a Location in Java[​](https://docs.mapsindoors.com/booking#cancelling-a-booking-of-a-location-in-java) <a href="#cancelling-a-booking-of-a-location-in-java" id="cancelling-a-booking-of-a-location-in-java"></a>
+**Cancelling a Booking of a Location in Java**[**​**](https://docs.mapsindoors.com/booking#cancelling-a-booking-of-a-location-in-java)
 
 It is possible to cancel a created Booking using the `MPBookingService.cancelBooking()` method which takes an existing booking object as input.
 
@@ -135,7 +135,7 @@ The Booking Service can help with the following tasks:
   * [Performing a Booking of a Location](https://docs.mapsindoors.com/booking#performing-a-booking-of-a-location)
   * [Cancelling a Booking of a Location](https://docs.mapsindoors.com/booking#cancelling-a-booking-of-a-location)
 
-### Bookable Locations in Kotlin[​](https://docs.mapsindoors.com/booking#bookable-locations-in-kotlin) <a href="#bookable-locations-in-kotlin" id="bookable-locations-in-kotlin"></a>
+#### Bookable Locations in Kotlin[​](https://docs.mapsindoors.com/booking#bookable-locations-in-kotlin) <a href="#bookable-locations-in-kotlin" id="bookable-locations-in-kotlin"></a>
 
 To determine whether or not a Location is bookable can be looked up using the `MPBookingService.getBookableLocations()` method. Below is an example of querying for bookable locations:
 
@@ -155,11 +155,11 @@ The above example creates a query for locations that are bookable for a timespan
 
 It is also possible to check a location statically using `MPLocation.isBookable`, but please note that this information is not a dynamic property reflecting the current bookable state from the Booking Service. If `MPLocation.isBookable` is true it means that the Location has a potentially bookable resource known by the integrated booking provider, but still it might be booked for a specific time.
 
-### Bookings in Kotlin[​](https://docs.mapsindoors.com/booking#bookings-in-kotlin) <a href="#bookings-in-kotlin" id="bookings-in-kotlin"></a>
+#### Bookings in Kotlin[​](https://docs.mapsindoors.com/booking#bookings-in-kotlin) <a href="#bookings-in-kotlin" id="bookings-in-kotlin"></a>
 
 A Booking is a timeboxed event model referring to the resource being booked and the users participating in the booked event.
 
-#### Listing Bookings for a Location in Kotlin[​](https://docs.mapsindoors.com/booking#listing-bookings-for-a-location-in-kotlin) <a href="#listing-bookings-for-a-location-in-kotlin" id="listing-bookings-for-a-location-in-kotlin"></a>
+**Listing Bookings for a Location in Kotlin**[**​**](https://docs.mapsindoors.com/booking#listing-bookings-for-a-location-in-kotlin)
 
 Before trying to book a Location for a given time, it is convenient to know in advance whether or not the Location is already booked for the given time.
 
@@ -180,7 +180,7 @@ bookingService.getBookingsUsingQuery(bookingsQuery) {bookings, error ->
 
 The above example creates a query for bookings that exists for a location with timespan between 1 hour ago and 24 hours ahead.
 
-#### Performing a Booking of a Location in Kotlin[​](https://docs.mapsindoors.com/booking#performing-a-booking-of-a-location-in-kotlin) <a href="#performing-a-booking-of-a-location-in-kotlin" id="performing-a-booking-of-a-location-in-kotlin"></a>
+**Performing a Booking of a Location in Kotlin**[**​**](https://docs.mapsindoors.com/booking#performing-a-booking-of-a-location-in-kotlin)
 
 It is possible execute a booking creation request using the `MPBookingService.perform()` method which takes a booking object as input. If the booking is successfully performed, the booking will return in the block with an assigned `bookingId`.
 
@@ -213,7 +213,7 @@ Depending on the Booking provider, the participants will receive invites for an 
 
 > By default, the `MPBookingService` performs anonymous bookings using a service account known to MapsIndoors. However, it is also possible to list, perform and cancel Bookings [on behalf of a user](http://docs.mapsindoors.com/data/booking/user-authenticated-booking-android/).
 
-#### Cancelling a Booking of a Location in Kotlin[​](https://docs.mapsindoors.com/booking#cancelling-a-booking-of-a-location-in-kotlin) <a href="#cancelling-a-booking-of-a-location-in-kotlin" id="cancelling-a-booking-of-a-location-in-kotlin"></a>
+**Cancelling a Booking of a Location in Kotlin**[**​**](https://docs.mapsindoors.com/booking#cancelling-a-booking-of-a-location-in-kotlin)
 
 It is possible to cancel a created Booking using the `MPBookingService.cancelBooking()` method which takes an existing booking object as input.
 

@@ -45,15 +45,11 @@ Knowing that updates are ordered in Topics, it is possible to subscribe to updat
 
 A live update is the model for a message carrying one piece of Live Data, for example that a particular room is now occupied. It contains the Topic for the live update and the actual live properties as a _dictionary_ of _strings_.
 
-
-
-
-
 {% tabs %}
 {% tab title="Kotlin" %}
-### Enable Live Data in Your App in Kotlin[​](https://docs.mapsindoors.com/live-data-intro#enable-live-data-in-your-app-in-kotlin) <a href="#enable-live-data-in-your-app-in-kotlin" id="enable-live-data-in-your-app-in-kotlin"></a>
+#### Enable Live Data in Your App in Kotlin[​](https://docs.mapsindoors.com/live-data-intro#enable-live-data-in-your-app-in-kotlin) <a href="#enable-live-data-in-your-app-in-kotlin" id="enable-live-data-in-your-app-in-kotlin"></a>
 
-#### Enable Live Data through MapControl in Kotlin[​](https://docs.mapsindoors.com/live-data-intro#enable-live-data-through-mapcontrol-in-kotlin) <a href="#enable-live-data-through-mapcontrol-in-kotlin" id="enable-live-data-through-mapcontrol-in-kotlin"></a>
+**Enable Live Data through MapControl in Kotlin**[**​**](https://docs.mapsindoors.com/live-data-intro#enable-live-data-through-mapcontrol-in-kotlin)
 
 Enabling Live Data through the `MapControl` is an easy way to get Live Data running in your app.
 
@@ -71,7 +67,7 @@ Note that using the `enableLiveData` methods on `MapControl` has some limitation
 * Since `MapControl` will try to determine the Live Data subscriptions based on where the map is currently situated, it might not detect Live Data updates of the position Domain representing moving objects entering the visible region of the map.
 * Since `MapControl` does not know which Live Updates are relevant to show, it will need to subscribe to all Live Data in the visible region, which, depending on your amount of Live Data, may or may not lead to app performance implications.
 
-#### Enable Live Data through LiveDataManager in Kotlin[​](https://docs.mapsindoors.com/live-data-intro#enable-live-data-through-livedatamanager-in-kotlin) <a href="#enable-live-data-through-livedatamanager-in-kotlin" id="enable-live-data-through-livedatamanager-in-kotlin"></a>
+**Enable Live Data through LiveDataManager in Kotlin**[**​**](https://docs.mapsindoors.com/live-data-intro#enable-live-data-through-livedatamanager-in-kotlin)
 
 To enable Live Data in an application, a subscription to one or more Topics is needed. Once subscribed, the application can be notified about changes and decide what to do. The application is in control of what should happen upon receiving live data updates, and the MapsIndoors SDKs provide mechanisms to efficiently make updates to the map representation of Locations. The central class to carry out these tasks is the `LiveDataManager`.
 
@@ -90,7 +86,7 @@ liveDataManager.subscribeTopic(liveTopicCriteria);
 
 In the example, the Topic is created using the `datasetId` and a multilevel wildcard, which will return all Live Data in the Solution.
 
-### Rendering Live Data Locations in Kotlin[​](https://docs.mapsindoors.com/live-data-intro#rendering-live-data-locations-in-kotlin) <a href="#rendering-live-data-locations-in-kotlin" id="rendering-live-data-locations-in-kotlin"></a>
+#### Rendering Live Data Locations in Kotlin[​](https://docs.mapsindoors.com/live-data-intro#rendering-live-data-locations-in-kotlin) <a href="#rendering-live-data-locations-in-kotlin" id="rendering-live-data-locations-in-kotlin"></a>
 
 As mentioned `MapControl` has a default way of rendering Live Data Locations if you call `enableLiveData(String domainType)`. If you need to show Live Data in another way, you can add handlers for this, either through `setOnWillUpdateLocationsOnMap(OnWillUpdateLocationsOnMap listener)` or by calling `enableLiveData(String domainType, OnLiveLocationUpdateListener OnLiveLocationUpdateListener)`.
 
@@ -132,11 +128,11 @@ mMapControl.enableLiveData(LiveDataDomainTypes.OCCUPANCY_DOMAIN) { location: MPL
 
 Note that since there is no guarantee of which Live Data you receive first, and Locations can have multiple Live Data updates on different domains, we recommend checking the `lastModifiedTimeStamp` of each Live Data update to select which one to render.
 
-### Handling Live Data Events in Kotlin[​](https://docs.mapsindoors.com/live-data-intro#handling-live-data-events-in-kotlin) <a href="#handling-live-data-events-in-kotlin" id="handling-live-data-events-in-kotlin"></a>
+#### Handling Live Data Events in Kotlin[​](https://docs.mapsindoors.com/live-data-intro#handling-live-data-events-in-kotlin) <a href="#handling-live-data-events-in-kotlin" id="handling-live-data-events-in-kotlin"></a>
 
 While only a few lines of code can get things moving around on a map, there are of course more handles that are relevant to create a robust and user-friendly real-time map experience.
 
-#### Listening for Live Updates in Kotlin[​](https://docs.mapsindoors.com/live-data-intro#listening-for-live-updates-in-kotlin) <a href="#listening-for-live-updates-in-kotlin" id="listening-for-live-updates-in-kotlin"></a>
+**Listening for Live Updates in Kotlin**[**​**](https://docs.mapsindoors.com/live-data-intro#listening-for-live-updates-in-kotlin)
 
 There are two ways to be notified about Live Updates:
 
@@ -165,7 +161,7 @@ mMapControl.setOnWillUpdateLocationsOnMap { locations ->
         }
 ```
 
-#### Handling State Changes and Errors in Kotlin[​](https://docs.mapsindoors.com/live-data-intro#handling-state-changes-and-errors-in-kotlin) <a href="#handling-state-changes-and-errors-in-kotlin" id="handling-state-changes-and-errors-in-kotlin"></a>
+**Handling State Changes and Errors in Kotlin**[**​**](https://docs.mapsindoors.com/live-data-intro#handling-state-changes-and-errors-in-kotlin)
 
 In order to get notified about state changes and errors related to Live Data, a number of listeners can be set on the `LiveDataManager` using the following methods and interfaces:
 
@@ -181,9 +177,9 @@ Live Updates are dependent on network connectivity, so the Live Data Manager wil
 {% endtab %}
 
 {% tab title="Java" %}
-### Enable Live Data in Your App in Java[​](https://docs.mapsindoors.com/live-data-intro#enable-live-data-in-your-app-in-java) <a href="#enable-live-data-in-your-app-in-java" id="enable-live-data-in-your-app-in-java"></a>
+#### Enable Live Data in Your App in Java[​](https://docs.mapsindoors.com/live-data-intro#enable-live-data-in-your-app-in-java) <a href="#enable-live-data-in-your-app-in-java" id="enable-live-data-in-your-app-in-java"></a>
 
-#### Enable Live Data through MapControl in Java[​](https://docs.mapsindoors.com/live-data-intro#enable-live-data-through-mapcontrol-in-java) <a href="#enable-live-data-through-mapcontrol-in-java" id="enable-live-data-through-mapcontrol-in-java"></a>
+**Enable Live Data through MapControl in Java**[**​**](https://docs.mapsindoors.com/live-data-intro#enable-live-data-through-mapcontrol-in-java)
 
 Enabling Live Data through the `MapControl` is an easy way to get Live Data running in your app.
 
@@ -201,7 +197,7 @@ Note that using the `enableLiveData` methods on `MapControl` has some limitation
 * Since `MapControl` will try to determine the Live Data subscriptions based on where the map is currently situated, it might not detect Live Data updates of the position Domain representing moving objects entering the visible region of the map.
 * Since `MapControl` does not know which Live Updates are relevant to show, it will need to subscribe to all Live Data in the visible region, which, depending on your amount of Live Data, may or may not lead to app performance implications.
 
-#### Enable Live Data through LiveDataManager in Java[​](https://docs.mapsindoors.com/live-data-intro#enable-live-data-through-livedatamanager-in-java) <a href="#enable-live-data-through-livedatamanager-in-java" id="enable-live-data-through-livedatamanager-in-java"></a>
+**Enable Live Data through LiveDataManager in Java**[**​**](https://docs.mapsindoors.com/live-data-intro#enable-live-data-through-livedatamanager-in-java)
 
 To enable Live Data in an application, a subscription to one or more Topics is needed. Once subscribed, the application can be notified about changes and decide what to do. The application is in control of what should happen upon receiving live data updates, and the MapsIndoors SDKs provide mechanisms to efficiently make updates to the map representation of Locations. The central class to carry out these tasks is the `LiveDataManager`.
 
@@ -218,7 +214,7 @@ liveDataManager.subscribeTopic(liveTopicCriteria);
 
 In the example, the Topic is created using the `datasetId` and a multilevel wildcard, which will return all Live Data in the Solution.
 
-### Rendering Live Data Locations in Java[​](https://docs.mapsindoors.com/live-data-intro#rendering-live-data-locations-in-java) <a href="#rendering-live-data-locations-in-java" id="rendering-live-data-locations-in-java"></a>
+#### Rendering Live Data Locations in Java[​](https://docs.mapsindoors.com/live-data-intro#rendering-live-data-locations-in-java) <a href="#rendering-live-data-locations-in-java" id="rendering-live-data-locations-in-java"></a>
 
 As mentioned `MapControl` has a default way of rendering Live Data Locations if you call `enableLiveData(String domainType)`. If you need to show Live Data in another way, you can add handlers for this, either through `setOnWillUpdateLocationsOnMap(OnWillUpdateLocationsOnMap listener)` or by calling `enableLiveData(String domainType, OnLiveLocationUpdateListener OnLiveLocationUpdateListener)`.
 
@@ -260,11 +256,11 @@ mMapControl.enableLiveData(LiveDataDomainTypes.OCCUPANCY_DOMAIN, location -> {
 
 Note that since there is no guarantee of which Live Data you receive first, and Locations can have multiple Live Data updates on different domains, we recommend checking the `lastModifiedTimeStamp` of each Live Data update to select which one to render.
 
-### Handling Live Data Events in Java[​](https://docs.mapsindoors.com/live-data-intro#handling-live-data-events-in-java) <a href="#handling-live-data-events-in-java" id="handling-live-data-events-in-java"></a>
+#### Handling Live Data Events in Java[​](https://docs.mapsindoors.com/live-data-intro#handling-live-data-events-in-java) <a href="#handling-live-data-events-in-java" id="handling-live-data-events-in-java"></a>
 
 While only a few lines of code can get things moving around on a map, there are of course more handles that are relevant to create a robust and user-friendly real-time map experience.
 
-#### Listening for Live Updates in Java[​](https://docs.mapsindoors.com/live-data-intro#listening-for-live-updates-in-java) <a href="#listening-for-live-updates-in-java" id="listening-for-live-updates-in-java"></a>
+**Listening for Live Updates in Java**[**​**](https://docs.mapsindoors.com/live-data-intro#listening-for-live-updates-in-java)
 
 There are two ways to be notified about Live Updates:
 
@@ -293,7 +289,7 @@ mapControl.setOnWillUpdateLocationsOnMap(locations -> {
 }
 ```
 
-#### Handling State Changes and Errors in Java[​](https://docs.mapsindoors.com/live-data-intro#handling-state-changes-and-errors-in-java) <a href="#handling-state-changes-and-errors-in-java" id="handling-state-changes-and-errors-in-java"></a>
+**Handling State Changes and Errors in Java**[**​**](https://docs.mapsindoors.com/live-data-intro#handling-state-changes-and-errors-in-java)
 
 In order to get notified about state changes and errors related to Live Data, a number of listeners can be set on the `LiveDataManager` using the following methods and interfaces:
 
