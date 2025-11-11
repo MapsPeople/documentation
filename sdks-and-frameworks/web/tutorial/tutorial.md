@@ -108,7 +108,7 @@ What happens in this snippet is we create a `mapViewInstance` that pulls up a [`
 
 You should now see a map from your chosen map engine with MapsIndoors data loaded on top.
 
-#### Display a Floor Selector <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
+**Display a Floor Selector**
 
 Next, we'll add a Floor Selector for changing between floors.
 
@@ -215,7 +215,7 @@ miMapElement.addEventListener('mapsIndoorsReady', () => {
 
 You should now see a map from your chosen map engine with MapsIndoors data loaded on top.
 
-#### Display a Floor Selector[​](https://docs.mapsindoors.com/getting-started/web/map#show-a-floor-selector) <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
+**Display a Floor Selector**[**​**](https://docs.mapsindoors.com/getting-started/web/map#show-a-floor-selector)
 
 Next, we'll add a Floor Selector for changing between floors.
 
@@ -325,7 +325,7 @@ What happens in this snippet is we create a `mapViewInstance` that pulls up a [`
 
 You should now see a map from your chosen map engine with MapsIndoors data loaded on top.
 
-#### Display a Floor Selector <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
+**Display a Floor Selector**
 
 Next, we'll add a Floor Selector for changing between floors.
 
@@ -438,7 +438,7 @@ What happens in this snippet is we create a `mapViewInstance` that pulls up a [`
 
 You should now see a map from your chosen map engine with MapsIndoors data loaded on top.
 
-#### Display a Floor Selector <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
+**Display a Floor Selector**
 
 Next, we'll add a Floor Selector for changing between floors.
 
@@ -543,7 +543,7 @@ For more information on how to configure the `<mi-map-mapbox>` component, see [c
 
 You should now see a map from your chosen map engine with MapsIndoors data loaded on top.
 
-#### Display a Floor Selector <a href="#show-a-floor-selector" id="show-a-floor-selector"></a>
+**Display a Floor Selector**
 
 Next, we'll add a Floor Selector for changing between floors.
 
@@ -586,7 +586,7 @@ In this step, you'll create a simple search and display the search results in a 
 
 {% tabs %}
 {% tab title="Google Maps - Manually" %}
-### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
+#### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
 
 MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`LocationsService.getLocations()` method](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations) but first you need to add a `<input>` and `<button>` element to the DOM.
 
@@ -651,7 +651,7 @@ googleMapsInstance.controls[google.maps.ControlPosition.RIGHT_TOP].push(floorSel
 
 See all available search parameters in the [reference documentation](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations).
 
-#### Display a List of Search Results <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
+**Display a List of Search Results**
 
 To display a list of search results you can append each search result to a list element.
 
@@ -754,7 +754,7 @@ function onSearch() {
 }
 ```
 
-#### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
+**Filter Locations on Map Based on Search Results**[**​**](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results)
 
 To filter the map to only display the search results you can use the `filter` method.
 
@@ -808,7 +808,7 @@ Here's a JSFiddle demonstrating the result you should have by now:
 {% endtab %}
 
 {% tab title="Google Maps - MI Components" %}
-### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
+#### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
 
 Using the `<mi-search>` component you get a `<input>`element tied tightly together with the [Location Service](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/LocationsService.html).
 
@@ -862,7 +862,7 @@ miSearchElement.addEventListener('results', (event) => {
 
 For more information on available events and how to configure the `<mi-search>` component, see [components.mapsindoors.com/search](https://components.mapsindoors.com/search/).
 
-#### Display a List of Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#show-a-list-of-search-results) <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
+**Display a List of Search Results**[**​**](https://docs.mapsindoors.com/getting-started/web/search#show-a-list-of-search-results)
 
 To display a list of search results you can append each search result to a list element.
 
@@ -948,7 +948,7 @@ event.detail.forEach(location => {
 });
 ```
 
-#### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
+**Filter Locations on Map Based on Search Results**[**​**](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results)
 
 To filter the map to only display the search results you can use the `filter` method.
 
@@ -992,7 +992,7 @@ Here's a JSFiddle demonstrating the result you should have by now:
 {% endtab %}
 
 {% tab title="Mapbox - Manually" %}
-### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
+#### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
 
 MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`LocationsService.getLocations()` method](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations) but first you need to add an `<input>` and `<button>` element to the DOM.
 
@@ -1057,7 +1057,7 @@ mapboxInstance.addControl({ onAdd: function () { return floorSelectorElement }, 
 
 See all available search parameters in the [reference documentation](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations).
 
-#### Display a List of Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#show-a-list-of-search-results) <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
+**Display a List of Search Results**[**​**](https://docs.mapsindoors.com/getting-started/web/search#show-a-list-of-search-results)
 
 To display a list of search results you can append each search result to a list element.
 
@@ -1163,7 +1163,7 @@ function onSearch() {
 }
 ```
 
-#### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
+**Filter Locations on Map Based on Search Results**[**​**](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results)
 
 To filter the map to only display the search results you can use the `filter` method.
 
@@ -1220,7 +1220,7 @@ Here's a JSFiddle demonstrating the result you should have by now:
 {% endtab %}
 
 {% tab title="Mapbox - MI Components" %}
-### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
+#### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
 
 Using the `<mi-search>` component you get an `<input>`element tied tightly together with the [Location Service](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/LocationsService.html).
 
@@ -1273,7 +1273,7 @@ miSearchElement.addEventListener('results', (event) => {
 
 For more information on available events and how to configure the `<mi-search>` component, see [components.mapsindoors.com/search](https://components.mapsindoors.com/search/).
 
-#### Display a List of Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#show-a-list-of-search-results) <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
+**Display a List of Search Results**[**​**](https://docs.mapsindoors.com/getting-started/web/search#show-a-list-of-search-results)
 
 To display a list of search results you can append each search result to a list element.
 
@@ -1356,7 +1356,7 @@ miSearchElement.addEventListener('results', (event) => {
 });
 ```
 
-#### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
+**Filter Locations on Map Based on Search Results**[**​**](https://docs.mapsindoors.com/getting-started/web/search#filter-locations-on-map-based-on-search-results)
 
 To filter the map to only display the search results you can use the `filter` method.
 
@@ -1626,7 +1626,7 @@ function getRoute(location) {
 
 Now you can click on any item in the search results list to get directions from the hardcoded origin to that destination.
 
-#### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
+**Change Transportation Mode**[**​**](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode)
 
 In MapsIndoors, the transportation mode is referred to as travel mode. There are four travel modes; walking, bicycling, driving and transit (public transportation). The travel modes apply for outdoor navigation. Indoor navigation calculations are based on walking travel mode.
 
@@ -1926,7 +1926,7 @@ function getRoute(location) {
 
 Now you can click on any item in the search results list to get directions from the hardcoded origin to that destination.
 
-#### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
+**Change Transportation Mode**[**​**](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode)
 
 In MapsIndoors, the transportation mode is referred to as travel mode. There are four travel modes; walking, bicycling, driving and transit (public transportation). The travel modes apply for outdoor navigation. Indoor navigation calculations are based on walking travel mode.
 
@@ -2254,7 +2254,7 @@ function getRoute(location) {
 
 Now you can click on each item in the search results list to get directions.
 
-#### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
+**Change Transportation Mode**[**​**](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode)
 
 In MapsIndoors, the transportation mode is referred to as travel mode. There are four travel modes; walking, bicycling, driving and transit (public transportation). The travel modes apply for outdoor navigation. Indoor navigation calculations are based on walking travel mode.
 
@@ -2552,7 +2552,7 @@ function getRoute(location) {
 
 Now you can click on any item in the search results list to get directions from the hardcoded origin to that destination.
 
-#### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
+**Change Transportation Mode**[**​**](https://docs.mapsindoors.com/getting-started/web/directions#change-transportation-mode)
 
 In MapsIndoors, the transportation mode is referred to as travel mode. There are four travel modes; walking, bicycling, driving and transit (public transportation). The travel modes apply for outdoor navigation. Indoor navigation calculations are based on walking travel mode.
 

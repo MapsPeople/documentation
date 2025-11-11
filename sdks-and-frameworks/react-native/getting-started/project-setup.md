@@ -4,17 +4,17 @@ This guide is made based off a basic application already made, to keep most of t
 
 {% tabs %}
 {% tab title="Basic example" %}
-### Using basic example[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#using-basic-example) <a href="#using-basic-example" id="using-basic-example"></a>
+#### Using basic example[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#using-basic-example) <a href="#using-basic-example" id="using-basic-example"></a>
 
-#### Set Up Your Environment[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#set-up-your-environment) <a href="#set-up-your-environment" id="set-up-your-environment"></a>
+**Set Up Your Environment**[**​**](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#set-up-your-environment)
 
 Read here how to set up your [**React Native development environment**](https://reactnative.dev/docs/environment-setup)
 
-#### Basic Example[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#basic-example) <a href="#basic-example" id="basic-example"></a>
+**Basic Example**[**​**](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#basic-example)
 
 You can find the basic example to start from here: [Basic example](https://github.com/MapsPeople/getting-started-react-native-basic) Follow the included README on how to get the project up and running.
 
-#### Setup MapsIndoors[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#setup-mapsindoors) <a href="#setup-mapsindoors" id="setup-mapsindoors"></a>
+**Setup MapsIndoors**[**​**](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#setup-mapsindoors)
 
 To run MapsIndoors you need to insert a google API key inside your project.
 
@@ -28,7 +28,7 @@ Inside the project navigate to `ios/GettingStartedProject/AppDelegate.mm` and re
 {% endtab %}
 
 {% tab title="Manual setup" %}
-#### Manual setup[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#manual-setup) <a href="#manual-setup" id="manual-setup"></a>
+**Manual setup**[**​**](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#manual-setup)
 
 **Project creation**[**​**](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#project-creation)
 

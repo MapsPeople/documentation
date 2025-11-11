@@ -10,7 +10,7 @@ When you load your initial Solution, it's beneficial to initialize MapsIndoors p
 
 {% tabs %}
 {% tab title="Mapbox" %}
-```java
+```swift
 func setupMapsIndoors(mapsIndoorsAPIKey: String, mapboxAccessToken: String) async throws {
     // Set up the Mapbox map view
     let mapInitOptions = MapInitOptions(resourceOptions: ResourceOptions(accessToken: mapboxAccessToken))
@@ -34,7 +34,7 @@ func setupMapsIndoors(mapsIndoorsAPIKey: String, mapboxAccessToken: String) asyn
 {% endtab %}
 
 {% tab title="Google Maps" %}
-```kotlin
+```swift
 func setupMapsIndoors(mapsIndoorsAPIKey: String, googleMapsAPIKey: String) async throws {
     // Orient your map to where you need data to be shown.
     // This can e.g. be done by pointing the camera to a specific location (shown below)
@@ -61,20 +61,20 @@ To switch Solutions you just set up MapsIndoors with a new MapsIndoors API key b
 We recommend creating your own function to call in the future for this purpose, like the example here with `switchSolution()`:
 
 {% tabs %}
-{% tab title="Google Maps" %}
-```
+{% tab title="Mapbox" %}
+```swift
 func switchSolution() {
     // Setup MapsIndoors anew
-    setupMapsIndoors(mapsIndoorsAPIKey: "YOUR_SECONDARY_API_KEY", googleMapsAPIKey: "YOUR_GOOGLE_API_KEY")
+    setupMapsIndoors(mapsIndoorsAPIKey: "YOUR_SECONDARY_API_KEY", mapboxAccessToken: "YOUR_MAPBOX_ACCESS_TOKEN")
 }
 ```
 {% endtab %}
 
-{% tab title="Mapbox" %}
-```
+{% tab title="Google Maps" %}
+```swift
 func switchSolution() {
     // Setup MapsIndoors anew
-    setupMapsIndoors(mapsIndoorsAPIKey: "YOUR_SECONDARY_API_KEY", mapboxAccessToken: "YOUR_MAPBOX_ACCESS_TOKEN")
+    setupMapsIndoors(mapsIndoorsAPIKey: "YOUR_SECONDARY_API_KEY", googleMapsAPIKey: "YOUR_GOOGLE_API_KEY")
 }
 ```
 {% endtab %}
