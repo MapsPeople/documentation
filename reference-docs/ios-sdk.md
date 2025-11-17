@@ -15,7 +15,6 @@ icon: apple
 
 <table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody>
 <tr><td>4.15.2</td><td><a href="https://app.mapsindoors.com/mapsindoors/reference/ios/4.15.2/documentation/mapsindoors/">https://app.mapsindoors.com/mapsindoors/reference/ios/4.15.2/documentation/mapsindoors/</a></td></tr>
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody>
 <tr><td>4.15.1</td><td><a href="https://app.mapsindoors.com/mapsindoors/reference/ios/4.15.1/documentation/mapsindoors/">https://app.mapsindoors.com/mapsindoors/reference/ios/4.15.1/documentation/mapsindoors/</a></td></tr>
 <tr><td>4.14.0</td><td><a href="https://app.mapsindoors.com/mapsindoors/reference/ios/4.14.0/documentation/mapsindoors/">https://app.mapsindoors.com/mapsindoors/reference/ios/4.14.0/documentation/mapsindoors/</a></td></tr>
 <tr><td>4.13.2</td><td><a href="https://app.mapsindoors.com/mapsindoors/reference/ios/4.13.2/documentation/mapsindoors/">https://app.mapsindoors.com/mapsindoors/reference/ios/4.13.2/documentation/mapsindoors/</a></td></tr>
