@@ -104,11 +104,10 @@ import MapsIndoorsCore
 2. Insert the following into the `application(_:didFinishLaunchingWithOptions:)` method. If you are using `Mapbox` then provide your API Key when you add your map to the view inside `viewDidLoad()` in your `ViewController.swift`:
 
 ```swift
-ResourceOptions(accessToken: "YOUR_MAPBOX_API_KEY")
-let initOptions = MapInitOptions(resourceOptions: myResourceOptions, styleURI: StyleURI.light)
+let initOptions = MapInitOptions()  // Set suitable options here if needed
 self.mapView = MapView(frame: view.bounds, mapInitOptions: initOptions)
 // Set the MPMapConfig
-MPMapConfig(mapBoxView: mapView!, accessToken: "---")
+MPMapConfig(mapBoxView: mapView, accessToken: "YOUR_MAPBOX_API_KEY")
 Task {
     await MPMapsIndoors.shared.load(apiKey:"YOUR_MAPSINDOORS_API_KEY")
 }
