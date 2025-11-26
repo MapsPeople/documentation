@@ -124,4 +124,4 @@ It is important that the class representing the custom floor selector you have d
 
 ### Expected Result <a href="#expected-result" id="expected-result"></a>
 
-<figure><img src="../../.gitbook/assets/ios-custom-floor-selector (1).gif" alt="" width="221"><figcaption></figcaption></figure>
+<figure><img src="/broken/files/CXvljiel7pJUnue2YQRr" alt="" width="221"><figcaption></figcaption></figure>

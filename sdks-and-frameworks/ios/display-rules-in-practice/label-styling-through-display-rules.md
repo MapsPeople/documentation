@@ -236,7 +236,7 @@ Above we have the example, the corners have a radius of 16 pixels. Now we have t
 
 Above the `StretchX/Y` has been illustrated, with the Content area in <mark style="background-color:red;">red</mark>, the `StretchX` in <mark style="background-color:blue;">blue</mark> and `StretchY` in <mark style="background-color:green;">green</mark>. Notice how the stretchable areas are already repeating a lot, in theory this image could be reduced to 32x32 pixels!
 
-<figure><img src="../../../.gitbook/assets/image (29) (1).png" alt=""><figcaption><p>The same graphic but reduced to its smallest possible size</p></figcaption></figure>
+<figure><img src="/broken/files/0Pg2Y7tjaVD6nh80z0gj" alt=""><figcaption><p>The same graphic but reduced to its smallest possible size</p></figcaption></figure>
 
 Lets define the graphic label in numbers:
 

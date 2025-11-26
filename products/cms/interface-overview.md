@@ -60,7 +60,7 @@ Doors and Barriers are Route Elements that allow you to manipulate certain porti
 
 By default doors are snapping, meaning they are following the lines of current solution's geometry:
 
-<figure><img src="../../.gitbook/assets/snapping-doors (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/LelVCfr5PXgI5QkS4lb7" alt=""><figcaption></figcaption></figure>
 
 While holding Shift keyboard button and moving mouse around, doors will:
 
@@ -71,21 +71,21 @@ Different doors creation modes:
 
 * **Single** - Creates single door on the map. Can be accessed by Add Door Route Element button in the toolbar:
 
-<figure><img src="../../.gitbook/assets/single-door-icon (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/t3C0ry8mSPi9BN8YTykn" alt=""><figcaption></figcaption></figure>
 
 * **Multiple with fixed width** - Creates multiple doors on the map with fixed width. Can be accessed by keyboard shortcut: Ctrl+Shift+D for **Windows**, Shift+Control+D for **MacOS**.
 
-<figure><img src="../../.gitbook/assets/multiple-fixed-width-doors-example (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/OIoMM3g9xYeJLUSCGBJH" alt=""><figcaption></figcaption></figure>
 
 * **Multiple with custom width** - Creates multiple doors on the map with custom width. Can be accessed by keyboard shortcut: Ctrl+Shift+F for **Windows**, Shift+Control+F for **MacOS**.
 
-<figure><img src="../../.gitbook/assets/multiple-custom-width-doors-example (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/EZKnnkp7LySgVnh2Nbg2" alt=""><figcaption></figcaption></figure>
 
 When accessing Multiple doors creation mode, there is an option to choose door type for all the doors that will be created. You can also undo latest door creation.
 
 **NOTE:** This is the only property that you can change while creating doors. The rest of the properties have to be edited for each door individually.
 
-<figure><img src="../../.gitbook/assets/multiple-doors-toolbar (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/O7v7jvrL2Hda99Kmx5fp" alt=""><figcaption></figcaption></figure>
 
 **Barriers** are similar to Doors in that they are used to modify the Route Network. Many of the settings and restrictions you can set are the same between the two kinds.
 

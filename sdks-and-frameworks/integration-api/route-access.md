@@ -30,7 +30,7 @@ With this setting you can restrict if users are allowed to go though this point.
 
 1\) It can be set to "locked" which implies that it's not possible to go though this point for anyone 2) It can be set to one or more App User Roles (refered by ID). App User Roles can be defined via the CMS in App Settings -> App Configuration:
 
-<figure><img src="../../.gitbook/assets/CleanShot Aug 31 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/aWuUni0EYdm4oRaN01kK" alt=""><figcaption></figcaption></figure>
 
 Notice that you can get a list of available user roles using this endpoint from the intregrationAPI: /{apiKey}/api/appUserRoles
 

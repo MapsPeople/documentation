@@ -141,4 +141,4 @@ const routeStopConfigs = new Map([
 miDirectionsRendererInstance.setRoute(routeResult, routeStopConfigs);
 ```
 
-<figure><img src="../../../.gitbook/assets/image (49) (1).png" alt=""><figcaption><p>Stop icons with different background colors.</p></figcaption></figure>
+<figure><img src="/broken/files/Q4ftcW39J3bwIsGLAMhT" alt=""><figcaption><p>Stop icons with different background colors.</p></figcaption></figure>
