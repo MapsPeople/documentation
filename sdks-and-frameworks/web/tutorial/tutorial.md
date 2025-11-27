@@ -586,7 +586,7 @@ In this step, you'll create a simple search and display the search results in a 
 
 {% tabs %}
 {% tab title="Google Maps - Manually" %}
-#### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
+**Create a Simple Query Search**
 
 MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`LocationsService.getLocations()` method](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations) but first you need to add a `<input>` and `<button>` element to the DOM.
 
@@ -808,7 +808,7 @@ Here's a JSFiddle demonstrating the result you should have by now:
 {% endtab %}
 
 {% tab title="Google Maps - MI Components" %}
-#### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
+**Create a Simple Query Search**
 
 Using the `<mi-search>` component you get a `<input>`element tied tightly together with the [Location Service](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/LocationsService.html).
 
@@ -992,7 +992,7 @@ Here's a JSFiddle demonstrating the result you should have by now:
 {% endtab %}
 
 {% tab title="Mapbox - Manually" %}
-#### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
+**Create a Simple Query Search**
 
 MapsIndoors Locations can be retrieved in the MapsIndoors namespace using the [`LocationsService.getLocations()` method](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations) but first you need to add an `<input>` and `<button>` element to the DOM.
 
@@ -1220,7 +1220,7 @@ Here's a JSFiddle demonstrating the result you should have by now:
 {% endtab %}
 
 {% tab title="Mapbox - MI Components" %}
-#### Create a Simple Query Search <a href="#create-a-simple-query-search" id="create-a-simple-query-search"></a>
+**Create a Simple Query Search**
 
 Using the `<mi-search>` component you get an `<input>`element tied tightly together with the [Location Service](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/LocationsService.html).
 
@@ -1731,7 +1731,7 @@ function getRoute(location) {
 
 You now have something like this:
 
-{% embed url="https://jsfiddle.net/mapspeople/ek48xcLg/1/" %}
+[https://jsfiddle.net/mapspeople/z23vjhf4/4/](https://jsfiddle.net/mapspeople/z23vjhf4/4/)
 {% endtab %}
 
 {% tab title="Google Maps - MI Components" %}
@@ -2036,8 +2036,6 @@ function getRoute(location) {
 ```
 
 You now have something like this:
-
-{% embed url="https://jsfiddle.net/mapspeople/jzqx7kmy/1/" %}
 {% endtab %}
 
 {% tab title="Mapbox - Manually" %}
@@ -2360,9 +2358,7 @@ function getRoute(location) {
 }
 ```
 
-You now have something like this:\\
-
-[https://jsfiddle.net/mapspeople/z23vjhf4/7/](https://jsfiddle.net/mapspeople/z23vjhf4/7/)
+You now have something like this:<br>
 {% endtab %}
 
 {% tab title="Mapbox - MI Components" %}
