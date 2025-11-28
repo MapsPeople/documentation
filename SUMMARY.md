@@ -134,7 +134,6 @@
     * [Display a Map](sdks-and-frameworks/ios/getting-started/show-a-map.md)
     * [Search](sdks-and-frameworks/ios/getting-started/search.md)
     * [Getting Directions](sdks-and-frameworks/ios/getting-started/getting-directions.md)
-    * [Enable Live Data](sdks-and-frameworks/ios/getting-started/enable-live-data.md)
     * [Integrating MapsIndoors into your own App](sdks-and-frameworks/ios/getting-started/integrating-mapsindoors-into-your-own-app.md)
     * [Migrating from v3 to v4](sdks-and-frameworks/ios/getting-started/migrating-from-v3-to-v4.md)
   * [Directions](sdks-and-frameworks/ios/directions/README.md)
