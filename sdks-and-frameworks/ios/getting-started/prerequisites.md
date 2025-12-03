@@ -17,7 +17,7 @@ Finally, retrieve your API key from the [Credentials Page](https://console.cloud
 
 #### Mapbox Maps API Token <a href="#mapbox-api-key" id="mapbox-api-key"></a>
 
-* Follow the [Mapbox guide here](https://docs.mapbox.com/ios/maps/guides/install/) to retrieve an API Token for Mapbox Maps.
+* Follow the [Mapbox guide here](https://docs.mapbox.com/ios/maps/guides/install/) to retrieve an API Token for Mapbox Maps. You can return here when you have added a `MBXAccessToken` to the Info.plist of your app.
 
 ### MapsIndoors API Key[​](https://docs.mapsindoors.com/getting-started/ios/v4/prerequisites#mapsindoors-api-key) <a href="#mapsindoors-api-key" id="mapsindoors-api-key"></a>
 
