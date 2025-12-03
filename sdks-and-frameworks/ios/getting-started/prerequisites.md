@@ -13,11 +13,11 @@ Firstly, you need to [setup a new project in the Google Cloud Console](https://d
 * Google Places API Web Service
 * Maps SDK for Android/iOS or Maps JavaScript API
 
-Finally, retrieve your API key from the [Credentials Page](https://console.cloud.google.com/project/\_/apiui/credential) at, create credentials -> API key
+Finally, retrieve your API key from the [Credentials Page](https://console.cloud.google.com/project/_/apiui/credential) at, create credentials -> API key
 
-#### Mapbox API Key[​](https://docs.mapsindoors.com/getting-started/ios/v4/prerequisites#mapbox-api-key) <a href="#mapbox-api-key" id="mapbox-api-key"></a>
+#### Mapbox Maps API Token <a href="#mapbox-api-key" id="mapbox-api-key"></a>
 
-* Follow the guide here [Getting Started](https://docs.mapbox.com/help/getting-started/) to retrieve API Key
+* Follow the [Mapbox guide here](https://docs.mapbox.com/ios/maps/guides/install/) to retrieve an API Token for Mapbox Maps.
 
 ### MapsIndoors API Key[​](https://docs.mapsindoors.com/getting-started/ios/v4/prerequisites#mapsindoors-api-key) <a href="#mapsindoors-api-key" id="mapsindoors-api-key"></a>
 
