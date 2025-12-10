@@ -14,9 +14,9 @@ In Swagger, each `GET` method is pre-loaded with all mandatory fields needed to 
 Only **HTTPS** is supported. There is a **rate limit of 10 requests per second** per Solution.
 {% endhint %}
 
-You can access the Integration API in various ways, for more on accessing it see [the API Login section](https://docs.mapsindoors.com/api-login)
+You can access the Integration API in various ways, for more on accessing it see [the API Login section](./#login-and-credentials)
 
-### Example Use Cases[​](https://docs.mapsindoors.com/api#example-use-cases) <a href="#example-use-cases" id="example-use-cases"></a>
+### Example Use Cases​ <a href="#example-use-cases" id="example-use-cases"></a>
 
 * A conference hall might have a list of vendors that will be presenting on a given date. To ensure easy navigation back and forth between the map and the information page, you can create a lookup table, fetching the MapsIndoors External ID's with `GET /{apiKey}/api/geodata`, and the conference hall's own database. The Integration API would allow this functionality to be easily implemented.
 * Some of our clients have used the Integration API to create their own CMS, for example, using `POST /{apiKey}/api/geodata` to create new desk locations in the Solution for their corporate offices.
@@ -71,7 +71,7 @@ The other information needed, such as the ID's, can be found in the `GET` call m
 
 * Next time the SDK fetches information, it will load some routes as `locked` or "Blocked". This will cause the route generation to avoid these specific paths, helping to alleviate the congestion.
 
-#### Login and Credentials[​](https://docs.mapsindoors.com/api#login-and-credentials) <a href="#login-and-credentials" id="login-and-credentials"></a>
+### Login and Credentials​ <a href="#login-and-credentials" id="login-and-credentials"></a>
 
 First, log in to the service to get an `access token` to access the data. To get an access token you will need to use the Mapsindoors Autorization API. We use an [OAuth2 get token approach](https://auth0.com/docs/api/authentication#get-token) for this.
 
