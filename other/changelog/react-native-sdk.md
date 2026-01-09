@@ -6,6 +6,13 @@ icon: react
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.6.1] 2026-01-12
+
+#### Updated
+
+* Updated MapsIndoors iOS SDK to 4.15.6
+* Updated MapsIndoors Android SDK to 4.16.0
+
 ### \[2.6.0] 2025-11-11
 
 ### Added
