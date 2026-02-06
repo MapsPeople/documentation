@@ -89,7 +89,7 @@ let categoryCollection = await MPMapsIndoors.shared.categories()
 // Check whether a category has a named child category
 if let restroomCategory = categoryCollection.first(where: { $0.key == "Restroom" })
 {
-    if let isChild = restroomCategory.childKeys?.contains("Unisex") {
+    if restroomCategory.childKeys?.contains("Unisex") == true {
         print("Restroom has a child with the key 'Unisex'!")
     }
 }
