@@ -26,9 +26,27 @@ See the full list of parameters:
 | Near       | Sorts the list of Locations on which Location is nearest the point given                                                                    | MPQuery  |
 | Depth      | The Depth property makes it possible to get "x" amount of descendants to the given parent. The default for this is 1 (eg. Building > Floor) | MPFilter |
 
-{% tabs %}
-{% tab title="iOS v4" %}
-**Example of Creating a Search Query**
+#### Example of Creating a Search Query <a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
+
+```swift
+func findRestroom() async {
+    // Here we will create an empty query because we are only interested in getting locations that match a category. 
+    // If you want to be more specific you can add a query text like "Unisex Restroom"
+    let query = MPQuery()
+    
+    let categories = ["RESTROOMS"]
+    
+    // Init the filter with the criteria, in this case we want maximum 50 restrooms
+    let filter = MPFilter()
+    filter.categories = categories
+    filter.take = 50
+    
+    let locations = await MPMapsIndoors.shared.locationsWith(query: query, filter: filter)
+    // Check if there are locations and iterate through the list to do what you need with the search
+}
+```
+
+You can also create a simple query with text and a near parameter:
 
 ```swift
 let filter = MPFilter()
@@ -43,11 +61,11 @@ if let location = locations?.first {
 }
 ```
 
-#### Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map) <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
+### Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map) <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
 
 When displaying the search results it is helpful to filter the map to only show matching Locations. Matching Buildings and Venues will still be shown on the map, as they give context to the user, even if they aren't selectable on the map.
 
-**Example of Filtering the Map to Display Searched Locations on the Map**
+#### Example of Filtering the Map to Display Searched Locations on the Map <a href="#example-of-filtering-the-map-to-display-searched-locations-on-the-map" id="example-of-filtering-the-map-to-display-searched-locations-on-the-map"></a>
 
 ```swift
 let filter = MPFilter()
@@ -57,63 +75,75 @@ query.near = MPPoint(lat: 57.057964, lon: 9.9504112)
 query.take = 1
 
 let locations = await MPMapsIndoors.shared.locationsWith(query: query, filter: filter)
-myMapControl.setFilter(locations: locations, behavior: .default)
+mapControl.setFilter(locations: locations, behavior: .default)
 ```
 
-#### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
+### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
 
 After displaying the search results on your map you can then clear the filter so that all Locations show up on the map again.
 
-**Example of Clearing Your Map Filter to Show All Locations Again**
+#### Example of Clearing Your Map Filter to Show All Locations Again <a href="#example-of-clearing-your-map-filter-to-show-all-locations-again" id="example-of-clearing-your-map-filter-to-show-all-locations-again"></a>
 
 ```swift
 myMapControl.clearFilter()
 ```
-{% endtab %}
 
-{% tab title="iOS v3" %}
-**Example of Creating a Search Query**
+### Searching for Nested Categories <a href="#searching-for-nested-categories" id="searching-for-nested-categories"></a>
 
+If your solution uses nested categories, searching for them is now much more intuitive. When you search for a parent category, all of its sub-categories are automatically included in the search – no extra setup is required.
+
+#### Understanding Nested Categories
+
+Suppose you have three categories: `Restroom`, `Unisex`, and `Handicap`. Here, `Unisex` and `Handicap` are sub-categories of `Restroom`. This hierarchy allows you to organize your data more flexibly and makes searching more powerful.
+
+Before searching, you might want to inspect the category structure in the SDK. For example, you can check if a category has specific children, or list all sub-categories:
+
+{% code overflow="wrap" lineNumbers="true" %}
 ```swift
-let filter = MPFilter.init()
-let query = MPQuery.init()
-query.query = "Office"
-query.near = MPPoint.init(lat: 57.057964, lon: 9.9504112)
-query.take = 1
+let categoryCollection = await MPMapsIndoors.shared.categories()
 
-MPLocationService.sharedInstance().getLocationsUsing(query, filter: filter) { (locations, error) in
-    if let location = locations?.first {
-
+// Check whether a category has a named child category
+if let restroomCategory = categoryCollection.first(where: { $0.key == "Restroom" })
+{
+    if let isChild = restroomCategory.childKeys?.contains("Unisex") {
+        print("Restroom has a child with the key 'Unisex'!")
     }
 }
-```
 
-#### Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map) <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
+// Fetch sub-categories with the child keys
+if let childKeys = categoryCollection.first(where: { $0.key == "Restroom" })?.childKeys {
+    for key in childKeys {
+        if let category = categoryCollection.first(where: { $0.key == key }) {
+            print("Restroom has category \(category.value) as a child!")
+        }
+    }
+}
+{% endcode %}
 
-When displaying the search results it is helpful to filter the map to only show matching Locations. Matching Buildings and Venues will still be shown on the map, as they give context to the user, even if they aren't selectable on the map.
+#### Searching with Nested Categories
 
-**Example of Filtering the Map to Display Searched Locations on the Map**
+When you perform a search for a parent category, such as `Restroom`, the SDK will automatically include all its sub-categories (`Unisex`, `Handicap`, etc.) in the search results. This means you only need to specify the parent category in your filter, and all relevant locations will be found.
 
+{% code overflow="wrap" lineNumbers="true" %}
 ```swift
-let filter = MPFilter()
+// We are only searching for the category, so let's set an empty query
 let query = MPQuery()
-query.query = "Office"
-query.near = MPPoint(lat: 57.057964, lon: 9.9504112)
-query.take = 1
 
-MPLocationService.sharedInstance().getLocationsUsing(query, filter: filter) { (locations, error) in
-    myMapControl.searchResult = locations
+// Add the super-category Restroom to the list of categories
+let filter = MPFilter()
+filter.categories = ["Restroom"]
+
+let locations = await MPMapsIndoors.shared.locationsWith(query: query, filter: filter)
+// Let's see if we have found any Locations that have the type "Unisex"
+let hasUnisex = locations.contains { location in
+    location.categories.contains("Unisex") == true
+}
+
+if hasUnisex {
+    // success
+    print("Locations with Unisex category found")
 }
 ```
+{% endcode %}
 
-#### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
-
-After displaying the search results on your map you can then clear the filter so that all Locations show up on the map again.
-
-**Example of Clearing Your Map Filter to Show All Locations Again**
-
-```swift
-myMapControl.clearMap()
-```
-{% endtab %}
-{% endtabs %}
+> **Note:** When you search for a parent category, all of its sub-categories are always included in the results, there is no way to limit the search to only the parent category itself. If you need more granular control (for example, to only return locations with a specific sub-category), consider organizing your categories so that each search target has its own unique sub-category. This way, you can search for exactly the locations you want by specifying the appropriate sub-category in your filter.
