@@ -28,38 +28,20 @@ See the full list of parameters:
 
 #### Example of Creating a Search Query <a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
 
-```swift
-func findRestroom() async {
-    // Here we will create an empty query because we are only interested in getting locations that match a category. 
-    // If you want to be more specific you can add a query text like "Unisex Restroom"
-    let query = MPQuery()
-    
-    let categories = ["RESTROOMS"]
-    
-    // Init the filter with the criteria, in this case we want maximum 50 restrooms
-    let filter = MPFilter()
-    filter.categories = categories
-    filter.take = 50
-    
-    let locations = await MPMapsIndoors.shared.locationsWith(query: query, filter: filter)
-    // Check if there are locations and iterate through the list to do what you need with the search
-}
-```
-
-You can also create a simple query with text and a near parameter:
-
+{% code overflow="wrap" lineNumbers="true" %}
 ```swift
 let filter = MPFilter()
 let query = MPQuery()
 query.query = "Office"
-query.near = MPPoint(lat: 57.057964, lon: 9.9504112)
-query.take = 1
+query.near = MPPoint(latitude: 57.057964, longitude: 9.9504112)
+filter.take = 1
 
 let locations = await MPMapsIndoors.shared.locationsWith(query: query, filter: filter)
 if let location = locations?.first {
     // Do something with the first location in the result list
 }
 ```
+{% endcode %}
 
 ### Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map) <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
 
@@ -67,16 +49,18 @@ When displaying the search results it is helpful to filter the map to only show 
 
 #### Example of Filtering the Map to Display Searched Locations on the Map <a href="#example-of-filtering-the-map-to-display-searched-locations-on-the-map" id="example-of-filtering-the-map-to-display-searched-locations-on-the-map"></a>
 
+{% code overflow="wrap" lineNumbers="true" %}
 ```swift
 let filter = MPFilter()
 let query = MPQuery()
 query.query = "Office"
-query.near = MPPoint(lat: 57.057964, lon: 9.9504112)
-query.take = 1
+query.near = MPPoint(latitude: 57.057964, longitude: 9.9504112)
+filter.take = 1
 
 let locations = await MPMapsIndoors.shared.locationsWith(query: query, filter: filter)
 mapControl.setFilter(locations: locations, behavior: .default)
 ```
+{% endcode %}
 
 ### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
 
