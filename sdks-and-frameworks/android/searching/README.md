@@ -26,13 +26,9 @@ See the full list of parameters:
 | Near       | Sorts the list of Locations on which Location is nearest the point given                                                                    | MPQuery  |
 | Depth      | The Depth property makes it possible to get "x" amount of descendants to the given parent. The default for this is 1 (eg. Building > Floor) |          |
 
-#### &#x20;<a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
-
-
 #### Example of Creating a Search Query <a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
 
 {% tabs %}
-
 {% tab title="Java" %}
 
 {% code overflow="wrap" lineNumbers="true" %}
