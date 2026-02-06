@@ -160,7 +160,7 @@ mMapControl.clearFilter()
 
 ### Searching for Nested Categories <a href="#searching-for-nested-categories" id="searching-for-nested-categories"></a>
 
-If your solution uses nested categories, searching for them is now much more intuitive. When you search for a parent category, all of its sub-categories are automatically included in the search—no extra setup is required.
+If your solution uses nested categories, searching for them is now much more intuitive. When you search for a parent category, all of its sub-categories are automatically included in the search – no extra setup is required.
 
 #### Understanding Nested Categories
 

@@ -118,6 +118,7 @@ if let childKeys = categoryCollection.first(where: { $0.key == "Restroom" })?.ch
         }
     }
 }
+```
 {% endcode %}
 
 #### Searching with Nested Categories
