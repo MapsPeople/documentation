@@ -3,23 +3,6 @@ description: Turn spatial data into intelligent assistance
 icon: robot
 cover: ../.gitbook/assets/chatbot.jpg
 coverY: 0
-layout:
-  width: default
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
 ---
 
 # How to Build a Location-Aware Chatbot using Spatial Data
@@ -67,7 +50,7 @@ Each part is explained below.
 
 ### 1.Set up the configuration
 
-The chat UI is a simple HTML page. There’s a UI part in the sample code that you can use if it is helpful for you.&#x20;
+The chat UI is a simple HTML page. There’s a UI part in the sample code that you can use if it is helpful for you.
 
 To configure it: Add your MapsIndoors and Gemini API keys:
 
@@ -103,7 +86,7 @@ const aiTools = [
 
 These tools are passed to the LLM, which can choose to call them when appropriate.
 
-**To go further:** You can extend the data that you store within MapsIndoors and add tools for retrieving events, occupancy status, restaurant menus, and more, stored as Custom Properties  to support more advanced use cases.
+**To go further:** You can extend the data that you store within MapsIndoors and add tools for retrieving events, occupancy status, restaurant menus, and more, stored as Custom Properties to support more advanced use cases.
 
 ***
 
@@ -115,8 +98,6 @@ The AIService class sends prompts and receives responses from the LLM. It includ
 * **Context**: Provide spatial data like venue, floor, location names, etc.
 * **Prompt history**: Maintain conversation state.
 * **Tool definitions**: Enable tool use in replies.
-
-
 
 Core method:
 

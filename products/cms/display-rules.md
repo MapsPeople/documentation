@@ -114,7 +114,7 @@ Label is visible in the CMS, only when Location is being edited. In other words,
 * If your map uses Google Maps as base map provider: Specify how wide (in pixels) a Label can be before forcing a line-break. A value of `0` will ensure no line-breaks for this label.
 * If your map uses Mapbox as base map provider: Specify how wide (in EM unit) a Label can be before forcing a line-break. The EM unit is a relative value based on the font size (default is 16). Meaning 1 _EM_ is almost a character wide. A value of `0` will ensure no line-breaks for this label.
 
-<figure><img src="/broken/files/P77ZXRDyk3imTrsOWUZd" alt=""><figcaption><p>Label Display Rules section</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (20) (1).png" alt=""><figcaption><p>Label Display Rules section</p></figcaption></figure>
 
 ### Label Style
 
@@ -128,7 +128,7 @@ The "Label Style" section contains options related to the style of the Label. **
 6. **Halo Width** - Sets the halo thickness/width. Defined in pixels.
 7. **Halo Blur** - Sets when halo blurring effect should be applied. (eg. With Halo Width = 10px, and Halo Blur = 5px, blurring effect will be applied in the middle of the Halo Width).
 
-<figure><img src="/broken/files/dE1MLxXC98SMUXDDpUkc" alt=""><figcaption><p>Label Style Display Rule Section</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (22) (1).png" alt=""><figcaption><p>Label Style Display Rule Section</p></figcaption></figure>
 
 By choosing Floating Label type, the new sub-section will appear: Label Position. It controls the position of the Floating Label relative to the anchor point of the Location. Options are: bottom, top, right or left.
 

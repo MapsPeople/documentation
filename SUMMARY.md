@@ -236,6 +236,7 @@
   * [External customization of the Map Template](products/fast-track-maptemplate/external-customization-of-the-map-template.md)
   * [Location Details configuration](products/fast-track-maptemplate/location-details-configuration.md)
   * [Kiosk](products/fast-track-maptemplate/kiosk/README.md)
+    * ['You Are Here' Kiosk Icon](products/fast-track-maptemplate/kiosk/you-are-here-kiosk-icon.md)
     * [QR code configuration](products/fast-track-maptemplate/kiosk/qr-code-configuration.md)
 * [Web App](products/web-app.md)
 
