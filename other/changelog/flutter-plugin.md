@@ -11,12 +11,12 @@ Change log for the MapsIndoors Flutter SDK. This document structure is based on 
 
 ### Fixed
 
-* The function `addVenuesToSync` no longer causes a crash on iOS.
-* The function `getLocationsByQuery` no longer uses excessive amounts of memory on Android.
+* The function `addVenuesToSync` no longer causes a crash on iOS
+* The function `getLocationsByQuery` no longer uses excessive amounts of memory on Android
 
 ### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to [4.16.2](https://docs.mapsindoors.com/other/changelog/android-sdk/v4#id-4.16.2)
   * iOS to [4.16.1](https://docs.mapsindoors.com/other/changelog/ios-sdk/v4#id-4.16.1)
 
@@ -24,7 +24,7 @@ Change log for the MapsIndoors Flutter SDK. This document structure is based on 
 
 ### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to [4.16.1](https://docs.mapsindoors.com/other/changelog/android-sdk/v4#id-4.16.1-2026-01-27)
   * iOS to [4.16.0](https://docs.mapsindoors.com/other/changelog/ios-sdk/v4#id-4.16.0-2026-01-29)
 
@@ -33,11 +33,11 @@ Change log for the MapsIndoors Flutter SDK. This document structure is based on 
 ### Fixed
 
 * Added proguard consumer rules that should help avoid issues when minifying the SDK
-* Fixed issues with parsing Additional Details on iOS devices.
+* Fixed issues with parsing Additional Details on iOS devices
 
 ### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to [4.16.0](https://docs.mapsindoors.com/other/changelog/android-sdk/v4#id-4.16.0-2025-11-21)
   * iOS to [4.15.6](https://docs.mapsindoors.com/other/changelog/ios-sdk/v4#id-4.15.6-2025-11-18)
 
@@ -54,7 +54,7 @@ Change log for the MapsIndoors Flutter SDK. This document structure is based on 
 
 ### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to [4.15.5](https://docs.mapsindoors.com/other/changelog/android-sdk/v4#id-4.15.5-2025-10-15)
   * iOS to [4.15.2](https://docs.mapsindoors.com/other/changelog/ios-sdk/v4)
 
@@ -68,7 +68,7 @@ Change log for the MapsIndoors Flutter SDK. This document structure is based on 
 
 ### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to [4.15.2](https://docs.mapsindoors.com/other/changelog/android-sdk/v4#id-4.15.2-2025-09-22), making Android 16 kB page size compatible (Google Play requirement from November 1)
   * iOS to [4.14.0](https://docs.mapsindoors.com/other/changelog/ios-sdk/v4#id-4.14.0-2025-09-16)
 
@@ -81,7 +81,7 @@ Change log for the MapsIndoors Flutter SDK. This document structure is based on 
 
 ### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to [4.14.1](https://docs.mapsindoors.com/other/changelog/android-sdk/v4#id-4.14.1-2025-08-28)
   * iOS to [4.13.2](https://docs.mapsindoors.com/other/changelog/ios-sdk/v4#id-4.13.2-2025-08-06)
 
@@ -95,7 +95,7 @@ Change log for the MapsIndoors Flutter SDK. This document structure is based on 
 
 ### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * iOS to [4.13.0](https://docs.mapsindoors.com/other/changelog/ios-sdk/v4#id-4.13.0-2025-08-01)
 
 ## \[4.4.0] 2025-07-29
@@ -212,7 +212,7 @@ Change log for the MapsIndoors Flutter SDK. This document structure is based on 
 
 ### Changed
 
-* Updated Mapsindoors SDKs:
+* Updated MapsIndoors SDKs:
   * Android to 4.12.0
   * iOS to 4.11.0
 
