@@ -179,7 +179,87 @@ This page is where you configure your app and also setup the web app, if you wan
 
 #### **App Configuration​**
 
-This page contains various settings, such as names for your API keys, App User Roles and App Categories.
+This section controls general app behavior, map provider settings, kiosk-related options, styling, and the initial map view shown to users when the app opens.
+
+#### General
+
+The General section contains core settings that affect how the app behaves for end users.
+
+**Language** lets you choose the default language used in the app. If you select Browser's Language, the app will follow the language configured in the user's browser.
+
+**Venue used on initial load** lets you choose which venue is shown first when the app opens. This option is only relevant when your solution contains more than one venue. If no specific venue is selected, the default venue is the first venue in alphabetical order.
+
+**Map Markers Visibility** controls whether map markers are shown on the map. You can choose Default, Show, or Hide. The default behavior follows the map configuration already used by the app.
+
+**Road Names Visibility** is available when using Mapbox map. It controls whether road names are shown on the map. You can choose Default, Show, or Hide.
+
+**Disable Lazy Loading** is available when using Mapbox map. By default, the app loads map data only for the visible part of the map, which improves initial load time. If you disable lazy loading, all map data is loaded up front. This may make the first load slower, but navigation can feel smoother afterwards.
+
+**Remove Mapbox Extruded Buildings** is available when using Mapbox. Enable this option to remove 3D extruded buildings from the map.
+
+**Search External Locations** allows search results to include locations outside your MapsIndoors dataset, such as external addresses and places from third-party providers.
+
+Under **Visibility** options, you can control whether certain UI elements are shown in the app:
+
+* **View Selector** visibility shows or hides the View Selector. This selector is only relevant when more than one building is available.
+* **Language Selector** visibility shows or hides the language selector in the app.
+* **External Travel Mode Dropdown** visibility shows or hides the travel mode selector for external directions.
+* **Full Screen button** visibility shows or hides the full screen button.
+
+#### Map Provider
+
+The Map Provider section is used to provide the credentials needed for the map service used by the Web App.
+
+**Mapbox Access Token** is used when your app runs with Mapbox.
+
+**Google Maps API** key is used when your app runs with Google Maps.
+
+Enter the relevant token or API key depending on the map provider your solution uses.
+
+#### Kiosk Controls
+
+The Kiosk Controls section contains settings specific to kiosk mode.
+
+**Enable accessibility** enables accessibility controls and layout adjustments for kiosk mode.
+
+**Horizontal Categories Enabled** changes the kiosk layout so categories are displayed horizontally instead of vertically.
+
+**Enable kiosk QR Code** controls whether the kiosk QR code is shown. This is enabled by default.
+
+**Enable kiosk step move** allows users to move between steps in kiosk mode. By default, kiosk step movement is disabled.
+
+#### Mapbox Map Style
+
+The Mapbox Map Style section is only available when Mapbox is enabled.
+
+Use Mapbox Map Style to provide the style URL used by the Web App. This determines the visual appearance of the Mapbox map.
+
+#### Styling
+
+The Styling section lets you customize the visual identity of the app.
+
+**Loading screen logo** lets you choose the logo shown on the loading screen. Click Open Media Library to select an image. If a logo is already assigned, you can remove it again.
+
+**Primary Color** sets the app's primary brand color. The value must be entered as a valid hex color code, for example `#000000` or `#FFF`. You can also reset the color back to the default value.
+
+#### Initial Load View
+
+The Initial load view section controls how the map appears when the app is first opened.
+
+**Start Zoom Level** sets the zoom level used when the map loads initially. The allowed range is 0 to 22.
+
+**Min Zoom Level** sets the minimum zoom level users can zoom out to. The allowed range is 1 to 20.
+
+**Bearing** is available when using Mapbox. It controls the rotation of the map. A value of `0` means north is up. The allowed range is 0 to 360.
+
+**Pitch** is available when using Mapbox. It controls the viewing angle of the map. A value of `0` is a top-down view. The allowed range is 0 to 85.
+
+Under Center, you can define the coordinates used to center the map on initial load:
+
+* Latitude must be between -90 and 90.
+* Longitude must be between -180 and 180.
+
+Both latitude and longitude must be entered together. If only one value is provided, the configuration is considered invalid.
 
 The "App Title" is used to set a name for your app in your application.
 
