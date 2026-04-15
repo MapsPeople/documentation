@@ -248,7 +248,7 @@ The Initial load view section controls how the map appears when the app is first
 
 **Start Zoom Level** sets the zoom level used when the map loads initially. The allowed range is 0 to 22.
 
-**Min Zoom Level** sets the minimum zoom level users can zoom out to. The allowed range is 1 to 20.
+**Min Zoom Level** sets the minimum zoom level users can zoom out to. The allowed range is 1 (furthest zoomed out) to 20 (closest zoomed in).
 
 **Bearing** is available when using Mapbox. It controls the rotation of the map. A value of `0` means north is up. The allowed range is 0 to 360.
 
