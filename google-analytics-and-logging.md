@@ -2,7 +2,7 @@
 
 While Google Analytics is a useful tool that can help a lot in tracking data for your MapsIndoors application, it has it's own documentation maintained by Google, which will be referred to a lot on this page. This page will mainly serve as an overview and inspiration as to what you might want to use Google Analytics for in your MapsIndoors application.
 
-## Overview[​](https://docs.mapsindoors.com/analytics-and-logging#overview) <a href="#overview" id="overview"></a>
+## Overview​ <a href="#overview" id="overview"></a>
 
 Google Analytics is a free tool that gives you the opportunity to analyze data to get a deeper understanding of your customers and how they use your app. Examples include understanding which places are hardest to find in your venue or what users typically search for when looking for a location. When implementing your own application using the MapsIndoors SDKs, you can implement event tracking using your analytics service of choice, however this page will focus on using Google Analytics.
 
@@ -10,9 +10,9 @@ The following diagram represents the flow of information from MapsIndoors to Goo
 
 <figure><img src="https://docs.mapsindoors.com/img/various/Google_Analytics_Flow.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/Google_Analytics_Flow.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Google_Analytics_Flow.png" alt=""><figcaption></figcaption></figure>
 
-### Getting Started with Google Analytics[​](https://docs.mapsindoors.com/analytics-and-logging#getting-started-with-google-analytics) <a href="#getting-started-with-google-analytics" id="getting-started-with-google-analytics"></a>
+### Getting Started with Google Analytics​ <a href="#getting-started-with-google-analytics" id="getting-started-with-google-analytics"></a>
 
 * If you are developing using the Android SDK for MapsIndoors, we recommend this "Getting Started" guide for Google Analytics.
   * [Get started with Google Analytics for Android](https://firebase.google.com/docs/analytics/get-started?technology=android\&platform=android#java)
@@ -21,11 +21,11 @@ The following diagram represents the flow of information from MapsIndoors to Goo
 * If you are developing using the Web SDK for MapsIndoors, we recommend this "Getting Started" guide for Google Analytics.
   * [Get started with Google Analytics for Web](https://firebase.google.com/docs/analytics/get-started?technology=android\&platform=web#web-version-9)
 
-### Capturing Events with Google Analytics[​](https://docs.mapsindoors.com/analytics-and-logging#capturing-events-with-google-analytics) <a href="#capturing-events-with-google-analytics" id="capturing-events-with-google-analytics"></a>
+### Capturing Events with Google Analytics​ <a href="#capturing-events-with-google-analytics" id="capturing-events-with-google-analytics"></a>
 
 Almost any events can be logged using Google Analytics. Below is a list of potential events that could be useful to log and keep data on.
 
-#### **MapsIndoors Events**[**​**](https://docs.mapsindoors.com/analytics-and-logging#mapsindoors-events)
+#### **MapsIndoors Events​**
 
 * Search queried and enter key pressed
 * Location selected in search results list
@@ -46,7 +46,7 @@ In order to define custom events, such as the ones above, in your application, y
 * If you are developing using the Web SDK for MapsIndoors, this guide describes how to set up logging of custom events in Google Analytics.
   * [Log events on web with Google Analytics](https://firebase.google.com/docs/analytics/events?platform=web#web-version-9)
 
-#### **General Analytics**[**​**](https://docs.mapsindoors.com/analytics-and-logging#general-analytics)
+#### **General Analytics​**
 
 Google Analytics also track certain statistics by default. They are follows:
 
