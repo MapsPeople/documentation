@@ -87,7 +87,7 @@ No matter what login method you use, you will always need to use the following c
 Content-Type: application/x-www-form-urlencoded
 ```
 
-**Log in with MapsIndoors Username/Password**[**​**](https://docs.mapsindoors.com/api#log-in-with-mapsindoors-usernamepassword)
+**Log in with MapsIndoors Username/Password​**
 
 To log in with your MapsIndoors login, send them with the `grant_type` set to `password`.
 
@@ -110,7 +110,7 @@ An example on how to login using curl (replace username and password):
 curl -H "Content-Type: application/x-www-form-urlencoded" -X POST https://auth.mapsindoors.com/connect/token -d "grant_type=password&client_id=client&username=example@example.com&password=youpassword"
 ```
 
-**When You Are Authenticated**[**​**](https://docs.mapsindoors.com/api#when-you-are-authenticated)
+**When You Are Authenticated​**
 
 If you sent valid credentials to the Auth API, you will receive a response like this:
 

@@ -1,6 +1,6 @@
 # Route Access
 
-#### Route Elements[​](https://docs.mapsindoors.com/api-route-access#route-elements) <a href="#route-elements" id="route-elements"></a>
+#### Route Elements​ <a href="#route-elements" id="route-elements"></a>
 
 A number of things can affect which routes the end users are given. Doors can be locked or there can we wait times along the way. This meta-data is contained in "route elements". A route element often represents a physical element in the real world that affects the routes such as doors and stairs.
 
@@ -16,15 +16,15 @@ At the moment 3 things can be modified:
 * OnewayDirection (Optional)
 * Restrictions (optional)
 
-**WaitTime**[**​**](https://docs.mapsindoors.com/api-route-access#waittime)
+**WaitTime​**
 
 Wait time is set in seconds and affects how long it takes to walk past this point. This is given as a natural number and thus may not be negative (but may be 0 if no extra wait time should occur at this point).
 
-**OnewayDirection**[**​**](https://docs.mapsindoors.com/api-route-access#onewaydirection)
+**OnewayDirection​**
 
 Oneway direction is an [absolute\_bearing](https://en.wikipedia.org/wiki/Absolute_bearing) and can be set to any number between 0 and 360 (degrees). Oneway is not mandatory, but can be used in situations where users can only walk in one direction. IF set - end users may only walk in the direction stated within the area (+/- 90 degrees)
 
-**Restrictions**[**​**](https://docs.mapsindoors.com/api-route-access#restrictions)
+**Restrictions​**
 
 With this setting you can restrict if users are allowed to go though this point. Restriction is not mandatory, but IF used it can used in two ways:
 

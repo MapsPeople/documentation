@@ -16,7 +16,7 @@ If you do not specify a language, MapsIndoors will show information in the defau
 
 Additionally, aside from methods mentioned here, you can provide translations via the standard method for your device, such as using individual localised strings.
 
-### Configuring POI translations in CMS[​](https://docs.mapsindoors.com/display-language#configuring-poi-translations-in-cms) <a href="#configuring-poi-translations-in-cms" id="configuring-poi-translations-in-cms"></a>
+### Configuring POI translations in CMS​ <a href="#configuring-poi-translations-in-cms" id="configuring-poi-translations-in-cms"></a>
 
 To provide multiple languages for items in the MapsIndoors CMS, such as "Meeting Room" or "Restroom", the translation must be provided by the user in the CMS. A translation can be provided in any language that is defined for this specific solution. In order to add support for additional languages that we currently do not support, please contact your MapsIndoors representative, and we will enable you to add translations in your desired language.
 
@@ -24,7 +24,7 @@ Once your language of choice has been added as a supported language, you can add
 
 ![](../../../.gitbook/assets/languages-english-danish-enabled.png)
 
-### Use Device Language[​](https://docs.mapsindoors.com/display-language#use-device-language) <a href="#use-device-language" id="use-device-language"></a>
+### Use Device Language​ <a href="#use-device-language" id="use-device-language"></a>
 
 The MapsIndoors language can be aligned with the device language by supplying the current language code of the device.
 

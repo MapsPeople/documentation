@@ -6,21 +6,21 @@ If you do not specify a language, MapsIndoors will show information in the defau
 
 Additionally, aside from methods mentioned here, you can provide translations via the standard method for your device, such as using individual localized strings.
 
-### Configuring POI translations in CMS[​](https://docs.mapsindoors.com/display-language#configuring-poi-translations-in-cms) <a href="#configuring-poi-translations-in-cms" id="configuring-poi-translations-in-cms"></a>
+### Configuring POI translations in CMS​ <a href="#configuring-poi-translations-in-cms" id="configuring-poi-translations-in-cms"></a>
 
 To provide multiple languages for items in the MapsIndoors CMS, such as "Meeting Room" or "Restroom", the translation must be provided by the user in the CMS. A translation can be provided in any language. In order to add support for additional languages that we currently do not support, please contact your MapsIndoors representative, and we will enable you to add translations in your desired language.
 
 Once your language of choice has been created, you can add the translation by clicking on any POI, which will open a menu on the left side of the screen. Here, you will see the following menu point, where you can enter translations for the languages you wish. If a field is left empty, the fallback language is English. In the example below, English (en) and Danish (da) are the enabled languages.
 
-#### Use Fixed Language[​](https://docs.mapsindoors.com/display-language#use-fixed-language) <a href="#use-fixed-language" id="use-fixed-language"></a>
+#### Use Fixed Language​ <a href="#use-fixed-language" id="use-fixed-language"></a>
 
-The MapsIndoors language can be fixed to a specific language by supplying an [ISO 639-1 language code](https://en.wikipedia.org/wiki/List\_of\_ISO\_639-1\_codes), for example French:
+The MapsIndoors language can be fixed to a specific language by supplying an [ISO 639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), for example French:
 
 ```kotlin
 MapsIndoors.setLanguage("fr")
 ```
 
-#### Use Device Language[​](https://docs.mapsindoors.com/display-language#use-device-language) <a href="#use-device-language" id="use-device-language"></a>
+#### Use Device Language​ <a href="#use-device-language" id="use-device-language"></a>
 
 The MapsIndoors language can be aligned with the device language by supplying the current language code of the device:
 

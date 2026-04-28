@@ -16,5 +16,5 @@ mapView.on('zoom_changed', () => {
 });
 ```
 
-[\
-](https://docs.mapsindoors.com/location-details)
+<br>
+

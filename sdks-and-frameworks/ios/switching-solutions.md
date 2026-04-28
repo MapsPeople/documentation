@@ -4,7 +4,7 @@ Some larger organisations may have not just multiple Venues, but also multiple S
 
 At it's core, this is done simply by switching out the API key and reloading the system. However, there are a few more steps that can be done to ensure smooth transition between Solutions.
 
-## Starting a Solution[​](https://docs.mapsindoors.com/switch-solutions#starting-a-solution) <a href="#starting-a-solution" id="starting-a-solution"></a>
+## Starting a Solution​ <a href="#starting-a-solution" id="starting-a-solution"></a>
 
 When you load your initial Solution, it's beneficial to initialize MapsIndoors properly, to ensure it's easy to switch Solutions later if needed.
 
@@ -54,7 +54,7 @@ func setupMapsIndoors(mapsIndoorsAPIKey: String, googleMapsAPIKey: String) async
 {% endtab %}
 {% endtabs %}
 
-#### Switching Solutions[​](https://docs.mapsindoors.com/switch-solutions/#switching-solutions) <a href="#switching-solutions" id="switching-solutions"></a>
+#### Switching Solutions​ <a href="#switching-solutions" id="switching-solutions"></a>
 
 To switch Solutions you just set up MapsIndoors with a new MapsIndoors API key by calling `setupMapsIndoors` with your new desired API key.
 

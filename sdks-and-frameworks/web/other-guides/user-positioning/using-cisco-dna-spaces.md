@@ -1,14 +1,14 @@
 # Using Cisco DNA Spaces
 
-### MapsIndoors & CiscoDNA for Web[​](https://docs.mapsindoors.com/cisco-dna#mapsindoors--ciscodna-for-web) <a href="#mapsindoors--ciscodna-for-web" id="mapsindoors--ciscodna-for-web"></a>
+### MapsIndoors & CiscoDNA for Web​ <a href="#mapsindoors--ciscodna-for-web" id="mapsindoors--ciscodna-for-web"></a>
 
 MapsIndoors is a dynamic mapping platform from MapsPeople that can provide maps of your indoor and outdoor localities and helps you create search and navigation experiences for your local users. CiscoDNA is Cisco’s newest digital and cloud-based IT infrastructure management platform. Among many other things, CiscoDNA can pinpoint the physical and geographic position of devices connected wirelessly to the local IT network.
 
-### User Positioning in MapsIndoors for Web[​](https://docs.mapsindoors.com/cisco-dna#user-positioning-in-mapsindoors-for-web) <a href="#user-positioning-in-mapsindoors-for-web" id="user-positioning-in-mapsindoors-for-web"></a>
+### User Positioning in MapsIndoors for Web​ <a href="#user-positioning-in-mapsindoors-for-web" id="user-positioning-in-mapsindoors-for-web"></a>
 
 In order to show a user's position on an indoor map with MapsIndoors, a Position Provider must be implemented. The MapsIndoors JavaScript SDK does not provide a default Position Provider but relies on 3rd party positioning software to create this experience. In an outdoor environment, this Position Provider can be a wrapper of the browser's native Geolocation API.
 
-### Code Sample[​](https://docs.mapsindoors.com/cisco-dna#code-sample) <a href="#code-sample" id="code-sample"></a>
+### Code Sample​ <a href="#code-sample" id="code-sample"></a>
 
 > Please note that the following code sample assumes that you have already succesfully implemented MapsIndoors into your application.
 

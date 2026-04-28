@@ -2,7 +2,7 @@
 
 Now that you have taken care of all the preliminary issues, we can start building the app. Throughout this guide, you will continously modify this project to extend its functionality to cover a number of basic features.
 
-### Create an Xcode Project[​](https://docs.mapsindoors.com/getting-started/ios/v4/set-up-your-environment#create-an-xcode-project) <a href="#create-an-xcode-project" id="create-an-xcode-project"></a>
+### Create an Xcode Project​ <a href="#create-an-xcode-project" id="create-an-xcode-project"></a>
 
 We recommend using [Xcode](https://developer.apple.com/xcode/) for following along. For this guide we will be using Xcode 15.4. Note that an iOS mobile device is not required, as Xcode allows the use of a simulator.
 
@@ -21,7 +21,7 @@ You should now have a project folder with the following files:
 
 <figure><img src="../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
 
-### Installing the MapsIndoors SDK[​](https://docs.mapsindoors.com/getting-started/ios/v4/set-up-your-environment#installing-the-mapsindoors-sdk) <a href="#installing-the-mapsindoors-sdk" id="installing-the-mapsindoors-sdk"></a>
+### Installing the MapsIndoors SDK​ <a href="#installing-the-mapsindoors-sdk" id="installing-the-mapsindoors-sdk"></a>
 
 MapsIndoors can be installed using Swift Package Manager or CocoaPods.
 
@@ -88,7 +88,7 @@ If you are upgrading from a version prior to 4.6.0 you must remove the `post_ins
 This "Getting Started" guide is created using a specific version of the SDK. When moving beyond the "Getting Started" guide, please be sure to use the latest version of the SDK.
 {% endhint %}
 
-### Adding API Credentials[​](https://docs.mapsindoors.com/getting-started/ios/v4/set-up-your-environment#adding-api-credentials) <a href="#adding-api-credentials" id="adding-api-credentials"></a>
+### Adding API Credentials​ <a href="#adding-api-credentials" id="adding-api-credentials"></a>
 
 Open back up the project and navigate to the file `AppDelegate.swift`.
 

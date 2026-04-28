@@ -2,7 +2,7 @@
 
 The iOS SDK for MapsIndoors has received a major update to version 4.0.0, which comes with improved interfaces and flexibility for developing your own map experience. The MapsIndoors SDK now additionally supports Mapbox, alongside some reworked and refactored features that simplify development and SDK behavior. This guide will cover changes to the SDK and how to use it to provide you with a guide on how to upgrade from v3 to v4. _If you have any questions concerning this document, or migrating to v4 in general, please contact MapsPeople technical support._
 
-### MapsIndoors SDK Map Engine Flavors[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#mapsindoors-sdk-map-engine-flavors) <a href="#mapsindoors-sdk-map-engine-flavors" id="mapsindoors-sdk-map-engine-flavors"></a>
+### MapsIndoors SDK Map Engine Flavors​ <a href="#mapsindoors-sdk-map-engine-flavors" id="mapsindoors-sdk-map-engine-flavors"></a>
 
 With the release of v4, the MapsIndoors SDK is released as multiple separate libraries depending on the Map Provider - Google Maps or Mapbox. You now import the SDK flavor of your choosing with either:
 
@@ -18,13 +18,13 @@ pod 'MapsIndoorsMapbox11', '~> 4.9'
 
 (Remember to check the [changelog](https://docs.mapsindoors.com/changelogs/ios) for the latest version)
 
-### MapsIndoors Initialization & Usage[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#mapsindoors-initialization--usage) <a href="#mapsindoors-initialization--usage" id="mapsindoors-initialization--usage"></a>
+### MapsIndoors Initialization & Usage​ <a href="#mapsindoors-initialization--usage" id="mapsindoors-initialization--usage"></a>
 
 MapsIndoors is a shared instance, which can be described as the data layer of the SDK. Below you will find an example that demonstrates how initialization has been simplified between v3 and v4.
 
-#### Initialization[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#initialization) <a href="#initialization" id="initialization"></a>
+#### Initialization​ <a href="#initialization" id="initialization"></a>
 
-**v3**[**​**](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v3)
+**v3​**
 
 In v3 you would start the SDK by providing a MapsIndoors API key and a Google API key, in order to start loading a solution.
 
@@ -56,7 +56,7 @@ let locations1 = try await MPLocationsProvider().locations()
 let locations2 = try await MPLocationService.sharedInstance().locations(using: MPQuery(), filter: MPFilter())
 ```
 
-**v4**[**​**](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v4)
+**v4​**
 
 In v4, we have improved the interface to initiate the SDK for smaller and safer implementations. In v4 you start loading a solution with a MapsIndoors API by:
 
@@ -79,7 +79,7 @@ MPMapsIndoors.shared.shutdown()
 
 The Google API key is no longer set on MapsIndoors - but rather on `MPMapConfig` when creating `MPMapControl`.
 
-**MapsIndoors Data**[**​**](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#mapsindoors-data-1)
+**MapsIndoors Data​**
 
 In v4, everything data should be accessed via `MPMapsIndoors.shared` instance
 
@@ -91,11 +91,11 @@ let venues = await MPMapsIndoors.shared.venues()
 let locations1 = await MPMapsIndoors.shared.locationsWith(query: MPQuery(), filter: MPFilter())
 ```
 
-### MapControl Initialization[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#mapcontrol-initialization) <a href="#mapcontrol-initialization" id="mapcontrol-initialization"></a>
+### MapControl Initialization​ <a href="#mapcontrol-initialization" id="mapcontrol-initialization"></a>
 
 MapControl instantiation and initialization are separate concepts. You create a new instance of `MPMapControl` and configure it with a map and view.
 
-#### v3[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v3-1) <a href="#v3-1" id="v3-1"></a>
+#### v3​ <a href="#v3-1" id="v3-1"></a>
 
 To create a `MPMapControl` instance in v3, it was really straight forward.
 
@@ -103,7 +103,7 @@ To create a `MPMapControl` instance in v3, it was really straight forward.
 let mapControl = MPMapControl(map: googleMapView)
 ```
 
-#### v4[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v4-1) <a href="#v4-1" id="v4-1"></a>
+#### v4​ <a href="#v4-1" id="v4-1"></a>
 
 In v4, in order to support multiple map engines, we have changed how you create a `MPMapControl` instance. You now have to call a factory function on `MapsIndoors`, and provide an `MPMapConfig`.
 
@@ -127,7 +127,7 @@ Mapbox:
 let mapConfig = MPMapConfig(mapBoxView: mapboxMapView, accessToken: "mapbox api key")
 ```
 
-### SolutionConfig & AppConfig[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#solutionconfig--appconfig) <a href="#solutionconfig--appconfig" id="solutionconfig--appconfig"></a>
+### SolutionConfig & AppConfig​ <a href="#solutionconfig--appconfig" id="solutionconfig--appconfig"></a>
 
 AppConfig and SolutionConfig can now be accessed with:
 
@@ -141,15 +141,15 @@ let appConfig = await MPMapsIndoors.shared.appData()
 
 AppConfig is for applications specific information, you may want to store in MapsIndoors data for use in your application. AppConfig can be edited in the CMS. SolutionConfig is for adjusting SDK behavior and settings, e.g. enable or disable clustering of POIs. SolutionConfig can also be edited in the CMS.
 
-### Display Rules[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#display-rules) <a href="#display-rules" id="display-rules"></a>
+### Display Rules​ <a href="#display-rules" id="display-rules"></a>
 
 Display rules have changed significantly between v3 and v4. The concept remains the same - each location has a rule, describing how it is rendered, and values are inherited from the location’s type’s display rule if not defined in the location’s own display rule.
 
 The following code snippets show how to edit the display rule of a MapsIndoors location, and to undo the change.
 
-#### v3[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v3-2) <a href="#v3-2" id="v3-2"></a>
+#### v3​ <a href="#v3-2" id="v3-2"></a>
 
-**Editing a display rule**[**​**](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#editing-a-display-rule)
+**Editing a display rule​**
 
 ```swift
 let location = try await MPLocationsProvider().location(withId: "myLocationId")
@@ -159,7 +159,7 @@ if let displayRule = mapControl?.getEffectiveDisplayRule(for: location) {
 }
 ```
 
-**Resetting display rules**[**​**](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#resetting-display-rules)
+**Resetting display rules​**
 
 In order to modify a display rule, and later reset it (e.g. if you wanted to highlight the location temporarily), you would have to remember a copy of the display rule prior to modifying it. Then later, you can set the copied display rule onto the location.
 
@@ -180,7 +180,7 @@ if let originalDisplayRule = rememberedRule {
 }
 ```
 
-**Editing built-in SDK display rules**[**​**](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#editing-built-in-sdk-display-rules)
+**Editing built-in SDK display rules​**
 
 You could access the built-in display rules either directly on your `MPMapControl` instance, or by name.
 
@@ -189,9 +189,9 @@ let selectionHighlight = mapControl?.locationHighlightDisplayRule
 let blueDotDisplayRule = mapControl?.getDisplayRule(forTypeNamed:"my-location")
 ```
 
-#### v4[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v4-2) <a href="#v4-2" id="v4-2"></a>
+#### v4​ <a href="#v4-2" id="v4-2"></a>
 
-**Editing a display rule**[**​**](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#editing-a-display-rule-1)
+**Editing a display rule​**
 
 ```swift
 if let location = MPMapsIndoors.shared.locationWith(locationId: "myLocationId") {
@@ -202,7 +202,7 @@ if let location = MPMapsIndoors.shared.locationWith(locationId: "myLocationId") 
 }
 ```
 
-**Resetting display rules**[**​**](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#resetting-display-rules-1)
+**Resetting display rules​**
 
 ```swift
 if let location = MPMapsIndoors.shared.locationWith(locationId: "myLocationId") {
@@ -214,7 +214,7 @@ if let location = MPMapsIndoors.shared.locationWith(locationId: "myLocationId") 
 
 Resetting a display rule will return it to its initial values. Any values you can previously set, will be reverted back to CMS values.
 
-**Editing built-in SDK display rules**[**​**](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#editing-built-in-sdk-display-rules-1)
+**Editing built-in SDK display rules​**
 
 The SDK has some display rules dedicated for some SDK specific rendering, which cannot be edited in the CMS, e.g. building outline, selection highlight, blue dot. These rules are not bound to any unique location, so instead you can fetch them using `MPDisplayRuleType` enum.
 
@@ -226,11 +226,11 @@ buildingOutlineRule?.polygonStrokeColor = .blue
 buildingOutlineRule?.polygonStrokeWidth = 10.0
 ```
 
-### DirectionsService & DirectionsRenderer[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#directionsservice--directionsrenderer) <a href="#directionsservice--directionsrenderer" id="directionsservice--directionsrenderer"></a>
+### DirectionsService & DirectionsRenderer​ <a href="#directionsservice--directionsrenderer" id="directionsservice--directionsrenderer"></a>
 
 The jump from v3 to v4 also introduces small differences in route directions querying and rendering.
 
-#### v3[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v3-3) <a href="#v3-3" id="v3-3"></a>
+#### v3​ <a href="#v3-3" id="v3-3"></a>
 
 ```swift
 var origin = MPPoint(lat: 38.897382, lon: -77.037447, zValue:0)
@@ -248,7 +248,7 @@ directions.routing(with: directionsQuery) { (route, error) in
 }
 ```
 
-#### v4[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v4-3) <a href="#v4-3" id="v4-3"></a>
+#### v4​ <a href="#v4-3" id="v4-3"></a>
 
 ```swift
 let origin = MPPoint(latitude:57.059884140172585, longitude: 9.939936105948238, z: 0)
@@ -265,13 +265,13 @@ renderer?.route = route
 renderer?.animate(duration: 5)
 ```
 
-### App User Roles[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#app-user-roles) <a href="#app-user-roles" id="app-user-roles"></a>
+### App User Roles​ <a href="#app-user-roles" id="app-user-roles"></a>
 
 App user roles as a feature remains the same, however the interface for getting available user roles and applying user roles has changed.
 
 In v3 you would use a `MPSolutionProvider` instance to query a list of all available user roles for the loaded MapsIndoors solution. Applying user roles was done by assigning to the `userRoles` property on `MapsIndoors`.
 
-#### v3[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v3-4) <a href="#v3-4" id="v3-4"></a>
+#### v3​ <a href="#v3-4" id="v3-4"></a>
 
 ```swift
 MPSolutionProvider().getUserRoles { (userRoles, error) in
@@ -283,7 +283,7 @@ MPSolutionProvider().getUserRoles { (userRoles, error) in
 
 In v4 the interface has been moved to the shared `MPMapsIndoors` instance, where the list of available user roles for a given solution can be found. Applying user roles is similar to v3, just assign to the `userRoles` property on the shared instance of `MPMapsIndoors`.
 
-#### v4[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v4-4) <a href="#v4-4" id="v4-4"></a>
+#### v4​ <a href="#v4-4" id="v4-4"></a>
 
 ```swift
 let allRoles = MPMapsIndoors.shared.availableUserRoles
@@ -293,7 +293,7 @@ if let janitorRole = allRoles.first(where: { userRole in userRole.userRoleName =
 }
 ```
 
-### Map & Camera Behavior Configs[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#map--camera-behavior-configs) <a href="#map--camera-behavior-configs" id="map--camera-behavior-configs"></a>
+### Map & Camera Behavior Configs​ <a href="#map--camera-behavior-configs" id="map--camera-behavior-configs"></a>
 
 In v4, we have introduced `MPFilterBehavior` and `MPSelectionBehavior`. These object contains behavioral configuration to describe how and if the camera should behave. The following can be configured:
 
@@ -310,9 +310,9 @@ selectionBehavior.moveCamera = false
 mapControl.select(location: location, behavior: selectionBehavior)
 ```
 
-### The "Go-To" Function[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#the-go-to-function) <a href="#the-go-to-function" id="the-go-to-function"></a>
+### The "Go-To" Function​ <a href="#the-go-to-function" id="the-go-to-function"></a>
 
-#### v3[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v3-5) <a href="#v3-5" id="v3-5"></a>
+#### v3​ <a href="#v3-5" id="v3-5"></a>
 
 In v3, there was a convenience method to easily move the camera to a given `MPLocation`.
 
@@ -322,7 +322,7 @@ if let location = MPLocationsProvider().location(withId: "myLocationId") {
 }
 ```
 
-#### v4[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v4-5) <a href="#v4-5" id="v4-5"></a>
+#### v4​ <a href="#v4-5" id="v4-5"></a>
 
 In v4 the `goTo(...)` convenience method has been expanded upon, so it can be used with anything adhering to the `MPEntity` protocol, which includes `MPLocation`, `MPBuilding`, `MPVenue`, and even your own data types, as long as they adhere to `MPEntity`.
 
@@ -344,11 +344,11 @@ if let building = MPMapsIndoors.shared.buildingWith(id: "building id") {
 }
 ```
 
-### Map Filtering[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#map-filtering) <a href="#map-filtering" id="map-filtering"></a>
+### Map Filtering​ <a href="#map-filtering" id="map-filtering"></a>
 
 You can filter content on the map - say you only wanted to show all meeting rooms on the map.
 
-#### v3[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v3-6) <a href="#v3-6" id="v3-6"></a>
+#### v3​ <a href="#v3-6" id="v3-6"></a>
 
 In v3, you could set `searchResults` on your `MPMapControl` instance, to only show a list of locations.
 
@@ -362,7 +362,7 @@ MPLocationService.sharedInstance().getLocationsUsing(query, filter: filter) { (l
 }
 ```
 
-#### v4[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v4-6) <a href="#v4-6" id="v4-6"></a>
+#### v4​ <a href="#v4-6" id="v4-6"></a>
 
 In v4, you can use an `MPFilter` directly to apply a filter on your `MPMapControl` instance.
 
@@ -388,11 +388,11 @@ To clear the map filter, and return to normal displaying, call `clearFilter()`
 mapControl.clearFilter()
 ```
 
-### Positioning Providers[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#positioning-providers) <a href="#positioning-providers" id="positioning-providers"></a>
+### Positioning Providers​ <a href="#positioning-providers" id="positioning-providers"></a>
 
 The interfaces for using position providers with MapsIndoors, was bloated in v3, so you would have to implement a lot more behavior than was strictly necessary. In v4 we have trimmed down the interface, to ease integrations with positioning systems.
 
-#### v3[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v3-7) <a href="#v3-7" id="v3-7"></a>
+#### v3​ <a href="#v3-7" id="v3-7"></a>
 
 In v3, the `MPPositionProvider` protocol required that you implemented your positioning integration in a particular way.
 
@@ -490,7 +490,7 @@ class MockPositionProvider : NSObject, MPPositionProvider {
 }
 ```
 
-#### v4[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v4-7) <a href="#v4-7" id="v4-7"></a>
+#### v4​ <a href="#v4-7" id="v4-7"></a>
 
 For v4, we have simplified the position provider protocol for `MPPositionProvider` and `MPPositionProviderDelegate`, which now looks like:
 
@@ -537,11 +537,11 @@ mapControl.positionProvider = positionProvider
 positionProvider.simulate()
 ```
 
-### Location Data Sources[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#location-data-sources) <a href="#location-data-sources" id="location-data-sources"></a>
+### Location Data Sources​ <a href="#location-data-sources" id="location-data-sources"></a>
 
 Creating custom Location Sources.
 
-#### v3[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v3-8) <a href="#v3-8" id="v3-8"></a>
+#### v3​ <a href="#v3-8" id="v3-8"></a>
 
 To create MPLocationUpdate instances, you would simply call the `init`:
 
@@ -557,7 +557,7 @@ MapsIndoors.register([
 ])
 ```
 
-#### v4[​](https://docs.mapsindoors.com/getting-started/ios/v4/v4-migration-guide#v4-8) <a href="#v4-8" id="v4-8"></a>
+#### v4​ <a href="#v4-8" id="v4-8"></a>
 
 The concept for registering custom location sources is very similar to that of v3. In that you create your own custom Location Sources, however the way to create create `MPLocationUpdate` is slightly different.
 

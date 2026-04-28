@@ -20,6 +20,3 @@ There is a default mapping that will occur if claims are provided in the followi
 There are three types of roles: admin, editor, and viewer. Authorization can be given on two levels: organization and dataset. A valid MapsIndoors ID must be provided as ObjectId. The claim allows for more than one access definition.
 
 If a different mapping is needed - possibly due to reuse of existing claims, or limitations in the authentication server, this will also be possible. It will, however, require some additional configuration done by MapsPeople.
-
-[\
-](https://docs.mapsindoors.com/sso-configuration)

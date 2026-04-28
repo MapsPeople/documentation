@@ -15,7 +15,7 @@ To get an overview of what Display Rules are and can be used for, read the [Disp
 
 {% tabs %}
 {% tab title="Java" %}
-#### Style the Map using Display Rules[​](https://docs.mapsindoors.com/display-rules-in-practice#style-the-map-using-display-rules) <a href="#style-the-map-using-display-rules" id="style-the-map-using-display-rules"></a>
+**Style the Map using Display Rules​**
 
 In the [MapsIndoors CMS](https://cms.mapsindoors.com/types) you can set display rules for the different types of locations in your MapsIndoors content. The changes you make in the CMS will take effect whenever your app reboots or when you call `MapsIndoors.synchroniseContent()` within the app session.
 
@@ -32,7 +32,7 @@ You can set display rules programatically in multiple ways depending on your use
 * Modify a Display Rule for a type of Location
 * Modify a Display Rule for a specific Location
 
-**Modify the Display Rule for the Selected Location**[**​**](https://docs.mapsindoors.com/display-rules-in-practice#modify-the-display-rule-for-the-selected-location)
+**Modify the Display Rule for the Selected Location​**
 
 When a Location is selected, this Location is highlighted using the Display Rule name found through `MPSolutionDisplayRule.SELECTION`. You can change the values of the Display Rule like any other DisplayRule.
 
@@ -42,7 +42,7 @@ MapsIndoors.getDisplayRule(MPSolutionDisplayRule.SELECTION).setPolygonFillColor(
 MapsIndoors.getDisplayRule(MPSolutionDisplayRule.SELECTION).setPolygonStrokeWidth(8f);
 ```
 
-**Setting Display Rule for a Type**[**​**](https://docs.mapsindoors.com/display-rules-in-practice#setting-display-rule-for-a-type)
+**Setting Display Rule for a Type​**
 
 To set new display rules for a type of Location, you need to know the types of Locations in your Location dataset, so you may look these up in the CMS. The types can also be retrieved in code with `getSolution()`. The type objects can be read from `getTypes()`. You can then retrieve the Display Rule and modify it through `MapsIndoors.getDisplayRule(String name)`.
 
@@ -55,7 +55,7 @@ if (displayRule != null) {
 
 Setting a display rule for a type will only apply to the single instance of `MapControl`.
 
-**Setting Display Rule for a Single and Multiple Locations**[**​**](https://docs.mapsindoors.com/display-rules-in-practice#setting-display-rule-for-a-single-and-multiple-locations)
+**Setting Display Rule for a Single and Multiple Locations​**
 
 To set new display rules for a single Location, you need to have the Location at hand. Locations can be fetched using `getLocationById` or searched for through `getLocationsAsync`. Once you have a location, you can modify the display rule for it.
 
@@ -82,7 +82,7 @@ MapsIndoors.getLocationsAsync(null, new MPFilter.Builder().setTypes(Collections.
 });
 ```
 
-**Presenting Locations Using Polygons**[**​**](https://docs.mapsindoors.com/display-rules-in-practice#presenting-locations-using-polygons)
+**Presenting Locations Using Polygons​**
 
 To present a polygon, either configure the Display Rule using the CMS, or configure a Display Rule programatically:
 
@@ -98,7 +98,7 @@ if (mpDisplayRule != null) {
 }
 ```
 
-#### Style the Map using Google Maps Styling[​](https://docs.mapsindoors.com/display-rules-in-practice#style-the-map-using-google-maps-styling) <a href="#style-the-map-using-google-maps-styling" id="style-the-map-using-google-maps-styling"></a>
+**Style the Map using Google Maps Styling​**
 
 > Further documentation on the Google Maps styling can be found here: [https://developers.google.com/maps/documentation/android-sdk/styling](https://developers.google.com/maps/documentation/android-sdk/styling)
 
@@ -112,7 +112,7 @@ googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_jso
 
 The JSON string that you apply in this case can be built using the [Google Maps Styling Wizard](https://mapstyle.withgoogle.com/). Read more about styling the Google Map in the [Google Maps Android SDK Docs](https://developers.google.com/maps/documentation/android-sdk/styling).
 
-#### Style the Map using Mapbox Styling[​](https://docs.mapsindoors.com/display-rules-in-practice#style-the-map-using-mapbox-styling) <a href="#style-the-map-using-mapbox-styling" id="style-the-map-using-mapbox-styling"></a>
+**Style the Map using Mapbox Styling​**
 
 > Further documentation on the Mapbox styling can be found here: [https://docs.mapbox.com/android/maps/guides/styles/set-a-style/](https://docs.mapbox.com/android/maps/guides/styles/set-a-style/)
 
@@ -122,12 +122,11 @@ When styling the map in Mapbox make sure to add the style on the map before crea
 mapboxMap.loadStyleUri(Style.MAPBOX_STREETS);
 ```
 
-[\
-](https://docs.mapsindoors.com/display-rules)
+[<br>](https://docs.mapsindoors.com/display-rules)
 {% endtab %}
 
 {% tab title="Kotlin" %}
-#### Style the Map using Display Rules with Kotlin[​](https://docs.mapsindoors.com/display-rules-in-practice#style-the-map-using-display-rules-with-kotlin) <a href="#style-the-map-using-display-rules-with-kotlin" id="style-the-map-using-display-rules-with-kotlin"></a>
+**Style the Map using Display Rules with Kotlin**[**​**](https://docs.mapsindoors.com/display-rules-in-practice#style-the-map-using-display-rules-with-kotlin)
 
 In the [MapsIndoors CMS](https://cms.mapsindoors.com/types) you can set display rules for the different types of locations in your MapsIndoors content. The changes you make in the CMS will take effect whenever your app reboots or when you call `MapsIndoors.synchroniseContent()` within the app session.
 
@@ -203,7 +202,7 @@ mpDisplayRule?.let {
 }
 ```
 
-#### Style the Map using Google Maps Styling with Kotlin[​](https://docs.mapsindoors.com/display-rules-in-practice#style-the-map-using-google-maps-styling-with-kotlin) <a href="#style-the-map-using-google-maps-styling-with-kotlin" id="style-the-map-using-google-maps-styling-with-kotlin"></a>
+**Style the Map using Google Maps Styling with Kotlin**[**​**](https://docs.mapsindoors.com/display-rules-in-practice#style-the-map-using-google-maps-styling-with-kotlin)
 
 > Further documentation on the Google Maps styling can be found here: [https://developers.google.com/maps/documentation/android-sdk/styling](https://developers.google.com/maps/documentation/android-sdk/styling)
 
@@ -217,7 +216,7 @@ googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.style_jso
 
 The JSON string that you apply in this case can be built using the [Google Maps Styling Wizard](https://mapstyle.withgoogle.com/). Read more about styling the Google Map in the [Google Maps Android SDK Docs](https://developers.google.com/maps/documentation/android-sdk/styling).
 
-#### Style the Map using Mapbox Styling with Kotlin[​](https://docs.mapsindoors.com/display-rules-in-practice#style-the-map-using-mapbox-styling-with-kotlin) <a href="#style-the-map-using-mapbox-styling-with-kotlin" id="style-the-map-using-mapbox-styling-with-kotlin"></a>
+**Style the Map using Mapbox Styling with Kotlin**[**​**](https://docs.mapsindoors.com/display-rules-in-practice#style-the-map-using-mapbox-styling-with-kotlin)
 
 > Further documentation on the Mapbox styling can be found here: [https://docs.mapbox.com/android/maps/guides/styles/set-a-style/](https://docs.mapbox.com/android/maps/guides/styles/set-a-style/)
 

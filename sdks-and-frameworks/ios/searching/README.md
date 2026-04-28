@@ -43,7 +43,7 @@ if let location = locations?.first {
 ```
 {% endcode %}
 
-### Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map) <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
+### Display Search Results on the Map​ <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
 
 When displaying the search results it is helpful to filter the map to only show matching Locations. Matching Buildings and Venues will still be shown on the map, as they give context to the user, even if they aren't selectable on the map.
 
@@ -62,7 +62,7 @@ mapControl.setFilter(locations: locations, behavior: .default)
 ```
 {% endcode %}
 
-### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
+### Clearing the Map of Your Filter​ <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
 
 After displaying the search results on your map you can then clear the filter so that all Locations show up on the map again.
 

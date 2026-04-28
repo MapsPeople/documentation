@@ -35,7 +35,7 @@ Task {
 }
 ```
 
-### Controlling the Visible Segments on the Directions Renderer[​](https://docs.mapsindoors.com/directions-renderer#controlling-the-visible-segments-on-the-directions-renderer-2) <a href="#controlling-the-visible-segments-on-the-directions-renderer-2" id="controlling-the-visible-segments-on-the-directions-renderer-2"></a>
+### Controlling the Visible Segments on the Directions Renderer​ <a href="#controlling-the-visible-segments-on-the-directions-renderer-2" id="controlling-the-visible-segments-on-the-directions-renderer-2"></a>
 
 As previously mentioned, the route object is seperated into objects of `MPRouteLeg`. Each leg is again separated into objects of `MPRouteStep`.
 
@@ -50,7 +50,7 @@ renderer?.routeLegIndex = 5
 
 The length of the `legs` array determines the possible values of `routeLegIndex` (`0 ..< length`).
 
-#### Reacting to Label Tapping[​](https://docs.mapsindoors.com/directions-renderer#reacting-to-label-tapping-2) <a href="#reacting-to-label-tapping-2" id="reacting-to-label-tapping-2"></a>
+#### Reacting to Label Tapping​ <a href="#reacting-to-label-tapping-2" id="reacting-to-label-tapping-2"></a>
 
 The Directions Labels refer to labels shown at the start and/or end of the rendered route segment (leg or step) path, that may provide contextual information or show instructions for the needed user action at that point. E.g. the end label can be retrieved with `.nextRouteLegButton`. The labels are created as simple `UIButton` instances that are rendered as markers on the map. As with most buttons, it is possible to add targets to these labels, so you can react to touch events.
 
@@ -77,7 +77,7 @@ override func viewDidAppear(_ animated: Bool) {
 
 In the above example, a target is added to `nextRouteLegButton` and `nextRouteLegButton` calling the method `nextLeg` and `previousLeg` respectively. These methods then changes the visible Route Leg.
 
-### Show Content of Nearby Locations[​](https://docs.mapsindoors.com/directions-renderer#show-content-of-nearby-locations-2) <a href="#show-content-of-nearby-locations-2" id="show-content-of-nearby-locations-2"></a>
+### Show Content of Nearby Locations​ <a href="#show-content-of-nearby-locations-2" id="show-content-of-nearby-locations-2"></a>
 
 It is possible to show contextual information on the start or end points of the rendered path of a route segment by configuring the directions renderer to look for nearby Locations or POIs.
 

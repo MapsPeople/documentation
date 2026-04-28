@@ -1,12 +1,10 @@
 # Searching on a Map
 
-
-
 {% tabs %}
 {% tab title="iOS v4" %}
 Use the [`MPMapsIndoors.shared.locationsWith(query:filter:)`](https://app.mapsindoors.com/mapsindoors/reference/ios/4.1.3/documentation/mapsindoors/mapsindoorsshared/locationswith\(query:filter:\)) method to search for content in your MapsIndoors Solution.
 
-#### Setup a query for the nearest single best matching Location and display the result on the map[​](https://docs.mapsindoors.com/search-on-map#setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map-1) <a href="#setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map-1" id="setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map-1"></a>
+**Setup a query for the nearest single best matching Location and display the result on the map​**
 
 ```swift
 let filter = MPFilter()
@@ -22,7 +20,7 @@ if let location = locations?.first {
 
 ```
 
-#### Setup a query for a group of Locations and display the result on the map[​](https://docs.mapsindoors.com/search-on-map#setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map-1) <a href="#setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map-1" id="setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map-1"></a>
+**Setup a query for a group of Locations and display the result on the map​**
 
 ```swift
 let filter = MPFilter()
@@ -43,7 +41,7 @@ Please note that you are not guaranteed that the visible floor contains any sear
 {% tab title="iOS v3" %}
 Use the `MPLocationService` class to search for content in your MapsIndoors Solution.
 
-#### Setup a query for the nearest single best matching Location and display the result on the map[​](https://docs.mapsindoors.com/search-on-map#setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map-2) <a href="#setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map-2" id="setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map-2"></a>
+**Setup a query for the nearest single best matching Location and display the result on the map**[**​**](https://docs.mapsindoors.com/search-on-map#setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map-2)
 
 ```swift
 let filter = MPFilter()
@@ -59,7 +57,7 @@ MPLocationService.sharedInstance().getLocationsUsing(query, filter: filter) { (l
 }
 ```
 
-#### Setup a query for a group of Locations and display the result on the map[​](https://docs.mapsindoors.com/search-on-map#setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map-2) <a href="#setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map-2" id="setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map-2"></a>
+**Setup a query for a group of Locations and display the result on the map**[**​**](https://docs.mapsindoors.com/search-on-map#setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map-2)
 
 ```swift
 let filter = MPFilter()

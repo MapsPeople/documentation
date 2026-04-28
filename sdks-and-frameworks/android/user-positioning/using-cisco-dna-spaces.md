@@ -4,7 +4,7 @@ To get started with Cisco DNA positioning, the MapsIndoors SDK offers all the re
 
 The Position Provider implementation exists at the customer application level, and needs to use the `MPPositionProvider` interface from the MapsIndoors SDK. The MapsIndoors SDK can then use the positioning results given by the Position Provider when setting the Position Provider with `MapsIndoors.setPositionProvider(MPPositionProvider)`.
 
-#### Floor Mapping for Android[​](https://docs.mapsindoors.com/cisco-dna#floor-mapping-for-android) <a href="#floor-mapping-for-android" id="floor-mapping-for-android"></a>
+#### Floor Mapping for Android​ <a href="#floor-mapping-for-android" id="floor-mapping-for-android"></a>
 
 The Position Provider should align with the MapsIndoors Floor index convention (floors are indexed as e.g 0, 10, 20, 30 corresponding to ground floor, 1st floor, 2nd floor, 3rd floor, with negative floors indices allowed as well to indicate Floors below ground, e.g. -10). It is therefore up to the Position Provider class to convert any given Floor indexing from the positioning source to that of MapsIndoors.
 
@@ -12,7 +12,7 @@ For a typical Position Provider, the mapping from the positioning's index needs 
 
 The MapsIndoors backend is closely integrated with the CiscoDNA platform, so the MapsIndoors backend handles the floor mapping conversion for that integration. From an application perspective no Floor mapping implementation is required when integrating CiscoDNA positioning through the MapsIndoors platform.
 
-**Fetch Attributes from Solution**[**​**](https://docs.mapsindoors.com/cisco-dna#fetch-attributes-from-solution)
+**Fetch Attributes from Solution​**
 
 You can choose to fetch the Position Provider information (`CMS` > `Solution Details` > `App Settings` > `Position Provider`) from the CMS as follows:
 
@@ -24,7 +24,7 @@ The outer keyset (`Map<String, Map<String, Object>>`) contains the name of the p
 
 The inner keyset (`Map<String, Object>`) consist of various attribute fields for a given positioning provider, such as keys, floor mapping etc. These attribute fields will vary across different positioning providers, so refer to their own documentation for details.
 
-#### Implementing Cisco DNA for Android[​](https://docs.mapsindoors.com/cisco-dna#implementing-cisco-dna-for-android) <a href="#implementing-cisco-dna-for-android" id="implementing-cisco-dna-for-android"></a>
+#### Implementing Cisco DNA for Android​ <a href="#implementing-cisco-dna-for-android" id="implementing-cisco-dna-for-android"></a>
 
 This Guide requires you to already have an activity that shows a MapsIndoors Map as well as a Cisco DNA network with positioning active.
 

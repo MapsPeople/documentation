@@ -75,7 +75,7 @@ class MapsIndoorsDemoApp extends StatelessWidget {
 }
 ```
 
-#### Initialize MapsIndoors[​](https://docs.mapsindoors.com/getting-started/flutter/map#initialize-mapsindoors) <a href="#initialize-mapsindoors" id="initialize-mapsindoors"></a>
+#### Initialize MapsIndoors​ <a href="#initialize-mapsindoors" id="initialize-mapsindoors"></a>
 
 We start by loading `MapsIndoors`. `MapsIndoors` is used to get and store all references to MapsIndoors-specific data. This includes access to all MapsIndoors-specific geodata.
 
@@ -98,7 +98,7 @@ class _MapState extends State<Map> {
 
 If you are not a customer you can use this demo MapsIndoors API key `mapspeople3d`.
 
-#### Initialize MapsIndoorsWidget[​](https://docs.mapsindoors.com/getting-started/flutter/map#initialize-mapsindoorswidget) <a href="#initialize-mapsindoorswidget" id="initialize-mapsindoorswidget"></a>
+#### Initialize MapsIndoorsWidget​ <a href="#initialize-mapsindoorswidget" id="initialize-mapsindoorswidget"></a>
 
 We now want to add all the data we get by initializing `MapsIndoors` to our map. This is done by initializing [`MapsIndoorsWidget`](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/MapsIndoorsWidget-class.html) onto the map. `MapsIndoorsWidget` is used as a layer between the map and MapsIndoors.
 

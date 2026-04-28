@@ -2,7 +2,7 @@
 
 You begin by creating an initial application. Throughout this tutorial, you will modify and extend that starter application to create a simple application which covers the basic features of this guide.
 
-### Set Up Your Environment[​](https://docs.mapsindoors.com/getting-started/android/v4/new-project#set-up-your-environment) <a href="#set-up-your-environment" id="set-up-your-environment"></a>
+### Set Up Your Environment​ <a href="#set-up-your-environment" id="set-up-your-environment"></a>
 
 This guide explains how to start using a MapsIndoors map in your Android application using the MapsIndoors Android SDK v4.
 
@@ -17,15 +17,15 @@ To benefit from the guides, you will need basic knowledge about:
 * Android Development
 * Google Maps Android API
 
-You can get started in two ways, either by reviewing and modifying the [basic example](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google\_Maps/mapsindoorsgettingstartedbasickotlin) or do the [clean setup](https://docs.mapsindoors.com/getting-started/android/v4/new-project#setup-mapsindoors). The clean setup is only written for Google Maps, and we recommend following the [basic example](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google\_Maps/mapsindoorsgettingstartedbasickotlin).
+You can get started in two ways, either by reviewing and modifying the [basic example](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google_Maps/mapsindoorsgettingstartedbasickotlin) or do the [clean setup](https://docs.mapsindoors.com/getting-started/android/v4/new-project#setup-mapsindoors). The clean setup is only written for Google Maps, and we recommend following the [basic example](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google_Maps/mapsindoorsgettingstartedbasickotlin).
 
-### Basic Example[​](https://docs.mapsindoors.com/getting-started/android/v4/new-project#basic-example) <a href="#basic-example" id="basic-example"></a>
+### Basic Example​ <a href="#basic-example" id="basic-example"></a>
 
 The tutorial will be based on you starting from our basic map implementation. This contains basic UI implementations together with layout files and drawables used to create the UI. You will then be guided through how to implement the MapsIndoors SDK into this app.
 
 The basic example contains a single `activity` app with already made `fragments` to host the different logic to get a complete app interacting with a map and `MapsIndoors` data.
 
-You can find the basic example for Google Maps here: [Kotlin](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google\_Maps/mapsindoorsgettingstartedbasickotlin)
+You can find the basic example for Google Maps here: [Kotlin](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google_Maps/mapsindoorsgettingstartedbasickotlin)
 
 The Mapbox basic example is located here: [Kotlin](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/MapBox/mapsindoorsgettingstartedbasickotlin)
 
@@ -33,7 +33,7 @@ You can open the project through Android Studio by navigating through **File -> 
 
 You can also follow the steps below to start your app from scratch or to enhance the Basic Examples, more features will be explained in later guides.
 
-### Setup MapsIndoors[​](https://docs.mapsindoors.com/getting-started/android/v4/new-project#setup-mapsindoors) <a href="#setup-mapsindoors" id="setup-mapsindoors"></a>
+### Setup MapsIndoors​ <a href="#setup-mapsindoors" id="setup-mapsindoors"></a>
 
 If you don't already have a project, we recommend using the Google Maps Activity preset from Android Studio to getting started on developing your MapsIndoors project. You find the Google Maps Activity project through **File -> New -> New Project... -> Google Maps Activity**.
 

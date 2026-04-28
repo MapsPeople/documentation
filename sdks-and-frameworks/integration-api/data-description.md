@@ -1,6 +1,6 @@
 # Data Description
 
-#### Dataset[​](https://docs.mapsindoors.com/api-data-description#dataset) <a href="#dataset" id="dataset"></a>
+#### Dataset​ <a href="#dataset" id="dataset"></a>
 
 The main starting point for your data is the dataset object. This object contains information about the entire data set such as languages and where to find more data.
 
@@ -23,7 +23,7 @@ The demo dataset looks like this:
 
 It tells which languages are defined for this project, which language is the default one (English in this case) and it has a `rootObjects` reference list which refers to the geospatial data that makes up the bulk of a MapsIndoors Solution the root objects are Geodata objects.
 
-#### Geodata[​](https://docs.mapsindoors.com/api-data-description#geodata) <a href="#geodata" id="geodata"></a>
+#### Geodata​ <a href="#geodata" id="geodata"></a>
 
 All geospatial data, Geodata, is arranged in a simple tree. Each element has a parent ID (except the root) so as an example, a point of interest (POI) can have a Room parent. The Room will typically be on a Floor in a Building on a Venue. Venues are always the root object (identified with parent ID is null), and is defined by "_An overall geographical area which typically comprises the area of one or more buildings and their relevant surrounding areas such as lawns and parking lots_".
 
@@ -33,7 +33,7 @@ You can create, update, delete all Geodata types: Venue, Building, Floor, Room, 
 
 All Geodata BaseTypes have some common keys that is available for all, and then there is some specific ones for each type, listed in BaseTypeProperties.
 
-**Object Definition**[**​**](https://docs.mapsindoors.com/api-data-description#object-definition)
+**Object Definition​**
 
 **A Geodata object contains the following:**
 
@@ -62,7 +62,7 @@ All Geodata BaseTypes have some common keys that is available for all, and then 
 
       _Only relevant for POI/Room/Area._
 * `Geometry [GeoJSON.Geometry]`
-  * The geometry related to the Geodata according to the [GeoJSON](https://geojson.org/) structure in the [WGS84](https://en.wikipedia.org/wiki/World\_Geodetic\_System) coordinate system.
+  * The geometry related to the Geodata according to the [GeoJSON](https://geojson.org/) structure in the [WGS84](https://en.wikipedia.org/wiki/World_Geodetic_System) coordinate system.
 * `Anchor [GeoJSON.Point]`
   * Generally the anchor is the center of the Geometry itself.
 * `Aliases [Array<string>]`
@@ -136,13 +136,13 @@ To read, change or delete Geodata use the Geodata endpoints described here: [htt
 
 > Note: When you get data, you only specify the `apiKey` hence you get the entire tree! The other Geodata endpoints works on individual Geodata objects.
 
-### Detailed Data Description[​](https://docs.mapsindoors.com/api-data-description#detailed-data-description) <a href="#detailed-data-description" id="detailed-data-description"></a>
+### Detailed Data Description​ <a href="#detailed-data-description" id="detailed-data-description"></a>
 
-#### Geodata[​](https://docs.mapsindoors.com/api-data-description#geodata-1) <a href="#geodata-1" id="geodata-1"></a>
+#### Geodata​ <a href="#geodata-1" id="geodata-1"></a>
 
 Each Geodata element has a number of properties. Let's look at an example - a coat hanger.
 
-**Example: POI**[**​**](https://docs.mapsindoors.com/api-data-description#example-poi)
+**Example: POI​**
 
 ```json
 {
@@ -210,7 +210,7 @@ Each Geodata element has a number of properties. Let's look at an example - a co
     Is a reference to the category data as described below. Geodata is not required to reference any categories - like in this example. As this is an ID, the reference is a 24 character string as described above.
 *   **Status**
 
-    Is a [bitfield](https://en.wikipedia.org/wiki/Bit\_field).
+    Is a [bitfield](https://en.wikipedia.org/wiki/Bit_field).
 
     * bit1: active. If an element is not active, it will not be given to the apps.
     *   bit2: searchable. If an element is not searchable it might be shown on the map, but not show up in searches.
@@ -232,7 +232,7 @@ Each Geodata element has a number of properties. Let's look at an example - a co
 
 > Note: BaseType ‘Floor' doesn't support properties.
 
-**Example: Area**[**​**](https://docs.mapsindoors.com/api-data-description#example-area)
+**Example: Area​**
 
 Now let's have a look at another Geodata with the BaseType _Area_.
 
@@ -319,7 +319,7 @@ It will look a lot like the POI example, with a few differences:
 
     The anchor here should normally define the center of the polygon. This can be used for a variety of features, depending on the use case.
 
-#### DisplayTypes[​](https://docs.mapsindoors.com/api-data-description#displaytypes) <a href="#displaytypes" id="displaytypes"></a>
+#### DisplayTypes​ <a href="#displaytypes" id="displaytypes"></a>
 
 Common setup for Geodata of different kinds (meeting room, hallway, ...)
 
@@ -392,7 +392,7 @@ Common setup for Geodata of different kinds (meeting room, hallway, ...)
 
 > Note: The display type data is split in the CMS; currently it can be found in the fans "Location Types" and "Type Visibility".
 
-#### Categories[​](https://docs.mapsindoors.com/api-data-description#categories) <a href="#categories" id="categories"></a>
+#### Categories​ <a href="#categories" id="categories"></a>
 
 Categories are used to group Geodata together. As an example, rooms, areas or POIs in some department - e.g. "development" or "marketing" can be set in each of their group. Using categories is not mandatory and thus each Geodata can link to "none to many" categories.
 
@@ -450,107 +450,101 @@ Additional details are used to describe emails, links, phone numbers and opening
 }
 ```
 
-* **Key**
-  
-  Must be unique for the collection of additional details related to the Geodata.
+*   **Key**
 
-* **DetailType**
+    Must be unique for the collection of additional details related to the Geodata.
+*   **DetailType**
 
-  The type of detail. Can be `email`, `url`, `phone`, or `openinghours`.
+    The type of detail. Can be `email`, `url`, `phone`, or `openinghours`.
+*   **Value**
 
-* **Value**
+    Contains the value of the detail. Only used for detail types `email`, `url`, and `phone`. Different validation rules apply based on the detail type.
 
-  Contains the value of the detail. Only used for detail types `email`, `url`, and `phone`. Different validation rules apply based on the detail type.
+    * `email`:
+      * Must include an `@` character.
+      * The `@` character must not be at the beginning or the end of the email.
+    * `url`:
+      * Must not be empty.
+      * Must include a domain.
+      * Spaces must be encoded.
+      * If the link contains a scheme, it must be valid (e.g. `https://`).
+      * Must not contain invalid characters (e.g. curly braces `{\"isJson\": true}`).
+    * `phone`
+      * Digits can be numbers or letters (to accommodate phonewords).
+      * Must include at least 1 digit.
+      * Must contain no more than 15 digits.
+      * Allowed characters: Numbers, letters, spaces, `(`, `)`, `-`, and `.`.
+      * A `+` is allowed if it is the first non-whitespace character.
+*   **Active**
 
-  * `email`: 
-    * Must include an `@` character. 
-    * The `@` character must not be at the beginning or the end of the email.
-  * `url`: 
-    * Must not be empty.
-    * Must include a domain.
-    * Spaces must be encoded.
-    * If the link contains a scheme, it must be valid (e.g. `https://`).
-    * Must not contain invalid characters (e.g. curly braces `{\"isJson\": true}`).
-  * `phone`
-    * Digits can be numbers or letters (to accommodate phonewords).
-    * Must include at least 1 digit.
-    * Must contain no more than 15 digits.
-    * Allowed characters: Numbers, letters, spaces, `(`, `)`, `-`, and `.`.
-    * A `+` is allowed if it is the first non-whitespace character.
+    Controls whether or not the detail should be shown in the application.
+*   **Icon**
 
-* **Active**
+    A link to an icon to be shown in the application.
+*   **DisplayText**
 
-  Controls whether or not the detail should be shown in the application.
+    A map between the text to be displayed for each language.
+*   **OpeningHours**
 
-* **Icon**
+    Contains the opening hours data. Only used for the `openinghours` detail type. Can be used to describe opening hours for each day in the week, as shown in the example below.
 
-  A link to an icon to be shown in the application.
-
-* **DisplayText**
-
-  A map between the text to be displayed for each language.
-
-* **OpeningHours**
-
-  Contains the opening hours data. Only used for the `openinghours` detail type. Can be used to describe opening hours for each day in the week, as shown in the example below.
-
-  ```json
-  {
-    "key": "openinghours-1",
-    "detailType": "openinghours",
-    "active": false,
-    "icon": "https://www.example.com/openinghoursicon.png",
-    "displayText": {
-      "en": "Opening hours",
-      "da": "Åbningstider"
-    },
-    "openingHours": {
-      "standardOpeningHours": {
-        "monday": {
-          "closedAllDay": false,
-          "startTime": "15:00",
-          "endTime": "21:00"
-        },
-        "tuesday": {
-          "closedAllDay": false,
-          "startTime": "15:00",
-          "endTime": "21:00"
-        },
-        "wednesday": {
-          "closedAllDay": false,
-          "startTime": "15:00",
-          "endTime": "21:00"
-        },
-        "thursday": {
-          "closedAllDay": false,
-          "startTime": "15:00",
-          "endTime": "21:00"
-        },
-        "friday": {
-          "closedAllDay": false,
-          "startTime": "15:00",
-          "endTime": "22:00"
-        },
-        "saturday": {
-          "closedAllDay": false,
-          "startTime": "12:00",
-          "endTime": "22:00"
-        },
-        "sunday": {
-          "closedAllDay": true
+    ```json
+    {
+      "key": "openinghours-1",
+      "detailType": "openinghours",
+      "active": false,
+      "icon": "https://www.example.com/openinghoursicon.png",
+      "displayText": {
+        "en": "Opening hours",
+        "da": "Åbningstider"
+      },
+      "openingHours": {
+        "standardOpeningHours": {
+          "monday": {
+            "closedAllDay": false,
+            "startTime": "15:00",
+            "endTime": "21:00"
+          },
+          "tuesday": {
+            "closedAllDay": false,
+            "startTime": "15:00",
+            "endTime": "21:00"
+          },
+          "wednesday": {
+            "closedAllDay": false,
+            "startTime": "15:00",
+            "endTime": "21:00"
+          },
+          "thursday": {
+            "closedAllDay": false,
+            "startTime": "15:00",
+            "endTime": "21:00"
+          },
+          "friday": {
+            "closedAllDay": false,
+            "startTime": "15:00",
+            "endTime": "22:00"
+          },
+          "saturday": {
+            "closedAllDay": false,
+            "startTime": "12:00",
+            "endTime": "22:00"
+          },
+          "sunday": {
+            "closedAllDay": true
+          }
         }
       }
     }
-  }
-  ```
+    ```
 
-  The values in the `openingHours` property must adhere to the following rules:
-  
-  * The `startTime` and `endTime` properties must not be equal.
-  * The `startTime` and `endTime` properties must be in a valid time format, valid examples are:
-    * `04:00 PM` (12-hour clock).
-    * `16:00` (24-hour clock).
-    * `04:00:00 PM` (12-hour clock with seconds).
-    * `16:00:00` (24-hour clock with seconds).
+    The values in the `openingHours` property must adhere to the following rules:
 
-  > Note: Seconds will be ignored; only hours and minutes are retained.
+    * The `startTime` and `endTime` properties must not be equal.
+    * The `startTime` and `endTime` properties must be in a valid time format, valid examples are:
+      * `04:00 PM` (12-hour clock).
+      * `16:00` (24-hour clock).
+      * `04:00:00 PM` (12-hour clock with seconds).
+      * `16:00:00` (24-hour clock with seconds).
+
+    > Note: Seconds will be ignored; only hours and minutes are retained.

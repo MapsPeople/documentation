@@ -1,6 +1,6 @@
 # Access with Python
 
-## Using the Integration API via Python[​](https://docs.mapsindoors.com/access-with-python#using-the-integration-api-via-python) <a href="#using-the-integration-api-via-python" id="using-the-integration-api-via-python"></a>
+## Using the Integration API via Python​ <a href="#using-the-integration-api-via-python" id="using-the-integration-api-via-python"></a>
 
 The Integration API can be access from python for automation of tasks such as updating data. In the example below we:
 
@@ -10,12 +10,10 @@ The Integration API can be access from python for automation of tasks such as up
 
 > **Note** For this example to work you'll need to insert you own username and password in the second line of code
 
-
-
 #### Login
 
-There are two authentication flows you can use: username/password and Client Id/Secret. \
-The difference boils down to the payload you will be sending to the authorization server. \
+There are two authentication flows you can use: username/password and Client Id/Secret.\
+The difference boils down to the payload you will be sending to the authorization server.\
 \
 For User/Pass the payload should be formatted like this:
 
@@ -30,14 +28,11 @@ grant_type=client_credentials&client_id=your_client&client_secret=your_secret'
 ```
 
 \
-For more information about client Id/Secret you can read about it here:\
-
+For more information about client Id/Secret you can read about it here:\\
 
 {% content-ref url="client-credentials-flow.md" %}
 [client-credentials-flow.md](client-credentials-flow.md)
 {% endcontent-ref %}
-
-
 
 ### Example script
 
@@ -132,14 +127,3 @@ else:
     print("Success. One geodata object was updated.")
 
 ```
-
-
-
-
-
-
-
-
-
-
-

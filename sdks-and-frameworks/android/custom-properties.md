@@ -46,8 +46,6 @@ The method for reading and using these custom properties depends on which platfo
 
 <figure><img src="../../.gitbook/assets/custom-properties-cms-example.png" alt=""><figcaption></figcaption></figure>
 
-
-
 Using the above screenshot as an example basis you fetch the entire custom property using the following code:
 
 ```java
@@ -56,11 +54,11 @@ String email = (String) location.getProperty("email");
 
 When retrieving custom properties, they are always returned as a String.
 
-#### Example 1[​](https://docs.mapsindoors.com/custom-properties#example-1) <a href="#example-1" id="example-1"></a>
+#### Example 1​ <a href="#example-1" id="example-1"></a>
 
 You are a conference organizer that needs to associate some pieces of data with each exhibitor, like the sponsor level they are are on, and what the size of their stand should be. You would create two Language-specific Custom Properties, one called `sponsorLevel` and another called `standSize`. When building your app on top of our SDK, you could use these Custom Properties to assign a gold color to your highest paying sponsors' names, and a larger image because of their larger stand size.
 
-#### Example 2[​](https://docs.mapsindoors.com/custom-properties#example-2) <a href="#example-2" id="example-2"></a>
+#### Example 2​ <a href="#example-2" id="example-2"></a>
 
 You are a museum operator providing a digital map of your venue. Your digital map presents points of interest for the various exhibits and you would like to associate both a text description of the item exhibited as well as a link to a video of an expert giving additional insight about the item. To accomplish this you create a Generic Custom Property called `itemDescription` and provide a description for each language your Solution supports. You choose a Generic Custom Property for this purpose as the values is to be displayed to the end user and you need the user to be given description in their preferred language.
 

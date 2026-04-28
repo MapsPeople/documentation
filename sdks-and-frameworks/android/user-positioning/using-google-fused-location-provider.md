@@ -4,7 +4,7 @@ To get started with Google Fused Location Provider, you need to create a positio
 
 The Position Provider implementation exists at the customer application level, and needs to use the `MPPositionProvider` interface from the MapsIndoors SDK. The MapsIndoors SDK can then use the positioning results given by the given Position Provider, by setting the Position Provider with `MapsIndoors.setPositionProvider(MPPositionProvider)`.
 
-**Fetch Attributes from Solution**[**​**](https://docs.mapsindoors.com/google-flp#fetch-attributes-from-solution)
+**Fetch Attributes from Solution​**
 
 You can choose to fetch the Position Provider information (`CMS` > `Solution Details` > `App Settings` > `Position Provider`) from the CMS as follows:
 
@@ -16,7 +16,7 @@ The outer keyset (`Map<String, Map<String, Object>>`) contains the name of the p
 
 The inner keyset (`Map<String, Object>`) consist of various attribute fields for a given positioning provider, such as keys, floor mapping etc. These attribute fields will vary across different positioning providers, so refer to their own documentation for details.
 
-#### Implementing Google Fused Location Provider API[​](https://docs.mapsindoors.com/google-flp#implementing-google-fused-location-provider-api) <a href="#implementing-google-fused-location-provider-api" id="implementing-google-fused-location-provider-api"></a>
+#### Implementing Google Fused Location Provider API​ <a href="#implementing-google-fused-location-provider-api" id="implementing-google-fused-location-provider-api"></a>
 
 This Guide requires you to already have an activity that shows a MapsIndoors Map and to have the Google Play Services Location library dependency added to your project.
 

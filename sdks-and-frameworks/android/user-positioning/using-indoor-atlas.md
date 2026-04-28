@@ -4,13 +4,13 @@ To get started with Indoor Atlas positioning, you need to create a positioning i
 
 The Position Provider implementation exists at the customer application level, and needs to use the `MPPositionProvider` interface from the MapsIndoors SDK. The MapsIndoors SDK can then use the positioning results given by the given Position Provider, by setting the Position Provider with `MapsIndoors.setPositionProvider(MPPositionProvider)`.
 
-#### Floor Mapping[​](https://docs.mapsindoors.com/indoor-atlas#floor-mapping) <a href="#floor-mapping" id="floor-mapping"></a>
+#### Floor Mapping​ <a href="#floor-mapping" id="floor-mapping"></a>
 
 The Position Provider should align with the MapsIndoors Floor index convention (floors are indexed as e.g 0, 10, 20, 30 corresponding to ground floor, 1st floor, 2nd floor, 3rd floor, with negative floors indices allowed as well to indicate Floors below ground, e.g. -10). It is therefore up to the Position Provider class to convert any given Floor indexing from the positioning source to that of MapsIndoors.
 
 For a typical Position Provider, the mapping from the positioning's index needs to be mapped to the MapsIndoors Floor format. This is possible through the CMS or creating your own int:int mapping.
 
-**Fetch Attributes from Solution**[**​**](https://docs.mapsindoors.com/indoor-atlas#fetch-attributes-from-solution)
+**Fetch Attributes from Solution​**
 
 You can choose to fetch the Position Provider information (`CMS` > `Solution Details` > `App Settings` > `Position Provider`) from the CMS as follows:
 
@@ -22,7 +22,7 @@ The outer keyset (`Map<String, Map<String, Object>>`) contains the name of the p
 
 The inner keyset (`Map<String, Object>`) consist of various attribute fields for a given positioning provider, such as keys, floor mapping etc. These attribute fields will vary across different positioning providers, so refer to their own documentation for details.
 
-#### Implementing Indoor Atlas[​](https://docs.mapsindoors.com/indoor-atlas#implementing-indoor-atlas) <a href="#implementing-indoor-atlas" id="implementing-indoor-atlas"></a>
+#### Implementing Indoor Atlas​ <a href="#implementing-indoor-atlas" id="implementing-indoor-atlas"></a>
 
 This Guide requires you to already have an activity that shows a MapsIndoors Map as well as a Indoor Atlas beacon network for positioning. We use Indoor Atlas v3 for this guide. Here is how to set it up in your project: [Indoor Atlas setup](https://indooratlas.freshdesk.com/support/solutions/articles/36000050564-setup-positioning-sdk-with-android)
 

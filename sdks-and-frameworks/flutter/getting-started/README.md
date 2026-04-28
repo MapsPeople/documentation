@@ -4,7 +4,7 @@ In this tutorial, you will build your own app from the ground up, gaining experi
 
 Parts of this guide rely on having access to a MapsIndoors Solution which supports Live Data Integration. If you do not have access to this through your own Solution, we recommend using our demo API key to access one: `mapspeople3d`.
 
-#### Take-Away Skills[​](https://docs.mapsindoors.com/getting-started/flutter/#take-away-skills) <a href="#take-away-skills" id="take-away-skills"></a>
+#### Take-Away Skills​ <a href="#take-away-skills" id="take-away-skills"></a>
 
 * Display an interactive map with MapsIndoors
 * Implementing search functionality to interact with the displayed map

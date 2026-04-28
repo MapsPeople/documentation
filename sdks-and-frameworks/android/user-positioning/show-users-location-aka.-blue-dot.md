@@ -4,7 +4,7 @@ In this tutorial we will cover how you can implement a positioning system with t
 
 We will start by creating our implementation of the `MPPositionProvider` interface.
 
-### Implementing a Position Provider[​](https://docs.mapsindoors.com/blue-dot#implementing-a-position-provider) <a href="#implementing-a-position-provider" id="implementing-a-position-provider"></a>
+### Implementing a Position Provider​ <a href="#implementing-a-position-provider" id="implementing-a-position-provider"></a>
 
 Start by creating the class `PositionProvider` that implements `MPPositionProvider`:
 
@@ -98,7 +98,7 @@ We have now completed the implementation of `PositionProvider` - we will now cov
 
 [See the full implementation of PositionProvider in our samples repository](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/PositionProvider.kt)
 
-### Integrating with MapsIndoors SDK[​](https://docs.mapsindoors.com/blue-dot#integrating-with-mapsindoors-sdk) <a href="#integrating-with-mapsindoors-sdk" id="integrating-with-mapsindoors-sdk"></a>
+### Integrating with MapsIndoors SDK​ <a href="#integrating-with-mapsindoors-sdk" id="integrating-with-mapsindoors-sdk"></a>
 
 In order for your `PositionProvider`'s produced positions to be rendered on the map, you need to attach it to the MapsIndoors SDK. Use `MapsIndoors.setPositionProvider()` to set the position provider on the SDK.
 
@@ -129,7 +129,7 @@ mMapControl?.showUserPosition(true)
 
 You should now have a position indicator on the map, jumping around inside The White House.
 
-### Styling the Blue Dot[​](https://docs.mapsindoors.com/blue-dot#styling-the-blue-dot) <a href="#styling-the-blue-dot" id="styling-the-blue-dot"></a>
+### Styling the Blue Dot​ <a href="#styling-the-blue-dot" id="styling-the-blue-dot"></a>
 
 The default blue dot styling is basic, and likely needs to be styled to fit your application and make sense to users.
 

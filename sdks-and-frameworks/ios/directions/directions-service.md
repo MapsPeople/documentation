@@ -32,7 +32,7 @@ renderer?.pathColor = .green
 renderer?.backgroundColor = .black
 ```
 
-### Change Transportation Mode[​](https://docs.mapsindoors.com/directions-service#change-transportation-mode-2) <a href="#change-transportation-mode-2" id="change-transportation-mode-2"></a>
+### Change Transportation Mode​ <a href="#change-transportation-mode-2" id="change-transportation-mode-2"></a>
 
 In MapsIndoors, the transportation mode is referred to as **travel mode**. There are five travel modes, **walking**, **bicycling**, **driving**, **transit** (public transportation) and **unknown**. The travel modes generally applies for outdoor navigation. Indoor navigation calculations are based on **walking** travel mode.
 
@@ -45,7 +45,7 @@ directionsQuery.travelMode = .driving
 
 The travel modes generally applies for outdoor navigation. Indoor navigation calculations are based on **walking** travel mode.
 
-### Route Restrictions[​](https://docs.mapsindoors.com/directions-service#route-restrictions-2) <a href="#route-restrictions-2" id="route-restrictions-2"></a>
+### Route Restrictions​ <a href="#route-restrictions-2" id="route-restrictions-2"></a>
 
 There are several ways to influence the calculated route by applying various restrictions to the directions query:
 
@@ -70,7 +70,7 @@ let directionsQuery = MPDirectionsQuery(originPoint: origin, destinationPoint: d
 directionsQuery.excludeWayTypes = [.elevator]
 ```
 
-#### App User Role Restrictions[​](https://docs.mapsindoors.com/directions-service#app-user-role-restrictions-2)
+#### App User Role Restrictions​
 
 In the MapsIndoors CMS it is possible to restrict certain ways in the route network to be used by users of certain user roles.
 
@@ -90,7 +90,7 @@ MPMapsIndoors.shared.userRoles = [myUserRole]
 
 Setting the user roles globally will effect all services that uses user roles. The `MPDirectionsService` will also use the user roles.
 
-### Transit Departure and Arrival Time[​](https://docs.mapsindoors.com/directions-service#transit-departure-and-arrival-time-2) <a href="#transit-departure-and-arrival-time-2" id="transit-departure-and-arrival-time-2"></a>
+### Transit Departure and Arrival Time​ <a href="#transit-departure-and-arrival-time-2" id="transit-departure-and-arrival-time-2"></a>
 
 Set a **departure date** or an **arrival date** on the route using the `departure` or `arrival` property. This is relevant when using the Transit travel mode. It will only make sense to set one of these properties at a time.
 

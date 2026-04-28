@@ -2,7 +2,7 @@
 
 The Android SDK for MapsIndoors has been upgraded from V3 to V4, which comes with improved interfaces and flexibility for developing your own map experience. The MapsIndoors SDK now supports Mapbox as a map provider, alongside some reworked and refactored features that simplify development and SDK behavior. This guide will cover specific changes to the SDK and how to use it to provide you with a guide on how to upgrade from V3 to V4.
 
-### MapsIndoors SDK Map Engine Flavors[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#mapsindoors-sdk-map-engine-flavors) <a href="#mapsindoors-sdk-map-engine-flavors" id="mapsindoors-sdk-map-engine-flavors"></a>
+### MapsIndoors SDK Map Engine Flavors​ <a href="#mapsindoors-sdk-map-engine-flavors" id="mapsindoors-sdk-map-engine-flavors"></a>
 
 With the release of V4 the MapsIndoors SDK is released as two separate libraries depending on the map provider - Google Maps or Mapbox. You can get them through Maven by changing your dependency to get:
 
@@ -12,11 +12,11 @@ implementation 'com.mapspeople.mapsindoors:googlemaps:4.2.5'
 implementation 'com.mapspeople.mapsindoors:mapbox:4.2.5'
 ```
 
-### MapsIndoors Initialization[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#mapsindoors-initialization) <a href="#mapsindoors-initialization" id="mapsindoors-initialization"></a>
+### MapsIndoors Initialization​ <a href="#mapsindoors-initialization" id="mapsindoors-initialization"></a>
 
 MapsIndoors is a singleton class, which can be described as the data layer of the SDK. Below you will find an example that demonstrates how initialization has been simplified between V3 and V4.
 
-**V3**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v3)
+**V3​**
 
 In V3, SDK initialization is started with:
 
@@ -42,7 +42,7 @@ And to close down the SDK, call:
 MapsIndoors.onApplicationTerminate()
 ```
 
-**V4**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v4)
+**V4​**
 
 In V4, initialization is started by the new function `MapsIndoors.load()`:
 
@@ -60,11 +60,11 @@ To close down the SDK without reloading a new API key, invoke:
 MapsIndoors.destroy()
 ```
 
-### MapControl Initialization[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#mapcontrol-initialization) <a href="#mapcontrol-initialization" id="mapcontrol-initialization"></a>
+### MapControl Initialization​ <a href="#mapcontrol-initialization" id="mapcontrol-initialization"></a>
 
 MapControl instantiation and initialization are separate concepts. You create a new instance of `MapControl` and configure it with a map and view - optionally you could set clustering, overlapping and other behavior on the object.
 
-**V3**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v3-1)
+**V3​**
 
 In V3, `MapControl.init()` is a separate asynchronous call:
 
@@ -76,7 +76,7 @@ mMapControl.init(miError -> {
 });
 ```
 
-**V4**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v4-1)
+**V4​**
 
 In V4, `MapControl` now requires a `MPMapConfig` object, which is acquired using a builder on the class `MPMapConfig`. Here you must provide an activity, a map provider (Google Maps or Mapbox), a `mapview` and a map engine API key.
 
@@ -96,9 +96,9 @@ MapControl.create(mapConfig, (mapControl, miError) -> {
 
 Please note that this factory method will wait to return until a valid MapsIndoors solution is loaded, therefore it is safe to invoke `MapControl.create()` prior to, or in parallel with `MapsIndoors.load()`.
 
-### SolutionConfig & AppConfig[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#solutionconfig--appconfig) <a href="#solutionconfig--appconfig" id="solutionconfig--appconfig"></a>
+### SolutionConfig & AppConfig​ <a href="#solutionconfig--appconfig" id="solutionconfig--appconfig"></a>
 
-**V3**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v3-2)
+**V3​**
 
 In V3, AppConfig contained information about clustering (`POI_GROUPING`) and collisions (`POI_HIDE_ON_OVERLAP`), which could be fetched and updated like this:
 
@@ -110,7 +110,7 @@ MapsIndoors.getAppConfig().getAppSettings().get(AppConfig.APP_SETTING_POI_HIDE_O
 MapsIndoors.getAppConfig().getAppSettings().put(AppConfig.APP_SETTING_POI_GROUPING, "true");
 ```
 
-**V4**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v4-2)
+**V4​**
 
 In V4, these settings have been moved to `MPSolutionConfig`, which is located on the MPSolution. Now these settings have types (a boolean and an Enum type). This helps ensure that the settings are easier to configure and have no parsing errors. They can be fetched and updates like this:
 
@@ -128,25 +128,25 @@ config.setCollisionHandling(MPCollisionHandling.ALLOW_OVERLAP);
 
 NB: As a consequence the SDK will no longer respect these settings in the appConfig, they will have to be set in the solutionConfig.
 
-### Venue Name[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#venue-name) <a href="#venue-name" id="venue-name"></a>
+### Venue Name​ <a href="#venue-name" id="venue-name"></a>
 
-**V3**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v3-3)
+**V3​**
 
 In V3, the `getName()` method return the venue's _Administrative ID_, shadowing its _Display Name_.
 
-**V4**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v4-3)
+**V4​**
 
 In V4, the `getName()` method now returns the venue's _Display Name_. A new method has been added: `getAdministrativeId()` which returns the venue's _Administrative ID_.
 
-### Display Rules[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#display-rules) <a href="#display-rules" id="display-rules"></a>
+### Display Rules​ <a href="#display-rules" id="display-rules"></a>
 
 The manner in which the SDK handles Display Rules has recieved a major overhaul in V4. This is intended to simplify usage, such as editing Display Rules for certain Locations.
 
-**V3**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v3-4)
+**V3​**
 
 In V3 you would create new DisplayRule objects and add them onto Locations through MapControl.
 
-**Editing a single location**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#editing-a-single-location)
+**Editing a single location​**
 
 ```java
 LocationDisplayRule singleLocationDisplayRule = new LocationDisplayRule.Builder("singleRule").setVectorDrawableIcon(R.drawable.ic_baseline_air_24).setLabel("single display rule").build();
@@ -154,7 +154,7 @@ MPLocation mpLocation = MapsIndoors.getLocationById("MyLocationId");
 mMapControl.setDisplayRule(singleLocationDisplayRule, mpLocation);
 ```
 
-**Editing multiple locations**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#editing-multiple-locations)
+**Editing multiple locations​**
 
 ```java
 multipleLocationDisplayRule = new LocationDisplayRule.Builder("multipleRule").setVectorDrawableIcon(R.drawable.ic_baseline_air_24).setLabel("multiple display rule").build();
@@ -165,7 +165,7 @@ MapsIndoors.getLocationsAsync(null, new MPFilter.Builder().setTypes(Collections.
 });
 ```
 
-**V4**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v4-4)
+**V4​**
 
 In V4, DisplayRules have been changed to a reference-based approach. You now receive `MPDisplayRules` through MapsIndoors and are able to change the values, and see it reflected on the map instantly.
 
@@ -226,13 +226,13 @@ MapsIndoors.getDisplayRule(MPSolutionDisplayRule.BUILDING_OUTLINE).setPolygonStr
 MapsIndoors.getDisplayRule(MPSolutionDisplayRule.SELECTION_HIGHLIGHT).setPolygonVisible(false);
 ```
 
-### DirectionsService & DirectionsRenderer[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#directionsservice--directionsrenderer) <a href="#directionsservice--directionsrenderer" id="directionsservice--directionsrenderer"></a>
+### DirectionsService & DirectionsRenderer​ <a href="#directionsservice--directionsrenderer" id="directionsservice--directionsrenderer"></a>
 
 There are two basic functions here - Retrieving, or querying a route, and rendering it onto the map.
 
-#### Query Route[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#query-route) <a href="#query-route" id="query-route"></a>
+#### Query Route​ <a href="#query-route" id="query-route"></a>
 
-**V3**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v3-5)
+**V3​**
 
 In V3, the process to query a route is to instantiate a `MPRoutingProvider` and set the desired travel mode, departure/arrival time, etc. You should also instantiate an `OnRouteResultListener` to receive the result (or error in case of failure).
 
@@ -251,7 +251,7 @@ Point to = new Point(57.03238690202058, 9.93220061362637);
 routingProvider.query(from, to);
 ```
 
-**V4**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v4-5)
+**V4​**
 
 In V4, `MPRoutingProvider` has been renamed to `MPDirectionsService`, to align with other platforms. It has also changed the method of setting a departure or arrival, as shown below.
 
@@ -273,9 +273,9 @@ MPPoint to = new MPPoint(57.03238690202058, 9.93220061362637);
 directionsService.query(from, to);
 ```
 
-#### Render Route[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#render-route) <a href="#render-route" id="render-route"></a>
+#### Render Route​ <a href="#render-route" id="render-route"></a>
 
-**V3**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v3-6)
+**V3​**
 
 To render a given route in V3, instantiate a `MPDirectionsRenderer` with parameters. Then your IDE should be able to show you the various configurable attributes (various animation settings and styling) as well as setting the route. Alternatively, refer to further documentation. To start the renderer/animation, invoke `initMap()`.
 
@@ -290,7 +290,7 @@ runOnUiThread( ()-> {
 });
 ```
 
-**V4**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v4-6)
+**V4​**
 
 In V4, this has been simplified. Given a route, you can instantiate a new `MPDirectionsRenderer`, and set the route using `setRoute()`. Use the `MPDirectionsRenderer` object to navigate through the route (next/previous leg) as well as configure the animation and styling of the route on the map. By default the route is animated and repeating, but this is customizable on the `MPDirectionsRenderer` instance.
 
@@ -299,7 +299,7 @@ MPDirectionsRenderer renderer = new MPDirectionsRenderer(mMapControl);
 renderer.setRoute(route);
 ```
 
-### Map & Camera Behavior Configs[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#map--camera-behavior-configs) <a href="#map--camera-behavior-configs" id="map--camera-behavior-configs"></a>
+### Map & Camera Behavior Configs​ <a href="#map--camera-behavior-configs" id="map--camera-behavior-configs"></a>
 
 In V3, there were many overloaded methods for selection and filtering, where various boolean and integer/double values were set. In V4, the preferred method is configuration objects for heavily configurable use cases. Thus, filtering and selection methods are now dependent on `MP...Behavior` objects.
 
@@ -313,7 +313,7 @@ We have introduced `MPFilterBehavior` and `MPSelectionBehavior`. These object co
 
 There are statically defined defaults available on the classes.
 
-### The "Go-To" Function[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#the-go-to-function) <a href="#the-go-to-function" id="the-go-to-function"></a>
+### The "Go-To" Function​ <a href="#the-go-to-function" id="the-go-to-function"></a>
 
 In V4 `MapControl.goTo(MPEntity)` is introduced. This is an easy way to quickly move the camera to almost any MapsIndoors geographical object (referred to as `MPEntity`). The method implements pre-determined defaults for camera behavior, which cannot be configured.
 
@@ -324,9 +324,9 @@ The following classes are of type `MPEntity`:
 * `MPBuilding`
 * `MPVenue`
 
-### Map Filtering[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#map-filtering) <a href="#map-filtering" id="map-filtering"></a>
+### Map Filtering​ <a href="#map-filtering" id="map-filtering"></a>
 
-**V3**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v3-7)
+**V3​**
 
 In V3, filtering map content is performed with `MapControl.displaySearchResult()`. This results in a lot of undesirable overloads.
 
@@ -343,7 +343,7 @@ boolean displaySearchResults(@NonNull List<MPLocation> locations, boolean animat
 boolean displaySearchResults(@NonNull List<MPLocation> locations, boolean animateCamera, int cameraPadding, boolean showInfoWindow, @Nullable CameraUpdate googleMapCameraUpdate, int durationMs, GoogleMap.CancelableCallback googleMapCancelableCallback, @Nullable ReadyListener readyListener)
 ```
 
-**V4**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v4-7)
+**V4​**
 
 To avoid the aforementioned undesirable overloads, in V4, filtering map content is now performed with `MapControl.setFilter(List<MPLocation>, MPFilterBehavior)` or alternatively `MapControl.setFilter(MPFilter, MPFilterBehavior, MPSuccessListener)`. To clear the filter, invoke `MapControl.clearFilter()`.
 
@@ -364,9 +364,9 @@ MPFilter filter = new MPFilter.Builder().setTypes(Collections.singletonList("Sta
 mMapControl.setFilter(filter, MPFilterBehavior.DEFAULT, null);
 ```
 
-### Positioning Providers[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#positioning-providers) <a href="#positioning-providers" id="positioning-providers"></a>
+### Positioning Providers​ <a href="#positioning-providers" id="positioning-providers"></a>
 
-**V3**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v3-8)
+**V3​**
 
 In V3, the snippet below is the `PositionProvider` interface. While perfectly functional, it leaves a lot be desired in terms of readability and clarity, and avoiding bloat in the code.
 
@@ -390,7 +390,7 @@ public interface PositionProvider {
 }
 ```
 
-**V4**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#v4-8)
+**V4​**
 
 To fix this in V4, `PositionProvider` has been optimized and renamed to `MPPositionProvider`, to fall in line with other naming conventions. It has been renamed with the MP-prefix and has been heavily trimmed, to only describe the necessary interface for the MapsIndoors SDK to utilize a position provider sufficiently.
 
@@ -402,9 +402,9 @@ public interface MPPositionProvider {
 }
 ```
 
-### SDK Interface Changes[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#sdk-interface-changes) <a href="#sdk-interface-changes" id="sdk-interface-changes"></a>
+### SDK Interface Changes​ <a href="#sdk-interface-changes" id="sdk-interface-changes"></a>
 
-#### Removed Classes & Interfaces[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#removed-classes--interfaces) <a href="#removed-classes--interfaces" id="removed-classes--interfaces"></a>
+#### Removed Classes & Interfaces​ <a href="#removed-classes--interfaces" id="removed-classes--interfaces"></a>
 
 | Removed                           |
 | --------------------------------- |
@@ -450,7 +450,7 @@ public interface MPPositionProvider {
 | DSCUnzipFileTask                  |
 | DSCUrlDownloadingTask             |
 
-#### Renamed Classes & Interfaces[​](https://docs.mapsindoors.com/getting-started/android/v4/v4-migration-guide#renamed-classes--interfaces) <a href="#renamed-classes--interfaces" id="renamed-classes--interfaces"></a>
+#### Renamed Classes & Interfaces​ <a href="#renamed-classes--interfaces" id="renamed-classes--interfaces"></a>
 
 | V3                            | V4                                                                  |
 | ----------------------------- | ------------------------------------------------------------------- |
@@ -516,5 +516,3 @@ public interface MPPositionProvider {
 | Venue                         | MPVenue                                                             |
 | VenueCollection               | MPVenueCollection                                                   |
 | VenueInfo                     | MPVenueInfo                                                         |
-
-## &#x20;<a href="#mapsindoors-initialization" id="mapsindoors-initialization"></a>

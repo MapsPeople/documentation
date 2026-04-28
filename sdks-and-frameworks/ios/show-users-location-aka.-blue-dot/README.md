@@ -8,7 +8,7 @@ In this tutorial we will show how you can show a blue dot on the map, representi
 
 We will start by creating our implementation of a positioning provider.
 
-Create a class `MyPositionProvider` that  implements `MPPositionProvider`.
+Create a class `MyPositionProvider` that implements `MPPositionProvider`.
 
 ```swift
 class MyPositionProvider: MPPositionProvider {
@@ -68,7 +68,7 @@ func stopPositioning() {
 }
 ```
 
-### Create a view controller displaying a map that shows the user's "mocked" location[​](https://docs.mapsindoors.com/blue-dot/#create-a-view-controller-displaying-a-map-that-shows-the-users-mocked-location) <a href="#create-a-view-controller-displaying-a-map-that-shows-the-users-mocked-location" id="create-a-view-controller-displaying-a-map-that-shows-the-users-mocked-location"></a>
+### Create a view controller displaying a map that shows the user's "mocked" location​ <a href="#create-a-view-controller-displaying-a-map-that-shows-the-users-mocked-location" id="create-a-view-controller-displaying-a-map-that-shows-the-users-mocked-location"></a>
 
 Create a class `ShowMyLocationController` that inherits from `UIViewController`.
 

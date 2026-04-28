@@ -28,11 +28,11 @@ If a Key exists as both a Generic Custom Property and Language-specific Custom P
 
 If a Solution uses more than one language, it is possible to give a value for a particular Key in only a subset of the languages. If for example a Solution uses both English and German, a Language-specific Custom Property could be given a value for only the German language. In this scenario if the app requests the German language, it would be given the German-specific value, while if the app requests the English language, it would be given either an empty value, or the value of the Generic Custom Property with the same Key if such a property is defined.
 
-#### Custom Property Templates[​](https://docs.mapsindoors.com/custom-properties#custom-property-templates) <a href="#custom-property-templates" id="custom-property-templates"></a>
+#### Custom Property Templates​ <a href="#custom-property-templates" id="custom-property-templates"></a>
 
 On Types it is possible to define Custom Property templates, which can ease getting consistent Custom Property Keys across multiple Locations. Keys added as Custom Property templates on a Type will be shown in the CMS on all Locations of that Type. This ensure that the key naming is consistent across all locations of that type. Adding values to the keys results in key/value pairs being available trough the SDK.
 
-### Creating Custom Properties[​](https://docs.mapsindoors.com/custom-properties#creating-custom-properties) <a href="#creating-custom-properties" id="creating-custom-properties"></a>
+### Creating Custom Properties​ <a href="#creating-custom-properties" id="creating-custom-properties"></a>
 
 Custom Properties are created for each Location, defined using a `key` and a `value`. This is found in a section in the menu for each Location. When adding a Generic Custom Property through the CMS, a value input field will be provided for each language in your Solution allowing you to input the translated values directly in the CMS.
 
@@ -40,7 +40,7 @@ Custom Properties are created for each Location, defined using a `key` and a `va
 
 You can add Custom Properties through the Integration API with the exact same requirements and options as when adding them via the MapsIndoors CMS.
 
-### Reading Custom Properties[​](https://docs.mapsindoors.com/custom-properties#reading-custom-properties) <a href="#reading-custom-properties" id="reading-custom-properties"></a>
+### Reading Custom Properties​ <a href="#reading-custom-properties" id="reading-custom-properties"></a>
 
 The method for reading and using these custom properties depends on which platform you're developing for. Here is an example:
 
@@ -64,11 +64,11 @@ let type = data.type
 * `let value = data.value` retrieves the content of the `value` field, and in the given example, would return `123@email.com`.
 * `let type = data.type` retrieves the type of the Custom Property, and will in most known cases return `text`.
 
-#### Example 1[​](https://docs.mapsindoors.com/custom-properties#example-1) <a href="#example-1" id="example-1"></a>
+#### Example 1​ <a href="#example-1" id="example-1"></a>
 
 You are a conference organizer that needs to associate some pieces of data with each exhibitor, like the sponsor level they are are on, and what the size of their stand should be. You would create two Language-specific Custom Properties, one called `sponsorLevel` and another called `standSize`. When building your app on top of our SDK, you could use these Custom Properties to assign a gold color to your highest paying sponsors' names, and a larger image because of their larger stand size.
 
-#### Example 2[​](https://docs.mapsindoors.com/custom-properties#example-2) <a href="#example-2" id="example-2"></a>
+#### Example 2​ <a href="#example-2" id="example-2"></a>
 
 You are a museum operator providing a digital map of your venue. Your digital map presents points of interest for the various exhibits and you would like to associate both a text description of the item exhibited as well as a link to a video of an expert giving additional insight about the item. To accomplish this you create a Generic Custom Property called `itemDescription` and provide a description for each language your Solution supports. You choose a Generic Custom Property for this purpose as the values is to be displayed to the end user and you need the user to be given description in their preferred language.
 

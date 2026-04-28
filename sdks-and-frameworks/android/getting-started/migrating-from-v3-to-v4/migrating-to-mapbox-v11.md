@@ -12,7 +12,7 @@ With the release of Mapbox V11, we are migrating the V4 SDK to use Mapbox v11 to
 implementation("com.mapspeople.mapsindoors:mapbox-v11:4.8.5")
 ```
 
-For the migration of your Mapbox code implementation read the Mapbox guide here:  [Mapbox - Migrate to V11](https://docs.mapbox.com/android/maps/guides/migrate-to-v11/)
+For the migration of your Mapbox code implementation read the Mapbox guide here: [Mapbox - Migrate to V11](https://docs.mapbox.com/android/maps/guides/migrate-to-v11/)
 
 ### Mapsindoors changes
 
@@ -28,7 +28,7 @@ With this, if you are using the Mapsindoors default style this will be a part of
 
 With the Mapbox V11 release, android also supports rendering 3D models on your map. Read more about this:
 
-#### Toggling Mapsindoors features
+#### Toggling MapsIndoors features
 
 With 4.5.0 you can now also hide specific features, allowing you to toggle between 2d and 3d.
 

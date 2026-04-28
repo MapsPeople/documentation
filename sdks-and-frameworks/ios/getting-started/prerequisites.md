@@ -2,9 +2,9 @@
 
 MapsIndoors uses Google Maps or Mapbox to provide you with an interactive map of the outside and inside world. In this section, you will learn the prerequisites needed to be met before you can start building your app.
 
-### Map Engine API Key[​](https://docs.mapsindoors.com/getting-started/ios/v4/prerequisites#map-engine-api-key) <a href="#map-engine-api-key" id="map-engine-api-key"></a>
+### Map Engine API Key​ <a href="#map-engine-api-key" id="map-engine-api-key"></a>
 
-#### Google Maps API Key[​](https://docs.mapsindoors.com/getting-started/ios/v4/prerequisites#google-maps-api-key) <a href="#google-maps-api-key" id="google-maps-api-key"></a>
+#### Google Maps API Key​ <a href="#google-maps-api-key" id="google-maps-api-key"></a>
 
 Firstly, you need to [setup a new project in the Google Cloud Console](https://developers.google.com/maps/gmp-get-started). Afterwards, you should navigate to the [Maps API Library Page](https://console.cloud.google.com/apis/library?filter=category:maps), and ensure the following APIs and SDK are enabled:
 
@@ -19,6 +19,6 @@ Finally, retrieve your API key from the [Credentials Page](https://console.cloud
 
 * Follow the [Mapbox guide here](https://docs.mapbox.com/ios/maps/guides/install/) to retrieve an API Token for Mapbox Maps. You can return here when you have added a `MBXAccessToken` to the Info.plist of your app.
 
-### MapsIndoors API Key[​](https://docs.mapsindoors.com/getting-started/ios/v4/prerequisites#mapsindoors-api-key) <a href="#mapsindoors-api-key" id="mapsindoors-api-key"></a>
+### MapsIndoors API Key​ <a href="#mapsindoors-api-key" id="mapsindoors-api-key"></a>
 
 For the purposes of this guide you can use the MapsIndoors API demo key `d876ff0e60bb430b8fabb145`. Alternatively, feel free to [contact MapsPeople](https://resources.mapspeople.com/contact-us) with your building drawings so you can receive a unique API key.

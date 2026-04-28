@@ -46,7 +46,7 @@ func renderRouteInstructions(_ route:MPRoute, for segment:MPRouteSegmentPath) {
 }
 ```
 
-### Helper Methods[​](https://docs.mapsindoors.com/wayfinding-instructions#helper-methods) <a href="#helper-methods" id="helper-methods"></a>
+### Helper Methods​ <a href="#helper-methods" id="helper-methods"></a>
 
 We will need some helper methods to make this example work. The helper methods will be added to our `RouteSegmentView` class. First create a method that can get us the previous step for later comparison.
 
@@ -126,7 +126,7 @@ fileprivate func getDistanceInstructions(_ distance:NSNumber?) -> String {
 }
 ```
 
-### Suggested Logic for Generating Meaningful Instructions[​](https://docs.mapsindoors.com/wayfinding-instructions#suggested-logic-for-generating-meaningful-instructions) <a href="#suggested-logic-for-generating-meaningful-instructions" id="suggested-logic-for-generating-meaningful-instructions"></a>
+### Suggested Logic for Generating Meaningful Instructions​ <a href="#suggested-logic-for-generating-meaningful-instructions" id="suggested-logic-for-generating-meaningful-instructions"></a>
 
 Obviously it is up to your application to present some instructions to the end user, but here a suggestion. Add a method called `updateViews` that will fire whenever our models change. Initialize an array of textual instructions and check for existence of a current leg.
 
@@ -188,7 +188,7 @@ extension String {
 }
 ```
 
-### Create the Controller That Displays Generated Textual Instructions Segment by Segment[​](https://docs.mapsindoors.com/wayfinding-instructions#create-the-controller-that-displays-generated-textual-instructions-segment-by-segment) <a href="#create-the-controller-that-displays-generated-textual-instructions-segment-by-segment" id="create-the-controller-that-displays-generated-textual-instructions-segment-by-segment"></a>
+### Create the Controller That Displays Generated Textual Instructions Segment by Segment​ <a href="#create-the-controller-that-displays-generated-textual-instructions-segment-by-segment" id="create-the-controller-that-displays-generated-textual-instructions-segment-by-segment"></a>
 
 We use a collection view to do this but you can of course use whatever view that fits your use case best.
 
@@ -200,7 +200,7 @@ protocol RouteSegmentsControllerDelegate {
 }
 ```
 
-### The Route Segments Controller[​](https://docs.mapsindoors.com/wayfinding-instructions#the-route-segments-controller) <a href="#the-route-segments-controller" id="the-route-segments-controller"></a>
+### The Route Segments Controller​ <a href="#the-route-segments-controller" id="the-route-segments-controller"></a>
 
 Create a controller class called `RouteSegmentsController` that inherits from `UIViewController`.
 
@@ -260,7 +260,7 @@ class RouteSegmentsController : UIViewController {
 }
 ```
 
-### The Route Segments Controller Data Source[​](https://docs.mapsindoors.com/wayfinding-instructions#the-route-segments-controller-data-source) <a href="#the-route-segments-controller-data-source" id="the-route-segments-controller-data-source"></a>
+### The Route Segments Controller Data Source​ <a href="#the-route-segments-controller-data-source" id="the-route-segments-controller-data-source"></a>
 
 Create an extension of `RouteSegmentsController` that implements `UITableViewDataSource` protocol.
 
@@ -309,7 +309,7 @@ extension RouteSegmentsController : UITableViewDataSource {
 }
 ```
 
-### Table View Delegate[​](https://docs.mapsindoors.com/wayfinding-instructions#table-view-delegate) <a href="#table-view-delegate" id="table-view-delegate"></a>
+### Table View Delegate​ <a href="#table-view-delegate" id="table-view-delegate"></a>
 
 Create an extension of `RouteSegmentsController` that implements `UITableViewDelegate` protocol. In method `didSelectRowAtIndexPath` update the current route segment.
 
@@ -320,7 +320,7 @@ extension RouteSegmentsController : UITableViewDelegate {
     }
 ```
 
-### Create a Controller That Renders a Map and Utilizes Interaction Between a Route Rendered on the Map and the Selected Instructions[​](https://docs.mapsindoors.com/wayfinding-instructions#create-a-controller-that-renders-a-map-and-utilizes-interaction-between-a-route-rendered-on-the-map-and-the-selected-instructions) <a href="#create-a-controller-that-renders-a-map-and-utilizes-interaction-between-a-route-rendered-on-the-map" id="create-a-controller-that-renders-a-map-and-utilizes-interaction-between-a-route-rendered-on-the-map"></a>
+### Create a Controller That Renders a Map and Utilizes Interaction Between a Route Rendered on the Map and the Selected Instructions​ <a href="#create-a-controller-that-renders-a-map-and-utilizes-interaction-between-a-route-rendered-on-the-map" id="create-a-controller-that-renders-a-map-and-utilizes-interaction-between-a-route-rendered-on-the-map"></a>
 
 Start by creating a controller class `AdvancedDirectionsController` that inherits from `UIViewController`, `MPMapControlDelegate` and `MPDirectionsRendererDelegate`.
 
@@ -525,7 +525,7 @@ fileprivate func updateDirections() async {
 }
 ```
 
-### Map Interactions[​](https://docs.mapsindoors.com/wayfinding-instructions#map-interactions) <a href="#map-interactions" id="map-interactions"></a>
+### Map Interactions​ <a href="#map-interactions" id="map-interactions"></a>
 
 Let's do a couple of extensions for the map interactions. First implement the `RouteSegmentsControllerDelegate` through an extension. In `didSelectRouteSegment` update the leg index for the directions renderer.
 

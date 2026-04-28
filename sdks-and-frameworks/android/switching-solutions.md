@@ -4,7 +4,7 @@ Some larger organisations may have not just multiple Venues, but also multiple S
 
 At it's core, this is done simply by switching out the API key and reloading the system. However, there are a few more steps that can be done to ensure smooth transition between Solutions.
 
-## Starting a Solution[​](https://docs.mapsindoors.com/switch-solutions#starting-a-solution) <a href="#starting-a-solution" id="starting-a-solution"></a>
+## Starting a Solution​ <a href="#starting-a-solution" id="starting-a-solution"></a>
 
 To initialize MapsIndoors, do the following:
 
@@ -115,7 +115,7 @@ fun initMapControl(view: View) {
 {% endtab %}
 {% endtabs %}
 
-## Switching Solutions[​](https://docs.mapsindoors.com/switch-solutions#switching-solutions) <a href="#switching-solutions" id="switching-solutions"></a>
+## Switching Solutions​ <a href="#switching-solutions" id="switching-solutions"></a>
 
 You switch Solutions by changing the active API key using `setAPIKey()`.
 

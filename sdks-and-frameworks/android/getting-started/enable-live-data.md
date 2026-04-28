@@ -15,7 +15,7 @@ Enabling Live Data through [`MapControl`](https://app.mapsindoors.com/mapsindoor
 
 We will create a new method on our `MapsActivity` called `enableLiveData()` to enable Live Data for the Solution.
 
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L223-L228)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L223-L228)
 
 ```kotlin
 private fun enableLiveData() {
@@ -30,9 +30,7 @@ By consequence, [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference
 
 In the context of your view controller showing a map, add the call after creating your [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) object used in the `Activity` in the `initMapControl()` method created earlier.
 
-
-
-[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google\_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L124)
+[MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L124)
 
 ```kotlin
 private fun initMapControl(view: View) {
@@ -58,7 +56,7 @@ Expected result:
 
 Learn more about controlling and rendering Live Data in MapsIndoors in the [introduction to Live Data](https://docs.mapsindoors.com/live-data-intro/).
 
-### Summary[​](https://docs.mapsindoors.com/getting-started/android/v4/livedata#summary) <a href="#summary" id="summary"></a>
+### Summary​ <a href="#summary" id="summary"></a>
 
 Congratulations! You're at the end of your journey (for now), and you've accomplished a lot! 🎉
 

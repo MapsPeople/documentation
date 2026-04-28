@@ -4,7 +4,7 @@ description: Android v4
 
 # Directions Service
 
-The class `MPDirectionsService` is used to request routes from one point to another. The minimum required input to receive a route is an `origin` and a `destination`.&#x20;
+The class `MPDirectionsService` is used to request routes from one point to another. The minimum required input to receive a route is an `origin` and a `destination`.
 
 This example shows how to setup and execute a query for a Route:
 
@@ -51,7 +51,7 @@ directionsRenderer.setPolylineColors(Color.GREEN, Color.BLACK);
 {% endtab %}
 {% endtabs %}
 
-### Change Transportation Mode[​](https://docs.mapsindoors.com/directions-service#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
+### Change Transportation Mode​ <a href="#change-transportation-mode" id="change-transportation-mode"></a>
 
 In MapsIndoors, the transportation mode is referred to as **travel mode**. There are four travel modes, **walking**, **bicycling**, **driving** and **transit** (public transportation). The travel modes generally applies for outdoor navigation. Indoor navigation calculations are based on **walking** travel mode.
 
@@ -91,7 +91,7 @@ void createRoute(MPLocation mpLocation) {
 
 The travel modes generally only apply for outdoor navigation. Indoor navigation calculations are based on the **walking** travel mode.
 
-### Route Restrictions[​](https://docs.mapsindoors.com/directions-service#route-restrictions-2) <a href="#route-restrictions-2" id="route-restrictions-2"></a>
+### Route Restrictions​ <a href="#route-restrictions-2" id="route-restrictions-2"></a>
 
 There are several ways to influence the calculated route by applying various restrictions to the directions query:
 
@@ -158,7 +158,7 @@ directionsService.clearExcludeWayType();
 {% endtab %}
 {% endtabs %}
 
-#### App User Role Restrictions[​](https://docs.mapsindoors.com/directions-service#app-user-role-restrictions) <a href="#app-user-role-restrictions" id="app-user-role-restrictions"></a>
+#### App User Role Restrictions​ <a href="#app-user-role-restrictions" id="app-user-role-restrictions"></a>
 
 In the MapsIndoors CMS it is possible to restrict certain **ways** in the Route Network to only be accessible by users belonging to certain Roles.
 
@@ -206,7 +206,7 @@ This will affect all following Directions requests as well as search queries wit
 
 For more information about App User Roles, see [this documentation](https://docs.mapsindoors.com/app-user-roles/).
 
-### Transit Departure and Arrival Time[​](https://docs.mapsindoors.com/directions-service#transit-departure-and-arrival-time) <a href="#transit-departure-and-arrival-time" id="transit-departure-and-arrival-time"></a>
+### Transit Departure and Arrival Time​ <a href="#transit-departure-and-arrival-time" id="transit-departure-and-arrival-time"></a>
 
 When using the Transit travel mode, you must set a **departure date** or an **arrival date** on the route using the `setTime` method on `MPDirectionsService` and declaring if it is a departure or not through `setIsDeparture`. The `date` parameter is the epoch time, in seconds, as an integer, and it is only possible to use one of these properties at a time.
 

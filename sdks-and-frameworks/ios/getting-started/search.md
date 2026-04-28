@@ -1,6 +1,6 @@
 # Search
 
-### Search for a Location[​](https://docs.mapsindoors.com/getting-started/ios/v4/search#search-for-a-location) <a href="#search-for-a-location" id="search-for-a-location"></a>
+### Search for a Location​ <a href="#search-for-a-location" id="search-for-a-location"></a>
 
 From here onwards, code for both Mapbox and Google Map`s` is similar.
 
@@ -24,7 +24,7 @@ And let us also make sure the search bar is correctly displayed in our view and 
 
 {% @github-files/github-code-block url="https://github.com/MapsPeople/MapsIndoorsGettingStarted-Mapbox/blob/12aaf3c15d8516842e76effddec95416f3a7e3c4/MapsIndoorsGettingStarted-Mapbox/ExampleUI.swift#L19-L31" %}
 
-Finally, let us add the functions necessary for our class to conform to the `UISearchBarDelegate` and  `UITableViewDataSource` protocols for the actual search button functionality.
+Finally, let us add the functions necessary for our class to conform to the `UISearchBarDelegate` and `UITableViewDataSource` protocols for the actual search button functionality.
 
 {% @github-files/github-code-block url="https://github.com/MapsPeople/MapsIndoorsGettingStarted-Mapbox/blob/12aaf3c15d8516842e76effddec95416f3a7e3c4/MapsIndoorsGettingStarted-Mapbox/ViewController%2BUISearchBarDelegate.swift" %}
 
@@ -40,6 +40,6 @@ This instructs what to do once an item is selected – in this case we simply go
 
 At this point we should have a functional map with a search feature.
 
-### Expected Result[​](https://docs.mapsindoors.com/getting-started/ios/v4/search#expected-result) <a href="#expected-result" id="expected-result"></a>
+### Expected Result​ <a href="#expected-result" id="expected-result"></a>
 
 <figure><img src="../../../.gitbook/assets/iOS Search result.gif" alt=""><figcaption></figcaption></figure>

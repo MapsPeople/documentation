@@ -7,13 +7,13 @@ Create a Simple Query Search[​](https://docs.mapsindoors.com/getting-started/f
 
 Start by creating a new `Widget` to facilitate searches on your application. Here we will be using a `SearchWidget` for searching with, while using a `Drawer` to display the results. We also create a search input field on our `Scaffold` for the user to input the text they want to search for. This is already setup in the basic example app.
 
-To perform a search you will need to have initiated [`MapsIndoors`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/mapsindoors-library.html#functions). This was shown in the previous section of the getting started tutorial how you do this.
+To perform a search you will need to have initiated [`MapsIndoors`](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/mapsindoors-library.html#functions). This was shown in the previous section of the getting started tutorial how you do this.
 
 For advanced usage of the search functionality read the Search guide and tutorials connected to it: [Search Guide](https://docs.mapsindoors.com/searching/), the examples are given for Android and iOS but the parameters and methods are the same in Flutter.
 
-### Show a List of Search Results[​](https://docs.mapsindoors.com/getting-started/flutter/search#show-a-list-of-search-results) <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
+### Show a List of Search Results​ <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
 
-Create a search method that takes a search string as a parameter in your `State` class. In this example we only use the [`setTake` on the `MPFilter`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/MPFilter-class.html) to limit our result to 30 locations. We will expand on this method later.
+Create a search method that takes a search string as a parameter in your `State` class. In this example we only use the [`setTake` on the `MPFilter`](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/MPFilter-class.html) to limit our result to 30 locations. We will expand on this method later.
 
 ```dart
 void search(String value) {
@@ -154,15 +154,15 @@ void search(String value) {
 }
 ```
 
-See the full example of the search method here: [main.dart](https://github.com/MapsPeople/getting\_started\_flutter/blob/main/lib/main.dart#L133-L165)
+See the full example of the search method here: [main.dart](https://github.com/MapsPeople/getting_started_flutter/blob/main/lib/main.dart#L133-L165)
 
-### Filter Locations on Map Based on Search Results[​](https://docs.mapsindoors.com/getting-started/flutter/search#filter-locations-on-map-based-on-search-results) <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
+### Filter Locations on Map Based on Search Results​ <a href="#filter-locations-on-map-based-on-search-results" id="filter-locations-on-map-based-on-search-results"></a>
 
-When getting a search result, you might want to only show those search results on the map. You can do this through [calling `setFilterWithLocations` on `MapsIndoorsWidget`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/MapsIndoorsWidget/setFilterWithLocations.html). This method has different parameters to make it easier for you as a developer to fit your exact need in terms of animation and more.
+When getting a search result, you might want to only show those search results on the map. You can do this through [calling `setFilterWithLocations` on `MapsIndoorsWidget`](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/MapsIndoorsWidget/setFilterWithLocations.html). This method has different parameters to make it easier for you as a developer to fit your exact need in terms of animation and more.
 
 The standard implementation animates the camera to fit all Locations on the map and show the info window of a Location, if it's a list of only one Location.
 
-When you are done showing the search results you can [call `clearFliter`](https://pub.dev/documentation/mapsindoors\_googlemaps/latest/mapsindoors/MapsIndoorsWidget/clearFilter.html).
+When you are done showing the search results you can [call `clearFliter`](https://pub.dev/documentation/mapsindoors_googlemaps/latest/mapsindoors/MapsIndoorsWidget/clearFilter.html).
 
 ```dart
   void search(String value) {
@@ -190,7 +190,6 @@ Expected result:
 
 <figure><img src="../../../.gitbook/assets/flutter_search.gif" alt=""><figcaption></figcaption></figure>
 
-The accompanying UI and implementation of this search experience can be found in the getting started app sample. [Getting Started App sample](https://github.com/MapsPeople/getting\_started\_flutter)
+The accompanying UI and implementation of this search experience can be found in the getting started app sample. [Getting Started App sample](https://github.com/MapsPeople/getting_started_flutter)
 
-[\
-](https://docs.mapsindoors.com/getting-started/flutter/map)
+[<br>](https://docs.mapsindoors.com/getting-started/flutter/map)

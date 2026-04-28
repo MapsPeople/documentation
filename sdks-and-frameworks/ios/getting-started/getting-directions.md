@@ -1,6 +1,6 @@
 # Getting Directions
 
-### Getting Directions to a Location[​](https://docs.mapsindoors.com/getting-started/ios/v4/directions#getting-directions-to-a-location) <a href="#getting-directions-to-a-location" id="getting-directions-to-a-location"></a>
+### Getting Directions to a Location​ <a href="#getting-directions-to-a-location" id="getting-directions-to-a-location"></a>
 
 See an example of Directions here: [BasicDirection.swift](https://github.com/MapsPeople/MapsIndoorsSDK-iOS-Examples/blob/main/MapsIndoorsSDK-iOS-Examples/Getting%20Started/BasicDirection.swift)
 
@@ -18,6 +18,6 @@ We can now add in the `directions()` function:
 
 {% @github-files/github-code-block url="https://github.com/MapsPeople/MapsIndoorsGettingStarted-Mapbox/blob/12aaf3c15d8516842e76effddec95416f3a7e3c4/MapsIndoorsGettingStarted-Mapbox/ViewController.swift#L54-L68" %}
 
-### Expected Result[​](https://docs.mapsindoors.com/getting-started/ios/v4/directions#expected-result) <a href="#expected-result" id="expected-result"></a>
+### Expected Result​ <a href="#expected-result" id="expected-result"></a>
 
 <figure><img src="../../../.gitbook/assets/iOS Directions.gif" alt=""><figcaption></figcaption></figure>

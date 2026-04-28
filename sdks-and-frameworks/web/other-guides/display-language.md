@@ -6,7 +6,7 @@ If you do not specify a language, MapsIndoors will show information in the defau
 
 Additionally, aside from methods mentioned here, you can provide translations via the standard method for your device, such as using individual localized strings.
 
-### Configuring POI translations in CMS[​](https://docs.mapsindoors.com/display-language#configuring-poi-translations-in-cms) <a href="#configuring-poi-translations-in-cms" id="configuring-poi-translations-in-cms"></a>
+### Configuring POI translations in CMS​ <a href="#configuring-poi-translations-in-cms" id="configuring-poi-translations-in-cms"></a>
 
 To provide multiple languages for items in the MapsIndoors CMS, such as "Meeting Room" or "Restroom", the translation must be provided by the user in the CMS. A translation can be provided in any language. In order to add support for additional languages that we currently do not support, please contact your MapsIndoors representative, and we will enable you to add translations in your desired language.
 
@@ -14,7 +14,7 @@ Once your language of choice has been created, you can add the translation by cl
 
 <figure><img src="../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
-### Use Device Language[​](https://docs.mapsindoors.com/display-language#use-device-language) <a href="#use-device-language" id="use-device-language"></a>
+### Use Device Language​ <a href="#use-device-language" id="use-device-language"></a>
 
 The web-app will automatically adjust the language to the language set in the user's browser settings, otherwise default to English. When using Safari, the device's language setting will be used. This is limited to the following languages, and will default to English if the selected language is not supported:
 
@@ -24,6 +24,3 @@ The web-app will automatically adjust the language to the language set in the us
 * Portuguese
 * Italian
 * French
-
-
-

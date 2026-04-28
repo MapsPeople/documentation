@@ -46,14 +46,13 @@ We can later call this function after loading MapsIndoors to enable it. For demo
 
 By consequence, enabling live data through [MapControl](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.0.0/classes/MapControl.html) is as simple as calling [mapControl.enableLiveData()](https://app.mapsindoors.com/mapsindoors/reference/react-native/google-maps/1.0.0/classes/MapControl.html) will manage the Live Data subscriptions needed for the currently visible map and provide a default rendering of the Live Data updates depending on the Domain Type.
 
-Using the demo API key you should now be able to see a "Staff Person" moving from one end to the other at ground floor in The White House main building.\
-
+Using the demo API key you should now be able to see a "Staff Person" moving from one end to the other at ground floor in The White House main building.\\
 
 Expected result:
 
 <figure><img src="../../../.gitbook/assets/react_native_live_data.gif" alt=""><figcaption></figcaption></figure>
 
-### Summary[​](https://docs.mapsindoors.com/getting-started/React%20Native/livedata#summary) <a href="#summary" id="summary"></a>
+### Summary​ <a href="#summary" id="summary"></a>
 
 Congratulations! You're at the end of your journey (for now), and you've accomplished a lot! 🎉
 

@@ -1,16 +1,16 @@
 # Working with Events
 
-### Overview[​](https://docs.mapsindoors.com/working-with-events#overview) <a href="#overview" id="overview"></a>
+### Overview​ <a href="#overview" id="overview"></a>
 
 Let's take a look at the events that MapsIndoors offers and how to utilize them.
 
-> Events are actions or occurrences that happen in the system you are programming, which the system tells you about so you can respond to them in some way if desired. -- [_MDN web docs_](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building\_blocks/Events)
+> Events are actions or occurrences that happen in the system you are programming, which the system tells you about so you can respond to them in some way if desired. -- [_MDN web docs_](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
 
 For example, if the user clicks on a Location on the map, then you can react to that action by presenting the user with additional info about the Location.
 
 A code example is shown in the JSFiddle below, but will be run through bit by bit in this guide.
 
-#### Ready Event[​](https://docs.mapsindoors.com/working-with-events#ready-event) <a href="#ready-event" id="ready-event"></a>
+#### Ready Event​ <a href="#ready-event" id="ready-event"></a>
 
 The `ready` event will be fired when MapsIndoors is done initializing and is ready to interact.
 
@@ -20,7 +20,7 @@ mapsIndoors.addListener('ready', (e) => {
 });
 ```
 
-#### Building Changed Event[​](https://docs.mapsindoors.com/working-with-events#building-changed-event-1) <a href="#building-changed-event-1" id="building-changed-event-1"></a>
+#### Building Changed Event​ <a href="#building-changed-event-1" id="building-changed-event-1"></a>
 
 The `building_changed` event will be fired when the map is moved around and a new Building comes in focus.
 
@@ -34,7 +34,7 @@ mapsIndoors.addListener('building_changed', (e) => {
 });
 ```
 
-#### Floor Changed Event[​](https://docs.mapsindoors.com/working-with-events#floor-changed-event-1) <a href="#floor-changed-event-1" id="floor-changed-event-1"></a>
+#### Floor Changed Event​ <a href="#floor-changed-event-1" id="floor-changed-event-1"></a>
 
 The `floor_changed` event will be fired when the Floor is changed; either by clicking the Floor Selector or by calling `setFloor()` on the MapsIndoors instance.
 
@@ -46,7 +46,7 @@ mapsIndoors.addListener('floor_changed', (e) => {
 });
 ```
 
-#### Click Event[​](https://docs.mapsindoors.com/working-with-events#click-event) <a href="#click-event" id="click-event"></a>
+#### Click Event​ <a href="#click-event" id="click-event"></a>
 
 The `click` event will fire when the user clicks on a Location on the map.
 

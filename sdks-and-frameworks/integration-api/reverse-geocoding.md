@@ -1,6 +1,6 @@
 # Reverse Geocoding
 
-#### Interface Description[​](https://docs.mapsindoors.com/api-reverse-geocoding#interface-description) <a href="#interface-description" id="interface-description"></a>
+#### Interface Description​ <a href="#interface-description" id="interface-description"></a>
 
 ```http
 HTTP Get

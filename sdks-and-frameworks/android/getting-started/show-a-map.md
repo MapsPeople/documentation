@@ -7,7 +7,7 @@ description: >-
 
 # Show a Map
 
-### Show a Map with MapsIndoors[​](https://docs.mapsindoors.com/getting-started/android/v4/map#show-a-map-with-mapsindoors) <a href="#show-a-map-with-mapsindoors" id="show-a-map-with-mapsindoors"></a>
+### Show a Map with MapsIndoors​ <a href="#show-a-map-with-mapsindoors" id="show-a-map-with-mapsindoors"></a>
 
 {% hint style="info" %}
 ASYNC
@@ -15,7 +15,7 @@ ASYNC
 Please note that data in MapsIndoors is loaded asynchronously. This results in behavior where data might not have finished loading if you call methods accessing it immediately after initializing MapsIndoors. Best practice is to set up `listeners` or `delegates` to inform of when data is ready. Please be aware of this when developing using the MapsIndoors SDK.
 {% endhint %}
 
-## Initialize MapsIndoors[​](https://docs.mapsindoors.com/getting-started/android/v4/map#initialize-mapsindoors) <a href="#initialize-mapsindoors" id="initialize-mapsindoors"></a>
+## Initialize MapsIndoors​ <a href="#initialize-mapsindoors" id="initialize-mapsindoors"></a>
 
 We start by initializing `MapsIndoors`. `MapsIndoors` is used to get and store all references to MapsIndoors-specific data. This includes access to all MapsIndoors-specific geodata.
 
@@ -58,7 +58,7 @@ If you do not have your own key, you can use this demo MapsIndoors API key: `02c
 We now want to add all the data we get by initializing `MapsIndoors` to our map. This is done by initializing [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) onto the map. [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) is used as a layer between the map provider and MapsIndoors.
 
 {% hint style="info" %}
-[`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) uses Google Maps listeneres to control some map logic. So be aware that  using Google Maps listeners directly might break intended behavior of the MapsIndoors experience. We recommend to check our reference docs, and see if you can add a specific `Listener` through the [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) and always use those when possible.
+[`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) uses Google Maps listeneres to control some map logic. So be aware that using Google Maps listeners directly might break intended behavior of the MapsIndoors experience. We recommend to check our reference docs, and see if you can add a specific `Listener` through the [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) and always use those when possible.
 {% endhint %}
 
 Start by creating an `initMapControl` method which is used to initiate the [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) and assign it to mMap:
@@ -117,8 +117,7 @@ private fun initMapControl() {
 {% endtab %}
 {% endtabs %}
 
-In your `onMapReady` callback function, assign the `mMap` variable with the `GoogleMap` you get from the callback and call the `initMapControl` method with the `mMapView` you assigned in the `onCreate` to set up a Google map with MapsIndoors Venues, Buildings and Locations. For Mapbox you can simple call initMapControl inside your `onCreate`:\
-
+In your `onMapReady` callback function, assign the `mMap` variable with the `GoogleMap` you get from the callback and call the `initMapControl` method with the `mMapView` you assigned in the `onCreate` to set up a Google map with MapsIndoors Venues, Buildings and Locations. For Mapbox you can simple call initMapControl inside your `onCreate`:\\
 
 {% tabs %}
 {% tab title="Google Maps" %}
@@ -153,6 +152,6 @@ Expected result:
 
 <figure><img src="../../../.gitbook/assets/android_map_gif.gif" alt=""><figcaption></figcaption></figure>
 
-See the full example of MapsActivity here: [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google\_Maps/mapsindoorsgettingstartedkotlin)
+See the full example of MapsActivity here: [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/tree/main/Google_Maps/mapsindoorsgettingstartedkotlin)
 
 The Mapbox examples can be found here: [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt)

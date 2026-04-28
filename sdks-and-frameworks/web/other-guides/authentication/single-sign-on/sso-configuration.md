@@ -4,7 +4,7 @@ Configuring the SSO is currently handled by MapsPeople. Therefore there needs to
 
 The list of supported providers currently includes Okta, Active Directory Federation Services, Azure Active Directory, Google and Amazon Cognito. However, any provider that can meet the OIDC requirements described below can be supported.
 
-### OIDC[​](https://docs.mapsindoors.com/sso-configuration#oidc) <a href="#oidc" id="oidc"></a>
+### OIDC​ <a href="#oidc" id="oidc"></a>
 
 OIDC ([Open ID Connect](https://openid.net/connect/)) is the best option for enabling login to MapsIndoors via an authentication server, available from most authentication providers. OIDC is an open standard for authentication, built upon [OAuth 2](https://oauth.net/2/) - an open standard for authorization.
 
@@ -29,7 +29,7 @@ The `NAME` is usually a short handle based on the organisation name and possibly
 
 If client assertion is to be used, the public certificate of MapsIndoors Auth can be retreived at the MapsIndoors Auth [jwks endpoint](https://auth.mapsindoors.com/.well-known/openid-configuration/jwks).
 
-#### Additional configuration[​](https://docs.mapsindoors.com/sso-configuration#additional-configuration) <a href="#additional-configuration" id="additional-configuration"></a>
+#### Additional configuration​ <a href="#additional-configuration" id="additional-configuration"></a>
 
 Using a configuration like described above, the following will be assumed - with further possibility for configuration.
 
@@ -44,11 +44,9 @@ For client assertions, these are the defaults:
 * The signing algorithm to be used is RS256. Others are available upon request.
 * The audience parameter is set to the same as the Authority URL. If this differs it must be specified.
 
-### Organization-specific CMS URL[​](https://docs.mapsindoors.com/sso-configuration#organization-specific-cms-url) <a href="#organization-specific-cms-url" id="organization-specific-cms-url"></a>
+### Organization-specific CMS URL​ <a href="#organization-specific-cms-url" id="organization-specific-cms-url"></a>
 
 If an authentication server has been configured, there will now be an IDP (IDentity Provider) with the `NAME` as defined above. For apps, this can be set via the `acr_values` parameter of the authorize request - e.g. `[...]&acr_values=idp:mapspeople_okta` - in order to have MapsIndoors Auth SSO directly redirect to the authentication server SSO. However, specifically for MapsIndoors CMS, a name can also be set which allows for organization-specific login - i. e. using the authentication server. Note that it does not have to be the same name used for the sign-in redirect URL.
 
-For example, with an organization name of `mapspeople`, a URL will be available at `https://cms.mapsindoors.com?organizationName=mapspeople`. If a login is required, it will redirect to the authentication server SSO, as opposed to MapsIndoors Auth SSO. Alternatively, the organization name can be entered at `https://auth.mapsindoors.com/login/organization`, if a login flow was initiated at the CMS without the `organizationName` parameter, or possibly initiated by a third-party app.
+For example, with an organization name of `mapspeople`, a URL will be available at `https://cms.mapsindoors.com?organizationName=mapspeople`. If a login is required, it will redirect to the authentication server SSO, as opposed to MapsIndoors Auth SSO. Alternatively, the organization name can be entered at `https://auth.mapsindoors.com/login/organization`, if a login flow was initiated at the CMS without the `organizationName` parameter, or possibly initiated by a third-party app.[<br>](https://docs.mapsindoors.com/sso)
 
-[\
-](https://docs.mapsindoors.com/sso)

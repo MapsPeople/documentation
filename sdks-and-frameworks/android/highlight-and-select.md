@@ -91,7 +91,7 @@ mMapControl?.deSelectLocation()
 
 ### Styling the Selection Marker <a href="#previous-selection" id="previous-selection"></a>
 
-You can easily change the icon to an image of your liking. In this example it is assumed that you have a method `getSelectionBitmap()`  that loads, fetches or generates the image you want to use.
+You can easily change the icon to an image of your liking. In this example it is assumed that you have a method `getSelectionBitmap()` that loads, fetches or generates the image you want to use.
 
 ```kotlin
 val myBitmap = getSelectionBitmap()
@@ -101,7 +101,7 @@ MapsIndoors.getDisplayRule(MPSolutionDisplayRule.SELECTION)?.apply {
 mapControl?.selectLocation(loc, MPSelectionBehavior.DEFAULT)
 ```
 
-##
+
 
 <figure><img src="../../.gitbook/assets/customSelectionIcon.png" alt="" width="375"><figcaption><p>Example of a custom Selection Marker.</p></figcaption></figure>
 

@@ -30,7 +30,6 @@ See the full list of parameters:
 
 {% tabs %}
 {% tab title="Java" %}
-
 {% code overflow="wrap" lineNumbers="true" %}
 ```java
 void findRestroom() {
@@ -55,11 +54,9 @@ void findRestroom() {
 }
 ```
 {% endcode %}
-
 {% endtab %}
 
 {% tab title="Kotlin" %}
-
 {% code overflow="wrap" lineNumbers="true" %}
 ```kotlin
 fun findRestroom() {
@@ -81,21 +78,17 @@ fun findRestroom() {
 }
 ```
 {% endcode %}
-
 {% endtab %}
-
 {% endtabs %}
 
-### Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map) <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
+### Display Search Results on the Map​ <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
 
 When displaying the search results it is helpful to filter the map to only show matching Locations. Matching Buildings and Venues will still be shown on the map, as they give context to the user, even if they aren't selectable on the map.
 
 #### Example of Filtering the Map to Display Searched Locations on the Map <a href="#example-of-filtering-the-map-to-display-searched-locations-on-the-map" id="example-of-filtering-the-map-to-display-searched-locations-on-the-map"></a>
 
 {% tabs %}
-
 {% tab title="Java" %}
-
 {% code overflow="wrap" lineNumbers="true" %}
 ```java
 MapsIndoors.getLocationsAsync(mpQuery, mpFilter, (locations, error) -> {
@@ -106,11 +99,9 @@ MapsIndoors.getLocationsAsync(mpQuery, mpFilter, (locations, error) -> {
 });
 ```
 {% endcode %}
-
 {% endtab %}
 
 {% tab title="Kotlin" %}
-
 {% code overflow="wrap" lineNumbers="true" %}
 ```kotlin
 MapsIndoors.getLocationsAsync(mpQuery, mpFilter) { locations, error ->
@@ -119,39 +110,31 @@ MapsIndoors.getLocationsAsync(mpQuery, mpFilter) { locations, error ->
 };
 ```
 {% endcode %}
-
 {% endtab %}
-
 {% endtabs %}
 
-### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
+### Clearing the Map of Your Filter​ <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
 
 After displaying the search results on your map you can then clear the filter so that all Locations show up on the map again.
 
 #### Example of Clearing Your Map Filter to Show All Locations Again <a href="#example-of-clearing-your-map-filter-to-show-all-locations-again" id="example-of-clearing-your-map-filter-to-show-all-locations-again"></a>
 
 {% tabs %}
-
 {% tab title="Java" %}
-
 {% code overflow="wrap" lineNumbers="true" %}
 ```java
 mMapControl.clearFilter();
 ```
 {% endcode %}
-
 {% endtab %}
 
 {% tab title="Kotlin" %}
-
 {% code overflow="wrap" lineNumbers="true" %}
 ```kotlin
 mMapControl.clearFilter()
 ```
 {% endcode %}
-
 {% endtab %}
-
 {% endtabs %}
 
 ### Searching for Nested Categories <a href="#searching-for-nested-categories" id="searching-for-nested-categories"></a>
@@ -206,6 +189,5 @@ MapsIndoors.getLocationsAsync(query, filter) { locations, error ->
 }
 ```
 {% endcode %}
-
 
 > **Note:** When you search for a parent category, all of its sub-categories are always included in the results, there is no way to limit the search to only the parent category itself. If you need more granular control (for example, to only return locations with a specific sub-category), consider organizing your categories so that each search target has its own unique sub-category. This way, you can search for exactly the locations you want by specifying the appropriate sub-category in your filter.

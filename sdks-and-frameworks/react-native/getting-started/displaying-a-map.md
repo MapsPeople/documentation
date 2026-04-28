@@ -2,7 +2,7 @@
 
 Your environment is now fully configured, and you have the necessary Google Maps and MapsIndoors API keys. Next you will learn how to load a map with MapsIndoors and display it in a React Native app.
 
-### Selecting and Loading a Solution[​](https://docs.mapsindoors.com/getting-started/React%20Native/display-a-map#selecting-and-loading-a-solution) <a href="#selecting-and-loading-a-solution" id="selecting-and-loading-a-solution"></a>
+### Selecting and Loading a Solution​ <a href="#selecting-and-loading-a-solution" id="selecting-and-loading-a-solution"></a>
 
 To start off, we set up a simple two screen navigation using the `@react-navigation` package. We will create a FrontScreen component that lets us chose the solution to open, and a MapScreen component that will display the actual map.
 
@@ -61,7 +61,7 @@ export default function FrontScreen({navigation}) {
 }
 ```
 
-### Showing the map[​](https://docs.mapsindoors.com/getting-started/React%20Native/display-a-map#showing-the-map) <a href="#showing-the-map" id="showing-the-map"></a>
+### Showing the map​ <a href="#showing-the-map" id="showing-the-map"></a>
 
 For the `MapScreen` we create a functional component similarly to the above. Note the additional property `route` which contains parameters from the navigation stack, such as the API key we provided from the `FrontScreen`
 

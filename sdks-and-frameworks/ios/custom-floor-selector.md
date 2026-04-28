@@ -1,6 +1,6 @@
 # Custom Floor Selector
 
-### How to implement a custom floor selector[​](https://docs.mapsindoors.com/Map/Map%20Styling/custom-floor-selector#how-to-implement-a-custom-floor-selector) <a href="#how-to-implement-a-custom-floor-selector" id="how-to-implement-a-custom-floor-selector"></a>
+### How to implement a custom floor selector​ <a href="#how-to-implement-a-custom-floor-selector" id="how-to-implement-a-custom-floor-selector"></a>
 
 To get started, create a class that conforms to both `MPCustomFloorSelector` and `UIView`. Please bear in mind that the provided example is solely for illustrative purposes. It is essential to appropriately integrate and customize it to align with your specific requirements and design preferences.
 

@@ -4,7 +4,7 @@ In this tutorial, you will build your own app using the React Native bindings, g
 
 Parts of this guide rely on having access to a MapsIndoors Solution which supports Live Data Integration. If you do not have access to this through your own Solution, we recommend using our demo API key to access one: `02c329e6777d431a88480a09`.
 
-#### Take-Away Skills[​](https://docs.mapsindoors.com/getting-started/React%20Native/#take-away-skills) <a href="#take-away-skills" id="take-away-skills"></a>
+#### Take-Away Skills​ <a href="#take-away-skills" id="take-away-skills"></a>
 
 * Using the React Native bindings
 * Display an interactive map with MapsIndoors

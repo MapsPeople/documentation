@@ -2,7 +2,7 @@
 
 Now we have a simple map where you can search for locations. When finishing this step you'll be able to create a route with directions between two points and change the transportation mode.
 
-### Get Directions Between Two Locations[​](https://docs.mapsindoors.com/getting-started/flutter/directions#get-directions-between-two-locations) <a href="#get-directions-between-two-locations" id="get-directions-between-two-locations"></a>
+### Get Directions Between Two Locations​ <a href="#get-directions-between-two-locations" id="get-directions-between-two-locations"></a>
 
 After having created our list of search results, we have a good starting point for creating directions between two Locations. Since our search only supports searching for a single location, we will hardcode a Location's coordinate into our app, and use that as the basis for our _Origin_. Then we'll create a route, show the navigation details, and display the route on the map.
 
@@ -266,7 +266,7 @@ void onLocationSelected(MPLocation? location) {
 
 We can now show and navigate a route from our `_userPosition` to a selected location.
 
-### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/flutter/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
+### Change Transportation Mode​ <a href="#change-transportation-mode" id="change-transportation-mode"></a>
 
 In MapsIndoors, the transportation mode is referred to as **travel mode**. There are four travel modes, **walking**, **bicycling**, **driving** and **transit** (public transportation). The travel modes generally applies for outdoor navigation. Indoor navigation calculations are based on **walking** travel mode.
 

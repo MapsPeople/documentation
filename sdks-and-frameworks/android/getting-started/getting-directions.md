@@ -7,7 +7,7 @@ description: >-
 
 # Getting Directions
 
-### Get Directions Between Two Locations[​](https://docs.mapsindoors.com/getting-started/android/v4/directions#get-directions-between-two-locations) <a href="#get-directions-between-two-locations" id="get-directions-between-two-locations"></a>
+### Get Directions Between Two Locations​ <a href="#get-directions-between-two-locations" id="get-directions-between-two-locations"></a>
 
 After having created our list of search results, we have a good starting point for creating directions between two Locations. Since our search only supports a single search, we will query a random Location within the venue when requesting a route, and use that as the basis for our Origin. Then we'll create a route, navigate to a view of the navigation details, and show a route on the map from the Origin to the Destination.
 
@@ -237,7 +237,7 @@ class RouteLegFragment : Fragment() {
 
 See the full implementation of the fragment here: [RouteLegFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/RouteLegFragment.kt)
 
-### Change Transportation Mode[​](https://docs.mapsindoors.com/getting-started/android/v4/directions#change-transportation-mode) <a href="#change-transportation-mode" id="change-transportation-mode"></a>
+### Change Transportation Mode​ <a href="#change-transportation-mode" id="change-transportation-mode"></a>
 
 In MapsIndoors, the transportation mode is referred to as **travel mode**. There are four travel modes, **walking**, **bicycling**, **driving** and **transit** (public transportation). The travel modes generally applies for outdoor navigation. Indoor navigation calculations are based on **walking** travel mode.
 
@@ -268,3 +268,4 @@ Congratulations! You're at the end of your journey (for now), and you've accompl
 * You added functionality for getting directions from one Location to another.
 
 This concludes the "Getting Started" tutorial, but there's always more to discover. To get more inspiration on what to build next please visit our [showcase page](https://www.mapspeople.com/showcases) to see how other clients use MapsIndoors! For more documentation, please visit the rest of our Docs site!.
+

@@ -4,7 +4,7 @@ You begin by creating an initial application. Throughout this tutorial, you will
 
 [If you need help to create a new project use this official Flutter guide](https://docs.flutter.dev/get-started/test-drive?tab=terminal)
 
-### Set Up Your Environment[​](https://docs.mapsindoors.com/getting-started/flutter/new-project#set-up-your-environment) <a href="#set-up-your-environment" id="set-up-your-environment"></a>
+### Set Up Your Environment​ <a href="#set-up-your-environment" id="set-up-your-environment"></a>
 
 This guide explains how to start using a MapsIndoors map in your Flutter application using the MapsIndoors Flutter SDK.
 
@@ -21,7 +21,7 @@ To benefit from the guides, you will need basic knowledge about:
 * Flutter Development
 * Mobile Development
 
-### Set Up Your Project[​](https://docs.mapsindoors.com/getting-started/flutter/new-project#set-up-your-project) <a href="#set-up-your-project" id="set-up-your-project"></a>
+### Set Up Your Project​ <a href="#set-up-your-project" id="set-up-your-project"></a>
 
 To get your project started follow these steps:
 
@@ -35,9 +35,9 @@ This will create a new project targeting Android and iOS platforms.
 
 If you want to see an example of how this guide will look when completed, you can [find it on Github here](https://github.com/MapsPeople/getting_started_flutter).
 
-### Set Up MapsIndoors[​](https://docs.mapsindoors.com/getting-started/flutter/new-project#set-up-mapsindoors) <a href="#set-up-mapsindoors" id="set-up-mapsindoors"></a>
+### Set Up MapsIndoors​ <a href="#set-up-mapsindoors" id="set-up-mapsindoors"></a>
 
-#### Google Maps[​](https://docs.mapsindoors.com/getting-started/flutter/new-project#google-maps) <a href="#google-maps" id="google-maps"></a>
+#### Google Maps​ <a href="#google-maps" id="google-maps"></a>
 
 To get started with your project add the latest MapsIndoors version to your `pubspec.yaml`, it can be found [here](https://pub.dev/documentation/mapsindoors_googlemaps/latest/).
 

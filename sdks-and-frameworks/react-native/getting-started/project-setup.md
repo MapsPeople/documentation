@@ -4,7 +4,7 @@ This guide is made based off a basic application already made, to keep most of t
 
 {% tabs %}
 {% tab title="Basic example" %}
-#### Using basic example[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#using-basic-example) <a href="#using-basic-example" id="using-basic-example"></a>
+**Using basic example**[**​**](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#using-basic-example)
 
 **Set Up Your Environment**[**​**](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#set-up-your-environment)
 
@@ -85,11 +85,11 @@ npx pod-install
 {% endtab %}
 {% endtabs %}
 
-### Code complete example[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#code-complete-example) <a href="#code-complete-example" id="code-complete-example"></a>
+### Code complete example​ <a href="#code-complete-example" id="code-complete-example"></a>
 
 During the guide you can use this example to refer to your project, or just play around with the code inside: [Getting started](https://github.com/MapsPeople/getting-started-react-native)
 
-### Using Mapbox[​](https://docs.mapsindoors.com/getting-started/React%20Native/project-setup#using-mapbox) <a href="#using-mapbox" id="using-mapbox"></a>
+### Using Mapbox​ <a href="#using-mapbox" id="using-mapbox"></a>
 
 While the examples are using google maps, it is also possible to use Mapbox instead with only minor changes to the project.
 

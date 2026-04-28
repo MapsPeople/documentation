@@ -2,7 +2,7 @@
 
 Searching through your MapsIndoors data is an key part of a great user experience with your maps. Users can look for places to go, or filter what is shown on the map.
 
-Searches work on all MapsIndoors geodata. It is up to you to create a search experience that fits your use case.&#x20;
+Searches work on all MapsIndoors geodata. It is up to you to create a search experience that fits your use case.
 
 ## Retrieve Specific Location: `getLocation(id)`
 
@@ -219,8 +219,6 @@ mapsIndoorsInstance.addListener('click', location => {
 
 Both implementations ensure that only one popup or info window is open at a given time, closing any previous ones when a new location is clicked. This keeps the map clean and focuses the user's attention on the most recently clicked location.
 
-
-
 ## Retrieve Queried Locations: `getLocations(`args opt`)`
 
 To help you in this, there is a range of filters you can apply to the search queries to get the best results. E.g. you can filter by Categories, search only a specific part of the map or search near a Location.
@@ -228,13 +226,13 @@ To help you in this, there is a range of filters you can apply to the search que
 All three return a list of Locations from your solution matching the parameters they are given. The results are ranked upon the three following factors:
 
 * If a "near" parameter is set, how close is the origin point to the result?
-* How well does the search input text match the text of the result?&#x20;
+* How well does the search input text match the text of the result?
   * (Our base algorithm for searching is using the "[Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)" algorithm)
 * Which kind of geodata is the result (e.g. Buildings are ranked over POIs)?
 
 This means that the first item in the search result list will be the one best matching the three factors. **You always have the ability to reorder your array of locations based on your preference before rendering them in your user interface, if you choose to handle that via some client-side code.**
 
-Feel free to refer to this table for a comprehensive understanding of each parameter's type, optional/required status, and functionality.&#x20;
+Feel free to refer to this table for a comprehensive understanding of each parameter's type, optional/required status, and functionality.
 
 | Parameter    | Type                    | Optional/Required  | Description                                                                                                     | Default / Example | Code Example                                                                                                                |
 | ------------ | ----------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -257,7 +255,7 @@ Feel free to refer to this table for a comprehensive understanding of each param
 | `building`   | string                  | Optional           | Limit the search for locations to a building.                                                                   |                   |                                                                                                                             |
 | `venue`      | string                  | Optional           | Limit the search for locations to a venue (id or name).                                                         |                   |                                                                                                                             |
 
-### Example of Creating a Search Query[​](https://docs.mapsindoors.com/searching#example-of-creating-a-search-query) <a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
+### Example of Creating a Search Query​ <a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
 
 See the full list of parameters in the [reference guide](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.services.LocationsService.html#.getLocations):
 
@@ -273,7 +271,7 @@ mapsindoors.services.LocationsService.getLocations(searchParameters).then(locati
 });
 ```
 
-## Display Search Results on the Map[​](https://docs.mapsindoors.com/searching#display-search-results-on-the-map)
+## Display Search Results on the Map​
 
 When displaying the search results, it is helpful to filter the map to only show matching Locations. Matching Buildings and Venues will still be shown on the map, as they give context to the user, even if they aren't selectable on the map.
 
@@ -291,7 +289,7 @@ mapsindoors.services.LocationsService.getLocations(searchParameters).then(locati
 });
 ```
 
-### Clearing the Map of Your Filter[​](https://docs.mapsindoors.com/searching#clearing-the-map-of-your-filter) <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
+### Clearing the Map of Your Filter​ <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
 
 After displaying the search results on your map you can then clear the filter so that all Locations show up on the map again.
 
@@ -301,13 +299,13 @@ After displaying the search results on your map you can then clear the filter so
 mapsIndoorsInstance.filter(null);
 ```
 
-### Display Locations as List[​](https://docs.mapsindoors.com/searching#display-locations-as-list) <a href="#display-locations-as-list" id="display-locations-as-list"></a>
+### Display Locations as List​ <a href="#display-locations-as-list" id="display-locations-as-list"></a>
 
 You can also search for Locations, and have them presented to you as a list, instead of just displaying them on the map.
 
 The full code example is shown in the JSFiddle below which will be examined below.
 
-#### Search example[​](https://docs.mapsindoors.com/searching#search) <a href="#search" id="search"></a>
+#### Search example​ <a href="#search" id="search"></a>
 
 The `mapsindoors.services.LocationsService` class exposes the `getLocations` function that enables you to search for Locations.
 
@@ -339,7 +337,7 @@ The `getLocations` function expects either no input, in which case it returns al
 
 If the input is empty, we clear the result list and reset the map filter by calling the helper functions `clearResults` and `clearFilter`.
 
-#### Checking for Results[​](https://docs.mapsindoors.com/searching#checking-for-results) <a href="#checking-for-results" id="checking-for-results"></a>
+#### Checking for Results​ <a href="#checking-for-results" id="checking-for-results"></a>
 
 We need to clear the previous results, and check if any Locations were returned. If so, we loop through them and add them to the result list.
 

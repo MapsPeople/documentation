@@ -4,7 +4,7 @@ When using the MapsIndoors SDK, the system for detecting collisions will sometim
 
 For Android, there are two ways of implementing this, and which you should use depends on your desired map behavior.
 
-#### Google Maps for Android[​](https://docs.mapsindoors.com/turn-off-collisions-based-on-zoom#google-maps-for-android) <a href="#google-maps-for-android" id="google-maps-for-android"></a>
+#### Google Maps for Android​ <a href="#google-maps-for-android" id="google-maps-for-android"></a>
 
 If you wish for the collision behavior to change when the maps stops moving, you should use this piece of code. This would generally be the most performance-friendly option.
 
@@ -34,7 +34,7 @@ mGoogleMap.setOnCameraMoveListener {
 }
 ```
 
-#### Mapbox for Android[​](https://docs.mapsindoors.com/turn-off-collisions-based-on-zoom#mapbox-for-android) <a href="#mapbox-for-android" id="mapbox-for-android"></a>
+#### Mapbox for Android​ <a href="#mapbox-for-android" id="mapbox-for-android"></a>
 
 The code for Mapbox is somewhat different - Here you must make an `onMoveListener`, and insert the implementation into the relevant section - `onMove`, `onMoveBegin` or `onMoveEnd`. Generally, `onMoveEnd` would be recommended, and will be shown below, as it is the most performance-friendly, but code may be moved into the others, if your specific functionality can be achieved through this.
 
@@ -64,5 +64,4 @@ mMapBoxMap?.addOnMoveListener(object : OnMoveListener {
 })
 ```
 
-[\
-](https://docs.mapsindoors.com/location-details)
+[<br>](https://docs.mapsindoors.com/location-details)

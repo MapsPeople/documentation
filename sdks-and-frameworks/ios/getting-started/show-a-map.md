@@ -2,7 +2,7 @@
 
 Now that we have the prerequisite API keys, and the project set up, we can start adding basic functionality to the app. We will start by having the app display a map.
 
-### Display a Map with MapsIndoors[​](https://docs.mapsindoors.com/getting-started/android/v4/map#show-a-map-with-mapsindoors) <a href="#show-a-map-with-mapsindoors" id="show-a-map-with-mapsindoors"></a>
+### Display a Map with MapsIndoors​ <a href="#show-a-map-with-mapsindoors" id="show-a-map-with-mapsindoors"></a>
 
 Examples
 
@@ -76,7 +76,7 @@ The [MPMapControl Class](https://app.mapsindoors.com/mapsindoors/reference/ios/4
 
 We have now added a _very_ simple, non-interactive search feature! Running the app now should yield a combined map of The White House, showing both the external and internal geographical information. However, let us try and understand what is actually happening.
 
-### Expected Result[​](https://docs.mapsindoors.com/getting-started/ios/v4/display-a-map#expected-result) <a href="#expected-result" id="expected-result"></a>
+### Expected Result​ <a href="#expected-result" id="expected-result"></a>
 
 <figure><img src="../../../.gitbook/assets/image (5).png" alt="" width="375"><figcaption></figcaption></figure>
 
