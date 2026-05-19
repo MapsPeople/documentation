@@ -6,6 +6,13 @@ icon: flutter
 
 Change log for the MapsIndoors Flutter SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## \[4.7.0] 2026-05-18
+
+### Changed
+
+* Updated MapsIndoors SDKs:
+  * Android to [4.18.2](https://docs.mapsindoors.com/other/changelog/android-sdk/v4#id-4.18.2)
+  * iOS to [4.17.0](https://docs.mapsindoors.com/other/changelog/ios-sdk/v4#id-4.17.0)
 
 ## \[4.6.3] 2026-03-11
 
