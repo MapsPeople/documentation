@@ -6,6 +6,17 @@ icon: flutter
 
 Change log for the MapsIndoors Flutter SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## \[4.7.1] 2026-06-02
+
+### Fixed
+
+* Fixed issue on Android where floorselector actions returned from the SDK would not always run on the main thread, resulting in a crash
+
+### Changed
+
+* Updated MapsIndoors SDKs:
+  * Android to [4.18.3](https://docs.mapsindoors.com/other/changelog/android-sdk/v4#id-4.18.3)
+
 ## \[4.7.0] 2026-05-18
 
 ### Changed
