@@ -6,6 +6,16 @@ icon: react
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.7.0] 2026-06-18
+
+#### Added
+* React Native New Architecture support — Both the Mapbox and Google Maps packages now support the React Native New Architecture (TurboModules and Fabric) via the interop layer, maintaining backwards compatibility with the old architecture. Codegen spec files have been added and codegenConfig is configured in each package.
+* Route polyline color customization — `MPDirectionsRenderer` now exposes `setPolylineColors(foregroundColor, backgroundColor)`, allowing the foreground and background colors of a rendered route to be customized.
+
+#### Updated
+* MapsIndoors Android SDK updated to 4.18.3
+* MapsIndoors iOS SDK updated to 4.17.2
+
 ### \[2.6.2] 2026-01-16
 
 #### Fixed
