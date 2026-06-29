@@ -14,6 +14,8 @@ JDK source: 11
 
 ### iOS SDK
 
+{% include "../.gitbook/includes/ios-xcode-26-requirement.md" %}
+
 Minimum iOS 15\
 Minimum Xcode 16
 
