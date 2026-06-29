@@ -16,8 +16,8 @@ JDK source: 11
 
 {% include "../.gitbook/includes/ios-xcode-26-requirement.md" %}
 
-Minimum iOS 15\
-Minimum Xcode 16
+Minimum iOS 16.6\
+Minimum Xcode 26
 
 ### Flutter
 
