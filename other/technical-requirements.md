@@ -14,8 +14,8 @@ JDK source: 11
 
 ### iOS SDK
 
-Minimum iOS 15\
-Minimum Xcode 16
+Minimum iOS 16\
+Minimum Xcode 26
 
 ### Flutter
 
