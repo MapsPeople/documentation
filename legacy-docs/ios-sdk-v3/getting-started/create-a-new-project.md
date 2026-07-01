@@ -6,10 +6,8 @@ Now that you have taken care of all the preliminary issues, we can start buildin
 **KNOWN IOS ISSUES**
 
 1. Developing on the new Arm-based Apple Silicon (M1) Macs requires building and running on a physical iOS device or using an iOS simulator running iOS 13.7, e.g. iPhone 11. This is a temporary limitation in Google Maps SDK for iOS, and as such also a limitation in MapsIndoors, due to the dependency to Google Maps.
-2. Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the `post_install` hook in your Podfile described in the [PodFile post\_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post\_install) wiki.
+2. Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the `post_install` hook in your Podfile described in the [PodFile post\_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) wiki.
 {% endhint %}
-
-
 
 ### Create an Xcode Project[​](https://docs.mapsindoors.com/getting-started/ios/set-up-your-environment#create-an-xcode-project) <a href="#create-an-xcode-project" id="create-an-xcode-project"></a>
 
@@ -38,7 +36,7 @@ MapsIndoors can either be installed using CocoaPods ([Getting Started with Cocoa
 
 {% tabs %}
 {% tab title="Cocoapods" %}
-#### Installing MapsIndoors Using CocoaPods[​](https://docs.mapsindoors.com/getting-started/ios/set-up-your-environment#installing-mapsindoors-using-cocoapods) <a href="#installing-mapsindoors-using-cocoapods" id="installing-mapsindoors-using-cocoapods"></a>
+**Installing MapsIndoors Using CocoaPods**[**​**](https://docs.mapsindoors.com/getting-started/ios/set-up-your-environment#installing-mapsindoors-using-cocoapods)
 
 From MapsIndoors SDK version 3.32.0 and up, in order for CocoaPods to fetch the SDK properly it is necessary to install `git-lfs` ([Install Guide](https://git-lfs.github.com/)).
 
@@ -56,7 +54,7 @@ From MapsIndoors SDK version 3.32.0 and up, in order for CocoaPods to fetch the 
       pod 'MapsIndoors', '~>3.50'
     end
     ```
-3. Add the [`post_install`](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post\_install) to the end of the `Podfile`. <mark style="background-color:yellow;">(In the line containing</mark> <mark style="background-color:yellow;"></mark><mark style="background-color:yellow;">`pod 'MapsIndoors', '~>3.50'`</mark><mark style="background-color:yellow;">, where it currently says</mark> <mark style="background-color:yellow;"></mark><mark style="background-color:yellow;">`3.50`</mark><mark style="background-color:yellow;">, be sure to replace this number with whatever the latest version of the iOS SDK is.)</mark>
+3. Add the [`post_install`](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install) to the end of the `Podfile`. <mark style="background-color:yellow;">(In the line containing</mark> <mark style="background-color:yellow;">`pod 'MapsIndoors', '~>3.50'`</mark><mark style="background-color:yellow;">, where it currently says</mark> <mark style="background-color:yellow;">`3.50`</mark><mark style="background-color:yellow;">, be sure to replace this number with whatever the latest version of the iOS SDK is.)</mark>
 4. Save the `Podfile` and close Xcode.
 5. Open a terminal in the directory of the project. `cd \<path-to-project>`
 6. Run `pod install` in the terminal.
@@ -64,7 +62,7 @@ From MapsIndoors SDK version 3.32.0 and up, in order for CocoaPods to fetch the 
 {% endtab %}
 
 {% tab title=" Manually" %}
-#### Install MapsIndoors Manually[​](https://docs.mapsindoors.com/getting-started/ios/set-up-your-environment#install-mapsindoors-manually) <a href="#install-mapsindoors-manually" id="install-mapsindoors-manually"></a>
+**Install MapsIndoors Manually**[**​**](https://docs.mapsindoors.com/getting-started/ios/set-up-your-environment#install-mapsindoors-manually)
 
 * Download the [Google Maps iOS SDK 4.2.0](https://dl.google.com/dl/cpdc/870a9df85dbcbadc/GoogleMaps-4.2.0.tar.gz)
 * Copy the following frameworks to the folder of your app project (in Finder, **not** in Xcode)

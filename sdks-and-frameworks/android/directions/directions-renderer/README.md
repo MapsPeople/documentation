@@ -25,7 +25,7 @@ void getRoute() {
 }
 ```
 
-#### Controlling the Visible Segments on the Directions Renderer[​](https://docs.mapsindoors.com/directions-renderer#controlling-the-visible-segments-on-the-directions-renderer) <a href="#controlling-the-visible-segments-on-the-directions-renderer" id="controlling-the-visible-segments-on-the-directions-renderer"></a>
+**Controlling the Visible Segments on the Directions Renderer**[**​**](https://docs.mapsindoors.com/directions-renderer#controlling-the-visible-segments-on-the-directions-renderer)
 
 As previously mentioned, the route object is seperated into objects of `MPRouteLeg`. Each leg is again separated into objects of `MPRouteStep`.
 
@@ -74,7 +74,7 @@ void previousLeg() {
 }
 ```
 
-#### Show Content of Nearby Locations[​](https://docs.mapsindoors.com/directions-renderer#show-content-of-nearby-locations) <a href="#show-content-of-nearby-locations" id="show-content-of-nearby-locations"></a>
+**Show Content of Nearby Locations**[**​**](https://docs.mapsindoors.com/directions-renderer#show-content-of-nearby-locations)
 
 It is possible to show contextual information on the end points of the rendered path of a route segment by configuring the directions renderer to look for nearby Locations or POIs.
 
@@ -113,7 +113,7 @@ fun getRoute() {
 }
 ```
 
-#### Controlling the Visible Segments on the Directions Renderer[​](https://docs.mapsindoors.com/directions-renderer#controlling-the-visible-segments-on-the-directions-renderer-1) <a href="#controlling-the-visible-segments-on-the-directions-renderer-1" id="controlling-the-visible-segments-on-the-directions-renderer-1"></a>
+**Controlling the Visible Segments on the Directions Renderer**[**​**](https://docs.mapsindoors.com/directions-renderer#controlling-the-visible-segments-on-the-directions-renderer-1)
 
 As previously mentioned, the route object is seperated into objects of `MPRouteLeg`. Each leg is again separated into objects of `MPRouteStep`.
 
@@ -162,7 +162,7 @@ fun previousLeg() {
 }
 ```
 
-#### Show Content of Nearby Locations[​](https://docs.mapsindoors.com/directions-renderer#show-content-of-nearby-locations-1) <a href="#show-content-of-nearby-locations-1" id="show-content-of-nearby-locations-1"></a>
+**Show Content of Nearby Locations**[**​**](https://docs.mapsindoors.com/directions-renderer#show-content-of-nearby-locations-1)
 
 It is possible to show contextual information on the end points of the rendered path of a route segment by configuring the directions renderer to look for nearby Locations or POIs.
 

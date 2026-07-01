@@ -42,7 +42,7 @@ If you want to see an example of how this guide will look when completed, you ca
 To get started with your project add the latest MapsIndoors version to your `pubspec.yaml`, it can be found [here](https://pub.dev/documentation/mapsindoors_googlemaps/latest/).
 
 ```yaml
-mapsindoors_googlemaps: ^4.1.6 # replace with the latest version
+mapsindoors_googlemaps: ^4.7.1 # replace with the latest version
 ```
 
 {% tabs %}
@@ -153,7 +153,7 @@ To get the underlying Google Map to function, you need to perform the following 
 To get started with your project add the latest MapsIndoors version to your `pubspec.yaml`, it can be found [here](https://pub.dev/documentation/mapsindoors_mapbox/latest/).
 
 ```yaml
-mapsindoors_mapbox: ^4.1.6 # replace with the latest version
+mapsindoors_mapbox: ^4.7.1 # replace with the latest version
 ```
 
 {% tabs %}
@@ -262,10 +262,10 @@ To ensure that the app is able to build properly after obfuscation, we need to a
 {% endtab %}
 
 {% tab title="iOS" %}
-The MapsIndoors SDK requires iOS 15, so make sure that your Podfile is configured for iOS 15. Add `use_frameworks!` inside your app target as well.
+The MapsIndoors SDK requires iOS 16, so make sure that your Podfile is configured for at least iOS 16. Add `use_frameworks!` inside your app target as well.
 
 ```
-platform :ios, '15.0'
+platform :ios, '16.0'
 
 target 'MyApp' do
   use_frameworks!

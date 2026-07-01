@@ -4,22 +4,22 @@ Now that you have taken care of all the preliminary issues, we can start buildin
 
 ### Create an Xcode Project​ <a href="#create-an-xcode-project" id="create-an-xcode-project"></a>
 
-We recommend using [Xcode](https://developer.apple.com/xcode/) for following along. For this guide we will be using Xcode 15.4. Note that an iOS mobile device is not required, as Xcode allows the use of a simulator.
+We recommend using [Xcode](https://developer.apple.com/xcode/) for following along. For this guide we will be using Xcode 26. Note that an iOS mobile device is not required, as Xcode allows the use of a simulator.
 
 We start off by creating an Xcode project using the App template:
 
-<figure><img src="../../../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/XcodeGettingStarted_1.png" alt=""><figcaption></figcaption></figure>
 
 For the project settings, you can call it anything you like, however ensure the following settings are set to follow along easier:
 
 * Interface: Storyboard
 * Language: Swift
 
-<figure><img src="../../../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/XcodeGettingStarted_2.png" alt=""><figcaption></figcaption></figure>
 
 You should now have a project folder with the following files:
 
-<figure><img src="../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/XcodeGettingStarted_3.png" alt=""><figcaption></figcaption></figure>
 
 ### Installing the MapsIndoors SDK​ <a href="#installing-the-mapsindoors-sdk" id="installing-the-mapsindoors-sdk"></a>
 
@@ -35,7 +35,7 @@ MapsIndoors can be installed using Swift Package Manager or CocoaPods.
 
     [`https://github.com/MapsPeople/mapsindoors-googlemaps-ios.git`](https://github.com/MapsPeople/mapsindoors-googlemaps-ios.git) (to use Google Maps)
 3. Select the _Dependency Rule_ you want to apply to the MapsIndoors SDK
-   * A common choice for _Dependency Rule_ is "Up to Next Major Version", specifying `4.16.0` as the minimum version. To instead install a specific version set the _Dependency Rule_ field to "Exact Version" and insert the desired version. The latest version of the MapsIndoors SDK is `4.16.0`.
+   * A common choice for _Dependency Rule_ is "Up to Next Major Version", specifying `4.18.0` as the minimum version. To instead install a specific version set the _Dependency Rule_ field to "Exact Version" and insert the desired version. The latest version of the MapsIndoors SDK is `4.18.0`.
 4. Hit enter or Click **Add Package**.
 5. In the new window select the `MapsIndoorsMapbox` or `MapsIndoorsGoogleMaps` library and click **Add Package**. Once SPM finishes installing the SDK you will see 3 new dependencies under **Package Dependencies**: `MapsIndoors`, `MapsIndoorsCore`, and `MapsIndoorsMapbox` or `MapsIndoorsGoogleMaps` (plus their respective dependencies).
 6. Click on your project's target, scroll down to `Frameworks, Libraries, and Embedded Content` and click the plus button.
@@ -59,13 +59,13 @@ If you are using Mapbox, make sure to configure your secret token in order to do
     ```ruby
     source 'https://github.com/CocoaPods/Specs.git'
 
-    platform :ios, '15.0' # Replace 15.0 with your iOS Minimum Deployment Target
+    platform :ios, '16.0' # Replace 16.0 with your iOS Minimum Deployment Target
 
     target 'YOUR_APPLICATION_TARGET_NAME_HERE' do
       # Remove the comment mark to use your map specific MapsIndoors pod
-      # pod 'MapsIndoorsGoogleMaps', '~> 4.16'
+      # pod 'MapsIndoorsGoogleMaps', '~> 4.18'
       # or
-      # pod 'MapsIndoorsMapbox11', '~> 4.16'
+      # pod 'MapsIndoorsMapbox11', '~> 4.18'
     end
     ```
 

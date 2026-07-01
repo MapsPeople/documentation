@@ -3,6 +3,14 @@
 MapsIndoors is built on top of Google Maps or Mapbox depending on the SDK flavor you decide to use. On this page, you'll create the necessary keys with the relevant APIs enabled, retrieve a MapsIndoors API key and install the necessary dependencies to get started building your own app.
 
 {% tabs %}
+{% tab title="Mapbox" %}
+**Get your Mapbox Access Token​**
+
+When using Mapbox you need a Mapbox account and configure credentials to run a Mapbox map with MapsIndoors and downloading the SDK: [Installation](https://docs.mapbox.com/android/maps/guides/install/)
+
+Once this is setup for the project, you can use the MapsIndoors Mapbox flavor.
+{% endtab %}
+
 {% tab title="Google Maps" %}
 **Get Your Google Maps API key​**
 
@@ -15,17 +23,7 @@ First, you need to [setup at a new project in the Google Cloud Console](https://
 
 When the above 3 APIs and the relevant SDK are enabled, you can retrieve the API key from the [Credentials page](https://console.cloud.google.com/project/_/apiui/credential). On the Credentials page, click _Create credentials_ > _API key_.
 {% endtab %}
-
-{% tab title="Mapbox" %}
-**Get your Mapbox Access Token​**
-
-When using Mapbox you need a Mapbox account and configure credentials to run a Mapbox map with MapsIndoors and downloading the SDK: [Installation](https://docs.mapbox.com/android/maps/guides/install/)
-
-Once this is setup for the project, you can use the MapsIndoors Mapbox flavor.
-{% endtab %}
 {% endtabs %}
-
-
 
 ### Get Your MapsIndoors API key​ <a href="#get-your-mapsindoors-api-key" id="get-your-mapsindoors-api-key"></a>
 

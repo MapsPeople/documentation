@@ -4,7 +4,7 @@ When using the Map Template as a React Component or as a Web Component, you can 
 
 You can read about all the methods that can be used on the MapsIndoors Instance [here](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/mapsindoors.MapsIndoors.html).
 
-1. #### React Component
+1. **React Component**
 
 To use the MapsIndoors instance within a React Component, you can create a `useEffect` hook that listens for the `mapsIndoorsInstanceAvailable` event on the `window` object.
 
@@ -29,7 +29,7 @@ function App() {
 export default App;
 </code></pre>
 
-2. #### Web Component
+2. **Web Component**
 
 To use the MapsIndoors instance within a Web Component, include a script tag that listens for the `mapsIndoorsInstanceAvailable` event on the `window` object.
 
