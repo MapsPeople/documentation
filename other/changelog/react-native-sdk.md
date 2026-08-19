@@ -6,13 +6,33 @@ icon: react
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.8.0] 2026-08-19
+
+#### Breaking changes
+
+* Minimum iOS deployment target is now 16.0 (was 15.6), as required by the MapsIndoors iOS SDK. Set platform `:ios, "16.0"` in your Podfile, and `deploymentTarget: "16.0"` in expo-build-properties if you use Expo.
+* Minimum supported React Native version is now 0.75.0.
+
+#### Updated
+
+* MapsIndoors Android SDK to 4.18.6.
+* MapsIndoors iOS SDK to 4.19.1.
+
+#### Fixed
+
+* **Android**: the map no longer renders black after navigating away from the map screen and back again when using `react-native-screens`' native stack. The native map view is now driven through its own lifecycle rather than the per-screen one, and is destroyed properly when unmounted.
+* **Android**: the map no longer keeps rendering while the app is in the background, which drained battery unnecessarily.
+* **Android**: `onLowMemory()` is now forwarded to the underlying Google Maps MapView.
+
 ### \[2.7.0] 2026-06-18
 
 #### Added
+
 * React Native New Architecture support — Both the Mapbox and Google Maps packages now support the React Native New Architecture (TurboModules and Fabric) via the interop layer, maintaining backwards compatibility with the old architecture. Codegen spec files have been added and codegenConfig is configured in each package.
 * Route polyline color customization — `MPDirectionsRenderer` now exposes `setPolylineColors(foregroundColor, backgroundColor)`, allowing the foreground and background colors of a rendered route to be customized.
 
 #### Updated
+
 * MapsIndoors Android SDK updated to 4.18.3
 * MapsIndoors iOS SDK updated to 4.17.2
 
@@ -114,7 +134,6 @@ Changelog for the MapsIndoors React Native SDK. This document structure is based
 * Updated MapsIndoors iOS SDK to 4.9.3
 * Updated MapsIndoors Android SDK to 4.11.0
 
-
 ### \[2.3.1] 2025-01-30
 
 #### Updated
@@ -153,7 +172,7 @@ Changelog for the MapsIndoors React Native SDK. This document structure is based
 
 #### Changed
 
-* New default positioning of labels relative to the icon is `MPLabelPosition.bottom`. If you want to keep the previous default of `MPLabelPosition.right` you can place the following line in your code after loading MapsIndoors data with `MapsIndoors.getMainDisplayRule().then((displayRule) => {  displayRule.setLabelStylePosition(MPLabelPosition.right); });`
+* New default positioning of labels relative to the icon is `MPLabelPosition.bottom`. If you want to keep the previous default of `MPLabelPosition.right` you can place the following line in your code after loading MapsIndoors data with `MapsIndoors.getMainDisplayRule().then((displayRule) => { displayRule.setLabelStylePosition(MPLabelPosition.right); });`
 
 #### Updated
 
