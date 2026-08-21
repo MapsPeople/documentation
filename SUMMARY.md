@@ -72,6 +72,7 @@
   * [Display Rules in Practice](sdks-and-frameworks/web/display-rules-in-practice.md)
   * [Offline Data](sdks-and-frameworks/web/offline-data.md)
   * [Managing map visibility](sdks-and-frameworks/web/managing-map-visibility.md)
+  * [Insights](sdks-and-frameworks/web/insights.md)
 * [Android](sdks-and-frameworks/android/README.md)
   * [Getting Started](sdks-and-frameworks/android/getting-started/README.md)
     * [Prerequisites](sdks-and-frameworks/android/getting-started/prerequisites.md)
