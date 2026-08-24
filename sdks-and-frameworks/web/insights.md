@@ -25,7 +25,7 @@ Before any Insights data will show up:
 
 1. **Web SDK 4.58.6 or later.** 4.58.5 shipped the v1 event names and the analytics context API. 4.58.6 added `venue_loaded`. Use the [current release](https://app.mapsindoors.com/mapsindoors/js/sdk/latest/docs/MapsIndoors.html) (4.59.2 at the time of writing).
 2. **The Insights module is enabled on the solution.** If the Insights dashboard is missing in the CMS, ask MapsPeople to enable the module. Event logging on the solution must also be on — the SDK only sends events when the solution allows it.
-3. **Do not disable SDK event logging.** Event logging is on by default. Calling `mapsindoors.MapsIndoors.disableEventLogging(true)` stops every Insights event.
+3. Check whether event logging is disabled with `mapsindoors.MapsIndoors.disableEventLogging(true)`. Setting it to `true` will stop every Insights event.
 
 ```html
 <script src="https://app.mapsindoors.com/mapsindoors/js/sdk/4.59.2/mapsindoors-4.59.2.js.gz"></script>
@@ -106,7 +106,9 @@ mapsIndoorsInstance.setAnalyticsContext({
 });
 ```
 
-`clearAnalyticsContext()` removes the stored variant. Subsequent events go out without one. Do not call it in production unless you are tearing the instance down.
+`clearAnalyticsContext()` removes the stored variant entirely. Subsequent events go out without one. Do not call it in production unless you are tearing the instance down.
+
+You do not need to call `clearAnalyticsContext()` before changing `viewVariant`. Call `setAnalyticsContext` again with the new value; it overwrites the stored variant.
 
 #### Validation and errors
 
