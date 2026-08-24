@@ -54,19 +54,20 @@ The SDK does not infer the variant from the user agent, viewport, or map provide
 This matches the published Web SDK API (`MapsIndoors.setAnalyticsContext`, `MapsIndoors.AnalyticsViewVariants`):
 
 ```javascript
-mapsindoors.MapsIndoors.setMapsIndoorsApiKey('YOUR_MAPSINDOORS_API_KEY');
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.28.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.28.1/mapbox-gl.css" rel="stylesheet" />
 
-const mapViewInstance = new mapsindoors.mapView.GoogleMapsView({
+mapsindoors.MapsIndoors.setMapsIndoorsApiKey('YOUR_MAPSINDOORS_API_KEY');
+const mapViewInstance = new mapsindoors.mapView.MapboxV3View({
+    accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN',
     element: document.getElementById('map'),
     center: { lat: 30.36022358949809, lng: -97.74204591828197 },
     zoom: 17
 });
-
 const mapsIndoorsInstance = new mapsindoors.MapsIndoors({
     mapView: mapViewInstance,
     venue: 'YOUR_MAPSINDOORS_VENUE_ID'
 });
-
 mapsIndoorsInstance.setAnalyticsContext({
     viewVariant: mapsindoors.MapsIndoors.AnalyticsViewVariants.DESKTOP
 });
