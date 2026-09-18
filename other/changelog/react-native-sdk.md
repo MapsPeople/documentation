@@ -6,6 +6,34 @@ icon: react
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.9.0] - 2026-09-18
+
+#### Added
+
+* Offline base map tiles, Mapbox only. `MapsIndoors.setBaseMapTilesEnabled(enabled, apiKey)` marks a solution for base-map caching and `MapsIndoors.synchronizeBaseMapTiles(onProgress?, apiKeys?)` downloads the tiles — the outdoor map underneath MapsIndoors, which `cacheData` does not cover. Both are needed for a map that renders offline, and the download takes minutes, so report progress through `onProgress`
+* `MapsIndoors.isBaseMapCachingSupported()`, reporting whether the map provider can cache. Google Maps exposes no per-region offline tile API, so it resolves `false` there and `synchronizeBaseMapTiles` rejects with `MPError.baseMapCachingNotSupported`
+* `MPDirectionsRenderer.setOptions(options)` and `getOptions()`, styling a rendered route from a single `MPDirectionsRendererOptions`: line color, opacity, weight and stroke style, background halo, animated overlay, repeating stamp and arrow style, start and end marker display rules, per connector leg boundary icons, 3D elevation (Mapbox only) and the camera's fit-bounds max zoom. Each option falls back on its own — the value set here, then the solution default from the CMS, then the SDK default — so options left out are inherited rather than reset
+* `MPDirectionsRenderer.finishGuidance(usagePercentage?)`, signalling that guidance on the current route has finished
+* `resolveLanguageTag(tag, availableLanguages)` and `normalizeLanguageTag(tag)`, turning a device locale into the exact tag a solution publishes before calling `MapsIndoors.setLanguage`. `resolveLanguageTag('zh-Hant-TW', solution.availableLanguages)` returns `'zh-Hant'`
+* `MPSolution.resolveLanguage(language)`, the same lookup against that solution's own languages
+
+#### Changed
+
+* Updated the MapsIndoors Android SDK to 4.22.0 and the iOS SDK to 4.20.0, the releases that carry the base-map tile cache
+* `MPSolution.hasLanguage` now matches language tags the way the native SDKs do instead of requiring an exact string: casing is ignored, the ICU underscore form is accepted (`zh_Hans`), legacy region-only Chinese tags resolve to their script (`zh-CN` matches `zh-Hans`), and a more specific tag falls back to a less specific one (`en-US` matches `en`). Bare `zh` still does not match a solution publishing only `zh-Hans` and `zh-Hant`, since there is no way to tell which is meant
+
+#### Deprecated
+
+* `MPDirectionsRenderer.setPolylineColors` and `setAnimatedPolyline`, superseded by `setOptions`. Both still work in 2.9.0
+
+#### Fixed
+
+* Polygon geometry on iOS never decoded the geometry it was given, so `MPPolygon.contains` always answered `false`, `getArea` always `0`, and `distanceToClosestEdge` resolved `undefined` despite being typed `Promise<number>`. The `false` and `0` results look legitimate, so any logic built on them is worth re-checking. Multi-polygon geometry now works as well
+* Serialising SDK models to the bridge on Android walked native memory by reflection, so the work grew with whatever the host app had allocated rather than with the map data. It only showed up in real apps on physical devices
+* `MapsIndoors.setLanguage`, `getAvailableLanguages`, `getDefaultLanguage`, `getSolution` and `getLocations` resolved `null` or threw unparseable errors instead of rejecting with an `MPError`. Native errors now reach the caller intact
+
+
+
 ### \[2.8.0] 2026-08-19
 
 #### Breaking changes
