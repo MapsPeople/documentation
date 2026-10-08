@@ -10,7 +10,7 @@ The **Edit** section is the main navigation of the MapsIndoors CMS and includes 
 2. Enters the "Edit" view (shown on the image). This is the page you see when logging into the CMS.
 3. Enters the "[View](interface-overview.md#view)" view. Here you can preview how your map will look in production.
 4. Enters the "Solution Details" menu containing the submenus mentioned earlier.
-5. Opens your solution's "Media Library"
+5. Opens your solution's "Media Library".
 6. Enter the "Settings" menu page containing subpages.
 7. Opens a drop-down menu containing options such as "Docs," "Log Out," and a link to enabling two-factor authentication.
 8. Select the active Venue. The filter bar can then narrow down the data you see on the Map and Lists for this Venue.
