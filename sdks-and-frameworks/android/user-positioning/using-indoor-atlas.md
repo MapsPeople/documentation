@@ -14,13 +14,13 @@ For a typical Position Provider, the mapping from the positioning's index needs 
 
 You can choose to fetch the Position Provider information (`CMS` > `Solution Details` > `App Settings` > `Position Provider`) from the CMS as follows:
 
-```java
-Map<String, Map<String, Object>> providerConfig = MapsIndoors.getSolution().getPositionProviderConfig();
+```kotlin
+val providerConfig: Map<String, Map<String, Any>>? = MapsIndoors.getSolution()?.positionProviderConfig
 ```
 
-The outer keyset (`Map<String, Map<String, Object>>`) contains the name of the positioning provider, for example, `indooratlas3` for IndoorAtlas, or `ciscodna` when using Cisco DNA Spaces.
+The outer keyset (`Map<String, Map<String, Any>>`) contains the name of the positioning provider, for example, `indooratlas3` for IndoorAtlas, or `ciscodna` when using Cisco DNA Spaces.
 
-The inner keyset (`Map<String, Object>`) consist of various attribute fields for a given positioning provider, such as keys, floor mapping etc. These attribute fields will vary across different positioning providers, so refer to their own documentation for details.
+The inner keyset (`Map<String, Any>`) consist of various attribute fields for a given positioning provider, such as keys, floor mapping etc. These attribute fields will vary across different positioning providers, so refer to their own documentation for details.
 
 #### Implementing Indoor Atlas​ <a href="#implementing-indoor-atlas" id="implementing-indoor-atlas"></a>
 
@@ -70,7 +70,7 @@ We start by creating a method to initiate the Indoor Atlas client. Here the meth
 ```kotlin
 class IndoorAtlasPositionProvider(private val context: Context, private val config: MPIndoorAtlasConfig): MPPositionProvider {
     ...
-    private void initClient(){
+    private fun initClient() {
         val extras = Bundle(2)
         extras.putString(IALocationManager.EXTRA_API_KEY, config.key)
         extras.putString(IALocationManager.EXTRA_API_SECRET, config.secret)

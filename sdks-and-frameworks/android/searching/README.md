@@ -28,35 +28,6 @@ See the full list of parameters:
 
 #### Example of Creating a Search Query <a href="#example-of-creating-a-search-query" id="example-of-creating-a-search-query"></a>
 
-{% tabs %}
-{% tab title="Java" %}
-{% code overflow="wrap" lineNumbers="true" %}
-```java
-void findRestroom() {
-    //Here we will create an empty query because we are only interested in getting locations that match a category. If you want to be more specific here where you can add a query text like "Unisex Restroom"
-    MPQuery mpQuery = new MPQuery
-            .Builder()
-            .build();
-
-    List<String> categories = new ArrayList<>();
-    categories.add("RESTROOMS");
-
-    // Init the filter builder and build a filter, the criteria in this case we want maximum 50 restrooms
-    MPFilter mpFilter = new MPFilter
-            .Builder()
-            .setCategories(categories)
-            .setTake(50)
-            .build();
-
-    MapsIndoors.getLocationsAsync(mpQuery, mpFilter, (locations, error) -> {
-        //Check if there is an error and iterate through the list to do what you need with the search
-    });
-}
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="Kotlin" %}
 {% code overflow="wrap" lineNumbers="true" %}
 ```kotlin
 fun findRestroom() {
@@ -78,8 +49,6 @@ fun findRestroom() {
 }
 ```
 {% endcode %}
-{% endtab %}
-{% endtabs %}
 
 ### Display Search Results on the Map​ <a href="#display-search-results-on-the-map" id="display-search-results-on-the-map"></a>
 
@@ -87,31 +56,14 @@ When displaying the search results it is helpful to filter the map to only show 
 
 #### Example of Filtering the Map to Display Searched Locations on the Map <a href="#example-of-filtering-the-map-to-display-searched-locations-on-the-map" id="example-of-filtering-the-map-to-display-searched-locations-on-the-map"></a>
 
-{% tabs %}
-{% tab title="Java" %}
-{% code overflow="wrap" lineNumbers="true" %}
-```java
-MapsIndoors.getLocationsAsync(mpQuery, mpFilter, (locations, error) -> {
-    if (locations != null && !locations.isEmpty()) {
-        //Query with the locations from the query result. Use default camera behavior
-        mMapControl.setFilter(locations, MPFilterBehavior.DEFAULT);
-    }
-});
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="Kotlin" %}
 {% code overflow="wrap" lineNumbers="true" %}
 ```kotlin
 MapsIndoors.getLocationsAsync(mpQuery, mpFilter) { locations, error ->
     //Query with the locations from the query result. Use default camera behavior
     mMapControl.setFilter(locations, MPFilterBehavior.DEFAULT)
-};
+}
 ```
 {% endcode %}
-{% endtab %}
-{% endtabs %}
 
 ### Clearing the Map of Your Filter​ <a href="#clearing-the-map-of-your-filter" id="clearing-the-map-of-your-filter"></a>
 
@@ -119,23 +71,11 @@ After displaying the search results on your map you can then clear the filter so
 
 #### Example of Clearing Your Map Filter to Show All Locations Again <a href="#example-of-clearing-your-map-filter-to-show-all-locations-again" id="example-of-clearing-your-map-filter-to-show-all-locations-again"></a>
 
-{% tabs %}
-{% tab title="Java" %}
-{% code overflow="wrap" lineNumbers="true" %}
-```java
-mMapControl.clearFilter();
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="Kotlin" %}
 {% code overflow="wrap" lineNumbers="true" %}
 ```kotlin
 mMapControl.clearFilter()
 ```
 {% endcode %}
-{% endtab %}
-{% endtabs %}
 
 ### Searching for Nested Categories <a href="#searching-for-nested-categories" id="searching-for-nested-categories"></a>
 

@@ -8,8 +8,8 @@ To change the building outline color, along with other display properties, you m
 
 Note that the DisplayRule will be null if MapsIndoors is not loaded.
 
-```java
-MapsIndoors.getDisplayRule(MPSolutionDisplayRule.BUILDING_OUTLINE).setPolygonStrokeColor(Color.BLUE);
+```kotlin
+MapsIndoors.getDisplayRule(MPSolutionDisplayRule.BUILDING_OUTLINE)?.setPolygonStrokeColor(Color.BLUE)
 ```
 
 The parameter `strokeColor` takes the color in ARGB format (with an alpha-channel value), the syntax being `AARRGGBB`.
