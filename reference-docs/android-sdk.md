@@ -13,7 +13,7 @@ icon: android
 **Previous versions**
 
 * [MapsIndoors Android SDK v4.22.1](https://app.mapsindoors.com/mapsindoors/reference/android/4.22.1/index.html)
-* [MapsIndoors Android SDK v4.22.0](https://app.mapsindoors.com/mapsindoors/reference/android/4.22./index.html)
+* [MapsIndoors Android SDK v4.22.0](https://app.mapsindoors.com/mapsindoors/reference/android/4.22.0/index.html)
 * [MapsIndoors Android SDK v4.21.0](https://app.mapsindoors.com/mapsindoors/reference/android/4.21.0/index.html)
 * [MapsIndoors Android SDK v4.20.0](https://app.mapsindoors.com/mapsindoors/reference/android/4.20.0/index.html)
 * [MapsIndoors Android SDK v4.19.0](https://app.mapsindoors.com/mapsindoors/reference/android/4.19.0/index.html)
