@@ -37,7 +37,7 @@ Navigate to Display Rules for a designated Location Type to manage Display Rules
 
 ## Display Rule Hierarchy[​](https://docs.mapsindoors.com/display-rules#display-rule-hierarchy) <a href="#display-rule-hierarchy" id="display-rule-hierarchy"></a>
 
-In each MapsIndoors SDK, the "Main Display Rule" outlines a list of sensible defaults for all geodata. Each Location Type inherits its values from this Main Display Rule, unless the value is specifically overridden.
+In each MapsIndoors SDK, the ''Main Display Rule" outlines a list of sensible defaults for all GeoData. Each Location Type inherits its values from this Main Display Rule, unless the value is specifically overridden.
 
 Each Location (Room, Area or POI) uses the Display Rule from the combined Main and Type Display Rules, except for values that are specifically set for the individual Location.
 
