@@ -8,9 +8,12 @@ An overview of the minimum technical requirements for using the MapsIndoors SDKs
 
 ### Android SDK
 
-Minimum SDK version: 21\
-SDK target version: 35 (This is a play store requirement)\
-JDK source: 11
+Minimum SDK version: 24\
+SDK target version: 37 (This is a play store requirement)\
+Compile SDK version: 37\
+JDK: 17\
+Android Gradle Plugin: 9.2.1 or newer\
+Kotlin: 2.2 or newer
 
 ### iOS SDK
 
