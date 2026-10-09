@@ -13,7 +13,7 @@ Start by creating a new activity or _fragment_ to facilitate searches on your ap
 
 To perform a search you will need to have initiated [`MapsIndoors`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-maps-indoors/index.html?query=class%20MapsIndoors). This was shown in the previous section of the getting started tutorial how you do this.
 
-For advanced usage of the search functionality read the Search guide and tutorials connected to it: [Search Guide](https://docs.mapsindoors.com/searching/)
+For advanced usage of the search functionality read the Search guide and tutorials connected to it: [Search Guide](../searching/README.md)
 
 ## Show a List of Search Results​ <a href="#show-a-list-of-search-results" id="show-a-list-of-search-results"></a>
 

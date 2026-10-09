@@ -4,7 +4,7 @@ MapsIndoors is built on top of Google Maps or Mapbox depending on the SDK flavor
 
 {% tabs %}
 {% tab title="Google Maps" %}
-**Get Your Google Maps API key**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/prerequisites#get-your-google-maps-api-key)
+**Get Your Google Maps API key**
 
 First, you need to [setup at a new project in the Google Cloud Console](https://developers.google.com/maps/gmp-get-started) (**Please note:** You are going to need a Google Billing Account for this step, so go ahead and [create one](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create_a_new_billing_account) if you haven't already). When the project is created, the following APIs and the specific SDK you plan to use must be enabled from the [Maps API Library Page](https://console.cloud.google.com/apis/library?filter=category:maps).
 
@@ -17,11 +17,16 @@ When the above 3 APIs and the relevant SDK are enabled, you can retrieve the API
 {% endtab %}
 
 {% tab title="Mapbox" %}
-**Get your Mapbox Access Token**[**​**](https://docs.mapsindoors.com/getting-started/android/v4/prerequisites#get-your-mapbox-access-token)
+**Get your Mapbox Access Tokens**
 
-When using Mapbox you need a Mapbox account and configure credentials to run a Mapbox map with MapsIndoors and downloading the SDK: [Installation](https://docs.mapbox.com/android/maps/guides/install/)
+When using Mapbox you need a [Mapbox account](https://account.mapbox.com/) and two access tokens, which you create on your Mapbox account's [Tokens page](https://account.mapbox.com/access-tokens/):
 
-Once this is setup for the project, you can use the MapsIndoors Mapbox flavor.
+* A public access token, which your app uses to show the Mapbox map.
+* A secret access token with the `Downloads:Read` scope, which Gradle uses to download the Mapbox Maps SDK from Mapbox's Maven repository. [Create a New Project](create-a-new-project.md) shows where to put it.
+
+Read more in Mapbox's [Installation](https://docs.mapbox.com/android/maps/guides/install/) guide.
+
+Once this is set up for the project, you can use the MapsIndoors Mapbox SDK.
 {% endtab %}
 {% endtabs %}
 
@@ -31,4 +36,4 @@ If you are not a customer yet, you can use this demo MapsIndoors API key `02c329
 
 ### Work with MapsIndoors SDK behind a Firewall​ <a href="#work-with-mapsindoors-sdk-behind-a-firewall" id="work-with-mapsindoors-sdk-behind-a-firewall"></a>
 
-If you need to work with MapsIndoors SDK behind a firewall, you might need to [allowlist some IP-addresses](https://docs.mapsindoors.com/mapsindoors-sdk-firewall).
+If you need to work with MapsIndoors SDK behind a firewall, you might need to [allowlist some IP-addresses](../../../mapsindoors-sdk-firewall.md).
