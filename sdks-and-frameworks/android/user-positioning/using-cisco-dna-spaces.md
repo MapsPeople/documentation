@@ -14,15 +14,13 @@ The MapsIndoors backend is closely integrated with the CiscoDNA platform, so the
 
 **Fetch Attributes from Solution​**
 
-You can choose to fetch the Position Provider information (`CMS` > `Solution Details` > `App Settings` > `Position Provider`) from the CMS as follows:
+You can choose to fetch the Cisco DNA configuration (`CMS` > `Solution Details` > `App Settings` > `Position Provider`) from the CMS as follows:
 
 ```kotlin
-val providerConfig: Map<String, Map<String, Any>>? = MapsIndoors.getSolution()?.positionProviderConfig
+val ciscoConfig: MPCiscoDNAConfig? = MapsIndoors.solution?.ciscoDNAConfig
 ```
 
-The outer keyset (`Map<String, Map<String, Any>>`) contains the name of the positioning provider, for example, `indooratlas3` for IndoorAtlas, or `ciscodna` when using Cisco DNA Spaces.
-
-The inner keyset (`Map<String, Any>`) consist of various attribute fields for a given positioning provider, such as keys, floor mapping etc. These attribute fields will vary across different positioning providers, so refer to their own documentation for details.
+`MPCiscoDNAConfig` holds the `tenantId` needed to set up Cisco DNA positioning. It is `null` if Cisco DNA is not configured for the Solution.
 
 #### Implementing Cisco DNA for Android​ <a href="#implementing-cisco-dna-for-android" id="implementing-cisco-dna-for-android"></a>
 

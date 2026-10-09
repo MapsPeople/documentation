@@ -32,7 +32,7 @@ The level of caching can be changed:
 
 ```kotlin
 val dataset = MPDataSetCacheManager.getInstance().getDataSetByID("API KEY")
-dataset?.setScope(mContext, MPDataSetCacheScope.DETAILED)
+dataset?.scope = MPDataSetCacheScope.DETAILED
 MPDataSetCacheManager.getInstance().synchronizeDataSets(Collections.singletonList(dataset))
 ```
 
@@ -85,7 +85,7 @@ To change the extent of caching, for example in a management menu:
 
 ```kotlin
 val dataset = MPDataSetCacheManager.getInstance().getDataSetByID("API KEY")
-dataset?.setScope(mContext, MPDataSetCacheScope.DETAILED)
+dataset?.scope = MPDataSetCacheScope.DETAILED
 MPDataSetCacheManager.getInstance().synchronizeDataSets(Collections.singletonList(dataset))
 ```
 
@@ -101,10 +101,16 @@ dataSet?.cacheItem?.syncSize
 To refresh or get the size of a synced dataset:
 
 ```kotlin
-MPDataSetCacheManager.getInstance().getSyncSizesForDataSetCaches(listOf(dataSet), this)
+MPDataSetCacheManager.getInstance().getSyncSizesForDataSetCaches(listOf(dataSet)).collect { event ->
+    when (event) {
+        is MPCacheSizeEvent.SizeReady -> Log.i("dataset", "size ready for " + event.dataSetCache.solutionId)
+        MPCacheSizeEvent.Done -> Log.i("dataset", "sizing done")
+        else -> {}
+    }
+}
 ```
 
-This is an asynchronous process, and a `MPDataSetCacheManagerSizeListener` is needed for getting information about progress and results.
+This is an asynchronous process that emits `MPCacheSizeEvent`s, always ending with `MPCacheSizeEvent.Done`. `collect` must be called from a coroutine. If you can't collect a `Flow`, pass an `MPStateListener<MPCacheSizeEvent>` as the second argument instead; that overload returns the `Job` running the query.
 
 **Synchronizing Data with MPDataSetCacheManager**[**​**](https://docs.mapsindoors.com/offline-data#synchronizing-data-with-mpdatasetcachemanager-1)
 
