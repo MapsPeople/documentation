@@ -14,16 +14,16 @@ Click `Add App User Role` and enter the name of the newly created Role in all de
 
 Assigning or changing App User Roles to users is done in the app itself. The method depends on which platform you're developing for. Here are some examples:
 
-To fetch User Roles from the SDK, you call `MapsIndoors.getUserRoles()` to retrieve a collection of `MPUserRoles` tied to a loaded solution:
+To fetch User Roles from the SDK, you read `MapsIndoors.userRoles` to retrieve a collection of `MPUserRoles` tied to a loaded solution:
 
-```java
-final List<MPUserRole> cmsUserRoles = MapsIndoors.getUserRoles().getUserRoles();
+```kotlin
+val cmsUserRoles: List<MPUserRole>? = MapsIndoors.userRoles?.userRoles
 ```
 
 To set User Roles, `applyUserRoles` is used:
 
-```java
-MapsIndoors.applyUserRoles(savedUserRoles);
+```kotlin
+MapsIndoors.applyUserRoles(savedUserRoles)
 ```
 
 > For more information, see the [reference documentation](https://app.mapsindoors.com/mapsindoors/reference/android/v3/index.html).
