@@ -33,7 +33,7 @@ The level of caching can be changed:
 ```kotlin
 val dataset = MPDataSetCacheManager.getInstance().getDataSetByID("API KEY")
 dataset?.scope = MPDataSetCacheScope.DETAILED
-MPDataSetCacheManager.getInstance().synchronizeDataSets(Collections.singletonList(dataset))
+MPDataSetCacheManager.getInstance().synchronizeDataSets(listOfNotNull(dataset))
 ```
 
 **Caching of Multiple Datasets**[**​**](https://docs.mapsindoors.com/offline-data#caching-of-multiple-datasets-1)
@@ -86,7 +86,7 @@ To change the extent of caching, for example in a management menu:
 ```kotlin
 val dataset = MPDataSetCacheManager.getInstance().getDataSetByID("API KEY")
 dataset?.scope = MPDataSetCacheScope.DETAILED
-MPDataSetCacheManager.getInstance().synchronizeDataSets(Collections.singletonList(dataset))
+MPDataSetCacheManager.getInstance().synchronizeDataSets(listOfNotNull(dataset))
 ```
 
 **Determining the Caching Size of a Dataset**[**​**](https://docs.mapsindoors.com/offline-data#determining-the-caching-size-of-a-dataset-1)
@@ -101,7 +101,7 @@ dataSet?.cacheItem?.syncSize
 To refresh or get the size of a synced dataset:
 
 ```kotlin
-MPDataSetCacheManager.getInstance().getSyncSizesForDataSetCaches(listOf(dataSet)).collect { event ->
+MPDataSetCacheManager.getInstance().getSyncSizesForDataSetCaches(listOfNotNull(dataSet)).collect { event ->
     when (event) {
         is MPCacheSizeEvent.SizeReady -> Log.i("dataset", "size ready for " + event.dataSetCache.solutionId)
         MPCacheSizeEvent.Done -> Log.i("dataset", "sizing done")
