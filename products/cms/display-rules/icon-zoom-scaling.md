@@ -26,7 +26,7 @@ Icon zoom scaling works on **Mapbox** maps only. On Google Maps Solutions the se
 | Platform    | First version |
 | ----------- | ------------- |
 | Web SDK     | 4.62.0        |
-| iOS SDK     | _TBD_         |
+| iOS SDK     | 4.23.0        |
 | Android SDK | 4.23.0        |
 
 Older SDK versions ignore the settings, so you can configure Icon zoom scaling before every app has been updated. Nothing changes on the map until an app uses a supported version.

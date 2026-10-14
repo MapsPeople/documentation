@@ -12,7 +12,7 @@ Icon zoom scaling works with Mapbox only. Google Maps ignores it.
 
 ## Requirements
 
-* iOS SDK **TBD** or later.
+* iOS SDK **4.23.0** or later.
 * A Solution with Icon zoom scaling turned on in the CMS.
 
 ## No code changes needed
