@@ -24,22 +24,27 @@ In order to utilize an OAuth2 login flow for your MapsIndoors project, you will 
 This can be called from MapsIndoors like this:
 
 ```kotlin
-MapsIndoors.getAuthenticationDetails("d2540acd09f241d187994eec") { authDetails: MPAuthDetails? ->
-    //Check if authdetails is not null and auth is required for the api
-    if (authDetails != null && authDetails.isAuthRequired) {
-        //Through the authDetails you can retrieve the necessary data to create a auth request. Here is an example through the appAuth library
-        AuthorizationServiceConfiguration.fetchFromIssuer(Uri.parse(authDetails.authIssuer)) { serviceConfiguration: AuthorizationServiceConfiguration?, _: AuthorizationException? ->
-            authorizationRequest = AuthorizationRequest.Builder(
-                serviceConfiguration!!,
-                authDetails.authClients[0].clientId,
-                ResponseTypeValues.CODE,
-                Uri.parse("mapsindoorsapp://"))
-                .setAdditionalParameters(Collections.singletonMap("acr_values", "idp:" + authDetails.authClients[0].preferredIDPs[0]))
-                .setScope("openid profile account client-apis").build()
-            authorizationService = AuthorizationService(this)
-            val authIntent = authorizationService!!.getAuthorizationRequestIntent(authorizationRequest!!)
-            startActivity(authIntent)
+MapsIndoors.getAuthenticationDetails("d2540acd09f241d187994eec") { authDetails, _ ->
+    // Check that the details were fetched and that the API key requires authentication
+    if (authDetails == null || !authDetails.isAuthRequired) return@getAuthenticationDetails
+    val issuer = authDetails.authIssuer ?: return@getAuthenticationDetails
+    val authClient = authDetails.authClients?.firstOrNull() ?: return@getAuthenticationDetails
+    val clientId = authClient.clientId ?: return@getAuthenticationDetails
+    // Through the authDetails you can retrieve the data needed to create an auth request. Here is an example using the AppAuth library
+    AuthorizationServiceConfiguration.fetchFromIssuer(Uri.parse(issuer)) { serviceConfiguration, _ ->
+        if (serviceConfiguration == null) return@fetchFromIssuer
+        val requestBuilder = AuthorizationRequest.Builder(
+            serviceConfiguration,
+            clientId,
+            ResponseTypeValues.CODE,
+            Uri.parse("mapsindoorsapp://"),
+        ).setScope("openid profile account client-apis")
+        authClient.preferredIDPs?.firstOrNull()?.let { idp ->
+            requestBuilder.setAdditionalParameters(mapOf("acr_values" to "idp:$idp"))
         }
+        authorizationRequest = requestBuilder.build()
+        authorizationService = AuthorizationService(this)
+        startActivity(authorizationService.getAuthorizationRequestIntent(authorizationRequest))
     }
 }
 ```
@@ -53,30 +58,29 @@ After you have made the request if using the library you will have to react on t
 With that you response you will create the token exchange request. The token exchange request will respond with a token if succesful that can be set through the `MapsIndoors` class by calling `setAuthToken`. The set access token is used by the MapsIndoors SDK, for remaining lifespan of the SDK. If the SDK is initialized again, a token will need to be set again.
 
 ```kotlin
-//Continuing the example of using the appAuth library together with MapsIndoors
-override fun onNewIntent(intent: Intent?) {
+// Continuing the example of using the AppAuth library together with MapsIndoors
+override fun onNewIntent(intent: Intent) {
     super.onNewIntent(intent)
-    val data = intent!!.data
-    val authorizationResponse = AuthorizationResponse.Builder(authorizationRequest!!).fromUri(data!!).build()
-    authorizationService!!.performTokenRequest(authorizationResponse.createTokenExchangeRequest()) { response: TokenResponse?, _: AuthorizationException? ->
-        if (response != null) {
-            if (response.accessToken != null) {
-                MapsIndoors.setAuthToken(response.accessToken!!)
-            }
+    val data = intent.data ?: return
+    val authorizationResponse = AuthorizationResponse.Builder(authorizationRequest).fromUri(data).build()
+    authorizationService.performTokenRequest(authorizationResponse.createTokenExchangeRequest()) { response, _ ->
+        response?.accessToken?.let { accessToken ->
+            MapsIndoors.setAuthToken(accessToken)
         }
     }
 }
 ```
 
-You can now validate that you have set up the token correctly by calling `MPApiKeyValidatorService.checkAuthToken` with your solution key like this:
+You can now validate that you have set up the token correctly by calling `MPApiKeyValidator.checkAuthToken` with your solution key. It is a `suspend` function that returns `null` when the token gives access, or an `MIError` describing why it does not:
 
 ```kotlin
 fun checkApiKeyValidityAndInitializeSDK() {
-    MPApiKeyValidatorService.checkAuthToken("apikey") {
-        if (it != null) {
-            //An error happened, authentication was not succesful.
-        }else {
-            //You have now succesfully gotten access to a solution that requires authentication
+    lifecycleScope.launch {
+        val error = MPApiKeyValidator.checkAuthToken("apikey")
+        if (error != null) {
+            // An error happened, authentication was not successful
+        } else {
+            // You have now successfully gotten access to a solution that requires authentication
             MapsIndoors.load(applicationContext, "apikey", null)
         }
     }

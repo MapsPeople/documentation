@@ -128,41 +128,38 @@ The positioning manager should only be initialized when positioning is required.
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.lifecycleScope
+import com.mapsindoors.core.MapsIndoors
 import com.mapsindoors.positioning.crowdconnected.MPCrowdConnectedManager
 import com.mapsindoors.positioning.crowdconnected.MPCrowdConnectedConfig
+import kotlinx.coroutines.launch
 import net.crowdconnected.android.core.StatusCallback
 
 class MainActivity : FragmentActivity() {
   private var positionManager: MPCrowdConnectedManager? = null
 
   fun startPositioning() {
-    positionManager = MPCrowdConnectedManager(
-      getApplication(),
+    val manager = MPCrowdConnectedManager(
+      application,
       MPCrowdConnectedConfig("your_app_key", "your_token", "your_secret"), // you should not input your secrets directly, fetch them from somewhere secure
       object : StatusCallback {
-        override fun onStartUpSuccess() {
-          Log.i("IPS", "CrowdConnected started successfully")
-          runOnUiThread {
-            Toast.makeText(getApplicationContext(), "CrowdConnected started successfully", Toast.LENGTH_LONG).show()
-          }
-        }
+        override fun onStartUpSuccess() = showStatus("CrowdConnected started successfully")
 
-        override fun onRuntimeError(error: String?) {
-          Log.i("IPS", "CrowdConnected runtime error: $error")
-          runOnUiThread {
-            Toast.makeText(getApplicationContext(), "CrowdConnected runtime error: $error", Toast.LENGTH_LONG).show()
-          }
-        }
+        override fun onRuntimeError(error: String?) = showStatus("CrowdConnected runtime error: $error")
 
-        override fun onStartUpFailure(failure: String?) {
-          Log.i("IPS", "CrowdConnected startup failure: $failure")
-          runOnUiThread {
-            Toast.makeText(getApplicationContext(), "CrowdConnected startup failure: $failure", Toast.LENGTH_LONG).show()
-          }
-        }
+        override fun onStartUpFailure(failure: String?) = showStatus("CrowdConnected startup failure: $failure")
       }
     )
-    MapsIndoors.setPositionProvider(positionManager!!)
+    positionManager = manager
+    MapsIndoors.positionProvider = manager
+  }
+
+  private fun showStatus(message: String) {
+    Log.i("IPS", message)
+    // The status callbacks can arrive on a background thread, so show the Toast from the main thread
+    lifecycleScope.launch {
+      Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
+    }
   }
 }
 ```
@@ -184,32 +181,28 @@ import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
 import com.mapsindoors.core.MapControl
 import com.mapsindoors.mapbox.MPMapConfig
-import com.mapsindoors.core.errors.MIError
 import com.mapbox.maps.MapView
-import com.mapbox.maps.MapboxMap
 
 class MainActivity : FragmentActivity() {
-  private var mMapControl: MapControl? = null
-  private var mMap: MapBoxMap? = null
-  private var mMapView: MapBoxMapView? = null
+  private var mapControl: MapControl? = null
+  private lateinit var mapView: MapView
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
     // initialize Map
-    mMapView = requireActivity().findViewById(R.id.mapView)
-    mMap = mMapView.mapboxMap
+    mapView = findViewById(R.id.mapView)
     // start building MapControl
     initMapControl()
   }
 
   private fun initMapControl() {
-    val mapConfig = MPMapConfig.Builder(this, mMap ?: return, mMapView ?: return, "your_mapbox_api_key", true)
+    val mapConfig = MPMapConfig.Builder(this, mapView.mapboxMap, mapView, "your_mapbox_api_key", true)
       .setShowUserPosition(true) // setShowUserPosition to true to show the latest position given to MapsIndoors on the map
       .build()
-    MapControl.create(mapConfig) { mapControl: MapControl?, miError: MIError? ->
-      if (miError == null) {
-        mMapControl = mapControl
+    MapControl.create(mapConfig) { mapControl, error ->
+      if (error == null) {
+        this.mapControl = mapControl
       }
     }
   }
@@ -227,11 +220,11 @@ import androidx.fragment.app.FragmentActivity
 import com.mapsindoors.core.MapControl
 
 class MainActivity : FragmentActivity() {
-  private var mMapControl: MapControl? = null
+  private var mapControl: MapControl? = null
 
   private fun showPosition(show: Boolean) {
     // positioning can be enabled at any time mapcontrol is accessible
-    mMapControl?.showUserPosition(show)
+    mapControl?.showUserPosition(show)
   }
 }
 ```

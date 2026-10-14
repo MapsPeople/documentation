@@ -10,9 +10,8 @@ First, make a new fragment for the menu, and call it `MenuFragment`, this fragme
 
 ```kotlin
 class MenuFragment : Fragment() {
-    private lateinit var mMenuInfos: List<MPMenuInfo?>
-    private lateinit var mMapActivity: MapsActivity
-
+    private var menuInfos: List<MPMenuInfo> = emptyList()
+    private lateinit var mapActivity: MapsActivity
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // For the brevity of this guide, we will reuse the bottom sheet used in the searchFragment
@@ -22,16 +21,15 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val recyclerView = view as RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = MenuItemAdapter(mMenuInfos, mMapActivity)
+        recyclerView.adapter = MenuItemAdapter(menuInfos, mapActivity, viewLifecycleOwner.lifecycleScope)
     }
 
     companion object {
-        fun newInstance(menuInfos: List<MPMenuInfo?>, mapsActivity: MapsActivity): MenuFragment {
-            val fragment = MenuFragment()
-            fragment.mMenuInfos = menuInfos
-            fragment.mMapActivity = mapsActivity
-            return fragment
-        }
+        fun newInstance(menuInfos: List<MPMenuInfo>, mapsActivity: MapsActivity): MenuFragment =
+            MenuFragment().apply {
+                this.menuInfos = menuInfos
+                mapActivity = mapsActivity
+            }
     }
 }
 ```
@@ -42,8 +40,9 @@ Next make an adapter for this list of `MPMenuInfo`. In this example the adapter 
 
 ```kotlin
 internal class MenuItemAdapter(
-    private val mMenuInfos: List<MPMenuInfo?>,
-    private val mMapActivity: MapsActivity?
+    private val menuInfos: List<MPMenuInfo>,
+    private val mapActivity: MapsActivity,
+    private val scope: CoroutineScope,
 ) : RecyclerView.Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -51,93 +50,69 @@ internal class MenuItemAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //Setting the the text on the text view to the name of the location
-        holder.text.text = mMenuInfos[position]?.name
-        ...
-
+        val menuInfo = menuInfos[position]
+        // Setting the text on the text view to the name of the menu item
+        holder.text.text = menuInfo.name
+        // ...
     }
 
-    override fun getItemCount(): Int {
-        return mMenuInfos.size
-    }
+    override fun getItemCount(): Int = menuInfos.size
 }
 ```
 
-The icon for the `MPMenuInfo` is saved as an URL, as such it has to be downloaded to be displayed. Open a network connection in a background thread and download the image as a stream and save it in a `Bitmap`, then update the item's view back on the Main thread.
+The icon for the `MPMenuInfo` is saved as an URL, as such it has to be downloaded to be displayed. Launch a coroutine in the fragment's view lifecycle scope, download the image as a stream into a `Bitmap` on the IO dispatcher, then update the item's view back on the main thread.
 
 > This is a very rudimentary example, and should not be replicated in production code, see it as an exercise to implement a better way to download and display the icons.
 
 ```kotlin
-// if there exists an icon for this menuItem, then we will use it
-val iconUrl = mMenuInfos[position]?.iconUrl
+// If there is an icon for this menu item, use it
+val iconUrl = menuInfo.iconUrl
 if (iconUrl != null) {
-    // As we need to download the image, it has to be offloaded from the main thread
-    Thread {
-        val image: Bitmap = try {
-            val url = URL(iconUrl)
-            BitmapFactory.decodeStream(url.openConnection().getInputStream())
-        } catch (ignored: IOException) {
-            return@Thread
+    scope.launch {
+        // As we need to download the image, it has to be offloaded from the main thread
+        val image = withContext(Dispatchers.IO) {
+            runCatching { URL(iconUrl).openStream().use(BitmapFactory::decodeStream) }.getOrNull()
         }
-        //Set the image while on the main thread
-        Handler(Looper.getMainLooper()).post {
-            holder.imageView.setImageBitmap(
-                image
-            )
-        }
-    }.start()
+        // Back on the main thread, set the image
+        image?.let { holder.imageView.setImageBitmap(it) }
+    }
 }
 ```
 
-To show which locations belong to the category of the selected `MPMenuInfo`, call `MapsIndoors.getLocationsAsync(MPQuery, MPFilter, OnLocationsReadyListener)`. The `MPQuery` can just be empty as nothing specific needs to be queried. Set the category on the `MPFilter`, this has to be the category key `MPMenuInfo.getCategoryKey()`, as this key is shared with locations in the SDK.
+To show which locations belong to the category of the selected `MPMenuInfo`, call `MapsIndoors.getLocationsAsync(query, filter, listener)`. The query can be `null` as nothing specific needs to be queried. Set the category on the `MPFilter`, this has to be the category key `MPMenuInfo.categoryKey`, as this key is shared with locations in the SDK.
 
-Finally, in the `OnLocationsReadyListener` call `MapControl.setFilter(List<MPLocation>, MPFilterBehavior)` as this will filter the map to only show the selected locations.
+Finally, in the listener call `MapControl.setFilter(locations, behavior)` as this will filter the map to only show the selected locations.
 
 ```kotlin
-// When a category is selected, we want to filter the map s.t. it only shows the locations in that
+// When a category is selected, we want to filter the map so it only shows the locations in that
 // category
-holder.itemView.setOnClickListener { view ->
-    // empty query, we do not need to query anything specific
-    val query = MPQuery.Builder().build()
-    // filter created on the selected category key
-    val filter = MPFilter.Builder().setCategories(
-        listOf(
-            mMenuInfos[position]?.categoryKey
-        )
-    ).build()
-    MapsIndoors.getLocationsAsync(
-        query, filter
-    ) { locations: List<MPLocation?>?, error: MIError? ->
+holder.itemView.setOnClickListener {
+    // Filter on the selected category key. We do not need to query anything specific, so no MPQuery is passed
+    val filter = MPFilter {
+        categories = listOf(menuInfo.categoryKey)
+    }
+    MapsIndoors.getLocationsAsync(null, filter) { locations, error ->
         if (error == null && locations != null) {
-            mMapActivity?.getMapControl()?.setFilter(locations, MPFilterBehavior.DEFAULT)
+            mapActivity.mapControl.setFilter(locations, MPFilterBehavior.DEFAULT)
         }
     }
 }
 ```
 
-Then, in order to show the menu, hijack the search icon's `onClickListener` method. The `MPMenuInfo` can be fetched via `MapsIndoors.getAppConfig().getMenuInfo(String)`, and will give a menu corresponding to the inputted String, in this guide `"mainmenu"` has been used as it is the default.
+Then, in order to show the menu, hijack the search icon's `onClickListener` method. The `MPMenuInfo` list can be fetched via `MapsIndoors.appConfig?.getMenuInfo(menuName)`, and will give a menu corresponding to the given name, in this guide `"mainmenu"` has been used as it is the default.
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
-    ...
-    //ClickListener to start a search, when the user clicks the search button
-    var searchBtn = findViewById<ImageButton>(R.id.search_btn)
-    searchBtn.setOnClickListener {
-        /*
-        if (mSearchTxtField.text?.length != 0) {
-            //There is text inside the search field. So lets do the search.
-            search(mSearchTxtField.text.toString())
-        }
-        //Making sure keyboard is closed.
-        imm.hideSoftInputFromWindow(it.windowToken, 0)
-        */
-
-        // Lets hijack the searchbutton
-        mMenuFragment = MenuFragment.newInstance(MapsIndoors.getAppConfig()?.getMenuInfo("mainmenu")!!, this)
-        //Make a transaction to the bottomsheet
-        addFragmentToBottomSheet(mMenuFragment)
+    // ...
+    // Use the search button to open the menu instead of starting a search
+    val searchButton = findViewById<ImageButton>(R.id.search_btn)
+    searchButton.setOnClickListener {
+        val menuInfos = MapsIndoors.appConfig?.getMenuInfo("mainmenu") ?: return@setOnClickListener
+        menuFragment = MenuFragment.newInstance(menuInfos, this)
+        // Make a transaction to the bottom sheet
+        addFragmentToBottomSheet(menuFragment)
     }
-    ...
+    // ...
 }
 ```
 
@@ -146,7 +121,7 @@ Finally to clear the category filter from the map call `MapControl.clearFilter()
 ```kotlin
 override fun onDestroyView() {
     // When we close the menu fragment we want to display all locations again, not just whichever were selected last
-    mMapActivity.getMapControl().clearFilter()
+    mapActivity.mapControl.clearFilter()
     super.onDestroyView()
 }
 ```

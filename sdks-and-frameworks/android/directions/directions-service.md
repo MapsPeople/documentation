@@ -13,15 +13,24 @@ val directionsService = MPDirectionsService()
 val directionsRenderer = MPDirectionsRenderer(mapControl)
 val origin = MPPoint(57.057917, 9.950361, 0.0)
 val destination = MPPoint(57.058038, 9.950509, 0.0)
-directionsService.setRouteResultListener { route, error -> }
+directionsService.setRouteResultListener { result, error ->
+    val route = result?.routes?.firstOrNull() ?: return@setRouteResultListener
+    // The result can arrive on a background thread, so render the route from the main thread
+    lifecycleScope.launch { directionsRenderer.setRoute(route) }
+}
 directionsService.query(origin, destination)
 ```
 
-The route can be customized via the `directionsRenderer`. An example could be the color of the rendered path and the background color of the rendered line. This can be set like this:
+The route can be customized via the `directionsRenderer` with `MPDirectionsRendererOptions`. An example could be the color of the rendered line and the color of the animation drawn on top of it. This can be set like this:
 
 ```kotlin
 val directionsRenderer = MPDirectionsRenderer(mapControl)
-directionsRenderer.setPolylineColors(Color.GREEN, Color.BLACK)
+directionsRenderer.setOptions(
+    MPDirectionsRendererOptions(
+        strokeColor = Color.GREEN,
+        animatedOverlayColor = Color.BLACK,
+    )
+)
 ```
 
 ### Change Transportation Mode​ <a href="#change-transportation-mode" id="change-transportation-mode"></a>
@@ -32,14 +41,14 @@ Set the **travel mode** on your request using the `setTravelMode` method on `MPD
 
 ```kotlin
 fun createRoute(mpLocation: MPLocation) {
-    // if MPDirectionsService has not been instantiated create it here and assign the results call back to the activity.
-    if (mpDirectionsService == null) {
-        mpDirectionsService = MPDirectionsService()
-        mpDirectionsService?.setRouteResultListener(this::onRouteResult)
+    // If MPDirectionsService has not been instantiated, create it here and listen for its route results.
+    val service = directionsService ?: MPDirectionsService().also { service ->
+        service.setRouteResultListener { result, error -> onRouteResult(result?.routes?.firstOrNull(), error) }
+        directionsService = service
     }
-    mpDirectionsService?.setTravelMode(MPTravelMode.WALKING)
-    // queries the MPDirectionsService for a route with the hardcoded user location and the point from a location.
-    mpDirectionsService?.query(mUserLocation, mpLocation.point)
+    service.setTravelMode(MPTravelMode.WALKING)
+    // Queries the MPDirectionsService for a route from the hardcoded user location to the point of the location.
+    service.query(userLocation, mpLocation.point)
 }
 ```
 
@@ -82,18 +91,16 @@ directionsService.clearExcludeWayType()
 
 In the MapsIndoors CMS it is possible to restrict certain **ways** in the Route Network to only be accessible by users belonging to certain Roles.
 
-You can get the available Roles with help of the `MapsIndoors.getAppliedUserRoles`:
+You can get the applied Roles with help of the `MapsIndoors.appliedUserRoles` property:
 
 ```kotlin
-fun getUserRoles(): List<MPUserRole>? {
-  return MapsIndoors.getAppliedUserRoles()
-}
+fun getUserRoles(): List<MPUserRole>? = MapsIndoors.appliedUserRoles
 ```
 
 User Roles can be set on a global level using `MapsIndoors.applyUserRoles`.
 
 ```kotlin
- fun setUserRoles(userRoles: List<MPUserRole>) {
+fun setUserRoles(userRoles: List<MPUserRole>) {
     MapsIndoors.applyUserRoles(userRoles)
 }
 ```
@@ -108,11 +115,12 @@ When using the Transit travel mode, you must set a **departure date** or an **ar
 
 ```kotlin
 fun setDepartureTime(date: Date?) {
-    mpDirectionsService.setIsDeparture(true)
-    mpDirectionsService.setTime(date)
+    directionsService.setIsDeparture(true)
+    directionsService.setTime(date)
 }
+
 fun setArrivalTime(date: Date?) {
-    mpDirectionsService.setIsDeparture(false)
-    mpDirectionsService.setTime(date)
+    directionsService.setIsDeparture(false)
+    directionsService.setTime(date)
 }
 ```

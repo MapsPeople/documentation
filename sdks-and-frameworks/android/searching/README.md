@@ -31,19 +31,16 @@ See the full list of parameters:
 {% code overflow="wrap" lineNumbers="true" %}
 ```kotlin
 fun findRestroom() {
-    //Here we will create an empty query because we are only interrested in getting locations that match a category. If you want to be more specific here where you can add a query text like "Unisex Restroom"
-    val mpQuery = MPQuery.Builder()
-        .build()
-    val categories: MutableList<String> = ArrayList()
-    categories.add("RESTROOMS")
+    // Here we will create an empty query because we are only interested in getting locations that match a category. If you want to be more specific, you can add a query text like "Unisex Restroom"
+    val mpQuery = MPQuery {}
 
-    // Init the filter builder and build a filter, the criteria in this case we want maximum 50 restrooms
-    val mpFilter = MPFilter.Builder()
-        .setCategories(categories)
-        .setTake(50)
-        .build()
+    // Build a filter, the criteria in this case we want maximum 50 restrooms
+    val mpFilter = MPFilter {
+        categories = listOf("RESTROOMS")
+        take = 50
+    }
 
-    MapsIndoors.getLocationsAsync(mpQuery, mpFilter) { locations: List<MPLocation?>?, error: MIError? ->
+    MapsIndoors.getLocationsAsync(mpQuery, mpFilter) { locations: List<MPLocation>?, error: MIError? ->
         //Check if there is an error and iterate through the list to do what you need with the search
     }
 }
@@ -59,8 +56,8 @@ When displaying the search results it is helpful to filter the map to only show 
 {% code overflow="wrap" lineNumbers="true" %}
 ```kotlin
 MapsIndoors.getLocationsAsync(mpQuery, mpFilter) { locations, error ->
-    //Query with the locations from the query result. Use default camera behavior
-    mMapControl.setFilter(locations, MPFilterBehavior.DEFAULT)
+    // Filter the map to the locations from the query result. Use default camera behavior
+    mapControl.setFilter(locations.orEmpty(), MPFilterBehavior.DEFAULT)
 }
 ```
 {% endcode %}
@@ -73,7 +70,7 @@ After displaying the search results on your map you can then clear the filter so
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```kotlin
-mMapControl.clearFilter()
+mapControl.clearFilter()
 ```
 {% endcode %}
 
@@ -89,7 +86,7 @@ Before searching, you might want to inspect the category structure in the SDK. F
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```kotlin
-val categoryCollection = MapsIndoors.getCategories()
+val categoryCollection = MapsIndoors.categories
 
 // check whether a category has a named child category
 val isChild = categoryCollection?.getCategory("Restroom")?.childKeys?.contains("Unisex")
@@ -98,7 +95,7 @@ if (isChild == true) {
 }
 
 // fetch sub-categories with the child keys
-val keys = categoryCollection?.getCategory("Restroom").childKeys
+val keys = categoryCollection?.getCategory("Restroom")?.childKeys
 for (key in keys ?: emptyList()) {
     val category = categoryCollection?.getCategory(key)
     if (category != null) {
@@ -115,11 +112,13 @@ When you perform a search for a parent category, such as `Restroom`, the SDK wil
 {% code overflow="wrap" lineNumbers="true" %}
 ```kotlin
 // we are only searching for the category, so lets set an empty query
-val query = MPQuery.Builder().build()
+val query = MPQuery {}
 // add the super-category Restroom to the list of categories
-val filter = MPFilter.Builder().setCategories(listOf("Restroom")).build()
+val filter = MPFilter {
+    categories = listOf("Restroom")
+}
 
-MapsIndoors.getLocationsAsync(query, filter) { locations, error -> 
+MapsIndoors.getLocationsAsync(query, filter) { locations, error ->
 
     // lets see if we have found any Locations that have the type "Unisex"
     if (locations?.any { loc -> loc.categories?.any { cat -> cat == "Unisex" } == true } == true) {

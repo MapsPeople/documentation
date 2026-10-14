@@ -26,7 +26,7 @@ To set User Roles, `applyUserRoles` is used:
 MapsIndoors.applyUserRoles(savedUserRoles)
 ```
 
-> For more information, see the [reference documentation](https://app.mapsindoors.com/mapsindoors/reference/android/v3/index.html).
+> For more information, see the [reference documentation](https://app.mapsindoors.com/mapsindoors/reference/android/v5/index.html).
 
 ### Features Affected by App User Roles​ <a href="#features-affected-by-app-user-roles" id="features-affected-by-app-user-roles"></a>
 

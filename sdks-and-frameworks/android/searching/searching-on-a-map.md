@@ -5,19 +5,19 @@ Use the `MapsIndoors.getLocationsAsync()` method to search for content in your M
 #### Setup a query for the nearest single best matching location and display the result on the map​ <a href="#setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map" id="setup-a-query-for-the-nearest-single-best-matching-location-and-display-the-result-on-the-map"></a>
 
 ```kotlin
-// Init the query builder and build a query, in this case we will query for coffee machines
-val query = MPQuery.Builder()
-    .setQuery("coffee machine")
-    .build()
-// Init the filter builder and build a filter, the criteria in this case we want 1 coffee machine from the 1st floor
-val filter = MPFilter.Builder()
-    .setTake(1)
-    .setFloorIndex(1)
-    .build()
+// Build a query, in this case we will query for coffee machines
+val query = MPQuery {
+    query = "coffee machine"
+}
+// Build a filter, the criteria in this case we want 1 coffee machine from the 1st floor
+val filter = MPFilter {
+    take = 1
+    floorIndex = 1
+}
 // Query the data
-MapsIndoors.getLocationsAsync(query, filter) { locs, err ->
-    if (!locs.isNullOrEmpty()) {
-        mMapControl.setFilter(locs, MPFilterBehavior.DEFAULT)
+MapsIndoors.getLocationsAsync(query, filter) { locations, error ->
+    if (!locations.isNullOrEmpty()) {
+        mapControl.setFilter(locations, MPFilterBehavior.DEFAULT)
     }
 }
 ```
@@ -25,19 +25,19 @@ MapsIndoors.getLocationsAsync(query, filter) { locs, err ->
 #### Setup a query for a group of locations and display the result on the map​ <a href="#setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map" id="setup-a-query-for-a-group-of-locations-and-display-the-result-on-the-map"></a>
 
 ```kotlin
-// Init the query builder and build a query, in this case we will query for all toilets
-val query = MPQuery.Builder()
-    .setQuery("Toilet")
-    .build()
-// Init the filter builder and build a filter, the criteria in this case we want maximum 50 toilets from the 1st floor
-val filter = MPFilter.Builder()
-    .setTake(50)
-    .setFloorIndex(1)
-    .build()
+// Build a query, in this case we will query for all toilets
+val query = MPQuery {
+    query = "Toilet"
+}
+// Build a filter, the criteria in this case we want maximum 50 toilets from the 1st floor
+val filter = MPFilter {
+    take = 50
+    floorIndex = 1
+}
 // Query the data
-MapsIndoors.getLocationsAsync(query, filter) { locs, err ->
-    if (!locs.isNullOrEmpty()) {
-        mMapControl.setFilter(locs, MPFilterBehavior.DEFAULT)
+MapsIndoors.getLocationsAsync(query, filter) { locations, error ->
+    if (!locations.isNullOrEmpty()) {
+        mapControl.setFilter(locations, MPFilterBehavior.DEFAULT)
     }
 }
 ```

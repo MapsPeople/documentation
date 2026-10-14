@@ -10,14 +10,14 @@ This example shows how to setup a query for a route and display the result on a 
 
 ```kotlin
 fun getRoute() {
-    val directionsService = MPDirectionsService(this)
-    val directionsRenderer = MPDirectionsRenderer(mMapControl)
+    val directionsService = MPDirectionsService()
+    val directionsRenderer = MPDirectionsRenderer(mapControl)
     val origin = MPPoint(57.057917, 9.950361, 0.0)
     val destination = MPPoint(57.058038, 9.950509, 0.0)
-    directionsService.setRouteResultListener { route, error ->
-        route?.let { mpRoute ->
-            directionsRenderer.setRoute(mpRoute)
-        }
+    directionsService.setRouteResultListener { result, error ->
+        val route = result?.routes?.firstOrNull() ?: return@setRouteResultListener
+        // The result can arrive on a background thread, so render the route from the main thread
+        lifecycleScope.launch { directionsRenderer.setRoute(route) }
     }
     directionsService.query(origin, destination)
 }
@@ -33,11 +33,11 @@ A specific segment of the route can be rendered by setting the `legIndex` on the
 
 ```kotlin
 fun setRouteLegIndex(position: Int) {
-    mpDirectionsRenderer?.selectLegIndex(position)
+    directionsRenderer?.selectLegIndex(position)
 }
 ```
 
-The length of the `legs` array from `getLegs` on the `MPRoute` object determines the possible values of `routeLegIndex` (`0 ..< length`).
+The length of the `legs` list on the `MPRoute` object determines the possible values of `routeLegIndex` (`0 ..< length`).
 
 **Reacting to Label Tapping**[**​**](https://docs.mapsindoors.com/directions-renderer#reacting-to-label-tapping-1)
 
@@ -45,17 +45,17 @@ The length of the `legs` array from `getLegs` on the `MPRoute` object determines
 
 ```kotlin
 fun getRoute() {
-    val directionsService = MPDirectionsService(this)
-    val directionsRenderer = MPDirectionsRenderer(mMapControl)
+    val directionsService = MPDirectionsService()
+    val directionsRenderer = MPDirectionsRenderer(mapControl)
     val origin = MPPoint(57.057917, 9.950361, 0.0)
     val destination = MPPoint(57.058038, 9.950509, 0.0)
-    directionsService.setRouteResultListener { route, error ->
-        route?.let { mpRoute ->
-            directionsRenderer.setRoute(mpRoute)
-        }
+    directionsService.setRouteResultListener { result, error ->
+        val route = result?.routes?.firstOrNull() ?: return@setRouteResultListener
+        // The result can arrive on a background thread, so render the route from the main thread
+        lifecycleScope.launch { directionsRenderer.setRoute(route) }
     }
-    directionsRenderer.setOnLegSelectedListener {
-        mpDirectionsRenderer?.selectLegIndex(it)
+    directionsRenderer.setOnLegSelectedListener { legIndex ->
+        directionsRenderer.selectLegIndex(legIndex)
     }
     directionsService.query(origin, destination)
 }
@@ -65,10 +65,11 @@ fun getRoute() {
 
 ```kotlin
 fun nextLeg() {
-    mpDirectionsRenderer?.nextLeg()
+    directionsRenderer?.nextLeg()
 }
+
 fun previousLeg() {
-    mpDirectionsRenderer?.previousLeg()
+    directionsRenderer?.previousLeg()
 }
 ```
 
@@ -78,14 +79,16 @@ It is possible to show contextual information on the end points of the rendered 
 
 This is done by creating an appropriate `MPContextualInfoSettings` object and passing that to the Directions Renderer. If it is not set or is null, no contextual information will be shown.
 
-The `MPContextualInfoSetting` can be applied on `MPDirectionsRenderer` by calling `useContentOfNearbyLocations(MPContextualInfoSettings)`. Like this:
+The `MPContextualInfoSettings` can be applied on `MPDirectionsRenderer` by calling `useContentOfNearbyLocations(MPContextualInfoSettings)`. Like this:
 
 ```kotlin
-//Sets the contextual info to be of locations that has the type "entries" and searches within a max distance of 30 meters from the end point of the current route segment
-mpDirectionsRenderer?.useContentOfNearbyLocations(MPContextualInfoSettings.Builder()
-            .setTypes(Collections.singletonList("entries"))
-            .setMaxDistance(30.0)
-            .build())
+// Sets the contextual info to be of locations that have the type "entries" and searches within a max distance of 30 meters from the end point of the current route segment
+directionsRenderer?.useContentOfNearbyLocations(
+    MPContextualInfoSettings {
+        types = listOf("entries")
+        maxDistance = 30.0
+    }
+)
 ```
 
-The defaults of the `ContextualInfoSettings` builder are `maxDistance` at 5 meters and the `ContextualInfoScope` as icon and name. No Types or Categories are set as default. Not applying any Types or Categories will make it search through all Locations to use as contextual information.
+The defaults of the `MPContextualInfoSettings` builder are `maxDistance` at 5 meters and the `ContextualInfoScope` as icon and name. No Types or Categories are set as default. Not applying any Types or Categories will make it search through all Locations to use as contextual information.

@@ -23,8 +23,8 @@ Applications have a few ways to change the default caching behaviour:
 The synchronization process can be started manually:
 
 ```kotlin
-MapsIndoors.synchronizeContent { error ->
-    ...
+MapsIndoors.synchronizeContent { _, error ->
+    // error is null when the synchronization succeeded
 }
 ```
 
@@ -52,7 +52,7 @@ All datasets currently managed are accessible via the `MPDataSetCacheManager`:
 
 ```kotlin
 for (dataSet in MPDataSetCacheManager.getInstance().managedDataSets) {
-    Log.i("dataset", dataSet.solutionId + ": size " + dataSet.cacheItem.syncSize)
+    Log.i("dataset", "${dataSet.solutionId}: size ${dataSet.cacheItem.syncSize}")
 }
 ```
 
@@ -64,17 +64,20 @@ Datasets are scheduled for caching using `MPDataSetCacheManager`:
 
 ```kotlin
 MPDataSetCacheManager.getInstance()
-        .addDataSetWithCachingScope("API KEY", MPDataSetCacheScope.BASIC)
+    .addDataSetWithCachingScope("API KEY", MPDataSetCacheScope.BASIC)
 ```
 
 The current MapsIndoors API key is automatically added as a managed dataset with `MPDataSetCacheScope.BASIC`.
 
 **Removing Datasets**[**​**](https://docs.mapsindoors.com/offline-data#removing-datasets-1)
 
-Datasets are removed from caching using `MPDataSetCacheManager.getInstance().removeDataSetCache(MPDataSetCache);`:
+Datasets are removed from caching using `MPDataSetCacheManager.getInstance().removeDataSetCache(dataSetCache)`:
 
 ```kotlin
-MPDataSetCacheManager.getInstance().removeDataSetCache(MPDataSetCache)
+val dataSetCacheManager = MPDataSetCacheManager.getInstance()
+dataSetCacheManager.getDataSetByID("API KEY")?.let { dataSetCache ->
+    dataSetCacheManager.removeDataSetCache(dataSetCache)
+}
 ```
 
 **NOTE:** The currently active dataset is not removed.
@@ -94,34 +97,53 @@ MPDataSetCacheManager.getInstance().synchronizeDataSets(listOfNotNull(dataset))
 The estimated and cached size of a dataset is available via:
 
 ```kotlin
-dataSet?.cacheItem?.getCacheSize(mContext)
-dataSet?.cacheItem?.syncSize
+val dataSet = MPDataSetCacheManager.getInstance().getDataSetByID("API KEY")
+val cachedSize = dataSet?.cacheItem?.cacheSize
+val estimatedSyncSize = dataSet?.cacheItem?.syncSize
 ```
 
 To refresh or get the size of a synced dataset:
 
 ```kotlin
-MPDataSetCacheManager.getInstance().getSyncSizesForDataSetCaches(listOfNotNull(dataSet)).collect { event ->
-    when (event) {
-        is MPCacheSizeEvent.SizeReady -> Log.i("dataset", "size ready for " + event.dataSetCache.solutionId)
-        MPCacheSizeEvent.Done -> Log.i("dataset", "sizing done")
-        else -> {}
+lifecycleScope.launch {
+    val dataSet = MPDataSetCacheManager.getInstance().getDataSetByID("API KEY")
+    MPDataSetCacheManager.getInstance().getSyncSizesForDataSetCaches(listOfNotNull(dataSet)).collect { event ->
+        when (event) {
+            is MPCacheSizeEvent.SizeReady -> Log.i("dataset", "size ready for ${event.dataSetCache.solutionId}")
+            MPCacheSizeEvent.Done -> Log.i("dataset", "sizing done")
+            else -> {}
+        }
     }
 }
 ```
 
-This is an asynchronous process that emits `MPCacheSizeEvent`s, always ending with `MPCacheSizeEvent.Done`. `collect` must be called from a coroutine. If you can't collect a `Flow`, pass an `MPStateListener<MPCacheSizeEvent>` as the second argument instead; that overload returns the `Job` running the query.
+This is an asynchronous process that emits `MPCacheSizeEvent`s, always ending with `MPCacheSizeEvent.Done`. `collect` must be called from a coroutine, such as one launched from `lifecycleScope`. If you can't collect a `Flow`, pass an `MPStateListener<MPCacheSizeEvent>` as the second argument instead; that overload returns the `Job` running the query.
 
 **Synchronizing Data with MPDataSetCacheManager**[**​**](https://docs.mapsindoors.com/offline-data#synchronizing-data-with-mpdatasetcachemanager-1)
 
-The `MPDataSetCacheManager`allows for detailed control over which datasets are synchronized, and allows for cancellation:
+The `MPDataSetCacheManager` allows for detailed control over which datasets are synchronized, and allows for cancellation. Both `synchronizeDataSets` overloads return the `Job` running the synchronization, and the progress of each dataset is emitted on the `syncStatus` flow:
 
 ```kotlin
 val dataSetCacheManager = MPDataSetCacheManager.getInstance()
 
+// Follow the synchronization of each dataset
+lifecycleScope.launch {
+    dataSetCacheManager.syncStatus.collect { status ->
+        when (status) {
+            is MPDataSetSyncStatus.Finished -> Log.i("dataset", "synced ${status.dataSetCache.solutionId}")
+            is MPDataSetSyncStatus.Failed -> Log.w("dataset", "sync failed for ${status.dataSetCache.solutionId}")
+            else -> {}
+        }
+    }
+}
+
 // sync all managed datasets
-dataSetCacheManager.synchronizeDataSets()
+val syncAllJob = dataSetCacheManager.synchronizeDataSets()
 
 // sync specific datasets
-dataSetCacheManager.synchronizeDataSets(dataSets)
+val dataSets = listOfNotNull(dataSetCacheManager.getDataSetByID("API KEY"))
+val syncJob = dataSetCacheManager.synchronizeDataSets(dataSets)
+
+// cancel a running synchronization
+syncJob.cancel()
 ```

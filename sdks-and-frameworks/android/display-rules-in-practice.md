@@ -35,19 +35,19 @@ You can set display rules programatically in multiple ways depending on your use
 When a Location is selected, this Location is highlighted using the Display Rule name found through `MPSolutionDisplayRule.SELECTION`. You can change the values of the Display Rule like any other DisplayRule.
 
 ```kotlin
-MapsIndoors.getDisplayRule(MPSolutionDisplayRule.SELECTION)?.polygonStrokeColor = blue
-MapsIndoors.getDisplayRule(MPSolutionDisplayRule.SELECTION)?.polygonFillColor = green
-MapsIndoors.getDisplayRule(MPSolutionDisplayRule.SELECTION)?.polygonStrokeWidth = 8f
+MapsIndoors.getDisplayRule(MPSolutionDisplayRule.SELECTION)?.apply {
+    polygonStrokeColor = "#0000FF"
+    polygonFillColor = "#00FF00"
+    polygonStrokeWidth = 8f
+}
 ```
 
 **Setting Display Rule for a Type**[**​**](https://docs.mapsindoors.com/display-rules-in-practice#setting-display-rule-for-a-type-1)
 
-To set new display rules for a type of Location, you need to know the types of Locations in your Location dataset, so you may look these up in the CMS. The types can also be retrieved in code with `getSolution()`. The type objects can be read from `getTypes()`. You can then retrieve the Display Rule and modify it through `MapsIndoors.getDisplayRule(String name)`.
+To set new display rules for a type of Location, you need to know the types of Locations in your Location dataset, so you may look these up in the CMS. The types can also be retrieved in code through `MapsIndoors.solution`. The type objects can be read from its `types` property. You can then retrieve the Display Rule and modify it through `MapsIndoors.getDisplayRule(name: String)`.
 
 ```kotlin
-MapsIndoors.getDisplayRule("Office")?.let {
-    it.setIcon(R.drawable.ic_baseline_close_24, Color.BLUE)
-}
+MapsIndoors.getDisplayRule("Office")?.setIcon(R.drawable.ic_baseline_close_24, Color.BLUE)
 ```
 
 Setting a display rule for a type will only apply to the single instance of `MapControl`.
@@ -57,18 +57,20 @@ Setting a display rule for a type will only apply to the single instance of `Map
 To set new display rules for a single Location, you need to have the Location at hand. Locations can be fetched using `getLocationById`. Once you have a location, you can set a custom display rule for it.
 
 ```kotlin
-val mpLocation = MapsIndoors.getLocationById("MyLocationId")
-MapsIndoors.getDisplayRule(mpLocation)?.setIcon(R.drawable.ic_baseline_air_24, Color.GRAY)
+MapsIndoors.getLocationById("MyLocationId")?.let { location ->
+    MapsIndoors.getDisplayRule(location)?.setIcon(R.drawable.ic_baseline_air_24, Color.GRAY)
+}
 ```
 
 For multiple Locations, you fetch a list of Locations using `getLocationsAsync` instead:
 
 ```kotlin
-MapsIndoors.getLocationsAsync(null, MPFilter.Builder().setTypes(listOf("Meetingroom")).build()) { locations, _ ->
-    for (location in locations) {
-        location?.let {
-            MapsIndoors.getDisplayRule(it)?.setIcon(R.drawable.ic_baseline_air_24, Color.GRAY)
-        }
+val filter = MPFilter {
+    types = listOf("Meetingroom")
+}
+MapsIndoors.getLocationsAsync(null, filter) { locations, _ ->
+    locations?.forEach { location ->
+        MapsIndoors.getDisplayRule(location)?.setIcon(R.drawable.ic_baseline_air_24, Color.GRAY)
     }
 }
 ```
@@ -78,15 +80,16 @@ MapsIndoors.getLocationsAsync(null, MPFilter.Builder().setTypes(listOf("Meetingr
 To present a polygon, either configure the Display Rule using the CMS, or configure a Display Rule programatically:
 
 ```kotlin
-val mpDisplayRule = MapsIndoors.getDisplayRule("Office")
-mpDisplayRule?.let {
-    it.setIcon(R.drawable.ic_baseline_bolt_24, Color.GRAY)
-    it.isPolygonVisible = true
-    it.polygonZoomFrom = 12f
-    it.polygonZoomTo = 21f
-    it.polygonFillColor = "0000FF"
-    it.polygonStrokeColor = "0000FF"
-}
+MapsIndoors.getDisplayRule("Office")?.applyOptions(
+    MPDisplayRuleOptions {
+        setIcon(R.drawable.ic_baseline_bolt_24, Color.GRAY)
+        isPolygonVisible = true
+        polygonZoomFrom = 12f
+        polygonZoomTo = 21f
+        polygonFillColor = "#0000FF"
+        polygonStrokeColor = "#0000FF"
+    }
+)
 ```
 
 **Style the Map using Google Maps Styling**[**​**](https://docs.mapsindoors.com/display-rules-in-practice#style-the-map-using-google-maps-styling-with-kotlin)
