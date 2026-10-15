@@ -11,11 +11,11 @@ If you wish for the collision behavior to change when the maps stops moving, you
 ```kotlin
 val maxZoomForCollisions = 20 //set your desired zoom level upon which the collision behaviour changes
 
-mGoogleMap.setOnCameraIdleListener {
-    if (mGoogleMap.cameraPosition.zoom >= maxZoomForCollisions) {
-        MapsIndoors.getSolution()?.config?.setCollisionHandling(MPCollisionHandling.ALLOW_OVERLAP)
+googleMap.setOnCameraIdleListener {
+    if (googleMap.cameraPosition.zoom >= maxZoomForCollisions) {
+        MapsIndoors.solution?.config?.collisionHandling = MPCollisionHandling.ALLOW_OVERLAP
     } else {
-        MapsIndoors.getSolution()?.config?.setCollisionHandling(MPCollisionHandling.REMOVE_LABEL_FIRST)
+        MapsIndoors.solution?.config?.collisionHandling = MPCollisionHandling.REMOVE_LABEL_FIRST
     }
 }
 ```
@@ -25,11 +25,11 @@ However, if you wish for the collision behavior to change when the maps starts m
 ```kotlin
 val maxZoomForCollisions = 20 //set your desired zoom level upon which the collision behaviour changes
 
-mGoogleMap.setOnCameraMoveListener {
-    if (mGoogleMap.cameraPosition.zoom >= maxZoomForCollisions) {
-        MapsIndoors.getSolution()?.config?.setCollisionHandling(MPCollisionHandling.ALLOW_OVERLAP)
+googleMap.setOnCameraMoveListener {
+    if (googleMap.cameraPosition.zoom >= maxZoomForCollisions) {
+        MapsIndoors.solution?.config?.collisionHandling = MPCollisionHandling.ALLOW_OVERLAP
     } else {
-        MapsIndoors.getSolution()?.config?.setCollisionHandling(MPCollisionHandling.REMOVE_LABEL_FIRST)
+        MapsIndoors.solution?.config?.collisionHandling = MPCollisionHandling.REMOVE_LABEL_FIRST
     }
 }
 ```
@@ -41,22 +41,22 @@ The code for Mapbox is somewhat different - Here you must make an `onMoveListene
 ```kotlin
 val maxZoomForCollisions = 20
 
-mMapBoxMap?.addOnMoveListener(object : OnMoveListener {
+mapboxMap.addOnMoveListener(object : OnMoveListener {
     override fun onMove(detector: MoveGestureDetector): Boolean {
-      // insert implementation here if desired
-      return false
+        // insert implementation here if desired
+        return false
     }
 
     override fun onMoveBegin(detector: MoveGestureDetector) {
-      // insert implementation here if desired
+        // insert implementation here if desired
     }
 
     override fun onMoveEnd(detector: MoveGestureDetector) {
         // the implementation starts here
-        if (mMapBoxMap?.cameraState?.zoom!! >= maxZoomForCollisions) {
-            MapsIndoors.getSolution()?.config?.setCollisionHandling(MPCollisionHandling.ALLOW_OVERLAP)
+        if (mapboxMap.cameraState.zoom >= maxZoomForCollisions) {
+            MapsIndoors.solution?.config?.collisionHandling = MPCollisionHandling.ALLOW_OVERLAP
         } else {
-            MapsIndoors.getSolution()?.config?.setCollisionHandling(MPCollisionHandling.REMOVE_LABEL_FIRST)
+            MapsIndoors.solution?.config?.collisionHandling = MPCollisionHandling.REMOVE_LABEL_FIRST
         }
         // the implementation ends here
     }
