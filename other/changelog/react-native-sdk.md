@@ -6,6 +6,26 @@ icon: react
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.9.1] - 2026-10-16
+
+#### Changed
+
+* Updated the MapsIndoors Android and iOS SDKs to 4.23.0
+* iOS: camera moves the SDK makes for you (`goTo`, selecting with `moveCamera`, filter, highlight and route fits) are instant when the system's Reduce Motion setting is on
+* Android: with a custom floor selector that turns automatic floor changes off, `goTo`, `selectLocation`, `setFilter` and `setHighlight` keep the current floor
+* iOS: `MapControl` and `MPDirectionsRenderer` promises settle once the map has applied the call, not before
+* iOS: the `MapControl.getCurrent*` getters and `isFloorSelectorHidden` resolve `null` when there is no map control, instead of crashing
+* iOS: `MPDirectionsRenderer.setRoute` and `setDefaultRouteStopIcon` reject when a URL icon fails to download, instead of never settling
+* `MPRouteStopIconConfig.getImage()` returns a string instead of a `URL`, and a custom `RouteStopIconConfig.getImage()` may return either
+
+#### Fixed
+
+* iOS: `MapControl` and `MPDirectionsRenderer` calls, including `showUserPosition`, no longer crash the app. They now reach the map on the main thread, in the order they were made
+* `MPDirectionsRenderer.setDefaultRouteStopIcon` and `setRoute` no longer reject an `MPRouteStopIconConfig` stop icon with "Invalid URL" on React Native versions with a standards-compliant `URL`, such as Expo 55. Labels containing `?` or `#` now work too
+* `MPDirectionsRenderer.setRoute` and `setDefaultRouteStopIcon` with URL icons no longer overwrite a later `setRoute`, `clear` or `setDefaultRouteStopIcon` when their download finishes last
+* `MPCameraPosition.create` no longer swaps tilt and bearing, so passing the result of `getCurrentCameraPosition` back to `animateCamera` keeps the map's pitch and rotation
+* The published package no longer contains the SDK's unit tests
+
 ### \[2.9.0] - 2026-09-18
 
 #### Added
