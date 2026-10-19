@@ -26,21 +26,21 @@ You can access the Integration API in various ways, for more on accessing it see
 The last example about airport wait times will be expanded upon briefly, giving slighly more detailed explanations on how to achieve such an implementation.
 
 * The API calls can read or update the backend content, whereas the SDK only reads it. Therefore, the act of making the API calls are not part of the app, but part of a seperate backend service outside of MapsIndoors.
-* Use `GET /{apiKey}/api/routing/routeelements` to fetch the list of route elements used in your solution, and their information structure. This should return a JSON file like this, with appropriate values instead of `string` or `0`:
+* Use `GET /{apiKey}/api/routing/routeelements` to fetch the list of route elements used in your solution, and their information structure. This returns a JSON list like this one, with one open element:
 
 ```json
 [
   {
-    "id": "string",
-    "datasetId": "string",
-    "externalId": "string",
+    "id": "79edd6bb64724381bbf43923",
+    "datasetId": "550c26a864617400a40f0000",
     "geometry": {
-      "type": 0
+      "coordinates": [
+        9.9577215,
+        57.0858134
+      ],
+      "type": "Point"
     },
-    "restrictions": [
-      "string"
-    ],
-    "onewayDirection": 0,
+    "restrictions": [],
     "waitTime": 0
   }
 ]
@@ -52,22 +52,24 @@ The last example about airport wait times will be expanded upon briefly, giving 
 ```json
 [
   {
-    "id": "string",
-    "datasetId": "string",
-    "externalId": "string",
+    "id": "79edd6bb64724381bbf43923",
+    "datasetId": "550c26a864617400a40f0000",
     "geometry": {
-      "type": 0
+      "coordinates": [
+        9.9577215,
+        57.0858134
+      ],
+      "type": "Point"
     },
     "restrictions": [
       "locked"
     ],
-    "onewayDirection": 0,
     "waitTime": 0
   }
 ]
 ```
 
-The other information needed, such as the ID's, can be found in the `GET` call made earlier.
+The body is the element as read from the `GET` call made earlier, with only `restrictions` changed. The PUT replaces `waitTime`, `restrictions` and `onewayDirection`, so a field you leave out is cleared. See [Route Access](route-access.md) for how to update route elements.
 
 * Next time the SDK fetches information, it will load some routes as `locked` or "Blocked". This will cause the route generation to avoid these specific paths, helping to alleviate the congestion.
 
