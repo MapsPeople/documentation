@@ -53,3 +53,31 @@ An example of a route element from the demo dataset looks like this:
     "waitTime": 0
   }
 ```
+
+#### Updating Elements
+
+`PUT /{apiKey}/api/routing/routeelements` replaces WaitTime, Restrictions and OnewayDirection on every element you send. A field you leave out, or send as null, is cleared. A body with only `id` and `waitTime` therefore also opens a locked element and removes its oneway direction.
+
+To change an element safely, read it with `GET /{apiKey}/api/routing/routeelements`, change only the field you want, and send the whole element back. The PUT ignores `datasetId`, `externalId` and `geometry`, so you can send them back as you read them.
+
+To open an element, send `"restrictions": []`. To close it for everyone, send `"restrictions": ["locked"]`.
+
+This body opens the element from the example above. It is the element as read from the GET, with only the restrictions changed:
+
+```json
+[
+  {
+    "id": "79edd6bb64724381bbf43923",
+    "datasetId": "550c26a864617400a40f0000",
+    "geometry": {
+      "coordinates": [
+        9.9577215,
+        57.0858134
+      ],
+      "type": "Point"
+    },
+    "restrictions": [],
+    "waitTime": 0
+  }
+]
+```
