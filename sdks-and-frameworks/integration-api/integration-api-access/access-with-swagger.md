@@ -21,7 +21,7 @@ We use the four standard HTTP methods to access Mapsindoors data:
 * **PUT** for updating existing data (Marked with yellow color)
 * **DELETE** for deleting data (Marked with red color)
 
-When you change data (using PUT) you'll need to inform us what what you want to change, so you MUST include an Id. Other than that you only need to mention what you want to change; The rest will stay the same. When creating **new** data (using POST) you´ll need to include ALL data needed for the given object type (but **not** an Id - that will be assigned for you). Otherwise the call will result in a 400 Bad Request (and feedback on what's wrong).
+When you change data (using PUT) you'll need to inform us what you want to change, so you MUST include an Id. What happens to the fields you leave out differs per endpoint, and on most endpoints they are cleared. See [Updating Data](../updating-data.md) before you change data. When creating **new** data (using POST) you´ll need to include ALL data needed for the given object type (but **not** an Id - that will be assigned for you). Otherwise the call will result in a 400 Bad Request (and feedback on what's wrong).
 
 > _**NOTE:**_ ⚠️
 >
