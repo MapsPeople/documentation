@@ -198,6 +198,7 @@
     * [Access with Python](sdks-and-frameworks/integration-api/integration-api-access/access-with-python.md)
     * [Client credentials flow](sdks-and-frameworks/integration-api/integration-api-access/client-credentials-flow.md)
   * [Data Description](sdks-and-frameworks/integration-api/data-description.md)
+  * [Updating Data](sdks-and-frameworks/integration-api/updating-data.md)
   * [Reverse Geocoding](sdks-and-frameworks/integration-api/reverse-geocoding.md)
   * [Route Access](sdks-and-frameworks/integration-api/route-access.md)
   * [OpenAPI Specification](sdks-and-frameworks/integration-api/openapi-specification.md)
