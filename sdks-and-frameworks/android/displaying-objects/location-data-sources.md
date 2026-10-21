@@ -9,40 +9,37 @@ Create the class `RobotVacuumLocationSource` that implements `MPLocationSource`:
 Implement the methods from MPLocationSource and extend the constructor of the `RobotVacuumLocationSource` to accept a list of locations that will represent the Robot vacuums.
 
 ```kotlin
-class RobotVacuumLocationSource(private val robots: ArrayList<MPLocation>): MPLocationSource {
-    private val mObservers = ArrayList<MPLocationsObserver>()
-    private var mStatus = MPLocationSourceStatus.NOT_INITIALIZED
-    override fun getLocations(): MutableList<MPLocation> {
-        return robots
-    }
+class RobotVacuumLocationSource(initialRobots: List<MPLocation>) : MPLocationSource {
+    private val robots = initialRobots.toMutableList()
+    private val observers = mutableListOf<MPLocationsObserver>()
+    private var status = MPLocationSourceStatus.NOT_INITIALIZED
+
+    override fun getLocations(): List<MPLocation> = robots
+
     override fun addLocationsObserver(observer: MPLocationsObserver?) {
-        if (observer != null) {
-            mObservers.add(observer)
-        }
+        observer?.let { observers.add(it) }
     }
+
     override fun removeLocationsObserver(observer: MPLocationsObserver?) {
-        if (observer != null) {
-            mObservers.remove(observer)
-        }
+        observer?.let { observers.remove(it) }
     }
+
     private fun notifyUpdateLocations() {
-        for (observer in mObservers) {
-            observer.onLocationsUpdated(robots, this)
-        }
+        observers.forEach { it.onLocationsUpdated(robots, this) }
     }
-    override fun getStatus(): MPLocationSourceStatus {
-        return mStatus
-    }
-    override fun getSourceId(): Int {
-        return 10101010
-    }
+
+    override fun getStatus(): MPLocationSourceStatus = status
+
+    override fun getSourceId(): Int = 10101010
+
     override fun clearCache() {
         robots.clear()
-        mObservers.clear()
+        observers.clear()
     }
+
     override fun terminate() {
         robots.clear()
-        mObservers.clear()
+        observers.clear()
     }
 }
 ```
@@ -58,32 +55,36 @@ private val BASE_POSITION = MPLatLng(57.0582502, 9.9504788)
 Then we need to add some variables:
 
 ```kotlin
-private var baseDisplayRule: WeakReference<MPDisplayRule?>? = null
-private var robotDisplayRule: MPDisplayRule? = null
-private var mLocations: ArrayList<MPLocation>? = null
-private var mRobotVacuumLocationSource: RobotVacuumLocationSource? = null
+private var baseDisplayRule: MPDisplayRule? = null
+private val locations = mutableListOf<MPLocation>()
+private var robotVacuumLocationSource: RobotVacuumLocationSource? = null
+private var updateJob: Job? = null
 ```
 
 Create the baseDisplayRule after `MapsIndoors` has loaded:
 
 ```kotlin
-MapsIndoors.load(requireActivity().applicationContext, "MY_API_KEY") { error ->
+MapsIndoors.load(applicationContext, "YOUR_MAPSINDOORS_API_KEY") { _, error ->
     if (error == null) {
-        baseDisplayRule = WeakReference(MapsIndoors.getMainDisplayRule())
+        baseDisplayRule = MapsIndoors.mainDisplayRule
         setupLocationSource()
     }
 }
 ```
 
-create a method to setup the `RobotVacuumLocationSource` inside your fragment:
+Create a method to set up the `RobotVacuumLocationSource` inside your fragment or activity:
 
 ```kotlin
 private fun setupLocationSource() {
-    if (mLocations == null) {
+    if (locations.isEmpty()) {
         generateLocations()
     }
-    val locationSource = RobotVacuumLocationSource(mLocations!!)
-    MapsIndoors.addLocationSources(Collections.singletonList(locationSource) as List<MPLocationSource>) {
+    val locationSource = RobotVacuumLocationSource(locations)
+    robotVacuumLocationSource = locationSource
+    MapsIndoors.addLocationSources(listOf(locationSource)) { _, error ->
+        if (error != null) {
+            Log.e("LocationSources", "Could not add the location source: ${error.message}")
+        }
     }
     locationSource.setup()
     startUpdatingPositions()
@@ -92,77 +93,87 @@ private fun setupLocationSource() {
 
 As seen in the example above we add the `RobotVacuumLocationSource` through `MapsIndoors.addLocationSources` and call `RobotVacuumLocationSource.setup()`
 
-This method sets the status to of the source to available and notifies `MapsIndoors` that locations are updated.
+Add the following methods to `RobotVacuumLocationSource`. `setup` sets the status of the source to available and notifies `MapsIndoors` that locations are updated, and `updateLocations` replaces the robots with their updated positions and notifies the observers:
 
 ```kotlin
 fun setup() {
-    status = MPLocationSourceStatus.AVAILABLE
+    setStatus(MPLocationSourceStatus.AVAILABLE)
     notifyUpdateLocations()
 }
-fun setStatus(status: MPLocationSourceStatus) {
-    mStatus = status
-    for (observer in mObservers) {
-        observer.onStatusChanged(mStatus, this)
-    }
+
+private fun setStatus(newStatus: MPLocationSourceStatus) {
+    status = newStatus
+    observers.forEach { it.onStatusChanged(newStatus, this) }
+}
+
+fun updateLocations(updatedLocations: List<MPLocation>) {
+    robots.clear()
+    robots.addAll(updatedLocations)
+    notifyUpdateLocations()
 }
 ```
 
-In the `setupLocationSource` method we call `generateLocations` to populate the location list with new locations:
+In the `setupLocationSource` method we call `generateLocations` to populate the location list with new locations. Each robot gets a display rule whose icon color reflects its charge:
 
 ```kotlin
 private fun generateLocations() {
-    mLocations = ArrayList()
+    locations.clear()
     for (i in 0..15) {
         val robotName = "vacuum$i"
         val startPosition = getRandomPosition()
-        val charge = nextInt(1, 100)
-        val floorIndex = nextInt(4) * 10
-        var mpLocation = MPLocation.Builder(robotName)
+        val floorIndex = Random.nextInt(4) * 10
+        val location = MPLocation.Builder(robotName)
             .setPosition(startPosition.lat, startPosition.lng)
             .setFloorIndex(floorIndex)
             .setName(robotName)
             .setBuilding("Stigsborgvej")
             .build()
-        robotDisplayRule = MPDisplayRule(robotName, baseDisplayRule!!)
-        robotDisplayRule?.isVisible = true
-        if (charge >= 60) {
-            robotDisplayRule?.setIcon(R.drawable.ic_baseline_robo_vacuum, Color.GREEN)
-        }else if (charge >= 30) {
-            robotDisplayRule?.setIcon(R.drawable.ic_baseline_robo_vacuum, Color.YELLOW)
-        }else {
-            robotDisplayRule?.setIcon(R.drawable.ic_baseline_robo_vacuum, Color.RED)
-        }
-        MapsIndoors.addDisplayRuleForLocation(mpLocation, robotDisplayRule!!)
-        mLocations?.add(mpLocation)
+        applyRobotDisplayRule(location, charge = Random.nextInt(1, 100))
+        locations.add(location)
     }
 }
+
+private fun applyRobotDisplayRule(location: MPLocation, charge: Int) {
+    val base = baseDisplayRule ?: return
+    val robotDisplayRule = MPDisplayRule(location.name, WeakReference(base))
+    robotDisplayRule.isVisible = true
+    val tint = when {
+        charge >= 60 -> Color.GREEN
+        charge >= 30 -> Color.YELLOW
+        else -> Color.RED
+    }
+    robotDisplayRule.setIcon(R.drawable.ic_baseline_robo_vacuum, tint)
+    MapsIndoors.addDisplayRuleForLocation(location, robotDisplayRule)
+}
+
 private fun getRandomPosition(): MPLatLng {
-    val lat: Double = BASE_POSITION.lat + (-4 + nextInt(20)) * 0.000005
-    val lng: Double = BASE_POSITION.lng + (-4 + nextInt(20)) * 0.000010
+    val lat = BASE_POSITION.lat + (-4 + Random.nextInt(20)) * 0.000005
+    val lng = BASE_POSITION.lng + (-4 + Random.nextInt(20)) * 0.000010
     return MPLatLng(lat, lng)
 }
 ```
 
-Create the `startUpdatingPositions` method that calls `updateLocations` every second:
+Create the `startUpdatingPositions` method that launches a coroutine in `lifecycleScope`, which calls `updateLocations` every half second and stops when the lifecycle is destroyed:
 
 ```kotlin
 private fun startUpdatingPositions() {
-    mUpdateTimer?.cancel()
-    mUpdateTimer = Timer()
-    mUpdateTimer?.scheduleAtFixedRate(object: TimerTask() {
-        override fun run() {
-            updateLocations();
+    updateJob?.cancel()
+    updateJob = lifecycleScope.launch {
+        delay(2_000)
+        while (isActive) {
+            updateLocations()
+            delay(500)
         }
-    }, 2000, 500)
+    }
 }
 ```
 
-Create a method that can stop the positions updates at any time:
+Create a method that can stop the position updates at any time by cancelling the coroutine:
 
 ```kotlin
 fun stopUpdatingPositions() {
-    mUpdateTimer?.cancel()
-    mUpdateTimer?.purge()
+    updateJob?.cancel()
+    updateJob = null
 }
 ```
 
@@ -170,24 +181,15 @@ Create a method called `updateLocations` that will update the position of the Lo
 
 ```kotlin
 fun updateLocations() {
-    var updatedLocations = ArrayList<MPLocation>()
-    mLocations?.forEach {
-        var newPosition = getRandomPosition()
-        var newLocation = MPLocation.Builder(it).setPosition(MPPoint(newPosition.lat, newPosition.lng), 20)
-        var charge = nextInt(1, 100)
-        updatedLocations.add(newLocation.build())
-        robotDisplayRule = MPDisplayRule("robot", baseDisplayRule!!)
-        robotDisplayRule?.isVisible = true
-        if (charge >= 60) {
-            robotDisplayRule?.setIcon(R.drawable.ic_baseline_robo_vacuum, Color.GREEN)
-        }else if (charge >= 30) {
-            robotDisplayRule?.setIcon(R.drawable.ic_baseline_robo_vacuum, Color.YELLOW)
-        }else {
-            robotDisplayRule?.setIcon(R.drawable.ic_baseline_robo_vacuum, Color.RED)
-        }
-        MapsIndoors.addDisplayRuleForLocation(it, robotDisplayRule!!)
+    val updatedLocations = locations.map { location ->
+        val newPosition = getRandomPosition()
+        val updatedLocation = MPLocation.Builder(location)
+            .setPosition(newPosition.lat, newPosition.lng)
+            .build()
+        applyRobotDisplayRule(updatedLocation, charge = Random.nextInt(1, 100))
+        updatedLocation
     }
-    mRobotVacuumLocationSource?.updateLocations(updatedLocations)
+    robotVacuumLocationSource?.updateLocations(updatedLocations)
 }
 ```
 

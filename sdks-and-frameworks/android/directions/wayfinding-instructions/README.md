@@ -10,13 +10,14 @@ This tutorial will be based off the **MapsIndoors Samples** example found here: 
 
 An example of the view XML file for the `WayfindingFragment` this guide will use can be found here: [Wayfinding view](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/res/layout/fragment\_wayfinding.xml).
 
-First, create variables for `MPLocation` and `MPRoute` objects to use later in describing wayfinding. Also create a Variable for `MPDirectionsRenderer` so we can control rendering through changes in the `ViewPager`.
+First, create properties for `MPLocation` and `MPRoute` objects to use later in describing wayfinding. Also create a property for `MPDirectionsRenderer` so we can control rendering through changes in the `ViewPager`.
 
 [WayfindingFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/wayfinding/WayfindingFragment.kt#L31-L32)
 
 ```kotlin
-private var mRoute: MPRoute? = null
-private var mLocation: MPLocation? = null
+private var route: MPRoute? = null
+private var location: MPLocation? = null
+private var directionsRenderer: MPDirectionsRenderer? = null
 ```
 
 Next step we will create the `Fragment` that will contain a short description of each Leg of the route inside the `ViewPager`
@@ -30,7 +31,7 @@ First, start by changing the code inside `onCreateView`.
 [WayfindingFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/wayfinding/WayfindingFragment.kt#L36-L57)
 
 ```kotlin
-override fun onCreateView(view: View, @Nullable savedInstanceState: Bundle?) {
+override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
     _binding = FragmentWayfindingBinding.inflate(inflater, container, false)
 
     MapsIndoors.load(requireActivity().applicationContext, "gettingstarted", null)
@@ -44,11 +45,10 @@ override fun onCreateView(view: View, @Nullable savedInstanceState: Bundle?) {
         }
     })
 
-    val root: View = binding.root
     val supportMapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
-    mMapView = supportMapFragment.view
+    mapView = supportMapFragment.view
     supportMapFragment.getMapAsync(this)
-    return root
+    return binding.root
 }
 ```
 
@@ -58,31 +58,28 @@ Next we will create `FragmentStateAdapter` that will be used on the `ViewPager` 
 
 ```kotlin
 inner class RouteCollectionAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
-    override fun getItemCount(): Int {
-        mRoute?.legs?.let { legs->
-            return legs.size
-        }
-        return 0
-    }
+    override fun getItemCount(): Int = route?.legs?.size ?: 0
 
     override fun createFragment(position: Int): Fragment {
-        if (position == mRoute?.legs?.size!! - 1) {
-            return RouteLegFragment.newInstance("Walk to " + mLocation?.name, mRoute?.legs!![position]?.distance?.toInt(), mRoute?.legs!![position]?.duration?.toInt())
-        } else {
-            var leg = mRoute?.legs!![position]
-            var firstStep = leg.steps.first()
-            var lastFirstStep = mRoute?.legs!![position + 1].steps.first()
-            var lastStep = mRoute?.legs!![position + 1].steps.last()
+        val legs = route?.legs.orEmpty()
+        val leg = legs[position]
+        if (position == legs.lastIndex) {
+            return RouteLegFragment.newInstance("Walk to ${location?.name}", leg.distance.toInt(), leg.duration.toInt())
+        }
+        val nextLeg = legs[position + 1]
+        val firstStep = leg.steps.first()
+        val lastFirstStep = nextLeg.steps.first()
+        val lastStep = nextLeg.steps.last()
 
-            var firstBuilding = MapsIndoors.getBuildings()?.getBuilding(firstStep.startPoint.latLng)
-            var lastBuilding  = MapsIndoors.getBuildings()?.getBuilding(lastStep.startPoint.latLng)
-            return if (firstBuilding != null && lastBuilding != null) {
+        val firstBuilding = MapsIndoors.buildings?.getBuilding(firstStep.startPoint.latLng)
+        val lastBuilding = MapsIndoors.buildings?.getBuilding(lastStep.startPoint.latLng)
+        return when {
+            firstBuilding != null && lastBuilding != null ->
                 RouteLegFragment.newInstance(getStepName(lastFirstStep, lastStep), leg.distance.toInt(), leg.duration.toInt())
-            }else if (firstBuilding != null) {
-                RouteLegFragment.newInstance("Exit: " + firstBuilding.name,  leg.distance.toInt(), leg.duration.toInt())
-            }else {
-                RouteLegFragment.newInstance("Enter: " + lastBuilding?.name,  leg.distance.toInt(), leg.duration.toInt())
-            }
+            firstBuilding != null ->
+                RouteLegFragment.newInstance("Exit: ${firstBuilding.name}", leg.distance.toInt(), leg.duration.toInt())
+            else ->
+                RouteLegFragment.newInstance("Enter: ${lastBuilding?.name}", leg.distance.toInt(), leg.duration.toInt())
         }
     }
 }
@@ -94,53 +91,33 @@ Let's create a method to textually describe each Leg. This method creates a stri
 
 ```kotlin
 fun getStepName(startStep: MPRouteStep, endStep: MPRouteStep): String {
-    val startStepZindex: Double = startStep.startLocation!!.zIndex
-    val startStepFloorName: String = startStep.startLocation.floorName!!
-    var highway: String? = null
-    for (actionName in getActionNames()) {
-        if (startStep.highway == actionName) {
-            highway = if (actionName == MPHighway.STEPS) {
-                "stairs"
-            } else {
-                actionName
-            }
-        }
-    }
+    val startStepFloorName = startStep.startLocation?.floorName.orEmpty()
+    val endStepFloorName = endStep.endLocation?.floorName.orEmpty()
+    // Fall back to the floor index when a floor has no name
+    val startLevel = startStepFloorName.ifEmpty { startStep.startPoint.floorIndex.toString() }
+    val endLevel = endStepFloorName.ifEmpty { endStep.endPoint.floorIndex.toString() }
+
+    val highway = getActionNames().firstOrNull { it == startStep.highway }
     if (highway != null) {
-        return java.lang.String.format(
-            "Take %s to %s %s",
-            highway,
-            "level",
-            if (endStep.endLocation.floorName!!.isEmpty()) endStep.endLocation.zIndex else endStep.endLocation.floorName
-        )
+        val highwayName = if (highway == MPHighway.STEPS) "stairs" else highway
+        return "Take $highwayName to level $endLevel"
     }
-    if (startStepFloorName == endStep.endLocation.floorName) {
+    if (startStepFloorName == endStepFloorName) {
         return "Walk to next step"
     }
-    val endStepFloorName: String = endStep.endLocation.floorName!!
-    return if (endStepFloorName.isEmpty()) java.lang.String.format(
-        "Level %s to %s",
-        startStepFloorName.ifEmpty { startStepZindex },
-        endStep.endPoint.floorIndex
-    ) else String.format(
-        "Level %s to %s",
-        startStepFloorName.ifEmpty { startStepZindex },
-        endStepFloorName
-    )
+    return "Level $startLevel to $endLevel"
 }
 
-private fun getActionNames(): ArrayList<String> {
-    val actionNames: ArrayList<String> = ArrayList()
-    actionNames.add(MPHighway.ELEVATOR)
-    actionNames.add(MPHighway.ESCALATOR)
-    actionNames.add(MPHighway.STEPS)
-    actionNames.add(MPHighway.TRAVELATOR)
-    actionNames.add(MPHighway.RAMP)
-    actionNames.add(MPHighway.WHEELCHAIRLIFT)
-    actionNames.add(MPHighway.WHEELCHAIRRAMP)
-    actionNames.add(MPHighway.LADDER)
-    return actionNames
-}
+private fun getActionNames(): List<String> = listOf(
+    MPHighway.ELEVATOR,
+    MPHighway.ESCALATOR,
+    MPHighway.STEPS,
+    MPHighway.TRAVELATOR,
+    MPHighway.RAMP,
+    MPHighway.WHEELCHAIRLIFT,
+    MPHighway.WHEELCHAIRRAMP,
+    MPHighway.LADDER,
+)
 ```
 
 Now, lets create the `RouteLegFragment` to give context for the Legs in the `WayfindingFragment`
@@ -148,17 +125,16 @@ Now, lets create the `RouteLegFragment` to give context for the Legs in the `Way
 [RouteLegFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/wayfinding/RouteLegFragment.kt#L47-L55)
 
 ```kotlin
-private var mStep: String? = null
-private var mDuration: Int? = null
-private var mDistance: Int? = null
+private var step: String? = null
+private var duration: Int? = null
+private var distance: Int? = null
 
 companion object {
-    @JvmStatic
     fun newInstance(step: String, distance: Int?, duration: Int?) =
         RouteLegFragment().apply {
-            mStep = step
-            mDistance = distance
-            mDuration = duration
+            this.step = step
+            this.distance = distance
+            this.duration = duration
         }
 }
 ```
@@ -170,18 +146,18 @@ You must also update the `onViewCreated` method to use the new views added earli
 ```kotlin
 override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-    binding.stepTextView.text = mStep
+    binding.stepTextView.text = step
 
     if (Locale.getDefault().country == "US") {
-        binding.distanceTextView.text = (mDistance?.times(3.281))?.toInt().toString() + " feet"
-    }else {
-        binding.distanceTextView.text = mDistance?.toString() + " m"
+        binding.distanceTextView.text = "${distance?.times(3.281)?.toInt()} feet"
+    } else {
+        binding.distanceTextView.text = "$distance m"
     }
-    mDuration?.let {
+    duration?.let {
         if (it < 60) {
             binding.durationTextView.text = "$it sec"
-        }else {
-            binding.durationTextView.text = TimeUnit.MINUTES.convert(it.toLong(), TimeUnit.SECONDS).toString() + " min"
+        } else {
+            binding.durationTextView.text = "${TimeUnit.SECONDS.toMinutes(it.toLong())} min"
         }
     }
 }
@@ -195,29 +171,29 @@ We will create a method named getRoute that queries a route between two location
 
 ```kotlin
 fun getRoute() {
-    val directionsService = MPDirectionsService(requireContext())
-    if (mDirectionsRenderer == null) {
-        mDirectionsRenderer = MPDirectionsRenderer(mMapControl!!)
-    }
+    val directionsService = MPDirectionsService()
+    val renderer = directionsRenderer ?: MPDirectionsRenderer(mapControl).also { directionsRenderer = it }
 
-    directionsService.setRouteResultListener { mpRoute, miError ->
-        if (miError == null && mpRoute != null) {
-            mRoute = mpRoute
-            mDirectionsRenderer?.setRoute(mpRoute)
-            requireActivity().runOnUiThread {
-                binding.stepViewPager.adapter?.notifyDataSetChanged()
-            }
+    directionsService.setRouteResultListener { result, error ->
+        val mpRoute = result?.routes?.firstOrNull()
+        if (error != null || mpRoute == null) return@setRouteResultListener
+        // The result can arrive on a background thread, so update the map and the UI from the main thread
+        viewLifecycleOwner.lifecycleScope.launch {
+            route = mpRoute
+            renderer.setRoute(mpRoute)
+            binding.stepViewPager.adapter?.notifyDataSetChanged()
         }
     }
-    val location = MapsIndoors.getLocationById("5a07435a4e074edc9396b2ff")
-    mLocation = MapsIndoors.getLocationById("24ede0c9a5004a148bd01d96")
-    if (location != null && mLocation != null) {
-        directionsService.query(location.point, mLocation!!.point)
+    val origin = MapsIndoors.getLocationById("5a07435a4e074edc9396b2ff")
+    val destination = MapsIndoors.getLocationById("24ede0c9a5004a148bd01d96")
+    location = destination
+    if (origin != null && destination != null) {
+        directionsService.query(origin.point, destination.point)
     }
 }
 ```
 
-To change the routing when swapping between tabs on the viewpager, use the call back that we added further up inside the `onViewCreated` of `NavigationFragment`.
+To change the routing when swapping between tabs on the viewpager, use the callback that we added further up inside the `onCreateView` of `WayfindingFragment`.
 
 [WayfindingFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/wayfinding/WayfindingFragment.kt#L41-L50)
 
@@ -228,8 +204,10 @@ viewPager.adapter = routeLegAdapter
 viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
     override fun onPageSelected(position: Int) {
         super.onPageSelected(position)
-        mDirectionsRenderer?.selectLegIndex(position)
-        mDirectionsRenderer?.selectedLegFloorIndex
+        val renderer = directionsRenderer ?: return
+        renderer.selectLegIndex(position)
+        // The leg may be on another floor, so show that floor on the map
+        mapControl.selectFloor(renderer.getSelectedLegFloorIndex())
     }
 })
 ```

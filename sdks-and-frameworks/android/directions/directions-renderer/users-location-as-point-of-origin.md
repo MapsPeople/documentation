@@ -10,12 +10,12 @@ description: >-
 To query for a route, create a `MPPoint` from the Latitude, longitude and the z-index of the user, and use that on the `DirectionsService.query` function, like this:
 
 ```kotlin
-val directionsService = MPDirectionsService(mContext)
-//Create an Origin MPPoint with the users latitude, longitude and Z-index. If no Z-index is available just use 0.0
+val directionsService = MPDirectionsService()
+// Create an origin MPPoint with the user's latitude, longitude and Z-index. If no Z-index is available, just use 0.0
 val origin = MPPoint(userLatitude, userLongitude, userZIndex)
-val destination = destinationLocation.getPoint()
-directionsService.setRouteResultListener { route, error ->
-  //Handle the route result here
+val destination = destinationLocation.point
+directionsService.setRouteResultListener { result, error ->
+    // Handle the route result here
 }
 directionsService.query(origin, destination)
 ```
