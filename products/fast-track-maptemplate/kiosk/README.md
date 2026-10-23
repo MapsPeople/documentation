@@ -31,6 +31,8 @@ We have three simple ways to use the `kioskOriginLocationId` property, however i
 https://map.mapsindoors.com/?apiKey=02c329e6777d431a88480a09&kioskOriginLocationId=b47a973a8450439598c0189c
 ```
 
+If you load your solution with an App alias instead of an API key, put the alias in the path and start the first parameter with `?`: `https://map.mapsindoors.com/yourAlias?kioskOriginLocationId=yourLocationId&useKeyboard=true`
+
 #### Using the web component:&#x20;
 
 ```
