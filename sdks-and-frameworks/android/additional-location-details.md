@@ -1,11 +1,10 @@
-
 # Additional Location Details
 
-MapsIndoors locations can have a variety of additional details, such as phone numbers, websites, emails, and opening hours. These details can be managed in the CMS, read [this article](products/cms/additional-location-details.md) for how to set them up or edit them.
+MapsIndoors locations can have a variety of additional details, such as phone numbers, websites, emails, and opening hours. These details can be managed in the CMS, read [this article](https://github.com/MapsPeople/documentation/blob/main/sdks-and-frameworks/android/products/cms/additional-location-details.md) for how to set them up or edit them.
 
 This guide shows how to access and display these details in your Android app, both in code and in a Jetpack Compose UI.
 
----
+***
 
 ## Accessing Additional Details in Code
 
@@ -76,7 +75,7 @@ fun printPhoneNumbers(location: MPLocation) {
 ```
 {% endcode %}
 
----
+***
 
 ## Displaying Additional Details in Jetpack Compose UI
 
@@ -116,7 +115,7 @@ fun PhoneNumbersList(location: MPLocation) {
 ```
 {% endcode %}
 
----
+***
 
 ### Example: Show All Details in a Single UI
 
