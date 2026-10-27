@@ -4,9 +4,28 @@ Why use Query Parameters?
 
 The Map Template supports using query parameters for all the properties provided by the `MapsIndoorsMap` component.
 
+## Building the URL
+
+Query parameters are added to the end of the Map Template URL:
+
+- Put `?` before the **first** parameter.
+- Put `&` between **every following** parameter.
+
+How the URL starts depends on whether you load your solution with an App alias or an API key:
+
+| You use | Example URL |
+|---|---|
+| App alias in the path (MapsIndoors hosted Map Template) | `https://map.mapsindoors.com/yourAlias?language=zh&venue=yourVenueName` |
+| API key as a query parameter | `https://map.mapsindoors.com/?apiKey=yourApiKey&language=zh&venue=yourVenueName` |
+
+**Note!** When you use an App alias in the path, there is no `apiKey=` parameter, so the first parameter you add must start with `?`:
+
+- ✅ `https://map.mapsindoors.com/yourAlias?language=zh`
+- ❌ `https://map.mapsindoors.com/yourAlias&language=zh` (the map will not load)
+
 **The supported query parameters are the following:**
 
-1. `apiKey` - Used like this `apiKey=yourApiKey`. If no apiKey is provided, the app will default to `mapspeople3d`.
+1. `apiKey` - Used like this `apiKey=yourApiKey`. Accepts both an API key and an App alias. If no apiKey is provided, the app will default to `mapspeople3d`.
 2. `venue` - Used like this `venue=yourVenueName`. If no venue is provided, the app will select the first venue from the solution in alphabetical order.
 3. `locationId` - Used like this `locationId=yourLocationId`
 4. `primaryColor` - Used like this `primaryColor=000000`. **Note!** You need to provide a hex color value, **without** the `#`, due to the hashtag being a reserved symbol that has a predefined purpose in a query string. If no primary color is provided, the app will default to the MapsPeople brand color.
