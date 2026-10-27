@@ -23,7 +23,7 @@ You should now have a project folder with the following files:
 
 ### Installing the MapsIndoors SDK​ <a href="#installing-the-mapsindoors-sdk" id="installing-the-mapsindoors-sdk"></a>
 
-MapsIndoors can be installed using Swift Package Manager or CocoaPods.
+MapsIndoors can be installed using Swift Package Manager, CocoaPods or XCFrameworks.
 
 {% tabs %}
 {% tab title="Swift Package Manager" %}
@@ -81,6 +81,30 @@ If you are upgrading from a version prior to 4.6.0 you must remove the `post_ins
 5. Open a terminal in the directory of the project. `cd <path-to-project>`
 6. Run `pod install` in the terminal.
 7. From this time onwards, use the _.xcworkspace_ file to open the project.
+{% endtab %}
+
+{% tab title="XCFrameworks" %}
+Use XCFrameworks if your project cannot fetch dependencies with Swift Package Manager or CocoaPods, for example when binaries must come from an internal artifact repository. They are available for Mapbox Maps from MapsIndoors 4.24.0.
+
+1. From the [MapsIndoors release](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/releases) you want, download and unzip:
+   * `MapsIndoors.xcframework.zip`
+   * `MapsIndoorsCore.xcframework.zip`
+   * `MapsIndoorsMapbox11.xcframework.zip`
+2. Download the Mapbox Maps SDK XCFrameworks from Mapbox ([Direct Download](https://docs.mapbox.com/ios/maps/guides/install/), requires a Mapbox account) in the exact version stated in the MapsIndoors release notes (Mapbox Maps 11.25.0 for MapsIndoors 4.24.0). The zip contains `MapboxMaps`, `MapboxCoreMaps`, `MapboxCommon` and `Turf`.
+3. Drag all seven XCFrameworks into your Xcode project and add them to your application target.
+4. Click on your project's target, scroll down to `Frameworks, Libraries, and Embedded Content`, and set **Embed** to **Embed & Sign** for all seven.
+
+Now you can start using MapsIndoors in your project by using `import MapsIndoors` in your source code.
+
+{% hint style="danger" %}
+The Mapbox XCFrameworks must be exactly the version stated in the MapsIndoors release notes. Any other version can fail to build or crash at launch.
+{% endhint %}
+
+{% hint style="info" %}
+To update, replace all three MapsIndoors XCFrameworks from the same release, and the Mapbox XCFrameworks if the release notes state a new Mapbox version.
+
+Each release also has a `.dSYMs.zip` per XCFramework; upload them to your crash reporter to symbolicate MapsIndoors frames.
+{% endhint %}
 {% endtab %}
 {% endtabs %}
 
