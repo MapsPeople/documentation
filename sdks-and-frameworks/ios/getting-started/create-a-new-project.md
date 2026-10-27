@@ -84,13 +84,13 @@ If you are upgrading from a version prior to 4.6.0 you must remove the `post_ins
 {% endtab %}
 
 {% tab title="XCFrameworks" %}
-Use XCFrameworks if your project cannot fetch dependencies with Swift Package Manager or CocoaPods, for example when binaries must come from an internal artifact repository. They are available for Mapbox Maps from MapsIndoors 4.22.1.
+Use XCFrameworks if your project cannot fetch dependencies with Swift Package Manager or CocoaPods, for example when binaries must come from an internal artifact repository. They are available for Mapbox Maps from MapsIndoors 4.24.0.
 
 1. From the [MapsIndoors release](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/releases) you want, download and unzip:
    * `MapsIndoors.xcframework.zip`
    * `MapsIndoorsCore.xcframework.zip`
    * `MapsIndoorsMapbox11.xcframework.zip`
-2. Download the Mapbox Maps SDK XCFrameworks from Mapbox ([Direct Download](https://docs.mapbox.com/ios/maps/guides/install/), requires a Mapbox account) in the exact version stated in the MapsIndoors release notes. The zip contains `MapboxMaps`, `MapboxCoreMaps`, `MapboxCommon` and `Turf`.
+2. Download the Mapbox Maps SDK XCFrameworks from Mapbox ([Direct Download](https://docs.mapbox.com/ios/maps/guides/install/), requires a Mapbox account) in the exact version stated in the MapsIndoors release notes (Mapbox Maps 11.25.0 for MapsIndoors 4.24.0). The zip contains `MapboxMaps`, `MapboxCoreMaps`, `MapboxCommon` and `Turf`.
 3. Drag all seven XCFrameworks into your Xcode project and add them to your application target.
 4. Click on your project's target, scroll down to `Frameworks, Libraries, and Embedded Content`, and set **Embed** to **Embed & Sign** for all seven.
 
