@@ -7,10 +7,6 @@ noIndex: true
 
 ## Configure Insights event logging (Web SDK)
 
-{% hint style="danger" %}
-**Internal draft — not public.** Insights v1 is not a public feature yet. Do not add this page to the public GitBook space, the docs sitemap, or any customer-facing changelog until the release is announced. Share this file directly (or paste it into a private Google Doc) with the customer that needs it.
-{% endhint %}
-
 This page explains how to configure the MapsIndoors **Web SDK** so Insights receives the v1 event taxonomy with a correct `viewVariant`.
 
 Every Insights event carries a `viewVariant`. Insights slices counts and top lists by that field. The SDK cannot tell a kiosk from a desktop browser — the host app must set it. If you never set it, the platform breakdown is wrong and **cannot be backfilled**.
