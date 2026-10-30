@@ -32,4 +32,4 @@ With the Mapbox V11 release, android also supports rendering 3D models on your m
 
 With 4.5.0 you can now also hide specific features, allowing you to toggle between 2d and 3d.
 
-You can read about that feature here: [enabling-and-disabling-features-on-the-map.md](../../displaying-objects/enabling-and-disabling-features-on-the-map.md "mention")
+You can read about that feature here: [enabling-and-disabling-features-on-the-map.md](../../../sdks-and-frameworks/android/displaying-objects/enabling-and-disabling-features-on-the-map.md "mention")
