@@ -2,7 +2,7 @@
 
 To get started with Indoor Atlas positioning, you need to create a positioning implementation which enables communicating the positions received from Indoor Atlas with the MapsIndoors SDK.
 
-The Position Provider implementation exists at the customer application level, and needs to use the `MPPositionProvider` interface from the MapsIndoors SDK. The MapsIndoors SDK can then use the positioning results given by the given Position Provider, by setting the Position Provider with `MapsIndoors.setPositionProvider(MPPositionProvider)`.
+The Position Provider implementation exists at the customer application level, and needs to use the `MPPositionProvider` interface from the MapsIndoors SDK. The MapsIndoors SDK can then use the positioning results given by the given Position Provider, by assigning the Position Provider to the `MapsIndoors.positionProvider` property.
 
 #### Floor Mapping​ <a href="#floor-mapping" id="floor-mapping"></a>
 
@@ -12,15 +12,13 @@ For a typical Position Provider, the mapping from the positioning's index needs 
 
 **Fetch Attributes from Solution​**
 
-You can choose to fetch the Position Provider information (`CMS` > `Solution Details` > `App Settings` > `Position Provider`) from the CMS as follows:
+You can choose to fetch the IndoorAtlas configuration (`CMS` > `Solution Details` > `App Settings` > `Position Provider`) from the CMS as follows:
 
-```java
-Map<String, Map<String, Object>> providerConfig = MapsIndoors.getSolution().getPositionProviderConfig();
+```kotlin
+val indoorAtlasConfig: MPIndoorAtlasConfig? = MapsIndoors.solution?.indoorAtlasConfig
 ```
 
-The outer keyset (`Map<String, Map<String, Object>>`) contains the name of the positioning provider, for example, `indooratlas3` for IndoorAtlas, or `ciscodna` when using Cisco DNA Spaces.
-
-The inner keyset (`Map<String, Object>`) consist of various attribute fields for a given positioning provider, such as keys, floor mapping etc. These attribute fields will vary across different positioning providers, so refer to their own documentation for details.
+`MPIndoorAtlasConfig` holds the IndoorAtlas `key` and `secret`, and `getMappedFloorIndex(floorIndex)` converts an IndoorAtlas floor number to a MapsIndoors Floor index using the floor mapping set up in the CMS. It is `null` if IndoorAtlas is not configured for the Solution.
 
 #### Implementing Indoor Atlas​ <a href="#implementing-indoor-atlas" id="implementing-indoor-atlas"></a>
 
@@ -31,9 +29,9 @@ To begin, we will start implementing the Indoor Atlas position provider. Create 
 [IndoorAtlasPositionProvider.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/IndoorAtlasPositionProvider.kt#L8-L18)
 
 ```kotlin
-class IndoorAtlasPositionProvider(private val context: Context, private val config: MPIndoorAtlasConfig): MPPositionProvider {
-    private var mLatestPosition: MPPositionResultInterface? = null
-    private var mLatestBearing: Float? = null
+class IndoorAtlasPositionProvider(private val context: Context, private val config: MPIndoorAtlasConfig) : MPPositionProvider {
+    private val positionUpdateListeners = ArrayList<OnPositionUpdateListener>()
+    private var latestPosition: MPPositionResultInterface? = null
     private var indoorAtlasClient: IALocationManager? = null
 }
 ```
@@ -43,19 +41,18 @@ We will start by implementing methods from the `MPPositionProvider` interface.
 [IndoorAtlasPositionProvider.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/IndoorAtlasPositionProvider.kt#L116-L126)
 
 ```kotlin
-class IndoorAtlasPositionProvider(private val context: Context, private val config: MPIndoorAtlasConfig): MPPositionProvider {
-    ...
-    override fun addOnPositionUpdateListener(p0: OnPositionUpdateListener) {
-        positionUpdateListeners.add(p0)
+class IndoorAtlasPositionProvider(private val context: Context, private val config: MPIndoorAtlasConfig) : MPPositionProvider {
+    // ...
+
+    override fun addOnPositionUpdateListener(listener: OnPositionUpdateListener) {
+        positionUpdateListeners.add(listener)
     }
 
-    override fun removeOnPositionUpdateListener(p0: OnPositionUpdateListener) {
-        positionUpdateListeners.remove(p0)
+    override fun removeOnPositionUpdateListener(listener: OnPositionUpdateListener) {
+        positionUpdateListeners.remove(listener)
     }
 
-    override fun getLatestPosition(): MPPositionResultInterface? {
-        return mLatestPosition
-    }
+    override fun getLatestPosition(): MPPositionResultInterface? = latestPosition
 }
 ```
 
@@ -68,103 +65,84 @@ We start by creating a method to initiate the Indoor Atlas client. Here the meth
 [IndoorAtlasPositionProvider.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/IndoorAtlasPositionProvider.kt#L91-L97)
 
 ```kotlin
-class IndoorAtlasPositionProvider(private val context: Context, private val config: MPIndoorAtlasConfig): MPPositionProvider {
-    ...
-    private void initClient(){
+class IndoorAtlasPositionProvider(private val context: Context, private val config: MPIndoorAtlasConfig) : MPPositionProvider {
+    // ...
+
+    private fun initClient() {
         val extras = Bundle(2)
         extras.putString(IALocationManager.EXTRA_API_KEY, config.key)
         extras.putString(IALocationManager.EXTRA_API_SECRET, config.secret)
 
         indoorAtlasClient = IALocationManager.create(context, extras)
     }
-    ...
+
+    // ...
 }
 ```
 
-Create a `IAOrientationListener` and `IALocationListener` we will register theese to the IndoorAtlas client when we start positioning. We will also implement a `notifyPositionUpdate` method to notify the Positionupdate Listeners of a position change.
+Create an `IAOrientationListener` and an `IALocationListener`; we will register these to the IndoorAtlas client when we start positioning. We will also implement a `notifyPositionUpdate` method to notify the position update listeners of a position change. The MapsIndoors Floor index of a position is the z-coordinate of its `MPPoint`.
 
 [IndoorAtlasPositionProvider.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/IndoorAtlasPositionProvider.kt#L8-L89)
 
 ```kotlin
-class IndoorAtlasPositionProvider(private val context: Context, private val config: MPIndoorAtlasConfig): MPPositionProvider {
-    private var mLastHeadingUpdateTime: Long = 0
-    private val MIN_TIME_BETWEEN_UPDATES_IN_MS: Long = 100
-    private var mLatestBearing: Float? = null
+class IndoorAtlasPositionProvider(private val context: Context, private val config: MPIndoorAtlasConfig) : MPPositionProvider {
+    private var lastHeadingUpdateTime: Long = 0
+    private var latestBearing: Float? = null
 
-    private val orientationListener: IAOrientationListener = object : IAOrientationListener {
+    private val orientationListener = object : IAOrientationListener {
         override fun onHeadingChanged(timestamp: Long, heading: Double) {
-            mLatestPosition?.let {
-                val dt: Long = timestamp - mLastHeadingUpdateTime
-
-                if (dt < MIN_TIME_BETWEEN_UPDATES_IN_MS) {
-                    return
-                }
-
-                mLastHeadingUpdateTime = timestamp
-
-                it.bearing = heading.toFloat()
-                mLatestBearing = it.bearing
-
-                notifyPositionUpdate()
+            val position = latestPosition ?: return
+            if (timestamp - lastHeadingUpdateTime < MIN_TIME_BETWEEN_UPDATES_IN_MS) {
+                return
             }
+            lastHeadingUpdateTime = timestamp
+
+            position.bearing = heading.toFloat()
+            latestBearing = position.bearing
+
+            notifyPositionUpdate()
         }
 
-        override fun onOrientationChange(p0: Long, p1: DoubleArray?) {
-            //Empty as we only use heading here
+        override fun onOrientationChange(timestamp: Long, quaternion: DoubleArray?) {
+            // Empty as we only use heading here
         }
     }
 
     private val locationListener = object : IALocationListener {
         override fun onLocationChanged(location: IALocation?) {
-            location?.let {
-                val lat = it.latitude
-                val lng = it.longitude
-                val floorLevel = it.floorLevel
-                val accuracy = it.accuracy
+            location ?: return
+            // Notice we use a method from our MPIndoorAtlasConfig to retrieve the correct MapsIndoors floor index from the IndoorAtlas result.
+            // If you do not have a config set up through the CMS, you can create a method that handles the floor mapping itself.
+            val floorIndex = location.takeIf { it.hasFloorLevel() }?.let { config.getMappedFloorIndex(it.floorLevel) }
+                ?: MPFloor.DEFAULT_GROUND_FLOOR_INDEX
 
-                val hasFloorLevel = it.hasFloorLevel()
+            val point = MPPoint(location.latitude, location.longitude, floorIndex.toDouble())
+            val positionResult = MPPositionResult(point, location.accuracy)
+            positionResult.androidLocation = location.toLocation()
+            positionResult.bearing = latestBearing
+            positionResult.provider = this@IndoorAtlasPositionProvider
 
-                val positionResult = MPPositionResult(MPPoint(lat, lng), accuracy)
-                positionResult.androidLocation = it.toLocation()
-                if (mLatestBearing != null) {
-                    positionResult.bearing = mLatestBearing!!
-                }
-                //Notice we use a method from our IndoorAtlasConfig to retreive the correct MapsIndoors floor level from the IndoorAtlas result. If you do not have a config set up through the CMS,
-                //You can create a method that handles the floor mapping itself.
-                if (hasFloorLevel) {
-                    if (config.getMappedFloorIndex(floorLevel) != null) {
-                        positionResult.floorIndex = config.getMappedFloorIndex(floorLevel)!!
-                    }else {
-                        positionResult.floorIndex = MPFloor.DEFAULT_GROUND_FLOOR_INDEX
-                    }
-                }else {
-                    positionResult.floorIndex = MPFloor.DEFAULT_GROUND_FLOOR_INDEX
-                }
-
-                positionResult.provider = this@IndoorAtlasPositionProvider
-
-                mLatestPosition = positionResult
-                notifyPositionUpdate()
-            }
+            latestPosition = positionResult
+            notifyPositionUpdate()
         }
 
-        override fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {
-            //Blank for this, can be used to report if indoor atlas is unavailable etc.
+        override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+            // Blank for this, can be used to report if Indoor Atlas is unavailable etc.
         }
     }
 
+    private fun notifyPositionUpdate() {
+        val position = latestPosition ?: return
+        positionUpdateListeners.forEach { it.onPositionUpdate(position) }
+    }
 
-    fun notifyPositionUpdate() {
-        for (positionUpdateListener in positionUpdateListeners) {
-            mLatestPosition?.let {
-                positionUpdateListener.onPositionUpdate(it)
-            }
-        }
+    private companion object {
+        const val MIN_TIME_BETWEEN_UPDATES_IN_MS = 100L
     }
 }
 ```
 
-Implement the `startPositoning` and `stopPositioning` method:
+Implement the `startPositioning` and `stopPositioning` methods:
 
 [IndoorAtlasPositionProvider.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/IndoorAtlasPositionProvider.kt#L99-L114)
 
@@ -192,23 +170,27 @@ Our implemented positioning provider will be handled in an activity or fragment.
 [PositioningFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/PositioningFragment.kt#L40-L54)
 
 ```kotlin
-class myFragment: Fragment(), OnMapReadyCallback {
-    private var mPositionProvider: IndoorAtlasPositionProvider? = null
+class MyFragment : Fragment() {
+    private var positionProvider: IndoorAtlasPositionProvider? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?,): View {
-        ...
-        MapsIndoors.load(requireActivity().applicationContext, "myapikey") {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        // ...
+        val context = requireActivity()
+        MapsIndoors.load(context.applicationContext, "myapikey") { _, _ ->
+            // The IndoorAtlas configuration is null if IndoorAtlas is not set up for the Solution
+            val config = MapsIndoors.solution?.indoorAtlasConfig ?: return@load
             // Attach the position provider to the SDK
-            mPositionProvider = IndoorAtlasPositionProvider(requireActivity(), MapsIndoors.getSolution()!!.indoorAtlasConfig!!)
-            MapsIndoors.setPositionProvider(mPositionProvider)
+            positionProvider = IndoorAtlasPositionProvider(context, config)
+            MapsIndoors.positionProvider = positionProvider
         }
 
-        //Have a buttton or other logic to start positioning:
+        // Have a button or other logic to start positioning:
         binding.startPositioningButton.setOnClickListener {
-            //Remember to handle permissions specific to the Position provider you are using
-            mPositionProvider?.startPositioning()
+            // Remember to handle permissions specific to the position provider you are using
+            positionProvider?.startPositioning()
         }
-        ...
+        // ...
+        return binding.root
     }
 }
 ```
@@ -218,11 +200,11 @@ Lastly, we need to tell `MapControl` that we want to show the position on the ma
 [PositioningFragment.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapsIndoorsSamples/app/src/main/java/com/mapspeople/mapsindoorssamples/ui/positioning/PositioningFragment.kt#L93-L97)
 
 ```kotlin
-MapControl.create(mapConfig) { mapControl: MapControl?, miError: MIError? ->
-    mMapControl = mapControl
+MapControl.create(mapConfig) { mapControl, _ ->
+    this.mapControl = mapControl
 
     // Enable showing the position indicator (aka. the blue dot)
-    mMapControl?.showUserPosition(true)
+    mapControl?.showUserPosition(true)
 }
 ```
 
