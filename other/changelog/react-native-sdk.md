@@ -6,6 +6,26 @@ icon: react
 
 Changelog for the MapsIndoors React Native SDK. This document structure is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and the project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### \[2.10.0] - 2026-11-02
+
+#### **Added**
+
+* MapsIndoors Insights attributes sessions to the React Native SDK (`React Native/android SDK` or `React Native/iOS SDK`, with the package version) instead of reporting them as the plain native SDK. The first session after a cold start is attributed too
+
+#### **Changed**
+
+* Mapbox only: no Mapbox download token is needed any more (Mapbox SDK 11.8+ downloads are public). The Expo plugin ignores `downloadToken`, warns when it is set, and no longer writes `MAPBOX_DOWNLOADS_TOKEN` to `gradle.properties` or credentials to `~/.netrc`
+* `MapControl.getCurrentFloorIndex`, `getCurrentMapsIndoorsZoom`, `isFloorSelectorHidden` and `isUserPositionShown` reject when there is no map control. iOS resolved `null`, which reads as a real floor index, zoom or `false`; Android crashed
+
+#### **Fixed**
+
+* iOS: the blue dot now shows for a JavaScript position provider whose results leave out `floorIndex`. Every such update was silently rejected
+* iOS: the blue dot now shows for a position provider set after calling `MapsIndoors.load` again while the map stays mounted
+* Opening and closing a map no longer leaks memory on every visit, on iOS and Android
+* Android: `MapControl` calls made without a map control now reject, resolve `null` or do nothing, as on iOS, instead of crashing. `clearFilter`, `clearHighlight` and `showUserPosition` resolve instead of never settling
+* MapsIndoors Insights `directions_started` and `directions_completed` events now carry the route's origin and destination location and venue, as from native apps. This requires a route returned by `MPDirectionsService.getRoute` since the last `MapsIndoors.load`, among the ten most recently used. A copy made through JSON qualifies; an edited route does not
+* Mapbox only: Expo builds without `downloadToken` no longer fail to download Mapbox. If an earlier plugin version wrote a token, remove the `machine api.mapbox.com` entry from `~/.netrc`
+
 ### \[2.9.1] - 2026-10-16
 
 #### Changed
@@ -51,8 +71,6 @@ Changelog for the MapsIndoors React Native SDK. This document structure is based
 * Polygon geometry on iOS never decoded the geometry it was given, so `MPPolygon.contains` always answered `false`, `getArea` always `0`, and `distanceToClosestEdge` resolved `undefined` despite being typed `Promise<number>`. The `false` and `0` results look legitimate, so any logic built on them is worth re-checking. Multi-polygon geometry now works as well
 * Serialising SDK models to the bridge on Android walked native memory by reflection, so the work grew with whatever the host app had allocated rather than with the map data. It only showed up in real apps on physical devices
 * `MapsIndoors.setLanguage`, `getAvailableLanguages`, `getDefaultLanguage`, `getSolution` and `getLocations` resolved `null` or threw unparseable errors instead of rejecting with an `MPError`. Native errors now reach the caller intact
-
-
 
 ### \[2.8.0] 2026-08-19
 
