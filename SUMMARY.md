@@ -146,6 +146,7 @@
     * [Directions Renderer](sdks-and-frameworks/ios/directions/directions-renderer/README.md)
       * [Styling the Route](sdks-and-frameworks/ios/directions/directions-renderer/styling-the-route.md)
       * [User's Location as Point of Origin](sdks-and-frameworks/ios/directions/directions-renderer/users-location-as-point-of-origin.md)
+      * [Live Route Updates](sdks-and-frameworks/ios/directions/directions-renderer/live-route-updates.md)
     * [Wayfinding Instructions](sdks-and-frameworks/ios/directions/wayfinding-instructions.md)
       * [See Route Element Details](sdks-and-frameworks/ios/directions/wayfinding-instructions/see-route-element-details.md)
     * [Directions Service](sdks-and-frameworks/ios/directions/directions-service.md)
