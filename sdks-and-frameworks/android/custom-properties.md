@@ -48,8 +48,8 @@ The method for reading and using these custom properties depends on which platfo
 
 Using the above screenshot as an example basis you fetch the entire custom property using the following code:
 
-```java
-String email = (String) location.getProperty("email");
+```kotlin
+val email = location.getProperty("email") as String?
 ```
 
 When retrieving custom properties, they are always returned as a String.

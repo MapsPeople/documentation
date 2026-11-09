@@ -19,15 +19,15 @@ Once you have created your heatmaps with your map provider, you will need a way 
 
 > This will only work with Android SDK v4.0.1 and newer.
 
-To achieve this you will use the MapsIndoors `Layers` class that comes with the Mapsindoors Mapbox dependency. It can be done like this:
+To achieve this you will use the MapsIndoors `MPLayers` class that comes with the Mapsindoors Mapbox dependency. It can be done like this:
 
 ```kotlin
 mapboxMap.getStyle { style ->
-    style.addLayerBelow(createHeatmapLayer(), Layers.AREA_FILL)
+    style.addLayerBelow(createHeatmapLayer(), MPLayers.AREA_FILL)
 }
 ```
 
-`Layers.AREA_FILL` is the lowest of the MapsIndoors layers (except for tiles, but as that is changed depending on floor indexes, it is not available through the SDK). This means the heatmap will be rendered above tiles, but underneath any other MapsIndoors-specific item on the map.
+`MPLayers.AREA_FILL` is the lowest of the MapsIndoors layers (except for tiles, but as that is changed depending on floor indexes, it is not available through the SDK). This means the heatmap will be rendered above tiles, but underneath any other MapsIndoors-specific item on the map.
 
 ```kotlin
 mapboxMap.getStyle { style ->
@@ -35,4 +35,4 @@ mapboxMap.getStyle { style ->
 }
 ```
 
-`Layers.POI` is the Location marker layer of the MapsIndoors layers. This means the heatmap will be rendered on top of markers, but below the positioning dot ("blue dot") and route markers.
+`MPLayers.POI` is the Location marker layer of the MapsIndoors layers. This means the heatmap will be rendered on top of markers, but below the positioning dot ("blue dot") and route markers.

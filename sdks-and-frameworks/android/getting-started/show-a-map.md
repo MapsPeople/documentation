@@ -19,7 +19,7 @@ Please note that data in MapsIndoors is loaded asynchronously. This results in b
 
 We start by initializing `MapsIndoors`. `MapsIndoors` is used to get and store all references to MapsIndoors-specific data. This includes access to all MapsIndoors-specific geodata.
 
-Place the following initialization code in the `onCreate` method in the `MapsActivity` that displays the Google map. You should also assign the `mapFragment` view to a local variable, as we will use this later to initialize [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) inside the `onCreate`, after it has been created:
+Place the following initialization code in the `onCreate` method in the `MapsActivity` that displays the Google map. You should also assign the `mapFragment` view to a local variable, as we will use this later to initialize [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) inside the `onCreate`, after it has been created:
 
 {% tabs %}
 {% tab title="Google Maps" %}
@@ -27,13 +27,14 @@ Place the following initialization code in the `onCreate` method in the `MapsAct
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
-    ...
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_maps)
+
     MapsIndoors.load(applicationContext, "YOUR_MAPSINDOORS_API_KEY", null)
 
-    mapFragment.view?.let {
-        mapView = it
-    }
-    ...
+    val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+    mapView = mapFragment.view
+    mapFragment.getMapAsync(this)
 }
 ```
 {% endtab %}
@@ -43,9 +44,11 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
-    ...
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_maps)
+
     MapsIndoors.load(applicationContext, "YOUR_MAPSINDOORS_API_KEY", null)
-    ...
+    // ...
 }
 ```
 {% endtab %}
@@ -53,15 +56,15 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 If you do not have your own key, you can use this demo MapsIndoors API key: `02c329e6777d431a88480a09`.
 
-#### Initialize MapsControl[​](https://docs.mapsindoors.com/getting-started/android/v4/map#initialize-mapscontrol) <a href="#initialize-mapscontrol" id="initialize-mapscontrol"></a>
+#### Initialize MapsControl <a href="#initialize-mapscontrol" id="initialize-mapscontrol"></a>
 
-We now want to add all the data we get by initializing `MapsIndoors` to our map. This is done by initializing [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) onto the map. [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) is used as a layer between the map provider and MapsIndoors.
+We now want to add all the data we get by initializing `MapsIndoors` to our map. This is done by initializing [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) onto the map. [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) is used as a layer between the map provider and MapsIndoors.
 
 {% hint style="info" %}
-[`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) uses Google Maps listeneres to control some map logic. So be aware that using Google Maps listeners directly might break intended behavior of the MapsIndoors experience. We recommend to check our reference docs, and see if you can add a specific `Listener` through the [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) and always use those when possible.
+[`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) uses Google Maps listeneres to control some map logic. So be aware that using Google Maps listeners directly might break intended behavior of the MapsIndoors experience. We recommend to check our reference docs, and see if you can add a specific `Listener` through the [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) and always use those when possible.
 {% endhint %}
 
-Start by creating an `initMapControl` method which is used to initiate the [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) and assign it to mMap:
+Start by creating an `initMapControl` method which is used to initiate the [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) and assign it to `mapControl`:
 
 {% tabs %}
 {% tab title="Google maps" %}
@@ -69,21 +72,22 @@ Start by creating an `initMapControl` method which is used to initiate the [`Map
 
 ```kotlin
 private fun initMapControl(view: View) {
-    MPMapConfig mapConfig = new MPMapConfig.Builder(this, mMap, getString(R.string.google_maps_key), view, true).build();
-    //Creates a new instance of MapControl
-    MapControl.create(config) { mapControl, miError ->
-        if (miError == null) {
-            mMapControl = mapControl!!
-            //Enable live data on the map
-            enableLiveData()
-            //No errors so getting the first venue (in the white house solution the only one)
-            val venue = MapsIndoors.getVenues()?.currentVenue
-            venue?.bounds?.let {
-                runOnUiThread {
-                    //Animates the camera to fit the new venue
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(LatLngBoundsConverter.toLatLngBounds(it), 19))
-                }
-            }
+    val config = MPMapConfig.Builder(this, googleMap, getString(R.string.google_maps_key), view, true).build()
+    // Creates a new instance of MapControl
+    MapControl.create(config) { mapControl, error ->
+        if (mapControl == null) {
+            Log.e("MapsActivity", "Could not create MapControl: ${error?.message}")
+            return@create
+        }
+        this.mapControl = mapControl
+        // Enable live data on the map
+        enableLiveData()
+        // No errors, so get the default venue (in the White House solution, the only one)
+        val bounds = MapsIndoors.venues?.defaultVenue?.bounds ?: return@create
+        // The callback can arrive on a background thread, so move the camera from the main thread
+        lifecycleScope.launch {
+            // Animates the camera to fit the venue
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(LatLngBoundsConverter.toLatLngBounds(bounds), 19))
         }
     }
 }
@@ -95,21 +99,22 @@ private fun initMapControl(view: View) {
 
 ```kotlin
 private fun initMapControl() {
-    //Creates a new instance of MapControl
-    val config = MPMapConfig.Builder(this, mMap, mapView, getString(R.string.mapbox_access_token),true).build()
-    MapControl.create(config) { mapControl, miError ->
-        if (miError == null) {
-            mMapControl = mapControl!!
-            //Enable live data on the map
-            enableLiveData()
-            //No errors so getting the first venue (in the white house solution the only one)
-            val venue = MapsIndoors.getVenues()?.currentVenue
-            venue?.bounds?.let {
-                runOnUiThread {
-                    //Animates the camera to fit the new venue
-                    mMap.flyTo(mMap.cameraForCoordinateBounds(CoordinateBoundsConverter.toCoordinateBounds(it)))
-                }
-            }
+    val config = MPMapConfig.Builder(this, mapboxMap, mapView, getString(R.string.mapbox_access_token), true).build()
+    // Creates a new instance of MapControl
+    MapControl.create(config) { mapControl, error ->
+        if (mapControl == null) {
+            Log.e("MapsActivity", "Could not create MapControl: ${error?.message}")
+            return@create
+        }
+        this.mapControl = mapControl
+        // Enable live data on the map
+        enableLiveData()
+        // No errors, so get the default venue (in the White House solution, the only one)
+        val bounds = MapsIndoors.venues?.defaultVenue?.bounds ?: return@create
+        // The callback can arrive on a background thread, so move the camera from the main thread
+        lifecycleScope.launch {
+            // Animates the camera to fit the venue
+            mapboxMap.flyTo(mapboxMap.cameraForCoordinateBounds(CoordinateBoundsConverter.toCoordinateBounds(bounds)))
         }
     }
 }
@@ -117,7 +122,7 @@ private fun initMapControl() {
 {% endtab %}
 {% endtabs %}
 
-In your `onMapReady` callback function, assign the `mMap` variable with the `GoogleMap` you get from the callback and call the `initMapControl` method with the `mMapView` you assigned in the `onCreate` to set up a Google map with MapsIndoors Venues, Buildings and Locations. For Mapbox you can simple call initMapControl inside your `onCreate`:\\
+In your `onMapReady` callback function, assign the `googleMap` property with the `GoogleMap` you get from the callback and call the `initMapControl` method with the `mapView` you assigned in the `onCreate` to set up a Google map with MapsIndoors Venues, Buildings and Locations. For Mapbox, get the `MapboxMap` from your `MapView` and call `initMapControl` inside your `onCreate`:
 
 {% tabs %}
 {% tab title="Google Maps" %}
@@ -125,7 +130,7 @@ In your `onMapReady` callback function, assign the `mMap` variable with the `Goo
 
 ```kotlin
 override fun onMapReady(googleMap: GoogleMap) {
-    mMap = googleMap
+    this.googleMap = googleMap
 
     mapView?.let { view ->
         initMapControl(view)
@@ -139,9 +144,10 @@ override fun onMapReady(googleMap: GoogleMap) {
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
-    ...
-    initMapControl();
-    ...
+    // ...
+    mapView = findViewById(R.id.mapView)
+    mapboxMap = mapView.mapboxMap
+    initMapControl()
 }
 ```
 {% endtab %}

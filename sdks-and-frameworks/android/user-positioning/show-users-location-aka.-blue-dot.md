@@ -14,64 +14,65 @@ class PositionProvider : MPPositionProvider
 
 Add these member variables to `PositionProvider`:
 
-* `mUpdateListeners`: A list for holding listeners
-* `mLatestPosition`: The latest derived position result
-* `mPositionProducer`: A timer we will use to execute our positioning code periodically
-* `mWhiteHouseBounds`: Latitude/longitude coordinate bounds for a part of the White House building
+* `updateListeners`: A list for holding listeners. The SDK adds listeners from the main thread while positions are produced on a background thread, so a thread-safe list is used
+* `latestPosition`: The latest derived position result
+* `scope` and `positionProducer`: A coroutine scope owned by the provider, and the job we will use to execute our positioning code periodically
+* `whiteHouseBounds`: Latitude/longitude coordinate bounds for a part of the White House building
 
 ```kotlin
-private val mUpdateListeners = ArrayList<OnPositionUpdateListener>()
-private var mLatestPosition: MPPositionResultInterface? = null
-private var mPositionProducer : Timer? = null
-private val mWhiteHouseBounds = MPLatLngBounds(MPLatLng(38.897545509875954, -77.03687635385639), MPLatLng(38.89779861672662, -77.03623597646553))
+private val updateListeners = CopyOnWriteArrayList<OnPositionUpdateListener>()
+private var latestPosition: MPPositionResultInterface? = null
+private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
+private var positionProducer: Job? = null
+private val whiteHouseBounds = MPLatLngBounds(MPLatLng(38.897545509875954, -77.03687635385639), MPLatLng(38.89779861672662, -77.03623597646553))
 ```
 
-Next, implement the `addOnPositionUpdateListener` and `removeOnPositionUpdateListener`, which adds and removes an entry in our list `mUpdateListeners`.
+Next, implement the `addOnPositionUpdateListener` and `removeOnPositionUpdateListener`, which adds and removes an entry in our list `updateListeners`.
 
 ```kotlin
-override fun addOnPositionUpdateListener(updateListener: OnPositionUpdateListener) {
-    mUpdateListeners.add(updateListener)
+override fun addOnPositionUpdateListener(listener: OnPositionUpdateListener) {
+    updateListeners.add(listener)
 }
 
-override fun removeOnPositionUpdateListener(updateListener: OnPositionUpdateListener) {
-    mUpdateListeners.remove(updateListener)
+override fun removeOnPositionUpdateListener(listener: OnPositionUpdateListener) {
+    updateListeners.remove(listener)
 }
 ```
 
-Next, implement `getLatestPosition`, returning `mLatestPosition`:
+Next, implement `getLatestPosition`, returning `latestPosition`:
 
 ```kotlin
-override fun getLatestPosition(): MPPositionResultInterface? {
-    return mLatestPosition
-}
+override fun getLatestPosition(): MPPositionResultInterface? = latestPosition
 ```
 
 These three methods require an implementation as the MapsIndoors SDK needs to attach a listener to be notified of positioning changes, as well as get the latest positioning. As long as these three methods are implemented in this manner, you are free to implement the rest of your position provider class as you see fit.
 
-Next, we need to set up some code to generate random positioning results. We define two methods `start()` and `stop()` on our class `PositionProvider`. In the body of `start()` we start a fixed schedule timer task to execute every second - until our `stop()` method is called.
+Next, we need to set up some code to generate random positioning results. We define two methods `start()` and `stop()` on our class `PositionProvider`. In the body of `start()` we launch a coroutine in the provider's scope that produces a position every second - until our `stop()` method cancels it.
 
 ```kotlin
-fun start(){
-    mPositionProducer = Timer(true)
-    mPositionProducer?.scheduleAtFixedRate(object: TimerTask() {
-        override fun run() {
-
+fun start() {
+    positionProducer?.cancel()
+    positionProducer = scope.launch {
+        while (isActive) {
+            producePosition()
+            delay(1_000)
         }
-    }, 0, 1000L)
+    }
 }
 
-fun stop(){
-    mPositionProducer?.cancel()
+fun stop() {
+    positionProducer?.cancel()
+    positionProducer = null
 }
 ```
 
-In the timer task's `run()` method, we compute a random latitude/longitude position within some defined bounds. We create a new `MPPoint` for the derived position. We also randomize accuracy (meters) and bearing (degrees) values, and create a new `MPPositionResult`. The position result can optionally have a bearing. Some positioning systems support this, some don't. Refer to the documentation of your chosen positioning provider for this information.
+In the `producePosition()` method, we compute a random latitude/longitude position within some defined bounds. We create a new `MPPoint` for the derived position. We also randomize accuracy (meters) and bearing (degrees) values, and create a new `MPPositionResult`. The position result can optionally have a bearing. Some positioning systems support this, some don't. Refer to the documentation of your chosen positioning provider for this information.
 
 ```kotlin
-override fun run() {
+private fun producePosition() {
     // Produce a random positioning inside The White House bounds
-    val randomLat = Random.nextDouble(mWhiteHouseBounds.southWest.lat, mWhiteHouseBounds.northEast.lat)
-    val randomLng = Random.nextDouble(mWhiteHouseBounds.southWest.lng, mWhiteHouseBounds.northEast.lng)
+    val randomLat = Random.nextDouble(whiteHouseBounds.southWest.lat, whiteHouseBounds.northEast.lat)
+    val randomLng = Random.nextDouble(whiteHouseBounds.southWest.lng, whiteHouseBounds.northEast.lng)
 
     val floorIndex = 10.0
     val accuracy = (3..10).random().toFloat() // In meters
@@ -80,19 +81,20 @@ override fun run() {
     val position = MPPoint(randomLat, randomLng, floorIndex)
 
     // Randomize whether or not the position result has a bearing
-    if(Random.nextInt() % 2 == 0)
-        mLatestPosition = MPPositionResult(position, accuracy, bearing)
-    else
-        mLatestPosition = MPPositionResult(position, accuracy)
+    val result = if (Random.nextBoolean()) {
+        MPPositionResult(position, accuracy, bearing)
+    } else {
+        MPPositionResult(position, accuracy)
+    }
+    result.provider = this
+    latestPosition = result
 
     // Report the updated positioning to attached listeners
-    for(listener in mUpdateListeners){
-        listener.onPositionUpdate(mLatestPosition as MPPositionResult)
-    }
+    updateListeners.forEach { it.onPositionUpdate(result) }
 }
 ```
 
-When we have derived a new position and assigned it to `mLatestPosition`, we invoke `onPositionUpdate()` on each attached update listener.
+When we have derived a new position and assigned it to `latestPosition`, we invoke `onPositionUpdate()` on each attached update listener.
 
 We have now completed the implementation of `PositionProvider` - we will now cover how this is integrated with the MapsIndoors SDK so the produced positioning is reflected on the map, as well as how we can configure the blue dot styling.
 
@@ -100,31 +102,31 @@ We have now completed the implementation of `PositionProvider` - we will now cov
 
 ### Integrating with MapsIndoors SDK​ <a href="#integrating-with-mapsindoors-sdk" id="integrating-with-mapsindoors-sdk"></a>
 
-In order for your `PositionProvider`'s produced positions to be rendered on the map, you need to attach it to the MapsIndoors SDK. Use `MapsIndoors.setPositionProvider()` to set the position provider on the SDK.
+In order for your `PositionProvider`'s produced positions to be rendered on the map, you need to attach it to the MapsIndoors SDK. Assign it to the `MapsIndoors.positionProvider` property to set the position provider on the SDK.
 
 ```kotlin
 // Create a position provider
-mPositionProvider = PositionProvider()
+positionProvider = PositionProvider()
 
-MapsIndoors.load(requireActivity().applicationContext, "your mapsindoors api key") {
+MapsIndoors.load(requireActivity().applicationContext, "your mapsindoors api key") { _, _ ->
     // Attach the position provider to the SDK
-    MapsIndoors.setPositionProvider(mPositionProvider)
+    MapsIndoors.positionProvider = positionProvider
 }
 ```
 
 Start your `PositionProvider` instance with `start()`, so it begins producing positioning results.
 
 ```kotlin
-mPositionProvider?.start()
+positionProvider?.start()
 ```
 
-The MapsIndoors SDK only supports having a single position provider attached at a time. If you wish to have multiple positioning providers, remove your old provider before setting a new one - or incoorporate multiple positioning systems into a single `MPPositionProvider` imlpementation.
+The MapsIndoors SDK only supports having a single position provider attached at a time. If you wish to have multiple positioning providers, stop your old provider before setting a new one - or incoorporate multiple positioning systems into a single `MPPositionProvider` imlpementation.
 
 In order for the MapsIndoors SDK to render the positioning on the map, invoke `showUserPosition(true)` on your `MapControl` instance.
 
 ```kotlin
 // Enable showing the position indicator (aka. the blue dot)
-mMapControl?.showUserPosition(true)
+mapControl?.showUserPosition(true)
 ```
 
 You should now have a position indicator on the map, jumping around inside The White House.
@@ -138,32 +140,33 @@ Like with most other things in the MapsIndoors SDK, the styling of the blue dot 
 A good approach is to attach an `OnPositionUpdateListener` on your `PositionProvider` instance.
 
 ```kotlin
-mPositionProvider?.addOnPositionUpdateListener(object: OnPositionUpdateListener {
+positionProvider?.addOnPositionUpdateListener(object : OnPositionUpdateListener {
     override fun onPositioningStarted(provider: MPPositionProvider) {}
 
     override fun onPositionFailed(provider: MPPositionProvider) {}
 
-    override fun onPositionUpdate(position: MPPositionResultInterface) {}
+    override fun onPositionUpdate(pos: MPPositionResultInterface) {}
 })
 ```
 
-In the `onPositionUpdate()` method, we can fetch the Display Rule reserved for the blue dot via `MapsIndoors.getDisplayRule()` with `MPSolutionDisplayRule.POSITION_INDICATOR` enum as argument. We can now modify the blue dot styling directly on the Display Rule `bluedot`. In this case, we want the blue dot to have different icons depending on whether or not the position is directional (has a bearing value) or not. If the position has a bearing, the icon should be a blue circle with a white arrow pointing in the bearing direction. If there is no bearing, the icon should just be a blue circle.
+In the `onPositionUpdate()` method, we can fetch the Display Rule reserved for the blue dot via `MapsIndoors.getDisplayRule()` with `MPSolutionDisplayRule.POSITION_INDICATOR` enum as argument. We can now modify the blue dot styling directly on the Display Rule `bluedot`. In this case, we want the blue dot to have different icons depending on whether or not the position is directional (has a non-null `bearing`) or not. If the position has a bearing, the icon should be a blue circle with a white arrow pointing in the bearing direction. If there is no bearing, the icon should just be a blue circle.
 
 ```kotlin
-override fun onPositionUpdate(position: MPPositionResultInterface) {
+override fun onPositionUpdate(pos: MPPositionResultInterface) {
     // Adjust the Display Rule style
-    val bluedot = MapsIndoors.getDisplayRule(MPSolutionDisplayRule.POSITION_INDICATOR)
-    bluedot.let {
-        if(position.hasBearing())
-            it?.setIcon(R.drawable.ic_bluedot_bearing)
-        else
-            it?.setIcon(R.drawable.ic_bluedot)
+    MapsIndoors.getDisplayRule(MPSolutionDisplayRule.POSITION_INDICATOR)?.let { bluedot ->
+        if (pos.bearing != null) {
+            bluedot.setIcon(R.drawable.ic_bluedot_bearing)
+        } else {
+            bluedot.setIcon(R.drawable.ic_bluedot)
+        }
     }
 
-    // Move the camera to the updated position
-    activity?.runOnUiThread {
-        mMap?.animateCamera(CameraUpdateFactory
-            .newLatLngZoom(LatLngConverter.toLatLng(position.point!!.latLng), 20f))
+    // Move the camera to the updated position. Updates arrive on a background thread,
+    // so the camera is moved from the main thread.
+    val point = pos.point ?: return
+    viewLifecycleOwner.lifecycleScope.launch {
+        googleMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLngConverter.toLatLng(point.latLng), 20f))
     }
 }
 ```

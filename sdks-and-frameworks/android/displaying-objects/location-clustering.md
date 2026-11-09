@@ -5,18 +5,22 @@ This is an example of enabling and disabling location clustering on the map as w
 Enabling and disabling clustering is done through the `SolutionConfig`, in the following way:
 
 ```kotlin
-//Enabling clustering
-MapsIndoors.getSolution()?.config?.setEnableClustering(true)
-//Disabling clustering
-MapsIndoors.getSolution()?.config?.setEnableClustering(false)
+// Enabling clustering
+MapsIndoors.solution?.config?.enableClustering = true
+// Disabling clustering
+MapsIndoors.solution?.config?.enableClustering = false
 ```
 
 To create custom icons for clusters you can set a `MPClusterIconAdapter` either on the `MPMapConfig` when you are creating a new instance of `MapControl` or you can do it on runtime by setting a `MPClusterIconAdapter` directly on a `MapControl` object. Here is an example of doing it when creating a new MapControl:
 
 ```kotlin
 private fun initMapControl(view: View) {
-    val mapConfig: MPMapConfig = MPMapConfig.Builder(requireActivity(), mMap!!, getString(R.string.google_maps_key), view, true).setClusterIconAdapter { return@setClusterIconAdapter getCircularImageWithText(it.size.toString(), 15, 30, 30) }.build()
-    MapControl.create(mapConfig) { mapControl: MapControl?, miError: MIError? -> }
+    val mapConfig = MPMapConfig.Builder(this, googleMap, getString(R.string.google_maps_key), view, true)
+        .setClusterIconAdapter { locations -> getCircularImageWithText(locations.size.toString(), 15, 30, 30) }
+        .build()
+    MapControl.create(mapConfig) { mapControl, error ->
+        // ...
+    }
 }
 private fun getCircularImageWithText(text: String, textSize: Int, width: Int, height: Int): Bitmap {
     val background = Paint()
@@ -47,8 +51,8 @@ private fun getCircularImageWithText(text: String, textSize: Int, width: Int, he
 Applying a ClusterIconAdapter on runtime can be done like this:
 
 ```kotlin
-mMapControl.setClusterIconAdapter {
-    return@setClusterIconAdapter getCircularImageWithText(it.size.toString(), 15, 30, 30)
+mapControl.setClusterIconAdapter { locations ->
+    getCircularImageWithText(locations.size.toString(), 15, 30, 30)
 }
 ```
 
