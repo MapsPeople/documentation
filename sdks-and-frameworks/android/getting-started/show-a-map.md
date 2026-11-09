@@ -69,7 +69,7 @@ Start by creating an `initMapControl` method which is used to initiate the [`Map
 
 ```kotlin
 private fun initMapControl(view: View) {
-    MPMapConfig mapConfig = new MPMapConfig.Builder(this, mMap, getString(R.string.google_maps_key), view, true).build();
+    val config = MPMapConfig.Builder(this, mMap, getString(R.string.google_maps_key), view, true).build()
     //Creates a new instance of MapControl
     MapControl.create(config) { mapControl, miError ->
         if (miError == null) {
