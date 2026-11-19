@@ -53,7 +53,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 If you do not have your own key, you can use this demo MapsIndoors API key: `02c329e6777d431a88480a09`.
 
-#### Initialize MapsControl[​](https://docs.mapsindoors.com/getting-started/android/v4/map#initialize-mapscontrol) <a href="#initialize-mapscontrol" id="initialize-mapscontrol"></a>
+#### Initialize MapsControl <a href="#initialize-mapscontrol" id="initialize-mapscontrol"></a>
 
 We now want to add all the data we get by initializing `MapsIndoors` to our map. This is done by initializing [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) onto the map. [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) is used as a layer between the map provider and MapsIndoors.
 
