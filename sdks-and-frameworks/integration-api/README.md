@@ -75,42 +75,47 @@ The body is the element as read from the `GET` call made earlier, with only `res
 
 ### Login and Credentials​ <a href="#login-and-credentials" id="login-and-credentials"></a>
 
-First, log in to the service to get an `access token` to access the data. To get an access token you will need to use the Mapsindoors Autorization API. We use an [OAuth2 get token approach](https://auth0.com/docs/api/authentication#get-token) for this.
+First, get an `access token` from the MapsIndoors Auth API. Your script or service signs in as itself, with its own client ID and client secret: the [client credentials flow](integration-api-access/client-credentials-flow.md). We use an [OAuth2 get token approach](https://auth0.com/docs/api/authentication#get-token) for this.
 
-The Auth API supports multiple ways to log in. The most common way is with your MapsIndoors username and password. If you need to sign in with other providers, please [contact support](https://mapspeople.com/support).
+To get started, ask [MapsPeople support](https://mapspeople.com/support) for a `client_id` and a `customerId` for your script. Then create its client secret as described in [Client credentials flow](integration-api-access/client-credentials-flow.md#creating-a-secret). Give each script its own secret, so you can replace one secret without touching the others.
 
 {% hint style="info" %}
 To obtain an access token do a **POST** call to: [https://auth.mapsindoors.com/connect/token](https://auth.mapsindoors.com/connect/token)
 {% endhint %}
 
-No matter what login method you use, you will always need to use the following content-type header when talking to the Auth API:
+Always use the following content-type header when talking to the Auth API:
 
 ```http
 Content-Type: application/x-www-form-urlencoded
 ```
 
-**Log in with MapsIndoors Username/Password​**
+**Log in with your client ID and client secret​**
 
-To log in with your MapsIndoors login, send them with the `grant_type` set to `password`.
+Send them with the `grant_type` set to `client_credentials`.
 
 Use the following key/value set:
 
 ```http
-grant_type: password
-client_id: client
-username: <your username>
-password: <your password>
+grant_type: client_credentials
+client_id: <your client id>
+client_secret: <your client secret>
 ```
 
-Replacing `<your username>` and `<your password>` with your own credentials, and leaving `grant_type` and `client_id` as stated above.
+Replace `<your client id>` and `<your client secret>` with your own values, and leave `grant_type` as stated above.
 
-The body of the request must end up containing a query string like this: `grant_type=password&client_id=client&username=<your username>&password=<your password>`
+The body of the request must end up containing a query string like this: `grant_type=client_credentials&client_id=<your client id>&client_secret=<your client secret>`
 
-An example on how to login using curl (replace username and password):
+An example on how to log in using curl (replace the client ID and the client secret):
 
 ```bash
-curl -H "Content-Type: application/x-www-form-urlencoded" -X POST https://auth.mapsindoors.com/connect/token -d "grant_type=password&client_id=client&username=example@example.com&password=youpassword"
+curl -H "Content-Type: application/x-www-form-urlencoded" -X POST https://auth.mapsindoors.com/connect/token -d "grant_type=client_credentials&client_id=your_client&client_secret=your_secret"
 ```
+
+Keep the client secret out of your code and out of version control: read it from an environment variable or a secret store.
+
+{% hint style="warning" %}
+**Older method, being retired: username and password.** Scripts that sign in with a MapsIndoors username and password (`grant_type=password` with `client_id=client`) still work for now, but this method is being retired. Move each script to its own client ID and client secret as shown above. If you cannot, please [contact support](https://mapspeople.com/support).
+{% endhint %}
 
 **When You Are Authenticated​**
 
@@ -132,7 +137,7 @@ authorization: Bearer eyJhbGciOiJ...vmERrovsg
 ```
 
 {% hint style="warning" %}
-The access token is valid for 24 hours. After that you will need to reauthenticate, following the same steps as explained above.
+The access token is valid for the number of seconds in `expires_in` (24 hours in the example above). After that, request a new one the same way as explained above.
 {% endhint %}
 
 With the access token you can now make further calls to the Integration API such as making changes to your geodata. Here is an example on how to use the auth token for a Mapsindoors API call. This examples will call the Integration API and delete the geodata object with ID: "123456789012345678901234".
