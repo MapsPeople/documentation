@@ -4,50 +4,51 @@
 
 The Integration API can be access from python for automation of tasks such as updating data. In the example below we:
 
-* Login using OAuth2 to the Mapspeople autorization server
+* Login using OAuth2 to the Mapspeople autorization server, with the script's own client ID and client secret
 * Define a GeoData object we want to change
 * Send the updated GeoData to the integration API using the access token
 
-> **Note** For this example to work you'll need to insert you own username and password in the second line of code
+> **Note** For this example to work you'll need your own client ID and client secret in the environment variables `MAPSINDOORS_CLIENT_ID` and `MAPSINDOORS_CLIENT_SECRET`
 
 #### Login
 
-There are two authentication flows you can use: username/password and Client Id/Secret.\
-The difference boils down to the payload you will be sending to the authorization server.\
-\
-For User/Pass the payload should be formatted like this:
+The script logs in with the client credentials flow: it sends its client ID and client secret to the authorization server. The payload is formatted like this:
 
 ```
-grant_type=password&client_id=client&username=example@example.com&password=your_password_here
+grant_type=client_credentials&client_id=your_client&client_secret=your_secret
 ```
 
-For Client Id/Secret the payload should be formatted like this:
-
-```
-grant_type=client_credentials&client_id=your_client&client_secret=your_secret'
-```
-
-\
-For more information about client Id/Secret you can read about it here:\\
+To get a client ID and create a client secret, read:
 
 {% content-ref url="client-credentials-flow.md" %}
 [client-credentials-flow.md](client-credentials-flow.md)
 {% endcontent-ref %}
 
+{% hint style="warning" %}
+**Older method, being retired: username and password.** Scripts that send a MapsIndoors username and password (`grant_type=password` with `client_id=client`) still work for now, but this method is being retired. Use the client ID and client secret as shown here.
+{% endhint %}
+
 ### Example script
 
-The code below is meant as an example, not final production code. Eg. storing username/password in code is not recommended; It's only done here to keep things short and easy to read. Also do note that the example here tries to change data in the read-only demo solution **which will fail** - it's just an example. Change the solution ID, username password and json content to something in your solution and it will work though.
+The code below is meant as an example, not final production code. It reads the client secret from an environment variable, so the secret never sits in the code. Also do note that the example here tries to change data in the read-only demo solution **which will fail** - it's just an example. Change the solution ID and json content to something in your solution and it will work though.
 
 With this in mind, here is the example:
 
 ```python
 import http.client
 import json
+import os
+import urllib.parse
 
-# First create a connection to the Mapsindoors Authorization server and get an access token using username/password
+# First create a connection to the Mapsindoors Authorization server and get an access token using the client
+# credentials flow: the script's own client ID and client secret, read from environment variables
 #
 conn = http.client.HTTPSConnection("auth.mapsindoors.com")
-payload = 'grant_type=password&client_id=client&username=example@example.com&password=your_password_here'
+payload = urllib.parse.urlencode({
+    'grant_type': 'client_credentials',
+    'client_id': os.environ['MAPSINDOORS_CLIENT_ID'],
+    'client_secret': os.environ['MAPSINDOORS_CLIENT_SECRET'],
+})
 headers = {'Content-Type': 'application/x-www-form-urlencoded'}
 
 conn.request("POST", "/connect/token", payload, headers)

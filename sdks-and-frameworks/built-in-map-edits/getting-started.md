@@ -8,7 +8,7 @@ icon: square-code
 
 Make sure you have the following before using the @mapsindoors/built-in-map-edits package:
 
-* **A MapsIndoors Client ID:** A `client_id` is required for [Application authentication](authentication.md). Please contact MapsPeople support to obtain your `client_id`. For development purposes, you can alternatively authenticate using a MapsIndoors CMS user account.
+* **A MapsIndoors Client ID:** A `client_id` is required. Please contact MapsPeople support to obtain your `client_id`. An app where people sign in uses [Application authentication](authentication.md); a script or backend service that edits data on its own uses its client ID and a client secret (the [client credentials flow](../integration-api/integration-api-access/client-credentials-flow.md)).
 * **MapsIndoors Data:** Familiarity with the [MapsIndoors data model](../../products/cms/data-concepts.md) is recommended.
 * **Authentication Knowledge**: Familiarity with OAuth and OpenID Connect (OIDC) is necessary.
 * **Programming Skills**: Basic understanding of TypeScript or JavaScript is necessary.
@@ -38,19 +38,22 @@ yarn add @mapsindoors/built-in-map-edits
 
 #### Obtaining an Access Token
 
-To interact with the MapsIndoors API, you need an access token. This example demonstrates how to obtain an access token using the OAuth Resource Owner Password Credentials Grant flow. **This should only be used for development or testing purposes.**
+To interact with the MapsIndoors API, you need an access token. How you get it depends on who is editing:
 
-**Warning: Do not use this method in production!** Never hardcode your MapsIndoors username and password directly into your client-side code because it exposes your credentials to anyone who views the source code. This example is for development/testing purposes only. Use a secure backend service to handle authentication.
+* **People who sign in to your app:** use [Application authentication](authentication.md). The access token comes from the sign-in.
+* **A script or backend service that edits data on its own:** use the client credentials flow, shown below. The service signs in as itself, with its own client ID and client secret.
+
+**Warning: Never put a client secret in client-side code.** Anyone who views the source code can read it. Run the example below on a server you control, read the secret from an environment variable or a secret store, and pass only the access token to the code that uses this package.
 
 ```js
+// Runs on your server (Node.js 18 or later), never in the browser.
 const response = await fetch('https://auth.mapsindoors.com/connect/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
-        'grant_type': 'password',
-        'client_id': 'client',
-        'username': 'YOUR_USERNAME', // Replace with your MapsIndoors username.
-        'password': 'YOUR_PASSWORD' // Replace with your MapsIndoors password.
+        'grant_type': 'client_credentials',
+        'client_id': process.env.MAPSINDOORS_CLIENT_ID, // Your client ID from MapsPeople support.
+        'client_secret': process.env.MAPSINDOORS_CLIENT_SECRET // Your client secret; see the client credentials flow.
     })
 });
 
@@ -61,6 +64,12 @@ if (!response.ok) {
 const data = await response.json();
 const accessToken = data.access_token;
 ```
+
+To get a client ID and create a client secret, see [Client credentials flow](../integration-api/integration-api-access/client-credentials-flow.md).
+
+{% hint style="warning" %}
+**Older method, being retired: username and password.** Getting a token with a MapsIndoors username and password (`grant_type: 'password'` with `client_id: 'client'`) still works for now, but this method is being retired. Use Application authentication or the client credentials flow instead.
+{% endhint %}
 
 #### List Available Solutions
 

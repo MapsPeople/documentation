@@ -26,29 +26,28 @@ Now a new collection called "Integration API" will be created. Select it and cha
 
 #### Setup Postman authorization​ <a href="#setup-postman-authorization" id="setup-postman-authorization"></a>
 
-Finally we need to set authorization up for it. Go to the Authorization tab and change "Type" from No Auth to OAuth2. Here select Password Credentials as Grant Type.
+Finally we need to set authorization up for it. Go to the Authorization tab and change "Type" from No Auth to OAuth2. Here select Client Credentials as Grant Type.
 
 Now set the:
 
 * "Access Token URL" to `https://auth.mapsindoors.com/connect/token`
-* "Client ID" to `client`
-* Username to your username used in the [CMS](https://cms.mapsindoors.com/).
-* Password to your password
+* "Client ID" to your own client ID (ask [MapsPeople support](https://mapspeople.com/support) if you don't have one)
+* "Client Secret" to your client secret
 * Scope to `integration`
 
-Click "Get New Access Token" and a postman will log in using your credentials. Be sure to save your changes again by clicking the floppy disk icon.
-
-<figure><img src="../../../.gitbook/assets/postmanAuth.png" alt=""><figcaption></figcaption></figure>
-
-If you use client credentials you will need to select "Client Credentials" as you Grant type and add your ClientID (Ask us if you don't have one) and you Client Secret like this:\\
+Click "Get New Access Token" and Postman will log in with your client ID and client secret. Be sure to save your changes again by clicking the floppy disk icon.
 
 <figure><img src="../../../.gitbook/assets/image (38).png" alt=""><figcaption><p>Client Credential Flow example</p></figcaption></figure>
 
-See the client credentials flow for more details:
+To get a client ID and create a client secret, see the client credentials flow:
 
 {% content-ref url="client-credentials-flow.md" %}
 [client-credentials-flow.md](client-credentials-flow.md)
 {% endcontent-ref %}
+
+{% hint style="warning" %}
+**Older method, being retired: username and password.** Setting the Grant Type to Password Credentials, with the client ID `client` and your CMS username and password, still works for now, but this method is being retired. Use your own client ID and client secret as shown above.
+{% endhint %}
 
 You should now be able to access your MapsIndoors data in Postman.
 
