@@ -15,13 +15,13 @@ JDK source: 11
 ### iOS SDK
 
 {% hint style="info" %}
-With Mapbox, MapsIndoors 4.25.0 and later require Xcode 26.3 or later, as the Mapbox Maps SDK does.
+From 4.25.0, MapsIndoors uses Mapbox Maps SDK versions that Mapbox lists as compatible with Xcode 26.5. With Mapbox, use Xcode 26.5 or later.
 {% endhint %}
 
 {% include "../.gitbook/includes/ios-xcode-26-requirement.md" %}
 
 Minimum iOS 16\
-Minimum Xcode 26 (Xcode 26.3 with Mapbox)
+Minimum Xcode 26 (with Mapbox, Xcode 26.5 or later is recommended)
 
 ### Flutter
 
