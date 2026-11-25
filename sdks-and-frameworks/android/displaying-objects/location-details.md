@@ -22,13 +22,14 @@ We need a view that shows the details of the location. Here we will use a TextVi
 Once the map is ready move the camera to a Venue:
 
 ```kotlin
-val venue = MapsIndoors.getVenues()!!.currentVenue
-activity?.runOnUiThread {
-    if (venue != null) {
-        //Animates the camera to fit the new venue
-        mMap!!.animateCamera(
+val bounds = MapsIndoors.venues?.defaultVenue?.bounds
+if (bounds != null) {
+    // The map-ready callback can arrive on a background thread, so move the camera from the main thread
+    lifecycleScope.launch {
+        // Animates the camera to fit the venue
+        googleMap.animateCamera(
             CameraUpdateFactory.newLatLngBounds(
-                toLatLngBounds(venue.bounds!!),
+                LatLngBoundsConverter.toLatLngBounds(bounds),
                 19
             )
         )
@@ -36,22 +37,24 @@ activity?.runOnUiThread {
 }
 ```
 
-We will then create a listener for when a user clicks on a marker to show the details of the selected location. This is done by setting a `onLocationSelectedListener` on your `MapControl` object. We will also listen to when the info window closes, to remove the DetailsTextView from the view. This is done by setting the `onMarkerInfoWindowCloseListener` on `MapControl`.
+We will then create a listener for when a user clicks on a marker to show the details of the selected location. This is done by setting an `OnMPEvent<MPLocationSelectedEvent>` listener with `setOnLocationSelectedListener` on your `MapControl` object. We will also listen to when the info window closes, to remove the DetailsTextView from the view. This is done by setting an `OnMPEvent<MPInfoWindowCloseEvent>` listener with `setOnMarkerInfoWindowCloseListener` on `MapControl`. The listeners can be called on a background thread, so the UI is updated from `lifecycleScope`.
 
 When a marker is clicked, get the related MapsIndoors location object and propagate that to a method that fills the text in the `detailsTextView`.
 
 ```kotlin
-mMapControl?.let { mapControl ->
-    mapControl.setOnLocationSelectedListener {
-        if (it != null) {
-            showLocationDetails(it)
-        }
-        return@setOnLocationSelectedListener false
+mapControl.setOnLocationSelectedListener { event ->
+    event.location?.let { location ->
+        lifecycleScope.launch { showLocationDetails(location) }
     }
-    mapControl.setOnMarkerInfoWindowCloseListener {
+    // Return false so MapControl also performs its default selection behavior
+    false
+}
+mapControl.setOnMarkerInfoWindowCloseListener {
+    lifecycleScope.launch {
         binding.detailsTextView.visibility = View.GONE
-        mMapControl?.setMapPadding(0, 0, 0, 0)
+        mapControl.setMapPadding(0, 0, 0, 0)
     }
+    false
 }
 ```
 
@@ -59,9 +62,9 @@ Create the `showLocationDetails(location: MPLocation)` method in your project.
 
 ```kotlin
 private fun showLocationDetails(location: MPLocation) {
-    binding.detailsTextView.text =  "Name: " + location.name + "\nDescription: " + location.description
+    binding.detailsTextView.text = "Name: ${location.name}\nDescription: ${location.description}"
     binding.detailsTextView.visibility = View.VISIBLE
-    mMapControl?.setMapPadding(0, 0, 0, binding.detailsTextView.height)
+    mapControl.setMapPadding(0, 0, 0, binding.detailsTextView.height)
 }
 ```
 

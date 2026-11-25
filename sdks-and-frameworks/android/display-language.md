@@ -53,31 +53,29 @@ First add strings that corresponds to the directions received from HTML instruct
 Now inside the code where you handle the `MPRoute` route response you can create a method to receive the translated instruction.
 
 ```kotlin
-//Populate a map with localized strings, remember to repopulate the map if the MapsIndoors language is changed
+// Localized instructions, keyed by the English instruction. Repopulate it if the MapsIndoors language is changed
+private val directionNames = mutableMapOf<String, String>()
+
 fun setupNames() {
-    directionNames["Turn left"] = res.getString(R.string.direction_left)
-    directionNames["Turn slight left"] = res.getString(R.string.direction_slightly_left)
-    directionNames["Turn sharp left"] = res.getString(R.string.direction_sharp_left)
-    directionNames["Turn right"] = res.getString(R.string.direction_right)
-    directionNames["Turn slight right"] = res.getString(R.string.direction_slightly_right)
-    directionNames["Turn sharp right"] = res.getString(R.string.direction_sharp_right)
-    directionNames["Continue straight ahead"] = res.getString(R.string.direction_straight)
-    directionNames["Turn around"] = res.getString(R.string.direction_make_uturn_right)
+    directionNames["Turn left"] = getString(R.string.direction_left)
+    directionNames["Turn slight left"] = getString(R.string.direction_slightly_left)
+    directionNames["Turn sharp left"] = getString(R.string.direction_sharp_left)
+    directionNames["Turn right"] = getString(R.string.direction_right)
+    directionNames["Turn slight right"] = getString(R.string.direction_slightly_right)
+    directionNames["Turn sharp right"] = getString(R.string.direction_sharp_right)
+    directionNames["Continue straight ahead"] = getString(R.string.direction_straight)
+    directionNames["Turn around"] = getString(R.string.direction_make_uturn)
 }
 
-//Use this method to get a translated HTML instruction for a step
-fun getInstructionFromStep(@NonNull routeStep: MPRouteStep): String? {
-    var instruction: String? = routeStep.htmlInstructions
-    //Check if route step is a step or elevator as they have floor level specific instruction
-    if (routeStep.highway == "steps") {
-        instruction = "Take stairs to level " + routeStep.endFloorName
-    } else if (routeStep.highway == "elevator") {
-        instruction = "Take elevator to " + routeStep.endFloorName
-    } else if (directionNames.containsKey(routeStep.htmlInstructions)){
-        instruction = directionNames[routeStep.htmlInstructions]
+// Use this method to get a translated HTML instruction for a step
+fun getInstructionFromStep(routeStep: MPRouteStep): String? {
+    val floorName = routeStep.endFloorName.orEmpty()
+    // Steps and elevators have floor-specific instructions
+    return when (routeStep.highway) {
+        "steps" -> getString(R.string.direction_stairs, floorName)
+        "elevator" -> getString(R.string.direction_elevator, floorName)
+        else -> directionNames[routeStep.htmlInstructions] ?: routeStep.htmlInstructions
     }
-
-    return instruction
 }
 ```
 

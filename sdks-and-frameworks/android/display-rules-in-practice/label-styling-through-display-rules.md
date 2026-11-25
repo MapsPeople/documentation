@@ -20,7 +20,7 @@ To get an overview of what Display Rules are and can be used for, read the [Disp
 There are a number of fields in Display Rules that can be used to style the label:
 
 ```kotlin
-MapsIndoors.getMainDisplayRule()?.let { dr ->
+MapsIndoors.mainDisplayRule?.let { dr ->
     // The color of the label as a hex string
     val labelTextColor: String? = dr.labelStyleTextColor
     // The size of the label in pixels
@@ -78,7 +78,7 @@ With the knowledge of styling the text and label we can now coordinate the styli
 
 ```kotlin
 fun styleLabel(dr: MPDisplayRule) {
-    dr.labelStyleTextSize = dr.labelTextSize?.times(2)
+    dr.labelStyleTextSize = dr.labelStyleTextSize?.times(2)
     dr.labelStyleTextColor = "#FFFFFF"
     dr.labelStyleHaloWidth = 1
     dr.labelStyleHaloColor = "#000000"
@@ -110,7 +110,7 @@ With the introduction of configurable label positions, all labels will by defaul
 
 ```kotlin
 fun changeLabelPositionToRight() {
-    MapsIndoors.getMainDisplayRule()?.apply {
+    MapsIndoors.mainDisplayRule?.apply {
         labelStylePosition = MPLabelPosition.RIGHT
     }
 }

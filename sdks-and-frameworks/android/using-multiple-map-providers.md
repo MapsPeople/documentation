@@ -14,14 +14,14 @@ First we have to add both platforms to our build file, it is important that both
 
 ```gradle
 ext {
-  mapsindoors = "4.12.1"
-  google_maps = "18.1.0"
-  mapbox = "11.11.0"
+  mapsindoors = "5.0.0"
+  google_maps = "19.0.0"
+  mapbox = "11.18.1"
 }
 dependencies {
   implementation "com.mapspeople.mapsindoors:mapbox-v11:$mapsindoors"
   implementation "com.mapspeople.mapsindoors:googlemaps:$mapsindoors"
-  implementation "com.mapbox.maps:android:$mapbox"
+  implementation "com.mapbox.maps:android-ndk27:$mapbox"
   implementation "com.google.android.gms:play-services-maps:$google_maps"
 
   // MapsIndoors and Mapbox repos
@@ -50,7 +50,7 @@ dependencies {
 
 ## Map Interface
 
-The map interface should be as lean as possible, only containing the methods you need to use on the maps, in this example we have added 3 methods for moving the camera, as well the ability to read the current position, projection as well as turning the compass on/off.
+The map interface should be as lean as possible, only containing the methods you need to use on the maps, in this example we have added 4 methods for moving the camera, as well the ability to read the current position, projection as well as turning the compass on/off.
 
 This interface can be extended or shrunk to your hearts content, but remember that each method added will have to be implemented on both platforms.
 
@@ -59,14 +59,16 @@ This interface can be extended or shrunk to your hearts content, but remember th
 ```kotlin
 import com.mapsindoors.core.MPIProjection
 import com.mapsindoors.core.models.MPCameraPosition
+import com.mapsindoors.core.models.MPLatLngBounds
 
 interface MIMap {
-  fun animateCamera(mpCameraPosition: MPCameraPosition?)
-  fun animateCamera(mpCameraPosition: MPCameraPosition?, duration: Int)
-  fun moveCamera(mpCameraPosition: MPCameraPosition?)
-  val cameraPosition: MPCameraPosition?
-  val projection: MPIProjection?
-  var isCompassEnabled: Boolean
+    fun animateCamera(mpCameraPosition: MPCameraPosition?)
+    fun animateCamera(mpCameraPosition: MPCameraPosition?, duration: Int)
+    fun moveCamera(latLngBounds: MPLatLngBounds?, padding: Int)
+    fun moveCamera(mpCameraPosition: MPCameraPosition?)
+    val cameraPosition: MPCameraPosition
+    val projection: MPIProjection
+    var isCompassEnabled: Boolean
 }
 ```
 
@@ -74,7 +76,7 @@ interface MIMap {
 
 ## MapFragment Class
 
-The `MapFragment` is a container for the platforms' `MapView`s, it should be able to tell when the `MapView` is ready for content, be able to create a Map instance for us, and create the start of a `MPMapConfig` which ensure the app can remain ignorant of the platform implementations.
+The `MapFragment` is a container for the platforms' `MapView`s, it should be able to tell when the `MapView` is ready for content and hand us a Map instance at that point, and create the start of a `MPMapConfig` which ensure the app can remain ignorant of the platform implementations.
 
 First we create the interface we should follow, it should implement the `Fragment` class so that we can manage it like a fragment.
 
@@ -86,12 +88,11 @@ First we create the interface we should follow, it should implement the `Fragmen
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import com.mapsindoors.core.MPIMapConfig
-import com.mapsindoors.core.OnResultReadyListener
 
 abstract class MapFragment(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId) {
-  abstract fun isReady(listener: OnResultReadyListener)
-  abstract fun getMap(): MIMap
-  abstract fun getMapConfigBuilder(): MPIMapConfig.Builder
+    // Suspends until the platform map is ready, and returns it
+    abstract suspend fun awaitMap(): MIMap
+    abstract fun getMapConfigBuilder(): MPIMapConfig.Builder
 }
 ```
 
@@ -104,34 +105,28 @@ Then we create the platform implementations, but lets just leave actual implemen
 {% tabs %}
 {% tab title="Google Maps" %}
 
-For Google Maps we also implement the `OnMapCallback` to get a callback when the map is ready for use.
+For Google Maps we also implement the `OnMapReadyCallback` to get a callback when the map is ready for use.
 
 Go [here](#views) to see how the fragment layout is made.
 
 {% code title="GoogleMapFragment.kt" overflow="wrap" lineNumbers="true" %}
 ```kotlin
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapsInitializer
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.mapsindoors.core.MPIMapConfig
-import com.mapsindoors.core.OnResultReadyListener
 
-class GoogleMapFragment: MapFragment(R.layout.google_map_fragment), OnMapReadyCallback {
-  override fun isReady(listener: OnResultReadyListener) {
-    TODO("Not yet implemented")
-  }
+class GoogleMapFragment : MapFragment(R.layout.google_map_fragment), OnMapReadyCallback {
+    override suspend fun awaitMap(): MIMap {
+        TODO("Not yet implemented")
+    }
 
-  override fun getMap(): MIMap {
-    TODO("Not yet implemented")
-  }
+    override fun getMapConfigBuilder(): MPIMapConfig.Builder {
+        TODO("Not yet implemented")
+    }
 
-  override fun getMapConfigBuilder(): MPIMapConfig.Builder {
-    TODO("Not yet implemented")
-  }
-
-  override fun onMapReady(p0: GoogleMap) {
-    TODO("Not yet implemented")
-  }
+    override fun onMapReady(googleMap: GoogleMap) {
+        TODO("Not yet implemented")
+    }
 }
 ```
 {% endcode %}
@@ -144,20 +139,15 @@ Go [here](#views) to see how the fragment layout is made.
 {% code title="MapboxMapFragment.kt" overflow="wrap" lineNumbers="true" %}
 ```kotlin
 import com.mapsindoors.core.MPIMapConfig
-import com.mapsindoors.core.OnResultReadyListener
 
 class MapboxMapFragment : MapFragment(R.layout.mapbox_map_fragment) {
-  override fun isReady(listener: OnResultReadyListener) {
-    TODO("Not yet implemented")
-  }
+    override suspend fun awaitMap(): MIMap {
+        TODO("Not yet implemented")
+    }
 
-  override fun getMap(): MIMap {
-    TODO("Not yet implemented")
-  }
-
-  override fun getMapConfigBuilder(): MPIMapConfig.Builder {
-    TODO("Not yet implemented")
-  }
+    override fun getMapConfigBuilder(): MPIMapConfig.Builder {
+        TODO("Not yet implemented")
+    }
 }
 ```
 {% endcode %}
@@ -166,7 +156,7 @@ class MapboxMapFragment : MapFragment(R.layout.mapbox_map_fragment) {
 
 ### Map implementation
 
-We create the `Map` implementation as a internal class in the `MapFragment`, this helps encapsulate it, as well as keeping all the platform implementation in a single file.
+We create the `Map` implementation as a nested class in the `MapFragment`, this helps encapsulate it, as well as keeping all the platform implementation in a single file.
 
 {% tabs %}
 {% tab title="Google Maps" %}
@@ -174,74 +164,48 @@ We create the `Map` implementation as a internal class in the `MapFragment`, thi
 ```kotlin
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
 import com.mapsindoors.core.MPIProjection
 import com.mapsindoors.core.models.MPCameraPosition
 import com.mapsindoors.core.models.MPLatLngBounds
+import com.mapsindoors.googlemaps.MPProjection
 import com.mapsindoors.googlemaps.converters.toCameraPosition
 import com.mapsindoors.googlemaps.converters.toLatLngBounds
-import com.mapsindoors.googlemaps.converters.toMPLatLng
+import com.mapsindoors.googlemaps.converters.toMPCameraPosition
 
-class GoogleMapFragment: MapFragment(R.layout.google_map_fragment), OnMapReadyCallback {
-
-  class MIGoogleMap(private val map : GoogleMap) : MIMap {
+// Nested inside GoogleMapFragment
+class MIGoogleMap(private val map: GoogleMap) : MIMap {
     override fun animateCamera(mpCameraPosition: MPCameraPosition?) {
-      // sometimes the cameraPosition we create is nullable, lets handle it here instead of outside the method
-      mpCameraPosition ?: return
-      map.animateCamera(
-        CameraUpdateFactory.newCameraPosition(
-          mpCameraPosition.toCameraPosition()
-        )
-      )
+        // sometimes the cameraPosition we create is nullable, lets handle it here instead of outside the method
+        mpCameraPosition ?: return
+        map.animateCamera(CameraUpdateFactory.newCameraPosition(mpCameraPosition.toCameraPosition()))
     }
 
     override fun animateCamera(mpCameraPosition: MPCameraPosition?, duration: Int) {
-      mpCameraPosition ?: return
-      map.animateCamera(
-        CameraUpdateFactory.newCameraPosition(
-          mpCameraPosition.toCameraPosition()
-        ), 500, null
-      )
+        mpCameraPosition ?: return
+        map.animateCamera(CameraUpdateFactory.newCameraPosition(mpCameraPosition.toCameraPosition()), duration, null)
     }
 
     override fun moveCamera(latLngBounds: MPLatLngBounds?, padding: Int) {
-      latLngBounds ?: return
-      map.moveCamera(
-        CameraUpdateFactory.newLatLngBounds(
-          latLngBounds.toLatLngBounds(), 10
-        )
-      )
+        latLngBounds ?: return
+        map.moveCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds.toLatLngBounds(), padding))
     }
 
     override fun moveCamera(mpCameraPosition: MPCameraPosition?) {
-      mpCameraPosition ?: return
-      map.moveCamera(
-        CameraUpdateFactory.newCameraPosition(
-          mpCameraPosition.toCameraPosition()
-        )
-      )
+        mpCameraPosition ?: return
+        map.moveCamera(CameraUpdateFactory.newCameraPosition(mpCameraPosition.toCameraPosition()))
     }
 
-    override val cameraPosition: MPCameraPosition?
-      get() = MPCameraPosition.Builder()
-        .setBearing(map.cameraPosition.bearing)
-        .setTarget(
-          map.cameraPosition.target.toMPLatLng()
-        )
-        .setZoom(map.cameraPosition.zoom)
-        .build()
+    override val cameraPosition: MPCameraPosition
+        get() = map.cameraPosition.toMPCameraPosition()
 
-    override val projection: MPIProjection?
-      get() = MPProjection(
-        map.projection,
-        map.cameraPosition.zoom,
-        map.maxZoomLevel
-      )
-    
+    override val projection: MPIProjection
+        get() = MPProjection(map.projection, map.cameraPosition.zoom, map.cameraPosition.bearing)
+
     override var isCompassEnabled: Boolean
-      get() = map.uiSettings.isCompassEnabled
-      set(value) {map.uiSettings.isCompassEnabled = value}
-    }
+        get() = map.uiSettings.isCompassEnabled
+        set(value) {
+            map.uiSettings.isCompassEnabled = value
+        }
 }
 ```
 {% endcode %}
@@ -264,85 +228,66 @@ import com.mapsindoors.mapbox.MPProjection
 import com.mapsindoors.mapbox.converters.toCoordinateBounds
 import com.mapsindoors.mapbox.converters.toMPLatLng
 import com.mapsindoors.mapbox.converters.toPoint
-import com.mapsindoors.testapp.R
 
-
-class MapboxMapFragment : MapFragment(R.layout.mapbox_map_fragment) {
-
-  class MIMapboxMap(private val map: MapboxMap, private val mapView: MapView) : MIMap {
+// Nested inside MapboxMapFragment
+class MIMapboxMap(private val map: MapboxMap, private val mapView: MapView) : MIMap {
     override fun animateCamera(mpCameraPosition: MPCameraPosition?) {
-      mpCameraPosition?.let {
-        map.flyTo(
-          CameraOptions.Builder()
-            .center(it.target.toPoint())
-            .zoom(it.zoom.toDouble())
-            .bearing(it.bearing.toDouble())
-            .pitch(it.tilt.toDouble())
-            .build()
-        )
-      }
+        mpCameraPosition ?: return
+        map.flyTo(mpCameraPosition.toCameraOptions())
     }
 
     override fun animateCamera(mpCameraPosition: MPCameraPosition?, duration: Int) {
-      mpCameraPosition?.let {
+        mpCameraPosition ?: return
         map.flyTo(
-          CameraOptions.Builder()
-            .center(it.target.toPoint())
-            .zoom(it.zoom.toDouble())
-            .bearing(it.bearing.toDouble())
-            .pitch(it.tilt.toDouble())
-            .build(),
-          MapAnimationOptions.Builder().duration(duration.toLong()).build()
+            mpCameraPosition.toCameraOptions(),
+            MapAnimationOptions.Builder().duration(duration.toLong()).build(),
         )
-      }
     }
 
     override fun moveCamera(latLngBounds: MPLatLngBounds?, padding: Int) {
-      latLngBounds?.let {
+        latLngBounds ?: return
         val pad = padding.toDouble()
         map.setCamera(
-          map.cameraForCoordinateBounds(
-            it.toCoordinateBounds(),
-            EdgeInsets(pad, pad, pad, pad),
-            map.cameraState.bearing,
-            map.cameraState.pitch
-          )
+            map.cameraForCoordinateBounds(
+                latLngBounds.toCoordinateBounds(),
+                EdgeInsets(pad, pad, pad, pad),
+                map.cameraState.bearing,
+                map.cameraState.pitch,
+            ),
         )
-      }
     }
 
     override fun moveCamera(mpCameraPosition: MPCameraPosition?) {
-      mpCameraPosition?.let {
-        map.setCamera(
-          CameraOptions.Builder()
-            .center(it.target.toPoint())
-            .zoom(it.zoom.toDouble())
-            .bearing(it.bearing.toDouble())
-            .pitch(it.tilt.toDouble())
-            .build()
-        )
-      }
+        mpCameraPosition ?: return
+        map.setCamera(mpCameraPosition.toCameraOptions())
     }
 
-    override val cameraPosition: MPCameraPosition?
-      get() = map.cameraState.let {
-        MPCameraPosition.Builder()
-          .setZoom(it.zoom.toFloat())
-          .setTarget(it.center.toMPLatLng())
-          .setBearing(it.bearing.toFloat())
-          .setTilt(it.pitch.toFloat())
-          .build()
-      }
+    override val cameraPosition: MPCameraPosition
+        get() = map.cameraState.let { state ->
+            MPCameraPosition {
+                target = state.center.toMPLatLng()
+                zoom = state.zoom.toFloat()
+                bearing = state.bearing.toFloat()
+                tilt = state.pitch.toFloat()
+            }
+        }
 
-    override val projection: MPIProjection?
-      get() = MPProjection(map, mapView)
+    override val projection: MPIProjection
+        get() = MPProjection(map, mapView)
 
     override var isCompassEnabled: Boolean
-      get() = mapView.compass.enabled
-      set(value) {
-        mapView.compass.enabled = value
-      }
-  }
+        get() = mapView.compass.enabled
+        set(value) {
+            mapView.compass.enabled = value
+        }
+
+    private fun MPCameraPosition.toCameraOptions(): CameraOptions =
+        CameraOptions.Builder()
+            .center(target.toPoint())
+            .zoom(zoom.toDouble())
+            .bearing(bearing.toDouble())
+            .pitch(tilt.toDouble())
+            .build()
 }
 ```
 {% endcode %}
@@ -351,102 +296,58 @@ class MapboxMapFragment : MapFragment(R.layout.mapbox_map_fragment) {
 
 ### Init and isReady
 
-Lets go back to the `MapFragment`, and begin filling out the methods:
+Lets go back to the `MapFragment`, and begin filling out the methods. `awaitMap` suspends until the map is ready, so we complete a `CompletableDeferred` once we have the platform map:
 
 {% tabs %}
 {% tab title="Google Maps" %}
 
-On Google Maps we use the onMapReady method to get a `GoogleMap` instance after we call `getMapAsync` on our `MapView`, we then wrap the `GoogleMap` in our `Map` implementation `MIGoogleMap`, and inform the app via `isReady` that the `MapView` is ready.
+On Google Maps we use the onMapReady method to get a `GoogleMap` instance after we call `getMapAsync` on our `MapView`, we then wrap the `GoogleMap` in our `Map` implementation `MIGoogleMap`, and complete `miMap` so `awaitMap` returns it.
 
 {% code title="GoogleMapFragment.kt" overflow="wrap" lineNumbers="true" %}
 ```kotlin
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapsInitializer
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.mapsindoors.core.MPIMapConfig
-import com.mapsindoors.core.OnResultReadyListener
+// Inside GoogleMapFragment
+private lateinit var mapView: MapView
+private lateinit var googleMap: GoogleMap
+private val miMap = CompletableDeferred<MIGoogleMap>()
 
-class GoogleMapFragment: MapFragment(R.layout.google_map_fragment), OnMapReadyCallback {
-  private lateinit var mMapView: MapView
-  private lateinit var mMap: GoogleMap
-  private lateinit var miMap: MIGoogleMap
-  private var ready: Boolean = false
-  private var listener: OnResultReadyListener? = null
-
-  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-    mMapView = requireActivity().findViewById(R.id.mapView)
-    mMapView.onCreate(savedInstanceState)
-    mMapView.getMapAsync(this)
-  }
-
-  override fun onMapReady(p0: GoogleMap) {
-    mMapView.onStart()
-    mMap = p0
-    miMap = MIGoogleMap(p0)
-    ready = true
-    listener?.onResultReady(null)
-  }
-
-  override fun isReady(listener: OnResultReadyListener) {
-    if (ready) {
-      listener.onResultReady(null)
-    } else {
-      this.listener = listener
-    }
-  }
-
-  override fun getMap(): MIGoogleMap {
-    return miMap
-  }
+    mapView = view.findViewById(R.id.mapView)
+    mapView.onCreate(savedInstanceState)
+    mapView.getMapAsync(this)
 }
+
+override fun onMapReady(googleMap: GoogleMap) {
+    mapView.onStart()
+    this.googleMap = googleMap
+    miMap.complete(MIGoogleMap(googleMap))
+}
+
+override suspend fun awaitMap(): MIGoogleMap = miMap.await()
 ```
 {% endcode %}
 {% endtab %}
 
 {% tab title="Mapbox" %}
 
-On Mapbox we load up the `MapView` and get the `MapboxMap` from it, which we then wrap in our `Map` implementation `MIMapboxMap`, once that is done we update the `isReady` field and trigger the `isReady` listener to inform the app that the `MapView` is ready.
+On Mapbox we load up the `MapView` and get the `MapboxMap` from it, which we then wrap in our `Map` implementation `MIMapboxMap`, once that is done we complete `miMap` so `awaitMap` returns it.
 
 {% code title="MapboxMapFragment.kt" overflow="wrap" lineNumbers="true" %}
 ```kotlin
-import com.mapsindoors.core.MPIMapConfig
-import com.mapsindoors.core.OnResultReadyListener
+// Inside MapboxMapFragment
+private lateinit var mapView: MapView
+private lateinit var mapboxMap: MapboxMap
+private val miMap = CompletableDeferred<MIMapboxMap>()
 
-class MapboxMapFragment : MapFragment(R.layout.mapbox_map_fragment) {
-  private lateinit var mMapView: MapView
-  private lateinit var mMap: MapboxMap
-  private lateinit var miMap: MIMapboxMap
-  private var isReady: Boolean = false
-  private var readyListener: OnResultReadyListener? = null
-  private val readyLock: Any = Any()
-
-  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-    mMapView = requireActivity().findViewById(R.id.mapView)
-    mMap = mMapView.mapboxMap
-    mMap.loadStyle(Style.MAPBOX_STREETS)
-    miMap = MIMapboxMap(mMap, mMapView)
-    synchronized(readyLock) {
-      isReady = true
-      readyListener?.onResultReady(null)
-    }
-  }
-
-  override fun isReady(listener: OnResultReadyListener) {
-    synchronized(readyLock) {
-      if (isReady) {
-        listener.onResultReady(null)
-      } else {
-        this.readyListener = listener
-      }
-    }
-  }
-
-  override fun getMap(): MIMapboxMap {
-    return miMap
-  }
+    mapView = view.findViewById(R.id.mapView)
+    mapboxMap = mapView.mapboxMap
+    mapboxMap.loadStyle(Style.MAPBOX_STREETS)
+    miMap.complete(MIMapboxMap(mapboxMap, mapView))
 }
+
+override suspend fun awaitMap(): MIMapboxMap = miMap.await()
 ```
 {% endcode %}
 {% endtab %}
@@ -462,18 +363,9 @@ To create a MPMapConfig we usually need the `Activity`, the platform `Map`, a pl
 {% tab title="Google Maps" %}
 {% code title="GoogleMapFragment.kt" overflow="wrap" lineNumbers="true" %}
 ```kotlin
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapsInitializer
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.mapsindoors.core.MPIMapConfig
-import com.mapsindoors.core.OnResultReadyListener
-
-class GoogleMapFragment: MapFragment(R.layout.google_map_fragment), OnMapReadyCallback {
-
-  override fun getMapConfigBuilder(): MPIMapConfig.Builder {
-    return MPMapConfig.Builder(requireActivity(), mMap, getString(R.string.google_maps_key), mMapView, true)
-  }
-}
+// Inside GoogleMapFragment
+override fun getMapConfigBuilder(): MPMapConfig.Builder =
+    MPMapConfig.Builder(requireActivity(), googleMap, getString(R.string.google_maps_key), mapView, true)
 ```
 {% endcode %}
 {% endtab %}
@@ -481,15 +373,9 @@ class GoogleMapFragment: MapFragment(R.layout.google_map_fragment), OnMapReadyCa
 {% tab title="Mapbox" %}
 {% code title="MapboxMapFragment.kt" overflow="wrap" lineNumbers="true" %}
 ```kotlin
-import com.mapsindoors.core.MPIMapConfig
-import com.mapsindoors.core.OnResultReadyListener
-
-class MapboxMapFragment : MapFragment(R.layout.mapbox_map_fragment) {
-
-  override fun getMapConfigBuilder(): MPIMapConfig.Builder {
-    return MPMapConfig.Builder(requireActivity(), mMap, mMapView, getString(R.string.mapbox_api_key), true)
-  }
-}
+// Inside MapboxMapFragment
+override fun getMapConfigBuilder(): MPMapConfig.Builder =
+    MPMapConfig.Builder(requireActivity(), mapboxMap, mapView, getString(R.string.mapbox_api_key), true)
 ```
 {% endcode %}
 {% endtab %}
@@ -510,110 +396,72 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.mapsindoors.core.MPIProjection
-import com.mapsindoors.core.OnResultReadyListener
 import com.mapsindoors.core.models.MPCameraPosition
 import com.mapsindoors.core.models.MPLatLngBounds
 import com.mapsindoors.googlemaps.MPMapConfig
 import com.mapsindoors.googlemaps.MPProjection
 import com.mapsindoors.googlemaps.converters.toCameraPosition
 import com.mapsindoors.googlemaps.converters.toLatLngBounds
-import com.mapsindoors.googlemaps.converters.toMPLatLng
+import com.mapsindoors.googlemaps.converters.toMPCameraPosition
+import kotlinx.coroutines.CompletableDeferred
 
 class GoogleMapFragment : MapFragment(R.layout.google_map_fragment), OnMapReadyCallback {
-  private lateinit var mMapView: MapView
-  private lateinit var mMap: GoogleMap
-  private lateinit var miMap: MIGoogleMap
-  private var ready: Boolean = false
-  private var listener: OnResultReadyListener? = null
+    private lateinit var mapView: MapView
+    private lateinit var googleMap: GoogleMap
+    private val miMap = CompletableDeferred<MIGoogleMap>()
 
-  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    super.onViewCreated(view, savedInstanceState)
-    mMapView = requireActivity().findViewById(R.id.mapView)
-    mMapView.onCreate(savedInstanceState)
-    mMapView.getMapAsync(this)
-  }
-
-  override fun onMapReady(p0: GoogleMap) {
-    mMapView.onStart()
-    mMap = p0
-    miMap = MIGoogleMap(p0)
-    ready = true
-    listener?.onResultReady(null)
-  }
-
-  override fun isReady(listener: OnResultReadyListener) {
-    if (ready) {
-      listener.onResultReady(null)
-    } else {
-      this.listener = listener
-    }
-  }
-
-  override fun getMap(): MIGoogleMap {
-    return miMap
-  }
-
-  override fun getMapConfigBuilder(): MPMapConfig.Builder {
-    return MPMapConfig.Builder(requireActivity(), mMap, getString(R.string.google_maps_key), mMapView, true)
-  }
-
-  class MIGoogleMap(private val map : GoogleMap) : MIMap {
-
-    override fun animateCamera(mpCameraPosition: MPCameraPosition?) {
-      mpCameraPosition ?: return
-      map.animateCamera(
-        CameraUpdateFactory.newCameraPosition(
-          mpCameraPosition.toCameraPosition()
-        )
-      )
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mapView = view.findViewById(R.id.mapView)
+        mapView.onCreate(savedInstanceState)
+        mapView.getMapAsync(this)
     }
 
-    override fun animateCamera(mpCameraPosition: MPCameraPosition?, duration: Int) {
-      mpCameraPosition ?: return
-      map.animateCamera(
-        CameraUpdateFactory.newCameraPosition(
-          mpCameraPosition.toCameraPosition()
-        ), 500, null
-      )
+    override fun onMapReady(googleMap: GoogleMap) {
+        mapView.onStart()
+        this.googleMap = googleMap
+        miMap.complete(MIGoogleMap(googleMap))
     }
 
-    override fun moveCamera(latLngBounds: MPLatLngBounds?, padding: Int) {
-      latLngBounds ?: return
-      map.moveCamera(
-        CameraUpdateFactory.newLatLngBounds(
-          latLngBounds.toLatLngBounds(), 10
-        )
-      )
+    override suspend fun awaitMap(): MIGoogleMap = miMap.await()
+
+    override fun getMapConfigBuilder(): MPMapConfig.Builder =
+        MPMapConfig.Builder(requireActivity(), googleMap, getString(R.string.google_maps_key), mapView, true)
+
+    class MIGoogleMap(private val map: GoogleMap) : MIMap {
+        override fun animateCamera(mpCameraPosition: MPCameraPosition?) {
+            // sometimes the cameraPosition we create is nullable, lets handle it here instead of outside the method
+            mpCameraPosition ?: return
+            map.animateCamera(CameraUpdateFactory.newCameraPosition(mpCameraPosition.toCameraPosition()))
+        }
+
+        override fun animateCamera(mpCameraPosition: MPCameraPosition?, duration: Int) {
+            mpCameraPosition ?: return
+            map.animateCamera(CameraUpdateFactory.newCameraPosition(mpCameraPosition.toCameraPosition()), duration, null)
+        }
+
+        override fun moveCamera(latLngBounds: MPLatLngBounds?, padding: Int) {
+            latLngBounds ?: return
+            map.moveCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds.toLatLngBounds(), padding))
+        }
+
+        override fun moveCamera(mpCameraPosition: MPCameraPosition?) {
+            mpCameraPosition ?: return
+            map.moveCamera(CameraUpdateFactory.newCameraPosition(mpCameraPosition.toCameraPosition()))
+        }
+
+        override val cameraPosition: MPCameraPosition
+            get() = map.cameraPosition.toMPCameraPosition()
+
+        override val projection: MPIProjection
+            get() = MPProjection(map.projection, map.cameraPosition.zoom, map.cameraPosition.bearing)
+
+        override var isCompassEnabled: Boolean
+            get() = map.uiSettings.isCompassEnabled
+            set(value) {
+                map.uiSettings.isCompassEnabled = value
+            }
     }
-
-    override fun moveCamera(mpCameraPosition: MPCameraPosition?) {
-      mpCameraPosition ?: return
-      map.moveCamera(
-        CameraUpdateFactory.newCameraPosition(
-          mpCameraPosition.toCameraPosition()
-        )
-      )
-    }
-
-    override val cameraPosition: MPCameraPosition?
-      get() = MPCameraPosition.Builder()
-        .setBearing(map.cameraPosition.bearing)
-        .setTarget(
-          map.cameraPosition.target.toMPLatLng()
-        )
-        .setZoom(map.cameraPosition.zoom)
-        .build()
-
-    override val projection: MPIProjection?
-      get() = MPProjection(
-        map.projection,
-        map.cameraPosition.zoom,
-        map.maxZoomLevel
-      )
-    override var isCompassEnabled: Boolean
-      get() = map.uiSettings.isCompassEnabled
-      set(value) {map.uiSettings.isCompassEnabled = value}
-  }
 }
 ```
 {% endcode %}
@@ -633,7 +481,6 @@ import com.mapbox.maps.plugin.animation.MapAnimationOptions
 import com.mapbox.maps.plugin.animation.flyTo
 import com.mapbox.maps.plugin.compass.compass
 import com.mapsindoors.core.MPIProjection
-import com.mapsindoors.core.OnResultReadyListener
 import com.mapsindoors.core.models.MPCameraPosition
 import com.mapsindoors.core.models.MPLatLngBounds
 import com.mapsindoors.mapbox.MPMapConfig
@@ -641,119 +488,85 @@ import com.mapsindoors.mapbox.MPProjection
 import com.mapsindoors.mapbox.converters.toCoordinateBounds
 import com.mapsindoors.mapbox.converters.toMPLatLng
 import com.mapsindoors.mapbox.converters.toPoint
+import kotlinx.coroutines.CompletableDeferred
 
 class MapboxMapFragment : MapFragment(R.layout.mapbox_map_fragment) {
-  private lateinit var mMapView: MapView
-  private lateinit var mMap: MapboxMap
-  private lateinit var miMap: MIMapboxMap
-  private var isReady: Boolean = false
-  private var readyListener: OnResultReadyListener? = null
-  private val readyLock: Any = Any()
+    private lateinit var mapView: MapView
+    private lateinit var mapboxMap: MapboxMap
+    private val miMap = CompletableDeferred<MIMapboxMap>()
 
-  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    super.onViewCreated(view, savedInstanceState)
-    mMapView = requireActivity().findViewById(R.id.mapView)
-    mMap = mMapView.mapboxMap
-    mMap.loadStyle(Style.MAPBOX_STREETS)
-    miMap = MIMapboxMap(mMap, mMapView)
-    synchronized(readyLock) {
-      isReady = true
-      readyListener?.onResultReady(null)
-    }
-  }
-
-  override fun isReady(listener: OnResultReadyListener) {
-    synchronized(readyLock) {
-      if (isReady) {
-        listener.onResultReady(null)
-      } else {
-        this.readyListener = listener
-      }
-    }
-  }
-
-  override fun getMap(): MIMapboxMap {
-    return miMap
-  }
-
-  override fun getMapConfigBuilder(): MPMapConfig.Builder {
-    return MPMapConfig.Builder(requireActivity(), mMap, mMapView, getString(R.string.mapbox_api_key), true)
-  }
-
-
-  class MIMapboxMap(private val map: MapboxMap, private val mapView: MapView) : MIMap {
-    override fun animateCamera(mpCameraPosition: MPCameraPosition?) {
-      mpCameraPosition?.let {
-        map.flyTo(
-          CameraOptions.Builder()
-            .center(it.target.toPoint())
-            .zoom(it.zoom.toDouble())
-            .bearing(it.bearing.toDouble())
-            .pitch(it.tilt.toDouble())
-            .build()
-        )
-      }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mapView = view.findViewById(R.id.mapView)
+        mapboxMap = mapView.mapboxMap
+        mapboxMap.loadStyle(Style.MAPBOX_STREETS)
+        miMap.complete(MIMapboxMap(mapboxMap, mapView))
     }
 
-    override fun animateCamera(mpCameraPosition: MPCameraPosition?, duration: Int) {
-      mpCameraPosition?.let {
-        map.flyTo(
-          CameraOptions.Builder()
-            .center(it.target.toPoint())
-            .zoom(it.zoom.toDouble())
-            .bearing(it.bearing.toDouble())
-            .pitch(it.tilt.toDouble())
-            .build(),
-          MapAnimationOptions.Builder().duration(duration.toLong()).build()
-        )
-      }
+    override suspend fun awaitMap(): MIMapboxMap = miMap.await()
+
+    override fun getMapConfigBuilder(): MPMapConfig.Builder =
+        MPMapConfig.Builder(requireActivity(), mapboxMap, mapView, getString(R.string.mapbox_api_key), true)
+
+    class MIMapboxMap(private val map: MapboxMap, private val mapView: MapView) : MIMap {
+        override fun animateCamera(mpCameraPosition: MPCameraPosition?) {
+            mpCameraPosition ?: return
+            map.flyTo(mpCameraPosition.toCameraOptions())
+        }
+
+        override fun animateCamera(mpCameraPosition: MPCameraPosition?, duration: Int) {
+            mpCameraPosition ?: return
+            map.flyTo(
+                mpCameraPosition.toCameraOptions(),
+                MapAnimationOptions.Builder().duration(duration.toLong()).build(),
+            )
+        }
+
+        override fun moveCamera(latLngBounds: MPLatLngBounds?, padding: Int) {
+            latLngBounds ?: return
+            val pad = padding.toDouble()
+            map.setCamera(
+                map.cameraForCoordinateBounds(
+                    latLngBounds.toCoordinateBounds(),
+                    EdgeInsets(pad, pad, pad, pad),
+                    map.cameraState.bearing,
+                    map.cameraState.pitch,
+                ),
+            )
+        }
+
+        override fun moveCamera(mpCameraPosition: MPCameraPosition?) {
+            mpCameraPosition ?: return
+            map.setCamera(mpCameraPosition.toCameraOptions())
+        }
+
+        override val cameraPosition: MPCameraPosition
+            get() = map.cameraState.let { state ->
+                MPCameraPosition {
+                    target = state.center.toMPLatLng()
+                    zoom = state.zoom.toFloat()
+                    bearing = state.bearing.toFloat()
+                    tilt = state.pitch.toFloat()
+                }
+            }
+
+        override val projection: MPIProjection
+            get() = MPProjection(map, mapView)
+
+        override var isCompassEnabled: Boolean
+            get() = mapView.compass.enabled
+            set(value) {
+                mapView.compass.enabled = value
+            }
+
+        private fun MPCameraPosition.toCameraOptions(): CameraOptions =
+            CameraOptions.Builder()
+                .center(target.toPoint())
+                .zoom(zoom.toDouble())
+                .bearing(bearing.toDouble())
+                .pitch(tilt.toDouble())
+                .build()
     }
-
-    override fun moveCamera(latLngBounds: MPLatLngBounds?, padding: Int) {
-      latLngBounds?.let {
-        val pad = padding.toDouble()
-        map.setCamera(
-          map.cameraForCoordinateBounds(
-            it.toCoordinateBounds(),
-            EdgeInsets(pad, pad, pad, pad),
-            map.cameraState.bearing,
-            map.cameraState.pitch
-          )
-        )
-      }
-    }
-
-    override fun moveCamera(mpCameraPosition: MPCameraPosition?) {
-      mpCameraPosition?.let {
-        map.setCamera(
-          CameraOptions.Builder()
-            .center(it.target.toPoint())
-            .zoom(it.zoom.toDouble())
-            .bearing(it.bearing.toDouble())
-            .pitch(it.tilt.toDouble())
-            .build()
-        )
-      }
-    }
-
-    override val cameraPosition: MPCameraPosition?
-      get() = map.cameraState.let {
-        MPCameraPosition.Builder()
-          .setZoom(it.zoom.toFloat())
-          .setTarget(it.center.toMPLatLng())
-          .setBearing(it.bearing.toFloat())
-          .setTilt(it.pitch.toFloat())
-          .build()
-      }
-
-    override val projection: MPIProjection?
-      get() = MPProjection(map, mapView)
-    override var isCompassEnabled: Boolean
-      get() = mapView.compass.enabled
-      set(value) {
-        mapView.compass.enabled = value
-      }
-  }
 }
 ```
 {% endcode %}
@@ -845,9 +658,9 @@ Your platform keys should be kept safely in your resources where they can be fet
 
 ## Use in App
 
-Now we have everything we need to set up the App. Here the approach is quite straightforward, we have made a method `buildConfig` which takes the name of a platform, an MapsIndoors API key, and an error listener, and builds the appropriate `MapFragment`, and loads `MapsIndoors` as well.
+Now we have everything we need to set up the App. Here the approach is quite straightforward, we have made a method `buildConfig` which takes the name of a platform and a MapsIndoors API key, builds the appropriate `MapFragment`, and loads `MapsIndoors` as well.
 
-When the fragment is ready, we call `initMapControl` which starts building a `MapControl` using the fragments' `MPMapConfig`, which we can extend in this example to also enable blue dot positioning.
+When `awaitMap` returns, we call `initMapControl` which starts building a `MapControl` using the fragments' `MPMapConfig`, which we can extend in this example to also enable blue dot positioning.
 
 Once `MapControl` has been create we use it to get the default venue, then use our `animateCamera` method to move the camera to the venue bounds.
 
@@ -857,75 +670,73 @@ We can even move the `MapsIndoors.load()` out of the `buildConfig` method, and s
 
 {% code title="MainActivity.kt" overflow="wrap" lineNumbers="true" %}
 ```kotlin
-import android.os.Build
 import android.os.Bundle
-import androidx.annotation.RequiresApi
+import android.util.Log
 import androidx.fragment.app.FragmentActivity
-import com.mapsindoors.core.MPDebugLog
+import androidx.lifecycle.lifecycleScope
 import com.mapsindoors.core.MapControl
 import com.mapsindoors.core.MapsIndoors
-import com.mapsindoors.core.OnMapsIndoorsReadyListener
-import com.mapsindoors.core.OnResultReadyListener
-import com.mapsindoors.core.errors.MIError
 import com.mapsindoors.core.models.MPCameraPosition
-import com.mapsindoors.testapp.Provider.Google
-import com.mapsindoors.testapp.Provider.Mapbox
-import com.mapsindoors.testapp.providers.GoogleMapFragment
-import com.mapsindoors.testapp.providers.MIMap
-import com.mapsindoors.testapp.providers.MapFragment
-import com.mapsindoors.testapp.providers.MapboxMapFragment
+import kotlinx.coroutines.launch
 
-class MainActivity : FragmentActivity(), OnResultReadyListener {
-  private var mMapControl: MapControl? = null
-  private lateinit var mFragment: MapFragment
-  private lateinit var mMIMap: MIMap
+class MainActivity : FragmentActivity() {
+    private var mapControl: MapControl? = null
+    private lateinit var mapFragment: MapFragment
 
-  @RequiresApi(api = Build.VERSION_CODES.M)
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
-    buildConfig(Mapbox, "mapspeople3d") { e: MIError? -> }
-  }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        buildConfig(Provider.Mapbox, "mapspeople3d")
+    }
 
-  override fun onResultReady(error: MIError?) {
-    mMIMap = mFragment.getMap()
-    initMapControl()
-  }
-
-  private fun initMapControl() {
-    val mapConfig = mFragment.getMapConfigBuilder().setShowUserPosition(true).build()
-    MapControl.create(mapConfig) { mapControl: MapControl?, miError: MIError? ->
-      if (miError == null) {
-        mMapControl = mapControl
-        val venue = (MapsIndoors.getVenues() ?: return@create).defaultVenue
-        runOnUiThread {
-          if (venue != null) {
-            mMapControl?.selectFloor(venue.defaultFloor)
-            mMIMap.animateCamera(MPCameraPosition.Builder().setTarget(venue.bounds?.center).setZoom(17f).build())
-          }
+    private fun buildConfig(provider: Provider, apiKey: String) {
+        mapFragment = when (provider) {
+            Provider.Google -> GoogleMapFragment()
+            Provider.Mapbox -> MapboxMapFragment()
         }
-      }
+        supportFragmentManager.beginTransaction().add(R.id.map_fragment, mapFragment).commit()
+        MapsIndoors.load(applicationContext, apiKey) { _, error ->
+            if (error != null) {
+                Log.e("MainActivity", "Could not load MapsIndoors: ${error.message}")
+            }
+        }
+        lifecycleScope.launch {
+            initMapControl(mapFragment.awaitMap())
+        }
     }
-  }
 
-  private fun buildConfig(provider: Provider, apiKey: String, listener: OnMapsIndoorsReadyListener) {
-    mFragment = when (provider) {
-      Google -> GoogleMapFragment()
-      Mapbox -> MapboxMapFragment()
+    private fun initMapControl(map: MIMap) {
+        val mapConfig = mapFragment.getMapConfigBuilder().setShowUserPosition(true).build()
+        MapControl.create(mapConfig) { mapControl, error ->
+            if (mapControl == null) {
+                Log.e("MainActivity", "Could not create MapControl: ${error?.message}")
+                return@create
+            }
+            this.mapControl = mapControl
+            val venue = MapsIndoors.venues?.defaultVenue ?: return@create
+            val venueCenter = venue.bounds?.center ?: return@create
+            // The callback can arrive on a background thread, so move the camera from the main thread
+            lifecycleScope.launch {
+                mapControl.selectFloor(venue.defaultFloor)
+                map.animateCamera(
+                    MPCameraPosition {
+                        target = venueCenter
+                        zoom = 17f
+                    },
+                )
+            }
+        }
     }
-    supportFragmentManager.beginTransaction().add(R.id.map_fragment, mFragment).commit()
-    MapsIndoors.load(application, apiKey, listener)
-    mFragment.isReady(this)
-  }
 
-  override fun onDestroy() {
-    super.onDestroy()
-    mFragment.onDestroy()
-  }
+    override fun onDestroy() {
+        super.onDestroy()
+        mapControl?.onDestroy()
+    }
 }
 
 enum class Provider {
-  Mapbox, Google,
+    Mapbox,
+    Google,
 }
 ```
 {% endcode %}

@@ -11,14 +11,21 @@ description: >-
 
 After having created our list of search results, we have a good starting point for creating directions between two Locations. Since our search only supports a single search, we will query a random Location within the venue when requesting a route, and use that as the basis for our Origin. Then we'll create a route, navigate to a view of the navigation details, and show a route on the map from the Origin to the Destination.
 
-Now we will create a method that can generate a route for us with a Location (picked from the search list). Start by implementing `OnRouteResultListener` to your MapsActivity.
+Now we will create a method that can generate a route for us with a Location (picked from the search list). Start by adding a property for the `MPDirectionsService` to your MapsActivity.
 
 {% tabs %}
 {% tab title="Kotlin - Google Maps" %}
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L26)
 
 ```kotlin
-class MapsActivity : FragmentActivity(), OnMapReadyCallback, OnRouteResultListener
+class MapsActivity : FragmentActivity(), OnMapReadyCallback {
+    private var directionsService: MPDirectionsService? = null
+    // ...
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        // ...
+    }
+}
 ```
 {% endtab %}
 
@@ -26,14 +33,17 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, OnRouteResultListen
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/MapBox/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L24)
 
 ```kotlin
-class MapsActivity : FragmentActivity(), OnRouteResultListener
+class MapsActivity : FragmentActivity() {
+    private var directionsService: MPDirectionsService? = null
+    // ...
+}
 ```
 {% endtab %}
 {% endtabs %}
 
-Implement the [`onRouteResult` method](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-on-route-result-listener/on-route-result.html?query=abstract%20fun%20onRouteResult\(route:%20MPRoute,%20error:%20MIError\)) and create a method called `createRoute(MPLocation mpLocation)` on your `MapsActivity`.
+Create a method called `createRoute(mpLocation: MPLocation)` on your `MapsActivity`. Route results are delivered to an [`MPResultListener<MPRouteResult>`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-m-p-result-listener/on-result.html), which you set on the `MPDirectionsService` as a lambda.
 
-Use this method to query the [`MPDirectionsService`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-service/index.html?query=class%20MPDirectionsService%20:%20MPDirectionsServiceInterface), which generates a route between two coordinates. We will use this to query a route with our hardcoded `mUserLocation` and a point from a MPLocation.
+Use this method to query the [`MPDirectionsService`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-service/index.html?query=class%20MPDirectionsService%20:%20MPDirectionsServiceInterface), which generates a route between two coordinates. We will use this to query a route with our hardcoded `userLocation` and a point from a MPLocation.
 
 To generate a route with the `MPLocation`, we start by creating an `onClickListener` on our search `ViewHolder` inside the `SearchItemAdapter`. In the method `onBindViewHolder` we will call our `createRoute` on the `MapsActivity` for our route to be generated.
 
@@ -41,50 +51,52 @@ To generate a route with the `MPLocation`, we start by creating an `onClickListe
 
 ```kotlin
 override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    ...
+    // ...
     holder.itemView.setOnClickListener {
-        mLocations[position]?.let { locations -> mMapActivity?.createRoute(locations) }
-        //Clearing map to remove the location filter from our search result
-        mMapActivity?.getMapControl()?.clearFilter()
+        mapActivity?.createRoute(locations[position])
+        // Clearing map to remove the location filter from our search result
+        mapActivity?.mapControl?.clearFilter()
     }
-    ...
+    // ...
 }
 ```
 
-We start by implementing logic to our createRoute method to query a route through [`MPDirectionsService`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-service/index.html?query=class%20MPDirectionsService%20:%20MPDirectionsServiceInterface) and assign the onRouteResultListener to the activity. When we call the `createRoute` through our `onClickListener` we will receive a result through our `onRouteResult` implementation.
+We start by implementing logic to our createRoute method to query a route through [`MPDirectionsService`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-service/index.html?query=class%20MPDirectionsService%20:%20MPDirectionsServiceInterface) and set a route result listener on it. When we call the `createRoute` through our `onClickListener` we will receive the result in that listener, which passes the first route to our `onRouteResult` method.
 
 When we receive a result on our listener, we render the route through the `MPDirectionsRenderer`.
 
-We create global variables of the [`MPdirectionsRenderer`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-renderer/index.html?query=class%20MPDirectionsRenderer) and [`MPDirectionsService`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-service/index.html?query=class%20MPDirectionsService%20:%20MPDirectionsServiceInterface) and create a getter to the [`MPdirectionsRenderer`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-renderer/index.html?query=class%20MPDirectionsRenderer) to access it from _fragments_ later on.
+We create global variables of the [`MPdirectionsRenderer`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-renderer/index.html?query=class%20MPDirectionsRenderer) and [`MPDirectionsService`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-service/index.html?query=class%20MPDirectionsService%20:%20MPDirectionsServiceInterface) and expose the [`MPdirectionsRenderer`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-renderer/index.html?query=class%20MPDirectionsRenderer) as a property to access it from _fragments_ later on.
 
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L182-L237)
 
 ```kotlin
 fun createRoute(mpLocation: MPLocation) {
-    //If MPRoutingProvider has not been instantiated create it here and assign the results call back to the activity.
-    if (mpRoutingProvider == null) {
-        mpRoutingProvider = MPDirectionsService(this)
-        mpRoutingProvider?.setRouteResultListener(this)
-        mpRoutingProvider?.setTravelMode(MPTravelMode.WALKING)
+    // If MPDirectionsService has not been instantiated, create it here and listen for its route results.
+    val service = directionsService ?: MPDirectionsService().also { service ->
+        service.setRouteResultListener { result, error -> onRouteResult(result?.routes?.firstOrNull(), error) }
+        service.setTravelMode(MPTravelMode.WALKING)
+        directionsService = service
     }
 
-    //Use the locations venue to query an origin point for the route. Within the venue bounds.
-    if (mpLocation.venue == null) {
-        //Open dialog telling user to try another location, as no venue is assigned to the location.
+    // Use the location's venue to query an origin point for the route, within the venue bounds.
+    val venueBounds = mpLocation.venue?.let { MapsIndoors.venues?.getVenueByName(it) }?.bounds
+    if (venueBounds == null) {
+        // Open a dialog telling the user to try another location, as no venue is assigned to the location.
         AlertDialog.Builder(this)
             .setTitle("No venue assigned")
             .setMessage("Please try another location")
             .show()
-    } else {
-        val venue = MapsIndoors.getVenues()?.getVenueByName(mpLocation.venue!!)
-        MapsIndoors.getLocationsAsync(null, MPFilter.Builder().setMapExtend(MPMapExtend(venue!!.bounds!!)).build()) { list: List<MPLocation?>?, miError: MIError? ->
-            if (!list.isNullOrEmpty()) {
-                list.first()?.let { location ->
-                    //Queries the MPRouting provider for a route with the hardcoded user location and the point from a location.
-                    mpRoutingProvider?.query(location.point, mpLocation.point)
-                }
+        return
+    }
+    val filter = MPFilter { mapExtend = MPMapExtend(venueBounds) }
+    MapsIndoors.getLocationsAsync(null, filter) { locations, _ ->
+        val origin = locations?.firstOrNull()
+        lifecycleScope.launch {
+            if (origin != null) {
+                // Queries the MPDirectionsService for a route from the origin to the point of the location.
+                service.query(origin.point, mpLocation.point)
             } else {
-                AlertDialog.Builder(this)
+                AlertDialog.Builder(this@MapsActivity)
                     .setTitle("No locations found within venue of location")
                     .setMessage("Please try another location")
                     .show()
@@ -93,18 +105,20 @@ fun createRoute(mpLocation: MPLocation) {
     }
 }
 
-override fun onRouteResult(@Nullable route: Route?, @Nullable miError: MIError?) {
-    ...
-    //Create the MPDirectionsRenderer if it has not been instantiated.
-    if (mpDirectionsRenderer == null) {
-        mpDirectionsRenderer = MPDirectionsRenderer(mMapControl)
+private fun onRouteResult(route: MPRoute?, error: MIError?) {
+    if (route == null) {
+        Log.e("MapsActivity", "No route found: ${error?.message}")
+        return
     }
-    //Set the route on the Directions renderer
-    mpDirectionsRenderer?.setRoute(route)
-    //Create a new instance of the navigation fragment
-    mNavigationFragment = NavigationFragment.newInstance(route, this)
-    //Start a transaction and assign it to the BottomSheet
-    addFragmentToBottomSheet(mNavigationFragment)
+    // The result can arrive on a background thread, so update the map and the UI from the main thread
+    lifecycleScope.launch {
+        // Create the MPDirectionsRenderer if it has not been instantiated.
+        val renderer = directionsRenderer ?: MPDirectionsRenderer(mapControl).also { directionsRenderer = it }
+        // Set the route on the directions renderer
+        renderer.setRoute(route)
+        // Create a new instance of the navigation fragment and assign it to the bottom sheet
+        addFragmentToBottomSheet(NavigationFragment.newInstance(route))
+    }
 }
 ```
 
@@ -114,14 +128,13 @@ Now we will implement logic to our `NavigationFragment` that we can put into our
 
 Here we'll use a `viewpager` to allow the user to switch between each step, as well as display a "close" button so we are able to remove the route and the bottom sheet from the activity.
 
-We will start by making a getter for our [`MPdirectionsRenderer`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-renderer/index.html?query=class%20MPDirectionsRenderer) that we store on `MapsActivity`:
+We will start by exposing the [`MPdirectionsRenderer`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-m-p-directions-renderer/index.html?query=class%20MPDirectionsRenderer) that we store on `MapsActivity` as a property with a private setter:
 
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/main/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L178-L180)
 
 ```kotlin
-fun getMpDirectionsRenderer(): MPDirectionsRenderer? {
-    return mpDirectionsRenderer
-}
+var directionsRenderer: MPDirectionsRenderer? = null
+    private set
 ```
 
 Inside the `NavigationFragment` we will implement logic to navigate through Legs of our Route.
@@ -130,69 +143,65 @@ Inside the `NavigationFragment` we will implement logic to navigate through Legs
 
 ```kotlin
 class NavigationFragment : Fragment() {
-    private var mRoute: MPRoute? = null
-    private var mMapsActivity: MapsActivity? = null
+    private var route: MPRoute? = null
+    private val mapsActivity: MapsActivity
+        get() = requireActivity() as MapsActivity
 
-    ...
-    override fun onViewCreated(view: View, @Nullable savedInstanceState: Bundle?) {
+    // ...
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val routeCollectionAdapter = RouteCollectionAdapter(this)
-        val mViewPager: ViewPager2 = view.findViewById(R.id.view_pager)
-        mViewPager.adapter = routeCollectionAdapter
-        mViewPager.registerOnPageChangeCallback(object : OnPageChangeCallback() {
+        val viewPager: ViewPager2 = view.findViewById(R.id.view_pager)
+        viewPager.adapter = routeCollectionAdapter
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                //When a page is selected call the renderer with the index
-                mMapsActivity?.getMpDirectionsRenderer()?.selectLegIndex(position)
-                //Update the floor on mapcontrol if the floor might have changed for the routing
-                mMapsActivity?.getMpDirectionsRenderer()?.selectedLegFloorIndex?.let {floorIndex ->
-                    mMapsActivity?.getMapControl()?.selectFloor(floorIndex)
-                }
+                val renderer = mapsActivity.directionsRenderer ?: return
+                // When a page is selected, call the renderer with the index
+                renderer.selectLegIndex(position)
+                // Update the floor on MapControl, as the floor might have changed for the leg
+                mapsActivity.mapControl.selectFloor(renderer.getSelectedLegFloorIndex())
             }
         })
 
-        ...
+        val closeBtn = view.findViewById<ImageButton>(R.id.close_btn)
+        val nextBtn = view.findViewById<ImageButton>(R.id.next_btn)
+        val backBtn = view.findViewById<ImageButton>(R.id.back_btn)
+        val distanceTxtView = view.findViewById<TextView>(R.id.distance_text_view)
+        val infoTxtView = view.findViewById<TextView>(R.id.info_text_view)
 
-        //Button for closing the bottom sheet. Clears the route through directionsRenderer as well, and changes map padding.
+        // Button for closing the bottom sheet. Clears the route through the directions renderer as well.
         closeBtn.setOnClickListener {
-            mMapsActivity!!.removeFragmentFromBottomSheet(this)
-            mMapsActivity!!.getMpDirectionsRenderer()?.clear()
+            mapsActivity.removeFragmentFromBottomSheet(this)
+            mapsActivity.directionsRenderer?.clear()
         }
 
-        //Next button for going through the legs of the route.
+        // Next button for going through the legs of the route.
         nextBtn.setOnClickListener {
-            mViewPager.setCurrentItem(
-                mViewPager.currentItem + 1,
-                true
-            )
+            viewPager.setCurrentItem(viewPager.currentItem + 1, true)
         }
 
-        //Back button for going through the legs of the route.
+        // Back button for going through the legs of the route.
         backBtn.setOnClickListener {
-            mViewPager.setCurrentItem(
-                mViewPager.currentItem - 1,
-                true
-            )
+            viewPager.setCurrentItem(viewPager.currentItem - 1, true)
         }
 
-        //Describing the distance in meters
-        distanceTxtView.text = "Distance: " + mRoute?.getDistance().toString() + " m"
-        //Describing the time it takes for the route in minutes
-        infoTxtView.text = "Time for route: " + mRoute?.duration?.toLong()?.let {duration ->
-            TimeUnit.MINUTES.convert(duration, TimeUnit.SECONDS).toString()
-        } + " minutes"
+        val route = route ?: return
+        // Describing the distance in meters
+        distanceTxtView.text = "Distance: ${route.distance} m"
+        // Describing the time it takes for the route in minutes
+        infoTxtView.text = "Time for route: ${TimeUnit.SECONDS.toMinutes(route.duration.toLong())} minutes"
     }
 
-    inner class RouteCollectionAdapter(fragment: Fragment?) :
-        ...
+    inner class RouteCollectionAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+        override fun createFragment(position: Int): Fragment = RouteLegFragment.newInstance(route?.legs?.get(position))
+
+        override fun getItemCount(): Int = route?.legs?.size ?: 0
     }
 
     companion object {
-        fun newInstance(route: Route?, mapsActivity: MapsActivity?): NavigationFragment {
-            val fragment = NavigationFragment()
-            fragment.mRoute = route
-            fragment.mMapsActivity = mapsActivity
-            return fragment
-        }
+        fun newInstance(route: MPRoute): NavigationFragment =
+            NavigationFragment().apply { this.route = route }
     }
 }
 ```
@@ -205,32 +214,23 @@ We will then create a simple textview to describe each step of the Route Leg in 
 
 ```kotlin
 class RouteLegFragment : Fragment() {
-    private var mRouteLeg: MPRouteLeg? = null
+    private var routeLeg: MPRouteLeg? = null
 
-    ...
+    // ...
 
-    override fun onViewCreated(view: View, @Nullable savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //Assigning views
+        // Assigning views
         val fromTxtView = view.findViewById<TextView>(R.id.from_text_view)
-        var stepsString = ""
-        //A loop to write what to do for each step of the leg.
-        for (i in mRouteLeg!!.steps.indices) {
-            val routeStep = mRouteLeg!!.steps[i]
-            stepsString += """
-                Step ${i + 1}${routeStep.maneuver}
-                """.trimIndent()
-        }
-
-        fromTxtView.text = stepsString
+        // Describe what to do for each step of the leg
+        fromTxtView.text = routeLeg?.steps.orEmpty()
+            .mapIndexed { i, routeStep -> "Step ${i + 1}: ${routeStep.maneuver}" }
+            .joinToString("\n")
     }
 
     companion object {
-        fun newInstance(routeLeg: MPRouteLeg?): RouteLegFragment {
-            val fragment = RouteLegFragment()
-            fragment.mRouteLeg = routeLeg
-            return fragment
-        }
+        fun newInstance(routeLeg: MPRouteLeg?): RouteLegFragment =
+            RouteLegFragment().apply { this.routeLeg = routeLeg }
     }
 }
 ```
@@ -245,14 +245,14 @@ To swap Travel Modes you set the Travel Mode before making a query for the route
 
 ```kotlin
 fun createRoute(mpLocation: MPLocation) {
-    //If MPDirectionsService has not been instantiated create it here and assign the results call back to the activity.
-    if (mpDirectionsService == null) {
-        mpDirectionsService = MPDirectionsService(this)
-        mpDirectionsService?.setRouteResultListener(this)
+    // If MPDirectionsService has not been instantiated, create it here and listen for its route results.
+    val service = directionsService ?: MPDirectionsService().also { service ->
+        service.setRouteResultListener { result, error -> onRouteResult(result?.routes?.firstOrNull(), error) }
+        directionsService = service
     }
-    mpDirectionsService?.setTravelMode(MPTravelMode.WALKING)
-    //Queries the MPRouting provider for a route with the hardcoded user location and the point from a location.
-    mpDirectionsService?.query(mUserLocation, mpLocation.point)
+    service.setTravelMode(MPTravelMode.WALKING)
+    // Queries the MPDirectionsService for a route from the hardcoded user location to the point of the location.
+    service.query(userLocation, mpLocation.point)
 }
 ```
 

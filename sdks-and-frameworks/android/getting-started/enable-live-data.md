@@ -11,7 +11,7 @@ Support for Live Data requires that server-side integrations are in place. For e
 
 The following section relies on the existence of Live Position Data. If you do not have access to a MapsIndoors Dataset that have a Live Data integration, you should use our demo API key: `d876ff0e60bb430b8fabb145`.
 
-Enabling Live Data through [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) is as simple as [calling `mapControl.enableLiveData()`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/enable-live-data.html?query=open%20fun%20enableLiveData\(domainType:%20String\)) with a [Domain Type](https://app.mapsindoors.com/mapsindoors/reference/android/v3/index.html).
+Enabling Live Data through [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) is as simple as [calling `mapControl.enableLiveData()`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-map-control/enable-live-data.html?query=open%20fun%20enableLiveData\(domainType:%20String\)) with a [Domain Type](https://app.mapsindoors.com/mapsindoors/reference/android/v5/index.html).
 
 We will create a new method on our `MapsActivity` called `enableLiveData()` to enable Live Data for the Solution.
 
@@ -19,32 +19,33 @@ We will create a new method on our `MapsActivity` called `enableLiveData()` to e
 
 ```kotlin
 private fun enableLiveData() {
-    //Enabling Live Data for the three known Live Data Domains enabled for this Solution.
-    mMapControl.enableLiveData(LiveDataDomainTypes.AVAILABILITY_DOMAIN)
-    mMapControl.enableLiveData(LiveDataDomainTypes.OCCUPANCY_DOMAIN)
-    mMapControl.enableLiveData(LiveDataDomainTypes.POSITION_DOMAIN)
+    // Enabling Live Data for the three known Live Data Domains enabled for this Solution.
+    mapControl.enableLiveData(LiveDataDomainTypes.AVAILABILITY_DOMAIN)
+    mapControl.enableLiveData(LiveDataDomainTypes.OCCUPANCY_DOMAIN)
+    mapControl.enableLiveData(LiveDataDomainTypes.POSITION_DOMAIN)
 }
 ```
 
-By consequence, [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) will manage the Live Data subscriptions needed for the currently visible map and provide a default rendering of the Live Data updates depending on the Domain Type.
+By consequence, [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) will manage the Live Data subscriptions needed for the currently visible map and provide a default rendering of the Live Data updates depending on the Domain Type.
 
-In the context of your view controller showing a map, add the call after creating your [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v4/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) object used in the `Activity` in the `initMapControl()` method created earlier.
+In the context of your view controller showing a map, add the call after creating your [`MapControl`](https://app.mapsindoors.com/mapsindoors/reference/android/v5/MapsIndoorsSDK/com.mapsindoors.core/-map-control/index.html?query=class%20MapControl) object used in the `Activity` in the `initMapControl()` method created earlier.
 
 [MapsActivity.kt](https://github.com/MapsPeople/MapsIndoors-Android-Examples/blob/79a8b7c22751048c7c064a63b067eb740cf5e50f/Google_Maps/mapsindoorsgettingstartedkotlin/src/main/java/com/mapspeople/mapsindoorsgettingstartedkotlin/MapsActivity.kt#L124)
 
 ```kotlin
 private fun initMapControl(view: View) {
-    ...
-    //Creates a new instance of MapControl
-    MapControl.create(config) { mapControl, miError ->
-        if (miError == null) {
-            mMapControl = mapControl!!
-            //Enable live data on the map
-            enableLiveData()
-            ...
+    val config = MPMapConfig.Builder(this, googleMap, getString(R.string.google_maps_key), view, true).build()
+    // Creates a new instance of MapControl
+    MapControl.create(config) { mapControl, error ->
+        if (mapControl == null) {
+            Log.e("MapsActivity", "Could not create MapControl: ${error?.message}")
+            return@create
         }
+        this.mapControl = mapControl
+        // Enable live data on the map
+        enableLiveData()
+        // ...
     }
-    ...
 }
 ```
 
