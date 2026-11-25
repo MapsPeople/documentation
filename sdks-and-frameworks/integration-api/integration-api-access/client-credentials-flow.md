@@ -1,6 +1,6 @@
 # Client credentials flow
 
-An alternative to login in with a username and password would be using the client credentials flow instead. The main difference from using the user/pass flow is that client credentials flow uses a client secret instead. By doing that your scripts can request an access to Mapsindoors resources using their own credentials, not on behalf of a user.
+Scripts and services get access tokens with the client credentials flow. It uses a client ID and a client secret instead of a username and password, so your scripts request access to MapsIndoors resources with their own credentials, not on behalf of a user. Signing in with a username and password (`grant_type=password` with `client_id=client`) is an older method that is being retired.
 
 With this each script can have it's own secret which can be rotated programmatically so scripts does not need to be updates every time you update your password for example.
 
