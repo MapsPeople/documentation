@@ -4,19 +4,21 @@ The iOS SDK for MapsIndoors has received a major update to version 4.0.0, which 
 
 ### MapsIndoors SDK Map Engine Flavors​ <a href="#mapsindoors-sdk-map-engine-flavors" id="mapsindoors-sdk-map-engine-flavors"></a>
 
-With the release of v4, the MapsIndoors SDK is released as multiple separate libraries depending on the Map Provider - Google Maps or Mapbox. You now import the SDK flavor of your choosing with either:
+With the release of v4, the MapsIndoors SDK is released as multiple separate libraries depending on the Map Provider - Google Maps or Mapbox. You now add the SDK flavor of your choosing as a Swift package, either:
 
-```properties
-pod 'MapsIndoorsGoogleMaps', '~> 4.9'
+```
+https://github.com/MapsPeople/mapsindoors-googlemaps-ios.git
 ```
 
 or
 
-```properties
-pod 'MapsIndoorsMapbox11', '~> 4.9'
+```
+https://github.com/MapsPeople/mapsindoors-mapbox-ios.git
 ```
 
-(Remember to check the [changelog](https://docs.mapsindoors.com/changelogs/ios) for the latest version)
+See [Installing the MapsIndoors SDK](create-a-new-project.md#installing-the-mapsindoors-sdk) for the steps.
+
+(Remember to check the [changelog](../../../other/changelog/ios-sdk/v4.md) for the latest version)
 
 ### MapsIndoors Initialization & Usage​ <a href="#mapsindoors-initialization--usage" id="mapsindoors-initialization--usage"></a>
 

@@ -42,8 +42,7 @@ This app is designed to be displayed in Portrait Mode. While it will work in Lan
 This app provides an example of how to use the MapsIndoors SDK in SwiftUI.
 
 * Download or clone the pre-made project from GitHub: [MapsIndoorsTemplate-iOS](https://github.com/MapsPeople/MapsIndoorsTemplate-iOS-v4)
-* From the terminal, in the path you cloned the repository to, run `pod install`
-* Open the file `xxxxx.xcworkspace` in Xcode, or your editor of choice
+* Open `MapsIndoorsTemplate-iOS-v4.xcodeproj` in Xcode. Xcode downloads the MapsIndoors Swift packages the project uses.
 * Add your MapsIndoors API key and your Map Engine API key
 
 #### Using the Functionality in your Own App​ <a href="#using-the-functionality-in-your-own-app" id="using-the-functionality-in-your-own-app"></a>
@@ -53,10 +52,6 @@ This project is specifically built so you can easily re-use this functionality i
 * This app serves as a starting point.
 * It was built with SwiftUI
 * You can extend this to fit your needs.
-
-{% hint style="warning" %}
-Due to [a bug in CocoaPods](https://github.com/CocoaPods/CocoaPods/issues/7155) it is necessary to include the `post_install` hook in your Podfile described in the [PodFile post\_install](https://github.com/MapsIndoors/MapsIndoorsIOS/wiki/Podfile-post_install-v4) wiki.
-{% endhint %}
 
 #### The Final Result​ <a href="#the-final-result" id="the-final-result"></a>
 
