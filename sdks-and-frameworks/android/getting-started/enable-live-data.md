@@ -54,8 +54,6 @@ Expected result:
 
 <figure><img src="../../../.gitbook/assets/android_live_data_gif.gif" alt=""><figcaption></figcaption></figure>
 
-Learn more about controlling and rendering Live Data in MapsIndoors in the [introduction to Live Data](https://docs.mapsindoors.com/live-data-intro/).
-
 ### Summary​ <a href="#summary" id="summary"></a>
 
 Congratulations! You're at the end of your journey (for now), and you've accomplished a lot! 🎉
