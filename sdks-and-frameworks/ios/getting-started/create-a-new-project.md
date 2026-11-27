@@ -23,7 +23,9 @@ You should now have a project folder with the following files:
 
 ### Installing the MapsIndoors SDK​ <a href="#installing-the-mapsindoors-sdk" id="installing-the-mapsindoors-sdk"></a>
 
-MapsIndoors can be installed using Swift Package Manager, CocoaPods or XCFrameworks.
+MapsIndoors can be installed using Swift Package Manager or XCFrameworks.
+
+{% include "../../../.gitbook/includes/cocoapods-is-soon-going-int....md" %}
 
 {% tabs %}
 {% tab title="Swift Package Manager" %}
@@ -48,43 +50,8 @@ If you are using Mapbox, make sure to configure your secret token in order to do
 {% endhint %}
 {% endtab %}
 
-{% tab title="CocoaPods" %}
-{% include "../../../.gitbook/includes/cocoapods-is-soon-going-int....md" %}
-
-{% include "../../../.gitbook/includes/version-4.14.0-is-the-last-....md" %}
-
-1. Create a new `Podfile` in your project directory (same folder as your _.xcodeproj_) by running `pod init <XCODEPROJECTNAME>` in Terminal.
-2.  Add your dependecies to the `Podfile` as follows (replace `YOUR_APPLICATION_TARGET_NAME_HERE` with your actual target name),
-
-    ```ruby
-    source 'https://github.com/CocoaPods/Specs.git'
-
-    platform :ios, '16.0' # Replace 16.0 with your iOS Minimum Deployment Target
-
-    target 'YOUR_APPLICATION_TARGET_NAME_HERE' do
-      # Remove the comment mark to use your map specific MapsIndoors pod
-      # pod 'MapsIndoorsGoogleMaps', '~> 4.18'
-      # or
-      # pod 'MapsIndoorsMapbox11', '~> 4.18'
-    end
-    ```
-
-{% hint style="warning" %}
-If you are using Mapbox, make sure to configure your secret token in order to download the required dependencies from Mapbox when running `pod install`: [https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials](https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials)
-{% endhint %}
-
-{% hint style="danger" %}
-If you are upgrading from a version prior to 4.6.0 you must remove the `post_install` script parts previously required by MapsIndoors [for Google Maps](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/wiki/Podfile-post_install-v4).
-{% endhint %}
-
-4. Save the `Podfile` and close Xcode.
-5. Open a terminal in the directory of the project. `cd <path-to-project>`
-6. Run `pod install` in the terminal.
-7. From this time onwards, use the _.xcworkspace_ file to open the project.
-{% endtab %}
-
 {% tab title="XCFrameworks" %}
-Use XCFrameworks if your project cannot fetch dependencies with Swift Package Manager or CocoaPods, for example when binaries must come from an internal artifact repository. They are available for Mapbox Maps from MapsIndoors 4.24.0.
+Use XCFrameworks if your project cannot fetch dependencies with Swift Package Manager, for example when binaries must come from an internal artifact repository. They are available for Mapbox Maps from MapsIndoors 4.24.0.
 
 1. From the [MapsIndoors release](https://github.com/MapsPeople/MapsIndoors-SDK-iOS/releases) you want, download and unzip:
    * `MapsIndoors.xcframework.zip`

@@ -44,7 +44,7 @@ MapControl.create(mapConfig) {mc, error ->
 ### iOS SDK
 
 {% hint style="warning" %}
-This requires using Mapbox 11, i.e. you will need to use the Swift Package Manager distribution of the MapsIndoors iOS SDK or specify the `MapsIndoorsMapbox11` pod in your `Podfile`.
+This requires using Mapbox 11, i.e. you will need to use the Swift Package Manager distribution of the MapsIndoors iOS SDK.
 {% endhint %}
 
 ```swift
